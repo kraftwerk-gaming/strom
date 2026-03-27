@@ -56,8 +56,19 @@ let
         }
         link_tree "${gameFiles}" "$GAMEDIR"
 
-        # Ensure writable save directory
+        # Replace symlinks to .ini/.cfg/.log files with writable copies
+        # (ReShade and other mods need to write to these)
+        find "$GAMEDIR" -type l \( -name "*.ini" -o -name "*.cfg" -o -name "*.log" -o -name "*.json" \) | while read -r f; do
+          target="$(readlink "$f")"
+          if [ -f "$target" ]; then
+            rm "$f"
+            cp "$target" "$f"
+          fi
+        done
+
+        # Ensure writable save directories
         mkdir -p "$GAMEDIR/SAVE"
+        rm -f "$GAMEDIR/SAVEGAMES/NFS Underground 2/*" 2>/dev/null || true
 
         export STEAM_COMPAT_DATA_PATH="$COMPATDATA"
         export STEAM_COMPAT_CLIENT_INSTALL_PATH="$COMPATDATA"
