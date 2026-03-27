@@ -154,6 +154,10 @@ framerate_cap 60.0
 phys_freq 60
 min_frame_time 1
 d3d_disp_limit_gpu_frames 1 1
+sfx_device 2
+sfx_channels 32
+sfx_eax 1
+eax_environment 1
 EXTCFG
   '';
 
@@ -200,13 +204,27 @@ d3d9.memoryTrackTest = True
 DXVKCONF
     export DXVK_CONFIG_FILE="$GAMEDIR/dxvk.conf"
     export DXVK_ASYNC=1
-    export PULSE_LATENCY_MSEC=60
-    export STAGING_AUDIO_PERIOD=10240
+    export DXVK_STATE_CACHE_PATH="$GAMEDIR"
+    export STAGING_WRITECOPY=1
+    export WINE_LARGE_ADDRESS_AWARE=1
+
+    # OpenAL Soft config for low-latency EAX audio
+    mkdir -p "$GAMEDIR/openal"
+    cat > "$GAMEDIR/openal/alsoft.conf" <<ALCONF
+[general]
+drivers = pulse,alsa
+period-size = 1024
+periods = 4
+stereo-mode = speakers
+[pulse]
+allow-moves = true
+ALCONF
+    export ALSOFT_CONF="$GAMEDIR/openal/alsoft.conf"
+    export PULSE_LATENCY_MSEC=40
 
     cd "$GAMEDIR"
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips -- \
-      env DXVK_FRAME_RATE=60 \
+    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
       python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Thief.exe"
   '';
 in
