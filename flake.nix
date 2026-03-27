@@ -23,6 +23,7 @@
         {
           jazz2 = pkgs.callPackage ./games/jazz2 { };
           lemmings = pkgs.callPackage ./games/lemmings { };
+          thief-gold = pkgs.callPackage ./games/thief-gold { };
         }
       );
     };
