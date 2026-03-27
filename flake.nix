@@ -22,6 +22,7 @@
         in
         {
           jazz2 = pkgs.callPackage ./games/jazz2 { };
+          lemmings = pkgs.callPackage ./games/lemmings { };
         }
       );
     };
