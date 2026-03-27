@@ -56,15 +56,19 @@ let
         }
         link_tree "${gameFiles}" "$GAMEDIR"
 
-        # Replace symlinks to .ini/.cfg/.log files with writable copies
+        # Replace symlinks to config files with writable copies
         # (ReShade and other mods need to write to these)
         find "$GAMEDIR" -type l \( -name "*.ini" -o -name "*.cfg" -o -name "*.log" -o -name "*.json" \) | while read -r f; do
           target="$(readlink "$f")"
           if [ -f "$target" ]; then
             rm "$f"
             cp "$target" "$f"
+            chmod u+w "$f"
           fi
         done
+
+        # Also ensure any previously copied read-only files become writable
+        find "$GAMEDIR" -maxdepth 3 ! -writable -type f \( -name "*.ini" -o -name "*.cfg" -o -name "*.log" -o -name "*.json" \) -exec chmod u+w {} + 2>/dev/null || true
 
         # Ensure writable save directories
         mkdir -p "$GAMEDIR/SAVE"
