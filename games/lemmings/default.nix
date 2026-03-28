@@ -18,7 +18,7 @@ writeShellApplication {
   runtimeInputs = [ wineWow64Packages.stable ];
 
   text = ''
-    GAMEDIR="''${HOME:-.}/.lemmings95"
+    GAMEDIR="''${HOME:-.}/.strom/lemmings"
     mkdir -p "$GAMEDIR"
     cd "$GAMEDIR"
 

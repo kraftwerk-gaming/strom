@@ -55,7 +55,7 @@ let
       '';
 
   wrapper = writeShellScript "homm2" ''
-    datadir="''${XDG_DATA_HOME:-$HOME/.local/share}/fheroes2"
+    datadir="''${HOME:-.}/.strom/homm2"
     mkdir -p "$datadir"
 
     # Link game data directories
@@ -65,6 +65,7 @@ let
       fi
     done
 
+    cd "$datadir"
     exec ${lib.getExe fheroes2} "$@"
   '';
 in

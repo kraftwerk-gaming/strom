@@ -47,7 +47,7 @@ let
   wrapper = writeShellScript "starcraft-wrapper" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.starcraft"
+    GAMEDIR="''${HOME:-.}/.strom/starcraft"
     COMPATDATA="$GAMEDIR/compatdata"
     mkdir -p "$GAMEDIR" "$COMPATDATA"
 

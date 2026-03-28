@@ -32,7 +32,8 @@ let
       '';
 
   wrapper = writeShellScript "jazz2" ''
-    datadir="''${XDG_DATA_HOME:-$HOME/.local/share}/Jazz² Resurrection"
+    export XDG_DATA_HOME="''${HOME:-.}/.strom/jazz2"
+    datadir="$XDG_DATA_HOME/Jazz² Resurrection"
     if [ ! -e "$datadir/Source/Anims.j2a" ]; then
       mkdir -p "$datadir"
       rm -rf "$datadir/Source"

@@ -167,7 +167,7 @@ let
   wrapper = writeShellScript "thief-gold-wrapper" ''
         set -euo pipefail
 
-        GAMEDIR="''${HOME:-.}/.thief-gold"
+        GAMEDIR="''${HOME:-.}/.strom/thief-gold"
         COMPATDATA="$GAMEDIR/211600"
         mkdir -p "$GAMEDIR" "$COMPATDATA"
 

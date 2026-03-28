@@ -57,7 +57,7 @@ let
   wrapper = writeShellScript "soul-reaver-wrapper" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.soul-reaver"
+    GAMEDIR="''${HOME:-.}/.strom/soul-reaver"
     COMPATDATA="$GAMEDIR/compatdata"
     mkdir -p "$GAMEDIR" "$COMPATDATA"
 

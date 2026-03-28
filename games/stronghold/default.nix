@@ -32,7 +32,7 @@ let
   wrapper = writeShellScript "stronghold-wrapper" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.stronghold"
+    GAMEDIR="''${HOME:-.}/.strom/stronghold"
     COMPATDATA="$GAMEDIR/compatdata"
     mkdir -p "$GAMEDIR" "$COMPATDATA"
 

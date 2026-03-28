@@ -83,7 +83,7 @@ let
   wrapper = writeShellScript "archimedean-dynasty" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.archimedean-dynasty"
+    GAMEDIR="''${HOME:-.}/.strom/archimedean-dynasty"
     mkdir -p "$GAMEDIR"
 
     # Copy game files (DOSBox needs writable directory for saves/config)

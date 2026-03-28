@@ -69,7 +69,7 @@ let
   wrapper = writeShellScript "dungeon-keeper-wrapper" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.dungeon-keeper"
+    GAMEDIR="''${HOME:-.}/.strom/dungeon-keeper"
     COMPATDATA="$GAMEDIR/compatdata"
     mkdir -p "$GAMEDIR" "$COMPATDATA"
 

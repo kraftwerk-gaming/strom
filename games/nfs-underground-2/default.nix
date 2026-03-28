@@ -36,7 +36,7 @@ let
   wrapper = writeShellScript "nfs-underground-2-wrapper" ''
         set -euo pipefail
 
-        GAMEDIR="''${HOME:-.}/.nfs-underground-2"
+        GAMEDIR="''${HOME:-.}/.strom/nfs-underground-2"
         COMPATDATA="$GAMEDIR/compatdata"
         mkdir -p "$GAMEDIR" "$COMPATDATA"
 

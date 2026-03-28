@@ -30,7 +30,7 @@ let
   wrapper = writeShellScript "untitled-goose-game-wrapper" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.untitled-goose-game"
+    GAMEDIR="''${HOME:-.}/.strom/untitled-goose-game"
     mkdir -p "$GAMEDIR"
 
     # Copy game files (Unity games need writable directory)

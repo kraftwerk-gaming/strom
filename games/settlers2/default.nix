@@ -127,6 +127,8 @@ let
   '';
 
   wrapper = writeShellScript "settlers2" ''
+    mkdir -p "''${HOME:-.}/.strom/settlers2"
+    ln -sfn "''${HOME:-.}/.strom/settlers2" "''${HOME:-.}/.s25rttr"
     export RTTR_PREFIX_DIR="${combinedPrefix}"
     exec ${lib.getExe s25client} "$@"
   '';
