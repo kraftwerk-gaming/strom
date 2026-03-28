@@ -22,5 +22,6 @@
         in
         builtins.mapAttrs (name: _: pkgs.callPackage ./games/${name} { }) (builtins.readDir ./games)
       );
+
     };
 }
