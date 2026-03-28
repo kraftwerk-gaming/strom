@@ -83,8 +83,8 @@ let
 
     cd "$GAMEDIR"
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Stronghold.exe"
+    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Stronghold.exe" || true
   '';
 in
 buildFHSEnv {
