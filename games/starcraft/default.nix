@@ -69,7 +69,7 @@ let
 
     cd "$GAMEDIR"
 
-    exec gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 -f --immediate-flips --expose-wayland -- \
+    exec gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland -- \
       python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/StarCraft.exe"
   '';
 in
