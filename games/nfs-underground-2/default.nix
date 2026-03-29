@@ -92,13 +92,15 @@ let
     export STEAM_COMPAT_CONFIG=sdlinput
     export LD_LIBRARY_PATH="/usr/lib32:/usr/lib:/usr/lib64''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     export DXVK_ASYNC=1
+    export DXVK_FRAME_RATE=60
+    export PULSE_LATENCY_MSEC=60
     export STAGING_WRITECOPY=1
     export WINE_LARGE_ADDRESS_AWARE=1
 
     cd "$GAMEDIR"
 
-    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/SPEED2.EXE" || true
+    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/SPEED2.EXE"
   '';
 in
 buildFHSEnv {

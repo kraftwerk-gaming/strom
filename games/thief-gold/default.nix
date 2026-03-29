@@ -188,7 +188,7 @@ let
         link_tree "${gameFiles}" "$GAMEDIR"
 
         # Ensure writable save directory (remove symlinked default saves)
-        find "$GAMEDIR/SAVES" -maxdepth 1 -type l -delete 2>/dev/null || true
+        find "$GAMEDIR/SAVES" -maxdepth 1 -type l -delete 2>/dev/null
         mkdir -p "$GAMEDIR/SAVES"
 
         export STEAM_COMPAT_DATA_PATH="$COMPATDATA"
@@ -227,8 +227,8 @@ let
 
         cd "$GAMEDIR"
 
-        gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-          python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Thief.exe" || true
+        exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+          python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Thief.exe"
   '';
 in
 buildFHSEnv {

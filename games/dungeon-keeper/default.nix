@@ -99,7 +99,7 @@ let
       fi
     done
     find "$GAMEDIR" -maxdepth 3 ! -writable -type f \( -name "*.cfg" -o -name "*.ini" -o -name "*.log" \) \
-      -exec chmod u+w {} + 2>/dev/null || true
+      -exec chmod u+w {} + 2>/dev/null
 
     # Ensure writable save directory
     mkdir -p "$GAMEDIR/save"
@@ -120,8 +120,8 @@ let
 
     cd "$GAMEDIR"
 
-    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/keeperfx.exe" || true
+    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/keeperfx.exe"
   '';
 in
 buildFHSEnv {

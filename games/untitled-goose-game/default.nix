@@ -43,13 +43,13 @@ let
     export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
 
     if [ ! -d "$WINEPREFIX" ]; then
-      wineboot --init 2>/dev/null || true
-      wineserver -k 2>/dev/null || true
+      wineboot --init 2>/dev/null
+      wineserver -k 2>/dev/null
     fi
 
     cd "$GAMEDIR"
 
-    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
       sh -c 'wine "$0" "$@"; wineserver -k' "$GAMEDIR/Untitled.exe"
   '';
 in
