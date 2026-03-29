@@ -12,7 +12,7 @@
 
 let
   proton = proton-ge-bin.steamcompattool;
-  sdl2-real = callPackage ./sdl2-real.nix { };
+  sdl2-real = callPackage ../../lib/sdl2-real.nix { };
 
   gameArchive = fetchurl {
     url = "https://archive.org/download/legacy-of-kain-soul-reaver-gog/Legacy%20of%20Kain%20Soul%20Reaver%20%5BGOG%5D.zip";
