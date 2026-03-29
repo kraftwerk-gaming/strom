@@ -34,7 +34,25 @@ let
           rmdir "$out/Need for Speed Underground 2"
         fi
 
+        # Patch serial port Sleep(0) spinloops in SPEED2.EXE
+        # The game's serial port subsystem (COM port for steering wheels)
+        # has multiple spinloops that deadlock under Wine because the
+        # worker threads never respond. NOP out all backward jumps in
+        # these loops so they fall through immediately.
+        # Found via Ghidra + GDB analysis of deadlocked threads.
+        chmod u+w "$out/SPEED2.EXE"
+        for offset in \
+          0x35772b 0x35774a \
+          0x35098d 0x350a0a 0x350f5c 0x350f8f \
+          0x3571ee 0x3578cc 0x357d61 0x357d7b 0x357fdc \
+          0x1fa3a4 0x243ce5 0x243d45 0x2d8891 0x2da440 0x34a15f; do
+          printf '\x90\x90' | dd of="$out/SPEED2.EXE" bs=1 seek=$(($offset)) conv=notrunc 2>/dev/null
+        done
+        chmod u-w "$out/SPEED2.EXE"
 
+        # Remove VP6 movies that can cause freezes under Wine
+        # The game's video decoder (VP6) deadlocks during playback
+        rm -f "$out/MOVIES/"*.vp6
       '';
 
   wrapper = writeShellScript "nfs-underground-2-wrapper" ''
@@ -92,10 +110,12 @@ let
     export STAGING_WRITECOPY=1
     export WINE_LARGE_ADDRESS_AWARE=1
 
+
+
     cd "$GAMEDIR"
 
     exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      taskset -c 0 python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/SPEED2.EXE"
+      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/SPEED2.EXE"
   '';
 in
 buildFHSEnv {
