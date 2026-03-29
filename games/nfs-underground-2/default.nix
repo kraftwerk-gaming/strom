@@ -3,6 +3,7 @@
   callPackage,
   fetchurl,
   p7zip,
+  pkgsCross,
   pkgsi686Linux,
   proton-ge-bin,
   runCommandLocal,
@@ -12,6 +13,21 @@
 let
   proton = proton-ge-bin.steamcompattool;
   sdl2-real = callPackage ../../lib/sdl2-real.nix { };
+
+  # ASI mod that fixes AB-BA deadlock on CS@00864F00 during track loading.
+  # Hooks EnterCriticalSection via IAT and applies a 3-second timeout
+  # only to the specific critical section involved in the deadlock.
+  # See deadlock-fix.c for details.
+  deadlockFix =
+    runCommandLocal "nfsu2-deadlock-fix"
+      {
+        nativeBuildInputs = [ pkgsCross.mingw32.buildPackages.gcc ];
+      }
+      ''
+        mkdir -p "$out"
+        i686-w64-mingw32-gcc -shared -o "$out/DeadlockFix.asi" ${./deadlock-fix.c} \
+          -nostdlib -lkernel32 -Wl,--enable-stdcall-fixup,-e,__DllMainCRTStartup
+      '';
 
   gameArchive = fetchurl {
     url = "https://archive.org/download/NFSU2Stable/Need%20for%20Speed%20Underground%202.7z";
@@ -51,8 +67,10 @@ let
         chmod u-w "$out/SPEED2.EXE"
 
         # Remove VP6 movies that can cause freezes under Wine
-        # The game's video decoder (VP6) deadlocks during playback
         rm -f "$out/MOVIES/"*.vp6
+
+        # Install deadlock fix ASI mod
+        cp ${deadlockFix}/DeadlockFix.asi "$out/SCRIPTS/DeadlockFix.asi"
       '';
 
   wrapper = writeShellScript "nfs-underground-2-wrapper" ''
@@ -109,8 +127,6 @@ let
     export PULSE_LATENCY_MSEC=60
     export STAGING_WRITECOPY=1
     export WINE_LARGE_ADDRESS_AWARE=1
-
-
 
     cd "$GAMEDIR"
 
