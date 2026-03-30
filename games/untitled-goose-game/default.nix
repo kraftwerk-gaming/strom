@@ -1,86 +1,61 @@
 {
-  buildFHSEnv,
+  callPackage,
+  lib,
+  pkgs,
   fetchurl,
   p7zip,
-  runCommandLocal,
   wineWow64Packages,
-  writeShellScript,
 }:
 
 let
+  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
   wine = wineWow64Packages.stable;
+in
+mkGame {
+  name = "untitled-goose-game";
 
-  gameArchive = fetchurl {
+  src = fetchurl {
     url = "https://archive.org/download/untitled-goose-game-portable-hoang-long/Untitled_Goose_Game_Portable%5BHoangLong%5D.7z";
     hash = "sha256-CAcpFF28cM/Gu032tHL9SdBHHAXCWx2w6ycqL8HEG+Y=";
     name = "goose.7z";
   };
 
-  gameFiles =
-    runCommandLocal "goose-data"
-      {
-        nativeBuildInputs = [ p7zip ];
-      }
-      ''
-        mkdir -p "$out"
-        7z x ${gameArchive} -o/tmp/goose
-        mv /tmp/goose/DATA/* "$out"/
-      '';
+  nativeBuildInputs = [ p7zip ];
 
-  wrapper = writeShellScript "untitled-goose-game-wrapper" ''
-    set -euo pipefail
-
-    GAMEDIR="''${HOME:-.}/.strom/untitled-goose-game"
-    mkdir -p "$GAMEDIR"
-
-    # Copy game files (Unity games need writable directory)
-    if [ ! -f "$GAMEDIR/Untitled.exe" ]; then
-      cp -r "${gameFiles}"/. "$GAMEDIR/"
-      chmod -R u+w "$GAMEDIR"
-    fi
-
-    export WINEPREFIX="$GAMEDIR/wine"
-    export WINEDLLOVERRIDES="mscoree=d;mshtml=d"
-
-    if [ ! -d "$WINEPREFIX" ]; then
-      wineboot --init 2>/dev/null
-      wineserver -k 2>/dev/null
-    fi
-
-    cd "$GAMEDIR"
-
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      sh -c 'wine "$0" "$@"; wineserver -k' "$GAMEDIR/Untitled.exe"
+  buildScript = ''
+    mkdir -p "$out"
+    7z x $src -o/tmp/goose
+    mv /tmp/goose/DATA/* "$out"/
   '';
-in
-buildFHSEnv {
-  name = "untitled-goose-game";
-  runScript = wrapper;
 
-  targetPkgs = pkgs: [
-    pkgs.freetype
-    pkgs.glibc
-    pkgs.gamescope
+  copyGlobs = [ ];
+
+  runtime = "custom";
+
+  targetPkgs = p: [
+    p.freetype
+    p.glibc
+    p.gamescope
     wine
-    pkgs.mesa
-    pkgs.vulkan-loader
-    pkgs.libGL
-    pkgs.libx11
-    pkgs.libxext
-    pkgs.libxcb
-    pkgs.libxcursor
-    pkgs.libxrandr
-    pkgs.libxi
-    pkgs.libxfixes
-    pkgs.libxrender
-    pkgs.libxcomposite
-    pkgs.libxinerama
-    pkgs.libxxf86vm
-    pkgs.libxau
-    pkgs.libxdmcp
-    pkgs.alsa-lib
-    pkgs.libpulseaudio
-    pkgs.openal
+    p.mesa
+    p.vulkan-loader
+    p.libGL
+    p.libx11
+    p.libxext
+    p.libxcb
+    p.libxcursor
+    p.libxrandr
+    p.libxi
+    p.libxfixes
+    p.libxrender
+    p.libxcomposite
+    p.libxinerama
+    p.libxxf86vm
+    p.libxau
+    p.libxdmcp
+    p.alsa-lib
+    p.libpulseaudio
+    p.openal
   ];
 
   extraBwrapArgs = [
@@ -88,8 +63,24 @@ buildFHSEnv {
     "--bind /run /run"
   ];
 
+  env = {
+    WINEDLLOVERRIDES = "mscoree=d;mshtml=d";
+  };
+
+  runScript = ''
+    export WINEPREFIX="$GAMEDIR/wine"
+
+    if [ ! -d "$WINEPREFIX" ]; then
+      wineboot --init 2>/dev/null
+      wineserver -k 2>/dev/null
+    fi
+
+    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+      sh -c 'wine "$0" "$@"; wineserver -k' "$GAMEDIR/Untitled.exe"
+  '';
+
   meta = {
-    description = "Untitled Goose Game (via Proton and gamescope)";
+    description = "Untitled Goose Game (via Wine and gamescope)";
     platforms = [ "x86_64-linux" ];
     mainProgram = "untitled-goose-game";
   };
