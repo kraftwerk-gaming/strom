@@ -294,14 +294,10 @@ in
           inherit (cfg) meta;
         }
       else if cfg.runtime == "native" then
-        pkgs.writeShellApplication {
-          inherit (cfg) name meta;
-          runtimeInputs = [ pkgs.gamescope ];
-          text = ''
-            USERDIR="''${HOME:-.}/.strom/${cfg.name}"
-            mkdir -p "$USERDIR"
-            GAMEDIR=$(${prepareGameDir} "$USERDIR")
-            trap 'fusermount -uz "$GAMEDIR" 2>/dev/null' EXIT
+        let
+          nativeInner = pkgs.writeShellScript "${cfg.name}-inner" ''
+            set -euo pipefail
+            export PATH="${pkgs.gamescope}/bin:$PATH"
             ${lib.concatStringsSep "\n" (
               lib.mapAttrsToList (k: v: "export ${k}=${lib.escapeShellArg v}") cfg.env
             )}
@@ -321,6 +317,25 @@ in
                   exit 1
                 ''
             }
+          '';
+        in
+        pkgs.writeShellApplication {
+          inherit (cfg) name meta;
+          text = ''
+            USERDIR="''${HOME:-.}/.strom/${cfg.name}"
+            mkdir -p "$USERDIR"
+            export GAMEDIR
+            GAMEDIR=$(${prepareGameDir} "$USERDIR")
+
+            cleanup() {
+              fusermount -uz "$GAMEDIR" 2>/dev/null
+            }
+            trap 'kill -KILL -- -$INNER_PID 2>/dev/null; cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
+            trap cleanup EXIT
+
+            setsid ${nativeInner} "$@" &
+            INNER_PID=$!
+            wait $INNER_PID 2>/dev/null
           '';
         }
       else
