@@ -42,6 +42,8 @@ mkGame {
   '';
 
   copyGlobs = [
+    "*.016"
+    "*.256"
     "maps/"
     "characters/"
     "save/"

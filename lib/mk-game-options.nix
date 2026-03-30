@@ -19,14 +19,13 @@ let
     else
       pkgs.proton-ge-bin.steamcompattool;
 
-  wrapper = pkgs.writeShellScript "${cfg.name}-wrapper" ''
+  # Runs inside FHS/bwrap
+  innerWrapper = pkgs.writeShellScript "${cfg.name}-inner" ''
     set -euo pipefail
 
     GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
-    COMPATDATA="$GAMEDIR/compatdata/0"
-    mkdir -p "$GAMEDIR" "$COMPATDATA"
-
-    ${prepareGameDir} "$GAMEDIR"
+    COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}/0"
+    mkdir -p "$COMPATDATA"
 
     ${lib.optionalString (cfg.runtime == "proton") ''
       export STEAM_COMPAT_DATA_PATH="$COMPATDATA"
@@ -41,6 +40,28 @@ let
     cd "$GAMEDIR"
     ${cfg.runScript}
   '';
+
+  # Runs outside bwrap: mounts overlay, then enters FHS
+  wrapper =
+    fhsEnv:
+    pkgs.writeShellScript "${cfg.name}-wrapper" ''
+      GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
+      mkdir -p "$GAMEDIR"
+      ${prepareGameDir} "$GAMEDIR"
+
+      cleanup() {
+        pkill -f "fuse-overlayfs.*upperdir=$GAMEDIR/.data" 2>/dev/null
+        fusermount -uz "$GAMEDIR" 2>/dev/null
+      }
+      trap cleanup EXIT
+
+      # Run in new session so we can kill the whole tree
+      setsid ${fhsEnv}/bin/${cfg.name}-fhs "$@" &
+      CHILD=$!
+      trap 'kill -TERM -$CHILD 2>/dev/null; wait $CHILD 2>/dev/null; cleanup' INT TERM
+      wait $CHILD
+      cleanup
+    '';
 in
 {
   options = with lib; {
@@ -153,62 +174,73 @@ in
 
     _build =
       if cfg.runtime == "proton" then
-        pkgs.buildFHSEnv {
-          name = cfg.name;
-          runScript = wrapper;
-          targetPkgs =
-            p:
-            [
-              p.freetype
-              p.glibc
-              p.gamescope
-              p.python3
-              p.mesa
-              p.vulkan-loader
-              p.libGL
-              p.libx11
-              p.libxext
-              p.libxcb
-              p.libxcursor
-              p.libxrandr
-              p.libxi
-              p.libxfixes
-              p.libxrender
-              p.libxcomposite
-              p.libxinerama
-              p.libxxf86vm
-              p.alsa-lib
-              p.libpulseaudio
-              p.openal
-              p.systemd
-              (pkgs.callPackage ./sdl2-real.nix { })
-              p.pkgsi686Linux.freetype
-              p.pkgsi686Linux.glibc
-              p.pkgsi686Linux.glib
-              p.pkgsi686Linux.libx11
-              p.pkgsi686Linux.libxext
-              p.pkgsi686Linux.libxcb
-              p.pkgsi686Linux.libxcursor
-              p.pkgsi686Linux.libxrandr
-              p.pkgsi686Linux.libxi
-              p.pkgsi686Linux.libxfixes
-              p.pkgsi686Linux.libxrender
-              p.pkgsi686Linux.libxcomposite
-              p.pkgsi686Linux.libxinerama
-              p.pkgsi686Linux.libxxf86vm
-              p.pkgsi686Linux.libGL
-              p.pkgsi686Linux.mesa
-              p.pkgsi686Linux.vulkan-loader
-              p.pkgsi686Linux.openal
-              p.pkgsi686Linux.alsa-lib
-              p.pkgsi686Linux.libpulseaudio
+        let
+          fhsEnv = pkgs.buildFHSEnv {
+            name = "${cfg.name}-fhs";
+            runScript = innerWrapper;
+            targetPkgs =
+              p:
+              [
+                p.freetype
+                p.glibc
+                p.gamescope
+                p.python3
+                p.mesa
+                p.vulkan-loader
+                p.libGL
+                p.libx11
+                p.libxext
+                p.libxcb
+                p.libxcursor
+                p.libxrandr
+                p.libxi
+                p.libxfixes
+                p.libxrender
+                p.libxcomposite
+                p.libxinerama
+                p.libxxf86vm
+                p.alsa-lib
+                p.libpulseaudio
+                p.openal
+                p.systemd
+                (pkgs.callPackage ./sdl2-real.nix { })
+                p.pkgsi686Linux.freetype
+                p.pkgsi686Linux.glibc
+                p.pkgsi686Linux.glib
+                p.pkgsi686Linux.libx11
+                p.pkgsi686Linux.libxext
+                p.pkgsi686Linux.libxcb
+                p.pkgsi686Linux.libxcursor
+                p.pkgsi686Linux.libxrandr
+                p.pkgsi686Linux.libxi
+                p.pkgsi686Linux.libxfixes
+                p.pkgsi686Linux.libxrender
+                p.pkgsi686Linux.libxcomposite
+                p.pkgsi686Linux.libxinerama
+                p.pkgsi686Linux.libxxf86vm
+                p.pkgsi686Linux.libGL
+                p.pkgsi686Linux.mesa
+                p.pkgsi686Linux.vulkan-loader
+                p.pkgsi686Linux.openal
+                p.pkgsi686Linux.alsa-lib
+                p.pkgsi686Linux.libpulseaudio
+              ]
+              ++ (cfg.targetPkgs p);
+            extraBwrapArgs = [
+              "--ro-bind /sys /sys"
+              "--bind /run /run"
             ]
-            ++ (cfg.targetPkgs p);
-          extraBwrapArgs = [
-            "--ro-bind /sys /sys"
-            "--bind /run /run"
-          ]
-          ++ cfg.extraBwrapArgs;
+            ++ cfg.extraBwrapArgs;
+          };
+        in
+        pkgs.stdenvNoCC.mkDerivation {
+          pname = cfg.name;
+          version = "0";
+          dontUnpack = true;
+          installPhase = ''
+            mkdir -p $out/bin
+            ln -s ${wrapper fhsEnv} $out/bin/${cfg.name}
+          '';
           inherit (cfg) meta;
         }
       else if cfg.runtime == "native" then
@@ -219,6 +251,7 @@ in
             GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
             mkdir -p "$GAMEDIR"
             ${prepareGameDir} "$GAMEDIR"
+            trap 'fusermount -u "$GAMEDIR" 2>/dev/null' EXIT
             ${lib.concatStringsSep "\n" (
               lib.mapAttrsToList (k: v: "export ${k}=${lib.escapeShellArg v}") cfg.env
             )}
@@ -227,12 +260,23 @@ in
           '';
         }
       else
-        # custom: just use the FHS env with the wrapper
-        pkgs.buildFHSEnv {
-          name = cfg.name;
-          runScript = wrapper;
-          targetPkgs = cfg.targetPkgs;
-          extraBwrapArgs = cfg.extraBwrapArgs;
+        # custom: FHS env with overlay mounted outside
+        let
+          customFhs = pkgs.buildFHSEnv {
+            name = "${cfg.name}-fhs";
+            runScript = innerWrapper;
+            targetPkgs = cfg.targetPkgs;
+            extraBwrapArgs = cfg.extraBwrapArgs;
+          };
+        in
+        pkgs.stdenvNoCC.mkDerivation {
+          pname = cfg.name;
+          version = "0";
+          dontUnpack = true;
+          installPhase = ''
+            mkdir -p $out/bin
+            ln -s ${wrapper customFhs} $out/bin/${cfg.name}
+          '';
           inherit (cfg) meta;
         };
   };
