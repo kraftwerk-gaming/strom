@@ -1,95 +1,45 @@
 {
-  buildFHSEnv,
+  lib,
+  pkgs,
   fetchurl,
   innoextract,
   pkgsi686Linux,
-  proton-ge-bin,
-  runCommandLocal,
-  writeShellScript,
 }:
 
 let
-  proton = proton-ge-bin.steamcompattool;
+  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
+in
+mkGame {
+  name = "stronghold";
 
-  gameInstaller = fetchurl {
+  src = fetchurl {
     url = "https://archive.org/download/setup_stronghold_hd_2.0.0.3/setup_stronghold_hd_2.0.0.3.exe";
     hash = "sha256-wV9zOe8d7JhzF7vbiz6QT5hysdVR4xSZ+L39/SVNwfM=";
     name = "setup_stronghold_hd.exe";
   };
 
-  gameFiles =
-    runCommandLocal "stronghold-data"
-      {
-        nativeBuildInputs = [ innoextract ];
-      }
-      ''
-        mkdir -p "$out"
-        innoextract -d "$out" ${gameInstaller}
-        mv "$out/app"/* "$out"/
-        rmdir "$out/app"
-      '';
+  nativeBuildInputs = [ innoextract ];
 
-  wrapper = writeShellScript "stronghold-wrapper" ''
-    set -euo pipefail
-
-    GAMEDIR="''${HOME:-.}/.strom/stronghold"
-    COMPATDATA="$GAMEDIR/compatdata"
-    mkdir -p "$GAMEDIR" "$COMPATDATA"
-
-    # Recursively symlink game files, creating real directories
-    link_tree() {
-      local src="$1" dst="$2"
-      mkdir -p "$dst"
-      for f in "$src"/*; do
-        [ -e "$f" ] || continue
-        base="$(basename "$f")"
-        if [ -d "$f" ]; then
-          link_tree "$f" "$dst/$base"
-        elif [ ! -e "$dst/$base" ] || [ -L "$dst/$base" ]; then
-          ln -sf "$f" "$dst/$base"
-        fi
-      done
-    }
-    link_tree "${gameFiles}" "$GAMEDIR"
-
-    # Make config files writable
-    find "$GAMEDIR" -type l \( -name "*.cfg" -o -name "*.ini" -o -name "*.log" \) | while read -r f; do
-      target="$(readlink "$f")"
-      if [ -f "$target" ]; then
-        rm "$f"
-        cp "$target" "$f"
-        chmod u+w "$f"
-      fi
-    done
-    find "$GAMEDIR" -maxdepth 3 ! -writable -type f \( -name "*.cfg" -o -name "*.ini" -o -name "*.log" \) \
-      -exec chmod u+w {} + 2>/dev/null
-
-    # Ensure writable save directory
-    mkdir -p "$GAMEDIR/Saves"
-
-    export STEAM_COMPAT_DATA_PATH="$COMPATDATA"
-    export STEAM_COMPAT_CLIENT_INSTALL_PATH="$COMPATDATA"
-    export STEAM_COMPAT_APP_ID="0"
-    export SteamAppId="0"
-    export SteamGameId="0"
-    export PROTON_NO_GAME_FIXES=1
-
-    export LD_LIBRARY_PATH="/usr/lib32:/usr/lib:/usr/lib64''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-
-    export DXVK_ASYNC=1
-    export DXVK_STATE_CACHE_PATH="$GAMEDIR"
-    export STAGING_WRITECOPY=1
-    export WINE_LARGE_ADDRESS_AWARE=1
-
-    cd "$GAMEDIR"
-
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Stronghold.exe"
+  buildScript = ''
+    mkdir -p "$out"
+    innoextract -d "$out" $src
+    mv "$out/app"/* "$out"/
+    rmdir "$out/app"
   '';
-in
-buildFHSEnv {
-  name = "stronghold";
-  runScript = wrapper;
+
+  runtime = "proton";
+  executable = "Stronghold.exe";
+  gamescopeArgs = "-W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland";
+
+  env = {
+    SteamAppId = "0";
+    SteamGameId = "0";
+    PROTON_NO_GAME_FIXES = "1";
+    DXVK_ASYNC = "1";
+    STAGING_WRITECOPY = "1";
+    WINE_LARGE_ADDRESS_AWARE = "1";
+    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
+  };
 
   targetPkgs = pkgs: [
     pkgs.freetype
