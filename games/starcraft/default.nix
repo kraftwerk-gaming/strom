@@ -10,6 +10,14 @@
 
 let
   proton = callPackage ../../lib/patched-proton.nix { };
+  prepareGameDir = callPackage ../../lib/prepare-game-dir.nix {
+    inherit gameFiles;
+    copyGlobs = [
+      "maps/"
+      "characters/"
+      "save/"
+    ];
+  };
 
   gameArchive = fetchurl {
     url = "https://archive.org/download/sc-classic-installer_202311/StarCraft%20Portable.zip";
@@ -51,17 +59,7 @@ let
     COMPATDATA="$GAMEDIR/compatdata"
     mkdir -p "$GAMEDIR" "$COMPATDATA"
 
-    # Copy game files
-    if [ ! -f "$GAMEDIR/StarCraft.exe" ]; then
-      cp -r "${gameFiles}"/. "$GAMEDIR/"
-      chmod -R u+w "$GAMEDIR"
-    fi
-
-    # Replace large read-only files with symlinks to nix store
-    for f in BroodWar.mpq StarCraft.mpq STARDAT.MPQ BROODAT.MPQ patch_rt.mpq; do
-      rm -f "$GAMEDIR/$f"
-      ln -sf "${gameFiles}/$f" "$GAMEDIR/$f"
-    done
+    ${prepareGameDir} "$GAMEDIR"
 
     mkdir -p "$GAMEDIR/maps" "$GAMEDIR/save" "$GAMEDIR/characters"
 
