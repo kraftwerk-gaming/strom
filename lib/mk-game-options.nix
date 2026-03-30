@@ -50,17 +50,14 @@ let
       ${prepareGameDir} "$GAMEDIR"
 
       cleanup() {
-        pkill -f "fuse-overlayfs.*upperdir=$GAMEDIR/.data" 2>/dev/null
         fusermount -uz "$GAMEDIR" 2>/dev/null
+        # gamescope ignores SIGTERM, need SIGKILL for the whole process group
+        kill -KILL -- -$$ 2>/dev/null
       }
-      trap cleanup EXIT
+      trap cleanup INT TERM
 
-      # Run in new session so we can kill the whole tree
-      setsid ${fhsEnv}/bin/${cfg.name}-fhs "$@" &
-      CHILD=$!
-      trap 'kill -TERM -$CHILD 2>/dev/null; wait $CHILD 2>/dev/null; cleanup' INT TERM
-      wait $CHILD
-      cleanup
+      ${fhsEnv}/bin/${cfg.name}-fhs "$@"
+      fusermount -uz "$GAMEDIR" 2>/dev/null
     '';
 in
 {
