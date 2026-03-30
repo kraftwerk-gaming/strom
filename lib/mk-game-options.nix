@@ -8,6 +8,12 @@
 let
   cfg = config;
 
+  protonRun = pkgs.writeShellScript "proton-run" ''
+    python3 "${proton}/proton" waitforexitandrun "$@"
+    ${proton}/files/bin/wineserver -k 2>/dev/null || true
+    kill -9 0 2>/dev/null
+  '';
+
   prepareGameDir = pkgs.callPackage ./prepare-game-dir.nix {
     gameFiles = cfg._gameData;
     copyGlobs = cfg.copyGlobs;
@@ -31,6 +37,8 @@ let
       export STEAM_COMPAT_DATA_PATH="$COMPATDATA"
       export STEAM_COMPAT_CLIENT_INSTALL_PATH="$COMPATDATA"
       export STEAM_COMPAT_APP_ID="0"
+
+      export PROTON_RUN="${protonRun}"
     ''}
 
     ${lib.concatStringsSep "\n" (
@@ -38,7 +46,26 @@ let
     )}
 
     cd "$GAMEDIR"
-    ${cfg.runScript}
+    ${cfg.preRun}
+    ${
+      if cfg.runScript != null then
+        cfg.runScript
+      else if cfg.runtime == "proton" then
+        ''
+          gamescope ${cfg.gamescopeArgs} -- \
+            "$PROTON_RUN" "$GAMEDIR/${cfg.executable}"
+        ''
+      else if cfg.runtime == "native" then
+        ''
+          gamescope ${cfg.gamescopeArgs} -- \
+            "$GAMEDIR/${cfg.executable}" "$@"
+        ''
+      else
+        ''
+          echo "No runScript or executable specified" >&2
+          exit 1
+        ''
+    }
   '';
 
   # Runs outside bwrap: mounts overlay, then enters FHS
@@ -51,13 +78,12 @@ let
 
       cleanup() {
         fusermount -uz "$GAMEDIR" 2>/dev/null
-        # gamescope ignores SIGTERM, need SIGKILL for the whole process group
         kill -KILL -- -$$ 2>/dev/null
       }
-      trap cleanup INT TERM
+      trap cleanup EXIT
+      trap 'exit 1' INT TERM
 
       ${fhsEnv}/bin/${cfg.name}-fhs "$@"
-      fusermount -uz "$GAMEDIR" 2>/dev/null
     '';
 in
 {
@@ -84,9 +110,28 @@ in
       description = "Build-time dependencies for buildScript";
     };
 
-    runScript = mkOption {
+    executable = mkOption {
       type = types.str;
-      description = "Shell script to launch the game. Has $GAMEDIR, $COMPATDATA.";
+      default = "";
+      description = "Game executable path relative to GAMEDIR (for proton/native runtime)";
+    };
+
+    gamescopeArgs = mkOption {
+      type = types.str;
+      default = "-W 1920 -H 1080 -w 1920 -h 1080";
+      description = "Arguments for gamescope";
+    };
+
+    preRun = mkOption {
+      type = types.str;
+      default = "";
+      description = "Shell commands to run before launching the game (inside FHS, has $GAMEDIR)";
+    };
+
+    runScript = mkOption {
+      type = types.nullOr types.str;
+      default = null;
+      description = "Custom run script. Overrides executable/gamescopeArgs if set.";
     };
 
     copyGlobs = mkOption {

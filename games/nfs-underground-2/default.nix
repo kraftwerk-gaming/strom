@@ -78,6 +78,8 @@ mkGame {
   ];
 
   runtime = "proton";
+  executable = "SPEED2.EXE";
+  gamescopeArgs = "-W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland";
 
   env = {
     STEAM_COMPAT_CONFIG = "sdlinput";
@@ -88,7 +90,7 @@ mkGame {
     WINE_LARGE_ADDRESS_AWARE = "1";
   };
 
-  runScript = ''
+  preRun = ''
     # Ensure config files in subdirectories are writable too
     find "$GAMEDIR" -maxdepth 3 -type l \( -name "*.ini" -o -name "*.cfg" -o -name "*.json" \) | while read -r f; do
       target="$(readlink "$f")"
@@ -98,9 +100,6 @@ mkGame {
         chmod u+w "$f"
       fi
     done
-
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/SPEED2.EXE"
   '';
 
   meta = {

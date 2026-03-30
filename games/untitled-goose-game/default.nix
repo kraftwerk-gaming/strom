@@ -75,7 +75,7 @@ mkGame {
       wineserver -k 2>/dev/null
     fi
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
       sh -c 'wine "$0" "$@"; wineserver -k' "$GAMEDIR/Untitled.exe"
   '';
 

@@ -186,7 +186,7 @@ mkGame {
     ALCONF
     export ALSOFT_CONF="$GAMEDIR/openal/alsoft.conf"
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
+    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
       python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Thief.exe"
   '';
 

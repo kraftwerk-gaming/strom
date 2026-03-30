@@ -58,11 +58,11 @@ mkGame {
     LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
-  runScript = ''
-    mkdir -p "$GAMEDIR/maps" "$GAMEDIR/save" "$GAMEDIR/characters"
+  executable = "StarCraft.exe";
+  gamescopeArgs = "-W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland";
 
-    gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/StarCraft.exe" || true
+  preRun = ''
+    mkdir -p "$GAMEDIR/maps" "$GAMEDIR/save" "$GAMEDIR/characters"
   '';
 
   meta = {
