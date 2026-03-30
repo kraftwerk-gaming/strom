@@ -58,8 +58,10 @@ mkGame {
 
   runScript = ''
     # fheroes2 looks for data at XDG_DATA_HOME/fheroes2/
+    # and config at XDG_CONFIG_HOME/fheroes2/
     export XDG_DATA_HOME="$GAMEDIR/.xdg-data"
-    mkdir -p "$XDG_DATA_HOME"
+    export XDG_CONFIG_HOME="$GAMEDIR/.xdg-config"
+    mkdir -p "$XDG_DATA_HOME" "$XDG_CONFIG_HOME"
     ln -sfn "$GAMEDIR" "$XDG_DATA_HOME/fheroes2"
 
     exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \

@@ -85,6 +85,8 @@ mkGame {
   runtime = "custom";
 
   runScript = ''
+    export XDG_CONFIG_HOME="$GAMEDIR/.config"
+
     # Enable joystick on first run
     if grep -q "Joystick = 0" "$GAMEDIR/BLUEBYTE/AD/CONFIG.DES" 2>/dev/null; then
       sed -i 's/Joystick = 0/Joystick = 1/' "$GAMEDIR/BLUEBYTE/AD/CONFIG.DES"

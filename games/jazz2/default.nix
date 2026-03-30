@@ -56,8 +56,9 @@ mkGame {
   runtime = "native";
 
   runScript = ''
-    # jazz2 looks for data at XDG_DATA_HOME/Jazz² Resurrection/
+    # jazz2 uses XDG_DATA_HOME for game data and XDG_CONFIG_HOME for saves/config
     export XDG_DATA_HOME="$GAMEDIR"
+    export XDG_CONFIG_HOME="$GAMEDIR"
 
     exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
       ${lib.getExe jazz2-mp}

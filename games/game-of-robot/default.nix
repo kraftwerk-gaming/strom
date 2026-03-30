@@ -55,6 +55,8 @@ mkGame {
   runtime = "native";
 
   runScript = ''
+    export XDG_CONFIG_HOME="$GAMEDIR/.config"
+
     exec gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --expose-wayland -- \
       ${dosbox-x}/bin/dosbox-x -nomenu -conf ${dosboxConf}
   '';
