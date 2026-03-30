@@ -1,44 +1,93 @@
 {
-  fetchzip,
-  wineWow64Packages,
-  writeShellApplication,
+  bchunk,
+  dosbox-x,
+  fetchurl,
+  lib,
+  p7zip,
+  pkgs,
 }:
 
 let
-  gameFiles = fetchzip {
-    name = "lemmings95";
-    url = "https://d1.xp.myabandonware.com/t/9fe7b6b6-4c91-48ae-9ba0-de6affcb0501/Lemmings-Oh-No-More-Lemmings_Win_EN.zip";
-    hash = "sha256-08Fxuj96+6ALF7HFilBEVYxTbxIN4jvSf3eYaheotts=";
-    stripRoot = false;
+  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
+
+  cdBin = fetchurl {
+    url = "https://archive.org/download/az-2246/AZ_2246.bin";
+    hash = "sha256-o3EUjEYRVXxNP4XL1Bjx0ERiEpJAvMky7RWBbUw4/Pw=";
+    name = "lemmings-cd.bin";
   };
+
+  cdCue = fetchurl {
+    url = "https://archive.org/download/az-2246/AZ_2246.cue";
+    hash = "sha256-evDrErHJraPsvY5/c+xfAtF5oyPle68SQMuQo380MY4=";
+    name = "lemmings-cd.cue";
+  };
+
+  dosboxConf = pkgs.writeText "lemmings.conf" ''
+    [sdl]
+    fullscreen=false
+    output=surface
+    windowposition=0,0
+    showmenu=false
+
+    [dosbox]
+    machine=svga_s3
+    memsize=16
+
+    [render]
+    aspect=true
+
+    [cpu]
+    core=auto
+    cputype=auto
+    cycles=auto
+  '';
 in
-writeShellApplication {
+mkGame {
   name = "lemmings";
 
-  runtimeInputs = [ wineWow64Packages.stable ];
+  src = cdBin;
 
-  text = ''
-    GAMEDIR="''${HOME:-.}/.strom/lemmings"
-    mkdir -p "$GAMEDIR"
-    cd "$GAMEDIR"
+  nativeBuildInputs = [
+    bchunk
+    p7zip
+  ];
 
-    # Symlink all game files into writable directory
-    for f in "${gameFiles}"/lemmings95/*; do
-      base="$(basename "$f")"
-      # Skip files that need to be writable
-      if [ ! -e "$base" ] || [ -L "$base" ]; then
-        ln -sf "$f" "$base"
-      fi
-    done
+  buildScript = ''
+    mkdir -p "$out"
 
-    trap 'find . -type l -delete' EXIT
+    # Extract data track from CD image
+    cd /tmp
+    bchunk $src ${cdCue} track
+    7z x track01.iso -o"$out/"
 
-    wine ./LEMMINGS.EXE
+    # Keep the CUE/BIN for DOSBox CD audio mounting
+    cp $src "$out/lemmings.bin"
+    # Create a cue file pointing to the local bin
+    {
+      echo 'FILE "lemmings.bin" BINARY'
+      tail -n +2 ${cdCue}
+    } > "$out/lemmings.cue"
+  '';
+
+  runtime = "native";
+
+  runScript = ''
+    export XDG_CONFIG_HOME="$GAMEDIR/.config"
+
+    exec gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --expose-wayland -- \
+      ${dosbox-x}/bin/dosbox-x \
+      -nomenu \
+      -conf ${dosboxConf} \
+      -c "imgmount d \"$GAMEDIR/lemmings.cue\" -t cdrom" \
+      -c "d:" \
+      -c "cd lemmings" \
+      -c "vgalemmi.exe" \
+      -c "exit" \
+      -noconsole
   '';
 
   meta = {
-    description = "Lemmings & Oh No! More Lemmings (Windows 95 edition)";
-    homepage = "https://www.myabandonware.com/game/lemmings-oh-no-more-lemmings-3m2";
+    description = "Lemmings (DOS CD version with CD audio, via DOSBox-X)";
     platforms = [ "x86_64-linux" ];
     mainProgram = "lemmings";
   };
