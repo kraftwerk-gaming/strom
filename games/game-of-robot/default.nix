@@ -1,32 +1,15 @@
 {
-  dosbox-x,
+  lib,
+  pkgs,
   fetchurl,
-  gamescope,
-  runCommandLocal,
+  dosbox-x,
   unzip,
-  writeShellApplication,
-  writeText,
 }:
 
 let
-  gameArchive = fetchurl {
-    url = "https://archive.org/download/msdos_Game_of_Robot_The_1988/Game_of_Robot_The_1988.zip";
-    hash = "sha256-pLxedXsPIVmk3tmkWUv+i5zHewin1QTJ7TfecDlk2n0=";
-    name = "game-of-robot.zip";
-  };
+  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
-  gameFiles =
-    runCommandLocal "game-of-robot-data"
-      {
-        nativeBuildInputs = [ unzip ];
-      }
-      ''
-        mkdir -p "$out"
-        unzip -o ${gameArchive} -d /tmp/robot
-        cp -r /tmp/robot/TheGameo/* "$out"/
-      '';
-
-  dosboxConf = writeText "game-of-robot.conf" ''
+  dosboxConf = pkgs.writeText "game-of-robot.conf" ''
     [sdl]
     fullscreen=false
     output=surface
@@ -52,23 +35,33 @@ let
     exit
   '';
 in
-writeShellApplication {
+mkGame {
   name = "game-of-robot";
-  runtimeInputs = [ gamescope ];
-  text = ''
-    GAMEDIR="''${HOME:-.}/.strom/game-of-robot"
-    mkdir -p "$GAMEDIR"
 
-    # Symlink game files
-    for f in ${gameFiles}/*; do
-      base=$(basename "$f")
-      if [ ! -e "$GAMEDIR/$base" ] || [ -L "$GAMEDIR/$base" ]; then
-        ln -sf "$f" "$GAMEDIR/$base"
-      fi
-    done
+  src = fetchurl {
+    url = "https://archive.org/download/msdos_Game_of_Robot_The_1988/Game_of_Robot_The_1988.zip";
+    hash = "sha256-pLxedXsPIVmk3tmkWUv+i5zHewin1QTJ7TfecDlk2n0=";
+    name = "game-of-robot.zip";
+  };
 
-    cd "$GAMEDIR"
-    exec gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --expose-wayland -- \
-      ${dosbox-x}/bin/dosbox-x -conf ${dosboxConf}
+  nativeBuildInputs = [ unzip ];
+
+  buildScript = ''
+    mkdir -p "$out"
+    unzip -o $src -d /tmp/robot
+    cp -r /tmp/robot/TheGameo/* "$out"/
   '';
+
+  runtime = "native";
+
+  runScript = ''
+    exec gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --expose-wayland -- \
+      ${dosbox-x}/bin/dosbox-x -nomenu -conf ${dosboxConf}
+  '';
+
+  meta = {
+    description = "The Game of Robot (1988, via DOSBox-X)";
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "game-of-robot";
+  };
 }

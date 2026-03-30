@@ -306,7 +306,21 @@ in
               lib.mapAttrsToList (k: v: "export ${k}=${lib.escapeShellArg v}") cfg.env
             )}
             cd "$GAMEDIR"
-            ${if cfg.runScript != null then cfg.runScript else "echo 'No runScript' >&2; exit 1"}
+            ${cfg.preRun}
+            ${
+              if cfg.runScript != null then
+                cfg.runScript
+              else if cfg.executable != "" then
+                ''
+                  exec gamescope ${cfg.gamescopeArgs} -- \
+                    "$GAMEDIR/${cfg.executable}" "$@"
+                ''
+              else
+                ''
+                  echo "No runScript or executable specified" >&2
+                  exit 1
+                ''
+            }
           '';
         }
       else
