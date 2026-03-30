@@ -1,19 +1,3 @@
-# Creates a script that symlinks game data from the nix store into a
-# writable game directory. Files/dirs matching copyGlobs are copied
-# (writable), everything else is symlinked (read-only, saves space).
-#
-# copyGlobs are matched against the relative path from the game root.
-# Use shell glob patterns: "*.ini" "*.cfg" "saves" "data/config"
-#
-# Usage in a game's default.nix:
-#   linkGameFiles = callPackage ../../lib/prepare-game-dir.nix {
-#     gameFiles = myGameData;
-#     copyGlobs = [ "*.ini" "*.cfg" "saves" ];
-#   };
-#
-# Then in the wrapper script:
-#   ${linkGameFiles} "$GAMEDIR"
-#
 {
   writeShellScript,
   gameFiles,
@@ -21,9 +5,8 @@
 }:
 
 let
-  # Strip trailing / from patterns (used for readability to indicate dirs)
   cleanGlobs = map (g: builtins.replaceStrings [ "/" ] [ "" ] g) copyGlobs;
-  globTests = builtins.concatStringsSep "\n" (map (g: "${g}) return 0 ;;") cleanGlobs);
+  globTests = builtins.concatStringsSep "\n" (map (g: "          ${g}) return 0 ;;") cleanGlobs);
 in
 writeShellScript "prepare-game-dir" ''
     set -euo pipefail
@@ -38,20 +21,49 @@ writeShellScript "prepare-game-dir" ''
       return 1
     }
 
-    for f in "$SRC"/* "$SRC"/.[!.]* ; do
-      [ -e "$f" ] || continue
-      base="$(basename "$f")"
-
-      if should_copy "$base"; then
-        # Copy: only if not already a real file/dir (preserve user data)
-        if [ ! -e "$GAMEDIR/$base" ] || [ -L "$GAMEDIR/$base" ]; then
-          rm -f "$GAMEDIR/$base"
-          cp -r "$f" "$GAMEDIR/$base"
-          chmod -R u+w "$GAMEDIR/$base"
-        fi
-      else
-        # Symlink: create or replace (including old copies that should now be symlinks)
-        ln -sfn "$f" "$GAMEDIR/$base"
+    # Replace destination with a symlink, removing whatever was there
+    force_symlink() {
+      local target="$1" dest="$2"
+      if [ -d "$dest" ] && [ ! -L "$dest" ]; then
+        rm -rf "$dest"
       fi
-    done
+      ln -sfTn "$target" "$dest"
+    }
+
+    link_tree() {
+      local src="$1" dst="$2" prefix="$3"
+      mkdir -p "$dst"
+      for f in "$src"/* "$src"/.[!.]* ; do
+        [ -e "$f" ] || continue
+        local base rel
+        base="$(basename "$f")"
+        if [ -n "$prefix" ]; then
+          rel="$prefix/$base"
+        else
+          rel="$base"
+        fi
+
+        if should_copy "$rel"; then
+          # Should be a writable copy
+          if [ ! -e "$dst/$base" ] || [ -L "$dst/$base" ]; then
+            rm -f "$dst/$base" 2>/dev/null || rm -rf "$dst/$base"
+            cp -r "$f" "$dst/$base"
+            chmod -R u+w "$dst/$base"
+          fi
+          # Existing real file/dir: preserve (user data)
+        elif [ -d "$f" ] && [ ! -L "$f" ]; then
+          # Source is a directory, not in copyGlobs → recurse
+          if [ -L "$dst/$base" ]; then
+            # Dest is a symlink (stale from previous config) → remove so we can recurse
+            rm -f "$dst/$base"
+          fi
+          link_tree "$f" "$dst/$base" "$rel"
+        else
+          # Source is a file → symlink
+          force_symlink "$f" "$dst/$base"
+        fi
+      done
+    }
+
+    link_tree "$SRC" "$GAMEDIR" ""
 ''
