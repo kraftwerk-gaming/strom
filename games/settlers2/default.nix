@@ -2,6 +2,7 @@
   fetchurl,
   fetchFromGitHub,
   lib,
+  pkgs,
   cmake,
   boost,
   SDL2,
@@ -15,10 +16,11 @@
   runCommandLocal,
   stdenv,
   unzip,
-  writeShellScript,
 }:
 
 let
+  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
+
   version = "unstable-2025-03-17";
   rev = "e4146df452217e8e0ddb62c6a5482008f80c3153";
 
@@ -87,62 +89,64 @@ let
     };
   };
 
-  gameFiles = fetchurl {
+  gameFilesArchive = fetchurl {
     url = "https://archive.org/download/die_siedler_2_151/siedler2.zip";
     hash = "sha256-9FUecyRKFygEaoppZ+welasCe9HZHMG1y0BKwZpt0nw=";
     name = "settlers2-gold.zip";
   };
 
-  gameDataExtracted =
-    runCommandLocal "settlers2-data"
+  # Combined prefix: s25client + game data in S2/
+  combinedPrefix =
+    runCommandLocal "settlers2-prefix"
       {
         nativeBuildInputs = [ unzip ];
       }
       ''
-        mkdir -p "$out"
-        unzip -o ${gameFiles} -d "$out/"
+        mkdir -p $out/share/s25rttr/S2 $out/bin $out/lib
+
+        # Symlink s25client's share tree (except S2)
+        for f in ${s25client}/share/s25rttr/*; do
+          name="$(basename "$f")"
+          [ "$name" = "S2" ] && continue
+          ln -s "$f" "$out/share/s25rttr/$name"
+        done
+
+        # Symlink S2 contents from s25client, then overlay game data
+        for f in ${s25client}/share/s25rttr/S2/*; do
+          ln -s "$f" "$out/share/s25rttr/S2/$(basename "$f")"
+        done
+
+        # Extract and add original game data
+        unzip -o ${gameFilesArchive} -d /tmp/s2data
+        rm -f "$out/share/s25rttr/S2/DATA" "$out/share/s25rttr/S2/GFX"
+        cp -r /tmp/s2data/DATA "$out/share/s25rttr/S2/DATA"
+        cp -r /tmp/s2data/GFX "$out/share/s25rttr/S2/GFX"
+
+        # Symlink bin and lib
+        ln -s ${s25client}/bin/* $out/bin/
+        ln -s ${s25client}/lib/* $out/lib/
       '';
-
-  # Combined prefix with s25client + game data in S2/
-  combinedPrefix = runCommandLocal "settlers2-prefix" { } ''
-    mkdir -p $out/share/s25rttr/S2 $out/bin $out/lib
-
-    # Symlink s25client's share tree (except S2)
-    for f in ${s25client}/share/s25rttr/*; do
-      name="$(basename "$f")"
-      [ "$name" = "S2" ] && continue
-      ln -s "$f" "$out/share/s25rttr/$name"
-    done
-
-    # Symlink S2 contents from s25client, then overlay game data
-    for f in ${s25client}/share/s25rttr/S2/*; do
-      ln -s "$f" "$out/share/s25rttr/S2/$(basename "$f")"
-    done
-    ln -sfn "${gameDataExtracted}/DATA" "$out/share/s25rttr/S2/DATA"
-    ln -sfn "${gameDataExtracted}/GFX" "$out/share/s25rttr/S2/GFX"
-
-    # Symlink bin and lib
-    ln -s ${s25client}/bin/* $out/bin/
-    ln -s ${s25client}/lib/* $out/lib/
-  '';
-
-  wrapper = writeShellScript "settlers2" ''
-    mkdir -p "''${HOME:-.}/.strom/settlers2"
-    ln -sfn "''${HOME:-.}/.strom/settlers2" "''${HOME:-.}/.s25rttr"
-    export RTTR_PREFIX_DIR="${combinedPrefix}"
-    exec ${lib.getExe s25client} "$@"
-  '';
-
 in
-stdenv.mkDerivation {
-  pname = "settlers2";
-  inherit version;
+mkGame {
+  name = "settlers2";
 
-  dontUnpack = true;
+  # s25rttr uses its own prefix, not a flat game dir.
+  # We use a dummy src and point RTTR_PREFIX_DIR at the combined prefix.
+  src = combinedPrefix;
+  buildScript = ''
+    mkdir -p "$out"
+    echo "settlers2" > "$out/.placeholder"
+  '';
 
-  installPhase = ''
-    mkdir -p $out/bin
-    ln -s ${wrapper} $out/bin/settlers2
+  runtime = "native";
+
+  runScript = ''
+    # s25rttr stores config in ~/.s25rttr, point it at our game dir
+    ln -sfn "$GAMEDIR" "$HOME/.s25rttr"
+    export RTTR_PREFIX_DIR="${combinedPrefix}"
+
+    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
+      ${lib.getExe s25client}
   '';
 
   meta = {
