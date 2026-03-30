@@ -23,7 +23,7 @@ let
     set -euo pipefail
 
     GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
-    COMPATDATA="$GAMEDIR/compatdata"
+    COMPATDATA="$GAMEDIR/compatdata/0"
     mkdir -p "$GAMEDIR" "$COMPATDATA"
 
     ${prepareGameDir} "$GAMEDIR"
