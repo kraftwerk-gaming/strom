@@ -80,8 +80,7 @@ mkGame {
     sed -i 's/Archimedean Dynasty/ad/g' "$out/CD/ad.cue"
   '';
 
-  # Game writes config files inside BLUEBYTE/AD/. Everything else is read-only.
-  copyGlobs = [ "*.DES" ];
+  copyGlobs = [ ];
 
   runtime = "custom";
 
