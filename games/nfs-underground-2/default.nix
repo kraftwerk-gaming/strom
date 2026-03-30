@@ -64,16 +64,7 @@ mkGame {
   # and uses it as the base directory for saves/configs
   # EXE and DLLs must be copies - Wine resolves symlinks and the game
   # uses the resolved path as its base directory for saves/configs
-  copyGlobs = [
-    "*.ini"
-    "*.cfg"
-    "*.log"
-    "*.json"
-    "*.016"
-    "*.256"
-    "SAVEGAMES/"
-    "SCRIPTS/"
-  ];
+  copyGlobs = [ ];
 
   runtime = "proton";
   executable = "SPEED2.EXE";
@@ -88,17 +79,7 @@ mkGame {
     WINE_LARGE_ADDRESS_AWARE = "1";
   };
 
-  preRun = ''
-    # Ensure config files in subdirectories are writable too
-    find "$GAMEDIR" -maxdepth 3 -type l \( -name "*.ini" -o -name "*.cfg" -o -name "*.json" \) | while read -r f; do
-      target="$(readlink "$f")"
-      if [ -f "$target" ]; then
-        rm "$f"
-        cp "$target" "$f"
-        chmod u+w "$f"
-      fi
-    done
-  '';
+  preRun = "";
 
   meta = {
     description = "Need for Speed: Underground 2 (via Proton and gamescope)";

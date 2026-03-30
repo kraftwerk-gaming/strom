@@ -145,12 +145,7 @@ mkGame {
       cp ${camExtCfg} "$out/cam_ext.cfg"
     '';
 
-  copyGlobs = [
-    "SAVES/"
-    "*.cfg"
-    "*.bnd"
-    "*.ini"
-  ];
+  copyGlobs = [ ];
 
   runtime = "proton";
 

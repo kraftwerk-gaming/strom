@@ -11,6 +11,7 @@ let
   protonRun = pkgs.writeShellScript "proton-run" ''
     python3 "${proton}/proton" waitforexitandrun "$@"
     ${proton}/files/bin/wineserver -k 2>/dev/null || true
+    ${proton}/files/bin/wineserver -w 2>/dev/null || true
     kill -9 0 2>/dev/null
   '';
 

@@ -61,12 +61,7 @@ mkGame {
     done
   '';
 
-  copyGlobs = [
-    "save/"
-    "*.cfg"
-    "*.ini"
-    "*.log"
-  ];
+  copyGlobs = [ ];
 
   runtime = "proton";
 

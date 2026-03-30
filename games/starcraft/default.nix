@@ -41,13 +41,7 @@ mkGame {
     rm -f "$out/install.ex_" "$out/patch_rt.mp_"
   '';
 
-  copyGlobs = [
-    "*.016"
-    "*.256"
-    "maps/"
-    "characters/"
-    "save/"
-  ];
+  copyGlobs = [ ];
 
   runtime = "proton";
 
@@ -61,9 +55,7 @@ mkGame {
   executable = "StarCraft.exe";
   gamescopeArgs = "-W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland";
 
-  preRun = ''
-    mkdir -p "$GAMEDIR/maps" "$GAMEDIR/save" "$GAMEDIR/characters"
-  '';
+  preRun = "";
 
   meta = {
     description = "StarCraft + Brood War (via Proton and gamescope)";
