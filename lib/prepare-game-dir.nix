@@ -5,7 +5,13 @@
 #   ~/.cache/strom/<game>/overlay        - overlay mount point (game runs here)
 #   ~/.cache/strom/<game>/work           - overlayfs bookkeeping
 #
-# copyGlobs: files pre-copied to upper layer (Wine can't copy-up via fuse)
+# Uses patched fuse-overlayfs with squash_to_uid/gid so that nix store
+# files (owned by root, 444/555) appear writable and trigger proper
+# copy-up to the upper layer on write.
+#
+# copyGlobs: relative paths to pre-copy to upper layer before mounting.
+#   Needed for files that Wine/Proton modifies via mmap or file locks,
+#   which fuse-overlayfs can't intercept for copy-up.
 #
 {
   writeShellScript,
@@ -15,42 +21,35 @@
 }:
 
 let
-  cleanGlobs = map (g: builtins.replaceStrings [ "/" ] [ "" ] g) copyGlobs;
-  globTests = builtins.concatStringsSep "\n" (map (g: "        ${g}) return 0 ;;") cleanGlobs);
+  copyCommands = builtins.concatStringsSep "\n" (
+    map (g: ''
+      # Copy: ${g}
+      if [ ! -e "$UPPER/${g}" ] && [ -e "$SRC/${g}" ]; then
+        mkdir -p "$UPPER/$(dirname "${g}")"
+        cp -r "$SRC/${g}" "$UPPER/${g}"
+        chmod -R u+w "$UPPER/${g}"
+      fi
+    '') copyGlobs
+  );
 in
 writeShellScript "prepare-game-dir" ''
-    set -euo pipefail
-    GAMENAME="$(basename "$1")"
-    UPPER="$1"
-    CACHEDIR="''${HOME:-.}/.cache/strom/$GAMENAME"
-    MERGED="$CACHEDIR/overlay"
-    WORK="$CACHEDIR/work"
-    SRC="${gameFiles}"
-    mkdir -p "$UPPER" "$MERGED" "$WORK"
+  set -euo pipefail
+  GAMENAME="$(basename "$1")"
+  UPPER="$1"
+  CACHEDIR="''${HOME:-.}/.cache/strom/$GAMENAME"
+  MERGED="$CACHEDIR/overlay"
+  WORK="$CACHEDIR/work"
+  SRC="${gameFiles}"
+  mkdir -p "$UPPER" "$MERGED" "$WORK"
 
-    should_copy() {
-      case "$1" in
-  ${globTests}
-      esac
-      return 1
-    }
+  ${copyCommands}
 
-    # Pre-copy files matching copyGlobs into upper layer
-    for f in "$SRC"/*; do
-      [ -e "$f" ] || continue
-      base="$(basename "$f")"
-      should_copy "$base" || continue
-      [ -e "$UPPER/$base" ] && continue
-      cp -r "$f" "$UPPER/$base"
-      chmod -R u+w "$UPPER/$base"
-    done
+  # Mount overlay with uid/gid squashing for nix store copy-up
+  if ! mountpoint -q "$MERGED" 2>/dev/null; then
+    ${fuse-overlayfs}/bin/fuse-overlayfs \
+      -o "lowerdir=$SRC,upperdir=$UPPER,workdir=$WORK,squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
+      "$MERGED"
+  fi
 
-    # Mount overlay
-    if ! mountpoint -q "$MERGED" 2>/dev/null; then
-      ${fuse-overlayfs}/bin/fuse-overlayfs \
-        -o lowerdir="$SRC",upperdir="$UPPER",workdir="$WORK" \
-        "$MERGED"
-    fi
-
-    echo "$MERGED"
+  echo "$MERGED"
 ''

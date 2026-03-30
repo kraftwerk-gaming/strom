@@ -14,7 +14,10 @@ let
     kill -9 0 2>/dev/null
   '';
 
+  patchedFuseOverlayfs = pkgs.callPackage ./fuse-overlayfs-patched.nix { };
+
   prepareGameDir = pkgs.callPackage ./prepare-game-dir.nix {
+    fuse-overlayfs = patchedFuseOverlayfs;
     gameFiles = cfg._gameData;
     copyGlobs = cfg.copyGlobs;
   };
