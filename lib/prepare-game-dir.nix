@@ -1,12 +1,11 @@
-# Mounts game data via fuse-overlayfs with pre-copied writable files.
-# Files matching copyGlobs are copied to the upper layer BEFORE mounting,
-# so Wine/Proton can modify them (fuse-overlayfs doesn't support copy-up
-# with mmap/file locks that Wine uses).
+# Mounts game data via fuse-overlayfs.
 #
 # Layout:
-#   ~/.strom/<game>/        - overlay mount point (game runs here)
-#   ~/.strom/<game>/.data/  - upper layer (writable files)
-#   ~/.strom/<game>/.work/  - overlayfs bookkeeping
+#   ~/.strom/<game>/                     - upper layer (user saves/configs)
+#   ~/.cache/strom/<game>/overlay        - overlay mount point (game runs here)
+#   ~/.cache/strom/<game>/work           - overlayfs bookkeeping
+#
+# copyGlobs: files pre-copied to upper layer (Wine can't copy-up via fuse)
 #
 {
   writeShellScript,
@@ -21,11 +20,13 @@ let
 in
 writeShellScript "prepare-game-dir" ''
     set -euo pipefail
-    GAMEDIR="$1"
-    UPPER="$GAMEDIR/.data"
-    WORK="$GAMEDIR/.work"
+    GAMENAME="$(basename "$1")"
+    UPPER="$1"
+    CACHEDIR="''${HOME:-.}/.cache/strom/$GAMENAME"
+    MERGED="$CACHEDIR/overlay"
+    WORK="$CACHEDIR/work"
     SRC="${gameFiles}"
-    mkdir -p "$UPPER" "$WORK"
+    mkdir -p "$UPPER" "$MERGED" "$WORK"
 
     should_copy() {
       case "$1" in
@@ -39,16 +40,17 @@ writeShellScript "prepare-game-dir" ''
       [ -e "$f" ] || continue
       base="$(basename "$f")"
       should_copy "$base" || continue
-      # Only copy if not already in upper (preserve user data)
       [ -e "$UPPER/$base" ] && continue
       cp -r "$f" "$UPPER/$base"
       chmod -R u+w "$UPPER/$base"
     done
 
     # Mount overlay
-    if ! mountpoint -q "$GAMEDIR" 2>/dev/null; then
+    if ! mountpoint -q "$MERGED" 2>/dev/null; then
       ${fuse-overlayfs}/bin/fuse-overlayfs \
         -o lowerdir="$SRC",upperdir="$UPPER",workdir="$WORK" \
-        "$GAMEDIR"
+        "$MERGED"
     fi
+
+    echo "$MERGED"
 ''

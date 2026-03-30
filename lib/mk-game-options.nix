@@ -29,7 +29,7 @@ let
   innerWrapper = pkgs.writeShellScript "${cfg.name}-inner" ''
     set -euo pipefail
 
-    GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
+    GAMEDIR="$STROM_OVERLAY"
     COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}/0"
     mkdir -p "$COMPATDATA"
 
@@ -74,16 +74,20 @@ let
     pkgs.writeShellScript "${cfg.name}-wrapper" ''
       GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
       mkdir -p "$GAMEDIR"
-      ${prepareGameDir} "$GAMEDIR"
+      export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
 
       cleanup() {
-        fusermount -uz "$GAMEDIR" 2>/dev/null
-        kill -KILL -- -$$ 2>/dev/null
+        fusermount -uz "$STROM_OVERLAY" 2>/dev/null
       }
+      trap 'cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
       trap cleanup EXIT
-      trap 'exit 1' INT TERM
 
-      ${fhsEnv}/bin/${cfg.name}-fhs "$@"
+      # Run in new process group so kill -9 0 inside bwrap
+      # doesn't kill this wrapper before cleanup runs
+      setsid ${fhsEnv}/bin/${cfg.name}-fhs "$@" &
+      FHS_PID=$!
+      trap 'kill -KILL -- -$FHS_PID 2>/dev/null; cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
+      wait $FHS_PID 2>/dev/null
     '';
 in
 {
@@ -290,15 +294,15 @@ in
           inherit (cfg) name meta;
           runtimeInputs = [ pkgs.gamescope ];
           text = ''
-            GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
-            mkdir -p "$GAMEDIR"
-            ${prepareGameDir} "$GAMEDIR"
-            trap 'fusermount -u "$GAMEDIR" 2>/dev/null' EXIT
+            USERDIR="''${HOME:-.}/.strom/${cfg.name}"
+            mkdir -p "$USERDIR"
+            GAMEDIR=$(${prepareGameDir} "$USERDIR")
+            trap 'fusermount -uz "$GAMEDIR" 2>/dev/null' EXIT
             ${lib.concatStringsSep "\n" (
               lib.mapAttrsToList (k: v: "export ${k}=${lib.escapeShellArg v}") cfg.env
             )}
             cd "$GAMEDIR"
-            ${cfg.runScript}
+            ${if cfg.runScript != null then cfg.runScript else "echo 'No runScript' >&2; exit 1"}
           '';
         }
       else

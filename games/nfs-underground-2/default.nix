@@ -55,8 +55,6 @@ mkGame {
     done
     chmod u-w "$out/SPEED2.EXE"
 
-    # Remove VP6 movies that can cause freezes under Wine
-    rm -f "$out/MOVIES/"*.vp6
 
     # Install deadlock fix ASI mod
     cp ${deadlockFix}/DeadlockFix.asi "$out/SCRIPTS/DeadlockFix.asi"
