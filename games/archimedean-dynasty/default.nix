@@ -1,43 +1,22 @@
 {
-  dosbox-x,
+  callPackage,
+  lib,
+  pkgs,
   fetchurl,
+  dosbox-x,
   gamescope,
-  runCommandLocal,
-  stdenvNoCC,
   unzip,
-  writeShellScript,
-  writeText,
 }:
 
 let
-  gameArchive = fetchurl {
-    url = "https://archive.org/download/msdos_Archimedean_Dynasty_1996/msdos_Archimedean_Dynasty_1996.zip";
-    hash = "sha256-CBIRQ3TqzVgRa99DDbTZLJHrueouYUQJo4Aeq0H016o=";
-    name = "archimedean-dynasty.zip";
-  };
+  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
-  gameFiles =
-    runCommandLocal "archimedean-dynasty-data"
-      {
-        nativeBuildInputs = [ unzip ];
-      }
-      ''
-        mkdir -p "$out"
-        unzip -o ${gameArchive} -d /tmp/ad
-        cp -r /tmp/ad/Archimed/* "$out"/
-
-        # Rename CD image to avoid spaces in paths
-        mv "$out/CD/Archimedean Dynasty.bin" "$out/CD/ad.bin"
-        mv "$out/CD/Archimedean Dynasty.cue" "$out/CD/ad.cue"
-        sed -i 's/Archimedean Dynasty/ad/g' "$out/CD/ad.cue"
-      '';
-
-  dosboxConf = writeText "dosbox.conf" ''
+  dosboxConf = pkgs.writeText "dosbox.conf" ''
     [sdl]
     fullscreen=false
     output=opengl
     autolock=true
-
+    showmenu=false
 
     [cpu]
     core=dynamic
@@ -79,23 +58,38 @@ let
     ems=true
     umb=true
   '';
+in
+mkGame {
+  name = "archimedean-dynasty";
 
-  wrapper = writeShellScript "archimedean-dynasty" ''
-    set -euo pipefail
+  src = fetchurl {
+    url = "https://archive.org/download/msdos_Archimedean_Dynasty_1996/msdos_Archimedean_Dynasty_1996.zip";
+    hash = "sha256-CBIRQ3TqzVgRa99DDbTZLJHrueouYUQJo4Aeq0H016o=";
+    name = "archimedean-dynasty.zip";
+  };
 
-    GAMEDIR="''${HOME:-.}/.strom/archimedean-dynasty"
-    mkdir -p "$GAMEDIR"
+  nativeBuildInputs = [ unzip ];
 
-    # Copy game files (DOSBox needs writable directory for saves/config)
-    if [ ! -f "$GAMEDIR/BLUEBYTE/AD/AD.EXE" ]; then
-      cp -r "${gameFiles}"/. "$GAMEDIR/"
-      chmod -R u+w "$GAMEDIR"
+  buildScript = ''
+    mkdir -p "$out"
+    unzip -o $src -d /tmp/ad
+    cp -r /tmp/ad/Archimed/* "$out"/
 
-      # Enable joystick in game config
+    mv "$out/CD/Archimedean Dynasty.bin" "$out/CD/ad.bin"
+    mv "$out/CD/Archimedean Dynasty.cue" "$out/CD/ad.cue"
+    sed -i 's/Archimedean Dynasty/ad/g' "$out/CD/ad.cue"
+  '';
+
+  # Only config files need to be writable; game assets and CD image are read-only
+  copyGlobs = [ "*.DES" ];
+
+  runtime = "custom";
+
+  runScript = ''
+    # Enable joystick on first run
+    if grep -q "Joystick = 0" "$GAMEDIR/BLUEBYTE/AD/CONFIG.DES" 2>/dev/null; then
       sed -i 's/Joystick = 0/Joystick = 1/' "$GAMEDIR/BLUEBYTE/AD/CONFIG.DES"
     fi
-
-
 
     exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland --force-grab-cursor -- \
       ${dosbox-x}/bin/dosbox-x \
@@ -107,17 +101,6 @@ let
       -c "AD3DFX.EXE" \
       -c "exit" \
       -noconsole
-  '';
-in
-stdenvNoCC.mkDerivation {
-  pname = "archimedean-dynasty";
-  version = "1996";
-
-  dontUnpack = true;
-
-  installPhase = ''
-    mkdir -p $out/bin
-    ln -s ${wrapper} $out/bin/archimedean-dynasty
   '';
 
   meta = {
