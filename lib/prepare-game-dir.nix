@@ -50,10 +50,8 @@ writeShellScript "prepare-game-dir" ''
           chmod -R u+w "$GAMEDIR/$base"
         fi
       else
-        # Symlink: always update to latest store path
-        if [ ! -e "$GAMEDIR/$base" ] || [ -L "$GAMEDIR/$base" ]; then
-          ln -sfn "$f" "$GAMEDIR/$base"
-        fi
+        # Symlink: create or replace (including old copies that should now be symlinks)
+        ln -sfn "$f" "$GAMEDIR/$base"
       fi
     done
 ''
