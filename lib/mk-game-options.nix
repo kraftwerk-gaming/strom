@@ -29,6 +29,21 @@ let
     else
       pkgs.proton-ge-bin.steamcompattool;
 
+  # Sandbox: tmpfs HOME, only game-specific dirs are accessible.
+  sandboxBwrapArgs = [
+    "--tmpfs \${HOME}"
+    "--bind \${STROM_GAMEDIR} \${STROM_GAMEDIR}"
+    "--bind \${STROM_COMPATDATA} \${STROM_COMPATDATA}"
+    "--bind \${STROM_CACHEDIR} \${STROM_CACHEDIR}"
+    "--bind-try \${HOME}/.cache/umu \${HOME}/.cache/umu"
+    "--bind-try \${HOME}/.cache/umu-protonfixes \${HOME}/.cache/umu-protonfixes"
+    "--bind-try \${HOME}/.cache/wine \${HOME}/.cache/wine"
+    "--ro-bind-try \${HOME}/.local/share/vulkan \${HOME}/.local/share/vulkan"
+    "--ro-bind-try \${HOME}/.local/share/Steam \${HOME}/.local/share/Steam"
+    "--ro-bind-try \${HOME}/.steam \${HOME}/.steam"
+    "--chdir /"
+  ];
+
   # Runs inside FHS/bwrap
   innerWrapper = pkgs.writeShellScript "${cfg.name}-inner" ''
     set -euo pipefail
@@ -36,6 +51,12 @@ let
     GAMEDIR="$STROM_OVERLAY"
     COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}/0"
     mkdir -p "$COMPATDATA"
+
+    # Redirect shader caches into game-specific cache dir
+    GAMECACHE="''${HOME:-.}/.cache/strom/${cfg.name}/shadercache"
+    mkdir -p "$GAMECACHE"
+    export MESA_SHADER_CACHE_DIR="$GAMECACHE"
+    export DXVK_STATE_CACHE_PATH="$GAMECACHE"
 
     ${lib.optionalString (cfg.runtime == "proton") ''
       export STEAM_COMPAT_DATA_PATH="$COMPATDATA"
@@ -79,6 +100,13 @@ let
       GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
       mkdir -p "$GAMEDIR"
       export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
+
+      # Export paths for bwrap sandbox (used by extraBwrapArgs to restrict /home)
+      export STROM_GAMEDIR="$GAMEDIR"
+      export STROM_COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}"
+      export STROM_CACHEDIR="''${HOME:-.}/.cache/strom/${cfg.name}"
+      mkdir -p "$STROM_COMPATDATA" "$STROM_CACHEDIR" \
+        "''${HOME:-.}/.cache/umu" "''${HOME:-.}/.cache/umu-protonfixes" "''${HOME:-.}/.cache/wine"
 
       cleanup() {
         fusermount -uz "$STROM_OVERLAY" 2>/dev/null
@@ -280,6 +308,7 @@ in
               "--ro-bind /sys /sys"
               "--bind /run /run"
             ]
+            ++ sandboxBwrapArgs
             ++ cfg.extraBwrapArgs;
           };
         in
@@ -318,12 +347,17 @@ in
                 ''
             }
           '';
+
         in
         pkgs.writeShellApplication {
           inherit (cfg) name meta;
+          runtimeInputs = [ pkgs.bubblewrap ];
           text = ''
             USERDIR="''${HOME:-.}/.strom/${cfg.name}"
             mkdir -p "$USERDIR"
+            export STROM_GAMEDIR="$USERDIR"
+            export STROM_CACHEDIR="''${HOME:-.}/.cache/strom/${cfg.name}"
+            mkdir -p "$STROM_CACHEDIR"
             export GAMEDIR
             GAMEDIR=$(${prepareGameDir} "$USERDIR")
 
@@ -333,7 +367,25 @@ in
             trap 'kill -KILL -- -$INNER_PID 2>/dev/null; cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
             trap cleanup EXIT
 
-            setsid ${nativeInner} "$@" &
+            # Figure out X socket for bwrap
+            x11_args=()
+            if [[ "''${DISPLAY-}" == *:* ]]; then
+              display_nr=''${DISPLAY/#*:}
+              display_nr=''${display_nr/%.*}
+              x11_args=(--tmpfs /tmp/.X11-unix --ro-bind-try "/tmp/.X11-unix/X$display_nr" "/tmp/.X11-unix/X$display_nr")
+            fi
+
+            setsid bwrap \
+              --ro-bind / / \
+              --dev-bind /dev /dev \
+              --proc /proc \
+              --bind /tmp /tmp \
+              "''${x11_args[@]}" \
+              --bind /run /run \
+              --tmpfs "''${HOME}" \
+              --bind "$STROM_GAMEDIR" "$STROM_GAMEDIR" \
+              --bind "$STROM_CACHEDIR" "$STROM_CACHEDIR" \
+              ${nativeInner} "$@" &
             INNER_PID=$!
             wait $INNER_PID 2>/dev/null
           '';
@@ -345,7 +397,7 @@ in
             name = "${cfg.name}-fhs";
             runScript = innerWrapper;
             targetPkgs = cfg.targetPkgs;
-            extraBwrapArgs = cfg.extraBwrapArgs;
+            extraBwrapArgs = sandboxBwrapArgs ++ cfg.extraBwrapArgs;
           };
         in
         pkgs.stdenvNoCC.mkDerivation {
