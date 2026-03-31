@@ -19,7 +19,7 @@ let
   };
 in
 mkGame {
-  name = "soul-reaver";
+  name = "legacy-of-kain-soul-reaver";
 
   src = fetchurl {
     url = "https://archive.org/download/legacy-of-kain-soul-reaver-gog/Legacy%20of%20Kain%20Soul%20Reaver%20%5BGOG%5D.zip";
@@ -127,6 +127,6 @@ mkGame {
   meta = {
     description = "Legacy of Kain: Soul Reaver (GOG, via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "soul-reaver";
+    mainProgram = "legacy-of-kain-soul-reaver";
   };
 }

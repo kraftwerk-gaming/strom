@@ -1,5 +1,12 @@
 # Rules for AI agents working on this repo
 
+## Game naming
+
+- Game directory names under `games/` and the `name =` field in `default.nix` **must** use the **Lutris slug** as the canonical identifier.
+- Look up the slug at `https://lutris.net/api/games?search=<game>` or `https://lutris.net/api/games/<slug>` before adding a new game.
+- The flake attribute name = directory name = Lutris slug. No exceptions.
+- Internal variable names (nix let bindings, fetchurl `name =`) don't need to follow the slug — they describe the actual artifact.
+
 ## Game data directories (~/.strom/<game>)
 
 - **NEVER delete a game directory** (`rm -rf ~/.strom/<game>`). These contain user saves, profiles, and Wine prefixes that cannot be recovered.

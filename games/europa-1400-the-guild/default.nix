@@ -23,7 +23,7 @@ let
 
   # Extract ISO and run the Wise installer with Wine to get game files
   gameData =
-    runCommandLocal "die-gilde-data"
+    runCommandLocal "europa-1400-the-guild-data"
       {
         nativeBuildInputs = [
           p7zip
@@ -49,7 +49,7 @@ let
       '';
 in
 mkGame {
-  name = "die-gilde";
+  name = "europa-1400-the-guild";
 
   src = gameData;
   buildScript = ''
@@ -123,6 +123,6 @@ mkGame {
   meta = {
     description = "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "die-gilde";
+    mainProgram = "europa-1400-the-guild";
   };
 }

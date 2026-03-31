@@ -107,7 +107,7 @@ let
   '';
 in
 mkGame {
-  name = "thief2";
+  name = "thief-2";
 
   src = fetchurl {
     url = "https://archive.org/download/thief-2-hdmod-1.0_202404/Thief.2.The.Metal.Age.v1.26nd.21946-GOG/ENG/setup_thief_2_-_the_metal_age_1.26_nd_%2821946%29.exe";
@@ -184,6 +184,6 @@ mkGame {
   meta = {
     description = "Thief II: The Metal Age (NewDark engine, via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "thief2";
+    mainProgram = "thief-2";
   };
 }

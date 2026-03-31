@@ -17,7 +17,7 @@ let
   });
 
   sourceData =
-    runCommandLocal "jazz2-source"
+    runCommandLocal "jazz-jackrabbit-2-source"
       {
         nativeBuildInputs = [ unzip ];
       }
@@ -32,8 +32,8 @@ let
         } -d "$out/"
       '';
 
-  # Pre-generate the cache by running jazz2 --server (headless)
-  gameData = runCommandLocal "jazz2-data" { } ''
+  # Pre-generate the cache by running jazz-jackrabbit-2 --server (headless)
+  gameData = runCommandLocal "jazz-jackrabbit-2-data" { } ''
     mkdir -p "$out/Jazz² Resurrection"
     ln -s ${sourceData} "$out/Jazz² Resurrection/Source"
 
@@ -45,7 +45,7 @@ let
   '';
 in
 mkGame {
-  name = "jazz2";
+  name = "jazz-jackrabbit-2";
 
   src = gameData;
   buildScript = ''
@@ -56,7 +56,7 @@ mkGame {
   runtime = "native";
 
   runScript = ''
-    # jazz2 uses XDG_DATA_HOME for game data and XDG_CONFIG_HOME for saves/config
+    # jazz-jackrabbit-2 uses XDG_DATA_HOME for game data and XDG_CONFIG_HOME for saves/config
     export XDG_DATA_HOME="$GAMEDIR"
     export XDG_CONFIG_HOME="$GAMEDIR"
 
@@ -66,6 +66,6 @@ mkGame {
 
   meta = jazz2.meta // {
     description = "Jazz Jackrabbit 2 (Jazz² Resurrection with game data and multiplayer)";
-    mainProgram = "jazz2";
+    mainProgram = "jazz-jackrabbit-2";
   };
 }

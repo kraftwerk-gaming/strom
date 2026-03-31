@@ -14,7 +14,7 @@ let
 
   # ASI mod that fixes AB-BA deadlock on CS@00864F00 during track loading.
   deadlockFix =
-    runCommandLocal "nfsu2-deadlock-fix"
+    runCommandLocal "need-for-speed-underground-2-deadlock-fix"
       {
         nativeBuildInputs = [ pkgsCross.mingw32.buildPackages.gcc ];
       }
@@ -25,7 +25,7 @@ let
       '';
 in
 mkGame {
-  name = "nfs-underground-2";
+  name = "need-for-speed-underground-2";
 
   src = fetchurl {
     url = "https://archive.org/download/NFSU2Stable/Need%20for%20Speed%20Underground%202.7z";
@@ -84,6 +84,6 @@ mkGame {
   meta = {
     description = "Need for Speed: Underground 2 (via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "nfs-underground-2";
+    mainProgram = "need-for-speed-underground-2";
   };
 }

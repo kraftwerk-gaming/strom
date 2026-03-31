@@ -10,7 +10,7 @@ let
   mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 in
 mkGame {
-  name = "stronghold";
+  name = "stronghold-hd";
 
   src = fetchurl {
     url = "https://archive.org/download/setup_stronghold_hd_2.0.0.3/setup_stronghold_hd_2.0.0.3.exe";
@@ -92,6 +92,6 @@ mkGame {
   meta = {
     description = "Stronghold HD (via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "stronghold";
+    mainProgram = "stronghold-hd";
   };
 }

@@ -23,7 +23,7 @@ let
   };
 in
 mkGame {
-  name = "tiberium-dawn";
+  name = "command-conquer";
 
   src = gdiIso;
 
@@ -76,6 +76,6 @@ mkGame {
   meta = {
     description = "Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "tiberium-dawn";
+    mainProgram = "command-conquer";
   };
 }

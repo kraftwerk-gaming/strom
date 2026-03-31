@@ -92,12 +92,12 @@ let
   gameFilesArchive = fetchurl {
     url = "https://archive.org/download/die_siedler_2_151/siedler2.zip";
     hash = "sha256-9FUecyRKFygEaoppZ+welasCe9HZHMG1y0BKwZpt0nw=";
-    name = "settlers2-gold.zip";
+    name = "the-settlers-ii-gold-edition.zip";
   };
 
   # Combined prefix: s25client + game data in S2/
   combinedPrefix =
-    runCommandLocal "settlers2-prefix"
+    runCommandLocal "the-settlers-ii-gold-edition-prefix"
       {
         nativeBuildInputs = [ unzip ];
       }
@@ -128,14 +128,14 @@ let
       '';
 in
 mkGame {
-  name = "settlers2";
+  name = "the-settlers-ii-gold-edition";
 
   # s25rttr uses its own prefix, not a flat game dir.
   # We use a dummy src and point RTTR_PREFIX_DIR at the combined prefix.
   src = combinedPrefix;
   buildScript = ''
     mkdir -p "$out"
-    echo "settlers2" > "$out/.placeholder"
+    echo "the-settlers-ii-gold-edition" > "$out/.placeholder"
   '';
 
   runtime = "native";
@@ -152,6 +152,6 @@ mkGame {
   meta = {
     description = "The Settlers II Gold (via Return to the Roots)";
     platforms = [ "x86_64-linux" ];
-    mainProgram = "settlers2";
+    mainProgram = "the-settlers-ii-gold-edition";
   };
 }
