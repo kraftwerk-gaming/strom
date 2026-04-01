@@ -29,18 +29,25 @@ def get_metadata() -> dict[str, dict[str, str | None]]:
 
 def render(meta: dict[str, dict[str, str | None]]) -> str:
     lines: list[str] = []
-    lines.append("| Game | Runtime | Run |")
-    lines.append("| --- | --- | --- |")
+    lines.append("| | Game | Runtime | Run |")
+    lines.append("| --- | --- | --- | --- |")
 
     for slug in sorted(meta):
         m = meta[slug]
         desc = m.get("description") or slug
         runtime = m.get("runtime") or "unknown"
 
-        name_cell = f"[{desc}](https://lutris.net/games/{slug}/)"
+        lutris_url = f"https://lutris.net/games/{slug}/"
+        banner_url = f"https://lutris.net/games/banner/{slug}.jpg"
+        banner_cell = (
+            f'<a href="{lutris_url}">'
+            f'<img src="{banner_url}" height="40" alt="{slug}">'
+            f"</a>"
+        )
+        name_cell = f"[{desc}]({lutris_url})"
         run_cell = f"`nix run github:kraftwerk-gaming/strom#{slug}`"
 
-        lines.append(f"| {name_cell} | `{runtime}` | {run_cell} |")
+        lines.append(f"| {banner_cell} | {name_cell} | `{runtime}` | {run_cell} |")
 
     lines.append("")
     lines.append(f"_{len(meta)} games_")
