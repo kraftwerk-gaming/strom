@@ -7,7 +7,6 @@
 }:
 
 let
-  proton = self.legacyPackages.${pkgs.system}.patched-pkgs.proton;
 
   darkBnd = pkgs.writeText "DARK.BND" ''
     auto_equip 1
@@ -177,7 +176,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     export ALSOFT_CONF="$GAMEDIR/openal/alsoft.conf"
 
     gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/Thief2.exe"
+      "$PROTON_RUN" "$GAMEDIR/Thief2.exe"
   '';
 
   meta = {

@@ -8,7 +8,6 @@
 }:
 
 let
-  proton = self.legacyPackages.${pkgs.system}.patched-pkgs.proton;
 
   originalData = fetchurl {
     url = "https://archive.org/download/msdos_Dungeon_Keeper_1997/Dungeon_Keeper_1997.zip";
@@ -77,7 +76,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     export DXVK_STATE_CACHE_PATH="$GAMEDIR"
 
     gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      python3 "${proton}/proton" waitforexitandrun "$GAMEDIR/keeperfx.exe"
+      "$PROTON_RUN" "$GAMEDIR/keeperfx.exe"
   '';
 
   meta = {
