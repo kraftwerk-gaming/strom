@@ -375,12 +375,14 @@ in
             trap 'kill -KILL -- -$INNER_PID 2>/dev/null; cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
             trap cleanup EXIT
 
-            # Figure out X socket for bwrap
-            x11_args=()
+            # Always tmpfs /tmp/.X11-unix so it is owned by us inside the userns.
+            # Host /tmp/.X11-unix is owned by root, which maps to nobody in the
+            # sandbox, causing wlroots/Xwayland to refuse socket creation on Wayland.
+            x11_args=(--tmpfs /tmp/.X11-unix --chmod 1777 /tmp/.X11-unix)
             if [[ "''${DISPLAY-}" == *:* ]]; then
               display_nr=''${DISPLAY/#*:}
               display_nr=''${display_nr/%.*}
-              x11_args=(--tmpfs /tmp/.X11-unix --ro-bind-try "/tmp/.X11-unix/X$display_nr" "/tmp/.X11-unix/X$display_nr")
+              x11_args+=(--ro-bind-try "/tmp/.X11-unix/X$display_nr" "/tmp/.X11-unix/X$display_nr")
             fi
 
             setsid bwrap \
