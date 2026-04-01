@@ -8,6 +8,13 @@
 let
   cfg = config;
 
+  # Resolve executable: absolute paths used as-is, relative paths prefixed with $GAMEDIR
+  exePath =
+    if lib.hasPrefix "/" cfg.executable then
+      cfg.executable
+    else
+      ''"$GAMEDIR/${cfg.executable}"'';
+
   protonRun = pkgs.writeShellScript "proton-run" ''
     python3 "${proton}/proton" waitforexitandrun "$@"
     ${proton}/files/bin/wineserver -k 2>/dev/null || true
@@ -78,12 +85,12 @@ let
       else if cfg.runtime == "proton" then
         ''
           gamescope ${cfg.gamescopeArgs} -- \
-            "$PROTON_RUN" "$GAMEDIR/${cfg.executable}"
+            "$PROTON_RUN" ${exePath}
         ''
       else if cfg.runtime == "native" then
         ''
           gamescope ${cfg.gamescopeArgs} -- \
-            "$GAMEDIR/${cfg.executable}" "$@"
+            ${exePath} "$@"
         ''
       else
         ''
@@ -149,7 +156,7 @@ in
     executable = mkOption {
       type = types.str;
       default = "";
-      description = "Game executable path relative to GAMEDIR (for proton/native runtime)";
+      description = "Game executable path, relative to GAMEDIR or absolute (for proton/native runtime)";
     };
 
     gamescopeArgs = mkOption {
@@ -339,7 +346,7 @@ in
               else if cfg.executable != "" then
                 ''
                   exec gamescope ${cfg.gamescopeArgs} -- \
-                    "$GAMEDIR/${cfg.executable}" "$@"
+                    ${exePath} "$@"
                 ''
               else
                 ''
