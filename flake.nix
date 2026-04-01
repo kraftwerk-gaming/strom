@@ -44,5 +44,24 @@
         in
         builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
       );
+
+      apps = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          games = self.packages.${system};
+          gameMeta = builtins.mapAttrs (_: p: {
+            description = p.meta.description or null;
+            runtime = p.passthru.runtime or "unknown";
+          }) games;
+          launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
+        in
+        {
+          launcher = {
+            type = "app";
+            program = "${launcher}/bin/strom-launcher";
+          };
+        }
+      );
     };
 }
