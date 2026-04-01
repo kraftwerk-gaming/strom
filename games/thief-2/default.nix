@@ -7,7 +7,7 @@
 }:
 
 let
-  proton = self.packages.${pkgs.system}.proton;
+  proton = self.legacyPackages.${pkgs.system}.patched-pkgs.proton;
 
   darkBnd = pkgs.writeText "DARK.BND" ''
     auto_equip 1

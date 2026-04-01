@@ -9,7 +9,7 @@
 }:
 
 let
-  proton = self.packages.${pkgs.system}.proton;
+  proton = self.legacyPackages.${pkgs.system}.patched-pkgs.proton;
 
   # ASI mod that fixes AB-BA deadlock on CS@00864F00 during track loading.
   deadlockFix =

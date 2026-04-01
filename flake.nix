@@ -22,18 +22,27 @@
         retroarch = import ./lib/retroarch.nix { wlib = wrappers.lib; };
       };
 
+      legacyPackages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          patched-pkgs = {
+            fuse-overlayfs = pkgs.callPackage ./pkgs/fuse-overlayfs.nix { };
+            proton = pkgs.callPackage ./pkgs/proton.nix { };
+            sdl2 = pkgs.callPackage ./pkgs/sdl2.nix { };
+          };
+        }
+      );
+
       packages = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self; });
         in
-        {
-          fuse-overlayfs = pkgs.callPackage ./pkgs/fuse-overlayfs.nix { };
-          proton = pkgs.callPackage ./pkgs/proton.nix { };
-          sdl2 = pkgs.callPackage ./pkgs/sdl2.nix { };
-        }
-        // builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
+        builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
       );
     };
 }

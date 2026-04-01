@@ -8,7 +8,7 @@
 }:
 
 let
-  proton = self.packages.${pkgs.system}.proton;
+  proton = self.legacyPackages.${pkgs.system}.patched-pkgs.proton;
 
   originalData = fetchurl {
     url = "https://archive.org/download/msdos_Dungeon_Keeper_1997/Dungeon_Keeper_1997.zip";

@@ -7,7 +7,7 @@
 }:
 
 let
-  proton = self.packages.${pkgs.system}.proton;
+  proton = self.legacyPackages.${pkgs.system}.patched-pkgs.proton;
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "starcraft";
