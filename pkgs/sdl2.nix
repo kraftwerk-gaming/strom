@@ -9,7 +9,14 @@
   systemd,
   libGL,
   vulkan-loader,
-  xorg,
+  libx11,
+  libxext,
+  libxrandr,
+  libxi,
+  libxcursor,
+  libxinerama,
+  libxcb,
+  libxfixes,
   libxkbcommon,
   wayland,
   wayland-protocols,
@@ -43,14 +50,14 @@ stdenv.mkDerivation {
     systemd
     libGL
     vulkan-loader
-    xorg.libX11
-    xorg.libXext
-    xorg.libXrandr
-    xorg.libXi
-    xorg.libXcursor
-    xorg.libXinerama
-    xorg.libxcb
-    xorg.libXfixes
+    libx11
+    libxext
+    libxrandr
+    libxi
+    libxcursor
+    libxinerama
+    libxcb
+    libxfixes
     libxkbcommon
     wayland
     wayland-protocols
