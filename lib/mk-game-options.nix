@@ -321,6 +321,7 @@ in
             ln -s ${wrapper fhsEnv} $out/bin/${cfg.name}
           '';
           inherit (cfg) meta;
+          passthru.runtime = cfg.runtime;
         }
       else if cfg.runtime == "native" then
         let
@@ -349,7 +350,7 @@ in
           '';
 
         in
-        pkgs.writeShellApplication {
+        (pkgs.writeShellApplication {
           inherit (cfg) name meta;
           runtimeInputs = [ pkgs.bubblewrap ];
           text = ''
@@ -389,7 +390,7 @@ in
             INNER_PID=$!
             wait $INNER_PID 2>/dev/null
           '';
-        }
+        }).overrideAttrs (_: { passthru.runtime = cfg.runtime; })
       else
         # custom: FHS env with overlay mounted outside
         let
@@ -409,6 +410,7 @@ in
             ln -s ${wrapper customFhs} $out/bin/${cfg.name}
           '';
           inherit (cfg) meta;
+          passthru.runtime = cfg.runtime;
         };
   };
 }
