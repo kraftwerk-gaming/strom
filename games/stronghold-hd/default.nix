@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -6,10 +7,7 @@
   pkgsi686Linux,
 }:
 
-let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "stronghold-hd";
 
   src = fetchurl {

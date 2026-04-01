@@ -1,5 +1,5 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -8,8 +8,7 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-  proton = callPackage ../../lib/patched-proton.nix { };
+  proton = self.packages.${pkgs.system}.proton;
 
   originalData = fetchurl {
     url = "https://archive.org/download/msdos_Dungeon_Keeper_1997/Dungeon_Keeper_1997.zip";
@@ -17,7 +16,7 @@ let
     name = "dk1-original.zip";
   };
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "dungeon-keeper";
 
   src = fetchurl {

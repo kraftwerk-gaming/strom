@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -7,7 +8,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   vanillara = pkgs.vanillara;
 
@@ -47,7 +47,7 @@ let
     chmod 755 $out
   '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-red-alert";
 
   src = vanillaraWithData;

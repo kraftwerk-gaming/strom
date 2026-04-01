@@ -1,4 +1,5 @@
 {
+  self,
   cmake,
   fetchFromGitHub,
   fetchurl,
@@ -26,7 +27,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   libADLMIDI-src = fetchFromGitHub {
     owner = "Wohlstand";
@@ -175,7 +175,7 @@ let
         done
       '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "syndicate";
 
   src = gameData;

@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -6,7 +7,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   vanillatd = pkgs.vanillatd;
 
@@ -22,7 +22,7 @@ let
     name = "cnc-nod.iso";
   };
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer";
 
   src = gdiIso;

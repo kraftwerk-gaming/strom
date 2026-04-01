@@ -1,5 +1,5 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -7,10 +7,9 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-  proton = callPackage ../../lib/patched-proton.nix { };
+  proton = self.packages.${pkgs.system}.proton;
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "starcraft";
 
   src = fetchurl {

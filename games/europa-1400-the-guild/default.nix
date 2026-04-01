@@ -1,5 +1,5 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -11,8 +11,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-  sdl2-real = callPackage ../../lib/sdl2-real.nix { };
   wine = wineWow64Packages.stable;
 
   gameISO = fetchurl {
@@ -48,7 +46,7 @@ let
         cp -r "$WINEPREFIX/drive_c/Program Files (x86)/JoWooD/Europa 1400 - Gold Edition" "$out"
       '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "europa-1400-the-guild";
 
   src = gameData;
@@ -92,7 +90,6 @@ mkGame {
     pkgs.libpulseaudio
     pkgs.openal
     pkgs.systemd
-    sdl2-real
     pkgsi686Linux.freetype
     pkgsi686Linux.glibc
     pkgsi686Linux.glib

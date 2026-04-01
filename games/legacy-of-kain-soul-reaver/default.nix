@@ -1,5 +1,5 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -9,8 +9,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-  sdl2-real = callPackage ../../lib/sdl2-real.nix { };
 
   dxwrapper = fetchurl {
     url = "https://github.com/elishacloud/dxwrapper/releases/download/v1.6.8300.25/dx7.games.zip";
@@ -18,7 +16,7 @@ let
     name = "dxwrapper.zip";
   };
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "legacy-of-kain-soul-reaver";
 
   src = fetchurl {
@@ -94,7 +92,6 @@ mkGame {
     pkgs.libpulseaudio
     pkgs.openal
     pkgs.systemd
-    sdl2-real
     pkgsi686Linux.freetype
     pkgsi686Linux.glibc
     pkgsi686Linux.glib

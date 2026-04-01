@@ -1,4 +1,5 @@
 {
+  self,
   fetchurl,
   jazz2,
   lib,
@@ -8,7 +9,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   jazz2-mp = jazz2.overrideAttrs (old: {
     cmakeFlags = old.cmakeFlags ++ [
@@ -44,7 +44,7 @@ let
     test -f "$out/Jazz² Resurrection/Cache/Source.pak"
   '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "jazz-jackrabbit-2";
 
   src = gameData;

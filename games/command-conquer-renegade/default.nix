@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -6,7 +7,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   # Portable pre-installed English version (patched to 1.037)
   gameSrc = fetchurl {
@@ -22,7 +22,7 @@ let
     name = "RenegadePlay.iso";
   };
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-renegade";
 
   src = gameSrc;

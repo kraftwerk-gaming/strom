@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -8,7 +9,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   # Portable pre-installed English version with RA2 + Yuri's Revenge
   gameSrc = fetchurl {
@@ -39,7 +39,7 @@ let
 
   setupRegistry = ./setup-registry.sh;
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-red-alert-2";
 
   src = gameSrc;

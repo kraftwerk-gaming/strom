@@ -1,5 +1,5 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -7,8 +7,7 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-  proton = callPackage ../../lib/patched-proton.nix { };
+  proton = self.packages.${pkgs.system}.proton;
 
   darkBnd = pkgs.writeText "DARK.BND" ''
     auto_equip 1
@@ -106,7 +105,7 @@ let
     eax_environment 1
   '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "thief-2";
 
   src = fetchurl {

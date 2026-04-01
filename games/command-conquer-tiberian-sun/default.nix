@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -8,7 +9,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   # Official EA English freeware release (First Decade, includes Firestorm)
   gameEn = fetchurl {
@@ -83,7 +83,7 @@ let
     NetCard=0
   '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-tiberian-sun";
 
   src = gameEn;

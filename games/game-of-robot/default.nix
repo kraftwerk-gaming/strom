@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -7,7 +8,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   dosboxConf = pkgs.writeText "game-of-robot.conf" ''
     [sdl]
@@ -35,7 +35,7 @@ let
     exit
   '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "game-of-robot";
 
   src = fetchurl {

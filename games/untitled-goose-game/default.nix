@@ -1,15 +1,12 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
   p7zip,
 }:
 
-let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "untitled-goose-game";
 
   src = fetchurl {

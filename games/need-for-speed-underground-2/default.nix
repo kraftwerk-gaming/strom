@@ -1,5 +1,5 @@
 {
-  callPackage,
+  self,
   lib,
   pkgs,
   fetchurl,
@@ -9,8 +9,7 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-  proton = callPackage ../../lib/patched-proton.nix { };
+  proton = self.packages.${pkgs.system}.proton;
 
   # ASI mod that fixes AB-BA deadlock on CS@00864F00 during track loading.
   deadlockFix =
@@ -24,7 +23,7 @@ let
           -nostdlib -lkernel32 -Wl,--enable-stdcall-fixup,-e,__DllMainCRTStartup
       '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "need-for-speed-underground-2";
 
   src = fetchurl {

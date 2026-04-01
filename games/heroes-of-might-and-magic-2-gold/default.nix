@@ -1,4 +1,5 @@
 {
+  self,
   bchunk,
   fetchurl,
   fheroes2,
@@ -8,10 +9,7 @@
   unzip,
 }:
 
-let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "heroes-of-might-and-magic-2-gold";
 
   src = fetchurl {

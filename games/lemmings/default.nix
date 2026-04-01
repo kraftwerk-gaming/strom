@@ -1,4 +1,5 @@
 {
+  self,
   bchunk,
   dosbox-x,
   fetchurl,
@@ -8,7 +9,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   cdBin = fetchurl {
     url = "https://archive.org/download/az-2246/AZ_2246.bin";
@@ -42,7 +42,7 @@ let
     cycles=auto
   '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "lemmings";
 
   src = cdBin;

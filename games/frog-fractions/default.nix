@@ -1,12 +1,10 @@
 {
+  self,
   lib,
   pkgs,
 }:
 
-let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
-in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "frog-fractions";
   runtime = "native";
 

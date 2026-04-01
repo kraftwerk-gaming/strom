@@ -1,4 +1,5 @@
 {
+  self,
   fetchurl,
   fetchFromGitHub,
   lib,
@@ -19,7 +20,6 @@
 }:
 
 let
-  mkGame = import ../../lib/mk-game.nix { inherit lib pkgs; };
 
   version = "unstable-2025-03-17";
   rev = "e4146df452217e8e0ddb62c6a5482008f80c3153";
@@ -127,7 +127,7 @@ let
         ln -s ${s25client}/lib/* $out/lib/
       '';
 in
-mkGame {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "the-settlers-ii-gold-edition";
 
   # s25rttr uses its own prefix, not a flat game dir.
