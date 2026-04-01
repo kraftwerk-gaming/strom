@@ -18,7 +18,7 @@
 }:
 
 stdenv.mkDerivation {
-  pname = "sdl2-real";
+  pname = "sdl2";
   version = "2.30.12";
 
   src = fetchurl {

@@ -15,7 +15,7 @@ let
     kill -9 0 2>/dev/null
   '';
 
-  patchedFuseOverlayfs = pkgs.callPackage ./fuse-overlayfs-patched.nix { };
+  patchedFuseOverlayfs = pkgs.callPackage ../pkgs/fuse-overlayfs.nix { };
 
   prepareGameDir = pkgs.callPackage ./prepare-game-dir.nix {
     fuse-overlayfs = patchedFuseOverlayfs;
@@ -25,7 +25,7 @@ let
 
   proton =
     if cfg.patchedProton then
-      pkgs.callPackage ./patched-proton.nix { }
+      pkgs.callPackage ../pkgs/proton.nix { }
     else
       pkgs.proton-ge-bin.steamcompattool;
 
@@ -281,7 +281,7 @@ in
                 p.libpulseaudio
                 p.openal
                 p.systemd
-                (pkgs.callPackage ./sdl2-real.nix { })
+                (pkgs.callPackage ../pkgs/sdl2.nix { })
                 p.pkgsi686Linux.freetype
                 p.pkgsi686Linux.glibc
                 p.pkgsi686Linux.glib
