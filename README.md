@@ -44,9 +44,10 @@ rebuilds.
 | <a href="https://lutris.net/games/thief-2/"><img src="https://lutris.net/games/banner/thief-2.jpg" height="40" alt="thief-2"></a> | [Thief II: The Metal Age (NewDark engine, via Proton and gamescope)](https://lutris.net/games/thief-2/) | `proton` | `nix run github:kraftwerk-gaming/strom#thief-2` |
 | <a href="https://lutris.net/games/thief-gold/"><img src="https://lutris.net/games/banner/thief-gold.jpg" height="40" alt="thief-gold"></a> | [Thief Gold with TFix (NewDark engine, via Proton and gamescope)](https://lutris.net/games/thief-gold/) | `proton` | `nix run github:kraftwerk-gaming/strom#thief-gold` |
 | <a href="https://lutris.net/games/untitled-goose-game/"><img src="https://lutris.net/games/banner/untitled-goose-game.jpg" height="40" alt="untitled-goose-game"></a> | [Untitled Goose Game (via Proton and gamescope)](https://lutris.net/games/untitled-goose-game/) | `proton` | `nix run github:kraftwerk-gaming/strom#untitled-goose-game` |
+| <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D (GOG build, via Proton and gamescope)](https://lutris.net/games/worms-wmd/) | `proton` | `nix run github:kraftwerk-gaming/strom#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears (via RetroArch / SwanStation)](https://lutris.net/games/xenogears/) | `retroarch` | `nix run github:kraftwerk-gaming/strom#xenogears` |
 
-_25 games_
+_26 games_
 
 <!-- END GENERATED GAMES -->
 
