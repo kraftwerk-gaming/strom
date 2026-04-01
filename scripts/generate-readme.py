@@ -29,7 +29,7 @@ def get_metadata() -> dict[str, dict[str, str | None]]:
 
 def render(meta: dict[str, dict[str, str | None]]) -> str:
     lines: list[str] = []
-    lines.append("| Game | Runtime | Lutris | Nix |")
+    lines.append("| Game | Runtime | Lutris | Run |")
     lines.append("| --- | --- | --- | --- |")
 
     for slug in sorted(meta):
@@ -44,9 +44,9 @@ def render(meta: dict[str, dict[str, str | None]]) -> str:
             name_cell = desc
 
         lutris_cell = f"[{slug}](https://lutris.net/games/{slug}/)"
-        nix_cell = f"[games/{slug}](games/{slug}/default.nix)"
+        run_cell = f"`nix run github:kraftwerk-gaming/strom#{slug}`"
 
-        lines.append(f"| {name_cell} | `{runtime}` | {lutris_cell} | {nix_cell} |")
+        lines.append(f"| {name_cell} | `{runtime}` | {lutris_cell} | {run_cell} |")
 
     lines.append("")
     lines.append(f"_{len(meta)} games_")
