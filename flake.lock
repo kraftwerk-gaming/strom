@@ -18,7 +18,25 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "wrappers": "wrappers"
+      }
+    },
+    "wrappers": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775013300,
+        "narHash": "sha256-bA3yuVnF/QYtZV05KdDnztxcDrm383j5mL+ZRaFECw8=",
+        "path": "/home/lass/src/wrappers",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/lass/src/wrappers",
+        "type": "path"
       }
     }
   },
