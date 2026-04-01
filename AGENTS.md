@@ -7,6 +7,11 @@
 - The flake attribute name = directory name = Lutris slug. No exceptions.
 - Internal variable names (nix let bindings, fetchurl `name =`) don't need to follow the slug — they describe the actual artifact.
 
+## README
+
+- After adding or removing a game, regenerate the games table: `python3 scripts/generate-readme.py`
+- The script reads flake metadata via `scripts/generate-readme.nix` and rewrites the block between the `<!-- BEGIN/END GENERATED GAMES -->` markers. Do not edit that block by hand.
+
 ## Game data directories (~/.strom/<game>)
 
 - **NEVER delete a game directory** (`rm -rf ~/.strom/<game>`). These contain user saves, profiles, and Wine prefixes that cannot be recovered.
