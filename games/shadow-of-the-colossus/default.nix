@@ -22,10 +22,8 @@ let
     unzip ${gameSrc} -d $out
   '';
 
-
-
   # BIOS dir with pregenerated .mec sidecar (4-byte version/region tag)
-  biosDir = pkgs.runCommandLocal "ps2-bios" {} ''
+  biosDir = pkgs.runCommandLocal "ps2-bios" { } ''
     mkdir -p $out
     cp ${ps2bios} $out/ps2-0200a-20040614.bin
     printf '\x03\x06\x02\x00' > $out/ps2-0200a-20040614.mec
@@ -114,9 +112,14 @@ let
     UserHacks_DisableRenderFixes = false
   '';
 in
-pkgs.writeShellApplication {
+(pkgs.writeShellApplication {
   name = "shadow-of-the-colossus";
   runtimeInputs = [ pkgs.pcsx2 ];
+  meta = {
+    description = "Shadow of the Colossus (via PCSX2)";
+    mainProgram = "shadow-of-the-colossus";
+    platforms = lib.platforms.linux;
+  };
   text = ''
     DATADIR="''${HOME:-.}/.strom/shadow-of-the-colossus"
     PCSX2DIR="$DATADIR/config/PCSX2"
@@ -133,4 +136,7 @@ pkgs.writeShellApplication {
       -fastboot \
       -- "${gameIso}/Shadow of the Colossus (USA).iso"
   '';
-}
+}).overrideAttrs
+  (_: {
+    passthru.runtime = "pcsx2";
+  })

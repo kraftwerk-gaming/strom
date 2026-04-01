@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   fetchurl,
   p7zip,
@@ -47,4 +48,12 @@ in
   settings.savefile_directory = "~/.strom/xenogears/saves";
   settings.savestate_directory = "~/.strom/xenogears/states";
   args = [ "${gameDiscs}/Xenogears (Disc 1).cue" ];
-}).wrapper
+}).wrapper.overrideAttrs
+  (_: {
+    meta = {
+      description = "Xenogears (via RetroArch / SwanStation)";
+      mainProgram = "retroarch";
+      platforms = lib.platforms.linux;
+    };
+    passthru.runtime = "retroarch";
+  })
