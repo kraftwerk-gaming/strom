@@ -1,8 +1,8 @@
 {
-  lib,
   pkgs,
   fetchurl,
   p7zip,
+  self,
 }:
 
 let
@@ -36,38 +36,15 @@ let
     7z x ${psxBios7z} -o$out -aoa
     mv $out/scph1001.bin $out/scph5501.bin
   '';
-
-  swanstation = pkgs.libretro.swanstation;
-
-  retroarch = pkgs.retroarch.withCores (_: [ swanstation ]);
-
-  retroCfg = pkgs.writeText "retroarch.cfg" ''
-    system_directory = "${biosDir}"
-    savefile_directory = "%s/saves"
-    savestate_directory = "%s/states"
-    input_autodetect_enable = "true"
-    input_joypad_driver = "sdl2"
-    video_driver = "vulkan"
-    video_fullscreen = "false"
-    video_windowed_fullscreen = "false"
-    menu_driver = "ozone"
-    pause_nonactive = "false"
-  '';
 in
-pkgs.writeShellApplication {
-  name = "xenogears";
-  runtimeInputs = [ retroarch pkgs.gamescope ];
-  text = ''
-    DATADIR="''${HOME:-.}/.strom/xenogears"
-    mkdir -p "$DATADIR/saves" "$DATADIR/states"
-
-    # Write config
-    sed "s|%s|$DATADIR|g" ${retroCfg} > "$DATADIR/retroarch.cfg"
-
-    exec gamescope -W 1920 -H 1080 -w 960 -h 720 -- \
-      env QT_QPA_PLATFORM=xcb retroarch \
-        --appendconfig "$DATADIR/retroarch.cfg" \
-        -L ${swanstation}/lib/retroarch/cores/swanstation_libretro.so \
-        "${gameDiscs}/Xenogears (Disc 1).cue"
+(self.lib.retroarch.apply {
+  inherit pkgs;
+  cores = [ pkgs.libretro.swanstation ];
+  settings.system_directory = toString biosDir;
+  preHook = ''
+    mkdir -p ~/.strom/xenogears/saves ~/.strom/xenogears/states
   '';
-}
+  settings.savefile_directory = "~/.strom/xenogears/saves";
+  settings.savestate_directory = "~/.strom/xenogears/states";
+  args = [ "${gameDiscs}/Xenogears (Disc 1).cue" ];
+}).wrapper
