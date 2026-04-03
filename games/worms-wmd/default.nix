@@ -3,7 +3,6 @@
   lib,
   pkgs,
   fetchIpfs,
-  unzip,
 }:
 
 # The only PC upload of Worms W.M.D on archive.org is a third-party SFX
@@ -14,7 +13,6 @@
 # build does not need to parse the PE.
 
 let
-  zipOffset = 106989;
   fileMap = ./filemap.tsv;
 in
 self.lib.mkGame { inherit lib pkgs; } {
@@ -27,15 +25,14 @@ self.lib.mkGame { inherit lib pkgs; } {
     name = "worms-wmd-setup.exe";
   };
 
-  nativeBuildInputs = [ unzip ];
+  nativeBuildInputs = [ pkgs.p7zip ];
 
   buildScript = ''
     mkdir -p "$out" extracted
 
-    # Strip the SFX stub so unzip does not choke on the leading garbage.
-    tail -c +$(( ${toString zipOffset} + 1 )) "$src" > payload.zip
-    unzip -q payload.zip -d extracted
-    rm payload.zip
+    # The SFX repack is a PE with an appended zip. 7z handles this
+    # natively; unzip cannot.
+    7z x -oextracted "$src" -y > /dev/null
 
     # Rename numbered entries according to the manifest.
     while IFS=$'\t' read -r idx path; do
@@ -43,6 +40,9 @@ self.lib.mkGame { inherit lib pkgs; } {
       mkdir -p "$(dirname "$dest")"
       mv "extracted/$idx" "$dest"
     done < ${fileMap}
+
+    # Remove installer leftovers not in the manifest.
+    rm -f extracted/uninstall.exe
 
     # Anything left over would indicate the manifest is stale.
     leftover=$(ls extracted)
