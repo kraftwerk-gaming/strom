@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   dosbox-x,
   gamescope,
   unzip,
@@ -61,8 +61,9 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "archimedean-dynasty";
 
-  src = fetchurl {
-    url = "https://archive.org/download/msdos_Archimedean_Dynasty_1996/msdos_Archimedean_Dynasty_1996.zip";
+  src = fetchIpfs {
+    cid = "QmQs4toBKxcEJagPfxKP8uvAtadT85EKQqbxPEknbMRoGV";
+    fallbackUrl = "https://archive.org/download/msdos_Archimedean_Dynasty_1996/msdos_Archimedean_Dynasty_1996.zip";
     hash = "sha256-CBIRQ3TqzVgRa99DDbTZLJHrueouYUQJo4Aeq0H016o=";
     name = "archimedean-dynasty.zip";
   };

@@ -2,17 +2,18 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   unzip,
   corsix-th,
 }:
 
 let
-  gameArchive = fetchurl {
-    url = "https://archive.org/download/msdos_Theme_Hospital_1997/Theme_Hospital_1997.zip";
+  gameArchive = fetchIpfs {
+    cid = "QmfPKbmr66LXriEeuodGHVCEryaFmn51BNN3qgHcKb3oZC";
+    fallbackUrl = "https://archive.org/download/msdos_Theme_Hospital_1997/Theme_Hospital_1997.zip";
     hash = "sha256-3PIZC+eiWS0knH3PZAtlQgvRhrnwYzuR5JsiYa886Us=";
     name = "theme-hospital-original.zip";
-  };
+    };
 
   gameData =
     pkgs.runCommandLocal "theme-hospital-data"

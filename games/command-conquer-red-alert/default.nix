@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
   rsync,
 }:
@@ -11,17 +11,19 @@ let
 
   vanillara = pkgs.vanillara;
 
-  alliedIso = fetchurl {
-    url = "https://archive.org/download/cnc-red-alert/redalert_allied.iso";
+  alliedIso = fetchIpfs {
+    cid = "QmcsehQcLAirZBcPeeg5S8o9AE1FLXV3UQFGy5hEBWTVAF";
+    fallbackUrl = "https://archive.org/download/cnc-red-alert/redalert_allied.iso";
     hash = "sha256-Npx6hSTJetFlcb/Fi3UQEGuP0iLk9LIrRmAI7WgEtdw=";
     name = "redalert-allied.iso";
-  };
+    };
 
-  sovietIso = fetchurl {
-    url = "https://archive.org/download/cnc-red-alert/redalert_soviets.iso";
+  sovietIso = fetchIpfs {
+    cid = "QmbL6hEyptKFu4epV5QANVnpfKw81868yKK13KUHdk7MU3";
+    fallbackUrl = "https://archive.org/download/cnc-red-alert/redalert_soviets.iso";
     hash = "sha256-aJGr+w1BaGaLwX/pU0lMmu6Cgn9pZ2D/aVafBdtds2Q=";
     name = "redalert-soviet.iso";
-  };
+    };
 
   # Build a combined binary+data tree so vanillara finds data at ../share/vanillara/
   vanillaraWithData = pkgs.runCommandLocal "vanillara-with-data" {

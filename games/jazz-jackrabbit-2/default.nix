@@ -1,6 +1,6 @@
 {
   self,
-  fetchurl,
+  fetchIpfs,
   jazz2,
   lib,
   pkgs,
@@ -24,11 +24,12 @@ let
       ''
         mkdir -p "$out"
         unzip -j -o ${
-          fetchurl {
-            url = "https://archive.org/download/jazz-jackrabbit-2-1.24-the-secret-files-plus/Jazz%20Jackrabbit%202%201.24%20The%20Secret%20Files%20Plus.zip";
-            hash = "sha256-ceeXiGUy5QDq1HQPo5gpyQe2odAK1F5frofBXegeXi8=";
-            name = "jazz-jackrabbit-2-tsf.zip";
-          }
+          fetchIpfs {
+    cid = "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb";
+    fallbackUrl = "https://archive.org/download/jazz-jackrabbit-2-1.24-the-secret-files-plus/Jazz%20Jackrabbit%202%201.24%20The%20Secret%20Files%20Plus.zip";
+    hash = "sha256-ceeXiGUy5QDq1HQPo5gpyQe2odAK1F5frofBXegeXi8=";
+    name = "jazz-jackrabbit-2-tsf.zip";
+    }
         } -d "$out/"
       '';
 

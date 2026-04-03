@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
   pkgsi686Linux,
   runCommandLocal,
@@ -13,11 +13,12 @@
 let
   wine = wineWow64Packages.stable;
 
-  gameISO = fetchurl {
-    url = "https://archive.org/download/europa-1400-gold-edition/E1400_Gold_UK.iso";
+  gameISO = fetchIpfs {
+    cid = "QmVGbehWtufnkvDbiUJa5wCo1CurPzsPJM74VLhqykZUWP";
+    fallbackUrl = "https://archive.org/download/europa-1400-gold-edition/E1400_Gold_UK.iso";
     hash = "sha256-cZmqwy++R9ei19prp5qCZiJDeYPNHole/NugLOsE/Cs=";
     name = "europa1400gold.iso";
-  };
+    };
 
   # Extract ISO and run the Wise installer with Wine to get game files
   gameData =

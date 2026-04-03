@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   dosbox-x,
   unzip,
 }:
@@ -38,11 +38,12 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "game-of-robot";
 
-  src = fetchurl {
-    url = "https://archive.org/download/msdos_Game_of_Robot_The_1988/Game_of_Robot_The_1988.zip";
+  src = fetchIpfs {
+    cid = "bafkreifexrphk6ypefm2jxwzurmux7ulttdxwcfh2ucmt3jx3zydszg2pu";
+    fallbackUrl = "https://archive.org/download/msdos_Game_of_Robot_The_1988/Game_of_Robot_The_1988.zip";
     hash = "sha256-pLxedXsPIVmk3tmkWUv+i5zHewin1QTJ7TfecDlk2n0=";
     name = "game-of-robot.zip";
-  };
+    };
 
   nativeBuildInputs = [ unzip ];
 

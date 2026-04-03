@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   innoextract,
 }:
 
@@ -107,11 +107,12 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "thief-2";
 
-  src = fetchurl {
-    url = "https://archive.org/download/thief-2-hdmod-1.0_202404/Thief.2.The.Metal.Age.v1.26nd.21946-GOG/ENG/setup_thief_2_-_the_metal_age_1.26_nd_%2821946%29.exe";
+  src = fetchIpfs {
+    cid = "QmdUGBjjNmc1q1uEeS7yHCJFivK1x4zj2szzRmNkyosYhm";
+    fallbackUrl = "https://archive.org/download/thief-2-hdmod-1.0_202404/Thief.2.The.Metal.Age.v1.26nd.21946-GOG/ENG/setup_thief_2_-_the_metal_age_1.26_nd_%2821946%29.exe";
     hash = "sha256-X1/n/GkqpVLw+kp3wqCv9DOjLaHLwUv5fqOjHfnrELI=";
     name = "setup_thief2.exe";
-  };
+    };
 
   nativeBuildInputs = [ innoextract ];
 

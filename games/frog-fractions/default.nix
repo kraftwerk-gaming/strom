@@ -2,17 +2,19 @@
   self,
   lib,
   pkgs,
+  fetchIpfs,
 }:
 
 self.lib.mkGame { inherit lib pkgs; } {
   name = "frog-fractions";
   runtime = "native";
 
-  src = pkgs.fetchurl {
-    url = "https://archive.org/download/frog-fractions/FrogFractions.swf";
+  src = fetchIpfs {
+    cid = "QmNw4AfRRCfkFVuVSQ9ezXc4z2F5bLjAmLzkNT19WdDfAU";
+    fallbackUrl = "https://archive.org/download/frog-fractions/FrogFractions.swf";
     hash = "sha256-HYVbtOttB7PfEXhPbWXDFlE4q8I5ZSwNRo5aZDH55t0=";
     name = "FrogFractions.swf";
-  };
+    };
 
   buildScript = ''
     mkdir -p $out

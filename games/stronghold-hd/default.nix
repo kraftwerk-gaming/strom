@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   innoextract,
   pkgsi686Linux,
 }:
@@ -10,11 +10,12 @@
 self.lib.mkGame { inherit lib pkgs; } {
   name = "stronghold-hd";
 
-  src = fetchurl {
-    url = "https://archive.org/download/setup_stronghold_hd_2.0.0.3/setup_stronghold_hd_2.0.0.3.exe";
+  src = fetchIpfs {
+    cid = "QmVuY5eMwcMHa6DE3BUfvMByULz2P18NJNDSpUUtYCq9oh";
+    fallbackUrl = "https://archive.org/download/setup_stronghold_hd_2.0.0.3/setup_stronghold_hd_2.0.0.3.exe";
     hash = "sha256-wV9zOe8d7JhzF7vbiz6QT5hysdVR4xSZ+L39/SVNwfM=";
     name = "setup_stronghold_hd.exe";
-  };
+    };
 
   nativeBuildInputs = [ innoextract ];
 
