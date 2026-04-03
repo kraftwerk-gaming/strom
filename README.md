@@ -51,6 +51,21 @@ _26 games_
 
 <!-- END GENERATED GAMES -->
 
+## IPFS
+
+Game files are fetched from IPFS via `fetchIpfs` (see `lib/fetch-ipfs.nix`).
+Each game carries an IPFS CID and an archive.org fallback URL. At build time,
+`ipget` spawns a temporary IPFS node, fetches the CID from the DHT, and tears
+down. If IPFS fails, it falls back to the URL. The nix output hash ensures
+integrity regardless of source.
+
+Game files are pinned on an IPFS node using `ipfs add --nocopy`. The
+`--nocopy` flag avoids duplicating file data into the IPFS blockstore but
+implicitly enables `--raw-leaves`, which produces different CIDs than a plain
+`ipfs add`. This is a known kubo behavior: raw-leaves is not the default for
+CIDv0 for backwards compatibility reasons. CIDs in this repo always match the
+`--nocopy` (= `--raw-leaves`) variant.
+
 ## Adding a game
 
 1. Look up the Lutris slug: `https://lutris.net/api/games?search=<name>`
