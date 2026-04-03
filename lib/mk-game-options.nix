@@ -100,10 +100,20 @@ let
     }
   '';
 
-  # Runs outside bwrap: mounts overlay, then enters FHS
+  subreaper = pkgs.callPackage ../pkgs/subreaper.nix { };
+
+  # Runs outside bwrap: mounts overlay, then enters FHS.
+  # Uses PR_SET_CHILD_SUBREAPER so orphaned wine processes get reparented
+  # to this wrapper instead of init. This lets cleanup kill them reliably.
   wrapper =
     fhsEnv:
     pkgs.writeShellScript "${cfg.name}-wrapper" ''
+      # Re-exec under subreaper if not already
+      if [ -z "$STROM_SUBREAPER" ]; then
+        export STROM_SUBREAPER=1
+        exec ${subreaper}/bin/subreaper "$0" "$@"
+      fi
+
       GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
       mkdir -p "$GAMEDIR"
       export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
@@ -116,16 +126,21 @@ let
         "''${HOME:-.}/.cache/umu" "''${HOME:-.}/.cache/umu-protonfixes" "''${HOME:-.}/.cache/wine"
 
       cleanup() {
+        kill -KILL -- -$FHS_PID 2>/dev/null
+        # Kill reparented orphans (wine processes that became our children
+        # via PR_SET_CHILD_SUBREAPER). One pass, no loop.
+        local pids
+        pids=$(ps -o pid= --ppid $$ 2>/dev/null) || true
+        [ -n "$pids" ] && kill -KILL $pids 2>/dev/null
+        wait 2>/dev/null
         fusermount -uz "$STROM_OVERLAY" 2>/dev/null
       }
-      trap 'cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
-      trap cleanup EXIT
+      trap cleanup EXIT INT TERM
 
       # Run in new process group so kill -9 0 inside bwrap
       # doesn't kill this wrapper before cleanup runs
       setsid ${fhsEnv}/bin/${cfg.name}-fhs "$@" &
       FHS_PID=$!
-      trap 'kill -KILL -- -$FHS_PID 2>/dev/null; cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
       wait $FHS_PID 2>/dev/null
     '';
 in

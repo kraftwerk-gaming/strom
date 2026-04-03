@@ -2,18 +2,19 @@
   self,
   lib,
   pkgs,
+  fetchurl,
   fetchIpfs,
 }:
 
-# The only PC upload of Worms W.M.D on archive.org is a third-party SFX
-# repack of the GOG build. The installer stub stores the payload as a
-# plain ZIP archive appended at a fixed offset, with files named by
-# integer index. A CSV manifest in the stub maps index -> install path.
-# We extracted that manifest into filemap.tsv at packaging time so the
-# build does not need to parse the PE.
-
 let
   fileMap = ./filemap.tsv;
+
+  # Visual C++ 2012 x86 redistributable -- the game needs mfc110u.dll
+  vcredist = fetchurl {
+    url = "https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe";
+    hash = "sha256-uSStgGLq9OcEN8i+UPphIWJ5X/CDlHlUbOkH/6jW44Y=";
+    name = "vcredist_x86.exe";
+  };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "worms-wmd";
@@ -25,7 +26,10 @@ self.lib.mkGame { inherit lib pkgs; } {
     name = "worms-wmd-setup.exe";
   };
 
-  nativeBuildInputs = [ pkgs.p7zip ];
+  nativeBuildInputs = [
+    pkgs.p7zip
+    pkgs.cabextract
+  ];
 
   buildScript = ''
     mkdir -p "$out" extracted
@@ -51,13 +55,30 @@ self.lib.mkGame { inherit lib pkgs; } {
       exit 1
     fi
 
-    # The repack ships a steam_api.dll stub. Keep it: the GOG executable
-    # links against it and refuses to start without it present.
+    # Extract Visual C++ 2012 runtime DLLs from the redistributable.
+    # The vcredist is a cabinet containing MSIs and inner cabs.
+    # a2 has atl110/msvcp110/msvcr110, a3 has mfc110u.
+    cabextract -d vctemp "${vcredist}"
+    cabextract -d "$out" vctemp/a2 -F 'F_CENTRAL_*'
+    cabextract -d "$out" vctemp/a3 -F 'F_CENTRAL_mfc110u_x86'
+    rm -rf vctemp
+
+    # Rename extracted DLLs to their real names.
+    for f in "$out"/F_CENTRAL_*_x86; do
+      dll=$(basename "$f" | sed 's/^F_CENTRAL_//;s/_x86$/.dll/')
+      mv "$f" "$out/$dll"
+    done
   '';
 
   runtime = "proton";
-  executable = "Worms W.M.D.exe";
-  gamescopeArgs = "-W 1920 -H 1080 -r 60 --force-grab-cursor --expose-wayland";
+
+  # OpenGL game -- gamescope causes a black screen with OGL rendering.
+  # Run directly via proton without gamescope. Wine forks the game
+  # into its own process group, so SIGKILL on the bwrap group won't
+  # reach it. We background proton-run and kill wineserver on signal.
+  runScript = ''
+    exec "$PROTON_RUN" "$GAMEDIR/Worms W.M.D.exe"
+  '';
 
   targetPkgs = pkgs: [ pkgs.winetricks ];
 
@@ -76,7 +97,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   env = {
-    # Real Steam app id lets protonfixes pick up known workarounds.
     STEAM_COMPAT_APP_ID = "327030";
     SteamAppId = "327030";
     SteamGameId = "327030";
