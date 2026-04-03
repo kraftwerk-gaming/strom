@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   unzip,
 }:
 
@@ -20,9 +20,10 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "worms-wmd";
 
-  src = fetchurl {
-    url = "https://archive.org/download/setup_20230616_1422/Setup.exe";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  src = fetchIpfs {
+    cid = "QmVk1Uvd1fHRMDq2MwYWphkWCicmC7MJeE9XGr4GSaewQK";
+    fallbackUrl = "https://archive.org/download/setup_20230616_1422/Setup.exe";
+    hash = "sha256-LeEgV6tCbN6A52LQOKDdYnuT8tWqjQiZAARpRHBDSPs=";
     name = "worms-wmd-setup.exe";
   };
 
