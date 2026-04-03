@@ -1,7 +1,7 @@
 {
   self,
   bchunk,
-  fetchurl,
+  fetchIpfs,
   fheroes2,
   lib,
   p7zip,
@@ -12,11 +12,12 @@
 self.lib.mkGame { inherit lib pkgs; } {
   name = "heroes-of-might-and-magic-2-gold";
 
-  src = fetchurl {
-    url = "https://archive.org/download/heroes-of-might-and-magic-2-gold.-7z/Heroes%20of%20Might%20and%20Magic%202%20Gold.7z";
+  src = fetchIpfs {
+    cid = "QmRaZGqtcgX9cHNJXhkyc2czyw1qxjSvkAWRPjfEYCyVRi";
+    fallbackUrl = "https://archive.org/download/heroes-of-might-and-magic-2-gold.-7z/Heroes%20of%20Might%20and%20Magic%202%20Gold.7z";
     hash = "sha256-QMwZHzxBTGuzDYNtQzVOaymILWC0vhHXPyMyKGRN+78=";
     name = "heroes-of-might-and-magic-2-gold.7z";
-  };
+    };
 
   nativeBuildInputs = [
     bchunk
@@ -26,16 +27,18 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   buildScript =
     let
-      cdBin = fetchurl {
-        url = "https://archive.org/download/heroes-2-gold/Heroes2_Gold.bin";
-        hash = "sha256-2l1BbjxTZjuWXf9rUEjbnk9G06jciY8pFvHYXH0JgbM=";
-        name = "heroes-of-might-and-magic-2-gold-cd.bin";
-      };
-      cdCue = fetchurl {
-        url = "https://archive.org/download/heroes-2-gold/Heroes2_Gold.cue";
-        hash = "sha256-eukfs+RlbOIqofj/K0BOwzVB/jXOnALJyTh6cnHA1Hg=";
-        name = "heroes-of-might-and-magic-2-gold-cd.cue";
-      };
+      cdBin = fetchIpfs {
+    cid = "QmXSHLnrpjALQJiboU8NPjttvgmmaLgeZxYRTZuKcBajUX";
+    fallbackUrl = "https://archive.org/download/heroes-2-gold/Heroes2_Gold.bin";
+    hash = "sha256-2l1BbjxTZjuWXf9rUEjbnk9G06jciY8pFvHYXH0JgbM=";
+    name = "heroes-of-might-and-magic-2-gold-cd.bin";
+    };
+      cdCue = fetchIpfs {
+    cid = "bafkreid25ep3hzdfntrcvipy74vuatwdgva74nootqbmtsjypjzhdqgupa";
+    fallbackUrl = "https://archive.org/download/heroes-2-gold/Heroes2_Gold.cue";
+    hash = "sha256-eukfs+RlbOIqofj/K0BOwzVB/jXOnALJyTh6cnHA1Hg=";
+    name = "heroes-of-might-and-magic-2-gold-cd.cue";
+    };
     in
     ''
       mkdir -p "$out"

@@ -40,7 +40,10 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self; });
+          fetchIpfs = import ./lib/fetch-ipfs.nix {
+            inherit (pkgs) lib stdenvNoCC ipget curl cacert;
+          };
+          callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
         in
         builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
       );

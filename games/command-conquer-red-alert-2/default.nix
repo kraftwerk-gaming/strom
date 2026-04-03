@@ -3,6 +3,7 @@
   lib,
   pkgs,
   fetchurl,
+  fetchIpfs,
   p7zip,
   unzip,
   writeText,
@@ -11,11 +12,12 @@
 let
 
   # Portable pre-installed English version with RA2 + Yuri's Revenge
-  gameSrc = fetchurl {
-    url = "https://archive.org/download/command-and-conquer-red-alert-2-v-2.0.-7z/Command%20and%20Conquer%20Red%20Alert%202%20%28v2.0%29.7z";
+  gameSrc = fetchIpfs {
+    cid = "QmeuAn5K7qBARybPwJhKLyF7ziGEbNgcAVkJ6vKMopKj1F";
+    fallbackUrl = "https://archive.org/download/command-and-conquer-red-alert-2-v-2.0.-7z/Command%20and%20Conquer%20Red%20Alert%202%20%28v2.0%29.7z";
     hash = "sha256-WJ3pL868aPxc2yonyIMLdNRXZyDklV4GZT+P1GXIrAM=";
     name = "ra2-portable.7z";
-  };
+    };
 
   # cnc-ddraw for DirectDraw compatibility
   cncDdraw = fetchurl {

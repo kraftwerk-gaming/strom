@@ -2,18 +2,19 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
 }:
 
 self.lib.mkGame { inherit lib pkgs; } {
   name = "untitled-goose-game";
 
-  src = fetchurl {
-    url = "https://archive.org/download/untitled-goose-game-portable-hoang-long/Untitled_Goose_Game_Portable%5BHoangLong%5D.7z";
+  src = fetchIpfs {
+    cid = "QmQQ7zeZckvfqvNn79NRVLqU2SKgqKWioRM3yiLqexki9c";
+    fallbackUrl = "https://archive.org/download/untitled-goose-game-portable-hoang-long/Untitled_Goose_Game_Portable%5BHoangLong%5D.7z";
     hash = "sha256-CAcpFF28cM/Gu032tHL9SdBHHAXCWx2w6ycqL8HEG+Y=";
     name = "goose.7z";
-  };
+    };
 
   nativeBuildInputs = [ p7zip ];
 

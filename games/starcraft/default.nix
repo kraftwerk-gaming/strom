@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   unzip,
 }:
 
@@ -11,11 +11,12 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "starcraft";
 
-  src = fetchurl {
-    url = "https://archive.org/download/sc-classic-installer_202311/StarCraft%20Portable.zip";
+  src = fetchIpfs {
+    cid = "QmcqdWwb33rKcfFzoZyTJQpL62ADcTHr8W2APG4Q6MFERx";
+    fallbackUrl = "https://archive.org/download/sc-classic-installer_202311/StarCraft%20Portable.zip";
     hash = "sha256-LotKRHxNGrDSO2afcqwkwxdwzkjS7saSZcF6a/By9zU=";
     name = "starcraft-portable.zip";
-  };
+    };
 
   nativeBuildInputs = [ unzip ];
 

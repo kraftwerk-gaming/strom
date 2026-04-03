@@ -1,29 +1,32 @@
 {
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
   self,
 }:
 
 let
-  disc1 = fetchurl {
-    url = "https://archive.org/download/xenogears-USA.-7z/Xenogears%20%28Disc%201%29.7z";
+  disc1 = fetchIpfs {
+    cid = "QmRnafsnEmZgj6i2sJ7aJbns4y8bVSzrzgqdcJwXJFjsBj";
+    fallbackUrl = "https://archive.org/download/xenogears-USA.-7z/Xenogears%20%28Disc%201%29.7z";
     hash = "sha256-36cmJhQcuXcGg7A/yvPaxuFEQEYi/BlbgpNqFxqfyik=";
     name = "xenogears-disc1.7z";
-  };
+    };
 
-  disc2 = fetchurl {
-    url = "https://archive.org/download/xenogears-USA.-7z/Xenogears%20%28Disc%202%29.7z";
+  disc2 = fetchIpfs {
+    cid = "QmSysVXQPdcJHsJnDTYxRiq7vF3PcGgFqobziHzp3EZaE8";
+    fallbackUrl = "https://archive.org/download/xenogears-USA.-7z/Xenogears%20%28Disc%202%29.7z";
     hash = "sha256-kF513kDCTNAwVxpQwKFqwkSiU612qdfdB2oLfJMmOu4=";
     name = "xenogears-disc2.7z";
-  };
+    };
 
-  psxBios7z = fetchurl {
-    url = "https://archive.org/download/psx-usa-jap-eu_bios/psx-usa-jap-eu_bios/scph1001.7z";
+  psxBios7z = fetchIpfs {
+    cid = "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u";
+    fallbackUrl = "https://archive.org/download/psx-usa-jap-eu_bios/psx-usa-jap-eu_bios/scph1001.7z";
     hash = "sha256-IFyuviXa2nizXdQMiQDClqDT1qCNRtMnXllQtgyDxv0=";
     name = "scph1001.7z";
-  };
+    };
 
   gameDiscs = pkgs.runCommandLocal "xenogears-discs" { nativeBuildInputs = [ p7zip ]; } ''
     mkdir -p $out

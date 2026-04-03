@@ -3,6 +3,7 @@
   lib,
   pkgs,
   fetchurl,
+  fetchIpfs,
   unar,
   unzip,
   writeText,
@@ -11,11 +12,12 @@
 let
 
   # Official EA English freeware release (First Decade, includes Firestorm)
-  gameEn = fetchurl {
-    url = "https://archive.org/download/command-and-conquer-tiberian-sun/OfficialCnCTiberianSun.rar";
+  gameEn = fetchIpfs {
+    cid = "QmagHQjFDHYaRQ23jQXUWkeWSn4uB1BenjkG8ann8myxUk";
+    fallbackUrl = "https://archive.org/download/command-and-conquer-tiberian-sun/OfficialCnCTiberianSun.rar";
     hash = "sha256-sEIZ5xVRHem6ov65gnATyOEG+Na5tWOTa4ovZQMF3sU=";
     name = "tibsun-en.rar";
-  };
+    };
 
   # cnc-ddraw for DirectDraw compatibility
   cncDdraw = fetchurl {

@@ -2,25 +2,27 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
 }:
 
 let
 
   # Portable pre-installed English version (patched to 1.037)
-  gameSrc = fetchurl {
-    url = "https://archive.org/download/Command.And.Conquer.Renegade/Command%20And%20Conquer%20Renegade.7z";
+  gameSrc = fetchIpfs {
+    cid = "QmdPZubtKw9muhK6rnj49TiiNLsA8HrygUKbVvXzJaovwV";
+    fallbackUrl = "https://archive.org/download/Command.And.Conquer.Renegade/Command%20And%20Conquer%20Renegade.7z";
     hash = "sha256-CuAR/nQw4MzL5vdVX0+5JedTGtHbq9lEojLIOqxhBjI=";
     name = "renegade.7z";
-  };
+    };
 
   # Play disc ISO for campaign movies (BIK files)
-  playIso = fetchurl {
-    url = "https://archive.org/download/renegade-install/RenegadePlay.iso";
+  playIso = fetchIpfs {
+    cid = "QmbLwmUmtfaZVZRxuyNBgpxBt4y9cGePys7EBEbu9rjDgV";
+    fallbackUrl = "https://archive.org/download/renegade-install/RenegadePlay.iso";
     hash = "sha256-fUpsX+f0xlPgsu/rHbXyX/A/KZAvOdDBpQG9+GpO6hE=";
     name = "RenegadePlay.iso";
-  };
+    };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-renegade";

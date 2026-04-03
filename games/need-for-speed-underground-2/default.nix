@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
   pkgsCross,
   runCommandLocal,
@@ -25,11 +25,12 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "need-for-speed-underground-2";
 
-  src = fetchurl {
-    url = "https://archive.org/download/NFSU2Stable/Need%20for%20Speed%20Underground%202.7z";
+  src = fetchIpfs {
+    cid = "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm";
+    fallbackUrl = "https://archive.org/download/NFSU2Stable/Need%20for%20Speed%20Underground%202.7z";
     hash = "sha256-aC+1gcJLFay2jWTDBOXZSL3tIxaBoDHV1amtl82XBlA=";
     name = "nfsu2.7z";
-  };
+    };
 
   nativeBuildInputs = [ p7zip ];
 

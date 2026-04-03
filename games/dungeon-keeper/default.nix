@@ -3,17 +3,19 @@
   lib,
   pkgs,
   fetchurl,
+  fetchIpfs,
   p7zip,
   unzip,
 }:
 
 let
 
-  originalData = fetchurl {
-    url = "https://archive.org/download/msdos_Dungeon_Keeper_1997/Dungeon_Keeper_1997.zip";
+  originalData = fetchIpfs {
+    cid = "Qmez7AYzB1fAm129WEkUafvBnshvSfM5hPozpjQcZV8m3y";
+    fallbackUrl = "https://archive.org/download/msdos_Dungeon_Keeper_1997/Dungeon_Keeper_1997.zip";
     hash = "sha256-7/DKaLonPKI6uH0a0vwesqM4d4AGIvoC2/ZPVRnFXJo=";
     name = "dk1-original.zip";
-  };
+    };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "dungeon-keeper";

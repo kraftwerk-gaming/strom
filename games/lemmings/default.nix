@@ -2,7 +2,7 @@
   self,
   bchunk,
   dosbox-x,
-  fetchurl,
+  fetchIpfs,
   lib,
   p7zip,
   pkgs,
@@ -10,17 +10,19 @@
 
 let
 
-  cdBin = fetchurl {
-    url = "https://archive.org/download/az-2246/AZ_2246.bin";
+  cdBin = fetchIpfs {
+    cid = "QmWtMqf1RBi8RR56W9AQi2WFxB6Qt5rjuULkQCPaTB8nKb";
+    fallbackUrl = "https://archive.org/download/az-2246/AZ_2246.bin";
     hash = "sha256-o3EUjEYRVXxNP4XL1Bjx0ERiEpJAvMky7RWBbUw4/Pw=";
     name = "lemmings-cd.bin";
-  };
+    };
 
-  cdCue = fetchurl {
-    url = "https://archive.org/download/az-2246/AZ_2246.cue";
+  cdCue = fetchIpfs {
+    cid = "bafkreid26dvrfmojvwr6zpmop5z6yxyc2f42gi7fpoxreqglscrx6nbrry";
+    fallbackUrl = "https://archive.org/download/az-2246/AZ_2246.cue";
     hash = "sha256-evDrErHJraPsvY5/c+xfAtF5oyPle68SQMuQo380MY4=";
     name = "lemmings-cd.cue";
-  };
+    };
 
   dosboxConf = pkgs.writeText "lemmings.conf" ''
     [sdl]

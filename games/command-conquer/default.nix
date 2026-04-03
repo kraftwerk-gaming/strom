@@ -2,7 +2,7 @@
   self,
   lib,
   pkgs,
-  fetchurl,
+  fetchIpfs,
   p7zip,
 }:
 
@@ -10,17 +10,19 @@ let
 
   vanillatd = pkgs.vanillatd;
 
-  gdiIso = fetchurl {
-    url = "https://archive.org/download/cnc-dos-eng-v-1.22/C%26C%20DOS%20ENG%20v1.22%20Disk%201%20-%20GDI.iso";
+  gdiIso = fetchIpfs {
+    cid = "Qme6kRZLgxGMEDaNUwCis9Wp7j6DWys4EWoDX8ePSiPh5N";
+    fallbackUrl = "https://archive.org/download/cnc-dos-eng-v-1.22/C%26C%20DOS%20ENG%20v1.22%20Disk%201%20-%20GDI.iso";
     hash = "sha256-kp12oZiKs2Z4c97LTRd1ORnIwvil1Me/3jhSWj+naUs=";
     name = "cnc-gdi.iso";
-  };
+    };
 
-  nodIso = fetchurl {
-    url = "https://archive.org/download/cnc-dos-eng-v-1.22/C%26C%20DOS%20ENG%20v1.22%20Disk%202%20-%20Nod.iso";
+  nodIso = fetchIpfs {
+    cid = "QmSob3MrZzftZrvXRotQgGpgyqPdvMCXLnBQWWoKgXZyem";
+    fallbackUrl = "https://archive.org/download/cnc-dos-eng-v-1.22/C%26C%20DOS%20ENG%20v1.22%20Disk%202%20-%20Nod.iso";
     hash = "sha256-cH/ob8JqcT/0VjrS1WObClNHbMLrZWr5d5thFALwxdA=";
     name = "cnc-nod.iso";
-  };
+    };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer";

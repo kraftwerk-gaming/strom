@@ -3,6 +3,7 @@
   lib,
   pkgs,
   fetchurl,
+  fetchIpfs,
   innoextract,
   pkgsi686Linux,
   unzip,
@@ -19,11 +20,12 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "legacy-of-kain-soul-reaver";
 
-  src = fetchurl {
-    url = "https://archive.org/download/legacy-of-kain-soul-reaver-gog/Legacy%20of%20Kain%20Soul%20Reaver%20%5BGOG%5D.zip";
+  src = fetchIpfs {
+    cid = "Qmb1u6CUu1gLRvb2tiWY1LaV1Bhe51xhXrpu8bpHnLXEKp";
+    fallbackUrl = "https://archive.org/download/legacy-of-kain-soul-reaver-gog/Legacy%20of%20Kain%20Soul%20Reaver%20%5BGOG%5D.zip";
     hash = "sha256-RWC9JCqwRTqAOrMzKz70o3RrFaKsrkNQrHwc3yq5FDI=";
     name = "soul-reaver-gog.zip";
-  };
+    };
 
   nativeBuildInputs = [
     innoextract

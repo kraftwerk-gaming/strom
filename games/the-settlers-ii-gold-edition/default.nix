@@ -1,6 +1,6 @@
 {
   self,
-  fetchurl,
+  fetchIpfs,
   fetchFromGitHub,
   lib,
   pkgs,
@@ -89,11 +89,12 @@ let
     };
   };
 
-  gameFilesArchive = fetchurl {
-    url = "https://archive.org/download/die_siedler_2_151/siedler2.zip";
+  gameFilesArchive = fetchIpfs {
+    cid = "QmNoB7Qgf3yR9vjin1bVCUkdajG8nTsdd8mF2SamXXT6vM";
+    fallbackUrl = "https://archive.org/download/die_siedler_2_151/siedler2.zip";
     hash = "sha256-9FUecyRKFygEaoppZ+welasCe9HZHMG1y0BKwZpt0nw=";
     name = "the-settlers-ii-gold-edition.zip";
-  };
+    };
 
   # Combined prefix: s25client + game data in S2/
   combinedPrefix =
