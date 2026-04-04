@@ -64,7 +64,6 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   executable = "Game.exe";
 
-  gamescopeArgs = "-W 1920 -H 1080 -w 1920 -h 1080";
 
   env = {
     LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";

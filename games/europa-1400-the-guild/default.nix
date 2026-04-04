@@ -58,7 +58,13 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "Europa1400Gold.exe";
-  gamescopeArgs = "-W 1920 -H 1080 -w 1024 -h 768 --expose-wayland";
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1024;
+    nested-height = 768;
+    flags."--expose-wayland" = true;
+  };
 
   env = {
     PROTON_NO_PROTONFIXES = "1";
