@@ -27,6 +27,7 @@ let
 
       gamescopeModule = import ./gamescope.nix { inherit wlib; };
       protonModule = import ./proton.nix { inherit wlib; };
+      fuseOverlayfsModule = import ./fuse-overlayfs.nix { inherit wlib; };
 
       # Resolve executable: absolute paths used as-is, relative paths prefixed with $GAMEDIR
       exePath =
@@ -48,13 +49,14 @@ let
         } // cfg.proton
       );
 
-      patchedFuseOverlayfs = pkgs.callPackage ../pkgs/fuse-overlayfs.nix { };
-
-      prepareGameDir = pkgs.callPackage ./prepare-game-dir.nix {
-        fuse-overlayfs = patchedFuseOverlayfs;
+      # Configured fuse-overlayfs wrapper for game data overlay
+      prepareGameDirConfig = fuseOverlayfsModule.apply {
+        inherit pkgs;
         gameFiles = cfg._gameData;
         copyGlobs = cfg.copyGlobs;
       };
+
+      prepareGameDir = lib.getExe prepareGameDirConfig.wrapper;
 
       # Sandbox: tmpfs HOME, only game-specific dirs are accessible.
       sandboxBwrapArgs = [
