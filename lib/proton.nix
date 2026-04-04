@@ -18,7 +18,7 @@ wlib.wrapModule (
     };
 
     config = {
-      package = lib.mkDefault (config.pkgs.callPackage ../pkgs/proton.nix { });
+      package = config.pkgs.callPackage ../pkgs/proton.nix { };
       exePath = "${config.package}/proton";
       binName = "proton";
 

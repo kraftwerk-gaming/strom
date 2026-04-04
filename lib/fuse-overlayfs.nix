@@ -32,7 +32,7 @@ wlib.wrapModule (
     };
 
     config = {
-      package = lib.mkDefault (config.pkgs.callPackage ../pkgs/fuse-overlayfs.nix { });
+      package = config.pkgs.callPackage ../pkgs/fuse-overlayfs.nix { };
 
       preHook =
         let
