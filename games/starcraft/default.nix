@@ -52,7 +52,17 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   executable = "StarCraft.exe";
-  gamescopeArgs = "-W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland";
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 640;
+    nested-height = 480;
+    flags = {
+      "-r" = "60";
+      "--immediate-flips" = true;
+      "--expose-wayland" = true;
+    };
+  };
 
   preRun = "";
 

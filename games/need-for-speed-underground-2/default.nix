@@ -67,7 +67,17 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "SPEED2.EXE";
-  gamescopeArgs = "-W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland";
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--immediate-flips" = true;
+      "--expose-wayland" = true;
+    };
+  };
 
   env = {
     STEAM_COMPAT_CONFIG = "sdlinput";

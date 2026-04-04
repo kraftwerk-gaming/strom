@@ -115,7 +115,16 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "Game.exe";
-  gamescopeArgs = "-W 1920 -H 1080 -w 1920 -h 1080 -r 60 --force-grab-cursor";
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--force-grab-cursor" = true;
+    };
+  };
 
   preRun = ''
     export LD_LIBRARY_PATH="/usr/lib32''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
