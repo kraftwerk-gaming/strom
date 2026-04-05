@@ -43,7 +43,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     fallbackUrl = "https://archive.org/download/msdos_Game_of_Robot_The_1988/Game_of_Robot_The_1988.zip";
     hash = "sha256-pLxedXsPIVmk3tmkWUv+i5zHewin1QTJ7TfecDlk2n0=";
     name = "game-of-robot.zip";
-    };
+  };
 
   nativeBuildInputs = [ unzip ];
 

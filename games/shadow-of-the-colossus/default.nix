@@ -10,14 +10,14 @@ let
     fallbackUrl = "https://archive.org/download/sotcps2usa/Shadow%20of%20the%20Colossus%20%28USA%29.zip";
     hash = "sha256-/GaNfOdOGOy0K9KekR93UVM9wYr0SyA2Loi9cOpRoiY=";
     name = "sotc-usa.zip";
-    };
+  };
 
   ps2bios = fetchIpfs {
     cid = "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be";
     fallbackUrl = "https://archive.org/download/ps2-0100j-20000117/ps2-0200a-20040614.bin";
     hash = "sha256-bSPQAdryoPqLOBpdSfUXU8NuNiLQ8EvkavGgxUi+R0Q=";
     name = "ps2-0200a-20040614.bin";
-    };
+  };
 
   gameIso = pkgs.runCommandLocal "sotc-iso" { nativeBuildInputs = [ pkgs.unzip ]; } ''
     mkdir -p $out

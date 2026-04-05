@@ -25,7 +25,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     fallbackUrl = "https://archive.org/download/legacy-of-kain-soul-reaver-gog/Legacy%20of%20Kain%20Soul%20Reaver%20%5BGOG%5D.zip";
     hash = "sha256-RWC9JCqwRTqAOrMzKz70o3RrFaKsrkNQrHwc3yq5FDI=";
     name = "soul-reaver-gog.zip";
-    };
+  };
 
   nativeBuildInputs = [
     innoextract

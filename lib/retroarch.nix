@@ -83,8 +83,7 @@ wlib.wrapModule (
         type = wlib.types.file config.pkgs;
         description = "RetroArch configuration file.";
         default.content = lib.concatStringsSep "\n" (
-          lib.mapAttrsToList (k: v: ''${k} = "${v}"'')
-            (lib.filterAttrs (_: v: v != "") config.settings)
+          lib.mapAttrsToList (k: v: ''${k} = "${v}"'') (lib.filterAttrs (_: v: v != "") config.settings)
         );
       };
     };
@@ -93,7 +92,8 @@ wlib.wrapModule (
       package = config.pkgs.retroarch.withCores (_: config.cores);
       flags = {
         "--appendconfig" = toString config."retroarch.cfg".path;
-      } // lib.optionalAttrs (config.core != null) {
+      }
+      // lib.optionalAttrs (config.core != null) {
         "-L" = config.core;
       };
     };

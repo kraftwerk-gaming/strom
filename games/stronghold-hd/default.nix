@@ -15,7 +15,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     fallbackUrl = "https://archive.org/download/setup_stronghold_hd_2.0.0.3/setup_stronghold_hd_2.0.0.3.exe";
     hash = "sha256-wV9zOe8d7JhzF7vbiz6QT5hysdVR4xSZ+L39/SVNwfM=";
     name = "setup_stronghold_hd.exe";
-    };
+  };
 
   nativeBuildInputs = [ innoextract ];
 

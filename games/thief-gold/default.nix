@@ -17,7 +17,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     fallbackUrl = "https://archive.org/download/thief-2-hdmod-1.0_202404/Thief%20Gold%20%28GoG%29/setup_thief_gold.exe";
     hash = "sha256-V+y0sfql8sSEDeZXUZMfGfriurC438aGLZAh5KXFeIw=";
     name = "setup_thief_gold.exe";
-    };
+  };
 
   nativeBuildInputs = [
     innoextract
@@ -27,11 +27,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   buildScript =
     let
       tfixInstaller = fetchIpfs {
-    cid = "QmYsKaAyDYeDXoAEHopfTfxC9ePUuTLyzTQ4jUy2dDoxMt";
-    fallbackUrl = "https://archive.org/download/thief-2-hdmod-1.0_202404/patches/TFix_1.27b%20ptr%20thief%201%20si%20gold.exe";
-    hash = "sha256-Dpk+cO3k3cD5R873w5tKBNMCTj09P9VqZoH3Neeuqxw=";
-    name = "tfix.exe";
-    };
+        cid = "QmYsKaAyDYeDXoAEHopfTfxC9ePUuTLyzTQ4jUy2dDoxMt";
+        fallbackUrl = "https://archive.org/download/thief-2-hdmod-1.0_202404/patches/TFix_1.27b%20ptr%20thief%201%20si%20gold.exe";
+        hash = "sha256-Dpk+cO3k3cD5R873w5tKBNMCTj09P9VqZoH3Neeuqxw=";
+        name = "tfix.exe";
+      };
       darkBnd = pkgs.writeText "DARK.BND" ''
         auto_equip 1
         bow_zoom 1

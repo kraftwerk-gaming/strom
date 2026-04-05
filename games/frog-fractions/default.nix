@@ -14,7 +14,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     fallbackUrl = "https://archive.org/download/frog-fractions/FrogFractions.swf";
     hash = "sha256-HYVbtOttB7PfEXhPbWXDFlE4q8I5ZSwNRo5aZDH55t0=";
     name = "FrogFractions.swf";
-    };
+  };
 
   buildScript = ''
     mkdir -p $out

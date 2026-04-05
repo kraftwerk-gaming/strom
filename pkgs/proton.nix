@@ -13,4 +13,7 @@
     cp -r . $steamcompattool/
     runHook postInstall
   '';
-}).steamcompattool // { meta.mainProgram = "proton"; }
+}).steamcompattool
+// {
+  meta.mainProgram = "proton";
+}

@@ -118,14 +118,14 @@ let
     fallbackUrl = "https://archive.org/download/syndicate-1993_202412/Freesynd.rar";
     hash = "sha256-q5vhyv6ShZi5w3xRYBrbrC4BUJ+RycV3L7rgO1KvGG0=";
     name = "syndicate-freesynd.rar";
-    };
+  };
 
   gameArchiveCD = fetchIpfs {
     cid = "QmccmdGq8GmfpN56MqjKLJJNFu45f3pvA4o41iSiKgZWdy";
     fallbackUrl = "https://archive.org/download/syndicate-plus-1994-ea-bullfrog-ms-dos-cd/Syndicate.Plus.1994.EA.Bullfrog.MS-DOS.CD.7z";
     hash = "sha256-8RC+DzBzm+mCnXw08GLlS6/659h2mX/dMB8GfXbnvfA=";
     name = "syndicate-plus.7z";
-    };
+  };
 
   gameData =
     runCommandLocal "syndicate-data"

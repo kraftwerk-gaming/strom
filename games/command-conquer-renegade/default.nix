@@ -14,7 +14,7 @@ let
     fallbackUrl = "https://archive.org/download/Command.And.Conquer.Renegade/Command%20And%20Conquer%20Renegade.7z";
     hash = "sha256-CuAR/nQw4MzL5vdVX0+5JedTGtHbq9lEojLIOqxhBjI=";
     name = "renegade.7z";
-    };
+  };
 
   # Play disc ISO for campaign movies (BIK files)
   playIso = fetchIpfs {
@@ -22,7 +22,7 @@ let
     fallbackUrl = "https://archive.org/download/renegade-install/RenegadePlay.iso";
     hash = "sha256-fUpsX+f0xlPgsu/rHbXyX/A/KZAvOdDBpQG9+GpO6hE=";
     name = "RenegadePlay.iso";
-    };
+  };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-renegade";
@@ -63,7 +63,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   ];
 
   executable = "Game.exe";
-
 
   env = {
     LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";

@@ -17,7 +17,7 @@ let
     fallbackUrl = "https://archive.org/download/command-and-conquer-red-alert-2-v-2.0.-7z/Command%20and%20Conquer%20Red%20Alert%202%20%28v2.0%29.7z";
     hash = "sha256-WJ3pL868aPxc2yonyIMLdNRXZyDklV4GZT+P1GXIrAM=";
     name = "ra2-portable.7z";
-    };
+  };
 
   # cnc-ddraw for DirectDraw compatibility
   cncDdraw = fetchurl {

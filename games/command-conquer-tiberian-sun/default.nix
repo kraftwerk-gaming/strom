@@ -17,7 +17,7 @@ let
     fallbackUrl = "https://archive.org/download/command-and-conquer-tiberian-sun/OfficialCnCTiberianSun.rar";
     hash = "sha256-sEIZ5xVRHem6ov65gnATyOEG+Na5tWOTa4ovZQMF3sU=";
     name = "tibsun-en.rar";
-    };
+  };
 
   # cnc-ddraw for DirectDraw compatibility
   cncDdraw = fetchurl {
