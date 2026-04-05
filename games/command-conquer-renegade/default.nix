@@ -27,6 +27,10 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-renegade";
 
+  ipfsSources = [
+    gameSrc
+    playIso
+  ];
   src = gameSrc;
 
   nativeBuildInputs = [ p7zip ];

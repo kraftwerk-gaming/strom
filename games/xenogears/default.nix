@@ -58,5 +58,12 @@ in
       mainProgram = "retroarch";
       platforms = lib.platforms.linux;
     };
-    passthru.runtime = "retroarch";
+    passthru = {
+      runtime = "retroarch";
+      ipfsSources = [
+        disc1
+        disc2
+        psxBios7z
+      ];
+    };
   })

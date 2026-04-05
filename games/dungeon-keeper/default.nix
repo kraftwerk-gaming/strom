@@ -20,6 +20,7 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "dungeon-keeper";
 
+  ipfsSources = [ originalData ];
   src = fetchurl {
     url = "https://github.com/dkfans/keeperfx/releases/download/v1.3.1/keeperfx_1_3_1_complete.7z";
     hash = "sha256-j61vNUnRpp0bhpa1I0x8SuzEzDNBhwMz79GNiBzmYoo=";

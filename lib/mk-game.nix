@@ -258,6 +258,12 @@ let
           description = "Extra bwrap arguments for FHS environment";
         };
 
+        ipfsSources = mkOption {
+          type = types.listOf types.package;
+          default = [ cfg.src ];
+          description = "List of fetchIpfs derivations whose CIDs should be pinned.";
+        };
+
         meta = mkOption {
           type = types.attrs;
           default = { };
@@ -365,7 +371,10 @@ let
                 ln -s ${outerWrapper fhsEnv} $out/bin/${cfg.name}
               '';
               inherit (cfg) meta;
-              passthru.runtime = cfg.runtime;
+              passthru = {
+                runtime = cfg.runtime;
+                inherit (cfg) ipfsSources;
+              };
             }
           else if cfg.runtime == "native" then
             let
@@ -447,7 +456,10 @@ let
               '';
             }).overrideAttrs
               (_: {
-                passthru.runtime = cfg.runtime;
+                passthru = {
+                  runtime = cfg.runtime;
+                  inherit (cfg) ipfsSources;
+                };
               })
           else
             # custom: FHS env with overlay mounted outside
@@ -468,7 +480,10 @@ let
                 ln -s ${outerWrapper customFhs} $out/bin/${cfg.name}
               '';
               inherit (cfg) meta;
-              passthru.runtime = cfg.runtime;
+              passthru = {
+                runtime = cfg.runtime;
+                inherit (cfg) ipfsSources;
+              };
             };
       };
     };

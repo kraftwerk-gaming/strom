@@ -55,6 +55,10 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer-red-alert";
 
+  ipfsSources = [
+    alliedIso
+    sovietIso
+  ];
   src = vanillaraWithData;
   buildScript = ''
     mkdir -p "$out"

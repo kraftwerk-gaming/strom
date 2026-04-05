@@ -27,6 +27,10 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "command-conquer";
 
+  ipfsSources = [
+    gdiIso
+    nodIso
+  ];
   src = gdiIso;
 
   nativeBuildInputs = [ p7zip ];

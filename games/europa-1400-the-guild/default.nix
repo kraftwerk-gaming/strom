@@ -50,6 +50,7 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "europa-1400-the-guild";
 
+  ipfsSources = [ gameISO ];
   src = gameData;
   buildScript = ''
     mkdir -p "$out"

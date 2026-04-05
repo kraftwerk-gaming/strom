@@ -59,7 +59,13 @@
           };
           callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
         in
-        builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
+        let
+          games = builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games);
+        in
+        games
+        // {
+          pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
+        }
       );
 
       apps = forAllSystems (

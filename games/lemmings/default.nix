@@ -47,6 +47,10 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "lemmings";
 
+  ipfsSources = [
+    cdBin
+    cdCue
+  ];
   src = cdBin;
 
   nativeBuildInputs = [
