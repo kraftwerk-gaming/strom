@@ -395,6 +395,12 @@ let
               inherit (cfg) name meta;
               runtimeInputs = [ pkgs.bubblewrap ];
               text = ''
+                # Re-exec under subreaper if not already
+                if [ -z "''${STROM_SUBREAPER-}" ]; then
+                  export STROM_SUBREAPER=1
+                  exec ${subreaper}/bin/subreaper "$0" "$@"
+                fi
+
                 USERDIR="''${HOME:-.}/.strom/${cfg.name}"
                 mkdir -p "$USERDIR"
                 export STROM_GAMEDIR="$USERDIR"
@@ -404,10 +410,16 @@ let
                 STROM_OVERLAY=$(${prepareGameDir} "$USERDIR")
 
                 cleanup() {
-                  fusermount -uz "$STROM_OVERLAY" 2>/dev/null
+                  kill -KILL -- -"$INNER_PID" 2>/dev/null || true
+                  # Kill reparented orphans (processes that became our children
+                  # via PR_SET_CHILD_SUBREAPER). One pass, no loop.
+                  local pids
+                  pids=$(ps -o pid= --ppid $$ 2>/dev/null) || true
+                  [ -n "$pids" ] && kill -KILL "$pids" 2>/dev/null || true
+                  wait 2>/dev/null || true
+                  fusermount -uz "$STROM_OVERLAY" 2>/dev/null || true
                 }
-                trap 'kill -KILL -- -$INNER_PID 2>/dev/null; cleanup; kill -KILL -- -$$ 2>/dev/null' INT TERM
-                trap cleanup EXIT
+                trap cleanup EXIT INT TERM
 
                 # Always tmpfs /tmp/.X11-unix so it is owned by us inside the userns.
                 # Host /tmp/.X11-unix is owned by root, which maps to nobody in the
@@ -431,7 +443,7 @@ let
                   --bind "$STROM_CACHEDIR" "$STROM_CACHEDIR" \
                   ${nativeInner} "$@" &
                 INNER_PID=$!
-                wait $INNER_PID 2>/dev/null
+                wait $INNER_PID 2>/dev/null || true
               '';
             }).overrideAttrs
               (_: {
