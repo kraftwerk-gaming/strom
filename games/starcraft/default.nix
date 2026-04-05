@@ -16,7 +16,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     fallbackUrl = "https://archive.org/download/sc-classic-installer_202311/StarCraft%20Portable.zip";
     hash = "sha256-LotKRHxNGrDSO2afcqwkwxdwzkjS7saSZcF6a/By9zU=";
     name = "starcraft-portable.zip";
-    };
+  };
 
   nativeBuildInputs = [ unzip ];
 

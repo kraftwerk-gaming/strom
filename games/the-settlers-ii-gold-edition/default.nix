@@ -94,7 +94,7 @@ let
     fallbackUrl = "https://archive.org/download/die_siedler_2_151/siedler2.zip";
     hash = "sha256-9FUecyRKFygEaoppZ+welasCe9HZHMG1y0BKwZpt0nw=";
     name = "the-settlers-ii-gold-edition.zip";
-    };
+  };
 
   # Combined prefix: s25client + game data in S2/
   combinedPrefix =

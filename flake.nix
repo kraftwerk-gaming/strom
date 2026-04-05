@@ -6,7 +6,12 @@
   };
 
   outputs =
-    { self, nixpkgs, wrappers, ... }:
+    {
+      self,
+      nixpkgs,
+      wrappers,
+      ...
+    }:
     let
       systems = [
         "x86_64-linux"
@@ -44,7 +49,13 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           fetchIpfs = import ./lib/fetch-ipfs.nix {
-            inherit (pkgs) lib stdenvNoCC ipget curl cacert;
+            inherit (pkgs)
+              lib
+              stdenvNoCC
+              ipget
+              curl
+              cacert
+              ;
           };
           callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
         in

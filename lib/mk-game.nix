@@ -1,4 +1,8 @@
-{ lib, pkgs, wrappers }:
+{
+  lib,
+  pkgs,
+  wrappers,
+}:
 
 gameConfig:
 
@@ -30,23 +34,18 @@ let
       fuseOverlayfsModule = import ./fuse-overlayfs.nix { inherit wlib; };
 
       # Resolve executable: absolute paths used as-is, relative paths prefixed with $GAMEDIR
-      exePath =
-        if lib.hasPrefix "/" cfg.executable then
-          cfg.executable
-        else
-          "$GAMEDIR/${cfg.executable}";
+      exePath = if lib.hasPrefix "/" cfg.executable then cfg.executable else "$GAMEDIR/${cfg.executable}";
 
       # Configured gamescope wrapper (used by proton and native runtimes)
-      gamescopeConfig = gamescopeModule.apply (
-        { inherit pkgs; } // cfg.gamescope
-      );
+      gamescopeConfig = gamescopeModule.apply ({ inherit pkgs; } // cfg.gamescope);
 
       # Configured proton wrapper
       protonConfig = protonModule.apply (
         {
           inherit pkgs;
           compatDataPath = "\${HOME:-.}/.strom/.compatdata/${cfg.name}/0";
-        } // cfg.proton
+        }
+        // cfg.proton
       );
 
       # Configured fuse-overlayfs wrapper for game data overlay
@@ -434,7 +433,10 @@ let
                 INNER_PID=$!
                 wait $INNER_PID 2>/dev/null
               '';
-            }).overrideAttrs (_: { passthru.runtime = cfg.runtime; })
+            }).overrideAttrs
+              (_: {
+                passthru.runtime = cfg.runtime;
+              })
           else
             # custom: FHS env with overlay mounted outside
             let
