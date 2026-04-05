@@ -140,5 +140,11 @@ in
   '';
 }).overrideAttrs
   (_: {
-    passthru.runtime = "pcsx2";
+    passthru = {
+      runtime = "pcsx2";
+      ipfsSources = [
+        gameSrc
+        ps2bios
+      ];
+    };
   })

@@ -133,6 +133,7 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   # s25rttr uses its own prefix, not a flat game dir.
   # We use a dummy src and point RTTR_PREFIX_DIR at the combined prefix.
+  ipfsSources = [ gameFilesArchive ];
   src = combinedPrefix;
   buildScript = ''
     mkdir -p "$out"

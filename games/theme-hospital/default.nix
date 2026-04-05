@@ -49,6 +49,7 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "theme-hospital";
 
+  ipfsSources = [ gameArchive ];
   src = gameData;
   buildScript = ''
     mkdir -p "$out"

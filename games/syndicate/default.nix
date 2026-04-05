@@ -180,6 +180,10 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "syndicate";
 
+  ipfsSources = [
+    gameArchiveBR
+    gameArchiveCD
+  ];
   src = gameData;
   buildScript = ''
     mkdir -p "$out"

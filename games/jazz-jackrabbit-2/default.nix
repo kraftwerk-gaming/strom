@@ -16,6 +16,13 @@ let
     ];
   });
 
+  gameSrc = fetchIpfs {
+    cid = "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb";
+    fallbackUrl = "https://archive.org/download/jazz-jackrabbit-2-1.24-the-secret-files-plus/Jazz%20Jackrabbit%202%201.24%20The%20Secret%20Files%20Plus.zip";
+    hash = "sha256-ceeXiGUy5QDq1HQPo5gpyQe2odAK1F5frofBXegeXi8=";
+    name = "jazz-jackrabbit-2-tsf.zip";
+  };
+
   sourceData =
     runCommandLocal "jazz-jackrabbit-2-source"
       {
@@ -23,14 +30,7 @@ let
       }
       ''
         mkdir -p "$out"
-        unzip -j -o ${
-          fetchIpfs {
-            cid = "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb";
-            fallbackUrl = "https://archive.org/download/jazz-jackrabbit-2-1.24-the-secret-files-plus/Jazz%20Jackrabbit%202%201.24%20The%20Secret%20Files%20Plus.zip";
-            hash = "sha256-ceeXiGUy5QDq1HQPo5gpyQe2odAK1F5frofBXegeXi8=";
-            name = "jazz-jackrabbit-2-tsf.zip";
-          }
-        } -d "$out/"
+        unzip -j -o ${gameSrc} -d "$out/"
       '';
 
   # Pre-generate the cache by running jazz-jackrabbit-2 --server (headless)
@@ -48,6 +48,7 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "jazz-jackrabbit-2";
 
+  ipfsSources = [ gameSrc ];
   src = gameData;
   buildScript = ''
     mkdir -p "$out"
