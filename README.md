@@ -5,6 +5,17 @@ its assets, sets up a sandboxed prefix under `~/.strom/<slug>`, and launches
 via the appropriate runtime (Proton, native engine reimplementations,
 DOSBox, emulators, etc).
 
+> **Help keep game assets available!**
+> Pin CIDs on your IPFS node. More pins means faster, more reliable downloads for everyone.
+>
+> ```bash
+> # Pin all game CIDs
+> nix run github:kraftwerk-gaming/strom#pin-ipfs -- http://localhost:5001
+>
+> # Pin specific games only
+> nix run github:kraftwerk-gaming/strom#pin-ipfs -- http://localhost:5001 xenogears thief-gold
+> ```
+
 ## Usage
 
 ```bash
