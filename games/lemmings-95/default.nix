@@ -13,7 +13,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   name = "lemmings-95";
 
   src = fetchIpfs {
-    cid = "";
+    cid = "QmUumu4xqgz8xSkqKMtxSXDqGc3fKhztSJWGXeyZJR93hq";
     fallbackUrl = "https://archive.org/download/WINLEM/WINLEMM.zip";
     hash = "sha256-5HkazEJWOyAxvruxQMWHkOMH6Q99bTj1P26xdipjNhk=";
     name = "lemmings-95.zip";
