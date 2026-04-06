@@ -33,6 +33,8 @@ def render(meta: dict[str, dict[str, str | None]]) -> str:
     lines.append("| --- | --- | --- | --- |")
 
     for slug in sorted(meta):
+        if not (GAMES_DIR / slug).is_dir():
+            continue
         m = meta[slug]
         desc = m.get("description") or slug
         runtime = m.get("runtime") or "unknown"
