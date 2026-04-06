@@ -74,12 +74,12 @@ let
 
       # The launch command for proton runtime (when no runScript)
       protonLaunchCommand = ''
-        exec ${lib.getExe gamescopeConfig.wrapper} ${lib.getExe protonConfig.wrapper} ${exePath}
+        exec ${lib.getExe gamescopeConfig.wrapper} ${lib.getExe protonConfig.wrapper} "${exePath}" "$@"
       '';
 
       # The launch command for native runtime (when no runScript)
       nativeLaunchCommand = ''
-        exec ${lib.getExe gamescopeConfig.wrapper} ${exePath} "$@"
+        exec ${lib.getExe gamescopeConfig.wrapper} "${exePath}" "$@"
       '';
 
       # Runs inside FHS/bwrap
