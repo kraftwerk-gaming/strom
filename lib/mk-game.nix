@@ -73,13 +73,15 @@ let
       ];
 
       # The launch command for proton runtime (when no runScript)
+      exeArgs = lib.concatStringsSep " " (map lib.escapeShellArg cfg.executableArgs);
+
       protonLaunchCommand = ''
-        exec ${lib.getExe gamescopeConfig.wrapper} ${lib.getExe protonConfig.wrapper} "${exePath}" "$@"
+        exec ${lib.getExe gamescopeConfig.wrapper} ${lib.getExe protonConfig.wrapper} "${exePath}" ${exeArgs} "$@"
       '';
 
       # The launch command for native runtime (when no runScript)
       nativeLaunchCommand = ''
-        exec ${lib.getExe gamescopeConfig.wrapper} "${exePath}" "$@"
+        exec ${lib.getExe gamescopeConfig.wrapper} "${exePath}" ${exeArgs} "$@"
       '';
 
       # Runs inside FHS/bwrap
@@ -194,6 +196,12 @@ let
           type = types.str;
           default = "";
           description = "Game executable path, relative to GAMEDIR or absolute (for proton/native runtime)";
+        };
+
+        executableArgs = mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+          description = "Arguments passed to the game executable.";
         };
 
         gamescope = mkOption {
