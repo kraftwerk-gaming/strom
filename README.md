@@ -37,6 +37,7 @@ rebuilds.
 | <a href="https://lutris.net/games/command-conquer-red-alert-2/"><img src="https://lutris.net/games/banner/command-conquer-red-alert-2.jpg" height="40" alt="command-conquer-red-alert-2"></a> | [Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)](https://lutris.net/games/command-conquer-red-alert-2/) | `proton` | `nix run github:kraftwerk-gaming/strom#command-conquer-red-alert-2` |
 | <a href="https://lutris.net/games/command-conquer-renegade/"><img src="https://lutris.net/games/banner/command-conquer-renegade.jpg" height="40" alt="command-conquer-renegade"></a> | [command-conquer-renegade](https://lutris.net/games/command-conquer-renegade/) | `proton` | `nix run github:kraftwerk-gaming/strom#command-conquer-renegade` |
 | <a href="https://lutris.net/games/command-conquer-tiberian-sun/"><img src="https://lutris.net/games/banner/command-conquer-tiberian-sun.jpg" height="40" alt="command-conquer-tiberian-sun"></a> | [Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)](https://lutris.net/games/command-conquer-tiberian-sun/) | `proton` | `nix run github:kraftwerk-gaming/strom#command-conquer-tiberian-sun` |
+| <a href="https://lutris.net/games/diablo-ii-lord-of-destruction/"><img src="https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg" height="40" alt="diablo-ii-lord-of-destruction"></a> | [Diablo II + Lord of Destruction (CJ_Strife portable, via Proton and gamescope)](https://lutris.net/games/diablo-ii-lord-of-destruction/) | `proton` | `nix run github:kraftwerk-gaming/strom#diablo-ii-lord-of-destruction` |
 | <a href="https://lutris.net/games/dungeon-keeper/"><img src="https://lutris.net/games/banner/dungeon-keeper.jpg" height="40" alt="dungeon-keeper"></a> | [Dungeon Keeper (KeeperFX, via Proton and gamescope)](https://lutris.net/games/dungeon-keeper/) | `proton` | `nix run github:kraftwerk-gaming/strom#dungeon-keeper` |
 | <a href="https://lutris.net/games/europa-1400-the-guild/"><img src="https://lutris.net/games/banner/europa-1400-the-guild.jpg" height="40" alt="europa-1400-the-guild"></a> | [Europa 1400: The Guild - Gold Edition (via Proton and gamescope)](https://lutris.net/games/europa-1400-the-guild/) | `proton` | `nix run github:kraftwerk-gaming/strom#europa-1400-the-guild` |
 | <a href="https://lutris.net/games/frog-fractions/"><img src="https://lutris.net/games/banner/frog-fractions.jpg" height="40" alt="frog-fractions"></a> | [frog-fractions](https://lutris.net/games/frog-fractions/) | `native` | `nix run github:kraftwerk-gaming/strom#frog-fractions` |
@@ -61,7 +62,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D (GOG build, via Proton and gamescope)](https://lutris.net/games/worms-wmd/) | `proton` | `nix run github:kraftwerk-gaming/strom#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears (via RetroArch / SwanStation)](https://lutris.net/games/xenogears/) | `retroarch` | `nix run github:kraftwerk-gaming/strom#xenogears` |
 
-_30 games_
+_31 games_
 
 <!-- END GENERATED GAMES -->
 
