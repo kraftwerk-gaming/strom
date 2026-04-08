@@ -22,6 +22,11 @@
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
+      nixosModules = {
+        ipfs-mirror = import ./nixos/mirror-module.nix;
+        default = self.nixosModules.ipfs-mirror;
+      };
+
       lib = {
         mkGame = { lib, pkgs }: import ./lib/mk-game.nix { inherit lib pkgs wrappers; };
         gamescope = import ./lib/gamescope.nix { wlib = wrappers.lib; };
@@ -44,7 +49,17 @@
         }
       );
 
-      packages = forAllSystems (
+      packages = {
+        aarch64-darwin.publish-ipns = import ./scripts/publish-ipns.nix {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          games = self.packages.x86_64-linux;
+        };
+        x86_64-darwin.publish-ipns = import ./scripts/publish-ipns.nix {
+          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+          games = self.packages.x86_64-linux;
+        };
+      }
+      // forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
@@ -65,6 +80,7 @@
         games
         // {
           pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
+          publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
         }
       );
 
