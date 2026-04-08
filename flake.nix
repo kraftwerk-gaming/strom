@@ -54,6 +54,7 @@
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           games = self.packages.x86_64-linux;
         };
+        aarch64-darwin.lassie = nixpkgs.legacyPackages.aarch64-darwin.callPackage ./pkgs/lassie.nix { };
         x86_64-darwin.publish-ipns = import ./scripts/publish-ipns.nix {
           pkgs = nixpkgs.legacyPackages.x86_64-darwin;
           games = self.packages.x86_64-linux;
@@ -63,14 +64,16 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          lassie = pkgs.callPackage ./pkgs/lassie.nix { };
           fetchIpfs = import ./lib/fetch-ipfs.nix {
             inherit (pkgs)
               lib
               stdenvNoCC
-              ipget
+              go-car
               curl
               cacert
               ;
+            inherit lassie;
           };
           callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
         in
@@ -80,6 +83,7 @@
         games
         // {
           pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
+          inherit lassie;
           publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
         }
       );
