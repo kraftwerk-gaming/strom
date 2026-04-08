@@ -36,25 +36,27 @@ in
         Datastore.StorageMax = lib.mkDefault "100GB";
         Swarm = {
           ConnMgr = {
-            LowWater = lib.mkDefault 20;
-            HighWater = lib.mkDefault 50;
-            GracePeriod = lib.mkDefault "10s";
+            LowWater = lib.mkDefault 100;
+            HighWater = lib.mkDefault 400;
+            GracePeriod = lib.mkDefault "20s";
           };
           Transports.Network.TCP = lib.mkDefault true;
-          Transports.Network.QUIC = lib.mkDefault false;
+          Transports.Network.QUIC = lib.mkDefault true;
           ResourceMgr = {
             Enabled = lib.mkDefault true;
-            MaxMemory = lib.mkDefault "256MB";
+            MaxMemory = lib.mkDefault "2GB";
           };
           RelayClient.Enabled = lib.mkDefault false;
           RelayService.Enabled = lib.mkDefault false;
         };
-        # client mode: announces our content but does not route for others
-        Routing.Type = lib.mkDefault "autoclient";
+        # dhtclient: announces our provider records (so peers can find us
+        # by CID) but does not serve DHT routing queries for others.
+        Routing.Type = lib.mkDefault "dhtclient";
       };
     };
 
     networking.firewall.allowedTCPPorts = [ 4001 ];
+    networking.firewall.allowedUDPPorts = [ 4001 ]; # QUIC
 
     systemd.services.strom-ipfs-pin = {
       description = "Pin /ipns/${cfg.ipnsName} (strom mirror)";
