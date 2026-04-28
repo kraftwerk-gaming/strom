@@ -76,12 +76,14 @@ let
       exeArgs = lib.concatStringsSep " " (map lib.escapeShellArg cfg.executableArgs);
 
       protonLaunchCommand = ''
-        exec ${lib.getExe gamescopeConfig.wrapper} ${lib.getExe protonConfig.wrapper} "${exePath}" ${exeArgs} "$@"
+        # shellcheck disable=SC2086
+        exec ${lib.getExe gamescopeConfig.wrapper} ''${GAMESCOPE_PARAMS:-} -- ${lib.getExe protonConfig.wrapper} "${exePath}" ${exeArgs} "$@"
       '';
 
       # The launch command for native runtime (when no runScript)
       nativeLaunchCommand = ''
-        exec ${lib.getExe gamescopeConfig.wrapper} "${exePath}" ${exeArgs} "$@"
+        # shellcheck disable=SC2086
+        exec ${lib.getExe gamescopeConfig.wrapper} ''${GAMESCOPE_PARAMS:-} -- "${exePath}" ${exeArgs} "$@"
       '';
 
       # Runs inside FHS/bwrap
