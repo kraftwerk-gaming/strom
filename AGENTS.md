@@ -20,6 +20,35 @@
 - When adding a new game, get the CID from `cid-map.txt` and use `fetchIpfs { cid = "..."; fallbackUrl = "https://archive.org/..."; hash = "sha256-..."; name = "..."; }`.
 - Files not yet on neoprism are not discoverable via IPFS. The file must be pinned on at least one reachable node.
 
+## Packaging PS2 games (PCSX2)
+
+- PS2 games use `lib/pcsx2.nix`, which provides the shared BIOS, a default
+  PCSX2.ini (controller mappings, speedhacks, recompiler settings), and the
+  launch wrapper.
+- Import the helper and call `mkPcsx2Game`:
+
+      mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs; };
+
+      mkPcsx2Game {
+        name = "my-game";            # lutris slug
+        src = fetchIpfs { ... };     # game source (fetchIpfs derivation)
+        description = "My Game (via PCSX2)";
+        # gamePath = "...";          # optional: override ISO path when src
+        #                            # is not a direct ISO (e.g. zip)
+        # extraIni = "...";          # optional: extra INI sections appended
+      };
+
+- `src` is the fetchIpfs derivation for the game. It is used for IPFS
+  pinning (ipfsSources) and, by default, as the ISO path passed to PCSX2.
+- If the source is a zip/archive, extract it with `runCommandLocal` and
+  pass the extracted ISO path via `gamePath`.
+- The PS2 BIOS and fetchIpfs are constructed internally by lib/pcsx2.nix.
+  Do NOT duplicate the BIOS fetch or PCSX2 config in individual game files.
+  Use `extraIni` for game-specific overrides only.
+- See `games/burnout-3-takedown/default.nix` (direct ISO) and
+  `games/shadow-of-the-colossus/default.nix` (zip -> extract -> ISO) for
+  examples of both patterns.
+
 ## Game data directories (~/.strom/<game>)
 
 - **NEVER delete a game directory** (`rm -rf ~/.strom/<game>`). These contain user saves, profiles, and Wine prefixes that cannot be recovered.
