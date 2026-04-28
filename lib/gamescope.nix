@@ -1,8 +1,8 @@
 # Gamescope wrapperModule.
 #
 # Wraps the gamescope binary with configurable flags.
-# The wrapped binary runs: gamescope [flags] -- "$@"
-# Pass the inner command (e.g. proton wrapper) as arguments.
+# The wrapped binary runs: gamescope [flags] "$@"
+# The "--" separator and GAMESCOPE_PARAMS injection happen in mk-game.nix.
 { wlib }:
 
 wlib.wrapModule (
@@ -44,7 +44,8 @@ wlib.wrapModule (
         "--nested-width" = if config.nested-width != null then toString config.nested-width else false;
         "--nested-height" = if config.nested-height != null then toString config.nested-height else false;
       };
-      args = lib.mkAfter [ "--" ];
+      # NOTE: the "--" separator is added by mk-game.nix launch commands,
+      # not here, so that GAMESCOPE_PARAMS can be injected before it.
     };
   }
 )
