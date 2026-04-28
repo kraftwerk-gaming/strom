@@ -32,6 +32,7 @@ rebuilds.
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run github:kraftwerk-gaming/strom#archimedean-dynasty` |
+| <a href="https://lutris.net/games/balatro/"><img src="https://lutris.net/games/banner/balatro.jpg" height="40" alt="balatro"></a> | [Balatro (native Linux)](https://lutris.net/games/balatro/) | `native` | `nix run github:kraftwerk-gaming/strom#balatro` |
 | <a href="https://lutris.net/games/burnout-3-takedown/"><img src="https://lutris.net/games/banner/burnout-3-takedown.jpg" height="40" alt="burnout-3-takedown"></a> | [Burnout 3: Takedown (via PCSX2)](https://lutris.net/games/burnout-3-takedown/) | `pcsx2` | `nix run github:kraftwerk-gaming/strom#burnout-3-takedown` |
 | <a href="https://lutris.net/games/command-conquer/"><img src="https://lutris.net/games/banner/command-conquer.jpg" height="40" alt="command-conquer"></a> | [Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)](https://lutris.net/games/command-conquer/) | `native` | `nix run github:kraftwerk-gaming/strom#command-conquer` |
 | <a href="https://lutris.net/games/command-conquer-red-alert/"><img src="https://lutris.net/games/banner/command-conquer-red-alert.jpg" height="40" alt="command-conquer-red-alert"></a> | [Command & Conquer: Red Alert (Vanilla Conquer, native)](https://lutris.net/games/command-conquer-red-alert/) | `native` | `nix run github:kraftwerk-gaming/strom#command-conquer-red-alert` |
@@ -64,7 +65,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D (GOG build, via Proton and gamescope)](https://lutris.net/games/worms-wmd/) | `proton` | `nix run github:kraftwerk-gaming/strom#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears (via RetroArch / SwanStation)](https://lutris.net/games/xenogears/) | `retroarch` | `nix run github:kraftwerk-gaming/strom#xenogears` |
 
-_35 games_
+_36 games_
 
 <!-- END GENERATED GAMES -->
 
