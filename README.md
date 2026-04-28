@@ -70,16 +70,151 @@ _31 games_
 
 Game files are fetched from IPFS via `fetchIpfs` (see `lib/fetch-ipfs.nix`).
 Each game carries an IPFS CID and an archive.org fallback URL. At build time,
-`ipget` spawns a temporary IPFS node, fetches the CID from the DHT, and tears
-down. If IPFS fails, it falls back to the URL. The nix output hash ensures
-integrity regardless of source.
+lassie fetches the CID from the IPFS network (DHT + HTTP gateways in
+parallel), and falls back to the archive.org URL if IPFS fails. The nix
+output hash ensures integrity regardless of source.
 
-Game files are pinned on an IPFS node using `ipfs add --nocopy`. The
-`--nocopy` flag avoids duplicating file data into the IPFS blockstore but
-implicitly enables `--raw-leaves`, which produces different CIDs than a plain
-`ipfs add`. This is a known kubo behavior: raw-leaves is not the default for
-CIDv0 for backwards compatibility reasons. CIDs in this repo always match the
-`--nocopy` (= `--raw-leaves`) variant.
+### Setting up an IPFS node with kubo
+
+In order to mirror or add new CIDs you need a running [kubo](https://github.com/ipfs/kubo) daemon. On NixOS, add to your configuration:
+
+```nix
+services.kubo = {
+  enable = true;
+  settings = {
+    # filestore lets ipfs add --nocopy reference files in place
+    # instead of copying them into the blockstore
+    Experimental.FilestoreEnabled = true;
+    Datastore.StorageMax = "100GB";
+  };
+};
+
+# open swarm port so other nodes can reach you
+networking.firewall.allowedTCPPorts = [ 4001 ];
+networking.firewall.allowedUDPPorts = [ 4001 ]; # QUIC
+```
+
+Rebuild, then verify the daemon is running:
+
+```bash
+sudo -u ipfs ipfs id
+```
+
+### Adding a game file to IPFS
+
+Use `--nocopy` (which implies `--raw-leaves`) to avoid duplicating multi-GB
+files into the blockstore. All CIDs in this repo use this mode. A plain
+`ipfs add` without `--raw-leaves` produces a **different CID** for the same
+file -- do not use it.
+
+Example: adding The Typing of the Dead: Overkill (7.4 GB):
+
+```bash
+# place the file somewhere the ipfs user can read (important!)
+# if you have file share set up between daemons, ensure that ipfs
+# is in a common group (e.g. "download")
+
+# add to IPFS (as the ipfs user, since the daemon owns the repo)
+sudo -u ipfs ipfs add --nocopy --progress \
+  '/media/download/torrents/The.Typing.of.the.Dead.Overkill.7z'
+# output: added QmZPyB... The.Typing.of.the.Dead.Overkill.7z
+```
+
+Note the CID from the output (`QmZPyBk...` in this case). `--nocopy` means
+the blockstore references the file at its current path -- do not move or
+delete it while it is pinned.
+
+### Verifying the file is retrievable
+
+From a different machine (or after clearing your local cache), confirm the
+CID resolves via a public gateway:
+
+```bash
+# HEAD request -- checks the CID is known without downloading the file
+curl -sI 'https://ipfs.io/ipfs/QmZPyB...' | head -5
+# HTTP/2 200
+# content-type: application/x-7z-compressed
+# content-length: 7412276595
+```
+
+To test the full fetch path that `fetchIpfs` uses at build time (lassie +
+go-car), use the lassie binary from this flake:
+
+```bash
+nix run github:kraftwerk-gaming/strom#lassie -- fetch \
+  --progress \
+  --providers 'https://ipfs.io,https://dweb.link' \
+  -o /tmp/test.7z \
+  'QmZPyB...'
+
+# extract the file from the CAR archive
+nix shell nixpkgs#go-car -c car extract -f /tmp/test.car /tmp/test.7z
+
+# verify the nix hash matches what fetchIpfs expects
+nix hash file --sri /tmp/test.7z
+# sha256-waL7G7lU2/aIaRYnju49/vuOM+/TeQu5MX8XgEPHl8M=
+```
+
+If the file is large, give it a few minutes after `ipfs add` for the DHT
+provider records to propagate. You can force immediate announcement:
+
+```bash
+sudo -u ipfs ipfs routing provide 'QmZPyB'
+```
+
+### Pinning all strom CIDs
+
+To mirror every game file in this repo on your node:
+
+```bash
+nix run github:kraftwerk-gaming/strom#pin-ipfs -- http://localhost:5001
+```
+
+This calls `ipfs pin add` for every CID listed in `passthru.ipfsSources`
+across all game packages. You can also pin specific games:
+
+```bash
+nix run github:kraftwerk-gaming/strom#pin-ipfs -- http://localhost:5001 xenogears thief-gold
+```
+
+### Using the NixOS mirror module
+
+For a hands-off mirror that automatically tracks new games, this repo ships
+a NixOS module that periodically resolves the strom IPNS name and pins its
+contents:
+
+```nix
+{
+  imports = [ strom.nixosModules.ipfs-mirror ];
+
+  services.strom-ipfs-mirror = {
+    enable = true;
+    # optional: override the poll interval (default: hourly)
+    # interval = "daily";
+  };
+}
+```
+
+The module enables kubo with sane defaults, opens the swarm ports, and
+creates a systemd timer (`strom-ipfs-pin`) that resolves the IPNS name and
+recursively pins everything underneath it.
+
+### Using a CID in a game package
+
+Once the file is on IPFS, reference it with `fetchIpfs` in the game's
+`default.nix`:
+
+```nix
+src = fetchIpfs {
+  cid = "QmZPyB...";
+  fallbackUrl = "https://www.gog.com/game/the_typing_of_the_dead_overkill";
+  hash = "sha256-waL7G7lU2/aIaRYnju49/vuOM+/TeQu5MX8XgEPHl8M=";
+  name = "The.Typing.of.the.Dead.Overkill.7z";
+};
+```
+
+To get the `hash`, set it to `""` on first build, let nix fail, and copy the
+`got:` hash from the error message.
 
 ## Adding a game
 
