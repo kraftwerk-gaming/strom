@@ -33,6 +33,7 @@
         proton = import ./lib/proton.nix { wlib = wrappers.lib; };
         fuse-overlayfs = import ./lib/fuse-overlayfs.nix { wlib = wrappers.lib; };
         retroarch = import ./lib/retroarch.nix { wlib = wrappers.lib; };
+        mkPcsx2Game = { lib, pkgs }: import ./lib/pcsx2.nix { inherit lib pkgs; };
       };
 
       legacyPackages = forAllSystems (
