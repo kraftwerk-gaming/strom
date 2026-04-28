@@ -212,6 +212,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   runScript = ''
     mkdir -p "$GAMEDIR/.ut2004"
     ln -sfn "$GAMEDIR/.ut2004" "$HOME/.ut2004"
+    export LD_LIBRARY_PATH="$GAMEDIR/System''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     exec "$GAMEDIR/System/UT2004" "$@"
   '';
 
