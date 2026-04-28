@@ -32,6 +32,7 @@ rebuilds.
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run github:kraftwerk-gaming/strom#archimedean-dynasty` |
+| <a href="https://lutris.net/games/burnout-3-takedown/"><img src="https://lutris.net/games/banner/burnout-3-takedown.jpg" height="40" alt="burnout-3-takedown"></a> | [Burnout 3: Takedown (via PCSX2)](https://lutris.net/games/burnout-3-takedown/) | `pcsx2` | `nix run github:kraftwerk-gaming/strom#burnout-3-takedown` |
 | <a href="https://lutris.net/games/command-conquer/"><img src="https://lutris.net/games/banner/command-conquer.jpg" height="40" alt="command-conquer"></a> | [Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)](https://lutris.net/games/command-conquer/) | `native` | `nix run github:kraftwerk-gaming/strom#command-conquer` |
 | <a href="https://lutris.net/games/command-conquer-red-alert/"><img src="https://lutris.net/games/banner/command-conquer-red-alert.jpg" height="40" alt="command-conquer-red-alert"></a> | [Command & Conquer: Red Alert (Vanilla Conquer, native)](https://lutris.net/games/command-conquer-red-alert/) | `native` | `nix run github:kraftwerk-gaming/strom#command-conquer-red-alert` |
 | <a href="https://lutris.net/games/command-conquer-red-alert-2/"><img src="https://lutris.net/games/banner/command-conquer-red-alert-2.jpg" height="40" alt="command-conquer-red-alert-2"></a> | [Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)](https://lutris.net/games/command-conquer-red-alert-2/) | `proton` | `nix run github:kraftwerk-gaming/strom#command-conquer-red-alert-2` |
@@ -54,6 +55,7 @@ rebuilds.
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD (via Proton and gamescope)](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run github:kraftwerk-gaming/strom#stronghold-hd` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate (via FreeSynd engine)](https://lutris.net/games/syndicate/) | `native` | `nix run github:kraftwerk-gaming/strom#syndicate` |
 | <a href="https://lutris.net/games/the-settlers-ii-gold-edition/"><img src="https://lutris.net/games/banner/the-settlers-ii-gold-edition.jpg" height="40" alt="the-settlers-ii-gold-edition"></a> | [The Settlers II Gold (via Return to the Roots)](https://lutris.net/games/the-settlers-ii-gold-edition/) | `native` | `nix run github:kraftwerk-gaming/strom#the-settlers-ii-gold-edition` |
+| <a href="https://lutris.net/games/the-typing-of-the-dead-overkill/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg" height="40" alt="the-typing-of-the-dead-overkill"></a> | [The Typing of the Dead: Overkill (Steam, via Proton and gamescope)](https://lutris.net/games/the-typing-of-the-dead-overkill/) | `proton` | `nix run github:kraftwerk-gaming/strom#the-typing-of-the-dead-overkill` |
 | <a href="https://lutris.net/games/theme-hospital/"><img src="https://lutris.net/games/banner/theme-hospital.jpg" height="40" alt="theme-hospital"></a> | [Theme Hospital (via CorsixTH engine)](https://lutris.net/games/theme-hospital/) | `native` | `nix run github:kraftwerk-gaming/strom#theme-hospital` |
 | <a href="https://lutris.net/games/thief-2/"><img src="https://lutris.net/games/banner/thief-2.jpg" height="40" alt="thief-2"></a> | [Thief II: The Metal Age (NewDark engine, via Proton and gamescope)](https://lutris.net/games/thief-2/) | `proton` | `nix run github:kraftwerk-gaming/strom#thief-2` |
 | <a href="https://lutris.net/games/thief-gold/"><img src="https://lutris.net/games/banner/thief-gold.jpg" height="40" alt="thief-gold"></a> | [Thief Gold with TFix (NewDark engine, via Proton and gamescope)](https://lutris.net/games/thief-gold/) | `proton` | `nix run github:kraftwerk-gaming/strom#thief-gold` |
@@ -62,7 +64,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D (GOG build, via Proton and gamescope)](https://lutris.net/games/worms-wmd/) | `proton` | `nix run github:kraftwerk-gaming/strom#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears (via RetroArch / SwanStation)](https://lutris.net/games/xenogears/) | `retroarch` | `nix run github:kraftwerk-gaming/strom#xenogears` |
 
-_31 games_
+_35 games_
 
 <!-- END GENERATED GAMES -->
 
