@@ -10,6 +10,7 @@
   SDL2_mixer,
   curl,
   bzip2,
+  gamescope,
   gettext,
   lua5_3,
   miniupnpc,
@@ -147,7 +148,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     ln -sfn "$GAMEDIR" "$HOME/.s25rttr"
     export RTTR_PREFIX_DIR="${combinedPrefix}"
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
+    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
       ${lib.getExe s25client}
   '';
 

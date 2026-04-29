@@ -3,6 +3,7 @@
   cmake,
   fetchFromGitHub,
   fetchIpfs,
+  gamescope,
   lib,
   libpng,
   libavif,
@@ -206,7 +207,7 @@ self.lib.mkGame { inherit lib pkgs; } {
       sed -i 's/fullscreen = true/fullscreen = false/' "$GAMEDIR/user.conf"
     fi
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -- \
+    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 -- \
       ${freesynd}/bin/freesynd -i "$GAMEDIR" -u "$GAMEDIR"
   '';
 
