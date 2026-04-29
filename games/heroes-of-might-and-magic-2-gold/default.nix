@@ -3,6 +3,7 @@
   bchunk,
   fetchIpfs,
   fheroes2,
+  gamescope,
   lib,
   p7zip,
   pkgs,
@@ -72,7 +73,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     mkdir -p "$XDG_DATA_HOME" "$XDG_CONFIG_HOME"
     ln -sfn "$GAMEDIR" "$XDG_DATA_HOME/fheroes2"
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
+    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
       ${lib.getExe fheroes2}
   '';
 

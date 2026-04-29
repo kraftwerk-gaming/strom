@@ -3,6 +3,7 @@
   lib,
   pkgs,
   fetchIpfs,
+  gamescope,
 }:
 
 self.lib.mkGame { inherit lib pkgs; } {
@@ -22,7 +23,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runScript = ''
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 -- \
+    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 -- \
       ${pkgs.ruffle}/bin/ruffle --no-gui "$GAMEDIR/FrogFractions.swf"
   '';
 }

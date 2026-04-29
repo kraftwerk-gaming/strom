@@ -1,6 +1,7 @@
 {
   self,
   fetchIpfs,
+  gamescope,
   jazz2,
   lib,
   pkgs,
@@ -62,7 +63,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     export XDG_DATA_HOME="$GAMEDIR"
     export XDG_CONFIG_HOME="$GAMEDIR"
 
-    exec gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
+    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
       ${lib.getExe jazz2-mp}
   '';
 
