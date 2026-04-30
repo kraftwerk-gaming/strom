@@ -3,3 +3,4 @@ result-*
 TODO.md
 .pi/
 .claude/
+.direnv/

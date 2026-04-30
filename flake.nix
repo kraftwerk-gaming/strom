@@ -22,6 +22,30 @@
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShellNoCC {
+            packages = with pkgs; [
+              nixfmt-tree
+              nix-prefetch
+              radicle-node
+            ];
+            shellHook = ''
+              if rad node status 2>/dev/null | grep -q 'Node is stopped.';then
+                echo "[*] starting radicle node"
+                rad node start
+              else
+                echo "[*] radicle node already running, see 'rad node status'"
+              fi
+            '';
+          };
+        }
+      );
+
       nixosModules = {
         ipfs-mirror = import ./nixos/mirror-module.nix;
         default = self.nixosModules.ipfs-mirror;
