@@ -24,6 +24,10 @@
   fallbackUrl ? "",
   hash,
   name,
+  # Optional expected size in bytes. When set, the progress watcher
+  # prints a percentage. If unset and fallbackUrl is given, we try to
+  # discover it via an HTTP HEAD on the fallback URL.
+  size ? 0,
   # HTTP gateways and libp2p multiaddrs lassie should always try in addition
   # to whatever it discovers via IPNI (cid.contact). Order is informational
   # only — lassie races them in parallel.
@@ -47,6 +51,7 @@ stdenvNoCC.mkDerivation {
   outputHashAlgo = "sha256";
 
   inherit cid fallbackUrl;
+  expectedSize = toString size;
   providers = lib.concatStringsSep "," providers;
 
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -60,8 +65,20 @@ stdenvNoCC.mkDerivation {
   buildCommand = ''
     car_file="$TMPDIR/fetch.car"
 
-    # Background poller: prints CAR size + transfer rate every 5s so you
-    # can tell whether anything is actually being downloaded.
+    # Discover total size: caller-provided value wins, otherwise try a
+    # HEAD request against the fallback URL for a Content-Length hint.
+    total=$expectedSize
+    if [ "$total" = "0" ] && [ -n "$fallbackUrl" ]; then
+      total=$(curl -fsLI --max-time 15 "$fallbackUrl" 2>/dev/null \
+        | awk 'BEGIN{IGNORECASE=1} /^content-length:/ {gsub("\r",""); print $2}' \
+        | tail -n1)
+      total="''${total:-0}"
+      [ "$total" != "0" ] && echo "[fetch-ipfs] discovered size $total via HEAD"
+    fi
+
+    # Background poller: prints size + transfer rate every 5s so you
+    # can tell whether anything is actually being downloaded. Also prints
+    # percentage and ETA when the total is known.
     progress_watch() {
       local target="$1"
       local prev=0 now=0 delta=0
@@ -70,10 +87,30 @@ stdenvNoCC.mkDerivation {
         if [ -f "$target" ]; then
           now=$(stat -c %s "$target" 2>/dev/null || echo 0)
           delta=$(( (now - prev) / 5 ))
-          printf '[fetch-ipfs] %s: %s (%s/s)\n' \
-            "$cid" \
-            "$(numfmt --to=iec --suffix=B $now)" \
-            "$(numfmt --to=iec --suffix=B $delta)"
+          if [ "$total" != "0" ] && [ "$delta" -gt 0 ]; then
+            local pct=$(( now * 100 / total ))
+            local eta=$(( (total - now) / delta ))
+            printf '[fetch-ipfs] %s: %s / %s (%d%%, %s/s, ETA %ds)\n' \
+              "$cid" \
+              "$(numfmt --to=iec --suffix=B $now)" \
+              "$(numfmt --to=iec --suffix=B $total)" \
+              "$pct" \
+              "$(numfmt --to=iec --suffix=B $delta)" \
+              "$eta"
+          elif [ "$total" != "0" ]; then
+            local pct=$(( now * 100 / total ))
+            printf '[fetch-ipfs] %s: %s / %s (%d%%, %s/s)\n' \
+              "$cid" \
+              "$(numfmt --to=iec --suffix=B $now)" \
+              "$(numfmt --to=iec --suffix=B $total)" \
+              "$pct" \
+              "$(numfmt --to=iec --suffix=B $delta)"
+          else
+            printf '[fetch-ipfs] %s: %s (%s/s, total unknown)\n' \
+              "$cid" \
+              "$(numfmt --to=iec --suffix=B $now)" \
+              "$(numfmt --to=iec --suffix=B $delta)"
+          fi
           prev=$now
         else
           printf '[fetch-ipfs] %s: waiting for first byte...\n' "$cid"
