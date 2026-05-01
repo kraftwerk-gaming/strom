@@ -31,6 +31,7 @@ rebuilds.
 
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
+| <a href="https://lutris.net/games/anno-1503/"><img src="https://lutris.net/games/banner/anno-1503.jpg" height="40" alt="anno-1503"></a> | [Anno 1503 A.D. (via Proton and gamescope)](https://lutris.net/games/anno-1503/) | `proton` | `nix run github:kraftwerk-gaming/strom#anno-1503` |
 | <a href="https://lutris.net/games/anno-1602-ad/"><img src="https://lutris.net/games/banner/anno-1602-ad.jpg" height="40" alt="anno-1602-ad"></a> | [Anno 1602 A.D. Gold Edition (via Proton and gamescope)](https://lutris.net/games/anno-1602-ad/) | `proton` | `nix run github:kraftwerk-gaming/strom#anno-1602-ad` |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run github:kraftwerk-gaming/strom#archimedean-dynasty` |
 | <a href="https://lutris.net/games/balatro/"><img src="https://lutris.net/games/banner/balatro.jpg" height="40" alt="balatro"></a> | [Balatro (native Linux)](https://lutris.net/games/balatro/) | `native` | `nix run github:kraftwerk-gaming/strom#balatro` |
@@ -65,11 +66,12 @@ rebuilds.
 | <a href="https://lutris.net/games/unreal-tournament-2004/"><img src="https://lutris.net/games/banner/unreal-tournament-2004.jpg" height="40" alt="unreal-tournament-2004"></a> | [Unreal Tournament 2004 (OldUnreal native Linux)](https://lutris.net/games/unreal-tournament-2004/) | `native` | `nix run github:kraftwerk-gaming/strom#unreal-tournament-2004` |
 | <a href="https://lutris.net/games/untitled-goose-game/"><img src="https://lutris.net/games/banner/untitled-goose-game.jpg" height="40" alt="untitled-goose-game"></a> | [Untitled Goose Game (via Proton and gamescope)](https://lutris.net/games/untitled-goose-game/) | `proton` | `nix run github:kraftwerk-gaming/strom#untitled-goose-game` |
 | <a href="https://lutris.net/games/uplink/"><img src="https://lutris.net/games/banner/uplink.jpg" height="40" alt="uplink"></a> | [Uplink: Hacker Elite v1.6 (via Proton and gamescope)](https://lutris.net/games/uplink/) | `proton` | `nix run github:kraftwerk-gaming/strom#uplink` |
+| <a href="https://lutris.net/games/vampire-crawlers/"><img src="https://lutris.net/games/banner/vampire-crawlers.jpg" height="40" alt="vampire-crawlers"></a> | [Vampire Crawlers (via Proton and gamescope)](https://lutris.net/games/vampire-crawlers/) | `proton` | `nix run github:kraftwerk-gaming/strom#vampire-crawlers` |
 | <a href="https://lutris.net/games/warcraft-iii-the-frozen-throne/"><img src="https://lutris.net/games/banner/warcraft-iii-the-frozen-throne.jpg" height="40" alt="warcraft-iii-the-frozen-throne"></a> | [Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)](https://lutris.net/games/warcraft-iii-the-frozen-throne/) | `proton` | `nix run github:kraftwerk-gaming/strom#warcraft-iii-the-frozen-throne` |
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D (GOG build, via Proton and gamescope)](https://lutris.net/games/worms-wmd/) | `proton` | `nix run github:kraftwerk-gaming/strom#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears (via RetroArch / SwanStation)](https://lutris.net/games/xenogears/) | `retroarch` | `nix run github:kraftwerk-gaming/strom#xenogears` |
 
-_40 games_
+_42 games_
 
 <!-- END GENERATED GAMES -->
 
