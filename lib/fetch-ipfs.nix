@@ -137,10 +137,20 @@ stdenvNoCC.mkDerivation {
       then
         kill $watch_pid 2>/dev/null || true
         echo "extracting $cid from CAR"
-        if car extract -f "$car_file" - > "$out"; then
+        if car extract -f "$car_file" - > "$out" 2>/dev/null \
+          && [ -s "$out" ]; then
           return 0
         fi
-        echo "car extract failed" >&2
+        # car extract only handles UnixFS DAGs. Small files added with
+        # --raw-leaves end up as a single raw-codec block (bafkrei...) with
+        # no UnixFS wrapper, in which case the block bytes are the file.
+        # Fall back to dumping the root block directly.
+        echo "car extract produced no files; trying raw block" >&2
+        if car get-block "$car_file" "$cid" > "$out" 2>/dev/null \
+          && [ -s "$out" ]; then
+          return 0
+        fi
+        echo "car extract and get-block both failed" >&2
       fi
       kill $watch_pid 2>/dev/null || true
       rm -f "$car_file" "$out"
