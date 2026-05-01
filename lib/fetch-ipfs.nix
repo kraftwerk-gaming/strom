@@ -55,12 +55,42 @@ stdenvNoCC.mkDerivation {
 
   impureEnvVars = lib.fetchers.proxyImpureEnvVars;
 
+  # Note: run `nix build -L` (or set `--print-build-logs`) to see this
+  # live; without -L Nix buffers build output until completion.
   buildCommand = ''
     car_file="$TMPDIR/fetch.car"
 
+    # Background poller: prints CAR size + transfer rate every 5s so you
+    # can tell whether anything is actually being downloaded.
+    progress_watch() {
+      local target="$1"
+      local prev=0 now=0 delta=0
+      while true; do
+        sleep 5
+        if [ -f "$target" ]; then
+          now=$(stat -c %s "$target" 2>/dev/null || echo 0)
+          delta=$(( (now - prev) / 5 ))
+          printf '[fetch-ipfs] %s: %s (%s/s)\n' \
+            "$cid" \
+            "$(numfmt --to=iec --suffix=B $now)" \
+            "$(numfmt --to=iec --suffix=B $delta)"
+          prev=$now
+        else
+          printf '[fetch-ipfs] %s: waiting for first byte...\n' "$cid"
+        fi
+      done
+    }
+
     fetch_via_lassie() {
       echo "fetching $cid via lassie (providers: $providers + IPNI)"
-      if lassie fetch \
+      progress_watch "$car_file" &
+      local watch_pid=$!
+      trap 'kill $watch_pid 2>/dev/null || true' EXIT
+      # GOLOG_LOG_LEVEL controls go-libp2p / lassie internal logs.
+      # bitswap=debug shows per-block requests; lassie=debug shows
+      # provider selection and retrieval state machine transitions.
+      if GOLOG_LOG_LEVEL="error,lassie=debug,bitswap_client=info" \
+        lassie fetch \
         --progress \
         --providers "$providers" \
         --provider-timeout 60s \
@@ -68,12 +98,14 @@ stdenvNoCC.mkDerivation {
         --output "$car_file" \
         "$cid"
       then
+        kill $watch_pid 2>/dev/null || true
         echo "extracting $cid from CAR"
         if car extract -f "$car_file" - > "$out"; then
           return 0
         fi
         echo "car extract failed" >&2
       fi
+      kill $watch_pid 2>/dev/null || true
       rm -f "$car_file" "$out"
       return 1
     }
@@ -81,7 +113,13 @@ stdenvNoCC.mkDerivation {
     fetch_via_curl() {
       [ -z "$fallbackUrl" ] && return 1
       echo "fetching fallback $fallbackUrl"
+      progress_watch "$out" &
+      local watch_pid=$!
+      trap 'kill $watch_pid 2>/dev/null || true' EXIT
       curl -fL --max-time 1800 --progress-bar --retry 3 -o "$out" "$fallbackUrl"
+      local rc=$?
+      kill $watch_pid 2>/dev/null || true
+      return $rc
     }
 
     if fetch_via_lassie; then
