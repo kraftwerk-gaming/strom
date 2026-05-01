@@ -35,12 +35,7 @@
               radicle-node
             ];
             shellHook = ''
-              if rad node status 2>/dev/null | grep -q 'Node is stopped.';then
-                echo "[*] starting radicle node"
-                rad node start
-              else
-                echo "[*] radicle node already running, see 'rad node status'"
-              fi
+              echo '[*] to start distributed git, run `rad node start`'
             '';
           };
         }
