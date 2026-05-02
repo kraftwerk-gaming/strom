@@ -54,6 +54,7 @@ rebuilds.
 | <a href="https://lutris.net/games/lemmings/"><img src="https://lutris.net/games/banner/lemmings.jpg" height="40" alt="lemmings"></a> | [Lemmings (DOS CD version with CD audio, via DOSBox-X)](https://lutris.net/games/lemmings/) | `native` | `nix run github:kraftwerk-gaming/strom#lemmings` |
 | <a href="https://lutris.net/games/lemmings-95/"><img src="https://lutris.net/games/banner/lemmings-95.jpg" height="40" alt="lemmings-95"></a> | [Lemmings 95 (Windows 95 version via Wine)](https://lutris.net/games/lemmings-95/) | `native` | `nix run github:kraftwerk-gaming/strom#lemmings-95` |
 | <a href="https://lutris.net/games/need-for-speed-underground-2/"><img src="https://lutris.net/games/banner/need-for-speed-underground-2.jpg" height="40" alt="need-for-speed-underground-2"></a> | [Need for Speed: Underground 2 (via Proton and gamescope)](https://lutris.net/games/need-for-speed-underground-2/) | `proton` | `nix run github:kraftwerk-gaming/strom#need-for-speed-underground-2` |
+| <a href="https://lutris.net/games/osmos/"><img src="https://lutris.net/games/banner/osmos.jpg" height="40" alt="osmos"></a> | [Osmos (native Linux, Hemisphere Games)](https://lutris.net/games/osmos/) | `native` | `nix run github:kraftwerk-gaming/strom#osmos` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus (via PCSX2)](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run github:kraftwerk-gaming/strom#shadow-of-the-colossus` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War (via Proton and gamescope)](https://lutris.net/games/starcraft/) | `proton` | `nix run github:kraftwerk-gaming/strom#starcraft` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD (via Proton and gamescope)](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run github:kraftwerk-gaming/strom#stronghold-hd` |
@@ -72,7 +73,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D (GOG build, via Proton and gamescope)](https://lutris.net/games/worms-wmd/) | `proton` | `nix run github:kraftwerk-gaming/strom#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears (via RetroArch / SwanStation)](https://lutris.net/games/xenogears/) | `retroarch` | `nix run github:kraftwerk-gaming/strom#xenogears` |
 
-_43 games_
+_44 games_
 
 <!-- END GENERATED GAMES -->
 
