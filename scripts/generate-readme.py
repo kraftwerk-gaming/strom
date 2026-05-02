@@ -2,6 +2,7 @@
 """Generate the games table in README.md from flake metadata."""
 
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -37,6 +38,10 @@ def render(meta: dict[str, dict[str, str | None]]) -> str:
             continue
         m = meta[slug]
         desc = m.get("description") or slug
+        # Strip trailing parentheticals that describe the runtime
+        # environment ("(via Proton ...)", "(native Linux)", etc.). The
+        # runtime column already conveys this.
+        desc = re.sub(r"\s*\([^()]*\)\s*$", "", desc).strip()
         runtime = m.get("runtime") or "unknown"
 
         lutris_url = f"https://lutris.net/games/{slug}/"
@@ -47,7 +52,7 @@ def render(meta: dict[str, dict[str, str | None]]) -> str:
             f"</a>"
         )
         name_cell = f"[{desc}]({lutris_url})"
-        run_cell = f"`nix run github:kraftwerk-gaming/strom#{slug}`"
+        run_cell = f"`nix run .#{slug}`"
 
         lines.append(f"| {banner_cell} | {name_cell} | `{runtime}` | {run_cell} |")
 
