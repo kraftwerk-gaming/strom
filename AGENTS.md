@@ -7,6 +7,11 @@
 - The flake attribute name = directory name = Lutris slug. No exceptions.
 - Internal variable names (nix let bindings, fetchurl `name =`) don't need to follow the slug — they describe the actual artifact.
 
+## Formatting
+
+- All `.nix` files must be `nixfmt`-clean. Run `nix fmt` before committing.
+- `nix flake check` runs `checks.<system>.nixfmt` which fails on any tracked unformatted file.
+
 ## README
 
 - After adding or removing a game, regenerate the games table: `python3 scripts/generate-readme.py`

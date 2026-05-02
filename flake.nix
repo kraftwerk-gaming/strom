@@ -22,6 +22,29 @@
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
+      checks = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          # Fails when any tracked .nix file is not nixfmt-clean.
+          # Run `nix fmt` to fix.
+          nixfmt = pkgs.runCommand "nixfmt-check" { nativeBuildInputs = [ pkgs.nixfmt-rfc-style ]; } ''
+            cd ${self}
+            unformatted=$(find . -type f -name '*.nix' -print0 \
+              | xargs -0 nixfmt --check 2>&1 || true)
+            if [ -n "$unformatted" ]; then
+              echo "$unformatted" >&2
+              echo "" >&2
+              echo "run 'nix fmt' to fix" >&2
+              exit 1
+            fi
+            touch $out
+          '';
+        }
+      );
+
       devShells = forAllSystems (
         system:
         let
