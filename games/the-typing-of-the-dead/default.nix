@@ -21,16 +21,16 @@ self.lib.mkGame { inherit lib pkgs; } {
   nativeBuildInputs = [ p7zip ];
 
   buildScript = ''
-    mkdir -p "$out"
-    7z x -o/tmp/totd "$src"
-    mv "/tmp/totd/The Typing of The Dead"/* "$out"/
-    # hglCore.ini: CDCheckPass bypasses the disc verification dialog,
-    # AllDevicePass accepts any D3D device (the game rejects modern adapters).
-    cat > "$out/hglCore.ini" <<'EOINI'
-[HGLCORE]
-CDCheckPass=1
-AllDevicePass=1
-EOINI
+        mkdir -p "$out"
+        7z x -o/tmp/totd "$src"
+        mv "/tmp/totd/The Typing of The Dead"/* "$out"/
+        # hglCore.ini: CDCheckPass bypasses the disc verification dialog,
+        # AllDevicePass accepts any D3D device (the game rejects modern adapters).
+        cat > "$out/hglCore.ini" <<'EOINI'
+    [HGLCORE]
+    CDCheckPass=1
+    AllDevicePass=1
+    EOINI
   '';
 
   copyGlobs = [ ];
@@ -101,15 +101,15 @@ EOINI
   };
 
   preRun = ''
-    # Pin to Windows XP for this era of game
-    USERREG="$COMPATDATA/pfx/user.reg"
-    if [ -f "$USERREG" ] && ! grep -q 'AppDefaults\\\\Tod_e.exe' "$USERREG"; then
-      cat >> "$USERREG" <<'EOF'
+        # Pin to Windows XP for this era of game
+        USERREG="$COMPATDATA/pfx/user.reg"
+        if [ -f "$USERREG" ] && ! grep -q 'AppDefaults\\\\Tod_e.exe' "$USERREG"; then
+          cat >> "$USERREG" <<'EOF'
 
-[Software\\Wine\\AppDefaults\\Tod_e.exe]
-"Version"="winxp"
-EOF
-    fi
+    [Software\\Wine\\AppDefaults\\Tod_e.exe]
+    "Version"="winxp"
+    EOF
+        fi
   '';
 
   meta = {

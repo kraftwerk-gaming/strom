@@ -34,7 +34,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   executable = "Game.exe";
   # -dxnocompatmodefix: D2DX's compat-mode detector misfires under Wine/Proton
   # even with no AppCompatFlags set; skip the check.
-  executableArgs = [ "-3dfx" "-dxnocompatmodefix" ];
+  executableArgs = [
+    "-3dfx"
+    "-dxnocompatmodefix"
+  ];
 
   env = {
     SteamAppId = "0";
@@ -44,39 +47,39 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   preRun = ''
-    # CJ_Strife portable layout expects HKCU\Software\Blizzard Entertainment\Diablo II
-    # to point at the install path. Inject keys into the prefix's user.reg.
-    USERREG="$COMPATDATA/pfx/user.reg"
-    GAMEPATH_W="Z:''${GAMEDIR//\//\\\\}"
-    SAVEPATH_W="$GAMEPATH_W\\\\save"
-    mkdir -p "$GAMEDIR/save"
-    if [ -f "$USERREG" ] && ! grep -q 'Blizzard Entertainment\\\\Diablo II' "$USERREG"; then
-      cat >> "$USERREG" <<EOF
+        # CJ_Strife portable layout expects HKCU\Software\Blizzard Entertainment\Diablo II
+        # to point at the install path. Inject keys into the prefix's user.reg.
+        USERREG="$COMPATDATA/pfx/user.reg"
+        GAMEPATH_W="Z:''${GAMEDIR//\//\\\\}"
+        SAVEPATH_W="$GAMEPATH_W\\\\save"
+        mkdir -p "$GAMEDIR/save"
+        if [ -f "$USERREG" ] && ! grep -q 'Blizzard Entertainment\\\\Diablo II' "$USERREG"; then
+          cat >> "$USERREG" <<EOF
 
-[Software\\\\Blizzard Entertainment\\\\Diablo II]
-"InstallPath"="$GAMEPATH_W"
-"NewSavePath"="$SAVEPATH_W"
-"Save Path"="$SAVEPATH_W"
-"Program"="Diablo II"
-EOF
-    fi
-    # Pin both D2 exes to win10 and strip any AppCompatFlags\Layers entries
-    # so D2DX doesn't detect Windows compatibility mode.
-    if [ -f "$USERREG" ] && ! grep -q 'AppDefaults\\\\Game.exe' "$USERREG"; then
-      cat >> "$USERREG" <<'EOF'
+    [Software\\\\Blizzard Entertainment\\\\Diablo II]
+    "InstallPath"="$GAMEPATH_W"
+    "NewSavePath"="$SAVEPATH_W"
+    "Save Path"="$SAVEPATH_W"
+    "Program"="Diablo II"
+    EOF
+        fi
+        # Pin both D2 exes to win10 and strip any AppCompatFlags\Layers entries
+        # so D2DX doesn't detect Windows compatibility mode.
+        if [ -f "$USERREG" ] && ! grep -q 'AppDefaults\\\\Game.exe' "$USERREG"; then
+          cat >> "$USERREG" <<'EOF'
 
-[Software\\Wine\\AppDefaults\\Game.exe]
-"Version"="win10"
+    [Software\\Wine\\AppDefaults\\Game.exe]
+    "Version"="win10"
 
-[Software\\Wine\\AppDefaults\\Diablo II.exe]
-"Version"="win10"
-EOF
-    fi
-    SYSREG="$COMPATDATA/pfx/system.reg"
-    for f in "$USERREG" "$SYSREG"; do
-      [ -f "$f" ] || continue
-      sed -i -E '/AppCompatFlags\\\\Layers/,/^\[/ { /Game\.exe|Diablo II\.exe/d; }' "$f"
-    done
+    [Software\\Wine\\AppDefaults\\Diablo II.exe]
+    "Version"="win10"
+    EOF
+        fi
+        SYSREG="$COMPATDATA/pfx/system.reg"
+        for f in "$USERREG" "$SYSREG"; do
+          [ -f "$f" ] || continue
+          sed -i -E '/AppCompatFlags\\\\Layers/,/^\[/ { /Game\.exe|Diablo II\.exe/d; }' "$f"
+        done
   '';
 
   gamescope = {

@@ -84,7 +84,11 @@ in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "anno-1602-ad";
 
-  ipfsSources = [ gameISO noCdArchive smackerDll ];
+  ipfsSources = [
+    gameISO
+    noCdArchive
+    smackerDll
+  ];
   src = gameData;
   buildScript = ''
     mkdir -p "$out"

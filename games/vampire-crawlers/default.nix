@@ -8,14 +8,15 @@
 }:
 
 let
-  tenoke-unpack = runCommandLocal "tenoke-unpack"
-    {
-      nativeBuildInputs = [ pkgs.stdenv.cc ];
-    }
-    ''
-      mkdir -p "$out/bin"
-      $CC -O2 -Wall -Wextra -o "$out/bin/tenoke-unpack" ${./unpack.c}
-    '';
+  tenoke-unpack =
+    runCommandLocal "tenoke-unpack"
+      {
+        nativeBuildInputs = [ pkgs.stdenv.cc ];
+      }
+      ''
+        mkdir -p "$out/bin"
+        $CC -O2 -Wall -Wextra -o "$out/bin/tenoke-unpack" ${./unpack.c}
+      '';
 
   iso = fetchIpfs {
     cid = "QmWqBkpwEFhbVWmDttiBGn99oPTFwotA242en3nHKDzPYq";

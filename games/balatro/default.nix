@@ -56,19 +56,21 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runScript = ''
-    export LD_LIBRARY_PATH="$GAMEDIR/lib:${lib.makeLibraryPath [
-      libGL
-      libpulseaudio
-      alsa-lib
-      libxkbcommon
-      wayland
-      vulkan-loader
-      libx11
-      libxext
-      libxcursor
-      libxrandr
-      libxi
-    ]}:''${LD_LIBRARY_PATH:-}"
+    export LD_LIBRARY_PATH="$GAMEDIR/lib:${
+      lib.makeLibraryPath [
+        libGL
+        libpulseaudio
+        alsa-lib
+        libxkbcommon
+        wayland
+        vulkan-loader
+        libx11
+        libxext
+        libxcursor
+        libxrandr
+        libxi
+      ]
+    }:''${LD_LIBRARY_PATH:-}"
     exec "$GAMEDIR/bin/love" "$@"
   '';
 

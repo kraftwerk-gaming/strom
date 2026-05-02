@@ -36,7 +36,14 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "hl.exe";
-  executableArgs = [ "-gl" "-w" "1920" "-h" "1080" "-full" ];
+  executableArgs = [
+    "-gl"
+    "-w"
+    "1920"
+    "-h"
+    "1080"
+    "-full"
+  ];
 
   gamescope = {
     output-width = 1920;
@@ -112,29 +119,29 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   preRun = ''
 
-    # Pre-seed WON CD key. Wine rewrites user.reg from in-memory state on
-    # shutdown, so editing it directly does not survive. Instead, import a
-    # .reg file through regedit so wine writes the key itself.
-    USERREG="$COMPATDATA/pfx/user.reg"
-    if [ ! -f "$USERREG" ] || ! grep -q '"Key"="2335402628334"' "$USERREG"; then
-      REGFILE=$(mktemp --suffix=.reg)
-      cat > "$REGFILE" <<'EOF'
-REGEDIT4
+        # Pre-seed WON CD key. Wine rewrites user.reg from in-memory state on
+        # shutdown, so editing it directly does not survive. Instead, import a
+        # .reg file through regedit so wine writes the key itself.
+        USERREG="$COMPATDATA/pfx/user.reg"
+        if [ ! -f "$USERREG" ] || ! grep -q '"Key"="2335402628334"' "$USERREG"; then
+          REGFILE=$(mktemp --suffix=.reg)
+          cat > "$REGFILE" <<'EOF'
+    REGEDIT4
 
-[HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings]
-"Key"="2335402628334"
-"EngineType"=dword:00000001
-"ScreenWidth"=dword:00000780
-"ScreenHeight"=dword:00000438
-"ScreenBPP"=dword:00000020
-"LauncherWidth"=dword:00000780
-"LauncherHeight"=dword:00000438
-"LauncherBPP"=dword:00000020
-EOF
-      # setsid: $PROTON_RUN's postHook does `kill -9 0`, isolate it.
-      setsid sh -c "\"\$PROTON_RUN\" regedit /S '$REGFILE'" >/dev/null 2>&1 || true
-      rm -f "$REGFILE"
-    fi
+    [HKEY_CURRENT_USER\Software\Valve\Half-Life\Settings]
+    "Key"="2335402628334"
+    "EngineType"=dword:00000001
+    "ScreenWidth"=dword:00000780
+    "ScreenHeight"=dword:00000438
+    "ScreenBPP"=dword:00000020
+    "LauncherWidth"=dword:00000780
+    "LauncherHeight"=dword:00000438
+    "LauncherBPP"=dword:00000020
+    EOF
+          # setsid: $PROTON_RUN's postHook does `kill -9 0`, isolate it.
+          setsid sh -c "\"\$PROTON_RUN\" regedit /S '$REGFILE'" >/dev/null 2>&1 || true
+          rm -f "$REGFILE"
+        fi
   '';
 
   meta = {
