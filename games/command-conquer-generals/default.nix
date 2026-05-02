@@ -109,9 +109,10 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     STAGING_WRITECOPY = "1";
-    # binkw32 must be native for movie playback. d3d8 comes from DXVK
-    # (the bundled GenTool d3d8.dll is dropped in buildScript).
-    WINEDLLOVERRIDES = "binkw32=n,b";
+    # binkw32 (bink video) and mss32 (Miles Sound System) must be native;
+    # wine's stub mss32 crashes after the post-mission stats screen.
+    # d3d8 comes from DXVK (bundled GenTool d3d8.dll dropped in buildScript).
+    WINEDLLOVERRIDES = "binkw32=n,b;mss32=n,b";
     LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
