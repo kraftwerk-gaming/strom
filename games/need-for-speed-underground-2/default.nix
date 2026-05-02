@@ -29,7 +29,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     cid = "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm";
     fallbackUrl = "https://archive.org/download/NFSU2Stable/Need%20for%20Speed%20Underground%202.7z";
     hash = "sha256-aC+1gcJLFay2jWTDBOXZSL3tIxaBoDHV1amtl82XBlA=";
-    size = 1930477571;
     name = "nfsu2.7z";
   };
 

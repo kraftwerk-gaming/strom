@@ -66,14 +66,30 @@ stdenvNoCC.mkDerivation {
     car_file="$TMPDIR/fetch.car"
 
     # Discover total size: caller-provided value wins, otherwise try a
-    # HEAD request against the fallback URL for a Content-Length hint.
+    # HEAD request against the fallback URL, then a public IPFS gateway,
+    # for a Content-Length hint. The size is only used for progress
+    # display; if discovery fails the build still succeeds.
+    extract_content_length() {
+      awk 'BEGIN{IGNORECASE=1} /^content-length:/ {gsub("\r",""); print $2}' \
+        | tail -n1
+    }
     total=$expectedSize
     if [ "$total" = "0" ] && [ -n "$fallbackUrl" ]; then
       total=$(curl -fsLI --max-time 15 "$fallbackUrl" 2>/dev/null \
-        | awk 'BEGIN{IGNORECASE=1} /^content-length:/ {gsub("\r",""); print $2}' \
-        | tail -n1)
+        | extract_content_length)
       total="''${total:-0}"
-      [ "$total" != "0" ] && echo "[fetch-ipfs] discovered size $total via HEAD"
+      [ "$total" != "0" ] && echo "[fetch-ipfs] discovered size $total via fallback HEAD"
+    fi
+    if [ "$total" = "0" ]; then
+      for gw in https://ipfs.io https://dweb.link; do
+        total=$(curl -fsLI --max-time 15 "$gw/ipfs/$cid" 2>/dev/null \
+          | extract_content_length)
+        total="''${total:-0}"
+        if [ "$total" != "0" ]; then
+          echo "[fetch-ipfs] discovered size $total via $gw"
+          break
+        fi
+      done
     fi
 
     # Background poller: prints size + transfer rate every 5s so you
