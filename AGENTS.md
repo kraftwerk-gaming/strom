@@ -20,8 +20,8 @@
 ## IPFS and fetchIpfs
 
 - Game files are fetched via `fetchIpfs` (`lib/fetch-ipfs.nix`), which uses `ipget` to spawn a temporary IPFS node and fetch by CID from the DHT. Falls back to archive.org if IPFS fails.
-- CIDs in this repo are generated with `ipfs add --nocopy` (which implies `--raw-leaves`). A plain `ipfs add` without `--raw-leaves` produces a **different CID** for the same file. Always use `--raw-leaves` (or `--nocopy`) when adding files to match the CIDs in this repo.
-- To add a new game file to IPFS: place it in `/var/download/games/` on the pin host. The `ipfs-pin-watcher` service auto-pins it with `--nocopy` and records the CID in `/var/lib/ipfs/cid-map.txt`.
+- CIDs in this repo are generated with `ipfs add --raw-leaves`. A plain `ipfs add` without `--raw-leaves` produces a **different CID** for the same file. Always use `--raw-leaves` when adding files to match the CIDs in this repo. (`--nocopy` implies `--raw-leaves` and is fine too; it just additionally enables filestore in-place referencing.)
+- To add a new game file to IPFS: place it in `/var/download/games/` on the pin host. The `ipfs-pin-watcher` service auto-pins it (with `--nocopy`, so `--raw-leaves` is implied) and records the CID in `/var/lib/ipfs/cid-map.txt`.
 - When adding a new game, get the CID from `cid-map.txt` and use `fetchIpfs { cid = "..."; fallbackUrl = "https://archive.org/..."; hash = "sha256-..."; name = "..."; }`.
 - Files not yet on the pin host are not discoverable via IPFS. The file must be pinned on at least one reachable node.
 

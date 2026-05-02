@@ -113,10 +113,14 @@ sudo -u ipfs ipfs id
 
 ### Adding a game file to IPFS
 
-Use `--nocopy` (which implies `--raw-leaves`) to avoid duplicating multi-GB
-files into the blockstore. All CIDs in this repo use this mode. A plain
-`ipfs add` without `--raw-leaves` produces a **different CID** for the same
-file -- do not use it.
+Always pass `--raw-leaves`. All CIDs in this repo are computed with that
+flag set. A plain `ipfs add` without `--raw-leaves` produces a **different
+CID** for the same file -- do not use it.
+
+`--nocopy` is optional and implies `--raw-leaves`. It avoids duplicating
+multi-GB files into the blockstore by referencing them in place via the
+filestore; use it when you want the optimization, but the CID is the same
+either way.
 
 Example: adding The Typing of the Dead: Overkill (7.4 GB):
 
@@ -126,14 +130,14 @@ Example: adding The Typing of the Dead: Overkill (7.4 GB):
 # is in a common group (e.g. "download")
 
 # add to IPFS (as the ipfs user, since the daemon owns the repo)
-sudo -u ipfs ipfs add --nocopy --progress \
+sudo -u ipfs ipfs add --raw-leaves --progress \
   '/media/download/torrents/The.Typing.of.the.Dead.Overkill.7z'
 # output: added QmZPyB... The.Typing.of.the.Dead.Overkill.7z
 ```
 
-Note the CID from the output (`QmZPyBk...` in this case). `--nocopy` means
-the blockstore references the file at its current path -- do not move or
-delete it while it is pinned.
+Note the CID from the output (`QmZPyBk...` in this case). If you used
+`--nocopy`, the blockstore references the file at its current path -- do
+not move or delete it while it is pinned.
 
 ### Verifying the file is retrievable
 
