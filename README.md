@@ -34,6 +34,7 @@ rebuilds.
 | <a href="https://lutris.net/games/anno-1503/"><img src="https://lutris.net/games/banner/anno-1503.jpg" height="40" alt="anno-1503"></a> | [Anno 1503 A.D.](https://lutris.net/games/anno-1503/) | `proton` | `nix run .#anno-1503` |
 | <a href="https://lutris.net/games/anno-1602-ad/"><img src="https://lutris.net/games/banner/anno-1602-ad.jpg" height="40" alt="anno-1602-ad"></a> | [Anno 1602 A.D. Gold Edition](https://lutris.net/games/anno-1602-ad/) | `proton` | `nix run .#anno-1602-ad` |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run .#archimedean-dynasty` |
+| <a href="https://lutris.net/games/baba-is-you/"><img src="https://lutris.net/games/banner/baba-is-you.jpg" height="40" alt="baba-is-you"></a> | [Baba Is You](https://lutris.net/games/baba-is-you/) | `native` | `nix run .#baba-is-you` |
 | <a href="https://lutris.net/games/balatro/"><img src="https://lutris.net/games/banner/balatro.jpg" height="40" alt="balatro"></a> | [Balatro](https://lutris.net/games/balatro/) | `native` | `nix run .#balatro` |
 | <a href="https://lutris.net/games/braid/"><img src="https://lutris.net/games/banner/braid.jpg" height="40" alt="braid"></a> | [Braid](https://lutris.net/games/braid/) | `native` | `nix run .#braid` |
 | <a href="https://lutris.net/games/burnout-3-takedown/"><img src="https://lutris.net/games/banner/burnout-3-takedown.jpg" height="40" alt="burnout-3-takedown"></a> | [Burnout 3: Takedown](https://lutris.net/games/burnout-3-takedown/) | `pcsx2` | `nix run .#burnout-3-takedown` |
@@ -84,7 +85,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_55 games_
+_56 games_
 
 <!-- END GENERATED GAMES -->
 
