@@ -54,10 +54,12 @@ rebuilds.
 | <a href="https://lutris.net/games/legacy-of-kain-soul-reaver/"><img src="https://lutris.net/games/banner/legacy-of-kain-soul-reaver.jpg" height="40" alt="legacy-of-kain-soul-reaver"></a> | [Legacy of Kain: Soul Reaver](https://lutris.net/games/legacy-of-kain-soul-reaver/) | `proton` | `nix run .#legacy-of-kain-soul-reaver` |
 | <a href="https://lutris.net/games/lemmings/"><img src="https://lutris.net/games/banner/lemmings.jpg" height="40" alt="lemmings"></a> | [Lemmings](https://lutris.net/games/lemmings/) | `native` | `nix run .#lemmings` |
 | <a href="https://lutris.net/games/lemmings-95/"><img src="https://lutris.net/games/banner/lemmings-95.jpg" height="40" alt="lemmings-95"></a> | [Lemmings 95](https://lutris.net/games/lemmings-95/) | `native` | `nix run .#lemmings-95` |
+| <a href="https://lutris.net/games/need-for-speed-most-wanted/"><img src="https://lutris.net/games/banner/need-for-speed-most-wanted.jpg" height="40" alt="need-for-speed-most-wanted"></a> | [Need for Speed: Most Wanted (2005)](https://lutris.net/games/need-for-speed-most-wanted/) | `proton` | `nix run .#need-for-speed-most-wanted` |
 | <a href="https://lutris.net/games/need-for-speed-underground-2/"><img src="https://lutris.net/games/banner/need-for-speed-underground-2.jpg" height="40" alt="need-for-speed-underground-2"></a> | [Need for Speed: Underground 2](https://lutris.net/games/need-for-speed-underground-2/) | `proton` | `nix run .#need-for-speed-underground-2` |
 | <a href="https://lutris.net/games/osmos/"><img src="https://lutris.net/games/banner/osmos.jpg" height="40" alt="osmos"></a> | [Osmos](https://lutris.net/games/osmos/) | `native` | `nix run .#osmos` |
 | <a href="https://lutris.net/games/outer-wilds/"><img src="https://lutris.net/games/banner/outer-wilds.jpg" height="40" alt="outer-wilds"></a> | [Outer Wilds](https://lutris.net/games/outer-wilds/) | `proton` | `nix run .#outer-wilds` |
 | <a href="https://lutris.net/games/outer-wilds-alpha/"><img src="https://lutris.net/games/banner/outer-wilds-alpha.jpg" height="40" alt="outer-wilds-alpha"></a> | [Outer Wilds Alpha 1.2](https://lutris.net/games/outer-wilds-alpha/) | `proton` | `nix run .#outer-wilds-alpha` |
+| <a href="https://lutris.net/games/return-of-the-obra-dinn/"><img src="https://lutris.net/games/banner/return-of-the-obra-dinn.jpg" height="40" alt="return-of-the-obra-dinn"></a> | [Return of the Obra Dinn](https://lutris.net/games/return-of-the-obra-dinn/) | `proton` | `nix run .#return-of-the-obra-dinn` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run .#shadow-of-the-colossus` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War](https://lutris.net/games/starcraft/) | `proton` | `nix run .#starcraft` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
@@ -79,7 +81,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_50 games_
+_52 games_
 
 <!-- END GENERATED GAMES -->
 
