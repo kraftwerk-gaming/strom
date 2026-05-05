@@ -6,12 +6,19 @@ stdenv.mkDerivation {
   buildPhase = ''
     cat > subreaper.c << 'EOF'
     #include <sys/prctl.h>
+    #include <signal.h>
     #include <unistd.h>
     #include <stdio.h>
 
     /* Set PR_SET_CHILD_SUBREAPER then exec the given command.
        Orphaned descendants get reparented to this process instead
-       of init, so kill/wait can reach them. */
+       of init, so kill/wait can reach them.
+
+       Also reset SIGINT/SIGQUIT to SIG_DFL: nix run / bash backgrounding
+       leave these as SIG_IGN, and POSIX requires shells to honor that
+       inheritance, so the wrapper's `trap cleanup INT` would silently
+       no-op without this. Resetting before exec lets bash install its
+       trap normally. */
     int main(int argc, char **argv) {
         if (argc < 2) {
             fprintf(stderr, "usage: subreaper cmd [args...]\n");
@@ -21,6 +28,8 @@ stdenv.mkDerivation {
             perror("prctl(PR_SET_CHILD_SUBREAPER)");
             return 1;
         }
+        signal(SIGINT, SIG_DFL);
+        signal(SIGQUIT, SIG_DFL);
         execvp(argv[1], argv + 1);
         perror("exec");
         return 1;
