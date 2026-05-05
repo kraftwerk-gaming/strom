@@ -32,6 +32,7 @@ rebuilds.
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
 | <a href="https://lutris.net/games/age-of-empires-ii-the-conquerors/"><img src="https://lutris.net/games/banner/age-of-empires-ii-the-conquerors.jpg" height="40" alt="age-of-empires-ii-the-conquerors"></a> | [Age of Empires II: The Conquerors](https://lutris.net/games/age-of-empires-ii-the-conquerors/) | `proton` | `nix run .#age-of-empires-ii-the-conquerors` |
+| <a href="https://lutris.net/games/anno-1404/"><img src="https://lutris.net/games/banner/anno-1404.jpg" height="40" alt="anno-1404"></a> | [Anno 1404 Gold Edition](https://lutris.net/games/anno-1404/) | `proton` | `nix run .#anno-1404` |
 | <a href="https://lutris.net/games/anno-1503/"><img src="https://lutris.net/games/banner/anno-1503.jpg" height="40" alt="anno-1503"></a> | [Anno 1503 A.D.](https://lutris.net/games/anno-1503/) | `proton` | `nix run .#anno-1503` |
 | <a href="https://lutris.net/games/anno-1602-ad/"><img src="https://lutris.net/games/banner/anno-1602-ad.jpg" height="40" alt="anno-1602-ad"></a> | [Anno 1602 A.D. Gold Edition](https://lutris.net/games/anno-1602-ad/) | `proton` | `nix run .#anno-1602-ad` |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run .#archimedean-dynasty` |
@@ -94,7 +95,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_65 games_
+_66 games_
 
 <!-- END GENERATED GAMES -->
 
