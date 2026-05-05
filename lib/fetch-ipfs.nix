@@ -30,8 +30,10 @@
   size ? 0,
   # HTTP gateways and libp2p multiaddrs lassie should always try in addition
   # to whatever it discovers via IPNI (cid.contact). Order is informational
-  # only — lassie races them in parallel.
+  # only — lassie races them in parallel. ipfs.io 301-redirects all CAR
+  # requests to trustless-gateway.link, so we point there directly.
   providers ? [
+    "https://trustless-gateway.link"
     "https://ipfs.io"
     "https://dweb.link"
   ],
