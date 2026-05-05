@@ -126,36 +126,71 @@ let
 
       subreaper = pkgs.callPackage ../pkgs/subreaper.nix { };
 
-      # Runs outside bwrap: mounts overlay, then enters FHS.
-      # Uses PR_SET_CHILD_SUBREAPER so orphaned wine processes get reparented
-      # to this wrapper instead of init. This lets cleanup kill them reliably.
+      # Runs outside bwrap: locks the game, kills orphans from prior runs,
+      # mounts the overlay, then enters the FHS env. Uses PR_SET_CHILD_SUBREAPER
+      # so orphaned wine processes get reparented to this wrapper instead of
+      # init. gamescopereaper escapes the subreaper (separate session) and
+      # winedevice.exe escapes too, so cleanup walks /proc to catch anything
+      # tagged with our compatdata/overlay path in cmdline or environ.
       outerWrapper =
         fhsEnv:
         pkgs.writeShellScript "${cfg.name}-wrapper" ''
           # Re-exec under subreaper if not already
-          if [ -z "$STROM_SUBREAPER" ]; then
+          if [ -z "''${STROM_SUBREAPER-}" ]; then
             export STROM_SUBREAPER=1
             exec ${subreaper}/bin/subreaper "$0" "$@"
           fi
 
           GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
-          mkdir -p "$GAMEDIR"
-          export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
-
-          # Export paths for bwrap sandbox (used by extraBwrapArgs to restrict /home)
           export STROM_GAMEDIR="$GAMEDIR"
           export STROM_COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}"
           export STROM_CACHEDIR="''${HOME:-.}/.cache/strom/${cfg.name}"
-          mkdir -p "$STROM_COMPATDATA" "$STROM_CACHEDIR" \
+          mkdir -p "$GAMEDIR" "$STROM_COMPATDATA" "$STROM_CACHEDIR" \
             "''${HOME:-.}/.cache/umu" "''${HOME:-.}/.cache/umu-protonfixes" "''${HOME:-.}/.cache/wine"
+
+          # Walk /proc and SIGKILL any process whose cmdline or environ
+          # references one of the markers — catches gamescopereaper (cmdline
+          # has the overlay path), winedevice.exe (WINEPREFIX in environ),
+          # and wine64 helpers spawned by Proton's prefix init.
+          strom_kill_marked() {
+            local pid
+            for pid in /proc/[0-9]*; do
+              pid="''${pid#/proc/}"
+              [ "$pid" = "$$" ] && continue
+              if grep -qaE "$1" "/proc/$pid/cmdline" "/proc/$pid/environ" 2>/dev/null; then
+                kill -KILL "$pid" 2>/dev/null
+              fi
+            done
+          }
+
+          # Single-instance lock per game so two launches can't clobber the
+          # same wineprefix.
+          exec 9>"$STROM_CACHEDIR/.lock"
+          if ! flock -n 9; then
+            echo "${cfg.name}: another instance is already running" >&2
+            exit 1
+          fi
+
+          # Preflight: nuke leftover wine/gamescope/proton processes from
+          # crashed prior runs, then unmount any stale overlay.
+          marker="$STROM_COMPATDATA|$STROM_CACHEDIR/overlay"
+          strom_kill_marked "$marker"
+          for _ in 1 2 3 4 5; do
+            pgrep -f "$marker" >/dev/null 2>&1 || break
+            sleep 0.2
+          done
+          if mountpoint -q "$STROM_CACHEDIR/overlay" 2>/dev/null; then
+            fusermount -uz "$STROM_CACHEDIR/overlay" 2>/dev/null || true
+          fi
+
+          export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
 
           cleanup() {
             kill -KILL -- -$FHS_PID 2>/dev/null
-            # Kill reparented orphans (wine processes that became our children
-            # via PR_SET_CHILD_SUBREAPER). One pass, no loop.
             local pids
             pids=$(ps -o pid= --ppid $$ 2>/dev/null) || true
             [ -n "$pids" ] && kill -KILL $pids 2>/dev/null
+            strom_kill_marked "$STROM_COMPATDATA|$STROM_OVERLAY"
             wait 2>/dev/null
             fusermount -uz "$STROM_OVERLAY" 2>/dev/null
           }
