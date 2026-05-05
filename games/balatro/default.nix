@@ -3,79 +3,63 @@
   lib,
   pkgs,
   fetchIpfs,
-  squashfsTools,
-  autoPatchelfHook,
-  stdenv,
-  libGL,
-  libpulseaudio,
-  alsa-lib,
-  libxkbcommon,
-  wayland,
-  libx11,
-  libxext,
-  libxcursor,
-  libxrandr,
-  libxi,
-  vulkan-loader,
 }:
 
+let
+  src = fetchIpfs {
+    cid = "QmXqGFXAh7Y9vzBRXj5cGyjnLFPPsYnMJPZVAoMAbdWmtj";
+    hash = "sha256-hi9tn6HC6pgLIAkAoZtnhus7BcYq8B241xBVWqvupoM=";
+    name = "balatro-ankergames.rar";
+  };
+in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "balatro";
-  runtime = "native";
 
-  src = fetchIpfs {
-    cid = "Qme9fvcZgvMBYbcSMo4poJr4P8Ykq8FaU2Hj5wXxkB1czt";
-    hash = "sha256-snd/3n1fEGhjrQjhUzvgN/qnGKvp+bpzCiQaSepgP1M=";
-    name = "balatro.squashfs";
-  };
+  ipfsSources = [ src ];
 
-  nativeBuildInputs = [
-    squashfsTools
-    autoPatchelfHook
-    stdenv.cc.cc.lib
-    libGL
-    libpulseaudio
-    alsa-lib
-    libxkbcommon
-    wayland
-    vulkan-loader
-    libx11
-    libxext
-    libxcursor
-    libxrandr
-    libxi
-  ];
+  src =
+    pkgs.runCommandLocal "balatro-data"
+      {
+        nativeBuildInputs = [ pkgs.unar ];
+      }
+      ''
+        mkdir -p "$out"
+        unar -o "$out" ${src}
+        extracted=$(echo "$out/"*/)
+        mv "$extracted/Balatro/"* "$out/"
+      '';
 
   buildScript = ''
-    dd if="$src" of=/tmp/balatro.squashfs bs=8192 skip=1
-    unsquashfs -d /tmp/balatro /tmp/balatro.squashfs
     mkdir -p "$out"
-    cp -r /tmp/balatro/. "$out"/
-    chmod -R u+w "$out"
-    autoPatchelf "$out"
+    cp -r "$src"/* "$out"/
   '';
 
-  runScript = ''
-    export LD_LIBRARY_PATH="$GAMEDIR/lib:${
-      lib.makeLibraryPath [
-        libGL
-        libpulseaudio
-        alsa-lib
-        libxkbcommon
-        wayland
-        vulkan-loader
-        libx11
-        libxext
-        libxcursor
-        libxrandr
-        libxi
-      ]
-    }:''${LD_LIBRARY_PATH:-}"
-    exec "$GAMEDIR/bin/love" "$@"
-  '';
+  runtime = "proton";
+  executable = "Balatro.exe";
+
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--immediate-flips" = true;
+      "--expose-wayland" = true;
+    };
+  };
+
+  env = {
+    SteamAppId = "0";
+    SteamGameId = "0";
+    PROTON_NO_GAME_FIXES = "1";
+    DXVK_ASYNC = "1";
+    WINE_LARGE_ADDRESS_AWARE = "1";
+    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
+  };
 
   meta = {
-    description = "Balatro (native Linux)";
+    description = "Balatro (via Proton)";
     platforms = [ "x86_64-linux" ];
     mainProgram = "balatro";
   };
