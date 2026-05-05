@@ -151,16 +151,32 @@ let
           # Walk /proc and SIGKILL any process whose cmdline or environ
           # references one of the markers — catches gamescopereaper (cmdline
           # has the overlay path), winedevice.exe (WINEPREFIX in environ),
-          # and wine64 helpers spawned by Proton's prefix init.
+          # and wine64 helpers spawned by Proton's prefix init. Trailing
+          # slashes anchor the match so e.g. "fallout/" never matches
+          # "fallout-2/", and -F treats the markers as fixed strings so
+          # regex metachars in paths don't bite.
+          strom_match_proc() {
+            grep -qaF -e "$STROM_COMPATDATA/" -e "$STROM_CACHEDIR/overlay/" \
+              "/proc/$1/cmdline" "/proc/$1/environ" 2>/dev/null
+          }
           strom_kill_marked() {
             local pid
             for pid in /proc/[0-9]*; do
               pid="''${pid#/proc/}"
               [ "$pid" = "$$" ] && continue
-              if grep -qaE "$1" "/proc/$pid/cmdline" "/proc/$pid/environ" 2>/dev/null; then
+              if strom_match_proc "$pid"; then
                 kill -KILL "$pid" 2>/dev/null
               fi
             done
+          }
+          strom_any_marked() {
+            local pid
+            for pid in /proc/[0-9]*; do
+              pid="''${pid#/proc/}"
+              [ "$pid" = "$$" ] && continue
+              strom_match_proc "$pid" && return 0
+            done
+            return 1
           }
 
           # Single-instance lock per game so two launches can't clobber the
@@ -173,10 +189,9 @@ let
 
           # Preflight: nuke leftover wine/gamescope/proton processes from
           # crashed prior runs, then unmount any stale overlay.
-          marker="$STROM_COMPATDATA|$STROM_CACHEDIR/overlay"
-          strom_kill_marked "$marker"
+          strom_kill_marked
           for _ in 1 2 3 4 5; do
-            pgrep -f "$marker" >/dev/null 2>&1 || break
+            strom_any_marked || break
             sleep 0.2
           done
           if mountpoint -q "$STROM_CACHEDIR/overlay" 2>/dev/null; then
@@ -190,7 +205,7 @@ let
             local pids
             pids=$(ps -o pid= --ppid $$ 2>/dev/null) || true
             [ -n "$pids" ] && kill -KILL $pids 2>/dev/null
-            strom_kill_marked "$STROM_COMPATDATA|$STROM_OVERLAY"
+            strom_kill_marked
             wait 2>/dev/null
             fusermount -uz "$STROM_OVERLAY" 2>/dev/null
           }
