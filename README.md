@@ -46,6 +46,7 @@ rebuilds.
 | <a href="https://lutris.net/games/command-conquer-red-alert-2/"><img src="https://lutris.net/games/banner/command-conquer-red-alert-2.jpg" height="40" alt="command-conquer-red-alert-2"></a> | [Command & Conquer: Red Alert 2 + Yuri's Revenge](https://lutris.net/games/command-conquer-red-alert-2/) | `proton` | `nix run .#command-conquer-red-alert-2` |
 | <a href="https://lutris.net/games/command-conquer-renegade/"><img src="https://lutris.net/games/banner/command-conquer-renegade.jpg" height="40" alt="command-conquer-renegade"></a> | [command-conquer-renegade](https://lutris.net/games/command-conquer-renegade/) | `proton` | `nix run .#command-conquer-renegade` |
 | <a href="https://lutris.net/games/command-conquer-tiberian-sun/"><img src="https://lutris.net/games/banner/command-conquer-tiberian-sun.jpg" height="40" alt="command-conquer-tiberian-sun"></a> | [Command & Conquer: Tiberian Sun + Firestorm](https://lutris.net/games/command-conquer-tiberian-sun/) | `proton` | `nix run .#command-conquer-tiberian-sun` |
+| <a href="https://lutris.net/games/cryostasis/"><img src="https://lutris.net/games/banner/cryostasis.jpg" height="40" alt="cryostasis"></a> | [Cryostasis: Sleep of Reason](https://lutris.net/games/cryostasis/) | `proton` | `nix run .#cryostasis` |
 | <a href="https://lutris.net/games/diablo-ii-lord-of-destruction/"><img src="https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg" height="40" alt="diablo-ii-lord-of-destruction"></a> | [Diablo II + Lord of Destruction](https://lutris.net/games/diablo-ii-lord-of-destruction/) | `proton` | `nix run .#diablo-ii-lord-of-destruction` |
 | <a href="https://lutris.net/games/disco-elysium-game-boy-edition/"><img src="https://lutris.net/games/banner/disco-elysium-game-boy-edition.jpg" height="40" alt="disco-elysium-game-boy-edition"></a> | [Disco Elysium: Game Boy Edition](https://lutris.net/games/disco-elysium-game-boy-edition/) | `retroarch` | `nix run .#disco-elysium-game-boy-edition` |
 | <a href="https://lutris.net/games/disco-elysium-the-final-cut/"><img src="https://lutris.net/games/banner/disco-elysium-the-final-cut.jpg" height="40" alt="disco-elysium-the-final-cut"></a> | [Disco Elysium: The Final Cut](https://lutris.net/games/disco-elysium-the-final-cut/) | `proton` | `nix run .#disco-elysium-the-final-cut` |
@@ -92,7 +93,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_63 games_
+_64 games_
 
 <!-- END GENERATED GAMES -->
 
