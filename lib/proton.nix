@@ -30,9 +30,19 @@ wlib.wrapModule (
 
       extraPackages = [ config.pkgs.python3 ];
 
-      preHook = ''
-        mkdir -p "${config.compatDataPath}"
-      '';
+      # Proton's lsteamclient hardcodes $HOME/.steam/sdk{32,64}/steamclient.so
+      # and asserts on dlopen failure. Symlink a stub so games run without
+      # requiring a host Steam install.
+      preHook =
+        let
+          stub = config.pkgs.callPackage ../pkgs/steamclient-stub { };
+        in
+        ''
+          mkdir -p "${config.compatDataPath}"
+          mkdir -p "''${HOME:-.}/.steam/sdk32" "''${HOME:-.}/.steam/sdk64"
+          ln -sf ${stub}/sdk32/steamclient.so "''${HOME:-.}/.steam/sdk32/steamclient.so"
+          ln -sf ${stub}/sdk64/steamclient.so "''${HOME:-.}/.steam/sdk64/steamclient.so"
+        '';
 
       args = [ "waitforexitandrun" ];
 

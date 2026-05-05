@@ -67,8 +67,6 @@ let
         "--bind-try \${HOME}/.cache/umu-protonfixes \${HOME}/.cache/umu-protonfixes"
         "--bind-try \${HOME}/.cache/wine \${HOME}/.cache/wine"
         "--ro-bind-try \${HOME}/.local/share/vulkan \${HOME}/.local/share/vulkan"
-        "--ro-bind-try \${HOME}/.local/share/Steam \${HOME}/.local/share/Steam"
-        "--ro-bind-try \${HOME}/.steam \${HOME}/.steam"
         "--chdir /"
       ];
 
