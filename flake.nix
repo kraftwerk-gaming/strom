@@ -131,6 +131,11 @@
           status-page = pkgs.lib.makeOverridable (import ./scripts/status-page.nix) {
             inherit pkgs games;
           };
+          krebs-status = self.packages.${system}.status-page.override {
+            #picocssUrl = "http://c.krebsco.de/pico.min.css";
+            picocssUrl = "https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.min.css";
+            gamesJsonUrl = "http://c.r/strom-games";
+          };
           games-json = (import ./scripts/status-page.nix { inherit pkgs games; }).passthru.gamesJson;
           run-status-tests = import ./scripts/run-status-tests.nix {
             inherit pkgs;

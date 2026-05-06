@@ -4,3 +4,4 @@ TODO.md
 .pi/
 .claude/
 .direnv/
+__pycache__/
