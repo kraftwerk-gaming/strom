@@ -398,6 +398,13 @@
     "description": "Stronghold HD (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "super-hexagon": {
+    "cids": [
+      "QmQq1TdmAFnEVQ7pVLCEsH72jygtQPp8s2MYKRJVCbpZrf"
+    ],
+    "description": "Super Hexagon (native Linux, GOG v2.1.0.4)",
+    "runtime": "native"
+  },
   "syndicate": {
     "cids": [
       "QmegVB6p577pTEmYEYabyRyfKy77h2mukp56z5oj7ZoFey",

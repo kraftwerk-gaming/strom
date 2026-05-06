@@ -86,6 +86,7 @@ rebuilds.
 | <a href="https://lutris.net/games/star-wars-battlefront-2/"><img src="https://lutris.net/games/banner/star-wars-battlefront-2.jpg" height="40" alt="star-wars-battlefront-2"></a> | [Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope](https://lutris.net/games/star-wars-battlefront-2/) | `proton` | `nix run .#star-wars-battlefront-2` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War](https://lutris.net/games/starcraft/) | `proton` | `nix run .#starcraft` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
+| <a href="https://lutris.net/games/super-hexagon/"><img src="https://lutris.net/games/banner/super-hexagon.jpg" height="40" alt="super-hexagon"></a> | [Super Hexagon](https://lutris.net/games/super-hexagon/) | `native` | `nix run .#super-hexagon` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate](https://lutris.net/games/syndicate/) | `native` | `nix run .#syndicate` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg" height="40" alt="the-legend-of-zelda-a-link-to-the-past"></a> | [The Legend of Zelda: A Link to the Past](https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/) | `retroarch` | `nix run .#the-legend-of-zelda-a-link-to-the-past` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-majoras-mask/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-majoras-mask.jpg" height="40" alt="the-legend-of-zelda-majoras-mask"></a> | [The Legend of Zelda: Majora's Mask](https://lutris.net/games/the-legend-of-zelda-majoras-mask/) | `retroarch` | `nix run .#the-legend-of-zelda-majoras-mask` |
@@ -105,7 +106,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_73 games_
+_74 games_
 
 <!-- END GENERATED GAMES -->
 
