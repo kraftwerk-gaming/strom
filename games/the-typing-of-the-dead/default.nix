@@ -3,12 +3,14 @@
   lib,
   pkgs,
   pkgsi686Linux,
+  fetchIpfs,
   p7zip,
 }:
 
 let
-  src = pkgs.fetchurl {
-    url = "https://archive.org/download/typing-of-the-dead-pc-game/%5BPC%5D%20The%20Typing%20of%20the%20Dead%20%28US%29.7z";
+  src = fetchIpfs {
+    cid = "QmeXCgXCm2ogepvGD7iCe48yNTpp5dwLB77CrjjVyeR4R7";
+    fallbackUrl = "https://archive.org/download/typing-of-the-dead-pc-game/%5BPC%5D%20The%20Typing%20of%20the%20Dead%20%28US%29.7z";
     hash = "sha256-JWoqkn0zBjkIywZuBBe5KQrF1goWfvFAqRFdtTYF5Jo=";
     name = "the-typing-of-the-dead.7z";
   };
