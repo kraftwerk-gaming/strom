@@ -53,6 +53,7 @@ rebuilds.
 | <a href="https://lutris.net/games/command-conquer-tiberian-sun/"><img src="https://lutris.net/games/banner/command-conquer-tiberian-sun.jpg" height="40" alt="command-conquer-tiberian-sun"></a> | [Command & Conquer: Tiberian Sun + Firestorm](https://lutris.net/games/command-conquer-tiberian-sun/) | `proton` | `nix run .#command-conquer-tiberian-sun` |
 | <a href="https://lutris.net/games/commandos-behind-enemy-lines/"><img src="https://lutris.net/games/banner/commandos-behind-enemy-lines.jpg" height="40" alt="commandos-behind-enemy-lines"></a> | [Commandos: Behind Enemy Lines](https://lutris.net/games/commandos-behind-enemy-lines/) | `proton` | `nix run .#commandos-behind-enemy-lines` |
 | <a href="https://lutris.net/games/cryostasis/"><img src="https://lutris.net/games/banner/cryostasis.jpg" height="40" alt="cryostasis"></a> | [Cryostasis: Sleep of Reason](https://lutris.net/games/cryostasis/) | `proton` | `nix run .#cryostasis` |
+| <a href="https://lutris.net/games/demon-lord-just-a-block/"><img src="https://lutris.net/games/banner/demon-lord-just-a-block.jpg" height="40" alt="demon-lord-just-a-block"></a> | [Demon Lord Just A Block](https://lutris.net/games/demon-lord-just-a-block/) | `proton` | `nix run .#demon-lord-just-a-block` |
 | <a href="https://lutris.net/games/diablo-ii-lord-of-destruction/"><img src="https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg" height="40" alt="diablo-ii-lord-of-destruction"></a> | [Diablo II + Lord of Destruction](https://lutris.net/games/diablo-ii-lord-of-destruction/) | `proton` | `nix run .#diablo-ii-lord-of-destruction` |
 | <a href="https://lutris.net/games/disco-elysium-game-boy-edition/"><img src="https://lutris.net/games/banner/disco-elysium-game-boy-edition.jpg" height="40" alt="disco-elysium-game-boy-edition"></a> | [Disco Elysium: Game Boy Edition](https://lutris.net/games/disco-elysium-game-boy-edition/) | `retroarch` | `nix run .#disco-elysium-game-boy-edition` |
 | <a href="https://lutris.net/games/disco-elysium-the-final-cut/"><img src="https://lutris.net/games/banner/disco-elysium-the-final-cut.jpg" height="40" alt="disco-elysium-the-final-cut"></a> | [Disco Elysium: The Final Cut](https://lutris.net/games/disco-elysium-the-final-cut/) | `proton` | `nix run .#disco-elysium-the-final-cut` |
@@ -82,6 +83,7 @@ rebuilds.
 | <a href="https://lutris.net/games/return-of-the-obra-dinn/"><img src="https://lutris.net/games/banner/return-of-the-obra-dinn.jpg" height="40" alt="return-of-the-obra-dinn"></a> | [Return of the Obra Dinn](https://lutris.net/games/return-of-the-obra-dinn/) | `proton` | `nix run .#return-of-the-obra-dinn` |
 | <a href="https://lutris.net/games/roketz--1/"><img src="https://lutris.net/games/banner/roketz--1.jpg" height="40" alt="roketz--1"></a> | [Roketz](https://lutris.net/games/roketz--1/) | `custom` | `nix run .#roketz--1` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run .#shadow-of-the-colossus` |
+| <a href="https://lutris.net/games/star-wars-battlefront-2/"><img src="https://lutris.net/games/banner/star-wars-battlefront-2.jpg" height="40" alt="star-wars-battlefront-2"></a> | [Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope](https://lutris.net/games/star-wars-battlefront-2/) | `proton` | `nix run .#star-wars-battlefront-2` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War](https://lutris.net/games/starcraft/) | `proton` | `nix run .#starcraft` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate](https://lutris.net/games/syndicate/) | `native` | `nix run .#syndicate` |
@@ -103,7 +105,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_74 games_
+_80 games_
 
 <!-- END GENERATED GAMES -->
 
