@@ -176,27 +176,49 @@ let
           });
         }
 
+        async function queryEndpoint(endpoint, cid) {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+          try {
+            const resp = await fetch(endpoint + cid, {
+              headers: { "Accept": "application/json" },
+              signal: controller.signal,
+              cache: "no-store",
+            });
+            clearTimeout(timer);
+            if (!resp.ok) return [];
+            const ct = (resp.headers.get("content-type") || "").toLowerCase();
+            if (ct.includes("ndjson")) {
+              // NDJSON: each line is a bare provider object
+              const text = await resp.text();
+              return text.trim().split("\n")
+                .filter(l => l.trim())
+                .map(l => { try { return JSON.parse(l); } catch(_) { return null; } })
+                .filter(Boolean);
+            }
+            const data = await resp.json();
+            return data.Providers || [];
+          } catch (e) {
+            clearTimeout(timer);
+            return [];
+          }
+        }
+
         async function checkCid(cid) {
-          for (const endpoint of ROUTING_ENDPOINTS) {
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
-            try {
-              const resp = await fetch(endpoint + cid, {
-                headers: { "Accept": "application/json" },
-                signal: controller.signal,
-              });
-              clearTimeout(timer);
-              if (!resp.ok) continue;
-              const data = await resp.json();
-              const providers = data.Providers || [];
-              if (providers.length > 0) {
-                return { available: true, providers: providers.length };
+          const results = await Promise.all(
+            ROUTING_ENDPOINTS.map(ep => queryEndpoint(ep, cid))
+          );
+          const seen = new Set();
+          let count = 0;
+          for (const providers of results) {
+            for (const p of providers) {
+              if (!seen.has(p.ID)) {
+                seen.add(p.ID);
+                count++;
               }
-            } catch (e) {
-              clearTimeout(timer);
             }
           }
-          return { available: false, providers: 0 };
+          return { available: count > 0, providers: count };
         }
 
         async function checkGame(name) {
