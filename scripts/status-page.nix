@@ -1,9 +1,6 @@
 {
   pkgs,
   games,
-  # URL to pico.min.css. When null, the file is bundled locally as "pico.min.css".
-  # Set to an absolute URL to load from a CDN or other host.
-  picocssUrl ? null,
   # URL to games.json. When null, the file is bundled locally as "games.json".
   # Set to an absolute URL to serve the JSON from a separate location,
   # allowing the website to be published once while games.json is updated
@@ -36,7 +33,6 @@ let
     hash = "sha256-+8mmP8n8n3LRL9f8mAbhH6n3euT5ytFGsnADoRGbo9s=";
   };
 
-  effectivePicocssUrl = if picocssUrl != null then picocssUrl else "pico.min.css";
   effectiveGamesJsonUrl = if gamesJsonUrl != null then gamesJsonUrl else "games.json";
 
   htmlPage = pkgs.writeText "index.html" ''
@@ -46,7 +42,10 @@ let
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>strom - IPFS game status</title>
-      <link rel="stylesheet" href="%%PICOCSS_URL%%">
+      <!-- pico.min.css v2 inlined at build time from
+           https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css
+           by nix substitute in scripts/status-page.nix -->
+      <style>%%PICOCSS_INLINE%%</style>
       <style>
         :root {
           --pico-font-size: 87.5%;
@@ -284,11 +283,8 @@ in
   ''
     mkdir -p $out
     substitute ${htmlPage} $out/index.html \
-      --replace-fail "%%PICOCSS_URL%%" ${lib.escapeShellArg effectivePicocssUrl} \
+      --replace-fail "%%PICOCSS_INLINE%%" "$(cat ${picocss})" \
       --replace-fail "%%GAMES_JSON_URL%%" ${lib.escapeShellArg effectiveGamesJsonUrl}
-  ''
-  + lib.optionalString (picocssUrl == null) ''
-    cp ${picocss} $out/pico.min.css
   ''
   + lib.optionalString (gamesJsonUrl == null) ''
     cp ${gamesJson} $out/games.json
