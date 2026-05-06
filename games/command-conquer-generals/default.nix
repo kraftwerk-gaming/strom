@@ -12,8 +12,7 @@ let
   # We only ship the base Generals install here; Zero Hour will be a
   # separate package using the same source.
   gameSrc = fetchIpfs {
-    # TODO: pin on the pin host and replace with real CID
-    cid = "bafkREPLACEME";
+    cid = "QmXZ7mW2peZtDmdY4SWqKXHMUyqEZje7if6kjanHe6gCLY";
     fallbackUrl = "https://archive.org/download/zerohour.7z/zerohour.7z";
     hash = "sha256-S6aTqXYrIDh4kcOfzFjpaCeT/DeU5TSg+9WoFx8BGcQ=";
     name = "generals-zh-portable.7z";
