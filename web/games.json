@@ -1,0 +1,531 @@
+{
+  "age-of-empires-ii-the-conquerors": {
+    "cids": [
+      "Qmaty9puM8eHXB1qmdHYF7G9dBJNVr6ezV99w5iuNADPxY"
+    ],
+    "description": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "anno-1404": {
+    "cids": [
+      "QmX4XBLMuKUgZn1G18igyJPLwcVASKTH7V9YJ6Kf78Stwz"
+    ],
+    "description": "Anno 1404 Gold Edition (via Proton)",
+    "runtime": "proton"
+  },
+  "anno-1503": {
+    "cids": [
+      "QmdmLrow98WgTbxK4xMoZFS9SpBMSX3WBJQdsw4SSnDLhy"
+    ],
+    "description": "Anno 1503 A.D. (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "anno-1602-ad": {
+    "cids": [
+      "QmWMS4zhvCMj5Nz3gpcaDbgChsZZR6ULY9z9aNcHakuaBR",
+      "QmWAc3pDNQrvngxjcBCqNV8LyxCdFcSqSq2kW1K3kKh9MW",
+      "bafkreid7lxtov7z6aj74dp5fvwh2rtxs56o6tj6v7q4n6rtyqwcaripmgi"
+    ],
+    "description": "Anno 1602 A.D. Gold Edition (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "anno-1701": {
+    "cids": [
+      "QmajdrBZvqXLktKec6nrrVM7dPEufiXYToaUf6AUdzYoDG"
+    ],
+    "description": "Anno 1701 + Sunken Treasure (Gold/AD, via Proton)",
+    "runtime": "proton"
+  },
+  "archimedean-dynasty": {
+    "cids": [
+      "QmQs4toBKxcEJagPfxKP8uvAtadT85EKQqbxPEknbMRoGV"
+    ],
+    "description": "Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)",
+    "runtime": "custom"
+  },
+  "baba-is-you": {
+    "cids": [
+      "QmdZ1QpiFWpYEpYQisNaLVdyRidj9jQ6f7UwqeE4X8FokF"
+    ],
+    "description": "Baba Is You (native Linux)",
+    "runtime": "native"
+  },
+  "balatro": {
+    "cids": [
+      "QmXqGFXAh7Y9vzBRXj5cGyjnLFPPsYnMJPZVAoMAbdWmtj"
+    ],
+    "description": "Balatro (via Proton)",
+    "runtime": "proton"
+  },
+  "beamng-dot-drive": {
+    "cids": [
+      "QmPSLRRfK5wTvQPWKxei2xsRGPerpVnoPToxKq8caHuUJC"
+    ],
+    "description": "BeamNG.drive (native Linux)",
+    "runtime": "native"
+  },
+  "braid": {
+    "cids": [
+      "QmUVVVtFTDg7MUPL6q8a5F6wYqgZdsrtp29j653NvWesjN"
+    ],
+    "description": "Braid (native Linux, GOG)",
+    "runtime": "native"
+  },
+  "burnout-3-takedown": {
+    "cids": [
+      "QmTR7JR8zd4yENd9sudBy5iQBKRKKvYuB66vhymrRMLmSn",
+      "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+    ],
+    "description": "Burnout 3: Takedown (via PCSX2)",
+    "runtime": "pcsx2"
+  },
+  "burntime": {
+    "cids": [
+      "QmaneMxgrsy4vZPXTGtSf5DEbbZ3DjHKhjqtYYVe8UN8to"
+    ],
+    "description": "Burntime (1993 Max Design freeware re-release, via DOSBox-X)",
+    "runtime": "custom"
+  },
+  "cave-story--1": {
+    "cids": [
+      "QmeFchAHBeMMeUjQSDV5Jb9hUsZQvkBcMToHPnfJZWv55z"
+    ],
+    "description": "Cave Story / Doukutsu Monogatari (1.01 Linux freeware)",
+    "runtime": "native"
+  },
+  "clonk-4": {
+    "cids": [
+      "QmWydrkqvdj6b8Zisoixxsoi5e9M5CUAMvwRus3bXxN2Jb"
+    ],
+    "description": "Clonk 4 (1998 freeware release, via Proton)",
+    "runtime": "proton"
+  },
+  "command-conquer": {
+    "cids": [
+      "Qme6kRZLgxGMEDaNUwCis9Wp7j6DWys4EWoDX8ePSiPh5N",
+      "QmSob3MrZzftZrvXRotQgGpgyqPdvMCXLnBQWWoKgXZyem"
+    ],
+    "description": "Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)",
+    "runtime": "native"
+  },
+  "command-conquer-generals": {
+    "cids": [
+      "QmXZ7mW2peZtDmdY4SWqKXHMUyqEZje7if6kjanHe6gCLY"
+    ],
+    "description": "Command & Conquer: Generals (via Proton)",
+    "runtime": "proton"
+  },
+  "command-conquer-red-alert": {
+    "cids": [
+      "QmcsehQcLAirZBcPeeg5S8o9AE1FLXV3UQFGy5hEBWTVAF",
+      "QmbL6hEyptKFu4epV5QANVnpfKw81868yKK13KUHdk7MU3"
+    ],
+    "description": "Command & Conquer: Red Alert (Vanilla Conquer, native)",
+    "runtime": "native"
+  },
+  "command-conquer-red-alert-2": {
+    "cids": [
+      "QmeuAn5K7qBARybPwJhKLyF7ziGEbNgcAVkJ6vKMopKj1F"
+    ],
+    "description": "Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)",
+    "runtime": "proton"
+  },
+  "command-conquer-renegade": {
+    "cids": [
+      "QmdPZubtKw9muhK6rnj49TiiNLsA8HrygUKbVvXzJaovwV",
+      "QmbLwmUmtfaZVZRxuyNBgpxBt4y9cGePys7EBEbu9rjDgV"
+    ],
+    "description": null,
+    "runtime": "proton"
+  },
+  "command-conquer-tiberian-sun": {
+    "cids": [
+      "QmagHQjFDHYaRQ23jQXUWkeWSn4uB1BenjkG8ann8myxUk"
+    ],
+    "description": "Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)",
+    "runtime": "proton"
+  },
+  "commandos-behind-enemy-lines": {
+    "cids": [
+      "QmPygowuCaS7xtfRTPLgYvybjD8u1oFDTvKbXVhwKHF1ij",
+      "QmYyWm3mZJew3jz3QPvWQQ7HUyf3rFbEC6Qo7TaPD3eS6b"
+    ],
+    "description": "Commandos: Behind Enemy Lines (1998 Eidos / Pyro Studios, English Win95, via Proton + Kruulos Ultimate Fix)",
+    "runtime": "proton"
+  },
+  "cryostasis": {
+    "cids": [
+      "QmdbyRwrQNTHKiyYX7fVST18y394fzKuAkqKbThSMqkaXS"
+    ],
+    "description": "Cryostasis: Sleep of Reason (GOG v2.0.0.13, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "demon-lord-just-a-block": {
+    "cids": [
+      "QmUGu12nm8YfouvUUbsj8iXj9PBpcLTpBE3DAqtQtLxEx4"
+    ],
+    "description": "Demon Lord Just A Block (via Proton)",
+    "runtime": "proton"
+  },
+  "diablo-ii-lord-of-destruction": {
+    "cids": [
+      "QmbkGxa7sxm2udcEzivSpXZ3ZjRvXprgtjF3vph3TiyfrA"
+    ],
+    "description": "Diablo II + Lord of Destruction (CJ_Strife portable, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "disco-elysium-game-boy-edition": {
+    "cids": [
+      "Qme3jE9E7fCJTFiZrcBeWQ7swsQrzZucLxKoE1KdvbrmPX"
+    ],
+    "description": "Disco Elysium: Game Boy Edition (fan demake, via RetroArch / mGBA)",
+    "runtime": "retroarch"
+  },
+  "disco-elysium-the-final-cut": {
+    "cids": [
+      "QmS6uizMSR652viMi4N9qmQdKBD548Q7FdJkAPdm3iE1LL"
+    ],
+    "description": "Disco Elysium: The Final Cut (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "dungeon-keeper": {
+    "cids": [
+      "Qmez7AYzB1fAm129WEkUafvBnshvSfM5hPozpjQcZV8m3y"
+    ],
+    "description": "Dungeon Keeper (KeeperFX, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "europa-1400-the-guild": {
+    "cids": [
+      "QmVGbehWtufnkvDbiUJa5wCo1CurPzsPJM74VLhqykZUWP"
+    ],
+    "description": "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "fallout": {
+    "cids": [
+      "QmVcYYsXnYEEc2zLKUcq4FnXDjBsPMTGYc3Ehiko4EMHpx"
+    ],
+    "description": "Fallout (GOG Classic, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "fallout-2": {
+    "cids": [
+      "Qmcp7sfYBKRtWSZnfy1aPLv4DJGu3VPEGn9vddf1dAVU4K"
+    ],
+    "description": "Fallout 2 (GOG Classic, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "fez": {
+    "cids": [
+      "QmWbKaPKumQeNjRKEzxA1gSceAjATiFQyznPz4Ne4JRVHH"
+    ],
+    "description": "FEZ (native Linux, GOG)",
+    "runtime": "native"
+  },
+  "frog-fractions": {
+    "cids": [
+      "QmNw4AfRRCfkFVuVSQ9ezXc4z2F5bLjAmLzkNT19WdDfAU"
+    ],
+    "description": null,
+    "runtime": "native"
+  },
+  "game-of-robot": {
+    "cids": [
+      "bafkreifexrphk6ypefm2jxwzurmux7ulttdxwcfh2ucmt3jx3zydszg2pu"
+    ],
+    "description": "The Game of Robot (1988, via DOSBox-X)",
+    "runtime": "native"
+  },
+  "half-life": {
+    "cids": [
+      "QmeUQvq7qxgmktqQyWR5XmyDEXxayjJaQrEpkMg1P8F1qP"
+    ],
+    "description": "Half-Life (WON v1.1.1.0, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "heroes-of-might-and-magic-2-gold": {
+    "cids": [
+      "QmRaZGqtcgX9cHNJXhkyc2czyw1qxjSvkAWRPjfEYCyVRi",
+      "QmXSHLnrpjALQJiboU8NPjttvgmmaLgeZxYRTZuKcBajUX",
+      "bafkreid25ep3hzdfntrcvipy74vuatwdgva74nootqbmtsjypjzhdqgupa"
+    ],
+    "description": "Heroes of Might & Magic II Gold (via fheroes2)",
+    "runtime": "native"
+  },
+  "hotline-miami": {
+    "cids": [
+      "QmYThFTzNnuUx7o7ywWqWDSw6tqeKzY27MQUnFhckqv7Zs"
+    ],
+    "description": "Hotline Miami (native Linux, GOG v2.0.0.4)",
+    "runtime": "native"
+  },
+  "jazz-jackrabbit-2": {
+    "cids": [
+      "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb"
+    ],
+    "description": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
+    "runtime": "native"
+  },
+  "legacy-of-kain-soul-reaver": {
+    "cids": [
+      "Qmb1u6CUu1gLRvb2tiWY1LaV1Bhe51xhXrpu8bpHnLXEKp"
+    ],
+    "description": "Legacy of Kain: Soul Reaver (GOG, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "lemmings": {
+    "cids": [
+      "QmWtMqf1RBi8RR56W9AQi2WFxB6Qt5rjuULkQCPaTB8nKb",
+      "bafkreid26dvrfmojvwr6zpmop5z6yxyc2f42gi7fpoxreqglscrx6nbrry"
+    ],
+    "description": "Lemmings (DOS CD version with CD audio, via DOSBox-X)",
+    "runtime": "native"
+  },
+  "lemmings-95": {
+    "cids": [
+      "QmUumu4xqgz8xSkqKMtxSXDqGc3fKhztSJWGXeyZJR93hq"
+    ],
+    "description": "Lemmings 95 (Windows 95 version via Wine)",
+    "runtime": "native"
+  },
+  "lorns-lure": {
+    "cids": [
+      "QmX5FPJjRbZ4qcpNYJ1FkVbkbi23cbttVzctuynEieEofz"
+    ],
+    "description": "Lorn's Lure (Unity, via Proton)",
+    "runtime": "proton"
+  },
+  "metal-gear-solid": {
+    "cids": [
+      "QmdZc6eT9LPvCeuG6Fi647L829LmAC2hSTzJY7kUjQ8VYZ",
+      "QmUvdpnfso8VrNHCy4GKtruhMQC73fzCzm9Lsjr5xatSKc",
+      "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+    ],
+    "description": "Metal Gear Solid (PSX 1998 USA, via RetroArch / SwanStation)",
+    "runtime": "retroarch"
+  },
+  "need-for-speed-most-wanted": {
+    "cids": [
+      "QmbeRJkSiVupPcbNp6vGpMpNBUwYEUuS3fPiqgpP1Eadfs"
+    ],
+    "description": "Need for Speed: Most Wanted (2005) (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "need-for-speed-underground-2": {
+    "cids": [
+      "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm"
+    ],
+    "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "osmos": {
+    "cids": [
+      "QmTxVZRtd8bs8bdtfBciFS1pKhXxKY8KY9jKrL5rxPNxb6"
+    ],
+    "description": "Osmos (native Linux, Hemisphere Games)",
+    "runtime": "native"
+  },
+  "outer-wilds": {
+    "cids": [
+      "Qmb1sbog54M4NwpRf1yg8yp5rqU6QcJXLfiUByytow7diF"
+    ],
+    "description": "Outer Wilds (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "outer-wilds-alpha": {
+    "cids": [
+      "QmbPABWqByuFiwvfxwoMsWLexnqd9PjxdqAfj4azWKwHG1"
+    ],
+    "description": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "papers-please": {
+    "cids": [
+      "QmWyxQuzz5JxCGEkdFiDyvi2EcreFHXvGNnLwRXVbrfT1c"
+    ],
+    "description": "Papers, Please (native Linux, GOG)",
+    "runtime": "native"
+  },
+  "paquerette-down-the-bunburrows": {
+    "cids": [
+      "QmP7T7DrPTfmUqv7VzgKRqe38JaQNCsnv7gNiZmNqGaDMb",
+      "QmTjftj3F8JLxRFS59scJY8SRbvuWvAVQMvgsQ2jjQLxVy"
+    ],
+    "description": "Paquerette Down the Bunburrows v1.1.2 (GOG, via Proton)",
+    "runtime": "proton"
+  },
+  "return-of-the-obra-dinn": {
+    "cids": [
+      "QmefADojRgYj81RXePWmpEVGNBCR7RCyGQrgFZLqmmPFUe"
+    ],
+    "description": "Return of the Obra Dinn (via Proton)",
+    "runtime": "proton"
+  },
+  "roketz--1": {
+    "cids": [
+      "QmZ1nZ8Hkm81P48ABcfGBot8rSkb2c4K2badYPBrMsT2zp"
+    ],
+    "description": "Roketz (1996, via DOSBox-X)",
+    "runtime": "custom"
+  },
+  "shadow-of-the-colossus": {
+    "cids": [
+      "QmfNb23JQhMmGoKzyU3b7otgJMt1tVUa2a3zsPwmX9wmoD",
+      "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+    ],
+    "description": "Shadow of the Colossus (via PCSX2)",
+    "runtime": "pcsx2"
+  },
+  "star-wars-battlefront-2": {
+    "cids": [
+      "QmWenFrRUnLTrxuDBcYGt3PqaAEhW7T5fK5MZUF1knVPJY"
+    ],
+    "description": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
+    "runtime": "proton"
+  },
+  "starcraft": {
+    "cids": [
+      "QmcqdWwb33rKcfFzoZyTJQpL62ADcTHr8W2APG4Q6MFERx"
+    ],
+    "description": "StarCraft + Brood War (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "stronghold-hd": {
+    "cids": [
+      "QmVuY5eMwcMHa6DE3BUfvMByULz2P18NJNDSpUUtYCq9oh"
+    ],
+    "description": "Stronghold HD (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "syndicate": {
+    "cids": [
+      "QmegVB6p577pTEmYEYabyRyfKy77h2mukp56z5oj7ZoFey",
+      "QmccmdGq8GmfpN56MqjKLJJNFu45f3pvA4o41iSiKgZWdy"
+    ],
+    "description": "Syndicate (via FreeSynd engine)",
+    "runtime": "native"
+  },
+  "the-legend-of-zelda-a-link-to-the-past": {
+    "cids": [
+      "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt"
+    ],
+    "description": "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)",
+    "runtime": "retroarch"
+  },
+  "the-legend-of-zelda-majoras-mask": {
+    "cids": [
+      "QmVDFMYSFWEKNb6SgpuG51sLYnTQavAa723tLSU22LKy7u"
+    ],
+    "description": "The Legend of Zelda: Majora's Mask (via RetroArch / mupen64plus-next)",
+    "runtime": "retroarch"
+  },
+  "the-legend-of-zelda-ocarina-of-time": {
+    "cids": [
+      "QmPbeK1K79B4HpbfJ2GqHebFxWvhyaUf5U5GqYnn95aHPn"
+    ],
+    "description": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
+    "runtime": "retroarch"
+  },
+  "the-settlers-ii-gold-edition": {
+    "cids": [
+      "QmNoB7Qgf3yR9vjin1bVCUkdajG8nTsdd8mF2SamXXT6vM"
+    ],
+    "description": "The Settlers II Gold (via Return to the Roots)",
+    "runtime": "native"
+  },
+  "the-typing-of-the-dead": {
+    "cids": [
+      "QmeXCgXCm2ogepvGD7iCe48yNTpp5dwLB77CrjjVyeR4R7"
+    ],
+    "description": "The Typing of the Dead (2001 PC port, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "the-typing-of-the-dead-overkill": {
+    "cids": [
+      "QmZPyBkFumfgoTHLvVbJUjsJCNAhgaquvGtkFLYb6xN93A"
+    ],
+    "description": "The Typing of the Dead: Overkill (Steam, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "theme-hospital": {
+    "cids": [
+      "QmfPKbmr66LXriEeuodGHVCEryaFmn51BNN3qgHcKb3oZC"
+    ],
+    "description": "Theme Hospital (via CorsixTH engine)",
+    "runtime": "native"
+  },
+  "thief-2": {
+    "cids": [
+      "QmdUGBjjNmc1q1uEeS7yHCJFivK1x4zj2szzRmNkyosYhm"
+    ],
+    "description": "Thief II: The Metal Age (NewDark engine, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "thief-gold": {
+    "cids": [
+      "QmfQzREoGpt5T9E5aL71aVqMoe28oK12UcpvGUCdAKMRCm",
+      "QmYsKaAyDYeDXoAEHopfTfxC9ePUuTLyzTQ4jUy2dDoxMt"
+    ],
+    "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "unreal-tournament-2004": {
+    "cids": [
+      "QmUcKX53WiLytqmVoDP1pphJgL1MuczqqUN9FNT3id1U74"
+    ],
+    "description": "Unreal Tournament 2004 (OldUnreal native Linux)",
+    "runtime": "native"
+  },
+  "untitled-goose-game": {
+    "cids": [
+      "QmQQ7zeZckvfqvNn79NRVLqU2SKgqKWioRM3yiLqexki9c"
+    ],
+    "description": "Untitled Goose Game (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "uplink": {
+    "cids": [
+      "Qmc19LJsreV5YiXRstCF4ZzJzCn5b32AthwFgYrWJsMp2N"
+    ],
+    "description": "Uplink: Hacker Elite v1.6 (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "vampire-crawlers": {
+    "cids": [
+      "QmZ9gcmgjvXPF29qzvj3GanDyACRMK5oA24RF48tu7oGkL"
+    ],
+    "description": "Vampire Crawlers (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "void-stranger": {
+    "cids": [
+      "QmSAKT7sGXCbtv8S8AAKsTcSovsAkiKStmd6hso1eh6evB"
+    ],
+    "description": "Void Stranger (via Proton)",
+    "runtime": "proton"
+  },
+  "warcraft-iii-the-frozen-throne": {
+    "cids": [
+      "QmSPPz3Nm75XfhNcQKPUugdhJ7eADRGBetDMP4W96Wmg56"
+    ],
+    "description": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
+    "runtime": "proton"
+  },
+  "worms-wmd": {
+    "cids": [
+      "QmVk1Uvd1fHRMDq2MwYWphkWCicmC7MJeE9XGr4GSaewQK"
+    ],
+    "description": "Worms W.M.D (GOG build, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "xenogears": {
+    "cids": [
+      "QmRnafsnEmZgj6i2sJ7aJbns4y8bVSzrzgqdcJwXJFjsBj",
+      "QmSysVXQPdcJHsJnDTYxRiq7vF3PcGgFqobziHzp3EZaE8",
+      "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+    ],
+    "description": "Xenogears (via RetroArch / SwanStation)",
+    "runtime": "retroarch"
+  }
+}

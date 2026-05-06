@@ -128,17 +128,6 @@
           pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
           inherit lassie;
           publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
-          status-page = pkgs.lib.makeOverridable (import ./scripts/status-page.nix) {
-            inherit pkgs games;
-          };
-          krebs-status = self.packages.${system}.status-page.override {
-            gamesJsonUrl = "http://c.r/strom-games";
-          };
-          games-json = (import ./scripts/status-page.nix { inherit pkgs games; }).passthru.gamesJson;
-          run-status-tests = import ./scripts/run-status-tests.nix {
-            inherit pkgs;
-            statusPage = import ./scripts/status-page.nix { inherit pkgs games; };
-          };
         }
       );
 

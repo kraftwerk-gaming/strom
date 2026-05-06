@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>strom - IPFS game status</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #11191f;
+      --fg: #e3e8ec;
+      --muted: #8aa0ad;
+      --border: #2a3a45;
+      --accent: #4a9aff;
+      --row: #16222a;
+      --row-alt: #182832;
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, "JetBrains Mono", "Fira Code", monospace;
+    }
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--fg);
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 { margin: 0 0 0.5rem; }
+    p, small { color: var(--muted); }
+    a { color: var(--accent); }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: 0;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--muted); font-weight: 600; }
+    tbody tr:nth-child(odd) { background: var(--row); }
+    tbody tr:nth-child(even) { background: var(--row-alt); }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75em;
+      font-weight: bold;
+      color: #fff;
+    }
+    .badge-proton { background: #7b2d8b; }
+    .badge-native { background: #2d8b3a; }
+    .badge-dosbox { background: #c67800; }
+    .badge-retroarch { background: #c6006e; }
+    .badge-wine { background: #2d5f8b; }
+    .badge-pcsx2 { background: #1f6f9f; }
+    .badge-custom { background: #5a6470; }
+    .badge-unknown { background: #555; }
+    .status-available { color: #5fd07a; }
+    .status-partial { color: #d9a050; }
+    .status-unavailable { color: #d96060; }
+    .status-checking { color: var(--muted); }
+    .cid-cell { font-family: var(--mono); font-size: 0.8em; word-break: break-all; }
+    .mirror-count { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>strom &mdash; IPFS game status</h1>
+    <p>
+      Availability of game assets on the IPFS network. Provider data fetched live via the
+      <a href="https://specs.ipfs.tech/routing/http-routing-v1/">delegated routing API</a>.
+      Game metadata is fetched from the <a id="json-link" href="">strom repo on Radicle</a>.
+    </p>
+    <p>
+      <button id="check-all">Check all CIDs</button>
+      <small id="progress"></small>
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Game</th>
+          <th>Runtime</th>
+          <th>CIDs</th>
+          <th>Providers</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="game-table"></tbody>
+    </table>
+  </main>
+
+  <script>
+    "use strict";
+
+    // Default: fetch games.json from the strom repo via Radicle's raw API.
+    // Override at runtime with ?json=URL (e.g. ?json=games.json for local dev).
+    const DEFAULT_JSON_URL =
+      "https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/games.json";
+    const ROUTING_ENDPOINTS = [
+      "https://delegated-ipfs.dev/routing/v1/providers/",
+      "https://cid.contact/routing/v1/providers/",
+    ];
+    const FETCH_TIMEOUT_MS = 10000;
+    const MAX_PARALLEL = 10;
+
+    const params = new URLSearchParams(location.search);
+    const JSON_URL = params.get("json") || DEFAULT_JSON_URL;
+    document.getElementById("json-link").href = JSON_URL;
+
+    const table = document.getElementById("game-table");
+    const progress = document.getElementById("progress");
+    const checkAllBtn = document.getElementById("check-all");
+    let games = {};
+    let sortedNames = [];
+    const results = {};
+    window.results = results;
+
+    function renderTable() {
+      table.innerHTML = "";
+      sortedNames = Object.keys(games).sort();
+      for (const name of sortedNames) {
+        const g = games[name];
+        if (!g.cids || g.cids.length === 0) continue;
+
+        const tr = document.createElement("tr");
+
+        const tdName = document.createElement("td");
+        const a = document.createElement("a");
+        a.href = `https://lutris.net/games/${name}/`;
+        a.textContent = name;
+        tdName.appendChild(a);
+        if (g.description) {
+          const small = document.createElement("small");
+          small.textContent = " - " + g.description;
+          tdName.appendChild(document.createElement("br"));
+          tdName.appendChild(small);
+        }
+        tr.appendChild(tdName);
+
+        const tdRuntime = document.createElement("td");
+        const badge = document.createElement("span");
+        const runtime = g.runtime || "unknown";
+        badge.className = "badge badge-" + runtime;
+        badge.textContent = runtime;
+        tdRuntime.appendChild(badge);
+        tr.appendChild(tdRuntime);
+
+        const tdCids = document.createElement("td");
+        tdCids.className = "cid-cell";
+        g.cids.forEach((cid, i) => {
+          if (i > 0) tdCids.appendChild(document.createElement("br"));
+          const code = document.createElement("code");
+          code.textContent = cid.substring(0, 12) + "...";
+          code.title = cid;
+          tdCids.appendChild(code);
+        });
+        tr.appendChild(tdCids);
+
+        const tdMirrors = document.createElement("td");
+        tdMirrors.id = "mirrors-" + name;
+        tdMirrors.textContent = "-";
+        tr.appendChild(tdMirrors);
+
+        const tdStatus = document.createElement("td");
+        tdStatus.id = "status-" + name;
+        tdStatus.textContent = "-";
+        tr.appendChild(tdStatus);
+
+        table.appendChild(tr);
+      }
+    }
+
+    async function queryEndpoint(endpoint, cid) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+      try {
+        const resp = await fetch(endpoint + cid, {
+          headers: { "Accept": "application/json" },
+          signal: controller.signal,
+          cache: "no-store",
+        });
+        clearTimeout(timer);
+        if (!resp.ok) return [];
+        const ct = (resp.headers.get("content-type") || "").toLowerCase();
+        if (ct.includes("ndjson")) {
+          const text = await resp.text();
+          return text.trim().split("\n")
+            .filter(l => l.trim())
+            .map(l => { try { return JSON.parse(l); } catch (_) { return null; } })
+            .filter(Boolean);
+        }
+        const data = await resp.json();
+        return data.Providers || [];
+      } catch (_) {
+        clearTimeout(timer);
+        return [];
+      }
+    }
+
+    async function checkCid(cid) {
+      const lists = await Promise.all(ROUTING_ENDPOINTS.map(ep => queryEndpoint(ep, cid)));
+      const seen = new Set();
+      for (const providers of lists) {
+        for (const p of providers) {
+          if (p && p.ID && !seen.has(p.ID)) seen.add(p.ID);
+        }
+      }
+      return { available: seen.size > 0, providers: seen.size };
+    }
+
+    async function checkGame(name) {
+      const g = games[name];
+      const statusEl = document.getElementById("status-" + name);
+      const mirrorsEl = document.getElementById("mirrors-" + name);
+      if (!statusEl) return;
+
+      statusEl.textContent = "checking...";
+      statusEl.className = "status-checking";
+
+      const perCid = [];
+      for (const cid of g.cids) {
+        perCid.push(await checkCid(cid));
+      }
+
+      mirrorsEl.innerHTML = "";
+      perCid.forEach((r, i) => {
+        if (i > 0) mirrorsEl.appendChild(document.createElement("br"));
+        const span = document.createElement("span");
+        span.className = "mirror-count";
+        span.textContent = r.providers;
+        mirrorsEl.appendChild(span);
+      });
+
+      const allAvailable = perCid.every(r => r.available);
+      const anyAvailable = perCid.some(r => r.available);
+      if (allAvailable) {
+        statusEl.textContent = "available";
+        statusEl.className = "status-available";
+      } else if (anyAvailable) {
+        statusEl.textContent = "partial";
+        statusEl.className = "status-partial";
+      } else {
+        statusEl.textContent = "unavailable";
+        statusEl.className = "status-unavailable";
+      }
+
+      results[name] = { perCid, allAvailable };
+    }
+
+    async function checkAll() {
+      checkAllBtn.disabled = true;
+      const queue = sortedNames.filter(n => games[n].cids && games[n].cids.length > 0);
+      const total = queue.length;
+      let done = 0;
+      let idx = 0;
+
+      async function worker() {
+        while (idx < queue.length) {
+          const name = queue[idx++];
+          await checkGame(name);
+          done++;
+          progress.textContent = done + " / " + total;
+        }
+      }
+
+      await Promise.all(
+        Array.from({ length: Math.min(MAX_PARALLEL, total) }, () => worker())
+      );
+      checkAllBtn.disabled = false;
+      progress.textContent = "done (" + total + " games)";
+    }
+
+    checkAllBtn.addEventListener("click", checkAll);
+
+    fetch(JSON_URL, { cache: "no-store" })
+      .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(data => {
+        games = data;
+        renderTable();
+      })
+      .catch(err => {
+        progress.textContent = "failed to load " + JSON_URL + ": " + err.message;
+      });
+  </script>
+</body>
+</html>

@@ -12,10 +12,10 @@
 - All `.nix` files must be `nixfmt`-clean. Run `nix fmt` before committing.
 - `nix flake check` runs `checks.<system>.nixfmt` which fails on any tracked unformatted file.
 
-## README
+## README and games.json
 
-- After adding or removing a game, regenerate the games table: `python3 scripts/generate-readme.py`
-- The script reads flake metadata via `scripts/generate-readme.nix` and rewrites the block between the `<!-- BEGIN/END GENERATED GAMES -->` markers. Do not edit that block by hand.
+- After adding or removing a game, regenerate both the games table and the JSON metadata: `python3 scripts/generate-readme.py`
+- The script reads flake metadata via `scripts/generate-readme.nix`, rewrites the block between the `<!-- BEGIN/END GENERATED GAMES -->` markers in `README.md`, and writes `web/games.json` (consumed by the static checker at `web/index.html`). Do not edit either generated file by hand.
 
 ## IPFS and fetchIpfs
 

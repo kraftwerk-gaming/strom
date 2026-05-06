@@ -105,7 +105,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_80 games_
+_73 games_
 
 <!-- END GENERATED GAMES -->
 

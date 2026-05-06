@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the games table in README.md from flake metadata."""
+"""Generate the games table in README.md and web/games.json from flake metadata."""
 
 import json
 import re
@@ -12,11 +12,13 @@ END_MARKER = "<!-- END GENERATED GAMES -->"
 
 SCRIPT_DIR = Path(__file__).parent
 NIX_FILE = SCRIPT_DIR / "generate-readme.nix"
-README = SCRIPT_DIR.parent / "README.md"
-GAMES_DIR = SCRIPT_DIR.parent / "games"
+ROOT = SCRIPT_DIR.parent
+README = ROOT / "README.md"
+GAMES_DIR = ROOT / "games"
+GAMES_JSON = ROOT / "web" / "games.json"
 
 
-def get_metadata() -> dict[str, dict[str, str | None]]:
+def get_metadata() -> dict[str, dict[str, str | list[str] | None]]:
     proc = subprocess.run(
         ["nix", "eval", "--json", "--file", str(NIX_FILE)],
         capture_output=True,
@@ -28,15 +30,17 @@ def get_metadata() -> dict[str, dict[str, str | None]]:
     return json.loads(proc.stdout)
 
 
-def render(meta: dict[str, dict[str, str | None]]) -> str:
+def filter_games(meta: dict) -> dict:
+    return {slug: m for slug, m in meta.items() if (GAMES_DIR / slug).is_dir()}
+
+
+def render_table(games: dict) -> str:
     lines: list[str] = []
     lines.append("| | Game | Runtime | Run |")
     lines.append("| --- | --- | --- | --- |")
 
-    for slug in sorted(meta):
-        if not (GAMES_DIR / slug).is_dir():
-            continue
-        m = meta[slug]
+    for slug in sorted(games):
+        m = games[slug]
         desc = m.get("description") or slug
         # Strip trailing parentheticals that describe the runtime
         # environment ("(via Proton ...)", "(native Linux)", etc.). The
@@ -57,7 +61,7 @@ def render(meta: dict[str, dict[str, str | None]]) -> str:
         lines.append(f"| {banner_cell} | {name_cell} | `{runtime}` | {run_cell} |")
 
     lines.append("")
-    lines.append(f"_{len(meta)} games_")
+    lines.append(f"_{len(games)} games_")
     return "\n".join(lines)
 
 
@@ -88,18 +92,32 @@ def update_readme(generated: str) -> bool:
     return True
 
 
+def update_games_json(games: dict) -> bool:
+    payload = json.dumps(games, indent=2, sort_keys=True) + "\n"
+    GAMES_JSON.parent.mkdir(parents=True, exist_ok=True)
+    if GAMES_JSON.exists() and GAMES_JSON.read_text() == payload:
+        return False
+    GAMES_JSON.write_text(payload)
+    return True
+
+
 def main() -> None:
     if not README.exists():
         sys.stderr.write(f"Error: {README} not found\n")
         sys.exit(1)
 
     meta = get_metadata()
-    generated = render(meta)
+    games = filter_games(meta)
 
-    if update_readme(generated):
+    if update_readme(render_table(games)):
         print(f"Updated {README}")
     else:
         print(f"No changes to {README}")
+
+    if update_games_json(games):
+        print(f"Updated {GAMES_JSON}")
+    else:
+        print(f"No changes to {GAMES_JSON}")
 
 
 if __name__ == "__main__":
