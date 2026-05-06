@@ -247,18 +247,25 @@ let
         async function checkAll() {
           const btn = document.getElementById("check-all");
           btn.disabled = true;
-          const names = sortedNames.filter(n => GAMES[n].cids && GAMES[n].cids.length > 0);
+          const queue = sortedNames.filter(n => GAMES[n].cids && GAMES[n].cids.length > 0);
           let done = 0;
+          const total = queue.length;
+          let idx = 0;
 
-          for (let i = 0; i < names.length; i += MAX_PARALLEL) {
-            const batch = names.slice(i, i + MAX_PARALLEL);
-            await Promise.all(batch.map(name => checkGame(name).then(() => {
+          async function worker() {
+            while (idx < queue.length) {
+              const name = queue[idx++];
+              await checkGame(name);
               done++;
-              progress.textContent = done + " / " + names.length;
-            })));
+              progress.textContent = done + " / " + total;
+            }
           }
+
+          await Promise.all(
+            Array.from({ length: Math.min(MAX_PARALLEL, total) }, () => worker())
+          );
           btn.disabled = false;
-          progress.textContent = "done (" + names.length + " games)";
+          progress.textContent = "done (" + total + " games)";
         }
 
         // Load game data from external JSON file
