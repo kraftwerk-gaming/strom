@@ -128,6 +128,11 @@
           pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
           inherit lassie;
           publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
+          status-page = import ./scripts/status-page.nix { inherit pkgs games; };
+          run-status-tests = import ./scripts/run-status-tests.nix {
+            inherit pkgs;
+            statusPage = import ./scripts/status-page.nix { inherit pkgs games; };
+          };
         }
       );
 
