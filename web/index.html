@@ -86,7 +86,7 @@
     <p>
       Availability of game assets on the IPFS network. Provider data fetched live via the
       <a href="https://specs.ipfs.tech/routing/http-routing-v1/">delegated routing API</a>.
-      Game metadata is fetched from the <a id="json-link" href="">strom repo on Radicle</a>.
+      Game metadata is fetched from <a id="json-link" href=""><code></code></a>.
     </p>
     <p>
       <button id="check-all">Check all CIDs</button>
@@ -109,10 +109,10 @@
   <script>
     "use strict";
 
-    // Default: fetch games.json from the strom repo via Radicle's raw API.
-    // Override at runtime with ?json=URL (e.g. ?json=games.json for local dev).
-    const DEFAULT_JSON_URL =
-      "https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/games.json";
+    // Default: fetch games.json next to this page so the checker works
+    // wherever it is hosted (radicle raw, forks, github pages, local dev).
+    // Override at runtime with ?json=URL.
+    const DEFAULT_JSON_URL = "games.json";
     const ROUTING_ENDPOINTS = [
       "https://delegated-ipfs.dev/routing/v1/providers/",
       "https://cid.contact/routing/v1/providers/",
@@ -122,7 +122,9 @@
 
     const params = new URLSearchParams(location.search);
     const JSON_URL = params.get("json") || DEFAULT_JSON_URL;
-    document.getElementById("json-link").href = JSON_URL;
+    const jsonLink = document.getElementById("json-link");
+    jsonLink.href = JSON_URL;
+    jsonLink.querySelector("code").textContent = JSON_URL;
 
     const table = document.getElementById("game-table");
     const progress = document.getElementById("progress");
