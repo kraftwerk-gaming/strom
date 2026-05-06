@@ -104,11 +104,12 @@ rebuilds.
 | <a href="https://lutris.net/games/uplink/"><img src="https://lutris.net/games/banner/uplink.jpg" height="40" alt="uplink"></a> | [Uplink: Hacker Elite v1.6](https://lutris.net/games/uplink/) | `proton` | `nix run .#uplink` |
 | <a href="https://lutris.net/games/vampire-crawlers/"><img src="https://lutris.net/games/banner/vampire-crawlers.jpg" height="40" alt="vampire-crawlers"></a> | [Vampire Crawlers](https://lutris.net/games/vampire-crawlers/) | `proton` | `nix run .#vampire-crawlers` |
 | <a href="https://lutris.net/games/void-stranger/"><img src="https://lutris.net/games/banner/void-stranger.jpg" height="40" alt="void-stranger"></a> | [Void Stranger](https://lutris.net/games/void-stranger/) | `proton` | `nix run .#void-stranger` |
+| <a href="https://lutris.net/games/vvvvvv/"><img src="https://lutris.net/games/banner/vvvvvv.jpg" height="40" alt="vvvvvv"></a> | [VVVVVV](https://lutris.net/games/vvvvvv/) | `native` | `nix run .#vvvvvv` |
 | <a href="https://lutris.net/games/warcraft-iii-the-frozen-throne/"><img src="https://lutris.net/games/banner/warcraft-iii-the-frozen-throne.jpg" height="40" alt="warcraft-iii-the-frozen-throne"></a> | [Warcraft III: Reign of Chaos + The Frozen Throne v1.26a](https://lutris.net/games/warcraft-iii-the-frozen-throne/) | `proton` | `nix run .#warcraft-iii-the-frozen-throne` |
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_76 games_
+_77 games_
 
 <!-- END GENERATED GAMES -->
 

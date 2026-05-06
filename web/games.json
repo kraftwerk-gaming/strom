@@ -526,6 +526,13 @@
     "description": "Void Stranger (via Proton)",
     "runtime": "proton"
   },
+  "vvvvvv": {
+    "cids": [
+      "QmS2djVNYi7Dp1JUnJArXyGCkbbqH43HvPkG2dxBqsRiA6"
+    ],
+    "description": "VVVVVV (native Linux, GOG v2.4.3)",
+    "runtime": "native"
+  },
   "warcraft-iii-the-frozen-throne": {
     "cids": [
       "QmSPPz3Nm75XfhNcQKPUugdhJ7eADRGBetDMP4W96Wmg56"
