@@ -80,22 +80,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     exec "$PROTON_RUN" "$GAMEDIR/Worms W.M.D.exe"
   '';
 
-  targetPkgs = pkgs: [ pkgs.winetricks ];
-
-  preRun = ''
-    # Install Visual C++ 2012 runtime (mfc110u.dll) on first run.
-    # Derive wine path from PROTON_RUN which references the proton store path.
-    if [ ! -f "$COMPATDATA/pfx/drive_c/windows/syswow64/mfc110u.dll" ]; then
-      echo "Installing vcrun2012..."
-      proton_dir=$(grep -oP '"\K/nix/store/[^/]+-proton-symlink-pfx' "$PROTON_RUN" | head -1)
-      export WINE="$proton_dir/files/bin/wine"
-      export WINESERVER="$proton_dir/files/bin/wineserver"
-      export WINEPREFIX="$COMPATDATA/pfx"
-      winetricks -q vcrun2012 || true
-      unset WINE WINESERVER WINEPREFIX
-    fi
-  '';
-
   env = {
     STEAM_COMPAT_APP_ID = "327030";
     SteamAppId = "327030";
