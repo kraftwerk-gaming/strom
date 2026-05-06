@@ -1,6 +1,14 @@
 {
   pkgs,
   games,
+  # URL to pico.min.css. When null, the file is bundled locally as "pico.min.css".
+  # Set to an absolute URL to load from a CDN or other host.
+  picocssUrl ? null,
+  # URL to games.json. When null, the file is bundled locally as "games.json".
+  # Set to an absolute URL to serve the JSON from a separate location,
+  # allowing the website to be published once while games.json is updated
+  # independently.
+  gamesJsonUrl ? null,
 }:
 
 let
@@ -28,6 +36,9 @@ let
     hash = "sha256-+8mmP8n8n3LRL9f8mAbhH6n3euT5ytFGsnADoRGbo9s=";
   };
 
+  effectivePicocssUrl = if picocssUrl != null then picocssUrl else "pico.min.css";
+  effectiveGamesJsonUrl = if gamesJsonUrl != null then gamesJsonUrl else "games.json";
+
   htmlPage = pkgs.writeText "index.html" ''
     <!DOCTYPE html>
     <html lang="en" data-theme="dark">
@@ -35,7 +46,7 @@ let
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>strom - IPFS game status</title>
-      <link rel="stylesheet" href="pico.min.css">
+      <link rel="stylesheet" href="%%PICOCSS_URL%%">
       <style>
         :root {
           --pico-font-size: 87.5%;
@@ -251,7 +262,7 @@ let
         }
 
         // Load game data from external JSON file
-        fetch("games.json")
+        fetch("%%GAMES_JSON_URL%%")
           .then(r => r.json())
           .then(data => {
             GAMES = data;
@@ -262,9 +273,17 @@ let
     </html>
   '';
 in
-pkgs.runCommand "strom-status-page" { } ''
-  mkdir -p $out
-  cp ${picocss} $out/pico.min.css
-  cp ${gamesJson} $out/games.json
-  cp ${htmlPage} $out/index.html
-''
+(pkgs.runCommand "strom-status-page" { passthru = { inherit gamesJson; }; } (
+  ''
+    mkdir -p $out
+    substitute ${htmlPage} $out/index.html \
+      --replace-fail "%%PICOCSS_URL%%" ${lib.escapeShellArg effectivePicocssUrl} \
+      --replace-fail "%%GAMES_JSON_URL%%" ${lib.escapeShellArg effectiveGamesJsonUrl}
+  ''
+  + lib.optionalString (picocssUrl == null) ''
+    cp ${picocss} $out/pico.min.css
+  ''
+  + lib.optionalString (gamesJsonUrl == null) ''
+    cp ${gamesJson} $out/games.json
+  ''
+))
