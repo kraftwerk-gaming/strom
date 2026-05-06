@@ -2,6 +2,7 @@
   self,
   lib,
   pkgs,
+  fetchIpfs,
   fetchurl,
   p7zip,
   unshield,
@@ -30,8 +31,9 @@
 }:
 
 let
-  iso = fetchurl {
-    url = "https://files.oldunreal.net/UT2004.ISO";
+  iso = fetchIpfs {
+    cid = "QmUcKX53WiLytqmVoDP1pphJgL1MuczqqUN9FNT3id1U74";
+    fallbackUrl = "https://files.oldunreal.net/UT2004.ISO";
     hash = "sha256-Q+kYKuILy8D29FiP7mwbM2wmHxRlQDEYoZc7CbGiJUE=";
     name = "UT2004.ISO";
   };
@@ -177,6 +179,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   name = "unreal-tournament-2004";
 
   src = gameData;
+
+  ipfsSources = [ iso ];
 
   copyGlobs = [
     "System/*.ini"
