@@ -202,6 +202,13 @@
     "description": "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "factorio": {
+    "cids": [
+      "QmQ44ijCnBwXp3n9fZHGjmkvKRj2cS9Tx1ef4FXke2r2qg"
+    ],
+    "description": "Factorio (native Linux, GOG v2.0.73)",
+    "runtime": "native"
+  },
   "fallout": {
     "cids": [
       "QmVcYYsXnYEEc2zLKUcq4FnXDjBsPMTGYc3Ehiko4EMHpx"
