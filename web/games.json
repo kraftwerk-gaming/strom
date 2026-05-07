@@ -294,6 +294,13 @@
     "description": "Getting Over It with Bennett Foddy (Unity, via Proton)",
     "runtime": "proton"
   },
+  "golden-sun": {
+    "cids": [
+      "QmaSeGWrzZ77vZQZ9RHsnyizfmXzizdkXaov1JiGgTMH58"
+    ],
+    "description": "Golden Sun (Camelot/Nintendo, 2001 GBA, via RetroArch / mGBA)",
+    "runtime": "retroarch"
+  },
   "grand-theft-auto-vice-city": {
     "cids": [
       "Qmb8B8Haj6BtUH8VNEmsSUCiSa9KTvg1gAZpCK5RVhhYXo"
