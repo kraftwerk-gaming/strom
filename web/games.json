@@ -405,6 +405,13 @@
     "description": "Paquerette Down the Bunburrows v1.1.2 (GOG, via Proton)",
     "runtime": "proton"
   },
+  "planescape-torment": {
+    "cids": [
+      "QmaqqPrfcQjzLyWmcAMMth42qRLwH7MWq32DnYMNehsmWm"
+    ],
+    "description": "Planescape: Torment (1999, GOG 1.01a + GemRB engine)",
+    "runtime": "native"
+  },
   "psychonauts": {
     "cids": [
       "QmUFsFYE2ywPcRZgdjt8XU4NypzP34bsU3mgnWY62HrLn7"
