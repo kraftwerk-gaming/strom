@@ -106,6 +106,7 @@ rebuilds.
 | <a href="https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg" height="40" alt="the-legend-of-zelda-a-link-to-the-past"></a> | [The Legend of Zelda: A Link to the Past](https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/) | `retroarch` | `nix run .#the-legend-of-zelda-a-link-to-the-past` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-majoras-mask/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-majoras-mask.jpg" height="40" alt="the-legend-of-zelda-majoras-mask"></a> | [The Legend of Zelda: Majora's Mask](https://lutris.net/games/the-legend-of-zelda-majoras-mask/) | `retroarch` | `nix run .#the-legend-of-zelda-majoras-mask` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-ocarina-of-time.jpg" height="40" alt="the-legend-of-zelda-ocarina-of-time"></a> | [The Legend of Zelda: Ocarina of Time](https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/) | `retroarch` | `nix run .#the-legend-of-zelda-ocarina-of-time` |
+| <a href="https://lutris.net/games/the-secret-of-monkey-island/"><img src="https://lutris.net/games/banner/the-secret-of-monkey-island.jpg" height="40" alt="the-secret-of-monkey-island"></a> | [The Secret of Monkey Island](https://lutris.net/games/the-secret-of-monkey-island/) | `native` | `nix run .#the-secret-of-monkey-island` |
 | <a href="https://lutris.net/games/the-settlers-ii-gold-edition/"><img src="https://lutris.net/games/banner/the-settlers-ii-gold-edition.jpg" height="40" alt="the-settlers-ii-gold-edition"></a> | [The Settlers II Gold](https://lutris.net/games/the-settlers-ii-gold-edition/) | `native` | `nix run .#the-settlers-ii-gold-edition` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead.jpg" height="40" alt="the-typing-of-the-dead"></a> | [The Typing of the Dead](https://lutris.net/games/the-typing-of-the-dead/) | `proton` | `nix run .#the-typing-of-the-dead` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead-overkill/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg" height="40" alt="the-typing-of-the-dead-overkill"></a> | [The Typing of the Dead: Overkill](https://lutris.net/games/the-typing-of-the-dead-overkill/) | `proton` | `nix run .#the-typing-of-the-dead-overkill` |
@@ -123,7 +124,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_91 games_
+_92 games_
 
 <!-- END GENERATED GAMES -->
 

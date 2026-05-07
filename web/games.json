@@ -541,6 +541,13 @@
     "description": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "the-secret-of-monkey-island": {
+    "cids": [
+      "QmWQubvmz8QmRtk6beb4bNzKmwvv9vwzGMYcHXejB1yvrG"
+    ],
+    "description": "The Secret of Monkey Island (1990 Lucasfilm, SE Talkie fan-edition for ScummVM: original VGA + SE speech + CD music)",
+    "runtime": "native"
+  },
   "the-settlers-ii-gold-edition": {
     "cids": [
       "QmNoB7Qgf3yR9vjin1bVCUkdajG8nTsdd8mF2SamXXT6vM"
