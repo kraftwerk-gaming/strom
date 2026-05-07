@@ -38,9 +38,14 @@ in
   #   q / e      L / R shoulder
   #   enter      Start
   settings = {
-    # Digital buttons.
-    input_player1_a = "z";
-    input_player1_b = "x";
+    # Digital buttons. mupen64plus-next default (alt-map = False) maps
+    # libretro B → N64 A and libretro Y → N64 B; libretro A and X are
+    # unused, so keyboard A/X must be cleared or RetroArch's hardcoded
+    # defaults ("x"/"s") would shadow our wasd C-button mapping.
+    input_player1_a = "nul";
+    input_player1_b = "z";
+    input_player1_x = "nul";
+    input_player1_y = "x";
     input_player1_start = "enter";
     input_player1_select = "rshift";
     input_player1_l = "q";
