@@ -555,6 +555,13 @@
     "description": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "the-legend-of-zelda-oracle-of-ages": {
+    "cids": [
+      "QmUPd38byri7dZauzebF5Yzc18GAH3Dv6uL2ar2QDgyC6w"
+    ],
+    "description": "The Legend of Zelda: Oracle of Ages (via RetroArch / mGBA)",
+    "runtime": "retroarch"
+  },
   "the-secret-of-monkey-island": {
     "cids": [
       "QmWQubvmz8QmRtk6beb4bNzKmwvv9vwzGMYcHXejB1yvrG"
