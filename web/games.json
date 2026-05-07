@@ -175,6 +175,13 @@
     "description": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
     "runtime": "proton"
   },
+  "day-of-the-tentacle": {
+    "cids": [
+      "Qmb4tE5gCLyppBRWu94wnNpjcbdMt9Dqt1W9EMev8HaW7Z"
+    ],
+    "description": "Day of the Tentacle (1993 LucasArts CD talkie edition, via ScummVM)",
+    "runtime": "native"
+  },
   "dead-cells": {
     "cids": [
       "QmX4JAig3PaNMwjLxJ85FwB6vR6TP6fbCywAQGbeYee6M9"
