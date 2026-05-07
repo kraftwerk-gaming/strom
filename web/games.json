@@ -369,6 +369,14 @@
     "description": "Metal Gear Solid (PSX 1998 USA, via RetroArch / SwanStation)",
     "runtime": "retroarch"
   },
+  "metal-gear-solid-2-substance": {
+    "cids": [
+      "QmbFSXqTsafRjxc5swkc1DkpLXRGBRkhjiNDsd5abyGsJC",
+      "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+    ],
+    "description": "Metal Gear Solid 2: Substance (PS2 Europe, via PCSX2)",
+    "runtime": "pcsx2"
+  },
   "need-for-speed-most-wanted": {
     "cids": [
       "QmbeRJkSiVupPcbNp6vGpMpNBUwYEUuS3fPiqgpP1Eadfs"
