@@ -433,6 +433,13 @@
     "description": "Shadow of the Colossus (via PCSX2)",
     "runtime": "pcsx2"
   },
+  "stalker-shadow-of-chernobyl": {
+    "cids": [
+      "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
+    ],
+    "description": "S.T.A.L.K.E.R.: Shadow of Chernobyl (THC DVD English, via Proton)",
+    "runtime": "proton"
+  },
   "star-wars-battlefront-2": {
     "cids": [
       "QmWenFrRUnLTrxuDBcYGt3PqaAEhW7T5fK5MZUF1knVPJY"
