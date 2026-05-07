@@ -384,6 +384,13 @@
     "description": "Metal Gear Solid 2: Substance (PS2 Europe, via PCSX2)",
     "runtime": "pcsx2"
   },
+  "monkey-island-2-special-edition": {
+    "cids": [
+      "QmYs37wpRTvw1ihxgzd4HR8Zf1Y1QqSATd8rHZMKETTuTm"
+    ],
+    "description": "Monkey Island 2: LeChuck's Revenge (1991 LucasArts, SE Talkie fan-edition for ScummVM: original VGA + SE speech)",
+    "runtime": "native"
+  },
   "need-for-speed-most-wanted": {
     "cids": [
       "QmbeRJkSiVupPcbNp6vGpMpNBUwYEUuS3fPiqgpP1Eadfs"
