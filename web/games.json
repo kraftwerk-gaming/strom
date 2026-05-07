@@ -168,6 +168,13 @@
     "description": "Cryostasis: Sleep of Reason (GOG v2.0.0.13, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "dead-cells": {
+    "cids": [
+      "QmX4JAig3PaNMwjLxJ85FwB6vR6TP6fbCywAQGbeYee6M9"
+    ],
+    "description": "Dead Cells (native Linux, GOG v1.26.0 build 75679)",
+    "runtime": "custom"
+  },
   "demon-lord-just-a-block": {
     "cids": [
       "QmUGu12nm8YfouvUUbsj8iXj9PBpcLTpBE3DAqtQtLxEx4"
