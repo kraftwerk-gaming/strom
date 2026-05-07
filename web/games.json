@@ -237,6 +237,13 @@
     "description": null,
     "runtime": "native"
   },
+  "ftl-faster-than-light": {
+    "cids": [
+      "QmXvTneLsSXRe7GUdYVirXBuxz9JehaoSM8d52bxbB4VMg"
+    ],
+    "description": "FTL: Faster Than Light Advanced Edition (native Linux, GOG v1.6.12)",
+    "runtime": "native"
+  },
   "game-of-robot": {
     "cids": [
       "bafkreifexrphk6ypefm2jxwzurmux7ulttdxwcfh2ucmt3jx3zydszg2pu"
