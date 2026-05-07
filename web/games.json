@@ -554,6 +554,13 @@
     "description": "Vampire Crawlers (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "vampire-the-masquerade-bloodlines": {
+    "cids": [
+      "QmZeWvEYsmPkqRVs2aX6vEB8jdQB2982aB1Ej7rb5DBFAR"
+    ],
+    "description": "Vampire: The Masquerade \u2014 Bloodlines (GOG + Unofficial Patch 11.5, via Proton)",
+    "runtime": "proton"
+  },
   "void-stranger": {
     "cids": [
       "QmSAKT7sGXCbtv8S8AAKsTcSovsAkiKStmd6hso1eh6evB"
