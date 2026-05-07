@@ -274,6 +274,13 @@
     "description": "Hollow Knight (Unity, GOG v1.5.78, via Proton)",
     "runtime": "proton"
   },
+  "hollow-knight-silksong": {
+    "cids": [
+      "QmQV4uWyt7NbkMWX949SVsr2yNczDsoEbQbH9FgZR6X2jU"
+    ],
+    "description": "Hollow Knight: Silksong (Unity, via Proton)",
+    "runtime": "proton"
+  },
   "hotline-miami": {
     "cids": [
       "QmYThFTzNnuUx7o7ywWqWDSw6tqeKzY27MQUnFhckqv7Zs"
