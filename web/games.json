@@ -167,6 +167,13 @@
     "description": "Demon Lord Just A Block (via Proton)",
     "runtime": "proton"
   },
+  "deus-ex": {
+    "cids": [
+      "QmYirjSSa4qwbxoBWH3Cc2g8Ywn1ZwUa3hphcmH7phq8bg"
+    ],
+    "description": "Deus Ex GOTY (2000, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "diablo-ii-lord-of-destruction": {
     "cids": [
       "QmbkGxa7sxm2udcEzivSpXZ3ZjRvXprgtjF3vph3TiyfrA"
