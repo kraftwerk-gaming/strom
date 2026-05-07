@@ -114,7 +114,7 @@ let
             cfg.runScript
           else if cfg.runtime == "proton" then
             protonLaunchCommand
-          else if cfg.runtime == "native" then
+          else if cfg.executable != "" then
             nativeLaunchCommand
           else
             ''
