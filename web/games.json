@@ -168,6 +168,13 @@
     "description": "Cryostasis: Sleep of Reason (GOG v2.0.0.13, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "cuphead": {
+    "cids": [
+      "QmNjJThUd5NxEAY7LSYXjDjLZjwdZdUa6hDhGLFds8Zxm9"
+    ],
+    "description": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
+    "runtime": "proton"
+  },
   "dead-cells": {
     "cids": [
       "QmX4JAig3PaNMwjLxJ85FwB6vR6TP6fbCywAQGbeYee6M9"
