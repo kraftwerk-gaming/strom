@@ -369,6 +369,13 @@
     "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "noita": {
+    "cids": [
+      "QmRhHG2AMa5Q2GpJeBnSzcFDoFEVXShFoR8CKvFFQ8jRxD"
+    ],
+    "description": "Noita (GOG v1.0, via Proton)",
+    "runtime": "proton"
+  },
   "osmos": {
     "cids": [
       "QmTxVZRtd8bs8bdtfBciFS1pKhXxKY8KY9jKrL5rxPNxb6"
