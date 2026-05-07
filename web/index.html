@@ -77,7 +77,37 @@
     .status-unavailable { color: #d96060; }
     .status-checking { color: var(--muted); }
     .cid-cell { font-family: var(--mono); font-size: 0.8em; word-break: break-all; }
+    .cid-cell code {
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 3px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cid-cell code:hover {
+      background: var(--accent);
+      color: #fff;
+    }
     .mirror-count { font-weight: bold; }
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(0);
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 1000;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -106,8 +136,19 @@
     </table>
   </main>
 
+  <div class="toast" id="toast">Copied!</div>
   <script>
     "use strict";
+
+    const toast = document.getElementById("toast");
+    let toastTimer;
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        clearTimeout(toastTimer);
+        toast.classList.add("show");
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 1500);
+      });
+    }
 
     // Default: fetch games.json next to this page so the checker works
     // wherever it is hosted (radicle raw, forks, github pages, local dev).
@@ -171,6 +212,7 @@
           const code = document.createElement("code");
           code.textContent = cid.substring(0, 12) + "...";
           code.title = cid;
+          code.addEventListener("click", () => copyToClipboard(cid));
           tdCids.appendChild(code);
         });
         tr.appendChild(tdCids);
