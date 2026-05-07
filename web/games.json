@@ -267,6 +267,13 @@
     "description": "Heroes of Might & Magic II Gold (via fheroes2)",
     "runtime": "native"
   },
+  "hollow-knight": {
+    "cids": [
+      "QmZL7FnWxJ7qk1mrrine4wT8TeShT2RAoiEYpFaBjTY4t6"
+    ],
+    "description": "Hollow Knight (Unity, GOG v1.5.78, via Proton)",
+    "runtime": "proton"
+  },
   "hotline-miami": {
     "cids": [
       "QmYThFTzNnuUx7o7ywWqWDSw6tqeKzY27MQUnFhckqv7Zs"
