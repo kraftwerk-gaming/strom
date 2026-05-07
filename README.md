@@ -111,6 +111,7 @@ rebuilds.
 | <a href="https://lutris.net/games/super-hexagon/"><img src="https://lutris.net/games/banner/super-hexagon.jpg" height="40" alt="super-hexagon"></a> | [Super Hexagon](https://lutris.net/games/super-hexagon/) | `native` | `nix run .#super-hexagon` |
 | <a href="https://lutris.net/games/super-mario-64/"><img src="https://lutris.net/games/banner/super-mario-64.jpg" height="40" alt="super-mario-64"></a> | [Super Mario 64](https://lutris.net/games/super-mario-64/) | `retroarch` | `nix run .#super-mario-64` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate](https://lutris.net/games/syndicate/) | `native` | `nix run .#syndicate` |
+| <a href="https://lutris.net/games/the-curse-of-monkey-island/"><img src="https://lutris.net/games/banner/the-curse-of-monkey-island.jpg" height="40" alt="the-curse-of-monkey-island"></a> | [The Curse of Monkey Island](https://lutris.net/games/the-curse-of-monkey-island/) | `native` | `nix run .#the-curse-of-monkey-island` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg" height="40" alt="the-legend-of-zelda-a-link-to-the-past"></a> | [The Legend of Zelda: A Link to the Past](https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/) | `retroarch` | `nix run .#the-legend-of-zelda-a-link-to-the-past` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-majoras-mask/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-majoras-mask.jpg" height="40" alt="the-legend-of-zelda-majoras-mask"></a> | [The Legend of Zelda: Majora's Mask](https://lutris.net/games/the-legend-of-zelda-majoras-mask/) | `retroarch` | `nix run .#the-legend-of-zelda-majoras-mask` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-ocarina-of-time.jpg" height="40" alt="the-legend-of-zelda-ocarina-of-time"></a> | [The Legend of Zelda: Ocarina of Time](https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/) | `retroarch` | `nix run .#the-legend-of-zelda-ocarina-of-time` |
@@ -133,7 +134,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_101 games_
+_102 games_
 
 <!-- END GENERATED GAMES -->
 
