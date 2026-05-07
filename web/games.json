@@ -404,6 +404,13 @@
     "description": "Roketz (1996, via DOSBox-X)",
     "runtime": "custom"
   },
+  "rollercoaster-tycoon": {
+    "cids": [
+      "QmR3NEi1oBN3sNtc3RCyWtGncwnf6MiWx54gtx1hUiNyBN"
+    ],
+    "description": "RollerCoaster Tycoon Deluxe (GOG v1.20, via Proton)",
+    "runtime": "proton"
+  },
   "shadow-of-the-colossus": {
     "cids": [
       "QmfNb23JQhMmGoKzyU3b7otgJMt1tVUa2a3zsPwmX9wmoD",
