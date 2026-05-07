@@ -554,6 +554,13 @@
     "description": "Super Hexagon (native Linux, GOG v2.1.0.4)",
     "runtime": "native"
   },
+  "super-mario-64": {
+    "cids": [
+      "QmQLxpguCe1cWs6SR3sDkcyb7oG5exVxbZ6GWiihGyWDvU"
+    ],
+    "description": "Super Mario 64 (via RetroArch / mupen64plus-next)",
+    "runtime": "retroarch"
+  },
   "syndicate": {
     "cids": [
       "QmegVB6p577pTEmYEYabyRyfKy77h2mukp56z5oj7ZoFey",
