@@ -462,6 +462,13 @@
     "description": "Return of the Obra Dinn (via Proton)",
     "runtime": "proton"
   },
+  "risk-of-rain": {
+    "cids": [
+      "QmUiGfcZ9zbgubBA8RZCwGvMhz4drAKztWZr3eKZ9s4C3m"
+    ],
+    "description": "Risk of Rain (2013 Hopoo Games, original v1.2.2 Windows build via Proton)",
+    "runtime": "proton"
+  },
   "roketz--1": {
     "cids": [
       "QmZ1nZ8Hkm81P48ABcfGBot8rSkb2c4K2badYPBrMsT2zp"
