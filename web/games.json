@@ -294,6 +294,13 @@
     "description": "Getting Over It with Bennett Foddy (Unity, via Proton)",
     "runtime": "proton"
   },
+  "grand-theft-auto-vice-city": {
+    "cids": [
+      "Qmb8B8Haj6BtUH8VNEmsSUCiSa9KTvg1gAZpCK5RVhhYXo"
+    ],
+    "description": "Grand Theft Auto: Vice City (2002 Rockstar, PC v1.0 + SilentPatch + ThirteenAG Widescreen Fix, via Proton)",
+    "runtime": "proton"
+  },
   "half-life": {
     "cids": [
       "QmeUQvq7qxgmktqQyWR5XmyDEXxayjJaQrEpkMg1P8F1qP"

@@ -72,6 +72,7 @@ rebuilds.
 | <a href="https://lutris.net/games/ftl-faster-than-light/"><img src="https://lutris.net/games/banner/ftl-faster-than-light.jpg" height="40" alt="ftl-faster-than-light"></a> | [FTL: Faster Than Light Advanced Edition](https://lutris.net/games/ftl-faster-than-light/) | `native` | `nix run .#ftl-faster-than-light` |
 | <a href="https://lutris.net/games/game-of-robot/"><img src="https://lutris.net/games/banner/game-of-robot.jpg" height="40" alt="game-of-robot"></a> | [The Game of Robot](https://lutris.net/games/game-of-robot/) | `native` | `nix run .#game-of-robot` |
 | <a href="https://lutris.net/games/getting-over-it-with-bennett-foddy/"><img src="https://lutris.net/games/banner/getting-over-it-with-bennett-foddy.jpg" height="40" alt="getting-over-it-with-bennett-foddy"></a> | [Getting Over It with Bennett Foddy](https://lutris.net/games/getting-over-it-with-bennett-foddy/) | `proton` | `nix run .#getting-over-it-with-bennett-foddy` |
+| <a href="https://lutris.net/games/grand-theft-auto-vice-city/"><img src="https://lutris.net/games/banner/grand-theft-auto-vice-city.jpg" height="40" alt="grand-theft-auto-vice-city"></a> | [Grand Theft Auto: Vice City](https://lutris.net/games/grand-theft-auto-vice-city/) | `proton` | `nix run .#grand-theft-auto-vice-city` |
 | <a href="https://lutris.net/games/half-life/"><img src="https://lutris.net/games/banner/half-life.jpg" height="40" alt="half-life"></a> | [Half-Life](https://lutris.net/games/half-life/) | `proton` | `nix run .#half-life` |
 | <a href="https://lutris.net/games/heroes-of-might-and-magic-2-gold/"><img src="https://lutris.net/games/banner/heroes-of-might-and-magic-2-gold.jpg" height="40" alt="heroes-of-might-and-magic-2-gold"></a> | [Heroes of Might & Magic II Gold](https://lutris.net/games/heroes-of-might-and-magic-2-gold/) | `native` | `nix run .#heroes-of-might-and-magic-2-gold` |
 | <a href="https://lutris.net/games/hollow-knight/"><img src="https://lutris.net/games/banner/hollow-knight.jpg" height="40" alt="hollow-knight"></a> | [Hollow Knight](https://lutris.net/games/hollow-knight/) | `proton` | `nix run .#hollow-knight` |
@@ -128,7 +129,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_96 games_
+_97 games_
 
 <!-- END GENERATED GAMES -->
 
