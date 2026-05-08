@@ -718,6 +718,13 @@
     "description": "Super Mario 64 (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "superhot": {
+    "cids": [
+      "QmReaYyJTGGy1QSgoJnmJPnVAdDuE4tfTNYBdgR8jjdwjL"
+    ],
+    "description": "SUPERHOT (SUPERHOT Team, 2016 Unity5 release, via Proton)",
+    "runtime": "proton"
+  },
   "syndicate": {
     "cids": [
       "QmegVB6p577pTEmYEYabyRyfKy77h2mukp56z5oj7ZoFey",
