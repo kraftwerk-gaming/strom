@@ -596,6 +596,14 @@
     "description": "Quake III Arena (id Software 1999, retail CD v1.11, via Proton)",
     "runtime": "native"
   },
+  "rain-world": {
+    "cids": [
+      "QmWtc45sv19XtZMsZ7SjURAzRnoPfoKde32jTZMpPazeKA",
+      "QmV1RaqTtCoRs2Rh3k1nkcX1d3svgjFWBfB9WdWVGfJFZw"
+    ],
+    "description": "Rain World (Videocult, GOG v1.9.07b-v3 build 63290, via Proton)",
+    "runtime": "proton"
+  },
   "return-of-the-obra-dinn": {
     "cids": [
       "QmefADojRgYj81RXePWmpEVGNBCR7RCyGQrgFZLqmmPFUe"
