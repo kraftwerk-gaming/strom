@@ -450,6 +450,13 @@
     "description": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
     "runtime": "native"
   },
+  "leap-year": {
+    "cids": [
+      "QmVhSd1hiMBQwCXcgASGp9wm7PbMX2GrJ6Ziwcs5vp4re5"
+    ],
+    "description": "Leap Year (Daniel Linssen 2025, Steam Build 17614177, via Proton)",
+    "runtime": "proton"
+  },
   "legacy-of-kain-soul-reaver": {
     "cids": [
       "Qmb1u6CUu1gLRvb2tiWY1LaV1Bhe51xhXrpu8bpHnLXEKp"
