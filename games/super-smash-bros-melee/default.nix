@@ -33,12 +33,8 @@ self.lib.mkGame { inherit lib pkgs; } {
     mkdir -p "$DOLPHIN_USER/Config"
 
     # Skip the analytics opt-in dialog on first run. Dolphin auto-creates
-    # the rest of Dolphin.ini and GCPadNew.ini on startup; its built-in
-    # Linux keyboard defaults (A=X, B=Z, X=C, Y=S, Z=D, Start=Return,
-    # arrows = stick, IJKL = C-stick, TFGH = D-pad, Q/W = L/R) bind to
-    # the auto-detected XInput2 device, so keyboard works out of the box.
-    # SIDevice0=6 (Standard Controller) is the default but pinned for
-    # safety. Gamepads can be assigned in Options → Controllers.
+    # the rest of Dolphin.ini on startup; SIDevice0=6 (Standard
+    # Controller) is the default but pinned for safety.
     if ! [ -f "$DOLPHIN_USER/Config/Dolphin.ini" ]; then
       # Note: Dolphin's INI parser does NOT strip leading whitespace
       # (`if (line[0] == '[')` in IniFile::Load), so section headers
@@ -50,6 +46,49 @@ self.lib.mkGame { inherit lib pkgs; } {
         '[Core]' \
         'SIDevice0 = 6' \
         > "$DOLPHIN_USER/Config/Dolphin.ini"
+    fi
+
+    # Detect a plugged SDL gamepad and pre-seed GCPadNew.ini with both
+    # the gamepad bindings (mirrors the bundled "SDL Gamepad" profile)
+    # AND keyboard fallback (Dolphin's own Linux defaults). Without
+    # this Dolphin only auto-binds keyboard; the user would have to
+    # open Options → Controllers to assign a gamepad each fresh
+    # install.
+    if ! [ -f "$DOLPHIN_USER/Config/GCPadNew.ini" ]; then
+      gamepad_name=$(${pkgs.sdl-jstest}/bin/sdl2-jstest --list 2>/dev/null \
+        | sed -n "s/^Joystick Name: *'\\(.*\\)'/\\1/p" | head -1)
+      if [ -n "$gamepad_name" ]; then
+        kbd="XInput2/0/Virtual core pointer"
+        printf '%s\n' \
+          "[GCPad1]" \
+          "Device = SDL/0/$gamepad_name" \
+          "Buttons/A = \`Button A\` | \`$kbd:X\`" \
+          "Buttons/B = \`Button B\` | \`$kbd:Z\`" \
+          "Buttons/X = \`Button X\` | \`$kbd:C\`" \
+          "Buttons/Y = \`Button Y\` | \`$kbd:S\`" \
+          "Buttons/Z = \`Shoulder R\` | \`$kbd:D\`" \
+          "Buttons/Start = \`Start\` | \`$kbd:Return\`" \
+          "Main Stick/Up = \`Left Y+\` | \`$kbd:Up\`" \
+          "Main Stick/Down = \`Left Y-\` | \`$kbd:Down\`" \
+          "Main Stick/Left = \`Left X-\` | \`$kbd:Left\`" \
+          "Main Stick/Right = \`Left X+\` | \`$kbd:Right\`" \
+          "Main Stick/Calibration = 100.00" \
+          "C-Stick/Up = \`Right Y+\` | \`$kbd:I\`" \
+          "C-Stick/Down = \`Right Y-\` | \`$kbd:K\`" \
+          "C-Stick/Left = \`Right X-\` | \`$kbd:J\`" \
+          "C-Stick/Right = \`Right X+\` | \`$kbd:L\`" \
+          "C-Stick/Calibration = 100.00" \
+          "Triggers/L = \`Trigger L\` | \`$kbd:Q\`" \
+          "Triggers/R = \`Trigger R\` | \`$kbd:W\`" \
+          "Triggers/L-Analog = \`Trigger L\`" \
+          "Triggers/R-Analog = \`Trigger R\`" \
+          "D-Pad/Up = \`Pad N\` | \`$kbd:T\`" \
+          "D-Pad/Down = \`Pad S\` | \`$kbd:G\`" \
+          "D-Pad/Left = \`Pad W\` | \`$kbd:F\`" \
+          "D-Pad/Right = \`Pad E\` | \`$kbd:H\`" \
+          "Rumble/Motor = \`Motor L\` | \`Motor R\`" \
+          > "$DOLPHIN_USER/Config/GCPadNew.ini"
+      fi
     fi
 
     exec ${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -r 60 --expose-wayland -- \
