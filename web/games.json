@@ -392,6 +392,13 @@
     "description": "Half-Life (WON v1.1.1.0, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "hardspace-shipbreaker": {
+    "cids": [
+      "QmcVJd7C6vARAN7RudbqDB1aZr141ELitzqtCuN3wPoPaU"
+    ],
+    "description": "Hardspace: Shipbreaker (Blackbird Interactive 2022, via Proton)",
+    "runtime": "proton"
+  },
   "heroes-of-might-and-magic-2-gold": {
     "cids": [
       "QmRaZGqtcgX9cHNJXhkyc2czyw1qxjSvkAWRPjfEYCyVRi",
