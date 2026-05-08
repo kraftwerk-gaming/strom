@@ -63,6 +63,7 @@ rebuilds.
 | <a href="https://lutris.net/games/cuphead/"><img src="https://lutris.net/games/banner/cuphead.jpg" height="40" alt="cuphead"></a> | [Cuphead Legacy](https://lutris.net/games/cuphead/) | `proton` | `nix run .#cuphead` |
 | <a href="https://lutris.net/games/day-of-the-tentacle/"><img src="https://lutris.net/games/banner/day-of-the-tentacle.jpg" height="40" alt="day-of-the-tentacle"></a> | [Day of the Tentacle](https://lutris.net/games/day-of-the-tentacle/) | `native` | `nix run .#day-of-the-tentacle` |
 | <a href="https://lutris.net/games/dead-cells/"><img src="https://lutris.net/games/banner/dead-cells.jpg" height="40" alt="dead-cells"></a> | [Dead Cells](https://lutris.net/games/dead-cells/) | `custom` | `nix run .#dead-cells` |
+| <a href="https://lutris.net/games/death-and-taxes/"><img src="https://lutris.net/games/banner/death-and-taxes.jpg" height="40" alt="death-and-taxes"></a> | [Death and Taxes](https://lutris.net/games/death-and-taxes/) | `custom` | `nix run .#death-and-taxes` |
 | <a href="https://lutris.net/games/demon-lord-just-a-block/"><img src="https://lutris.net/games/banner/demon-lord-just-a-block.jpg" height="40" alt="demon-lord-just-a-block"></a> | [Demon Lord Just A Block](https://lutris.net/games/demon-lord-just-a-block/) | `proton` | `nix run .#demon-lord-just-a-block` |
 | <a href="https://lutris.net/games/deus-ex/"><img src="https://lutris.net/games/banner/deus-ex.jpg" height="40" alt="deus-ex"></a> | [Deus Ex GOTY](https://lutris.net/games/deus-ex/) | `proton` | `nix run .#deus-ex` |
 | <a href="https://lutris.net/games/diablo-ii-lord-of-destruction/"><img src="https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg" height="40" alt="diablo-ii-lord-of-destruction"></a> | [Diablo II + Lord of Destruction](https://lutris.net/games/diablo-ii-lord-of-destruction/) | `proton` | `nix run .#diablo-ii-lord-of-destruction` |
@@ -170,7 +171,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_138 games_
+_139 games_
 
 <!-- END GENERATED GAMES -->
 

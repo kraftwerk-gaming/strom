@@ -231,6 +231,13 @@
     "description": "Dead Cells (native Linux, GOG v1.26.0 build 75679)",
     "runtime": "custom"
   },
+  "death-and-taxes": {
+    "cids": [
+      "PLACEHOLDER_CID"
+    ],
+    "description": "Death and Taxes (Placeholder Gameworks 2020, native Linux, GOG v1.2.59 build 82787)",
+    "runtime": "custom"
+  },
   "demon-lord-just-a-block": {
     "cids": [
       "QmUGu12nm8YfouvUUbsj8iXj9PBpcLTpBE3DAqtQtLxEx4"
