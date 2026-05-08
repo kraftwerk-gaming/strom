@@ -371,6 +371,13 @@
     "description": "Golden Sun: The Lost Age (Camelot/Nintendo, 2003 GBA, via RetroArch / mGBA)",
     "runtime": "retroarch"
   },
+  "grand-theft-auto-san-andreas": {
+    "cids": [
+      "QmdUAZBf4hyjibRYfZYXDUgGJnXotDdHN8ZsTpwwBbjpJo"
+    ],
+    "description": "Grand Theft Auto: San Andreas (Rockstar 2005, PC v1.0 + HOODLUM + SilentPatch + ModLoader + ThirteenAG Widescreen Fix, via Proton)",
+    "runtime": "proton"
+  },
   "grand-theft-auto-vice-city": {
     "cids": [
       "Qmb8B8Haj6BtUH8VNEmsSUCiSa9KTvg1gAZpCK5RVhhYXo"
