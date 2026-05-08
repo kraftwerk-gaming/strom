@@ -308,6 +308,13 @@
     "description": "Fallout 2 (GOG Classic, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "far-cry": {
+    "cids": [
+      "QmSeBi5c7WXQziStu72ocgCMsUoHGZKd3v1VFTWd8RLAVJ"
+    ],
+    "description": "Far Cry (Crytek/Ubisoft, 2004 retail DVD, via Proton)",
+    "runtime": "proton"
+  },
   "fez": {
     "cids": [
       "QmWbKaPKumQeNjRKEzxA1gSceAjATiFQyznPz4Ne4JRVHH"
