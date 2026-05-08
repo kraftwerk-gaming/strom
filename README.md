@@ -122,6 +122,7 @@ rebuilds.
 | <a href="https://lutris.net/games/serious-sam-the-second-encounter/"><img src="https://lutris.net/games/banner/serious-sam-the-second-encounter.jpg" height="40" alt="serious-sam-the-second-encounter"></a> | [Serious Sam: The Second Encounter](https://lutris.net/games/serious-sam-the-second-encounter/) | `proton` | `nix run .#serious-sam-the-second-encounter` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run .#shadow-of-the-colossus` |
 | <a href="https://lutris.net/games/sid-meiers-pirates/"><img src="https://lutris.net/games/banner/sid-meiers-pirates.jpg" height="40" alt="sid-meiers-pirates"></a> | [Sid Meier's Pirates!](https://lutris.net/games/sid-meiers-pirates/) | `proton` | `nix run .#sid-meiers-pirates` |
+| <a href="https://lutris.net/games/simon-the-sorcerer/"><img src="https://lutris.net/games/banner/simon-the-sorcerer.jpg" height="40" alt="simon-the-sorcerer"></a> | [Simon the Sorcerer](https://lutris.net/games/simon-the-sorcerer/) | `native` | `nix run .#simon-the-sorcerer` |
 | <a href="https://lutris.net/games/stalker-shadow-of-chernobyl/"><img src="https://lutris.net/games/banner/stalker-shadow-of-chernobyl.jpg" height="40" alt="stalker-shadow-of-chernobyl"></a> | [S.T.A.L.K.E.R.: Shadow of Chernobyl](https://lutris.net/games/stalker-shadow-of-chernobyl/) | `proton` | `nix run .#stalker-shadow-of-chernobyl` |
 | <a href="https://lutris.net/games/star-wars-battlefront-2/"><img src="https://lutris.net/games/banner/star-wars-battlefront-2.jpg" height="40" alt="star-wars-battlefront-2"></a> | [Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope](https://lutris.net/games/star-wars-battlefront-2/) | `proton` | `nix run .#star-wars-battlefront-2` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War](https://lutris.net/games/starcraft/) | `proton` | `nix run .#starcraft` |
@@ -152,7 +153,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_120 games_
+_121 games_
 
 <!-- END GENERATED GAMES -->
 

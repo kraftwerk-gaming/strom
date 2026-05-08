@@ -655,6 +655,13 @@
     "description": "Sid Meier's Pirates! (Firaxis 2004 retail v1.02 with no-CD patch, via Proton)",
     "runtime": "proton"
   },
+  "simon-the-sorcerer": {
+    "cids": [
+      "QmdByyMGo1pcNU7UQq2Y96FBeDGvF15gXQNDieV6xLy8fY"
+    ],
+    "description": "Simon the Sorcerer (Adventure Soft, 1993 CD/Windows English talkie, via ScummVM)",
+    "runtime": "native"
+  },
   "stalker-shadow-of-chernobyl": {
     "cids": [
       "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
