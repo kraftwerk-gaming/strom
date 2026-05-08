@@ -457,6 +457,13 @@
     "description": "Leap Year (Daniel Linssen 2025, Steam Build 17614177, via Proton)",
     "runtime": "proton"
   },
+  "leap-year-march": {
+    "cids": [
+      "QmZmFqNFqj5wG7pngQK3kXgTGnqAhzvfzaxj2WVXTPvekA"
+    ],
+    "description": "Leap Year: March (Daniel Linssen 2024, monthly project standalone, via Proton)",
+    "runtime": "proton"
+  },
   "legacy-of-kain-soul-reaver": {
     "cids": [
       "Qmb1u6CUu1gLRvb2tiWY1LaV1Bhe51xhXrpu8bpHnLXEKp"
