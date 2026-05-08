@@ -825,6 +825,13 @@
     "description": "Super Mario 64 (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "super-metroid": {
+    "cids": [
+      "QmRVRg1spGsV96NuKv7HH27kwhnPKwadNnBp3ZyarDPFwY"
+    ],
+    "description": "Super Metroid (Nintendo R&D1, 1994 SNES, via RetroArch / bsnes)",
+    "runtime": "retroarch"
+  },
   "super-smash-bros-melee": {
     "cids": [
       "QmNchGZ9oPDdv9DZjtXLkDnvyGoMsPY8rUAwY5eknYCbzb"

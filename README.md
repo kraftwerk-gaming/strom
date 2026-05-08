@@ -146,6 +146,7 @@ rebuilds.
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
 | <a href="https://lutris.net/games/super-hexagon/"><img src="https://lutris.net/games/banner/super-hexagon.jpg" height="40" alt="super-hexagon"></a> | [Super Hexagon](https://lutris.net/games/super-hexagon/) | `native` | `nix run .#super-hexagon` |
 | <a href="https://lutris.net/games/super-mario-64/"><img src="https://lutris.net/games/banner/super-mario-64.jpg" height="40" alt="super-mario-64"></a> | [Super Mario 64](https://lutris.net/games/super-mario-64/) | `retroarch` | `nix run .#super-mario-64` |
+| <a href="https://lutris.net/games/super-metroid/"><img src="https://lutris.net/games/banner/super-metroid.jpg" height="40" alt="super-metroid"></a> | [Super Metroid](https://lutris.net/games/super-metroid/) | `retroarch` | `nix run .#super-metroid` |
 | <a href="https://lutris.net/games/super-smash-bros-melee/"><img src="https://lutris.net/games/banner/super-smash-bros-melee.jpg" height="40" alt="super-smash-bros-melee"></a> | [Super Smash Bros. Melee](https://lutris.net/games/super-smash-bros-melee/) | `native` | `nix run .#super-smash-bros-melee` |
 | <a href="https://lutris.net/games/superhot/"><img src="https://lutris.net/games/banner/superhot.jpg" height="40" alt="superhot"></a> | [SUPERHOT](https://lutris.net/games/superhot/) | `proton` | `nix run .#superhot` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate](https://lutris.net/games/syndicate/) | `native` | `nix run .#syndicate` |
@@ -177,7 +178,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_145 games_
+_146 games_
 
 <!-- END GENERATED GAMES -->
 
