@@ -910,6 +910,13 @@
     "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "ultrakill": {
+    "cids": [
+      "PLACEHOLDER_CID"
+    ],
+    "description": "ULTRAKILL (New Blood / Hakita 2020 Early Access, via Proton)",
+    "runtime": "proton"
+  },
   "unreal-tournament-2004": {
     "cids": [
       "QmUcKX53WiLytqmVoDP1pphJgL1MuczqqUN9FNT3id1U74"
