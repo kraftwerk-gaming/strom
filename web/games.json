@@ -65,6 +65,13 @@
     "description": "Balatro (via Proton)",
     "runtime": "proton"
   },
+  "ball-x-pit": {
+    "cids": [
+      "QmVP4fju6q57QgZg441JTpfgPid8wy5NFkjcavnX5dFwqD"
+    ],
+    "description": "Ball x Pit (Kenny Sun 2024, via Proton)",
+    "runtime": "proton"
+  },
   "beamng-dot-drive": {
     "cids": [
       "QmPSLRRfK5wTvQPWKxei2xsRGPerpVnoPToxKq8caHuUJC"
