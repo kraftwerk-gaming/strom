@@ -72,6 +72,13 @@
     "description": "Ball x Pit (Kenny Sun 2024, via Proton)",
     "runtime": "proton"
   },
+  "battlefield-1942": {
+    "cids": [
+      "QmSnWcj6uRHNp1Mi7Xanhthx1AnBtzSu8Q2eRgGehYH2HT"
+    ],
+    "description": "Battlefield 1942 Complete Collection (DICE 2002, community HD repack, via Proton)",
+    "runtime": "proton"
+  },
   "beamng-dot-drive": {
     "cids": [
       "QmPSLRRfK5wTvQPWKxei2xsRGPerpVnoPToxKq8caHuUJC"
