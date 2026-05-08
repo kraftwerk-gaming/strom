@@ -697,6 +697,13 @@
     "description": "Sid Meier's Pirates! (Firaxis 2004 retail v1.02 with no-CD patch, via Proton)",
     "runtime": "proton"
   },
+  "simcity-2000": {
+    "cids": [
+      "QmeKBV2g2rp4YK1p7rCjyn54xKsNUDVehfHQXazvtWX6BH"
+    ],
+    "description": "SimCity 2000 Special Edition (Maxis 1996 DOS, via DOSBox-X)",
+    "runtime": "custom"
+  },
   "simon-the-sorcerer": {
     "cids": [
       "QmdByyMGo1pcNU7UQq2Y96FBeDGvF15gXQNDieV6xLy8fY"
