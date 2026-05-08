@@ -122,6 +122,13 @@
     "description": "Burntime (1993 Max Design freeware re-release, via DOSBox-X)",
     "runtime": "custom"
   },
+  "carrion": {
+    "cids": [
+      "QmeYaTv2cbe37S7jFtg7x12WpwToWLEQZiujfi7zhn5Ftq"
+    ],
+    "description": "CARRION (native Linux, GOG v1.0.5)",
+    "runtime": "custom"
+  },
   "cave-story--1": {
     "cids": [
       "QmeFchAHBeMMeUjQSDV5Jb9hUsZQvkBcMToHPnfJZWv55z"
