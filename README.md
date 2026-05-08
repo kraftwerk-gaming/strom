@@ -45,6 +45,7 @@ rebuilds.
 | <a href="https://lutris.net/games/battlefield-1942-desert-combat/"><img src="https://lutris.net/games/banner/battlefield-1942-desert-combat.jpg" height="40" alt="battlefield-1942-desert-combat"></a> | [Battlefield 1942: Desert Combat](https://lutris.net/games/battlefield-1942-desert-combat/) | `proton` | `nix run .#battlefield-1942-desert-combat` |
 | <a href="https://lutris.net/games/beamng-dot-drive/"><img src="https://lutris.net/games/banner/beamng-dot-drive.jpg" height="40" alt="beamng-dot-drive"></a> | [BeamNG.drive](https://lutris.net/games/beamng-dot-drive/) | `native` | `nix run .#beamng-dot-drive` |
 | <a href="https://lutris.net/games/braid/"><img src="https://lutris.net/games/banner/braid.jpg" height="40" alt="braid"></a> | [Braid](https://lutris.net/games/braid/) | `native` | `nix run .#braid` |
+| <a href="https://lutris.net/games/broforce/"><img src="https://lutris.net/games/banner/broforce.jpg" height="40" alt="broforce"></a> | [Broforce / Broforce Forever](https://lutris.net/games/broforce/) | `native` | `nix run .#broforce` |
 | <a href="https://lutris.net/games/burnout-3-takedown/"><img src="https://lutris.net/games/banner/burnout-3-takedown.jpg" height="40" alt="burnout-3-takedown"></a> | [Burnout 3: Takedown](https://lutris.net/games/burnout-3-takedown/) | `pcsx2` | `nix run .#burnout-3-takedown` |
 | <a href="https://lutris.net/games/burntime/"><img src="https://lutris.net/games/banner/burntime.jpg" height="40" alt="burntime"></a> | [Burntime](https://lutris.net/games/burntime/) | `custom` | `nix run .#burntime` |
 | <a href="https://lutris.net/games/cave-story--1/"><img src="https://lutris.net/games/banner/cave-story--1.jpg" height="40" alt="cave-story--1"></a> | [Cave Story / Doukutsu Monogatari](https://lutris.net/games/cave-story--1/) | `native` | `nix run .#cave-story--1` |
@@ -137,7 +138,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_105 games_
+_106 games_
 
 <!-- END GENERATED GAMES -->
 

@@ -100,6 +100,13 @@
     "description": "Braid (native Linux, GOG)",
     "runtime": "native"
   },
+  "broforce": {
+    "cids": [
+      "QmUQN3MxUKAEYQQmmuJp5C663FfNTiDfiBTVGcqwxJsNhM"
+    ],
+    "description": "Broforce / Broforce Forever (native Linux, GOG build 71321)",
+    "runtime": "native"
+  },
   "burnout-3-takedown": {
     "cids": [
       "QmTR7JR8zd4yENd9sudBy5iQBKRKKvYuB66vhymrRMLmSn",
