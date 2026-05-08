@@ -588,6 +588,14 @@
     "description": "Psychonauts (GOG Windows, via Proton)",
     "runtime": "proton"
   },
+  "quake-iii-arena": {
+    "cids": [
+      "QmQqGY8a1xXKaeybvdS4uJ2mHrX4bbqBhxqq8NEDjBFyep",
+      "QmWWyL7DD4H8wg43q2taTCPBF26CY81ELDbpp68LkcQFiD"
+    ],
+    "description": "Quake III Arena (id Software 1999, retail CD v1.11, via Proton)",
+    "runtime": "native"
+  },
   "return-of-the-obra-dinn": {
     "cids": [
       "QmefADojRgYj81RXePWmpEVGNBCR7RCyGQrgFZLqmmPFUe"
