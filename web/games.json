@@ -273,6 +273,13 @@
     "description": "Dungeon Keeper (KeeperFX, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "dwarf-fortress": {
+    "cids": [
+      "QmYcTstDWS5mMCf6GT9AsWDu3pw7d4sZZBmBVxYrjeocA9"
+    ],
+    "description": "Dwarf Fortress (Bay 12 Games free Classic v53.12, native Linux)",
+    "runtime": "custom"
+  },
   "environmental-station-alpha": {
     "cids": [
       "QmSKfKZbygBUXXknED9vQUpaY4yjApjHMqTXq4cwtDD9xQ"
@@ -809,13 +816,6 @@
       "QmUPd38byri7dZauzebF5Yzc18GAH3Dv6uL2ar2QDgyC6w"
     ],
     "description": "The Legend of Zelda: Oracle of Ages (via RetroArch / mGBA)",
-    "runtime": "retroarch"
-  },
-  "the-legend-of-zelda-oracle-of-seasons": {
-    "cids": [
-      "QmPBLaThsf3G8UbY1wQb97N2473TA2v7cT9s5fg8HeYyJc"
-    ],
-    "description": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
     "runtime": "retroarch"
   },
   "the-secret-of-monkey-island": {
