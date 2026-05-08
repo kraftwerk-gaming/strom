@@ -429,6 +429,13 @@
     "description": "Hotline Miami 2: Wrong Number (native Linux, GOG v2017-12-07 build 16977)",
     "runtime": "native"
   },
+  "hyper-metroid": {
+    "cids": [
+      "QmW79tNQukhmDQJjbK8ymC9Sm4bbNmUiicWHvKTvd97Tw6"
+    ],
+    "description": "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)",
+    "runtime": "retroarch"
+  },
   "inscryption": {
     "cids": [
       "QmeSwwu2sU9kjqb5Ua9YwV37jGjNjscNmTbTJZNMmef5bj"
