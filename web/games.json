@@ -630,6 +630,13 @@
     "description": "Portal (Valve 2007, via Proton)",
     "runtime": "proton"
   },
+  "portal-2": {
+    "cids": [
+      "QmZekbNAWY6JUsJGJPCzHJouSjaJshbydniqhg85yThX7w"
+    ],
+    "description": "Portal 2 (Valve 2011, via Proton)",
+    "runtime": "proton"
+  },
   "psychonauts": {
     "cids": [
       "QmUFsFYE2ywPcRZgdjt8XU4NypzP34bsU3mgnWY62HrLn7"

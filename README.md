@@ -119,6 +119,7 @@ rebuilds.
 | <a href="https://lutris.net/games/perfect-dark/"><img src="https://lutris.net/games/banner/perfect-dark.jpg" height="40" alt="perfect-dark"></a> | [Perfect Dark](https://lutris.net/games/perfect-dark/) | `retroarch` | `nix run .#perfect-dark` |
 | <a href="https://lutris.net/games/planescape-torment/"><img src="https://lutris.net/games/banner/planescape-torment.jpg" height="40" alt="planescape-torment"></a> | [Planescape: Torment](https://lutris.net/games/planescape-torment/) | `native` | `nix run .#planescape-torment` |
 | <a href="https://lutris.net/games/portal/"><img src="https://lutris.net/games/banner/portal.jpg" height="40" alt="portal"></a> | [Portal](https://lutris.net/games/portal/) | `proton` | `nix run .#portal` |
+| <a href="https://lutris.net/games/portal-2/"><img src="https://lutris.net/games/banner/portal-2.jpg" height="40" alt="portal-2"></a> | [Portal 2](https://lutris.net/games/portal-2/) | `proton` | `nix run .#portal-2` |
 | <a href="https://lutris.net/games/psychonauts/"><img src="https://lutris.net/games/banner/psychonauts.jpg" height="40" alt="psychonauts"></a> | [Psychonauts](https://lutris.net/games/psychonauts/) | `proton` | `nix run .#psychonauts` |
 | <a href="https://lutris.net/games/quake-iii-arena/"><img src="https://lutris.net/games/banner/quake-iii-arena.jpg" height="40" alt="quake-iii-arena"></a> | [Quake III Arena](https://lutris.net/games/quake-iii-arena/) | `native` | `nix run .#quake-iii-arena` |
 | <a href="https://lutris.net/games/rain-world/"><img src="https://lutris.net/games/banner/rain-world.jpg" height="40" alt="rain-world"></a> | [Rain World](https://lutris.net/games/rain-world/) | `proton` | `nix run .#rain-world` |
@@ -169,7 +170,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_137 games_
+_138 games_
 
 <!-- END GENERATED GAMES -->
 
