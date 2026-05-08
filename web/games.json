@@ -429,6 +429,13 @@
     "description": "Hotline Miami 2: Wrong Number (native Linux, GOG v2017-12-07 build 16977)",
     "runtime": "native"
   },
+  "inscryption": {
+    "cids": [
+      "QmeSwwu2sU9kjqb5Ua9YwV37jGjNjscNmTbTJZNMmef5bj"
+    ],
+    "description": "Inscryption (native Linux, GOG v1.10 build 57447)",
+    "runtime": "native"
+  },
   "jazz-jackrabbit-2": {
     "cids": [
       "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb"
