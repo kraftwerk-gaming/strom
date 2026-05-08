@@ -840,6 +840,13 @@
     "description": "Vampire Crawlers (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "vampire-survivors": {
+    "cids": [
+      "QmPv2Q9hiYUrERdUCft4XwW9XRWCZPKPqJZPKMaFkUodxL"
+    ],
+    "description": "Vampire Survivors + 3 DLC (Emergency Meeting v1.11.108, native Linux Unity / IL2CPP, Goldberg Steam shim)",
+    "runtime": "native"
+  },
   "vampire-the-masquerade-bloodlines": {
     "cids": [
       "QmZeWvEYsmPkqRVs2aX6vEB8jdQB2982aB1Ej7rb5DBFAR"
