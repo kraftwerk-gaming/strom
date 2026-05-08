@@ -647,6 +647,14 @@
     "description": "Shadow of the Colossus (via PCSX2)",
     "runtime": "pcsx2"
   },
+  "sid-meiers-pirates": {
+    "cids": [
+      "Qma2AyXzbaDPJq2Ztx2ahETHESGt8DHDBv2sFoUrdC8mzE",
+      "Qma9Kf3XB5HwjpAedVfgWW2K6AprpufG2PTDJ3mZsP38DA"
+    ],
+    "description": "Sid Meier's Pirates! (Firaxis 2004 retail v1.02 with no-CD patch, via Proton)",
+    "runtime": "proton"
+  },
   "stalker-shadow-of-chernobyl": {
     "cids": [
       "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
