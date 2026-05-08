@@ -266,6 +266,13 @@
     "description": "Dungeon Keeper (KeeperFX, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "environmental-station-alpha": {
+    "cids": [
+      "QmSKfKZbygBUXXknED9vQUpaY4yjApjHMqTXq4cwtDD9xQ"
+    ],
+    "description": "Environmental Station Alpha (Hempuli, 2015, GameMaker Studio, via Proton)",
+    "runtime": "proton"
+  },
   "europa-1400-the-guild": {
     "cids": [
       "QmVGbehWtufnkvDbiUJa5wCo1CurPzsPJM74VLhqykZUWP"

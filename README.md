@@ -68,6 +68,7 @@ rebuilds.
 | <a href="https://lutris.net/games/disco-elysium-game-boy-edition/"><img src="https://lutris.net/games/banner/disco-elysium-game-boy-edition.jpg" height="40" alt="disco-elysium-game-boy-edition"></a> | [Disco Elysium: Game Boy Edition](https://lutris.net/games/disco-elysium-game-boy-edition/) | `retroarch` | `nix run .#disco-elysium-game-boy-edition` |
 | <a href="https://lutris.net/games/disco-elysium-the-final-cut/"><img src="https://lutris.net/games/banner/disco-elysium-the-final-cut.jpg" height="40" alt="disco-elysium-the-final-cut"></a> | [Disco Elysium: The Final Cut](https://lutris.net/games/disco-elysium-the-final-cut/) | `proton` | `nix run .#disco-elysium-the-final-cut` |
 | <a href="https://lutris.net/games/dungeon-keeper/"><img src="https://lutris.net/games/banner/dungeon-keeper.jpg" height="40" alt="dungeon-keeper"></a> | [Dungeon Keeper](https://lutris.net/games/dungeon-keeper/) | `proton` | `nix run .#dungeon-keeper` |
+| <a href="https://lutris.net/games/environmental-station-alpha/"><img src="https://lutris.net/games/banner/environmental-station-alpha.jpg" height="40" alt="environmental-station-alpha"></a> | [Environmental Station Alpha](https://lutris.net/games/environmental-station-alpha/) | `proton` | `nix run .#environmental-station-alpha` |
 | <a href="https://lutris.net/games/europa-1400-the-guild/"><img src="https://lutris.net/games/banner/europa-1400-the-guild.jpg" height="40" alt="europa-1400-the-guild"></a> | [Europa 1400: The Guild - Gold Edition](https://lutris.net/games/europa-1400-the-guild/) | `proton` | `nix run .#europa-1400-the-guild` |
 | <a href="https://lutris.net/games/factorio/"><img src="https://lutris.net/games/banner/factorio.jpg" height="40" alt="factorio"></a> | [Factorio](https://lutris.net/games/factorio/) | `native` | `nix run .#factorio` |
 | <a href="https://lutris.net/games/fallout/"><img src="https://lutris.net/games/banner/fallout.jpg" height="40" alt="fallout"></a> | [Fallout](https://lutris.net/games/fallout/) | `proton` | `nix run .#fallout` |
@@ -139,7 +140,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_107 games_
+_108 games_
 
 <!-- END GENERATED GAMES -->
 
