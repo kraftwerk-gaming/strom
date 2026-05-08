@@ -718,6 +718,13 @@
     "description": "Super Mario 64 (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "super-smash-bros-melee": {
+    "cids": [
+      "QmNchGZ9oPDdv9DZjtXLkDnvyGoMsPY8rUAwY5eknYCbzb"
+    ],
+    "description": "Super Smash Bros. Melee (via Dolphin)",
+    "runtime": "native"
+  },
   "superhot": {
     "cids": [
       "QmReaYyJTGGy1QSgoJnmJPnVAdDuE4tfTNYBdgR8jjdwjL"
