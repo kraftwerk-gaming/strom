@@ -52,6 +52,7 @@ rebuilds.
 | <a href="https://lutris.net/games/carrion/"><img src="https://lutris.net/games/banner/carrion.jpg" height="40" alt="carrion"></a> | [CARRION](https://lutris.net/games/carrion/) | `custom` | `nix run .#carrion` |
 | <a href="https://lutris.net/games/cave-story--1/"><img src="https://lutris.net/games/banner/cave-story--1.jpg" height="40" alt="cave-story--1"></a> | [Cave Story / Doukutsu Monogatari](https://lutris.net/games/cave-story--1/) | `native` | `nix run .#cave-story--1` |
 | <a href="https://lutris.net/games/clonk-4/"><img src="https://lutris.net/games/banner/clonk-4.jpg" height="40" alt="clonk-4"></a> | [Clonk 4](https://lutris.net/games/clonk-4/) | `proton` | `nix run .#clonk-4` |
+| <a href="https://lutris.net/games/cloverpit/"><img src="https://lutris.net/games/banner/cloverpit.jpg" height="40" alt="cloverpit"></a> | [Cloverpit](https://lutris.net/games/cloverpit/) | `proton` | `nix run .#cloverpit` |
 | <a href="https://lutris.net/games/command-conquer/"><img src="https://lutris.net/games/banner/command-conquer.jpg" height="40" alt="command-conquer"></a> | [Command & Conquer: Tiberian Dawn](https://lutris.net/games/command-conquer/) | `native` | `nix run .#command-conquer` |
 | <a href="https://lutris.net/games/command-conquer-generals/"><img src="https://lutris.net/games/banner/command-conquer-generals.jpg" height="40" alt="command-conquer-generals"></a> | [Command & Conquer: Generals](https://lutris.net/games/command-conquer-generals/) | `proton` | `nix run .#command-conquer-generals` |
 | <a href="https://lutris.net/games/command-conquer-red-alert/"><img src="https://lutris.net/games/banner/command-conquer-red-alert.jpg" height="40" alt="command-conquer-red-alert"></a> | [Command & Conquer: Red Alert](https://lutris.net/games/command-conquer-red-alert/) | `native` | `nix run .#command-conquer-red-alert` |
@@ -171,7 +172,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_139 games_
+_140 games_
 
 <!-- END GENERATED GAMES -->
 

@@ -150,6 +150,13 @@
     "description": "Clonk 4 (1998 freeware release, via Proton)",
     "runtime": "proton"
   },
+  "cloverpit": {
+    "cids": [
+      "QmPre6GqGGi4WDoWLEn5PdTX1jNuWPqx7vVFMNMAeoc6n5"
+    ],
+    "description": "Cloverpit (Panik Arcade 2025, via Proton)",
+    "runtime": "proton"
+  },
   "command-conquer": {
     "cids": [
       "Qme6kRZLgxGMEDaNUwCis9Wp7j6DWys4EWoDX8ePSiPh5N",
