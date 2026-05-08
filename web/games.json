@@ -797,6 +797,13 @@
     "description": "The Legend of Zelda: Oracle of Ages (via RetroArch / mGBA)",
     "runtime": "retroarch"
   },
+  "the-legend-of-zelda-oracle-of-seasons": {
+    "cids": [
+      "QmPBLaThsf3G8UbY1wQb97N2473TA2v7cT9s5fg8HeYyJc"
+    ],
+    "description": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
+    "runtime": "retroarch"
+  },
   "the-secret-of-monkey-island": {
     "cids": [
       "QmWQubvmz8QmRtk6beb4bNzKmwvv9vwzGMYcHXejB1yvrG"
