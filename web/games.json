@@ -632,6 +632,13 @@
     "description": "RollerCoaster Tycoon Deluxe (GOG v1.20, via Proton)",
     "runtime": "proton"
   },
+  "serious-sam-the-second-encounter": {
+    "cids": [
+      "Qmc1kVGaJCmJRAXEY1jPvXrTvsPFUZWG54th4fqpfY1TF9"
+    ],
+    "description": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
+    "runtime": "proton"
+  },
   "shadow-of-the-colossus": {
     "cids": [
       "QmfNb23JQhMmGoKzyU3b7otgJMt1tVUa2a3zsPwmX9wmoD",
