@@ -472,6 +472,13 @@
     "description": "Lorn's Lure (Unity, via Proton)",
     "runtime": "proton"
   },
+  "luftrausers": {
+    "cids": [
+      "QmVk6ehxh5dK6wEMzH6CtLLwpK5KGRyJU8ftMetABbqPTw"
+    ],
+    "description": "Luftrausers (2014 Vlambeer / Devolver, native Linux from IndieBox USA)",
+    "runtime": "custom"
+  },
   "metal-gear-solid": {
     "cids": [
       "QmdZc6eT9LPvCeuG6Fi647L829LmAC2hSTzJY7kUjQ8VYZ",
