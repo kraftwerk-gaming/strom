@@ -690,6 +690,13 @@
     "description": "Slay the Spire (native Linux, GOG v2020-12-15)",
     "runtime": "custom"
   },
+  "songs-of-syx": {
+    "cids": [
+      "QmaxzX2CGVuKvx8YeXyVXLrECE62jid5xCKphNKDJYVrK9"
+    ],
+    "description": "Songs of Syx (native Linux, GOG v0.70.32 build 88113)",
+    "runtime": "custom"
+  },
   "stalker-shadow-of-chernobyl": {
     "cids": [
       "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
