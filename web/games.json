@@ -450,6 +450,15 @@
     "description": "Hollow Knight: Silksong (Unity, via Proton)",
     "runtime": "proton"
   },
+  "homeworld": {
+    "cids": [
+      "Qmep6UP4xtHUnupwGSV4mfs96M9Eh7ie7MaHLxMxSyWFn5",
+      "Qmce73FoZAZnWoceHUbqh66N4QW59VxbN9GUWvwNnw1pMS",
+      "Qmdrjc6pmPqfT2z6CQi1938gXbRES7kRNK3VK2MNP4AAfC"
+    ],
+    "description": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
+    "runtime": "proton"
+  },
   "hotline-miami": {
     "cids": [
       "QmYThFTzNnuUx7o7ywWqWDSw6tqeKzY27MQUnFhckqv7Zs"
