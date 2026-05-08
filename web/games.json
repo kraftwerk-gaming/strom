@@ -662,6 +662,13 @@
     "description": "Simon the Sorcerer (Adventure Soft, 1993 CD/Windows English talkie, via ScummVM)",
     "runtime": "native"
   },
+  "slay-the-spire": {
+    "cids": [
+      "Qmb1jof4oMBy4KkAQq6wXLG1JDGagZjwpTQCusJUZGLcHJ"
+    ],
+    "description": "Slay the Spire (native Linux, GOG v2020-12-15)",
+    "runtime": "custom"
+  },
   "stalker-shadow-of-chernobyl": {
     "cids": [
       "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
