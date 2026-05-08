@@ -80,6 +80,7 @@ rebuilds.
 | <a href="https://lutris.net/games/ftl-faster-than-light/"><img src="https://lutris.net/games/banner/ftl-faster-than-light.jpg" height="40" alt="ftl-faster-than-light"></a> | [FTL: Faster Than Light Advanced Edition](https://lutris.net/games/ftl-faster-than-light/) | `native` | `nix run .#ftl-faster-than-light` |
 | <a href="https://lutris.net/games/game-of-robot/"><img src="https://lutris.net/games/banner/game-of-robot.jpg" height="40" alt="game-of-robot"></a> | [The Game of Robot](https://lutris.net/games/game-of-robot/) | `native` | `nix run .#game-of-robot` |
 | <a href="https://lutris.net/games/getting-over-it-with-bennett-foddy/"><img src="https://lutris.net/games/banner/getting-over-it-with-bennett-foddy.jpg" height="40" alt="getting-over-it-with-bennett-foddy"></a> | [Getting Over It with Bennett Foddy](https://lutris.net/games/getting-over-it-with-bennett-foddy/) | `proton` | `nix run .#getting-over-it-with-bennett-foddy` |
+| <a href="https://lutris.net/games/gish/"><img src="https://lutris.net/games/banner/gish.jpg" height="40" alt="gish"></a> | [Gish](https://lutris.net/games/gish/) | `native` | `nix run .#gish` |
 | <a href="https://lutris.net/games/golden-sun/"><img src="https://lutris.net/games/banner/golden-sun.jpg" height="40" alt="golden-sun"></a> | [Golden Sun](https://lutris.net/games/golden-sun/) | `retroarch` | `nix run .#golden-sun` |
 | <a href="https://lutris.net/games/golden-sun-the-lost-age/"><img src="https://lutris.net/games/banner/golden-sun-the-lost-age.jpg" height="40" alt="golden-sun-the-lost-age"></a> | [Golden Sun: The Lost Age](https://lutris.net/games/golden-sun-the-lost-age/) | `retroarch` | `nix run .#golden-sun-the-lost-age` |
 | <a href="https://lutris.net/games/grand-theft-auto-vice-city/"><img src="https://lutris.net/games/banner/grand-theft-auto-vice-city.jpg" height="40" alt="grand-theft-auto-vice-city"></a> | [Grand Theft Auto: Vice City](https://lutris.net/games/grand-theft-auto-vice-city/) | `proton` | `nix run .#grand-theft-auto-vice-city` |
@@ -142,7 +143,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_110 games_
+_111 games_
 
 <!-- END GENERATED GAMES -->
 
