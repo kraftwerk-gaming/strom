@@ -537,6 +537,13 @@
     "description": "Lemmings 95 (Windows 95 version via Wine)",
     "runtime": "native"
   },
+  "loop-hero": {
+    "cids": [
+      "QmeC5wZown2ZhNusa8dEq342Siqk88RxrJFBgxwQuVPTwD"
+    ],
+    "description": "Loop Hero (native Linux, GOG v1.1054 build 55873)",
+    "runtime": "custom"
+  },
   "lorns-lure": {
     "cids": [
       "QmX5FPJjRbZ4qcpNYJ1FkVbkbi23cbttVzctuynEieEofz"

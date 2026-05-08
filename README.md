@@ -106,6 +106,7 @@ rebuilds.
 | <a href="https://lutris.net/games/legacy-of-kain-soul-reaver/"><img src="https://lutris.net/games/banner/legacy-of-kain-soul-reaver.jpg" height="40" alt="legacy-of-kain-soul-reaver"></a> | [Legacy of Kain: Soul Reaver](https://lutris.net/games/legacy-of-kain-soul-reaver/) | `proton` | `nix run .#legacy-of-kain-soul-reaver` |
 | <a href="https://lutris.net/games/lemmings/"><img src="https://lutris.net/games/banner/lemmings.jpg" height="40" alt="lemmings"></a> | [Lemmings](https://lutris.net/games/lemmings/) | `native` | `nix run .#lemmings` |
 | <a href="https://lutris.net/games/lemmings-95/"><img src="https://lutris.net/games/banner/lemmings-95.jpg" height="40" alt="lemmings-95"></a> | [Lemmings 95](https://lutris.net/games/lemmings-95/) | `native` | `nix run .#lemmings-95` |
+| <a href="https://lutris.net/games/loop-hero/"><img src="https://lutris.net/games/banner/loop-hero.jpg" height="40" alt="loop-hero"></a> | [Loop Hero](https://lutris.net/games/loop-hero/) | `custom` | `nix run .#loop-hero` |
 | <a href="https://lutris.net/games/lorns-lure/"><img src="https://lutris.net/games/banner/lorns-lure.jpg" height="40" alt="lorns-lure"></a> | [Lorn's Lure](https://lutris.net/games/lorns-lure/) | `proton` | `nix run .#lorns-lure` |
 | <a href="https://lutris.net/games/luftrausers/"><img src="https://lutris.net/games/banner/luftrausers.jpg" height="40" alt="luftrausers"></a> | [Luftrausers](https://lutris.net/games/luftrausers/) | `custom` | `nix run .#luftrausers` |
 | <a href="https://lutris.net/games/metal-gear-solid/"><img src="https://lutris.net/games/banner/metal-gear-solid.jpg" height="40" alt="metal-gear-solid"></a> | [Metal Gear Solid](https://lutris.net/games/metal-gear-solid/) | `retroarch` | `nix run .#metal-gear-solid` |
@@ -176,7 +177,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_144 games_
+_145 games_
 
 <!-- END GENERATED GAMES -->
 
