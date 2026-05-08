@@ -854,6 +854,13 @@
     "description": "Vampire: The Masquerade \u2014 Bloodlines (GOG + Unofficial Patch 11.5, via Proton)",
     "runtime": "proton"
   },
+  "vectronom": {
+    "cids": [
+      "QmTnxWwDgKSjffrCxmSmiaxxt5MmdxqqA5PY4BTip76aVe"
+    ],
+    "description": "Vectronom (Ludopium 2019 rhythm puzzle, via Proton)",
+    "runtime": "proton"
+  },
   "void-stranger": {
     "cids": [
       "QmSAKT7sGXCbtv8S8AAKsTcSovsAkiKStmd6hso1eh6evB"
