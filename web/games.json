@@ -762,6 +762,13 @@
     "description": "Slay the Spire (native Linux, GOG v2020-12-15)",
     "runtime": "custom"
   },
+  "slay-the-spire-2": {
+    "cids": [
+      "QmUHtxVXCPD2X7p7NG4sxNNewt3V8vEoyYCRw2tuzwryF7"
+    ],
+    "description": "Slay the Spire 2 (MegaCrit 2025, Early Access v0.103.2, via Proton)",
+    "runtime": "proton"
+  },
   "songs-of-syx": {
     "cids": [
       "QmaxzX2CGVuKvx8YeXyVXLrECE62jid5xCKphNKDJYVrK9"

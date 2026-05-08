@@ -137,6 +137,7 @@ rebuilds.
 | <a href="https://lutris.net/games/simcity-2000/"><img src="https://lutris.net/games/banner/simcity-2000.jpg" height="40" alt="simcity-2000"></a> | [SimCity 2000 Special Edition](https://lutris.net/games/simcity-2000/) | `custom` | `nix run .#simcity-2000` |
 | <a href="https://lutris.net/games/simon-the-sorcerer/"><img src="https://lutris.net/games/banner/simon-the-sorcerer.jpg" height="40" alt="simon-the-sorcerer"></a> | [Simon the Sorcerer](https://lutris.net/games/simon-the-sorcerer/) | `native` | `nix run .#simon-the-sorcerer` |
 | <a href="https://lutris.net/games/slay-the-spire/"><img src="https://lutris.net/games/banner/slay-the-spire.jpg" height="40" alt="slay-the-spire"></a> | [Slay the Spire](https://lutris.net/games/slay-the-spire/) | `custom` | `nix run .#slay-the-spire` |
+| <a href="https://lutris.net/games/slay-the-spire-2/"><img src="https://lutris.net/games/banner/slay-the-spire-2.jpg" height="40" alt="slay-the-spire-2"></a> | [Slay the Spire 2](https://lutris.net/games/slay-the-spire-2/) | `proton` | `nix run .#slay-the-spire-2` |
 | <a href="https://lutris.net/games/songs-of-syx/"><img src="https://lutris.net/games/banner/songs-of-syx.jpg" height="40" alt="songs-of-syx"></a> | [Songs of Syx](https://lutris.net/games/songs-of-syx/) | `custom` | `nix run .#songs-of-syx` |
 | <a href="https://lutris.net/games/stalker-shadow-of-chernobyl/"><img src="https://lutris.net/games/banner/stalker-shadow-of-chernobyl.jpg" height="40" alt="stalker-shadow-of-chernobyl"></a> | [S.T.A.L.K.E.R.: Shadow of Chernobyl](https://lutris.net/games/stalker-shadow-of-chernobyl/) | `proton` | `nix run .#stalker-shadow-of-chernobyl` |
 | <a href="https://lutris.net/games/star-wars-battlefront-2/"><img src="https://lutris.net/games/banner/star-wars-battlefront-2.jpg" height="40" alt="star-wars-battlefront-2"></a> | [Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope](https://lutris.net/games/star-wars-battlefront-2/) | `proton` | `nix run .#star-wars-battlefront-2` |
@@ -175,7 +176,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_143 games_
+_144 games_
 
 <!-- END GENERATED GAMES -->
 
