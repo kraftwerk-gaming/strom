@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Settings Version="96">
+    <Controls MouseInvert="false" MouseSensitivity="5" Rumble="true">
+      <Move Keyboard="WASD" Mouse="Off" Pad="AnalogueLeft"/>
+      <Look Keyboard="Arrows" Mouse="Active" Pad="AnalogueRight"/>
+      <Chime Keyboard="Space" Mouse="ButtonRight" Pad="B"/>
+      <Fly Keyboard="Ctrl" Mouse="ButtonLeft" Pad="A"/>
+      <Pause Keyboard="P" Mouse="Off" Pad="Start"/>
+      <Start Keyboard="Enter" Mouse="Off" Pad="Back"/>
+    </Controls>
+    <Audio Music="7" SFX="8"/>
+    <Graphics>
+      <Fluid Setting="Medium">
+        <Low BarnMaxGrids="3" CascadeMaxGrids="3">
+          <Grid Dim="2" MaxForces="1216"/>
+          <Force MaxMass="16" MaxPush="16" MaxRad="128" Scale="0.21" Speed="0.060"/>
+        </Low>
+        <Medium BarnMaxGrids="3" CascadeMaxGrids="3">
+          <Grid Dim="3" MaxForces="1216"/>
+          <Force MaxMass="16" MaxPush="16" MaxRad="128" Scale="0.15" Speed="0.083"/>
+        </Medium>
+        <High BarnMaxGrids="3" CascadeMaxGrids="3">
+          <Grid Dim="4" MaxForces="1216"/>
+          <Force MaxMass="16" MaxPush="16" MaxRad="128" Scale="0.12" Speed="0.106"/>
+        </High>
+        <Ultra BarnMaxGrids="3" CascadeMaxGrids="3">
+          <Grid Dim="5" MaxForces="1216"/>
+          <Force MaxMass="16" MaxPush="16" MaxRad="128" Scale="0.10" Speed="0.128"/>
+        </Ultra>
+      </Fluid>
+      <SandTexture Setting="Medium">
+        <Low CubeTextureDim="16" MaxSprites="1024" MipTextureDim="16" SpriteDim="32" TextureDim="512"/>
+        <Medium CubeTextureDim="32" MaxSprites="4096" MipTextureDim="32" SpriteDim="32" TextureDim="1024"/>
+        <High CubeTextureDim="32" MaxSprites="4096" MipTextureDim="32" SpriteDim="64" TextureDim="2048"/>
+        <Ultra CubeTextureDim="64" MaxSprites="4096" MipTextureDim="32" SpriteDim="128" TextureDim="4096"/>
+      </SandTexture>
+      <Dune Setting="Medium">
+        <Low FadeFar="9" FadeNear="6" Interpolation="false" LodCount="4" TerrainWidth="9"/>
+        <Medium FadeFar="6" FadeNear="3" Interpolation="false" LodCount="4" TerrainWidth="6"/>
+        <High FadeFar="6" FadeNear="3" Interpolation="true" LodCount="4" TerrainWidth="6"/>
+        <Ultra FadeFar="3" FadeNear="2" Interpolation="true" LodCount="5" TerrainWidth="3"/>
+        <Sparkle>
+          <Level_Graveyard AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Barrens AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Desert AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Canyon AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.0" NoiseFadeScalar="-0.06" SandSpecScalar="1.0" VelvetSpecularCorrection="0.25"/>
+          <Level_Cave AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Ruins AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Mountain AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Summit AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Credits AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Matt AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+          <Level_Chris AoScalar="0.33" F0spec="0.01" MipTapBias="0.000" NoiseFadeBias="1.5" NoiseFadeScalar="-0.02" SandSpecScalar="1.6" VelvetSpecularCorrection="0.25"/>
+        </Sparkle>
+      </Dune>
+      <Cloth Factor="50" Interpolation="false"/>
+      <Screen Anisotrophy="4" FXAA="true" FullScreen="true" Height="1080" MultiSampleCount="1" VSync="true" Width="1920"/>
+      <System>
+        <Lock IB="Dynamic" Tex2D="Staging" VB="Dynamic"/>
+        <Cloth Method="Mixed"/>
+        <TimeSmoothing Method="CappedDiscard" Value="25"/>
+      </System>
+    </Graphics>
+    <System FifoKickSize="16" FlipQueueSize="1" ImmediateProcessing="true">
+      <Threads Default="-1" MainHelps="false" Max="6" Min="2"/>
+      <Log Crash="false"/>
+      <Language ID="english"/>
+    </System>
+  </Settings>
+</Root>

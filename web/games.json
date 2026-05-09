@@ -501,6 +501,13 @@
     "description": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
     "runtime": "native"
   },
+  "journey": {
+    "cids": [
+      "QmfRhR1An2SPijr8oGZZAJTW2LdkqzBTY3P4oYXPT2vZja"
+    ],
+    "description": "Journey (thatgamecompany 2019, via Proton)",
+    "runtime": "proton"
+  },
   "leap-year": {
     "cids": [
       "QmVhSd1hiMBQwCXcgASGp9wm7PbMX2GrJ6Ziwcs5vp4re5"

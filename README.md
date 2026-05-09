@@ -101,6 +101,7 @@ rebuilds.
 | <a href="https://lutris.net/games/hyper-metroid/"><img src="https://lutris.net/games/banner/hyper-metroid.jpg" height="40" alt="hyper-metroid"></a> | [Hyper Metroid](https://lutris.net/games/hyper-metroid/) | `retroarch` | `nix run .#hyper-metroid` |
 | <a href="https://lutris.net/games/inscryption/"><img src="https://lutris.net/games/banner/inscryption.jpg" height="40" alt="inscryption"></a> | [Inscryption](https://lutris.net/games/inscryption/) | `native` | `nix run .#inscryption` |
 | <a href="https://lutris.net/games/jazz-jackrabbit-2/"><img src="https://lutris.net/games/banner/jazz-jackrabbit-2.jpg" height="40" alt="jazz-jackrabbit-2"></a> | [Jazz Jackrabbit 2](https://lutris.net/games/jazz-jackrabbit-2/) | `native` | `nix run .#jazz-jackrabbit-2` |
+| <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
 | <a href="https://lutris.net/games/leap-year/"><img src="https://lutris.net/games/banner/leap-year.jpg" height="40" alt="leap-year"></a> | [Leap Year](https://lutris.net/games/leap-year/) | `proton` | `nix run .#leap-year` |
 | <a href="https://lutris.net/games/leap-year-march/"><img src="https://lutris.net/games/banner/leap-year-march.jpg" height="40" alt="leap-year-march"></a> | [Leap Year: March](https://lutris.net/games/leap-year-march/) | `proton` | `nix run .#leap-year-march` |
 | <a href="https://lutris.net/games/legacy-of-kain-soul-reaver/"><img src="https://lutris.net/games/banner/legacy-of-kain-soul-reaver.jpg" height="40" alt="legacy-of-kain-soul-reaver"></a> | [Legacy of Kain: Soul Reaver](https://lutris.net/games/legacy-of-kain-soul-reaver/) | `proton` | `nix run .#legacy-of-kain-soul-reaver` |
@@ -178,7 +179,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_146 games_
+_147 games_
 
 <!-- END GENERATED GAMES -->
 
