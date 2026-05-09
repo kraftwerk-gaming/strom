@@ -13,7 +13,7 @@ let
   # play. The Redist/ tree (DirectX/PhysX/VC) is bundled by the repacker
   # and is unnecessary under Proton.
   src = fetchIpfs {
-    cid = "PLACEHOLDER_CID";
+    cid = "QmTP87KiyUYcqq58U78JQpfgg8tqraM8cVxHys79h6hnNx";
     fallbackUrl = "https://ipfs.io/ipfs/PLACEHOLDER_CID";
     hash = "sha256-n+SoIWksjWnFtkBFQ0ey/SHaVW4OaaM/TrVupn87Pf4=";
     name = "ultrakill-ankergames.zip";
