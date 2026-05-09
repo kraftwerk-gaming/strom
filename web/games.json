@@ -378,6 +378,13 @@
     "description": null,
     "runtime": "native"
   },
+  "full-throttle": {
+    "cids": [
+      "QmWDfCXN5oDmTUtDH3S9PyhLk5r5kLkmifvB4tDqhRpHNu"
+    ],
+    "description": "Full Throttle (1995 LucasArts SCUMM CD edition, via ScummVM)",
+    "runtime": "native"
+  },
   "ftl-faster-than-light": {
     "cids": [
       "QmXvTneLsSXRe7GUdYVirXBuxz9JehaoSM8d52bxbB4VMg"
