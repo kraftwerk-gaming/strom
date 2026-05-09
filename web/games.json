@@ -853,6 +853,13 @@
     "description": "StarCraft + Brood War (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "stardew-valley": {
+    "cids": [
+      "QmRkJfDH6RLK97dGbPGv7md9urEGkrUNoXCN63q43SVCyf"
+    ],
+    "description": "Stardew Valley (native Linux, GOG v1.6.15.24357 build 78675)",
+    "runtime": "custom"
+  },
   "stronghold-hd": {
     "cids": [
       "QmVuY5eMwcMHa6DE3BUfvMByULz2P18NJNDSpUUtYCq9oh"
