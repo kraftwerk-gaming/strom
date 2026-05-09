@@ -150,6 +150,13 @@
     "description": "Cave Story / Doukutsu Monogatari (1.01 Linux freeware)",
     "runtime": "native"
   },
+  "chrono-trigger": {
+    "cids": [
+      "Qmdwp6PEMUghQXoQgRkunAzvkRaXDTQdW8f84QcQ3fqvpN"
+    ],
+    "description": "Chrono Trigger (Square 1995 SNES, via RetroArch / bsnes)",
+    "runtime": "retroarch"
+  },
   "clonk-4": {
     "cids": [
       "QmWydrkqvdj6b8Zisoixxsoi5e9M5CUAMvwRus3bXxN2Jb"
