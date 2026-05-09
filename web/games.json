@@ -1038,6 +1038,13 @@
     "description": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
     "runtime": "proton"
   },
+  "white-knuckle": {
+    "cids": [
+      "QmVYKSCB9HiSVZ3ujrhBSK6VVixgofuCh9tRccLLL7c88R"
+    ],
+    "description": "White Knuckle (Dark Machine Games 2025 Early Access, build 23023450, via Proton)",
+    "runtime": "proton"
+  },
   "world-of-goo": {
     "cids": [
       "QmZcRK1T6GKK5x75G9L2w8JSEt5c9Ljcf8FXDyA4GcxoCc"
