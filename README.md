@@ -120,6 +120,7 @@ rebuilds.
 | <a href="https://lutris.net/games/osmos/"><img src="https://lutris.net/games/banner/osmos.jpg" height="40" alt="osmos"></a> | [Osmos](https://lutris.net/games/osmos/) | `native` | `nix run .#osmos` |
 | <a href="https://lutris.net/games/outer-wilds/"><img src="https://lutris.net/games/banner/outer-wilds.jpg" height="40" alt="outer-wilds"></a> | [Outer Wilds](https://lutris.net/games/outer-wilds/) | `proton` | `nix run .#outer-wilds` |
 | <a href="https://lutris.net/games/outer-wilds-alpha/"><img src="https://lutris.net/games/banner/outer-wilds-alpha.jpg" height="40" alt="outer-wilds-alpha"></a> | [Outer Wilds Alpha 1.2](https://lutris.net/games/outer-wilds-alpha/) | `proton` | `nix run .#outer-wilds-alpha` |
+| <a href="https://lutris.net/games/painkiller/"><img src="https://lutris.net/games/banner/painkiller.jpg" height="40" alt="painkiller"></a> | [Painkiller: Black Edition](https://lutris.net/games/painkiller/) | `proton` | `nix run .#painkiller` |
 | <a href="https://lutris.net/games/papers-please/"><img src="https://lutris.net/games/banner/papers-please.jpg" height="40" alt="papers-please"></a> | [Papers, Please](https://lutris.net/games/papers-please/) | `native` | `nix run .#papers-please` |
 | <a href="https://lutris.net/games/paquerette-down-the-bunburrows/"><img src="https://lutris.net/games/banner/paquerette-down-the-bunburrows.jpg" height="40" alt="paquerette-down-the-bunburrows"></a> | [Paquerette Down the Bunburrows v1.1.2](https://lutris.net/games/paquerette-down-the-bunburrows/) | `proton` | `nix run .#paquerette-down-the-bunburrows` |
 | <a href="https://lutris.net/games/perfect-dark/"><img src="https://lutris.net/games/banner/perfect-dark.jpg" height="40" alt="perfect-dark"></a> | [Perfect Dark](https://lutris.net/games/perfect-dark/) | `retroarch` | `nix run .#perfect-dark` |
@@ -179,7 +180,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_147 games_
+_148 games_
 
 <!-- END GENERATED GAMES -->
 

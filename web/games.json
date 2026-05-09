@@ -638,6 +638,13 @@
     "description": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "painkiller": {
+    "cids": [
+      "QmZbeXCa8N3iWv7aoNMJTceV1743tKhgYmNV5maB85voYC"
+    ],
+    "description": "Painkiller: Black Edition (People Can Fly 2004, GOG v1.64, via Proton)",
+    "runtime": "proton"
+  },
   "papers-please": {
     "cids": [
       "QmWyxQuzz5JxCGEkdFiDyvi2EcreFHXvGNnLwRXVbrfT1c"
