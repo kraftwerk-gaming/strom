@@ -54,6 +54,34 @@
   `games/shadow-of-the-colossus/default.nix` (zip -> extract -> ISO) for
   examples of both patterns.
 
+## Windows compatibility runtime: Proton, never bare Wine
+
+- This project uses **Proton (GE-Proton10-34) exclusively**. The bundled binaries live at `${proton}/files/bin/` and are invoked through `lib/proton.nix` / `mk-game.nix`.
+- **Never invoke bare `wine`, `wineboot`, `winecfg`, `winetricks`, `wineserver`** anywhere — including build-time tooling, preRun scripts, agent diagnostics, or one-off shell commands. Bare wine on a Proton-managed prefix produces UI popups (Mono/Gecko prompts, debugger dialogs) and corrupts wineserver lifecycle.
+- **Never `pkgs.wine` / `pkgs.wineWowPackages.*` / `pkgs.wineWow64Packages.*`** in `default.nix` files. Use the project's Proton derivation: `proton = pkgs.callPackage ../../pkgs/proton.nix { };` then `${proton}/files/bin/wine`.
+- For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
+- For `winetricks`-style verb installs (vcrun, dotnet, dxvk, etc.): manually drop the DLLs into the prefix's `system32`/`syswow64` from buildScript or preRun. Don't shell out to winetricks.
+
+## Staging branch workflow for untested games
+
+- Untested or in-progress packages land on the `staging` branch, never directly on `master`. Master is reserved for games that have been interactively tested and confirmed working AND have a real IPFS-pinned CID.
+- Stage-commit format: `git commit -m "<slug>: stage (untested, ...)" -- games/<slug>/default.nix`. Don't bundle README.md / web/games.json into stage commits.
+- **One commit per game on master.** After the test passes AND the CID has been pinned: `git checkout master && git checkout staging -- games/<slug>/default.nix`, regenerate README, commit `<slug>: init` on master in a single commit with the real CID. Don't ship multiple commits for one game on master (init-with-PENDING + cid-update is wrong).
+- `git reset --hard` without explicit user permission AND a backup of any uncommitted work is forbidden. Default to `--mixed`. Intent-to-add files (`git add -N`) leave no recoverable blob after `--hard`.
+
+## IPFS pinning only after testing
+
+- Game files must be IPFS-pinned (on at least one reachable node) before they're useful to other users. **Don't pin a multi-GB asset until interactive testing has confirmed the package works** — wasted bandwidth if the package never runs.
+- Phase 1 (stage): download → hash → `nix store add-file --hash-algo sha256 --name <name> /path/to/file` (seeds the local store with the file under fetchIpfs's expected output path) → write `default.nix` with `cid = "PENDING_UPLOAD"`. Build verifies locally because the FOD output path is already realized.
+- Phase 2 (test): user runs `nix run .#<game>` and confirms it works.
+- Phase 3 (only after Phase 2 passes): pin the file on whatever IPFS node(s) the operator uses, get the CID, update `cid` in `default.nix`, rebuild. The exact pinning method is out of scope for this file — operator-specific.
+
+## fetchIpfs fallbackUrl must NOT be an IPFS gateway
+
+- `fetchIpfs` already races multiple IPFS gateways (`trustless-gateway.link`, `ipfs.io`, `dweb.link`) plus IPNI in parallel via lassie. `fallbackUrl` exists for the curl-based escape hatch when the IPFS retrieval pipeline is broken.
+- **Never set `fallbackUrl` to `https://ipfs.io/ipfs/<CID>` / `https://dweb.link/ipfs/<CID>` / `https://trustless-gateway.link/ipfs/<CID>` / any IPFS gateway URL.** Same CID + same gateway pool = no recovery value when lassie fails.
+- `fallbackUrl` should always point at a non-IPFS source: archive.org item, GOG/publisher CDN, project's own release URL. If no equivalent non-IPFS URL exists with matching bytes, leave `fallbackUrl = ""` (empty) OR document the upstream archive item even if the bytes differ (zip vs 7z) — the URL doubles as documentation.
+
 ## Game data directories (~/.strom/<game>)
 
 - **NEVER delete a game directory** (`rm -rf ~/.strom/<game>`). These contain user saves, profiles, and Wine prefixes that cannot be recovered.
