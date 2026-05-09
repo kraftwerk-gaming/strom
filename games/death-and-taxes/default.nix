@@ -13,7 +13,7 @@ let
   # data/noarch/game/DeathAndTaxes.x86_64 (Unity 2019 Linux player) +
   # UnityPlayer.so + DeathAndTaxes_Data/.
   installer = fetchIpfs {
-    cid = "PLACEHOLDER_CID";
+    cid = "QmNhMWfp81krZfBpmFR65YNbD2hrw9pWnM7TgdnHvVB8gm";
     fallbackUrl = "https://archive.org/download/death-and-taxes-linux/death_and_taxes_1_2_59_82787.sh";
     hash = "sha256-m30ePSntVTmFxXItxgTwRHFE3lLmVD2/3mvln3cSBp0=";
     name = "death-and-taxes-linux-gog-1.2.59.sh";
