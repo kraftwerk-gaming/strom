@@ -102,6 +102,7 @@ rebuilds.
 | <a href="https://lutris.net/games/hotline-miami/"><img src="https://lutris.net/games/banner/hotline-miami.jpg" height="40" alt="hotline-miami"></a> | [Hotline Miami](https://lutris.net/games/hotline-miami/) | `native` | `nix run .#hotline-miami` |
 | <a href="https://lutris.net/games/hotline-miami-2-wrong-number/"><img src="https://lutris.net/games/banner/hotline-miami-2-wrong-number.jpg" height="40" alt="hotline-miami-2-wrong-number"></a> | [Hotline Miami 2: Wrong Number](https://lutris.net/games/hotline-miami-2-wrong-number/) | `native` | `nix run .#hotline-miami-2-wrong-number` |
 | <a href="https://lutris.net/games/hyper-metroid/"><img src="https://lutris.net/games/banner/hyper-metroid.jpg" height="40" alt="hyper-metroid"></a> | [Hyper Metroid](https://lutris.net/games/hyper-metroid/) | `retroarch` | `nix run .#hyper-metroid` |
+| <a href="https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/"><img src="https://lutris.net/games/banner/indiana-jones-and-the-last-crusade-the-graphic-adventure.jpg" height="40" alt="indiana-jones-and-the-last-crusade-the-graphic-adventure"></a> | [Indiana Jones and the Last Crusade: The Graphic Adventure](https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/) | `native` | `nix run .#indiana-jones-and-the-last-crusade-the-graphic-adventure` |
 | <a href="https://lutris.net/games/inscryption/"><img src="https://lutris.net/games/banner/inscryption.jpg" height="40" alt="inscryption"></a> | [Inscryption](https://lutris.net/games/inscryption/) | `native` | `nix run .#inscryption` |
 | <a href="https://lutris.net/games/jazz-jackrabbit-2/"><img src="https://lutris.net/games/banner/jazz-jackrabbit-2.jpg" height="40" alt="jazz-jackrabbit-2"></a> | [Jazz Jackrabbit 2](https://lutris.net/games/jazz-jackrabbit-2/) | `native` | `nix run .#jazz-jackrabbit-2` |
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
@@ -185,7 +186,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_153 games_
+_154 games_
 
 <!-- END GENERATED GAMES -->
 

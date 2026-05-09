@@ -508,6 +508,13 @@
     "description": "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)",
     "runtime": "retroarch"
   },
+  "indiana-jones-and-the-last-crusade-the-graphic-adventure": {
+    "cids": [
+      "QmXLWtUZvvHqHRCn2thpaWZVcCncCgM6RpVeFmxazrG8HK"
+    ],
+    "description": "Indiana Jones and the Last Crusade: The Graphic Adventure (1989 Lucasfilm SCUMM floppy, via ScummVM)",
+    "runtime": "native"
+  },
   "inscryption": {
     "cids": [
       "QmeSwwu2sU9kjqb5Ua9YwV37jGjNjscNmTbTJZNMmef5bj"
