@@ -860,6 +860,13 @@
     "description": "Super Mario 64 (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "super-meat-boy": {
+    "cids": [
+      "QmZTrfvvrHGUrgUaqwvPh7g34DHPSpNTTe6ZoLP52MnTkV"
+    ],
+    "description": "Super Meat Boy (Team Meat 2010, native Linux Steam-Rip build 3241924, Goldberg)",
+    "runtime": "custom"
+  },
   "super-metroid": {
     "cids": [
       "QmRVRg1spGsV96NuKv7HH27kwhnPKwadNnBp3ZyarDPFwY"
