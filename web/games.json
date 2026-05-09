@@ -508,6 +508,13 @@
     "description": "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)",
     "runtime": "retroarch"
   },
+  "indiana-jones-and-the-fate-of-atlantis": {
+    "cids": [
+      "QmQsVBJrAmzNf1dwuuB4X4N6ssuattvT5dkNetiQ2NSyUs"
+    ],
+    "description": "Indiana Jones and the Fate of Atlantis (1992 LucasArts SCUMM CD talkie edition, via ScummVM)",
+    "runtime": "native"
+  },
   "indiana-jones-and-the-last-crusade-the-graphic-adventure": {
     "cids": [
       "QmXLWtUZvvHqHRCn2thpaWZVcCncCgM6RpVeFmxazrG8HK"
