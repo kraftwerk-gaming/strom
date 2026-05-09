@@ -231,6 +231,13 @@
     "description": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
     "runtime": "proton"
   },
+  "dark-souls-prepare-to-die-edition": {
+    "cids": [
+      "Qme47DJC984rC7qCzMdQmoMYkcowVrdzfQhBDpQyq13FdF"
+    ],
+    "description": "Dark Souls: Prepare to Die Edition (single-player, DSCM stripped, via Proton)",
+    "runtime": "proton"
+  },
   "day-of-the-tentacle": {
     "cids": [
       "Qmb4tE5gCLyppBRWu94wnNpjcbdMt9Dqt1W9EMev8HaW7Z"
