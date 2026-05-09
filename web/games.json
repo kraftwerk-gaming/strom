@@ -443,6 +443,13 @@
     "description": "Heroes of Might & Magic II Gold (via fheroes2)",
     "runtime": "native"
   },
+  "hexcells": {
+    "cids": [
+      "QmV1iDcdhaciYGHf6FLcZ3FNaYneqPn9DTZTcuw2bcKHsu"
+    ],
+    "description": "Hexcells (Matthew Brown 2014, via Proton)",
+    "runtime": "proton"
+  },
   "hollow-knight": {
     "cids": [
       "QmZL7FnWxJ7qk1mrrine4wT8TeShT2RAoiEYpFaBjTY4t6"
