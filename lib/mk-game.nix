@@ -206,6 +206,8 @@ let
           exec 9>"$STROM_CACHEDIR/.lock"
           if ! flock -n 9; then
             echo "${cfg.name}: another instance is already running" >&2
+            echo "if no instance is running, remove the stale lock:" >&2
+            echo "  rm $STROM_CACHEDIR/.lock" >&2
             exit 1
           fi
 
