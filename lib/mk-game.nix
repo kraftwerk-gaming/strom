@@ -101,6 +101,20 @@ let
         ${lib.optionalString (cfg.runtime == "proton") ''
           # Export PROTON_RUN for games with custom runScripts
           export PROTON_RUN="${lib.getExe protonConfig.wrapper}"
+
+          # Baseline env shared by every Proton game. cfg.env exports below
+          # come after, so per-game overrides (e.g. SteamAppId for games
+          # whose Steamworks init demands the real ID) win.
+          export SteamAppId="0"
+          export SteamGameId="0"
+          # Real env knob honoured by protonfixes/__init__.py:check_conditions().
+          # Disables protonfixes' winetricks shellouts (vcrun, dotnet, dxvk
+          # verbs) which are forbidden in this project. The cargo-culted
+          # PROTON_NO_GAME_FIXES name does not exist anywhere in protonfixes.
+          export PROTONFIXES_DISABLE="1"
+          export DXVK_ASYNC="1"
+          # 32-bit + 64-bit FHS lib dirs so Proton's loader finds both arches.
+          export LD_LIBRARY_PATH="/usr/lib32:/usr/lib:/usr/lib64"
         ''}
 
         ${lib.concatStringsSep "\n" (
@@ -345,11 +359,7 @@ let
         runtime = mkOption {
           type = types.enum [
             "proton"
-            "wine"
-            "dosbox"
-            "dosbox-x"
             "native"
-            "ruffle"
             "custom"
           ];
           default = "custom";
