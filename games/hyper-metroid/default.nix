@@ -18,49 +18,43 @@ let
     name = "hyper-metroid.smc";
   };
 in
-(self.lib.retroarch.apply {
-  inherit pkgs;
-  cores = [ pkgs.libretro.bsnes ];
-  preHook = ''
-    mkdir -p ~/.strom/hyper-metroid/saves \
-             ~/.strom/hyper-metroid/states
-  '';
-  settings.savefile_directory = "~/.strom/hyper-metroid/saves";
-  settings.savestate_directory = "~/.strom/hyper-metroid/states";
+self.lib.mkGame { inherit lib pkgs; } {
+  name = "hyper-metroid";
+  src = rom;
+  runtime = "retroarch";
+  executable = "hyper-metroid.smc";
 
-  # Keyboard layout for solo play.
-  #   arrows     D-pad
-  #   z          B (jump)
-  #   x          A (shoot)
-  #   a          Y (run/dash)
-  #   s          X (cancel)
-  #   q / e      L / R (aim diagonals)
-  #   enter      Start
-  #   rshift     Select
-  settings = {
-    input_player1_up = "up";
-    input_player1_down = "down";
-    input_player1_left = "left";
-    input_player1_right = "right";
-    input_player1_b = "z";
-    input_player1_a = "x";
-    input_player1_y = "a";
-    input_player1_x = "s";
-    input_player1_l = "q";
-    input_player1_r = "e";
-    input_player1_start = "enter";
-    input_player1_select = "rshift";
+  retroarch = {
+    cores = [ pkgs.libretro.bsnes ];
+
+    # Keyboard layout for solo play.
+    #   arrows     D-pad
+    #   z          B (jump)
+    #   x          A (shoot)
+    #   a          Y (run/dash)
+    #   s          X (cancel)
+    #   q / e      L / R (aim diagonals)
+    #   enter      Start
+    #   rshift     Select
+    settings = {
+      input_player1_up = "up";
+      input_player1_down = "down";
+      input_player1_left = "left";
+      input_player1_right = "right";
+      input_player1_b = "z";
+      input_player1_a = "x";
+      input_player1_y = "a";
+      input_player1_x = "s";
+      input_player1_l = "q";
+      input_player1_r = "e";
+      input_player1_start = "enter";
+      input_player1_select = "rshift";
+    };
   };
-  args = [ (toString rom) ];
-}).wrapper.overrideAttrs
-  (_: {
-    meta = {
-      description = "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)";
-      mainProgram = "retroarch";
-      platforms = lib.platforms.linux;
-    };
-    passthru = {
-      runtime = "retroarch";
-      ipfsSources = [ rom ];
-    };
-  })
+
+  meta = {
+    description = "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)";
+    mainProgram = "hyper-metroid";
+    platforms = [ "x86_64-linux" ];
+  };
+}

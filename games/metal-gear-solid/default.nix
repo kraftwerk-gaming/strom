@@ -40,7 +40,24 @@ let
     name = "scph1001.7z";
   };
 
-  gameDiscs = pkgs.runCommandLocal "metal-gear-solid-discs" { } ''
+  # SwanStation expects scph5501.bin; the upstream blob is named
+  # scph1001.bin so rename after extract.
+  biosDir = pkgs.runCommandLocal "psx-bios" { nativeBuildInputs = [ pkgs.p7zip ]; } ''
+    mkdir -p $out
+    7z x ${psxBios7z} -o$out -aoa
+    mv $out/scph1001.bin $out/scph5501.bin
+  '';
+in
+self.lib.mkGame { inherit lib pkgs; } {
+  name = "metal-gear-solid";
+  src = disc1;
+  ipfsSources = [
+    disc1
+    disc2
+    psxBios7z
+  ];
+
+  buildScript = ''
     mkdir -p $out
     ln -s ${disc1} "$out/Metal Gear Solid (USA) (Disc 1).bin"
     ln -s ${disc2} "$out/Metal Gear Solid (USA) (Disc 2).bin"
@@ -48,35 +65,17 @@ let
     cp ${disc2Cue} "$out/Metal Gear Solid (USA) (Disc 2).cue"
   '';
 
-  biosDir = pkgs.runCommandLocal "psx-bios" { nativeBuildInputs = [ pkgs.p7zip ]; } ''
-    mkdir -p $out
-    7z x ${psxBios7z} -o$out -aoa
-    mv $out/scph1001.bin $out/scph5501.bin
-  '';
-in
-(self.lib.retroarch.apply {
-  inherit pkgs;
-  cores = [ pkgs.libretro.swanstation ];
-  settings.system_directory = toString biosDir;
-  preHook = ''
-    mkdir -p ~/.strom/metal-gear-solid/saves ~/.strom/metal-gear-solid/states
-  '';
-  settings.savefile_directory = "~/.strom/metal-gear-solid/saves";
-  settings.savestate_directory = "~/.strom/metal-gear-solid/states";
-  args = [ "${gameDiscs}/Metal Gear Solid (USA) (Disc 1).cue" ];
-}).wrapper.overrideAttrs
-  (_: {
-    meta = {
-      description = "Metal Gear Solid (PSX 1998 USA, via RetroArch / SwanStation)";
-      mainProgram = "retroarch";
-      platforms = lib.platforms.linux;
-    };
-    passthru = {
-      runtime = "retroarch";
-      ipfsSources = [
-        disc1
-        disc2
-        psxBios7z
-      ];
-    };
-  })
+  runtime = "retroarch";
+  executable = "Metal Gear Solid (USA) (Disc 1).cue";
+
+  retroarch = {
+    cores = [ pkgs.libretro.swanstation ];
+    settings.system_directory = toString biosDir;
+  };
+
+  meta = {
+    description = "Metal Gear Solid (PSX 1998 USA, via RetroArch / SwanStation)";
+    mainProgram = "metal-gear-solid";
+    platforms = [ "x86_64-linux" ];
+  };
+}

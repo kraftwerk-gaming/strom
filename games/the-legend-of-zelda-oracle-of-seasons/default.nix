@@ -18,39 +18,33 @@ let
     name = "the-legend-of-zelda-oracle-of-seasons.gbc";
   };
 in
-(self.lib.retroarch.apply {
-  inherit pkgs;
-  cores = [ pkgs.libretro.mgba ];
-  preHook = ''
-    mkdir -p ~/.strom/the-legend-of-zelda-oracle-of-seasons/saves \
-             ~/.strom/the-legend-of-zelda-oracle-of-seasons/states
-  '';
-  settings.savefile_directory = "~/.strom/the-legend-of-zelda-oracle-of-seasons/saves";
-  settings.savestate_directory = "~/.strom/the-legend-of-zelda-oracle-of-seasons/states";
+self.lib.mkGame { inherit lib pkgs; } {
+  name = "the-legend-of-zelda-oracle-of-seasons";
+  src = rom;
+  runtime = "retroarch";
+  executable = "the-legend-of-zelda-oracle-of-seasons.gbc";
 
-  # Keyboard layout for solo play (mirrors Oracle of Ages).
-  settings = {
-    input_player1_up = "up";
-    input_player1_down = "down";
-    input_player1_left = "left";
-    input_player1_right = "right";
-    input_player1_b = "z";
-    input_player1_a = "x";
-    input_player1_l = "q";
-    input_player1_r = "e";
-    input_player1_start = "enter";
-    input_player1_select = "rshift";
+  retroarch = {
+    cores = [ pkgs.libretro.mgba ];
+
+    # Keyboard layout for solo play (mirrors Oracle of Ages).
+    settings = {
+      input_player1_up = "up";
+      input_player1_down = "down";
+      input_player1_left = "left";
+      input_player1_right = "right";
+      input_player1_b = "z";
+      input_player1_a = "x";
+      input_player1_l = "q";
+      input_player1_r = "e";
+      input_player1_start = "enter";
+      input_player1_select = "rshift";
+    };
   };
-  args = [ (toString rom) ];
-}).wrapper.overrideAttrs
-  (_: {
-    meta = {
-      description = "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)";
-      mainProgram = "retroarch";
-      platforms = lib.platforms.linux;
-    };
-    passthru = {
-      runtime = "retroarch";
-      ipfsSources = [ rom ];
-    };
-  })
+
+  meta = {
+    description = "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)";
+    mainProgram = "the-legend-of-zelda-oracle-of-seasons";
+    platforms = [ "x86_64-linux" ];
+  };
+}

@@ -17,50 +17,44 @@ let
     name = "super-metroid.sfc";
   };
 in
-(self.lib.retroarch.apply {
-  inherit pkgs;
-  cores = [ pkgs.libretro.bsnes ];
-  preHook = ''
-    mkdir -p ~/.strom/super-metroid/saves \
-             ~/.strom/super-metroid/states
-  '';
-  settings.savefile_directory = "~/.strom/super-metroid/saves";
-  settings.savestate_directory = "~/.strom/super-metroid/states";
+self.lib.mkGame { inherit lib pkgs; } {
+  name = "super-metroid";
+  src = rom;
+  runtime = "retroarch";
+  executable = "super-metroid.sfc";
 
-  # Keyboard layout for solo play (mirrors the hyper-metroid hack
-  # since the underlying control surface is identical SNES).
-  #   arrows     D-pad
-  #   z          B (jump)
-  #   x          A (shoot)
-  #   a          Y (run/dash)
-  #   s          X (cancel / map)
-  #   q / e      L / R (aim diagonals)
-  #   enter      Start
-  #   rshift     Select
-  settings = {
-    input_player1_up = "up";
-    input_player1_down = "down";
-    input_player1_left = "left";
-    input_player1_right = "right";
-    input_player1_b = "z";
-    input_player1_a = "x";
-    input_player1_y = "a";
-    input_player1_x = "s";
-    input_player1_l = "q";
-    input_player1_r = "e";
-    input_player1_start = "enter";
-    input_player1_select = "rshift";
+  retroarch = {
+    cores = [ pkgs.libretro.bsnes ];
+
+    # Keyboard layout for solo play (mirrors the hyper-metroid hack
+    # since the underlying control surface is identical SNES).
+    #   arrows     D-pad
+    #   z          B (jump)
+    #   x          A (shoot)
+    #   a          Y (run/dash)
+    #   s          X (cancel / map)
+    #   q / e      L / R (aim diagonals)
+    #   enter      Start
+    #   rshift     Select
+    settings = {
+      input_player1_up = "up";
+      input_player1_down = "down";
+      input_player1_left = "left";
+      input_player1_right = "right";
+      input_player1_b = "z";
+      input_player1_a = "x";
+      input_player1_y = "a";
+      input_player1_x = "s";
+      input_player1_l = "q";
+      input_player1_r = "e";
+      input_player1_start = "enter";
+      input_player1_select = "rshift";
+    };
   };
-  args = [ (toString rom) ];
-}).wrapper.overrideAttrs
-  (_: {
-    meta = {
-      description = "Super Metroid (Nintendo R&D1, 1994 SNES, via RetroArch / bsnes)";
-      mainProgram = "retroarch";
-      platforms = lib.platforms.linux;
-    };
-    passthru = {
-      runtime = "retroarch";
-      ipfsSources = [ rom ];
-    };
-  })
+
+  meta = {
+    description = "Super Metroid (Nintendo R&D1, 1994 SNES, via RetroArch / bsnes)";
+    mainProgram = "super-metroid";
+    platforms = [ "x86_64-linux" ];
+  };
+}

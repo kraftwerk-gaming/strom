@@ -28,42 +28,44 @@ let
     name = "scph1001.7z";
   };
 
-  gameDiscs = pkgs.runCommandLocal "xenogears-discs" { nativeBuildInputs = [ p7zip ]; } ''
-    mkdir -p $out
-    7z x ${disc1} -o$out -aoa
-    7z x ${disc2} -o$out -aoa
-    rm -f $out/readme.html
-  '';
-
+  # SwanStation expects scph5501.bin; the upstream blob is named
+  # scph1001.bin so rename after extract. The BIOS dir is referenced
+  # via system_directory below at its absolute store path; it does not
+  # need to live inside the overlay.
   biosDir = pkgs.runCommandLocal "psx-bios" { nativeBuildInputs = [ p7zip ]; } ''
     mkdir -p $out
     7z x ${psxBios7z} -o$out -aoa
     mv $out/scph1001.bin $out/scph5501.bin
   '';
 in
-(self.lib.retroarch.apply {
-  inherit pkgs;
-  cores = [ pkgs.libretro.swanstation ];
-  settings.system_directory = toString biosDir;
-  preHook = ''
-    mkdir -p ~/.strom/xenogears/saves ~/.strom/xenogears/states
+self.lib.mkGame { inherit lib pkgs; } {
+  name = "xenogears";
+  src = disc1;
+  ipfsSources = [
+    disc1
+    disc2
+    psxBios7z
+  ];
+
+  nativeBuildInputs = [ p7zip ];
+  buildScript = ''
+    mkdir -p $out
+    7z x ${disc1} -o$out -aoa
+    7z x ${disc2} -o$out -aoa
+    rm -f $out/readme.html
   '';
-  settings.savefile_directory = "~/.strom/xenogears/saves";
-  settings.savestate_directory = "~/.strom/xenogears/states";
-  args = [ "${gameDiscs}/Xenogears (Disc 1).cue" ];
-}).wrapper.overrideAttrs
-  (_: {
-    meta = {
-      description = "Xenogears (via RetroArch / SwanStation)";
-      mainProgram = "retroarch";
-      platforms = lib.platforms.linux;
-    };
-    passthru = {
-      runtime = "retroarch";
-      ipfsSources = [
-        disc1
-        disc2
-        psxBios7z
-      ];
-    };
-  })
+
+  runtime = "retroarch";
+  executable = "Xenogears (Disc 1).cue";
+
+  retroarch = {
+    cores = [ pkgs.libretro.swanstation ];
+    settings.system_directory = toString biosDir;
+  };
+
+  meta = {
+    description = "Xenogears (via RetroArch / SwanStation)";
+    mainProgram = "xenogears";
+    platforms = [ "x86_64-linux" ];
+  };
+}

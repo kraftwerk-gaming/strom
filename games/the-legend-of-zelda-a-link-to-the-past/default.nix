@@ -17,49 +17,43 @@ let
     name = "a-link-to-the-past.smc";
   };
 in
-(self.lib.retroarch.apply {
-  inherit pkgs;
-  cores = [ pkgs.libretro.bsnes ];
-  preHook = ''
-    mkdir -p ~/.strom/the-legend-of-zelda-a-link-to-the-past/saves \
-             ~/.strom/the-legend-of-zelda-a-link-to-the-past/states
-  '';
-  settings.savefile_directory = "~/.strom/the-legend-of-zelda-a-link-to-the-past/saves";
-  settings.savestate_directory = "~/.strom/the-legend-of-zelda-a-link-to-the-past/states";
+self.lib.mkGame { inherit lib pkgs; } {
+  name = "the-legend-of-zelda-a-link-to-the-past";
+  src = rom;
+  runtime = "retroarch";
+  executable = "a-link-to-the-past.smc";
 
-  # Keyboard layout for solo play.
-  #   arrows     D-pad
-  #   z          B (sword)
-  #   x          A (action)
-  #   a          Y (item)
-  #   s          X (map)
-  #   q / e      L / R shoulder
-  #   enter      Start
-  #   rshift     Select
-  settings = {
-    input_player1_up = "up";
-    input_player1_down = "down";
-    input_player1_left = "left";
-    input_player1_right = "right";
-    input_player1_b = "z";
-    input_player1_a = "x";
-    input_player1_y = "a";
-    input_player1_x = "s";
-    input_player1_l = "q";
-    input_player1_r = "e";
-    input_player1_start = "enter";
-    input_player1_select = "rshift";
+  retroarch = {
+    cores = [ pkgs.libretro.bsnes ];
+
+    # Keyboard layout for solo play.
+    #   arrows     D-pad
+    #   z          B (sword)
+    #   x          A (action)
+    #   a          Y (item)
+    #   s          X (map)
+    #   q / e      L / R shoulder
+    #   enter      Start
+    #   rshift     Select
+    settings = {
+      input_player1_up = "up";
+      input_player1_down = "down";
+      input_player1_left = "left";
+      input_player1_right = "right";
+      input_player1_b = "z";
+      input_player1_a = "x";
+      input_player1_y = "a";
+      input_player1_x = "s";
+      input_player1_l = "q";
+      input_player1_r = "e";
+      input_player1_start = "enter";
+      input_player1_select = "rshift";
+    };
   };
-  args = [ (toString rom) ];
-}).wrapper.overrideAttrs
-  (_: {
-    meta = {
-      description = "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)";
-      mainProgram = "retroarch";
-      platforms = lib.platforms.linux;
-    };
-    passthru = {
-      runtime = "retroarch";
-      ipfsSources = [ rom ];
-    };
-  })
+
+  meta = {
+    description = "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)";
+    mainProgram = "the-legend-of-zelda-a-link-to-the-past";
+    platforms = [ "x86_64-linux" ];
+  };
+}
