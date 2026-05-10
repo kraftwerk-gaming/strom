@@ -402,6 +402,16 @@ let
 
           # Single-instance lock per game so two launches can't clobber the
           # same wineprefix.
+          #
+          # flock(2) locks are tied to the open file description, not the
+          # FD: ANY duplicate FD (across fork) keeps the lock alive. Long-
+          # lived children (fuse-overlayfs daemon, gamescope, gamescope-
+          # reaper) inherit FD 9 from us by default, so even after this
+          # wrapper exits the lock stays held until those children die.
+          # We close FD 9 in every spawned child below (`9<&-` redirect
+          # before the command) so only THIS process's FD references the
+          # OFD; once the wrapper exits, the lock releases immediately
+          # and the next launch acquires it cleanly.
           exec 9>"$STROM_CACHEDIR/.lock"
           if ! flock -n 9; then
             echo "${cfg.name}: another instance is already running" >&2
@@ -447,7 +457,10 @@ let
             fi
           ''}
 
-          export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
+          # `9<&-` closes the lock FD in fuse-overlayfs (which daemonises
+          # itself, surviving the wrapper) so the lock releases on
+          # wrapper exit. See the flock comment above.
+          export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR" 9<&-)
 
           cleanup() {
             kill -KILL -- -$SANDBOX_PID 2>/dev/null || true
@@ -461,8 +474,12 @@ let
           trap cleanup EXIT INT TERM
 
           # Run in new process group so kill -9 0 inside bwrap
-          # doesn't kill this wrapper before cleanup runs
-          setsid ${sandbox}/bin/${cfg.name}-sandbox "$@" &
+          # doesn't kill this wrapper before cleanup runs.
+          # `9<&-` closes the lock FD in the sandbox tree (gamescope,
+          # gamescopereaper, wine, ...) so the lock releases on wrapper
+          # exit even if the cleanup trap can't reap every descendant
+          # synchronously. See the flock comment above.
+          setsid ${sandbox}/bin/${cfg.name}-sandbox 9<&- "$@" &
           SANDBOX_PID=$!
           wait $SANDBOX_PID 2>/dev/null
         '';
