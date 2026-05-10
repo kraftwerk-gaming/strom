@@ -3,6 +3,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     wrappers.url = "github:lassulus/wrappers";
     wrappers.inputs.nixpkgs.follows = "nixpkgs";
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -10,6 +12,7 @@
       self,
       nixpkgs,
       wrappers,
+      git-hooks,
       ...
     }:
     let
@@ -18,46 +21,64 @@
         "aarch64-linux"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      # Single source of truth for the hook configuration; consumed by both
+      # `checks.pre-commit-check` (for `nix flake check`) and the dev shell
+      # (so `nix develop` installs the hooks into .git/hooks).
+      mkPreCommit =
+        system:
+        git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            nixfmt-rfc-style.enable = true;
+            shellcheck.enable = true;
+            ruff-format.enable = true;
+
+            readme-up-to-date = {
+              enable = true;
+              name = "README is up to date";
+              description = "Re-runs scripts/generate-readme.py and fails if README.md changed.";
+              entry = "scripts/check-readme-generated.sh";
+              language = "system";
+              pass_filenames = false;
+            };
+
+            no-signed-commits = {
+              enable = true;
+              name = "no signed commits on push";
+              description = "Refuse to push commits that carry a digital signature.";
+              entry = "scripts/check-no-signed-commits.sh";
+              language = "system";
+              pass_filenames = false;
+              stages = [ "pre-push" ];
+            };
+          };
+        };
     in
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
-      checks = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          # Fails when any tracked .nix file is not nixfmt-clean.
-          # Run `nix fmt` to fix.
-          nixfmt = pkgs.runCommand "nixfmt-check" { nativeBuildInputs = [ pkgs.nixfmt-rfc-style ]; } ''
-            cd ${self}
-            unformatted=$(find . -type f -name '*.nix' -print0 \
-              | xargs -0 nixfmt --check 2>&1 || true)
-            if [ -n "$unformatted" ]; then
-              echo "$unformatted" >&2
-              echo "" >&2
-              echo "run 'nix fmt' to fix" >&2
-              exit 1
-            fi
-            touch $out
-          '';
-        }
-      );
+      checks = forAllSystems (system: {
+        pre-commit-check = mkPreCommit system;
+      });
 
       devShells = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          preCommit = mkPreCommit system;
         in
         {
           default = pkgs.mkShellNoCC {
-            packages = with pkgs; [
-              nixfmt-tree
-              nix-prefetch
-              radicle-node
-            ];
+            packages =
+              (with pkgs; [
+                nixfmt-tree
+                nix-prefetch
+                radicle-node
+              ])
+              ++ preCommit.enabledPackages;
             shellHook = ''
+              ${preCommit.shellHook}
               echo '[*] to start distributed git, run `rad node start`'
             '';
           };
