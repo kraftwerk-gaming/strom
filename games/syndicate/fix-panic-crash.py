@@ -5,6 +5,7 @@ The cached pArmedPed_ pointer can reference a freed PedInstance,
 causing a general protection fault when dereferenced. This patch
 replaces the stale cache check with a fresh lookup every tick.
 """
+
 import sys
 
 content = open(sys.argv[1]).read()
@@ -32,7 +33,7 @@ new = """void PanicComponent::execute(const Behaviour::BehaviourParam &param) {
 
 if old in content:
     content = content.replace(old, new)
-    open(sys.argv[1], 'w').write(content)
+    open(sys.argv[1], "w").write(content)
     print("Patched PanicComponent::execute")
 else:
     print("ERROR: Could not find patch target in " + sys.argv[1], file=sys.stderr)
