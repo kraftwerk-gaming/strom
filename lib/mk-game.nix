@@ -84,13 +84,13 @@ let
         exec ${lib.getExe gamescopeConfig.wrapper} ''${GAMESCOPE_PARAMS:-} -- "${exePath}" ${exeArgs} "$@"
       '';
 
-      # Runs inside FHS/bwrap
+      # Runs inside the sandbox (FHS chroot for proton/custom, plain
+      # bwrap for native). Same script for every runtime; runtime-
+      # specific blocks gate on cfg.runtime.
       innerWrapper = pkgs.writeShellScript "${cfg.name}-inner" ''
         set -euo pipefail
 
         export GAMEDIR="$STROM_OVERLAY"
-        COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}/0"
-        mkdir -p "$COMPATDATA"
 
         # Redirect shader caches into game-specific cache dir
         GAMECACHE="''${HOME:-.}/.cache/strom/${cfg.name}/shadercache"
@@ -99,6 +99,8 @@ let
         export DXVK_STATE_CACHE_PATH="$GAMECACHE"
 
         ${lib.optionalString (cfg.runtime == "proton") ''
+          mkdir -p "$STROM_COMPATDATA/0"
+
           # Export PROTON_RUN for games with custom runScripts
           export PROTON_RUN="${lib.getExe protonConfig.wrapper}"
 
@@ -162,14 +164,15 @@ let
 
       subreaper = pkgs.callPackage ../pkgs/subreaper.nix { };
 
-      # Runs outside bwrap: locks the game, kills orphans from prior runs,
-      # mounts the overlay, then enters the FHS env. Uses PR_SET_CHILD_SUBREAPER
+      # Runs outside the sandbox: locks the game, kills orphans from prior
+      # runs, mounts the overlay, then enters the sandbox (FHS chroot for
+      # proton/custom, plain bwrap for native). Uses PR_SET_CHILD_SUBREAPER
       # so orphaned wine processes get reparented to this wrapper instead of
       # init. gamescopereaper escapes the subreaper (separate session) and
       # winedevice.exe escapes too, so cleanup walks /proc to catch anything
       # tagged with our compatdata/overlay path in cmdline or environ.
       outerWrapper =
-        fhsEnv:
+        sandbox:
         pkgs.writeShellScript "${cfg.name}-wrapper" ''
           # Re-exec under subreaper if not already
           if [ -z "''${STROM_SUBREAPER-}" ]; then
@@ -179,10 +182,21 @@ let
 
           GAMEDIR="''${HOME:-.}/.strom/${cfg.name}"
           export STROM_GAMEDIR="$GAMEDIR"
+          # STROM_COMPATDATA is exported (and the dir created) for every
+          # runtime: sandboxBwrapArgs binds it via `--bind`, which fails
+          # if the path doesn't exist. Non-proton runtimes never write
+          # anything into it. Exporting it also keeps the proc-walk
+          # `grep -F -e "$STROM_COMPATDATA/"` from matching an empty
+          # string against every process's cmdline.
           export STROM_COMPATDATA="''${HOME:-.}/.strom/.compatdata/${cfg.name}"
           export STROM_CACHEDIR="''${HOME:-.}/.cache/strom/${cfg.name}"
-          mkdir -p "$GAMEDIR" "$STROM_COMPATDATA" "$STROM_CACHEDIR" \
-            "''${HOME:-.}/.cache/umu" "''${HOME:-.}/.cache/umu-protonfixes" "''${HOME:-.}/.cache/wine"
+          mkdir -p "$GAMEDIR" "$STROM_COMPATDATA" "$STROM_CACHEDIR"
+          ${lib.optionalString (cfg.runtime == "proton") ''
+            mkdir -p \
+              "''${HOME:-.}/.cache/umu" \
+              "''${HOME:-.}/.cache/umu-protonfixes" \
+              "''${HOME:-.}/.cache/wine"
+          ''}
 
           # Walk /proc and SIGKILL any process whose cmdline or environ
           # references one of the markers — catches gamescopereaper (cmdline
@@ -265,7 +279,7 @@ let
           export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
 
           cleanup() {
-            kill -KILL -- -$FHS_PID 2>/dev/null
+            kill -KILL -- -$SANDBOX_PID 2>/dev/null || true
             local pids
             pids=$(ps -o pid= --ppid $$ 2>/dev/null) || true
             [ -n "$pids" ] && kill -KILL $pids 2>/dev/null
@@ -277,9 +291,9 @@ let
 
           # Run in new process group so kill -9 0 inside bwrap
           # doesn't kill this wrapper before cleanup runs
-          setsid ${fhsEnv}/bin/${cfg.name}-fhs "$@" &
-          FHS_PID=$!
-          wait $FHS_PID 2>/dev/null
+          setsid ${sandbox}/bin/${cfg.name}-sandbox "$@" &
+          SANDBOX_PID=$!
+          wait $SANDBOX_PID 2>/dev/null
         '';
     in
     {
@@ -432,135 +446,66 @@ let
             );
 
         _build =
-          if cfg.runtime == "proton" then
-            let
-              fhsEnv = pkgs.buildFHSEnv {
-                name = "${cfg.name}-fhs";
-                runScript = innerWrapper;
-                targetPkgs =
-                  p:
-                  [
-                    p.freetype
-                    p.glibc
-                    p.gamescope
-                    p.python3
-                    p.mesa
-                    p.vulkan-loader
-                    p.libGL
-                    p.libx11
-                    p.libxext
-                    p.libxcb
-                    p.libxcursor
-                    p.libxrandr
-                    p.libxi
-                    p.libxfixes
-                    p.libxrender
-                    p.libxcomposite
-                    p.libxinerama
-                    p.libxxf86vm
-                    p.alsa-lib
-                    p.libpulseaudio
-                    p.openal
-                    p.systemd
-                    (pkgs.callPackage ../pkgs/sdl2.nix { })
-                    p.pkgsi686Linux.freetype
-                    p.pkgsi686Linux.glibc
-                    p.pkgsi686Linux.glib
-                    p.pkgsi686Linux.libx11
-                    p.pkgsi686Linux.libxext
-                    p.pkgsi686Linux.libxcb
-                    p.pkgsi686Linux.libxcursor
-                    p.pkgsi686Linux.libxrandr
-                    p.pkgsi686Linux.libxi
-                    p.pkgsi686Linux.libxfixes
-                    p.pkgsi686Linux.libxrender
-                    p.pkgsi686Linux.libxcomposite
-                    p.pkgsi686Linux.libxinerama
-                    p.pkgsi686Linux.libxxf86vm
-                    p.pkgsi686Linux.libGL
-                    p.pkgsi686Linux.mesa
-                    p.pkgsi686Linux.vulkan-loader
-                    p.pkgsi686Linux.openal
-                    p.pkgsi686Linux.alsa-lib
-                    p.pkgsi686Linux.libpulseaudio
-                  ]
-                  ++ (cfg.targetPkgs p);
-                extraBwrapArgs = [
-                  "--ro-bind /sys /sys"
-                  "--bind /run /run"
-                ]
-                ++ sandboxBwrapArgs
-                ++ cfg.extraBwrapArgs;
-              };
-            in
-            pkgs.stdenvNoCC.mkDerivation {
-              pname = cfg.name;
-              version = "0";
-              dontUnpack = true;
-              installPhase = ''
-                mkdir -p $out/bin
-                ln -s ${outerWrapper fhsEnv} $out/bin/${cfg.name}
-              '';
-              inherit (cfg) meta;
-              passthru = {
-                runtime = cfg.runtime;
-                inherit (cfg) ipfsSources;
-              };
-            }
-          else if cfg.runtime == "native" then
-            let
-              nativeInner = pkgs.writeShellScript "${cfg.name}-inner" ''
-                set -euo pipefail
-                export GAMEDIR="$STROM_OVERLAY"
-                ${lib.concatStringsSep "\n" (
-                  lib.mapAttrsToList (k: v: "export ${k}=${lib.escapeShellArg v}") cfg.env
-                )}
-                cd "$GAMEDIR"
-                ${cfg.preRun}
-                ${
-                  if cfg.runScript != null then
-                    cfg.runScript
-                  else if cfg.executable != "" then
-                    nativeLaunchCommand
-                  else
-                    ''
-                      echo "No runScript or executable specified" >&2
-                      exit 1
-                    ''
-                }
-              '';
+          let
+            # Baseline 32-bit + 64-bit graphics/audio stack proton games
+            # need inside the FHS chroot. cfg.targetPkgs is appended on
+            # top for game-specific deps.
+            protonFhsPkgs = p: [
+              p.freetype
+              p.glibc
+              p.gamescope
+              p.python3
+              p.mesa
+              p.vulkan-loader
+              p.libGL
+              p.libx11
+              p.libxext
+              p.libxcb
+              p.libxcursor
+              p.libxrandr
+              p.libxi
+              p.libxfixes
+              p.libxrender
+              p.libxcomposite
+              p.libxinerama
+              p.libxxf86vm
+              p.alsa-lib
+              p.libpulseaudio
+              p.openal
+              p.systemd
+              (pkgs.callPackage ../pkgs/sdl2.nix { })
+              p.pkgsi686Linux.freetype
+              p.pkgsi686Linux.glibc
+              p.pkgsi686Linux.glib
+              p.pkgsi686Linux.libx11
+              p.pkgsi686Linux.libxext
+              p.pkgsi686Linux.libxcb
+              p.pkgsi686Linux.libxcursor
+              p.pkgsi686Linux.libxrandr
+              p.pkgsi686Linux.libxi
+              p.pkgsi686Linux.libxfixes
+              p.pkgsi686Linux.libxrender
+              p.pkgsi686Linux.libxcomposite
+              p.pkgsi686Linux.libxinerama
+              p.pkgsi686Linux.libxxf86vm
+              p.pkgsi686Linux.libGL
+              p.pkgsi686Linux.mesa
+              p.pkgsi686Linux.vulkan-loader
+              p.pkgsi686Linux.openal
+              p.pkgsi686Linux.alsa-lib
+              p.pkgsi686Linux.libpulseaudio
+            ];
 
-            in
-            (pkgs.writeShellApplication {
-              inherit (cfg) name meta;
+            # Native runtime keeps the host filesystem visible
+            # (--ro-bind / /) so libraries the game brings via
+            # LD_LIBRARY_PATH resolve against the host's nix store.
+            # Proton/custom go through buildFHSEnv which chroots into a
+            # synthetic /usr — incompatible with native binaries that
+            # reference store paths directly.
+            nativeSandbox = pkgs.writeShellApplication {
+              name = "${cfg.name}-sandbox";
               runtimeInputs = [ pkgs.bubblewrap ];
               text = ''
-                # Re-exec under subreaper if not already
-                if [ -z "''${STROM_SUBREAPER-}" ]; then
-                  export STROM_SUBREAPER=1
-                  exec ${subreaper}/bin/subreaper "$0" "$@"
-                fi
-
-                USERDIR="''${HOME:-.}/.strom/${cfg.name}"
-                mkdir -p "$USERDIR"
-                export STROM_GAMEDIR="$USERDIR"
-                export STROM_CACHEDIR="''${HOME:-.}/.cache/strom/${cfg.name}"
-                mkdir -p "$STROM_CACHEDIR"
-                export STROM_OVERLAY
-                STROM_OVERLAY=$(${prepareGameDir} "$USERDIR")
-
-                cleanup() {
-                  kill -KILL -- -"$INNER_PID" 2>/dev/null || true
-                  # Kill reparented orphans (processes that became our children
-                  # via PR_SET_CHILD_SUBREAPER). One pass, no loop.
-                  local pids
-                  pids=$(ps -o pid= --ppid $$ 2>/dev/null) || true
-                  [ -n "$pids" ] && kill -KILL "$pids" 2>/dev/null || true
-                  wait 2>/dev/null || true
-                  fusermount -uz "$STROM_OVERLAY" 2>/dev/null || true
-                }
-                trap cleanup EXIT INT TERM
-
                 # Always tmpfs /tmp/.X11-unix so it is owned by us inside the userns.
                 # Host /tmp/.X11-unix is owned by root, which maps to nobody in the
                 # sandbox, causing wlroots/Xwayland to refuse socket creation on Wayland.
@@ -571,7 +516,7 @@ let
                   x11_args+=(--ro-bind-try "/tmp/.X11-unix/X$display_nr" "/tmp/.X11-unix/X$display_nr")
                 fi
 
-                setsid bwrap \
+                exec bwrap \
                   --ro-bind / / \
                   --dev-bind /dev /dev \
                   --proc /proc \
@@ -581,41 +526,38 @@ let
                   --tmpfs "''${HOME}" \
                   --bind "$STROM_GAMEDIR" "$STROM_GAMEDIR" \
                   --bind "$STROM_CACHEDIR" "$STROM_CACHEDIR" \
-                  ${nativeInner} "$@" &
-                INNER_PID=$!
-                wait $INNER_PID 2>/dev/null || true
+                  ${innerWrapper} "$@"
               '';
-            }).overrideAttrs
-              (_: {
-                passthru = {
-                  runtime = cfg.runtime;
-                  inherit (cfg) ipfsSources;
-                };
-              })
-          else
-            # custom: FHS env with overlay mounted outside
-            let
-              customFhs = pkgs.buildFHSEnv {
-                name = "${cfg.name}-fhs";
-                runScript = innerWrapper;
-                targetPkgs = cfg.targetPkgs;
-                extraBwrapArgs = sandboxBwrapArgs ++ cfg.extraBwrapArgs;
-              };
-            in
-            pkgs.stdenvNoCC.mkDerivation {
-              pname = cfg.name;
-              version = "0";
-              dontUnpack = true;
-              installPhase = ''
-                mkdir -p $out/bin
-                ln -s ${outerWrapper customFhs} $out/bin/${cfg.name}
-              '';
-              inherit (cfg) meta;
-              passthru = {
-                runtime = cfg.runtime;
-                inherit (cfg) ipfsSources;
-              };
             };
+
+            fhsSandbox = pkgs.buildFHSEnv {
+              name = "${cfg.name}-sandbox";
+              runScript = innerWrapper;
+              targetPkgs = p: lib.optionals (cfg.runtime == "proton") (protonFhsPkgs p) ++ cfg.targetPkgs p;
+              extraBwrapArgs =
+                lib.optionals (cfg.runtime == "proton") [
+                  "--ro-bind /sys /sys"
+                  "--bind /run /run"
+                ]
+                ++ sandboxBwrapArgs
+                ++ cfg.extraBwrapArgs;
+            };
+
+            sandbox = if cfg.runtime == "native" then nativeSandbox else fhsSandbox;
+          in
+          pkgs.stdenvNoCC.mkDerivation {
+            pname = cfg.name;
+            version = "0";
+            dontUnpack = true;
+            installPhase = ''
+              mkdir -p $out/bin
+              ln -s ${outerWrapper sandbox} $out/bin/${cfg.name}
+            '';
+            inherit (cfg) meta;
+            passthru = {
+              inherit (cfg) runtime ipfsSources;
+            };
+          };
       };
     };
 in
