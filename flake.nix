@@ -91,7 +91,12 @@
       };
 
       lib = {
-        mkGame = { lib, pkgs }: import ./lib/mk-game.nix { inherit lib pkgs wrappers; };
+        mkGame =
+          { lib, pkgs }:
+          import ./lib/mk-game.nix {
+            inherit lib pkgs wrappers;
+            fetchIpfs = self.lib.fetchIpfs { inherit pkgs; };
+          };
         gamescope = import ./lib/gamescope.nix { wlib = wrappers.lib; };
         proton = import ./lib/proton.nix { wlib = wrappers.lib; };
         fuse-overlayfs = import ./lib/fuse-overlayfs.nix { wlib = wrappers.lib; };

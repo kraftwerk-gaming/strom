@@ -2,6 +2,7 @@
   lib,
   pkgs,
   wrappers,
+  fetchIpfs,
 }:
 
 gameConfig:
@@ -10,7 +11,7 @@ let
   mod = lib.evalModules {
     modules = [
       gameModule
-      { _module.args = { inherit pkgs wrappers; }; }
+      { _module.args = { inherit pkgs wrappers fetchIpfs; }; }
       gameConfig
     ];
   };
@@ -21,6 +22,7 @@ let
       lib,
       pkgs,
       wrappers,
+      fetchIpfs,
       ...
     }:
 
@@ -82,6 +84,171 @@ let
       nativeLaunchCommand = ''
         # shellcheck disable=SC2086
         exec ${lib.getExe gamescopeConfig.wrapper} ''${GAMESCOPE_PARAMS:-} -- "${exePath}" ${exeArgs} "$@"
+      '';
+
+      # PS2 BIOS used by every pcsx2 runtime game. The .mec sidecar is
+      # PCSX2's region/version cache; pre-generating it skips the first-
+      # run BIOS scan dialog.
+      ps2bios = fetchIpfs {
+        cid = "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be";
+        fallbackUrl = "https://archive.org/download/ps2-0100j-20000117/ps2-0200a-20040614.bin";
+        hash = "sha256-bSPQAdryoPqLOBpdSfUXU8NuNiLQ8EvkavGgxUi+R0Q=";
+        name = "ps2-0200a-20040614.bin";
+      };
+
+      ps2biosDir = pkgs.runCommandLocal "ps2-bios" { } ''
+        mkdir -p $out
+        cp ${ps2bios} $out/ps2-0200a-20040614.bin
+        printf '\x03\x06\x02\x00' > $out/ps2-0200a-20040614.mec
+      '';
+
+      basePcsx2Ini = ''
+        [UI]
+        SettingsVersion = 1
+        SetupWizardIncomplete = false
+        StartFullscreen = false
+        HideMouseCursor = true
+        HideMainWindowWhenRunning = true
+
+        [Folders]
+        Bios = ${ps2biosDir}
+
+        [EmuCore]
+        EnableFastBoot = true
+        EnableWideScreenPatches = true
+        EnableGameFixes = true
+        WarnAboutUnsafeSettings = false
+
+        [EmuCore/GS]
+        OsdShowMessages = false
+
+        # Bind both SDL-0 and SDL-1 because SDL's controller enumeration can
+        # put a real gamepad at index 1 when motion sensors or virtual
+        # devices grab index 0. PCSX2 ORs the bindings, so whichever index
+        # the actual controller ends up on works.
+        [Pad1]
+        Up = SDL-0/DPadUp & SDL-1/DPadUp
+        Right = SDL-0/DPadRight & SDL-1/DPadRight
+        Down = SDL-0/DPadDown & SDL-1/DPadDown
+        Left = SDL-0/DPadLeft & SDL-1/DPadLeft
+        Triangle = SDL-0/FaceNorth & SDL-1/FaceNorth
+        Circle = SDL-0/FaceEast & SDL-1/FaceEast
+        Cross = SDL-0/FaceSouth & SDL-1/FaceSouth
+        Square = SDL-0/FaceWest & SDL-1/FaceWest
+        Select = SDL-0/Back & SDL-1/Back
+        Start = SDL-0/Start & SDL-1/Start
+        L1 = SDL-0/LeftShoulder & SDL-1/LeftShoulder
+        L2 = SDL-0/+LeftTrigger & SDL-1/+LeftTrigger
+        R1 = SDL-0/RightShoulder & SDL-1/RightShoulder
+        R2 = SDL-0/+RightTrigger & SDL-1/+RightTrigger
+        L3 = SDL-0/LeftStick & SDL-1/LeftStick
+        R3 = SDL-0/RightStick & SDL-1/RightStick
+        Analog = SDL-0/Guide & SDL-1/Guide
+        LUp = SDL-0/-LeftY & SDL-1/-LeftY
+        LRight = SDL-0/+LeftX & SDL-1/+LeftX
+        LDown = SDL-0/+LeftY & SDL-1/+LeftY
+        LLeft = SDL-0/-LeftX & SDL-1/-LeftX
+        RUp = SDL-0/-RightY & SDL-1/-RightY
+        RRight = SDL-0/+RightX & SDL-1/+RightX
+        RDown = SDL-0/+RightY & SDL-1/+RightY
+        RLeft = SDL-0/-RightX & SDL-1/-RightX
+        LargeMotor = SDL-0/LargeMotor & SDL-1/LargeMotor
+        SmallMotor = SDL-0/SmallMotor & SDL-1/SmallMotor
+
+        [EmuCore/Speedhacks]
+        EECycleRate = 0
+        EECycleSkip = 0
+        fastCDVD = false
+        IntcStat = true
+        WaitLoop = true
+        vuFlagHack = false
+        vuThread = true
+        vu1Instant = true
+
+        [EmuCore/CPU/Recompiler]
+        EnableEE = true
+        EnableIOP = true
+        EnableEECache = false
+        EnableVU0 = true
+        EnableVU1 = true
+        vu0Overflow = true
+        vu0ExtraOverflow = true
+        vu0SignOverflow = true
+        vu0Underflow = true
+        vu1Overflow = true
+        vu1ExtraOverflow = true
+        vu1SignOverflow = true
+        vu1Underflow = true
+        fpuOverflow = true
+        fpuExtraOverflow = true
+        fpuFullMode = true
+
+        [EmuCore/GS]
+        upscale_multiplier = 2
+        accurate_blending_unit = 1
+        UserHacks_DisableRenderFixes = false
+      '';
+
+      pcsx2Ini = pkgs.writeText "PCSX2.ini" (basePcsx2Ini + cfg.pcsx2.extraIni);
+
+      pcsx2LaunchCommand = ''
+        mkdir -p "$STROM_GAMEDIR/config/PCSX2/inis" \
+                 "$STROM_GAMEDIR/config/PCSX2/memcards" \
+                 "$STROM_GAMEDIR/config/PCSX2/sstates" \
+                 "$STROM_GAMEDIR/config/PCSX2/cache"
+        # Always write config from nix (declarative); chmod so the user
+        # can edit one-shot settings via the in-emulator UI without
+        # being blocked by the read-only nix store source.
+        cp ${pcsx2Ini} "$STROM_GAMEDIR/config/PCSX2/inis/PCSX2.ini"
+        chmod 644 "$STROM_GAMEDIR/config/PCSX2/inis/PCSX2.ini"
+        export XDG_CONFIG_HOME="$STROM_GAMEDIR/config"
+        exec ${pkgs.pcsx2}/bin/pcsx2-qt \
+          -batch \
+          -fastboot \
+          -- "${exePath}" ${exeArgs} "$@"
+      '';
+
+      # RetroArch core auto-pick: scan each provided core derivation for
+      # *.so under lib/retroarch/cores/. If exactly one match across all
+      # cores, use it. Caller can set retroarch.core explicitly to skip.
+      retroarchCorePaths = lib.concatMap (
+        core:
+        map (f: "${core}/lib/retroarch/cores/${f}") (
+          lib.filter (lib.hasSuffix ".so") (lib.attrNames (builtins.readDir "${core}/lib/retroarch/cores"))
+        )
+      ) cfg.retroarch.cores;
+
+      retroarchCore =
+        if cfg.retroarch.core != null then
+          cfg.retroarch.core
+        else if lib.length retroarchCorePaths == 1 then
+          lib.head retroarchCorePaths
+        else
+          throw "${cfg.name}: retroarch.cores must contain exactly one core, or set retroarch.core explicitly";
+
+      retroarchStaticCfg = pkgs.writeText "${cfg.name}-retroarch.cfg" (
+        lib.concatStringsSep "\n" (
+          lib.mapAttrsToList (k: v: ''${k} = "${v}"'') (
+            lib.filterAttrs (_: v: v != "") cfg.retroarch.settings
+          )
+        )
+      );
+
+      retroarchLaunchCommand = ''
+        mkdir -p "$STROM_GAMEDIR/saves" "$STROM_GAMEDIR/states"
+        # Compose the runtime cfg by prepending dynamic save/state paths
+        # (which depend on $STROM_GAMEDIR) to the static settings file
+        # baked into the nix store. retroarch reads the merged file via
+        # --appendconfig.
+        {
+          echo "savefile_directory = \"$STROM_GAMEDIR/saves\""
+          echo "savestate_directory = \"$STROM_GAMEDIR/states\""
+          cat ${retroarchStaticCfg}
+        } > "$STROM_CACHEDIR/retroarch.cfg"
+        exec ${pkgs.retroarch}/bin/retroarch \
+          -L ${retroarchCore} \
+          --appendconfig "$STROM_CACHEDIR/retroarch.cfg" \
+          "${exePath}" ${exeArgs} "$@"
       '';
 
       # Runs inside the sandbox (FHS chroot for proton/custom, plain
@@ -152,6 +319,10 @@ let
             cfg.runScript
           else if cfg.runtime == "proton" then
             protonLaunchCommand
+          else if cfg.runtime == "retroarch" then
+            retroarchLaunchCommand
+          else if cfg.runtime == "pcsx2" then
+            pcsx2LaunchCommand
           else if cfg.executable != "" then
             nativeLaunchCommand
           else
@@ -380,6 +551,8 @@ let
             "proton"
             "native"
             "custom"
+            "retroarch"
+            "pcsx2"
           ];
           default = "custom";
           description = "Runtime environment type";
@@ -389,6 +562,73 @@ let
           type = types.attrs;
           default = { };
           description = "Configuration passed to the proton wrapperModule.";
+        };
+
+        retroarch = mkOption {
+          type = types.submodule {
+            options = {
+              cores = mkOption {
+                type = types.listOf types.package;
+                default = [ ];
+                description = "Libretro core derivations to bind to retroarch.";
+              };
+              core = mkOption {
+                type = types.nullOr types.path;
+                default = null;
+                defaultText = lib.literalMD "Auto-picked when `cores` contains exactly one core.";
+                description = "Path to the libretro core .so to load. Override when `cores` ships multiple.";
+              };
+              settings = mkOption {
+                type = types.submodule {
+                  freeformType = types.attrsOf types.str;
+                  options = {
+                    input_autodetect_enable = mkOption {
+                      type = types.str;
+                      default = "true";
+                    };
+                    input_joypad_driver = mkOption {
+                      type = types.str;
+                      default = "sdl2";
+                    };
+                    pause_nonactive = mkOption {
+                      type = types.str;
+                      default = "false";
+                    };
+                    video_driver = mkOption {
+                      type = types.str;
+                      default = "vulkan";
+                    };
+                    video_fullscreen = mkOption {
+                      type = types.str;
+                      default = "false";
+                    };
+                    video_windowed_fullscreen = mkOption {
+                      type = types.str;
+                      default = "false";
+                    };
+                  };
+                };
+                default = { };
+                description = "RetroArch settings written into retroarch.cfg.";
+              };
+            };
+          };
+          default = { };
+          description = "RetroArch configuration when runtime = retroarch.";
+        };
+
+        pcsx2 = mkOption {
+          type = types.submodule {
+            options = {
+              extraIni = mkOption {
+                type = types.str;
+                default = "";
+                description = "INI fragments appended after the shared base config.";
+              };
+            };
+          };
+          default = { };
+          description = "PCSX2 configuration when runtime = pcsx2.";
         };
 
         targetPkgs = mkOption {
@@ -405,7 +645,8 @@ let
 
         ipfsSources = mkOption {
           type = types.listOf types.package;
-          default = [ cfg.src ];
+          default = [ cfg.src ] ++ lib.optionals (cfg.runtime == "pcsx2") [ ps2bios ];
+          defaultText = lib.literalMD "`[ src ]` plus the shared PS2 BIOS for `runtime = pcsx2`.";
           description = "List of fetchIpfs derivations whose CIDs should be pinned.";
         };
 
@@ -441,7 +682,15 @@ let
               else
                 ''
                   mkdir -p $out
-                  cp -r $src/. $out/ || cp $src $out/
+                  if [ -d "$src" ]; then
+                    cp -r "$src"/. $out/
+                  else
+                    # Flat file (typical for fetchIpfs roms / isos): place
+                    # under $out with the original name (no nix store hash
+                    # prefix), so the inner wrapper can refer to it as
+                    # $GAMEDIR/${cfg.src.name}.
+                    cp "$src" "$out/${cfg.src.name or "src"}"
+                  fi
                 ''
             );
 
@@ -550,7 +799,22 @@ let
                 ++ cfg.extraBwrapArgs;
             };
 
-            sandbox = if cfg.runtime == "native" then nativeSandbox else fhsSandbox;
+            # native, retroarch, and pcsx2 all run nix-built linux binaries
+            # against the host filesystem. They use the plain bwrap sandbox
+            # so /nix/store closures resolve directly. Proton / custom go
+            # through the FHS chroot so /usr/lib lookups satisfy Wine and
+            # game-supplied native helpers.
+            sandbox =
+              if
+                builtins.elem cfg.runtime [
+                  "native"
+                  "retroarch"
+                  "pcsx2"
+                ]
+              then
+                nativeSandbox
+              else
+                fhsSandbox;
           in
           pkgs.stdenvNoCC.mkDerivation {
             pname = cfg.name;
