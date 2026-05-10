@@ -184,11 +184,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Painkiller ships its own RAD Game Tools binkw32 + RAD Miles Sound
     # System mss32 next to the engine. Wine has builtins for both
     # (winewinmm/devenum-style stubs) that don't implement enough of

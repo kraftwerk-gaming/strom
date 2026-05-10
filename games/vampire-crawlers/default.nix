@@ -48,9 +48,7 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     WINE_LARGE_ADDRESS_AWARE = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     PULSE_LATENCY_MSEC = "60";
-    DXVK_ASYNC = "1";
   };
 
   preRun = "";

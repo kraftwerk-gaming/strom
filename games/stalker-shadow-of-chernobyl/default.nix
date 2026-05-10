@@ -113,16 +113,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    # 32-bit Wine binary needs /usr/lib32 visible so DXVK can dlopen
-    # libvulkan.so.1.
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   # The engine reads the UI language from
   # HKCU\Software\GSC Game World\STALKER-SHOC\language and falls back to
   # the OS default (Spanish on this build's setup) if missing. Inject

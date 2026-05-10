@@ -119,14 +119,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   meta = {
     description = "Sid Meier's Pirates! (Firaxis 2004 retail v1.02 with no-CD patch, via Proton)";
     platforms = [ "x86_64-linux" ];

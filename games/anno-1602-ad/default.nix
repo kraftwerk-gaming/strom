@@ -109,14 +109,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    # Real env knob honoured by protonfixes/__init__.py:check_conditions().
-    # `PROTON_NO_PROTONFIXES` was a typo — it does nothing.
-    PROTONFIXES_DISABLE = "1";
     # 1602 uses DDraw, not D3D. Force wined3d so DDraw lands on OpenGL/Vulkan
     # instead of DXVK's missing DDraw bridge.
     PROTON_USE_WINED3D = "1";
     PULSE_LATENCY_MSEC = "60";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   targetPkgs = pkgs: [

@@ -146,8 +146,6 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     STEAM_COMPAT_APP_ID = "211740";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-    DXVK_ASYNC = "1";
     STAGING_WRITECOPY = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";
     PULSE_LATENCY_MSEC = "40";

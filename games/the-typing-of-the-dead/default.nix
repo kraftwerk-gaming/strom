@@ -41,10 +41,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   executable = "Tod_e.exe";
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
     WINE_LARGE_ADDRESS_AWARE = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Old DirectDraw game -- use wined3d (OpenGL) instead of DXVK (Vulkan)
     PROTON_USE_WINED3D = "1";
   };

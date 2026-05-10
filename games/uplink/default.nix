@@ -49,7 +49,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   env = {
     PROTON_USE_WINED3D = "1";
     PULSE_LATENCY_MSEC = "60";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   targetPkgs = pkgs: [

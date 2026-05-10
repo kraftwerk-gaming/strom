@@ -62,9 +62,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   env = {
     SteamAppId = "400";
     SteamGameId = "400";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Force native (bundled Goldberg) steam_api.dll and steamclient*.dll
     # over Wine's builtin lsteamclient.dll proxy. Wine 10's lsteamclient
     # is missing legacy Source-engine entry points like

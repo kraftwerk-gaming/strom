@@ -75,13 +75,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   meta = {
     description = "Half-Life (WON v1.1.1.0, via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];

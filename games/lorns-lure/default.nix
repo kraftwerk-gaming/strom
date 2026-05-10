@@ -44,10 +44,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
     RADV_PERFTEST = "gpl";
     mesa_glthread = "true";
     PULSE_LATENCY_MSEC = "60";

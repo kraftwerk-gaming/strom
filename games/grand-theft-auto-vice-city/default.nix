@@ -60,11 +60,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Load both fan patches: dinput8 is the SilentPatch / mouse-fix
     # shim, d3d8 is the widescreen patch's d3d8-to-d3d9 translator.
     WINEDLLOVERRIDES = "d3d8,dinput8=n,b";

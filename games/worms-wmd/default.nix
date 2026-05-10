@@ -84,8 +84,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     STEAM_COMPAT_APP_ID = "327030";
     SteamAppId = "327030";
     SteamGameId = "327030";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   meta = {

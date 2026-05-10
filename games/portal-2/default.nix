@@ -46,9 +46,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   env = {
     SteamAppId = "620";
     SteamGameId = "620";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Same lsteamclient bypass as games/portal: force the bundled
     # Goldberg steam DLLs and disable Wine's lsteamclient proxy whose
     # legacy Source ABI is incomplete.

@@ -103,10 +103,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Homeworld's GL renderer (rgl.dll → opengl32) only knows how to
     # bind a fixed-pipeline profile; on Mesa the default 4.x core
     # context is rejected by the engine's GL probe. Forcing a 3.3

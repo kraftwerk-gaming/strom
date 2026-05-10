@@ -67,14 +67,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
     PROTON_USE_WINED3D = "1";
     WINEDLLOVERRIDES = "ddraw=b";
     STAGING_WRITECOPY = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   # wined3d cannot create 8bpp palettized (P8_UINT) surfaces required by

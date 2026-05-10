@@ -69,7 +69,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   executable = "Game.exe";
 
   env = {
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     WINEDLLOVERRIDES = "binkw32=n,b";
   };
 }

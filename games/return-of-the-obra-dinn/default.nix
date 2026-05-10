@@ -41,7 +41,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     SteamAppId = "653530";
     SteamGameId = "653530";
     PULSE_LATENCY_MSEC = "60";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   meta = {

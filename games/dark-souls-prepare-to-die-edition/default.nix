@@ -193,13 +193,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   env = {
     SteamAppId = "211420";
     SteamGameId = "211420";
-    # Real env knob honoured by protonfixes/__init__.py:check_conditions().
-    # `PROTON_NO_GAME_FIXES` is a cargo-cult name that doesn't exist anywhere
-    # in the protonfixes source — using it lets winetricks (vcrun/dotnet/etc)
-    # fire on launch, which the user has explicitly forbidden.
-    PROTONFIXES_DISABLE = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Wine DLL override map:
     #   steam_api -> gbe_fork stub (must load native, never builtin)
     #   d3dx9_43  -> Microsoft DX9 helper redist (Wine's builtin fails

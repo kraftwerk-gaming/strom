@@ -95,12 +95,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTONFIXES_DISABLE = "1";
-    DXVK_ASYNC = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     # Pin the three D3DX helpers to the native (Microsoft) DLLs we ship
     # next to Addon.exe. Wine's d3dx10/d3dx9/d3dcompiler builtins are
     # partial stubs and Anno's water effect doesn't render through them.

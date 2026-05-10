@@ -48,14 +48,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   meta = {
     description = "Risk of Rain (2013 Hopoo Games, original v1.2.2 Windows build via Proton)";
     platforms = [ "x86_64-linux" ];

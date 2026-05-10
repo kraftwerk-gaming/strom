@@ -41,13 +41,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-  };
-
   meta = {
     description = "Hollow Knight (Unity, GOG v1.5.78, via Proton)";
     platforms = [ "x86_64-linux" ];

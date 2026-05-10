@@ -113,9 +113,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   env = {
     SteamAppId = "638230";
     SteamGameId = "638230";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
     # Bundled Goldberg steam_api64.dll handles steam stubs; disable

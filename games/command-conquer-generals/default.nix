@@ -114,7 +114,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     # wine's stub mss32 crashes after the post-mission stats screen.
     # d3d8 comes from DXVK (bundled GenTool d3d8.dll dropped in buildScript).
     WINEDLLOVERRIDES = "binkw32=n,b;mss32=n,b";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   meta = {

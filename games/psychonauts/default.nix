@@ -78,16 +78,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
     STAGING_WRITECOPY = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";
-    # The 32-bit Wine that hosts Psychonauts.exe needs /usr/lib32 on its
-    # search path so DXVK can dlopen libvulkan.so.1; without this the
-    # game fails to create a window/Vulkan instance and exits silently.
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   meta = {

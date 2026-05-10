@@ -42,10 +42,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   executable = "war3.exe";
 
   env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
     PROTON_USE_WINED3D = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
   };
 
   preRun = ''

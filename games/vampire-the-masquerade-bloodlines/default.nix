@@ -62,16 +62,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    DXVK_ASYNC = "1";
-    # 32-bit Wine binary needs /usr/lib32 visible so DXVK can dlopen
-    # libvulkan.so.1.
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   preRun = ''
     export PROTON_LOG=1
     export PROTON_LOG_DIR="$STROM_CACHEDIR"

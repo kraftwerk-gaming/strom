@@ -44,13 +44,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     "-dxnocompatmodefix"
   ];
 
-  env = {
-    SteamAppId = "0";
-    SteamGameId = "0";
-    PROTON_NO_GAME_FIXES = "1";
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   preRun = ''
         # CJ_Strife portable layout expects HKCU\Software\Blizzard Entertainment\Diablo II
         # to point at the install path. Inject keys into the prefix's user.reg.

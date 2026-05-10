@@ -11,10 +11,6 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   # 32-bit Unity 4 game; wine's i386-unix winex11.so needs to find
   # 32-bit libXext.so.6 etc., which live under /usr/lib32 in the FHS.
-  env = {
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
-  };
-
   src = fetchIpfs {
     cid = "QmbPABWqByuFiwvfxwoMsWLexnqd9PjxdqAfj4azWKwHG1";
     fallbackUrl = "https://archive.org/download/outer-wilds-alpha-1-2-pc/OuterWilds_Alpha_1_2_PC.zip";

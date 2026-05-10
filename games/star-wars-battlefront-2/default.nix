@@ -53,7 +53,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   ];
 
   env = {
-    LD_LIBRARY_PATH = "/usr/lib32:/usr/lib:/usr/lib64";
     PULSE_LATENCY_MSEC = "60";
   };
 
