@@ -244,16 +244,21 @@ let
             # those symlinks become broken and games die at loader_init with
             # c0000135 (typically DDRAW.dll → wined3d.dll → libvkd3d-1.dll).
             # Proton's incremental prefix update doesn't catch this because
-            # version files match. Detect any broken symlink under
-            # pfx/drive_c/ and wipe the compatdata so proton re-bootstraps
-            # against the current store path. Game saves live in
-            # $STROM_GAMEDIR (~/.strom/<game>), not the wineprefix, so user
-            # progress survives.
-            if [ -d "$STROM_COMPATDATA/0/pfx/drive_c" ] && \
-               find "$STROM_COMPATDATA/0/pfx/drive_c" -xtype l -print -quit 2>/dev/null \
-                 | read -r _; then
-              echo "${cfg.name}: wiping wineprefix with broken symlinks (stale proton store path)" >&2
-              rm -rf "$STROM_COMPATDATA/0"
+            # version files match. Detect a broken symlink under pfx/drive_c
+            # whose target points into /nix/store (the proton symlink-pfx
+            # signature) and wipe the compatdata so proton re-bootstraps
+            # against the current store path. Restricting to /nix/store
+            # targets keeps user-introduced broken symlinks (mod tooling,
+            # custom configs, manual experiments) from triggering a wipe.
+            # Game saves live in $STROM_GAMEDIR (~/.strom/<game>), not the
+            # wineprefix, so user progress survives the wipe either way.
+            if [ -d "$STROM_COMPATDATA/0/pfx/drive_c" ]; then
+              stale_link=$(find "$STROM_COMPATDATA/0/pfx/drive_c" \
+                -xtype l -lname '/nix/store/*' -print -quit 2>/dev/null)
+              if [ -n "$stale_link" ]; then
+                echo "${cfg.name}: wiping wineprefix with stale /nix/store symlink ($stale_link)" >&2
+                rm -rf "$STROM_COMPATDATA/0"
+              fi
             fi
           ''}
 
