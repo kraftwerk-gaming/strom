@@ -108,6 +108,28 @@ let
         )}
 
         cd "$GAMEDIR"
+        ${lib.optionalString (cfg.runtime == "proton" && cfg.saveLocations != [ ]) ''
+          # Relocate game save / config paths out of the wineprefix into
+          # $STROM_GAMEDIR. The wineprefix is treated as disposable (the
+          # auto-wipe path nukes it on stale-store-path detection, and a
+          # user can `rm -rf ~/.strom/.compatdata/<game>` at any time);
+          # anything under drive_c/users/steamuser that the game writes
+          # has to be symlinked out so a wipe doesn't take saves with it.
+          for __strom_save in ${lib.escapeShellArgs cfg.saveLocations}; do
+            __strom_src="$STROM_COMPATDATA/0/pfx/drive_c/users/steamuser/$__strom_save"
+            __strom_dst="$STROM_GAMEDIR/$(basename "$__strom_save")"
+            mkdir -p "$__strom_dst"
+            if [ -d "$__strom_src" ] && [ ! -L "$__strom_src" ]; then
+              # First-run-after-wipe (or first-ever migration): pull any
+              # existing in-prefix data into $STROM_GAMEDIR before we
+              # replace the in-prefix path with a symlink.
+              cp -an "$__strom_src/." "$__strom_dst/" 2>/dev/null || true
+              rm -rf "$__strom_src"
+            fi
+            mkdir -p "$(dirname "$__strom_src")"
+            ln -snf "$__strom_dst" "$__strom_src"
+          done
+        ''}
         ${cfg.preRun}
         ${
           if cfg.runScript != null then
@@ -198,6 +220,27 @@ let
             fusermount -uz "$STROM_CACHEDIR/overlay" 2>/dev/null || true
           fi
 
+          ${lib.optionalString (cfg.runtime == "proton") ''
+            # pkgs/proton-symlink-pfx.patch makes proton symlink default_pfx
+            # DLLs into the wineprefix instead of copying them — saves ~600 MB
+            # per prefix but bakes the proton store path into every symlink.
+            # When nix-collect-garbage removes an old proton between releases,
+            # those symlinks become broken and games die at loader_init with
+            # c0000135 (typically DDRAW.dll → wined3d.dll → libvkd3d-1.dll).
+            # Proton's incremental prefix update doesn't catch this because
+            # version files match. Detect any broken symlink under
+            # pfx/drive_c/ and wipe the compatdata so proton re-bootstraps
+            # against the current store path. Game saves live in
+            # $STROM_GAMEDIR (~/.strom/<game>), not the wineprefix, so user
+            # progress survives.
+            if [ -d "$STROM_COMPATDATA/0/pfx/drive_c" ] && \
+               find "$STROM_COMPATDATA/0/pfx/drive_c" -xtype l -print -quit 2>/dev/null \
+                 | read -r _; then
+              echo "${cfg.name}: wiping wineprefix with broken symlinks (stale proton store path)" >&2
+              rm -rf "$STROM_COMPATDATA/0"
+            fi
+          ''}
+
           export STROM_OVERLAY=$(${prepareGameDir} "$GAMEDIR")
 
           cleanup() {
@@ -264,6 +307,19 @@ let
           type = types.str;
           default = "";
           description = "Shell commands to run before launching the game (inside FHS, has $GAMEDIR)";
+        };
+
+        saveLocations = mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+          description = ''
+            Paths under the wineprefix's drive_c/users/steamuser/ where the
+            game writes saves, profiles, or persistent configs. The launcher
+            symlinks each one into $STROM_GAMEDIR before the game starts so
+            user data survives prefix wipes (auto-wipe on stale Proton store
+            paths after GC, or manual reset). Only used when runtime = "proton".
+            Example: [ "AppData/Roaming/Ubisoft/Anno1404Addon" "Documents/Anno1404" ]
+          '';
         };
 
         runScript = mkOption {
