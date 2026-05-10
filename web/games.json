@@ -261,7 +261,7 @@
   },
   "death-and-taxes": {
     "cids": [
-      "PLACEHOLDER_CID"
+      "QmNhMWfp81krZfBpmFR65YNbD2hrw9pWnM7TgdnHvVB8gm"
     ],
     "description": "Death and Taxes (Placeholder Gameworks 2020, native Linux, GOG v1.2.59 build 82787)",
     "runtime": "custom"
@@ -1012,7 +1012,7 @@
   },
   "ultrakill": {
     "cids": [
-      "PLACEHOLDER_CID"
+      "QmTP87KiyUYcqq58U78JQpfgg8tqraM8cVxHys79h6hnNx"
     ],
     "description": "ULTRAKILL (New Blood / Hakita 2020 Early Access, via Proton)",
     "runtime": "proton"
