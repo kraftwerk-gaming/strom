@@ -66,6 +66,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Aqua.exe";
 
+  saveLocations = [ "AppData/Roaming/AquaNox" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

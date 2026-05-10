@@ -32,6 +32,11 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "Game.exe";
+
+  saveLocations = [
+    "AppData/Local/Blizzard Entertainment"
+    "Documents/Diablo II"
+  ];
   # -dxnocompatmodefix: D2DX's compat-mode detector misfires under Wine/Proton
   # even with no AppCompatFlags set; skip the check.
   executableArgs = [

@@ -145,6 +145,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "gta_sa.exe";
 
+  saveLocations = [
+    "AppData/Local/modloader"
+    "Documents/GTA San Andreas User Files"
+  ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

@@ -40,6 +40,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Cuphead.exe";
 
+  saveLocations = [ "AppData/Roaming/Cuphead" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

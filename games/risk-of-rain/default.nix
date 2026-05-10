@@ -35,6 +35,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Risk of Rain.exe";
 
+  saveLocations = [ "AppData/Local/ROR_GMS_controller" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

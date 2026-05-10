@@ -36,6 +36,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Environmental Station Alpha.exe";
 
+  saveLocations = [ "AppData/Roaming/MMFApplications" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

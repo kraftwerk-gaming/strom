@@ -88,6 +88,16 @@
 - Game wrappers must be idempotent: re-running after a nix rebuild should update symlinks/configs without touching user data.
 - When debugging, fix files in place (chmod, sed, etc.) instead of recreating the directory.
 - If you must test with a clean state, back up `SAVEGAMES/`, `compatdata/`, and any user-created files first.
+
+## Save preservation across prefix wipes
+
+- `~/.strom/.compatdata/<game>` (the wineprefix) is treated as **disposable**. The launcher's auto-wipe blows it away when DLL symlinks point at a garbage-collected proton store path, and the iterative test loop wipes it freely between fix attempts.
+- Anything the game writes under the wineprefix (saves, profiles, settings, shader caches) MUST be relocated to `~/.strom/<game>` so a wipe doesn't take user progress with it. Use the `saveLocations` option on `mkGame` — see `lib/mk-game.nix` for the contract. Each entry is a path relative to `drive_c/users/steamuser/`.
+- **Before committing a new proton game**, launch it once, play far enough to write a save, then check `find ~/.strom/.compatdata/<game>/0/pfx/drive_c/users/steamuser -mindepth 2 -newer <reference>` for any non-Microsoft directory the engine created. Add each one to `saveLocations`. Common locations:
+  - `AppData/Roaming/<vendor>/<game>` — user settings, saves
+  - `AppData/Local/<vendor>/<game>` — local-machine state, configs, mod data
+  - `Documents/<game>` or `Documents/My Games/<game>` — savegames for older titles
+- Verify by wiping `~/.strom/.compatdata/<game>` and re-launching: any prior settings/saves you confirmed should still be there.
 - Think before acting. Read existing files before writing code.
 - Be concise in responses but thorough in reasoning.
 - Prefer editing over rewriting whole files.

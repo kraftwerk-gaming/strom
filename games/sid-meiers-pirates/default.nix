@@ -101,6 +101,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Pirates!.exe";
 
+  saveLocations = [ "Documents/My Games" ];
+
   copyGlobs = [
     "Saves/"
     "custom/"

@@ -48,6 +48,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "olliolli.exe";
 
+  saveLocations = [ "AppData/Roaming/olliolli" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

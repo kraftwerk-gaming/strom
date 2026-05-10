@@ -37,6 +37,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Balatro.exe";
 
+  saveLocations = [ "AppData/Roaming/Balatro" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

@@ -36,6 +36,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "SlayTheSpire2.exe";
 
+  saveLocations = [
+    "AppData/Roaming/SlayTheSpire2"
+    "AppData/Local/Sentry"
+  ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

@@ -84,6 +84,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Comandos.exe";
 
+  saveLocations = [ "Documents/Pyro Studios" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

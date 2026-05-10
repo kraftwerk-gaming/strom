@@ -38,6 +38,8 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "falloutwHR.exe";
+
+  saveLocations = [ "AppData/Roaming/Fallout" ];
   gamescope = {
     output-width = 1920;
     output-height = 1080;

@@ -26,6 +26,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "VoidStranger.exe";
 
+  saveLocations = [ "AppData/Local/void_stranger" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

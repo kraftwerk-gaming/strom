@@ -155,6 +155,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "DARKSOULS.exe";
 
+  saveLocations = [
+    "AppData/Local/NBGI"
+    "Documents/NBGI"
+  ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

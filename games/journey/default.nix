@@ -85,6 +85,11 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "Journey.exe";
+
+  saveLocations = [
+    "AppData/Local/Annapurna Interactive"
+    "Documents/Journey"
+  ];
   # Engine cmdline parser maps `-resolution=1080p` to 1920x1080. The
   # Documents/Journey/Journey.cfg <Screen Width Height/> overrides the
   # cmdline once the cfg exists, so we additionally seed that file in

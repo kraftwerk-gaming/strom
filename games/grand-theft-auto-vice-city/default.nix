@@ -46,6 +46,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "gta-vc.exe";
 
+  saveLocations = [ "Documents/GTA Vice City User Files" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

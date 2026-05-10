@@ -31,6 +31,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   # GameMaker Studio binary; the file name has spaces.
   executable = "Leap Year.exe";
 
+  saveLocations = [ "AppData/Local/Leap_Year" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

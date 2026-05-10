@@ -29,6 +29,8 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
   executable = "fallout2HR.exe";
+
+  saveLocations = [ "AppData/Roaming/Fallout2" ];
   gamescope = {
     output-width = 1920;
     output-height = 1080;

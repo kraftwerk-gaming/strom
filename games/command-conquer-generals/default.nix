@@ -70,6 +70,8 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   executable = "generals.exe";
 
+  saveLocations = [ "Documents/Command and Conquer Generals Data" ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;
