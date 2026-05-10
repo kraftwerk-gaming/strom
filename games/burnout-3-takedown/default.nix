@@ -5,10 +5,7 @@
   fetchIpfs,
 }:
 
-let
-  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs fetchIpfs; };
-in
-mkPcsx2Game {
+self.lib.mkGame { inherit lib pkgs; } {
   name = "burnout-3-takedown";
   src = fetchIpfs {
     cid = "QmTR7JR8zd4yENd9sudBy5iQBKRKKvYuB66vhymrRMLmSn";
@@ -16,5 +13,12 @@ mkPcsx2Game {
     hash = "sha256-re+KTNsyEM6c+ljytNKBdyWQYhdBsCNabQbm1fwvOQo=";
     name = "burnout-3-takedown-usa.iso";
   };
-  description = "Burnout 3: Takedown (via PCSX2)";
+  runtime = "pcsx2";
+  executable = "burnout-3-takedown-usa.iso";
+
+  meta = {
+    description = "Burnout 3: Takedown (via PCSX2)";
+    mainProgram = "burnout-3-takedown";
+    platforms = [ "x86_64-linux" ];
+  };
 }
