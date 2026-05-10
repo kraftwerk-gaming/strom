@@ -516,6 +516,13 @@ let
                   x11_args+=(--ro-bind-try "/tmp/.X11-unix/X$display_nr" "/tmp/.X11-unix/X$display_nr")
                 fi
 
+                # Bind $STROM_GAMEDIR over $HOME so XDG-style saves
+                # (e.g. $HOME/.local/share/<game>, $HOME/.config/<game>)
+                # land in ~/.strom/<game>/ and persist. The previous
+                # --tmpfs ''${HOME} setup discarded any save the game
+                # wrote outside the overlay (which is most native Linux
+                # games). $STROM_GAMEDIR is also kept self-bound so
+                # absolute references in preRun / runScript resolve.
                 exec bwrap \
                   --ro-bind / / \
                   --dev-bind /dev /dev \
@@ -523,7 +530,7 @@ let
                   --bind /tmp /tmp \
                   "''${x11_args[@]}" \
                   --bind /run /run \
-                  --tmpfs "''${HOME}" \
+                  --bind "$STROM_GAMEDIR" "''${HOME}" \
                   --bind "$STROM_GAMEDIR" "$STROM_GAMEDIR" \
                   --bind "$STROM_CACHEDIR" "$STROM_CACHEDIR" \
                   ${innerWrapper} "$@"
