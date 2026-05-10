@@ -3,6 +3,9 @@
 SYSREG="$1"
 GAMEDIR="$2"
 
+# Backslashes inside the trailing single-quoted literal are intentional —
+# Wine .reg files require doubled separators (here: 4 backslashes = 2 literal).
+# shellcheck disable=SC1003
 WINEPATH='Z:'"$(echo "$GAMEDIR" | sed 's|/|\\\\|g')"'\\\\'
 
 cat >> "$SYSREG" <<EOF
