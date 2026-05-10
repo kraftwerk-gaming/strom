@@ -96,7 +96,25 @@
         proton = import ./lib/proton.nix { wlib = wrappers.lib; };
         fuse-overlayfs = import ./lib/fuse-overlayfs.nix { wlib = wrappers.lib; };
         retroarch = import ./lib/retroarch.nix { wlib = wrappers.lib; };
-        mkPcsx2Game = { lib, pkgs }: import ./lib/pcsx2.nix { inherit lib pkgs; };
+        mkPcsx2Game =
+          {
+            lib,
+            pkgs,
+            fetchIpfs,
+          }:
+          import ./lib/pcsx2.nix { inherit lib pkgs fetchIpfs; };
+        fetchIpfs =
+          { pkgs }:
+          import ./lib/fetch-ipfs.nix {
+            inherit (pkgs)
+              lib
+              stdenvNoCC
+              go-car
+              curl
+              cacert
+              ;
+            lassie = pkgs.callPackage ./pkgs/lassie.nix { };
+          };
       };
 
       legacyPackages = forAllSystems (
@@ -129,16 +147,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           lassie = pkgs.callPackage ./pkgs/lassie.nix { };
-          fetchIpfs = import ./lib/fetch-ipfs.nix {
-            inherit (pkgs)
-              lib
-              stdenvNoCC
-              go-car
-              curl
-              cacert
-              ;
-            inherit lassie;
-          };
+          fetchIpfs = self.lib.fetchIpfs { inherit pkgs; };
           callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
         in
         let

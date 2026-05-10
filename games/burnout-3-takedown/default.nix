@@ -6,7 +6,7 @@
 }:
 
 let
-  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs; };
+  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs fetchIpfs; };
 in
 mkPcsx2Game {
   name = "burnout-3-takedown";

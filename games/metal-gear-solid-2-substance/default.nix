@@ -6,7 +6,7 @@
 }:
 
 let
-  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs; };
+  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs fetchIpfs; };
 
   # Europe PS2 release of MGS2 Substance (5-language: En/Fr/De/Es/It).
   # The PC port is broken on modern Wine (see archived attempt — engine

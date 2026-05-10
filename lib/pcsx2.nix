@@ -5,25 +5,14 @@
 # { name, src, description } and, optionally, extra INI sections or a
 # gamePath override (when src is a zip that needs extraction).
 #
-# Interface mirrors mkGame: self.lib.mkPcsx2Game { inherit lib pkgs; } { ... }
+# Interface mirrors mkGame: self.lib.mkPcsx2Game { inherit lib pkgs fetchIpfs; } { ... }
 {
   lib,
   pkgs,
+  fetchIpfs,
 }:
 
 let
-  lassie = pkgs.callPackage ../pkgs/lassie.nix { };
-  fetchIpfs = import ./fetch-ipfs.nix {
-    inherit (pkgs)
-      lib
-      stdenvNoCC
-      go-car
-      curl
-      cacert
-      ;
-    inherit lassie;
-  };
-
   ps2bios = fetchIpfs {
     cid = "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be";
     fallbackUrl = "https://archive.org/download/ps2-0100j-20000117/ps2-0200a-20040614.bin";

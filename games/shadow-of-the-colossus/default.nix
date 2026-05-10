@@ -6,7 +6,7 @@
 }:
 
 let
-  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs; };
+  mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs fetchIpfs; };
 
   gameSrc = fetchIpfs {
     cid = "QmfNb23JQhMmGoKzyU3b7otgJMt1tVUa2a3zsPwmX9wmoD";
