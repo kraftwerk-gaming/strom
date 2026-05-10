@@ -75,17 +75,23 @@ stdenvNoCC.mkDerivation {
       awk 'BEGIN{IGNORECASE=1} /^content-length:/ {gsub("\r",""); print $2}' \
         | tail -n1
     }
+    # nixpkgs stdenv builders run with `set -eo pipefail; shopt -s
+    # inherit_errexit`, so curl exiting non-zero inside `$(... | ...)`
+    # would otherwise abort the whole build via the assignment's command
+    # substitution before lassie even starts. `|| true` at the end of
+    # each pipeline neutralises that path so a 4xx fallback URL (e.g.
+    # archive.org DMCA / dead link) doesn't kill the IPFS retrieval.
     total=$expectedSize
     if [ "$total" = "0" ] && [ -n "$fallbackUrl" ]; then
       total=$(curl -fsLI --max-time 15 "$fallbackUrl" 2>/dev/null \
-        | extract_content_length)
+        | extract_content_length || true)
       total="''${total:-0}"
       [ "$total" != "0" ] && echo "[fetch-ipfs] discovered size $total via fallback HEAD"
     fi
     if [ "$total" = "0" ]; then
       for gw in https://ipfs.io https://dweb.link; do
         total=$(curl -fsLI --max-time 15 "$gw/ipfs/$cid" 2>/dev/null \
-          | extract_content_length)
+          | extract_content_length || true)
         total="''${total:-0}"
         if [ "$total" != "0" ]; then
           echo "[fetch-ipfs] discovered size $total via $gw"
