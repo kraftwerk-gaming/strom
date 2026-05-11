@@ -97,9 +97,9 @@
             inherit lib pkgs wrappers;
             fetchIpfs = self.lib.fetchIpfs { inherit pkgs; };
           };
-        gamescope = import ./lib/gamescope.nix { wlib = wrappers.lib; };
-        proton = import ./lib/proton.nix { wlib = wrappers.lib; };
-        fuse-overlayfs = import ./lib/fuse-overlayfs.nix { wlib = wrappers.lib; };
+        gamescope = wrappers.lib.wrapModule (import ./lib/gamescope.nix);
+        proton = wrappers.lib.wrapModule (import ./lib/proton.nix);
+        fuse-overlayfs = wrappers.lib.wrapModule (import ./lib/fuse-overlayfs.nix);
         fetchIpfs =
           { pkgs }:
           import ./lib/fetch-ipfs.nix {
