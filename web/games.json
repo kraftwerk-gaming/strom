@@ -58,6 +58,14 @@
     "description": "Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)",
     "runtime": "custom"
   },
+  "arx-fatalis": {
+    "cids": [
+      "QmTFNMEDJk9QitB3HoFkDeo12vD6UHqTzZgaStaRvBgC8T",
+      "Qmf5Tzyci3p44UQ1PGB92vzPqQHCa9xJZp4i8y9Bu57ttv"
+    ],
+    "description": "Arx Fatalis (Arkane Studios 2002, via Arx Libertatis)",
+    "runtime": "native"
+  },
   "baba-is-you": {
     "cids": [
       "QmdZ1QpiFWpYEpYQisNaLVdyRidj9jQ6f7UwqeE4X8FokF"
@@ -1085,6 +1093,13 @@
       "Qmc19LJsreV5YiXRstCF4ZzJzCn5b32AthwFgYrWJsMp2N"
     ],
     "description": "Uplink: Hacker Elite v1.6 (via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "v-rising": {
+    "cids": [
+      "QmNxWYo1ymaGAtdQhASRgNNxsL7Wtf7zt3QUUWbpi3ANX4"
+    ],
+    "description": "V Rising (Stunlock Studios 2024, via Proton)",
     "runtime": "proton"
   },
   "vampire-crawlers": {

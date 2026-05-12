@@ -48,6 +48,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/anno-1701/"><img src="https://lutris.net/games/banner/anno-1701.jpg" height="40" alt="anno-1701"></a> | [Anno 1701 + Sunken Treasure](https://lutris.net/games/anno-1701/) | `proton` | `nix run .#anno-1701` |
 | <a href="https://lutris.net/games/aquanox/"><img src="https://lutris.net/games/banner/aquanox.jpg" height="40" alt="aquanox"></a> | [AquaNox](https://lutris.net/games/aquanox/) | `proton` | `nix run .#aquanox` |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run .#archimedean-dynasty` |
+| <a href="https://lutris.net/games/arx-fatalis/"><img src="https://lutris.net/games/banner/arx-fatalis.jpg" height="40" alt="arx-fatalis"></a> | [Arx Fatalis](https://lutris.net/games/arx-fatalis/) | `native` | `nix run .#arx-fatalis` |
 | <a href="https://lutris.net/games/baba-is-you/"><img src="https://lutris.net/games/banner/baba-is-you.jpg" height="40" alt="baba-is-you"></a> | [Baba Is You](https://lutris.net/games/baba-is-you/) | `native` | `nix run .#baba-is-you` |
 | <a href="https://lutris.net/games/baby-steps/"><img src="https://lutris.net/games/banner/baby-steps.jpg" height="40" alt="baby-steps"></a> | [Baby Steps](https://lutris.net/games/baby-steps/) | `proton` | `nix run .#baby-steps` |
 | <a href="https://lutris.net/games/balatro/"><img src="https://lutris.net/games/banner/balatro.jpg" height="40" alt="balatro"></a> | [Balatro](https://lutris.net/games/balatro/) | `proton` | `nix run .#balatro` |
@@ -192,6 +193,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/unreal-tournament-2004/"><img src="https://lutris.net/games/banner/unreal-tournament-2004.jpg" height="40" alt="unreal-tournament-2004"></a> | [Unreal Tournament 2004](https://lutris.net/games/unreal-tournament-2004/) | `native` | `nix run .#unreal-tournament-2004` |
 | <a href="https://lutris.net/games/untitled-goose-game/"><img src="https://lutris.net/games/banner/untitled-goose-game.jpg" height="40" alt="untitled-goose-game"></a> | [Untitled Goose Game](https://lutris.net/games/untitled-goose-game/) | `proton` | `nix run .#untitled-goose-game` |
 | <a href="https://lutris.net/games/uplink/"><img src="https://lutris.net/games/banner/uplink.jpg" height="40" alt="uplink"></a> | [Uplink: Hacker Elite v1.6](https://lutris.net/games/uplink/) | `proton` | `nix run .#uplink` |
+| <a href="https://lutris.net/games/v-rising/"><img src="https://lutris.net/games/banner/v-rising.jpg" height="40" alt="v-rising"></a> | [V Rising](https://lutris.net/games/v-rising/) | `proton` | `nix run .#v-rising` |
 | <a href="https://lutris.net/games/vampire-crawlers/"><img src="https://lutris.net/games/banner/vampire-crawlers.jpg" height="40" alt="vampire-crawlers"></a> | [Vampire Crawlers](https://lutris.net/games/vampire-crawlers/) | `proton` | `nix run .#vampire-crawlers` |
 | <a href="https://lutris.net/games/vampire-survivors/"><img src="https://lutris.net/games/banner/vampire-survivors.jpg" height="40" alt="vampire-survivors"></a> | [Vampire Survivors + 3 DLC](https://lutris.net/games/vampire-survivors/) | `native` | `nix run .#vampire-survivors` |
 | <a href="https://lutris.net/games/vampire-the-masquerade-bloodlines/"><img src="https://lutris.net/games/banner/vampire-the-masquerade-bloodlines.jpg" height="40" alt="vampire-the-masquerade-bloodlines"></a> | [Vampire: The Masquerade — Bloodlines](https://lutris.net/games/vampire-the-masquerade-bloodlines/) | `proton` | `nix run .#vampire-the-masquerade-bloodlines` |
@@ -204,7 +206,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_163 games_
+_165 games_
 
 <!-- END GENERATED GAMES -->
 
