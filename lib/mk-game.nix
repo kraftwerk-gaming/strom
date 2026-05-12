@@ -303,6 +303,7 @@ let
           bwrap.tmpfs = [ "$HOME" ];
 
           proton.exe = overlayExe;
+          proton.env = cfg.env;
           gamescope.command = lib.getExe cfg.proton.outputs.wrapper;
           fhs.runScript = lib.getExe cfg.gamescope.outputs.wrapper;
           fhs.targetPkgs = p: cfg.proton.fhsTargetPkgs p ++ cfg.targetPkgs p;
@@ -319,6 +320,7 @@ let
           bwrap.tmpfs = [ "/tmp/.X11-unix" ];
           bwrap.chmod."/tmp/.X11-unix" = "1777";
           bwrap.ro-bind-try = x11Binds;
+          bwrap.env = cfg.env;
 
           # If the game supplies its own runScript, exec it directly —
           # the script invokes gamescope and the actual binary itself.
@@ -352,6 +354,7 @@ let
           bwrap.tmpfs = [ "/tmp/.X11-unix" ];
           bwrap.chmod."/tmp/.X11-unix" = "1777";
           bwrap.ro-bind-try = x11Binds;
+          bwrap.env = cfg.env;
 
           # Always satisfy gamescope.command (required by the module
           # schema). It's only entered when runScript is null; when the
