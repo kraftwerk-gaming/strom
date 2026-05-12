@@ -62,11 +62,22 @@
 - For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
 - For `winetricks`-style verb installs (vcrun, dotnet, dxvk, etc.): manually drop the DLLs into the prefix's `system32`/`syswow64` from buildScript or preRun. Don't shell out to winetricks.
 
-## Staging branch workflow for untested games
+## Radicle patch workflow for untested games
 
-- Untested or in-progress packages land on the `staging` branch, never directly on `master`. Master is reserved for games that have been interactively tested and confirmed working AND have a real IPFS-pinned CID.
-- Stage-commit format: `git commit -m "<slug>: stage (untested, ...)" -- games/<slug>/default.nix`. Don't bundle README.md / web/games.json into stage commits.
-- **One commit per game on master.** After the test passes AND the CID has been pinned: `git checkout master && git checkout staging -- games/<slug>/default.nix`, regenerate README, commit `<slug>: init` on master in a single commit with the real CID. Don't ship multiple commits for one game on master (init-with-PENDING + cid-update is wrong).
+- The `rad` remote is the canonical destination for this repo. `github` is a mirror.
+- Untested or in-progress packages live on a `patches/<slug>` branch pushed as a Radicle patch — never directly on `master`. Master is reserved for games that have been interactively tested AND have a real IPFS-pinned CID.
+- Stage-commit subject: `<slug>: stage (untested, ...)` (or `stage (broken — <why>)`, `stage (tested, awaiting IPFS pin)`, etc.). The parenthetical describes the state.
+- Master-commit subject: `<slug>: init`. Don't carry `stage` into master.
+- **One commit per game on master.** After the test passes AND the CID has been pinned, rebase the patch commit onto master and amend its subject from `stage (…)` to `init`. Don't ship two commits (`init` with `PENDING_UPLOAD` + later `update CID`).
+- Merge flow:
+  1. On `patches/<slug>`: rebase on master, amend `stage (…)` → `init`.
+  2. `rad patch update <patch-id>` — pushes the rebased+amended commit as a new revision of the patch.
+  3. `rad patch ready <patch-id>` — moves the patch from draft to open (required for auto-merge detection).
+  4. `git checkout master && git merge --ff-only patches/<slug>`.
+  5. `git push rad master` — radicle sees the patch's HEAD reachable from master and auto-marks the patch **merged**, preserving review/comment history.
+  6. `git branch -d patches/<slug>` (or `-D` if radicle's tracking ref is stale).
+- **`rad patch archive` is for abandoned work only** — broken games, deprecated approaches, patches you don't intend to land. Don't archive a patch whose code is landing on master; that loses the "merged" semantics and reads as "we gave up".
+- Listing: `rad patch list` (open), `rad patch list --all` (all states), `rad patch show <id>` for revision history.
 - `git reset --hard` without explicit user permission AND a backup of any uncommitted work is forbidden. Default to `--mixed`. Intent-to-add files (`git add -N`) leave no recoverable blob after `--hard`.
 
 ## IPFS pinning only after testing
