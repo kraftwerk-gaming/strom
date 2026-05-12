@@ -313,8 +313,15 @@ let
           bwrap.chmod."/tmp/.X11-unix" = "1777";
           bwrap.ro-bind-try = x11Binds;
 
+          # If the game supplies its own runScript, exec it directly —
+          # the script invokes gamescope and the actual binary itself.
+          # Otherwise wrap the executable in gamescope.
           gamescope.command = overlayExe;
-          entrypoint = lib.getExe cfg.gamescope.outputs.wrapper;
+          entrypoint =
+            if cfg.runScript != null then
+              "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
+            else
+              lib.getExe cfg.gamescope.outputs.wrapper;
         })
 
         (lib.mkIf (cfg.runtime == "retroarch") {
