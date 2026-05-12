@@ -817,6 +817,13 @@
     "description": "Shadow of the Colossus (via PCSX2)",
     "runtime": "pcsx2"
   },
+  "shovel-knight-treasure-trove": {
+    "cids": [
+      "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
+    ],
+    "description": "Shovel Knight: Treasure Trove (native Linux, GOG v4.1B Arby's build 46298)",
+    "runtime": "native"
+  },
   "sid-meiers-pirates": {
     "cids": [
       "Qma2AyXzbaDPJq2Ztx2ahETHESGt8DHDBv2sFoUrdC8mzE",

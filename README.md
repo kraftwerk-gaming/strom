@@ -145,6 +145,7 @@ rebuilds.
 | <a href="https://lutris.net/games/rollercoaster-tycoon/"><img src="https://lutris.net/games/banner/rollercoaster-tycoon.jpg" height="40" alt="rollercoaster-tycoon"></a> | [RollerCoaster Tycoon Deluxe](https://lutris.net/games/rollercoaster-tycoon/) | `proton` | `nix run .#rollercoaster-tycoon` |
 | <a href="https://lutris.net/games/serious-sam-the-second-encounter/"><img src="https://lutris.net/games/banner/serious-sam-the-second-encounter.jpg" height="40" alt="serious-sam-the-second-encounter"></a> | [Serious Sam: The Second Encounter](https://lutris.net/games/serious-sam-the-second-encounter/) | `proton` | `nix run .#serious-sam-the-second-encounter` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run .#shadow-of-the-colossus` |
+| <a href="https://lutris.net/games/shovel-knight-treasure-trove/"><img src="https://lutris.net/games/banner/shovel-knight-treasure-trove.jpg" height="40" alt="shovel-knight-treasure-trove"></a> | [Shovel Knight: Treasure Trove](https://lutris.net/games/shovel-knight-treasure-trove/) | `native` | `nix run .#shovel-knight-treasure-trove` |
 | <a href="https://lutris.net/games/sid-meiers-pirates/"><img src="https://lutris.net/games/banner/sid-meiers-pirates.jpg" height="40" alt="sid-meiers-pirates"></a> | [Sid Meier's Pirates!](https://lutris.net/games/sid-meiers-pirates/) | `proton` | `nix run .#sid-meiers-pirates` |
 | <a href="https://lutris.net/games/simcity-2000/"><img src="https://lutris.net/games/banner/simcity-2000.jpg" height="40" alt="simcity-2000"></a> | [SimCity 2000 Special Edition](https://lutris.net/games/simcity-2000/) | `custom` | `nix run .#simcity-2000` |
 | <a href="https://lutris.net/games/simon-the-sorcerer/"><img src="https://lutris.net/games/banner/simon-the-sorcerer.jpg" height="40" alt="simon-the-sorcerer"></a> | [Simon the Sorcerer](https://lutris.net/games/simon-the-sorcerer/) | `native` | `nix run .#simon-the-sorcerer` |
@@ -192,7 +193,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_160 games_
+_161 games_
 
 <!-- END GENERATED GAMES -->
 
