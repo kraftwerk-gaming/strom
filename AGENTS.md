@@ -76,7 +76,7 @@
   4. `git checkout master && git merge --ff-only patches/<slug>`.
   5. `git push rad master` — radicle sees the patch's HEAD reachable from master and auto-marks the patch **merged**, preserving review/comment history.
   6. `git branch -d patches/<slug>` (or `-D` if radicle's tracking ref is stale).
-- **`rad patch archive` is for abandoned work only** — broken games, deprecated approaches, patches you don't intend to land. Don't archive a patch whose code is landing on master; that loses the "merged" semantics and reads as "we gave up".
+- **Never archive game patches.** Even broken-in-progress games keep their patch open so future-you (or another contributor) has the diff, diagnostic notes, and revision history in one place. `rad patch archive` is only appropriate for non-game patches (lib/infrastructure refactors, tooling experiments) that get abandoned without landing.
 - Listing: `rad patch list` (open), `rad patch list --all` (all states), `rad patch show <id>` for revision history.
 - `git reset --hard` without explicit user permission AND a backup of any uncommitted work is forbidden. Default to `--mixed`. Intent-to-add files (`git add -N`) leave no recoverable blob after `--hard`.
 
