@@ -46,6 +46,7 @@ rebuilds.
 | <a href="https://lutris.net/games/battlefield-1942/"><img src="https://lutris.net/games/banner/battlefield-1942.jpg" height="40" alt="battlefield-1942"></a> | [Battlefield 1942 Complete Collection](https://lutris.net/games/battlefield-1942/) | `proton` | `nix run .#battlefield-1942` |
 | <a href="https://lutris.net/games/battlefield-1942-desert-combat/"><img src="https://lutris.net/games/banner/battlefield-1942-desert-combat.jpg" height="40" alt="battlefield-1942-desert-combat"></a> | [Battlefield 1942: Desert Combat](https://lutris.net/games/battlefield-1942-desert-combat/) | `proton` | `nix run .#battlefield-1942-desert-combat` |
 | <a href="https://lutris.net/games/beamng-dot-drive/"><img src="https://lutris.net/games/banner/beamng-dot-drive.jpg" height="40" alt="beamng-dot-drive"></a> | [BeamNG.drive](https://lutris.net/games/beamng-dot-drive/) | `native` | `nix run .#beamng-dot-drive` |
+| <a href="https://lutris.net/games/beneath-a-steel-sky/"><img src="https://lutris.net/games/banner/beneath-a-steel-sky.jpg" height="40" alt="beneath-a-steel-sky"></a> | [Beneath a Steel Sky](https://lutris.net/games/beneath-a-steel-sky/) | `native` | `nix run .#beneath-a-steel-sky` |
 | <a href="https://lutris.net/games/braid/"><img src="https://lutris.net/games/banner/braid.jpg" height="40" alt="braid"></a> | [Braid](https://lutris.net/games/braid/) | `native` | `nix run .#braid` |
 | <a href="https://lutris.net/games/broforce/"><img src="https://lutris.net/games/banner/broforce.jpg" height="40" alt="broforce"></a> | [Broforce / Broforce Forever](https://lutris.net/games/broforce/) | `native` | `nix run .#broforce` |
 | <a href="https://lutris.net/games/burnout-3-takedown/"><img src="https://lutris.net/games/banner/burnout-3-takedown.jpg" height="40" alt="burnout-3-takedown"></a> | [Burnout 3: Takedown](https://lutris.net/games/burnout-3-takedown/) | `pcsx2` | `nix run .#burnout-3-takedown` |
@@ -84,8 +85,8 @@ rebuilds.
 | <a href="https://lutris.net/games/far-cry/"><img src="https://lutris.net/games/banner/far-cry.jpg" height="40" alt="far-cry"></a> | [Far Cry](https://lutris.net/games/far-cry/) | `proton` | `nix run .#far-cry` |
 | <a href="https://lutris.net/games/fez/"><img src="https://lutris.net/games/banner/fez.jpg" height="40" alt="fez"></a> | [FEZ](https://lutris.net/games/fez/) | `native` | `nix run .#fez` |
 | <a href="https://lutris.net/games/frog-fractions/"><img src="https://lutris.net/games/banner/frog-fractions.jpg" height="40" alt="frog-fractions"></a> | [frog-fractions](https://lutris.net/games/frog-fractions/) | `native` | `nix run .#frog-fractions` |
-| <a href="https://lutris.net/games/full-throttle/"><img src="https://lutris.net/games/banner/full-throttle.jpg" height="40" alt="full-throttle"></a> | [Full Throttle](https://lutris.net/games/full-throttle/) | `native` | `nix run .#full-throttle` |
 | <a href="https://lutris.net/games/ftl-faster-than-light/"><img src="https://lutris.net/games/banner/ftl-faster-than-light.jpg" height="40" alt="ftl-faster-than-light"></a> | [FTL: Faster Than Light Advanced Edition](https://lutris.net/games/ftl-faster-than-light/) | `native` | `nix run .#ftl-faster-than-light` |
+| <a href="https://lutris.net/games/full-throttle/"><img src="https://lutris.net/games/banner/full-throttle.jpg" height="40" alt="full-throttle"></a> | [Full Throttle](https://lutris.net/games/full-throttle/) | `native` | `nix run .#full-throttle` |
 | <a href="https://lutris.net/games/game-of-robot/"><img src="https://lutris.net/games/banner/game-of-robot.jpg" height="40" alt="game-of-robot"></a> | [The Game of Robot](https://lutris.net/games/game-of-robot/) | `native` | `nix run .#game-of-robot` |
 | <a href="https://lutris.net/games/getting-over-it-with-bennett-foddy/"><img src="https://lutris.net/games/banner/getting-over-it-with-bennett-foddy.jpg" height="40" alt="getting-over-it-with-bennett-foddy"></a> | [Getting Over It with Bennett Foddy](https://lutris.net/games/getting-over-it-with-bennett-foddy/) | `proton` | `nix run .#getting-over-it-with-bennett-foddy` |
 | <a href="https://lutris.net/games/gish/"><img src="https://lutris.net/games/banner/gish.jpg" height="40" alt="gish"></a> | [Gish](https://lutris.net/games/gish/) | `native` | `nix run .#gish` |
@@ -189,7 +190,7 @@ rebuilds.
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_156 games_
+_158 games_
 
 <!-- END GENERATED GAMES -->
 

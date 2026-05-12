@@ -107,6 +107,13 @@
     "description": "BeamNG.drive (native Linux)",
     "runtime": "native"
   },
+  "beneath-a-steel-sky": {
+    "cids": [
+      "PENDING_UPLOAD"
+    ],
+    "description": "Beneath a Steel Sky (1994 Revolution Software CD freeware, via ScummVM)",
+    "runtime": "native"
+  },
   "braid": {
     "cids": [
       "QmUVVVtFTDg7MUPL6q8a5F6wYqgZdsrtp29j653NvWesjN"
@@ -378,18 +385,18 @@
     "description": null,
     "runtime": "native"
   },
-  "full-throttle": {
-    "cids": [
-      "QmWDfCXN5oDmTUtDH3S9PyhLk5r5kLkmifvB4tDqhRpHNu"
-    ],
-    "description": "Full Throttle (1995 LucasArts SCUMM CD edition, via ScummVM)",
-    "runtime": "native"
-  },
   "ftl-faster-than-light": {
     "cids": [
       "QmXvTneLsSXRe7GUdYVirXBuxz9JehaoSM8d52bxbB4VMg"
     ],
     "description": "FTL: Faster Than Light Advanced Edition (native Linux, GOG v1.6.12)",
+    "runtime": "native"
+  },
+  "full-throttle": {
+    "cids": [
+      "QmWDfCXN5oDmTUtDH3S9PyhLk5r5kLkmifvB4tDqhRpHNu"
+    ],
+    "description": "Full Throttle (1995 LucasArts SCUMM CD edition, via ScummVM)",
     "runtime": "native"
   },
   "game-of-robot": {
