@@ -50,15 +50,13 @@ self.lib.mkGame { inherit lib pkgs; } {
     "1080"
   ];
 
-  extraBwrapArgs = [
-    # Same workaround as loop-hero: input runtimes (here Unity's Mono
-    # player) enumerate every /dev/input/event* node as a joystick. On
-    # a laptop the touchpad's absolute X/Y axes get treated as analog
-    # stick input and pull the cursor off the menu buttons, so clicks
-    # never land. Mask /dev/input from the sandbox; mouse + keyboard
-    # still arrive via Xwayland.
-    "--tmpfs /dev/input"
-  ];
+  # Same workaround as loop-hero: input runtimes (here Unity's Mono
+  # player) enumerate every /dev/input/event* node as a joystick. On
+  # a laptop the touchpad's absolute X/Y axes get treated as analog
+  # stick input and pull the cursor off the menu buttons, so clicks
+  # never land. Mask /dev/input from the sandbox; mouse + keyboard
+  # still arrive via Xwayland.
+  bwrap.tmpfs = [ "/dev/input" ];
 
   gamescope = {
     output-width = 1920;

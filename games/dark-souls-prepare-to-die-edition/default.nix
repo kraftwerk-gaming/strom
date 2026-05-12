@@ -188,7 +188,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   # Mask /dev/input/event* from the bwrap sandbox so the touchpad isn't
   # enumerated as a joystick by Xinput. DARKSOULS reads dinput devices
   # directly and an absolute-axis touchpad would jam the camera.
-  extraBwrapArgs = [ "--tmpfs /dev/input" ];
+  bwrap.tmpfs = [ "/dev/input" ];
 
   env = {
     SteamAppId = "211420";

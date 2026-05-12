@@ -160,14 +160,10 @@ self.lib.mkGame { inherit lib pkgs; } {
     pkgsi686Linux.libpulseaudio
   ];
 
-  extraBwrapArgs = [
-    "--ro-bind /sys /sys"
-    "--bind /run /run"
-    # Anno 1602 polls DirectInput joysticks and any non-zero axis turns
-    # into constant edge-scrolling (typically to the right). Hide all
-    # joystick / evdev devices from the sandbox to suppress this.
-    "--tmpfs /dev/input"
-  ];
+  # Anno 1602 polls DirectInput joysticks and any non-zero axis turns
+  # into constant edge-scrolling (typically to the right). Hide all
+  # joystick / evdev devices from the sandbox to suppress this.
+  bwrap.tmpfs = [ "/dev/input" ];
 
   meta = {
     description = "Anno 1602 A.D. Gold Edition (via Proton and gamescope)";

@@ -101,14 +101,10 @@ self.lib.mkGame { inherit lib pkgs; } {
     pkgsi686Linux.libpulseaudio
   ];
 
-  extraBwrapArgs = [
-    "--ro-bind /sys /sys"
-    "--bind /run /run"
-    # Same DirectInput joystick-axis workaround as Anno 1602: the engine
-    # turns any non-zero axis into permanent edge-scrolling. Hide all
-    # joystick / evdev devices from the sandbox.
-    "--tmpfs /dev/input"
-  ];
+  # Same DirectInput joystick-axis workaround as Anno 1602: the engine
+  # turns any non-zero axis into permanent edge-scrolling. Hide all
+  # joystick / evdev devices from the sandbox.
+  bwrap.tmpfs = [ "/dev/input" ];
 
   meta = {
     description = "Anno 1503 A.D. (via Proton and gamescope)";

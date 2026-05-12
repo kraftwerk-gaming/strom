@@ -137,18 +137,16 @@ self.lib.mkGame { inherit lib pkgs; } {
     LD_LIBRARY_PATH = "assets/linuxlibs";
   };
 
-  extraBwrapArgs = [
-    # The GameMaker Linux Runner ("YoYo Games Linux Runner V1.3")
-    # enumerates every /dev/input/event* node as a joystick. On a
-    # laptop that includes the touchpad: its absolute X/Y axes get
-    # interpreted as analog stick input (range 0..1337 mapped into
-    # signed 16-bit), so the game's UI cursor is pulled to a corner
-    # and menu clicks land on the wrong button. The runner ignores
-    # -nodirectinput, so mask /dev/input entirely. Mouse + keyboard
-    # still work via Xwayland; controller users can use Steam Input
-    # or unset this. Same workaround as anno-1503/anno-1602-ad.
-    "--tmpfs /dev/input"
-  ];
+  # The GameMaker Linux Runner ("YoYo Games Linux Runner V1.3")
+  # enumerates every /dev/input/event* node as a joystick. On a
+  # laptop that includes the touchpad: its absolute X/Y axes get
+  # interpreted as analog stick input (range 0..1337 mapped into
+  # signed 16-bit), so the game's UI cursor is pulled to a corner
+  # and menu clicks land on the wrong button. The runner ignores
+  # -nodirectinput, so mask /dev/input entirely. Mouse + keyboard
+  # still work via Xwayland; controller users can use Steam Input
+  # or unset this. Same workaround as anno-1503/anno-1602-ad.
+  bwrap.tmpfs = [ "/dev/input" ];
 
   gamescope = {
     output-width = 1920;
