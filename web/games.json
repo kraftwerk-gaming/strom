@@ -109,7 +109,7 @@
   },
   "beneath-a-steel-sky": {
     "cids": [
-      "PENDING_UPLOAD"
+      "Qmd9tAn6ff6fooW59N6LZGc9hJaCQMenQfBjFUj4gToFsC"
     ],
     "description": "Beneath a Steel Sky (1994 Revolution Software CD freeware, via ScummVM)",
     "runtime": "native"
@@ -636,6 +636,13 @@
       "QmYs37wpRTvw1ihxgzd4HR8Zf1Y1QqSATd8rHZMKETTuTm"
     ],
     "description": "Monkey Island 2: LeChuck's Revenge (1991 LucasArts, SE Talkie fan-edition for ScummVM: original VGA + SE speech)",
+    "runtime": "native"
+  },
+  "myst": {
+    "cids": [
+      "PENDING_UPLOAD"
+    ],
+    "description": "Myst: Masterpiece Edition (1999 Cyan/Ubisoft, via ScummVM Mohawk)",
     "runtime": "native"
   },
   "need-for-speed-most-wanted": {
