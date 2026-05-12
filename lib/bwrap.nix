@@ -136,24 +136,33 @@ in
     # can append further args with `bwrap.args = lib.mkAfter [ ... ];`
     # (order 1500). The wrapper template emits config.args verbatim.
     #
-    # Order matters: bwrap applies mounts in argv order, and a `--tmpfs`
-    # clobbers anything mounted under that path earlier. We emit
-    # full-root mounts first (--ro-bind / /), then --tmpfs to wipe
-    # selected dirs, then the targeted re-binds (--ro-bind-try,
-    # --bind, --bind-try, --dev-bind) which now establish mountpoints
-    # inside the tmpfs'd dirs.
+    # Order matters: bwrap applies mounts in argv order, and any mount
+    # at path P overlays anything previously mounted under P. The order
+    # we want:
+    #   1. --ro-bind / /            base ro view of host
+    #   2. --bind                   RW re-bind specific parent dirs
+    #                               (e.g. /tmp /tmp so /tmp is writable)
+    #   3. --tmpfs                  carve sandbox-owned dirs out of (1)/(2)
+    #                               (e.g. tmpfs /tmp/.X11-unix inside RW /tmp)
+    #   4. --ro-bind-try, --bind-try  overlay specific host paths INSIDE
+    #                               the tmpfs'd dirs (e.g. host X11 sockets,
+    #                               $HOME/.cache/umu inside tmpfs $HOME)
+    #   5. --proc, --dev-bind       /proc, /dev (independent paths)
+    #
+    # Crucially --bind comes BEFORE --tmpfs: re-binding a parent dir
+    # after tmpfs'ing one of its children would wipe the tmpfs.
     args = lib.mkOrder 100 (
       optionals config.unshare-pid [ "--unshare-pid" ]
       ++ optionals config.unshare-net [ "--unshare-net" ]
       ++ optionals config.share-net [ "--share-net" ]
       ++ optionals config.die-with-parent [ "--die-with-parent" ]
       ++ renderPairs "--ro-bind" config.ro-bind
+      ++ renderPairs "--bind" config.bind
       ++ renderSingles "--tmpfs" config.tmpfs
+      ++ renderPairs "--ro-bind-try" config.ro-bind-try
+      ++ renderPairs "--bind-try" config.bind-try
       ++ renderSingles "--proc" config.proc
       ++ renderPairs "--dev-bind" config.dev-bind
-      ++ renderPairs "--ro-bind-try" config.ro-bind-try
-      ++ renderPairs "--bind" config.bind
-      ++ renderPairs "--bind-try" config.bind-try
       ++ optionals (config.chdir != null) [
         "--chdir"
         config.chdir
