@@ -79,6 +79,13 @@
     "description": "Balatro (via Proton)",
     "runtime": "proton"
   },
+  "baldurs-gate-enhanced-edition": {
+    "cids": [
+      "QmZ4jgzHSoB9uLEoFkKuktoAQfEY9B6kqVtGJWPvuAw3dB"
+    ],
+    "description": "Baldur's Gate: Enhanced Edition + 3 DLC (native Linux, Beamdog GOG v2.6.6.0p, fixed libs)",
+    "runtime": "native"
+  },
   "ball-x-pit": {
     "cids": [
       "QmVP4fju6q57QgZg441JTpfgPid8wy5NFkjcavnX5dFwqD"
