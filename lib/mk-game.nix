@@ -161,14 +161,21 @@ let
               ro-bind."/" = "/";
               dev-bind."/dev" = "/dev";
               proc = [ "/proc" ];
+              # bind (pre-tmpfs): independent paths or parents of a tmpfs
+              #   target. /tmp must come before --tmpfs /tmp/.X11-unix.
+              # bind-try (post-tmpfs): paths inside a tmpfs'd parent.
+              #   The $STROM_* dirs all live under $HOME, which the proton
+              #   runtime tmpfs's; they must land here so the tmpfs doesn't
+              #   wipe them. (Other runtimes don't tmpfs $HOME and the
+              #   position is irrelevant.)
               bind = {
                 "/tmp" = "/tmp";
                 "/run" = "/run";
+              };
+              bind-try = {
                 "$STROM_GAMEDIR" = "$STROM_GAMEDIR";
                 "$STROM_COMPATDATA" = "$STROM_COMPATDATA";
                 "$STROM_CACHEDIR" = "$STROM_CACHEDIR";
-              };
-              bind-try = {
                 "$HOME/.cache/umu" = "$HOME/.cache/umu";
                 "$HOME/.cache/umu-protonfixes" = "$HOME/.cache/umu-protonfixes";
                 "$HOME/.cache/wine" = "$HOME/.cache/wine";
