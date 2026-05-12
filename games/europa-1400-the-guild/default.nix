@@ -119,11 +119,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     pkgsi686Linux.libpulseaudio
   ];
 
-  extraBwrapArgs = [
-    "--ro-bind /sys /sys"
-    "--bind /run /run"
-  ];
-
   meta = {
     description = "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];

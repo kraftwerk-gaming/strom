@@ -96,11 +96,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     pkgsi686Linux.libpulseaudio
   ];
 
-  extraBwrapArgs = [
-    "--ro-bind /sys /sys"
-    "--bind /run /run"
-  ];
-
   meta = {
     description = "Uplink: Hacker Elite v1.6 (via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];

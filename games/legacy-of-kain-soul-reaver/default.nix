@@ -124,11 +124,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     pkgsi686Linux.libpulseaudio
   ];
 
-  extraBwrapArgs = [
-    "--ro-bind /sys /sys"
-    "--bind /run /run"
-  ];
-
   meta = {
     description = "Legacy of Kain: Soul Reaver (GOG, via Proton and gamescope)";
     platforms = [ "x86_64-linux" ];
