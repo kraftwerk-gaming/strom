@@ -10,7 +10,9 @@
 #   native    : exe -> gamescope -> bwrap
 #   retroarch : rom -> retroarch -> bwrap
 #   pcsx2     : iso -> pcsx2 -> bwrap
-#   custom    : runScript -> bwrap
+#   custom    : exe -> gamescope -> fhs -> bwrap   (when runScript is null)
+#   custom    : runScript -> fhs -> bwrap          (when runScript is set;
+#                                                   the script invokes gamescope itself)
 {
   lib,
   pkgs,
@@ -326,7 +328,29 @@ let
         })
 
         (lib.mkIf (cfg.runtime == "custom") {
-          entrypoint = "${pkgs.writeShellScript "${cfg.name}-runscript" (cfg.runScript or "true")}";
+          # Same bwrap shape as native (own /tmp/.X11-unix as the sandbox
+          # user, ro-bind host X11 sockets, route $HOME at $STROM_GAMEDIR
+          # so XDG saves persist), but route the launch through an FHS
+          # chroot so old/native binaries that dlopen libs by bare name
+          # (libudev, libwayland, bundled libSDL2, ...) find them via
+          # /usr/lib.
+          bwrap.bind."$HOME" = "$STROM_GAMEDIR";
+          bwrap.tmpfs = [ "/tmp/.X11-unix" ];
+          bwrap.chmod."/tmp/.X11-unix" = "1777";
+          bwrap.ro-bind-try = x11Binds;
+
+          # Always satisfy gamescope.command (required by the module
+          # schema). It's only entered when runScript is null; when the
+          # game supplies its own runScript the script invokes gamescope
+          # itself and the gamescope wrapper output is unused.
+          gamescope.command = overlayExe;
+          fhs.runScript =
+            if cfg.runScript != null then
+              "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
+            else
+              lib.getExe cfg.gamescope.outputs.wrapper;
+          fhs.targetPkgs = cfg.targetPkgs;
+          entrypoint = lib.getExe cfg.fhs.outputs.wrapper;
         })
 
         # Final derivation: bwrap.outputs.wrapper with pname/passthru/meta.
