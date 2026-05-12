@@ -25,6 +25,15 @@ nix run github:kraftwerk-gaming/strom#<slug>
 Game state (saves, wine prefixes) lives in `~/.strom/<slug>` and survives
 rebuilds.
 
+## Cloning via Radicle
+
+This repo is also hosted on [Radicle](https://radicle.xyz/). To clone via
+the Radicle p2p network:
+
+```bash
+rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
+```
+
 ## Games
 
 <!-- BEGIN GENERATED GAMES -->
