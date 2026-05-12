@@ -557,6 +557,13 @@
     "description": "Inscryption (native Linux, GOG v1.10 build 57447)",
     "runtime": "native"
   },
+  "interstate-76": {
+    "cids": [
+      "Qma3cbzkU4FucWUeNY1cfgzFML3G6XPoWr1HKYGMNdQCWh"
+    ],
+    "description": "Interstate '76 Arsenal (Activision 1997, via Proton)",
+    "runtime": "proton"
+  },
   "jazz-jackrabbit-2": {
     "cids": [
       "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb"

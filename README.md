@@ -118,6 +118,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/indiana-jones-and-the-fate-of-atlantis/"><img src="https://lutris.net/games/banner/indiana-jones-and-the-fate-of-atlantis.jpg" height="40" alt="indiana-jones-and-the-fate-of-atlantis"></a> | [Indiana Jones and the Fate of Atlantis](https://lutris.net/games/indiana-jones-and-the-fate-of-atlantis/) | `native` | `nix run .#indiana-jones-and-the-fate-of-atlantis` |
 | <a href="https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/"><img src="https://lutris.net/games/banner/indiana-jones-and-the-last-crusade-the-graphic-adventure.jpg" height="40" alt="indiana-jones-and-the-last-crusade-the-graphic-adventure"></a> | [Indiana Jones and the Last Crusade: The Graphic Adventure](https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/) | `native` | `nix run .#indiana-jones-and-the-last-crusade-the-graphic-adventure` |
 | <a href="https://lutris.net/games/inscryption/"><img src="https://lutris.net/games/banner/inscryption.jpg" height="40" alt="inscryption"></a> | [Inscryption](https://lutris.net/games/inscryption/) | `native` | `nix run .#inscryption` |
+| <a href="https://lutris.net/games/interstate-76/"><img src="https://lutris.net/games/banner/interstate-76.jpg" height="40" alt="interstate-76"></a> | [Interstate '76 Arsenal](https://lutris.net/games/interstate-76/) | `proton` | `nix run .#interstate-76` |
 | <a href="https://lutris.net/games/jazz-jackrabbit-2/"><img src="https://lutris.net/games/banner/jazz-jackrabbit-2.jpg" height="40" alt="jazz-jackrabbit-2"></a> | [Jazz Jackrabbit 2](https://lutris.net/games/jazz-jackrabbit-2/) | `native` | `nix run .#jazz-jackrabbit-2` |
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
 | <a href="https://lutris.net/games/leap-year/"><img src="https://lutris.net/games/banner/leap-year.jpg" height="40" alt="leap-year"></a> | [Leap Year](https://lutris.net/games/leap-year/) | `proton` | `nix run .#leap-year` |
@@ -203,7 +204,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_162 games_
+_163 games_
 
 <!-- END GENERATED GAMES -->
 
