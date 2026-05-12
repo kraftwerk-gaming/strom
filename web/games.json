@@ -448,6 +448,13 @@
     "description": "Grand Theft Auto: Vice City (2002 Rockstar, PC v1.0 + SilentPatch + ThirteenAG Widescreen Fix, via Proton)",
     "runtime": "proton"
   },
+  "graveyard-keeper": {
+    "cids": [
+      "QmWFSw81EZnicAZnt57Zpp6FT51Pjq1oyd1knChkXibWxb"
+    ],
+    "description": "Graveyard Keeper +3 DLC (native Linux, GOG v1.405 build 55214)",
+    "runtime": "native"
+  },
   "half-life": {
     "cids": [
       "QmeUQvq7qxgmktqQyWR5XmyDEXxayjJaQrEpkMg1P8F1qP"
@@ -640,7 +647,7 @@
   },
   "myst": {
     "cids": [
-      "PENDING_UPLOAD"
+      "QmYh8JKdbxsSaKiHKY284F4PrdCFnb3yJ22kvag7M5JN8X"
     ],
     "description": "Myst: Masterpiece Edition (1999 Cyan/Ubisoft, via ScummVM Mohawk)",
     "runtime": "native"
