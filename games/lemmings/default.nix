@@ -3,7 +3,6 @@
   bchunk,
   dosbox-x,
   fetchIpfs,
-  gamescope,
   lib,
   p7zip,
   pkgs,
@@ -78,11 +77,21 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 640;
+    nested-height = 480;
+    flags = {
+      "-r" = "60";
+      "--expose-wayland" = true;
+    };
+  };
+
   runScript = ''
     export XDG_CONFIG_HOME="$GAMEDIR/.config"
 
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --expose-wayland -- \
-      ${dosbox-x}/bin/dosbox-x \
+    exec ${dosbox-x}/bin/dosbox-x \
       -nomenu \
       -conf ${dosboxConf} \
       -c "imgmount d \"$GAMEDIR/lemmings.cue\" -t cdrom" \

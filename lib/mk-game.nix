@@ -322,15 +322,18 @@ let
           bwrap.ro-bind-try = x11Binds;
           bwrap.env = cfg.env;
 
-          # If the game supplies its own runScript, exec it directly —
-          # the script invokes gamescope and the actual binary itself.
-          # Otherwise wrap the executable in gamescope.
-          gamescope.command = overlayExe;
-          entrypoint =
+          # gamescope always wraps the inner command, so games configure
+          # it via the typed `gamescope` sub-option rather than invoking
+          # the binary themselves. If the game supplies a runScript it
+          # becomes the inner command (for env exports / mkdir / config
+          # bootstrap before the real exec); otherwise gamescope wraps
+          # the executable directly.
+          gamescope.command =
             if cfg.runScript != null then
               "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
             else
-              lib.getExe cfg.gamescope.outputs.wrapper;
+              overlayExe;
+          entrypoint = lib.getExe cfg.gamescope.outputs.wrapper;
         })
 
         (lib.mkIf (cfg.runtime == "retroarch") {

@@ -15,7 +15,15 @@ let
   flagArgs = config.pkgs.lib.lists.concatLists (
     lib.mapAttrsToList (
       name: val:
-      if val == null then [ ] else if val == true then [ name ] else [ name (toString val) ]
+      if val == null then
+        [ ]
+      else if val == true then
+        [ name ]
+      else
+        [
+          name
+          (toString val)
+        ]
     ) (lib.filterAttrs (_: v: v != null && v != false) config.gamescopeFlags)
   );
   shellEscape = arg: ''"${arg}"'';
@@ -65,15 +73,21 @@ in
       "--nested-width" = if config.nested-width != null then toString config.nested-width else null;
       "--nested-height" = if config.nested-height != null then toString config.nested-height else null;
     }
-    // lib.mapAttrs (_: v: if v == false then null else if v == true then true else toString v) config.flags;
+    // lib.mapAttrs (
+      _: v:
+      if v == false then
+        null
+      else if v == true then
+        true
+      else
+        toString v
+    ) config.flags;
 
     outputs.wrapper = config.pkgs.writeShellApplication {
       name = config.binName;
       runtimeInputs = [ config.pkgs.gamescope ] ++ config.extraPackages;
       text = ''
-        ${lib.concatStringsSep "\n" (
-          lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env
-        )}
+        ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
         ${lib.optionalString (config.postHook == "") "exec"} gamescope \
           ${lib.concatMapStringsSep " \\\n  " shellEscape flagArgs} \

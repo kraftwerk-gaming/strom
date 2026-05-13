@@ -4,7 +4,6 @@
   pkgs,
   fetchIpfs,
   scummvm,
-  gamescope,
   unzip,
 }:
 
@@ -37,10 +36,18 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--expose-wayland" = true;
+    };
+  };
+
   runScript = ''
     mkdir -p "$STROM_GAMEDIR/save"
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -r 60 --expose-wayland -- \
-      ${scummvm}/bin/scummvm \
+    exec ${scummvm}/bin/scummvm \
       --fullscreen \
       --path="$GAMEDIR" \
       --savepath="$STROM_GAMEDIR/save" \
