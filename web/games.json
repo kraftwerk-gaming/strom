@@ -1031,6 +1031,13 @@
     "description": "The Curse of Monkey Island (1997 LucasArts, 2-CD PC EU release, via ScummVM)",
     "runtime": "native"
   },
+  "the-elder-scrolls-ii-daggerfall": {
+    "cids": [
+      "QmPPaCz8XMebVU5Hm4S37PiABjXRB85dopX1Am3TESFB4H"
+    ],
+    "description": "The Elder Scrolls II: Daggerfall (Bethesda 1996, via Daggerfall Unity)",
+    "runtime": "custom"
+  },
   "the-legend-of-zelda-a-link-to-the-past": {
     "cids": [
       "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt"
