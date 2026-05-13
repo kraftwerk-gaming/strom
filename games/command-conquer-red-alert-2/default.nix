@@ -78,28 +78,37 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
-  executable = "game.exe";
-
-  runScript = ''
-    export LD_LIBRARY_PATH="/usr/lib32''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-    export WINEDLLOVERRIDES="ddraw=n,b"
-    export PROTON_USE_WINED3D="1"
-
-    # First run: let Ra2.exe (launcher) set up registry and serial,
-    # then use game.exe directly on subsequent runs.
-    SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
-    if [ ! -f "$SYSREG" ] || ! grep -q 'Westwood' "$SYSREG"; then
-      # Run Ra2.exe once to initialize - it creates prefix and sets registry
-      gamescope -W 800 -H 600 -- "$PROTON_RUN" "$GAMEDIR/Ra2.exe" 2>/dev/null || true
-      sleep 5
-    fi
-
-    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --force-grab-cursor -- \
-      "$PROTON_RUN" "$GAMEDIR/game.exe" -speedcontrol
-  '';
+  # Ra2.exe is the official Westwood launcher (Play / Yuri's Revenge /
+  # Quit menu). game.exe and gamemd.exe crash on the current proton at
+  # startup before opening a window; the launcher route works.
+  executable = "Ra2.exe";
 
   env = {
+    # cnc-ddraw replaces wine's built-in ddraw; force native-then-builtin.
+    WINEDLLOVERRIDES = "ddraw=n,b";
     STAGING_WRITECOPY = "1";
+  };
+
+  # Seed Westwood\Red Alert 2 + Yuri's Revenge registry keys directly so
+  # the launcher doesn't prompt for a serial. Runs once after proton has
+  # bootstrapped the prefix.
+  preRun = ''
+    SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
+    if [ -f "$SYSREG" ] && ! grep -q 'Westwood\\\\Red Alert 2' "$SYSREG"; then
+      sh ${setupRegistry} "$SYSREG" "$GAMEDIR"
+    fi
+  '';
+
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--force-grab-cursor" = true;
+      "--expose-wayland" = true;
+    };
   };
 
   meta = {
