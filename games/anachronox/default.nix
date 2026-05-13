@@ -55,12 +55,24 @@ self.lib.mkGame { inherit lib pkgs; } {
   # gl_mode 3 (640x480) and various sound providers, which is the
   # combination that dies during the first map load under Proton.
   executableArgs = [
-    "+set" "gl_driver" "opengl32"
-    "+set" "gl_mode" "8"
-    "+set" "u_gl_mode" "8"
-    "+set" "vid_fullscreen" "1"
-    "+set" "u_vid_fullscreen" "1"
-    "+set" "s_initsound" "0"
+    "+set"
+    "gl_driver"
+    "opengl32"
+    "+set"
+    "gl_mode"
+    "8"
+    "+set"
+    "u_gl_mode"
+    "8"
+    "+set"
+    "vid_fullscreen"
+    "1"
+    "+set"
+    "u_vid_fullscreen"
+    "1"
+    "+set"
+    "s_initsound"
+    "0"
   ];
 
   gamescope = {
