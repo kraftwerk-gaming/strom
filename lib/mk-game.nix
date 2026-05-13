@@ -210,6 +210,26 @@ let
                   fi
                 ''}
 
+                # Sweep stale /tmp/.X{1..32}-lock files. gamescope/Xwayland
+                # writes its running PID into these locks, then on the next
+                # start does `kill -0 <pid>`. We run gamescope inside bwrap
+                # with --unshare-pid, so the lock PIDs are namespaced (1,2,
+                # 11,…) — values present in every fresh pid-namespace too,
+                # making every slot appear taken ("No display available in
+                # the first 33"). Check the abstract X socket instead: the
+                # net namespace is shared with the host, so a *bound*
+                # `@/tmp/.X11-unix/Xn` shows up in /proc/net/unix and means
+                # the slot is genuinely in use by a parallel game.
+                for __strom_xlock in /tmp/.X[0-9]*-lock; do
+                  [ -e "$__strom_xlock" ] || continue
+                  [ -O "$__strom_xlock" ] || continue
+                  __strom_n=''${__strom_xlock#/tmp/.X}
+                  __strom_n=''${__strom_n%-lock}
+                  if ! grep -qF "@/tmp/.X11-unix/X$__strom_n" /proc/net/unix; then
+                    rm -f "$__strom_xlock"
+                  fi
+                done
+
                 # Mount the read-write overlay over the nix-store game data.
                 STROM_OVERLAY=$(${lib.getExe cfg.fuseOverlayfs.outputs.wrapper} "$STROM_GAMEDIR" 9<&-)
                 export STROM_OVERLAY
