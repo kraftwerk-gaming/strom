@@ -12,6 +12,7 @@
 let
   inherit (lib) mkOption types;
   stub = config.pkgs.callPackage ../pkgs/steamclient-stub { };
+  shellEscape = arg: ''"${arg}"'';
 in
 {
   _class = "wrapper";
@@ -181,5 +182,26 @@ in
       ${config.package}/files/bin/wineserver -k 2>/dev/null || true
       ${config.package}/files/bin/wineserver -w 2>/dev/null || true
     '';
+
+    # Override the default wrapPackage template so PROTON_ARGS can be
+    # word-split and spliced in just after the proton binary, before
+    # `waitforexitandrun`. Useful for ad-hoc umu-launcher flags without
+    # rebuilding the derivation.
+    outputs.wrapper = config.pkgs.writeShellApplication {
+      name = config.binName;
+      runtimeInputs = config.extraPackages;
+      text = ''
+        ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
+        ${config.preHook}
+        read -ra _proton_extra <<< "''${PROTON_ARGS:-}"
+        ${config.exePath} \
+          "''${_proton_extra[@]}" \
+          ${
+            lib.concatMapStringsSep " \\\n  " shellEscape (lib.filter (a: a != "$@") (config.args or [ ]))
+          } \
+          "$@"
+        ${config.postHook}
+      '';
+    };
   };
 }

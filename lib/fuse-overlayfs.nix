@@ -60,8 +60,14 @@
           exit 0
         fi
 
+        # OVERLAYFS_ARGS: runtime-injected fuse-overlayfs flags, word-split
+        # and spliced in just before the mount point. Useful for ad-hoc
+        # debugging (e.g. OVERLAYFS_ARGS="-d") or extra mount options.
+        read -ra _overlayfs_extra <<< "''${OVERLAYFS_ARGS:-}"
+
         set -- \
           -o "lowerdir=$SRC,upperdir=$UPPER,workdir=$WORK,squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
+          "''${_overlayfs_extra[@]}" \
           "$MERGED"
       '';
 

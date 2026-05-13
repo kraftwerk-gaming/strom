@@ -188,9 +188,13 @@ in
     outputs.wrapper = config.pkgs.writeShellApplication {
       name = config.binName;
       runtimeInputs = [ config.pkgs.bubblewrap ] ++ config.extraPackages;
+      # BWRAP_ARGS: runtime-injected bwrap flags, word-split and spliced
+      # in just before `--`. Useful for ad-hoc binds during debugging,
+      # e.g. BWRAP_ARGS="--bind /home/me/saves /home/me/saves".
       text = ''
         ${lib.concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
+        read -ra _bwrap_extra <<< "''${BWRAP_ARGS:-}"
         bwrap \
           ${
             concatMapStringsSep " \\\n  " shellEscape (
@@ -199,6 +203,7 @@ in
               lib.filter (a: a != "$@") (config.args or [ ])
             )
           } \
+          "''${_bwrap_extra[@]}" \
           -- \
           "${config.command}" "$@" &
         BWRAP_PID=$!

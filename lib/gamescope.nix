@@ -86,11 +86,17 @@ in
     outputs.wrapper = config.pkgs.writeShellApplication {
       name = config.binName;
       runtimeInputs = [ config.pkgs.gamescope ] ++ config.extraPackages;
+      # GAMESCOPE_ARGS: runtime-injected gamescope flags, word-split and
+      # spliced in just before `--`. Useful for per-machine knobs that
+      # shouldn't bake into the derivation, e.g.
+      #   GAMESCOPE_ARGS="--prefer-vk-device=8086:9b41" nix run .#half-life
       text = ''
         ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
+        read -ra _gamescope_extra <<< "''${GAMESCOPE_ARGS:-}"
         ${lib.optionalString (config.postHook == "") "exec"} gamescope \
           ${lib.concatMapStringsSep " \\\n  " shellEscape flagArgs} \
+          "''${_gamescope_extra[@]}" \
           -- \
           "${config.command}" "$@"
         ${config.postHook}
