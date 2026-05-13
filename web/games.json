@@ -1229,5 +1229,12 @@
     ],
     "description": "Xenogears (via RetroArch / SwanStation)",
     "runtime": "retroarch"
+  },
+  "z": {
+    "cids": [
+      "QmQ5Q51cBoG66qiMkQq25vR8YCQJxovHU45JqeQaxwfPAd"
+    ],
+    "description": "Z (Bitmap Brothers 1996, via DOSBox-X)",
+    "runtime": "custom"
   }
 }
