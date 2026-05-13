@@ -1,7 +1,10 @@
 # fetch-ipfs.nix - Fixed-output derivation fetcher that retrieves a CID
-# from the IPFS network using lassie (parallel HTTP gateway + bitswap +
-# graphsync), extracts the file with go-car, and falls back to a plain
-# HTTP URL if the IPFS path fails.
+# from one or more HTTP IPFS gateways using aria2c. aria2c parallelises
+# the download as Range requests across the given gateways, so a single
+# slow / mid-stream-cutting gateway can't stall the build the way a
+# CAR-streaming retriever does. Cloudflare-fronted public gateways tend
+# to truncate long streamed responses; aria2c sidesteps this because each
+# connection is a short, cacheable Range.
 #
 # Usage:
 #   fetchIpfs {
@@ -10,11 +13,18 @@
 #     hash = "sha256-...";
 #     name = "foo.zip";
 #   }
+#
+# Local mirrors:
+#   The caller's environment may set STROM_IPFS_GATEWAYS to a comma- or
+#   space-separated list of gateway prefixes (no trailing slash, no /ipfs/).
+#   Those are prepended to the public gateway list so a private/local
+#   mirror is preferred while still falling back to public infrastructure.
+#   The var is declared in impureEnvVars; the FOD output hash is what
+#   ultimately gates correctness, so this is safe to read at build time.
 {
   lib,
   stdenvNoCC,
-  lassie,
-  go-car,
+  aria2,
   curl,
   cacert,
 }:
@@ -24,18 +34,17 @@
   fallbackUrl ? "",
   hash,
   name,
-  # Optional expected size in bytes. When set, the progress watcher
-  # prints a percentage. If unset and fallbackUrl is given, we try to
-  # discover it via an HTTP HEAD on the fallback URL.
-  size ? 0,
-  # HTTP gateways and libp2p multiaddrs lassie should always try in addition
-  # to whatever it discovers via IPNI (cid.contact). Order is informational
-  # only — lassie races them in parallel. ipfs.io 301-redirects all CAR
-  # requests to trustless-gateway.link, so we point there directly.
+  # HTTP gateway prefixes (no trailing slash, no /ipfs/). aria2c will
+  # request "<prefix>/ipfs/<cid>" from each and split the file across them
+  # via Range. trustless-gateway.link is omitted because it returns 406
+  # without an explicit `Accept: application/vnd.ipld.car` header and
+  # serves CARs rather than raw bytes.
   providers ? [
-    "https://trustless-gateway.link"
     "https://ipfs.io"
     "https://dweb.link"
+    "https://gateway.pinata.cloud"
+    "https://w3s.link"
+    "https://nftstorage.link"
   ],
 }:
 
@@ -43,8 +52,7 @@ stdenvNoCC.mkDerivation {
   inherit name;
 
   nativeBuildInputs = [
-    lassie
-    go-car
+    aria2
     curl
   ];
 
@@ -53,155 +61,78 @@ stdenvNoCC.mkDerivation {
   outputHashAlgo = "sha256";
 
   inherit cid fallbackUrl;
-  expectedSize = toString size;
-  providers = lib.concatStringsSep "," providers;
+  providers = lib.concatStringsSep " " providers;
 
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
   preferLocalBuild = true;
 
-  impureEnvVars = lib.fetchers.proxyImpureEnvVars;
+  # STROM_IPFS_GATEWAYS lets the invoking user inject extra (private/local)
+  # gateways without baking their URL into the repo. Format: comma- or
+  # space-separated prefixes, e.g. "https://my.gateway https://other.gw".
+  impureEnvVars = lib.fetchers.proxyImpureEnvVars ++ [ "STROM_IPFS_GATEWAYS" ];
 
-  # Note: run `nix build -L` (or set `--print-build-logs`) to see this
-  # live; without -L Nix buffers build output until completion.
   buildCommand = ''
-    car_file="$TMPDIR/fetch.car"
-
-    # Discover total size: caller-provided value wins, otherwise try a
-    # HEAD request against the fallback URL, then a public IPFS gateway,
-    # for a Content-Length hint. The size is only used for progress
-    # display; if discovery fails the build still succeeds.
-    extract_content_length() {
-      awk 'BEGIN{IGNORECASE=1} /^content-length:/ {gsub("\r",""); print $2}' \
-        | tail -n1
-    }
-    # nixpkgs stdenv builders run with `set -eo pipefail; shopt -s
-    # inherit_errexit`, so curl exiting non-zero inside `$(... | ...)`
-    # would otherwise abort the whole build via the assignment's command
-    # substitution before lassie even starts. `|| true` at the end of
-    # each pipeline neutralises that path so a 4xx fallback URL (e.g.
-    # archive.org DMCA / dead link) doesn't kill the IPFS retrieval.
-    total=$expectedSize
-    if [ "$total" = "0" ] && [ -n "$fallbackUrl" ]; then
-      total=$(curl -fsLI --max-time 15 "$fallbackUrl" 2>/dev/null \
-        | extract_content_length || true)
-      total="''${total:-0}"
-      [ "$total" != "0" ] && echo "[fetch-ipfs] discovered size $total via fallback HEAD"
-    fi
-    if [ "$total" = "0" ]; then
-      for gw in https://ipfs.io https://dweb.link; do
-        total=$(curl -fsLI --max-time 15 "$gw/ipfs/$cid" 2>/dev/null \
-          | extract_content_length || true)
-        total="''${total:-0}"
-        if [ "$total" != "0" ]; then
-          echo "[fetch-ipfs] discovered size $total via $gw"
-          break
-        fi
+    # Assemble the URL list: user-injected gateways first (preferred when
+    # reachable), then the public defaults. aria2c races them via Range
+    # requests, so the local mirror dominates when it's fast and the
+    # public ones serve as automatic failover.
+    urls=""
+    if [ -n "''${STROM_IPFS_GATEWAYS:-}" ]; then
+      for gw in $(echo "$STROM_IPFS_GATEWAYS" | tr ',' ' '); do
+        [ -n "$gw" ] && urls="$urls ''${gw%/}/ipfs/$cid"
       done
     fi
+    for gw in $providers; do
+      urls="$urls ''${gw%/}/ipfs/$cid"
+    done
 
-    # Background poller: prints size + transfer rate every 5s so you
-    # can tell whether anything is actually being downloaded. Also prints
-    # percentage and ETA when the total is known.
-    progress_watch() {
-      local target="$1"
-      local prev=0 now=0 delta=0
-      while true; do
-        sleep 5
-        if [ -f "$target" ]; then
-          now=$(stat -c %s "$target" 2>/dev/null || echo 0)
-          delta=$(( (now - prev) / 5 ))
-          if [ "$total" != "0" ] && [ "$delta" -gt 0 ]; then
-            local pct=$(( now * 100 / total ))
-            local eta=$(( (total - now) / delta ))
-            printf '[fetch-ipfs] %s: %s / %s (%d%%, %s/s, ETA %ds)\n' \
-              "$cid" \
-              "$(numfmt --to=iec --suffix=B $now)" \
-              "$(numfmt --to=iec --suffix=B $total)" \
-              "$pct" \
-              "$(numfmt --to=iec --suffix=B $delta)" \
-              "$eta"
-          elif [ "$total" != "0" ]; then
-            local pct=$(( now * 100 / total ))
-            printf '[fetch-ipfs] %s: %s / %s (%d%%, %s/s)\n' \
-              "$cid" \
-              "$(numfmt --to=iec --suffix=B $now)" \
-              "$(numfmt --to=iec --suffix=B $total)" \
-              "$pct" \
-              "$(numfmt --to=iec --suffix=B $delta)"
-          else
-            printf '[fetch-ipfs] %s: %s (%s/s, total unknown)\n' \
-              "$cid" \
-              "$(numfmt --to=iec --suffix=B $now)" \
-              "$(numfmt --to=iec --suffix=B $delta)"
-          fi
-          prev=$now
-        else
-          printf '[fetch-ipfs] %s: waiting for first byte...\n' "$cid"
-        fi
-      done
-    }
+    echo "[fetch-ipfs] $cid via aria2c across:"
+    for u in $urls; do echo "  $u"; done
 
-    fetch_via_lassie() {
-      echo "fetching $cid via lassie (providers: $providers + IPNI)"
-      progress_watch "$car_file" &
-      local watch_pid=$!
-      trap 'kill $watch_pid 2>/dev/null || true' EXIT
-      # GOLOG_LOG_LEVEL controls go-libp2p / lassie internal logs.
-      # bitswap=debug shows per-block requests; lassie=debug shows
-      # provider selection and retrieval state machine transitions.
-      if GOLOG_LOG_LEVEL="error,lassie=debug,bitswap_client=info" \
-        lassie fetch \
-        --progress \
-        --providers "$providers" \
-        --provider-timeout 60s \
-        --global-timeout 1800s \
-        --output "$car_file" \
-        "$cid"
-      then
-        kill $watch_pid 2>/dev/null || true
-        echo "extracting $cid from CAR"
-        if car extract -f "$car_file" - > "$out" 2>/dev/null \
-          && [ -s "$out" ]; then
-          return 0
-        fi
-        # car extract only handles UnixFS DAGs. Small files added with
-        # --raw-leaves end up as a single raw-codec block (bafkrei...) with
-        # no UnixFS wrapper, in which case the block bytes are the file.
-        # Fall back to dumping the root block directly.
-        echo "car extract produced no files; trying raw block" >&2
-        if car get-block "$car_file" "$cid" > "$out" 2>/dev/null \
-          && [ -s "$out" ]; then
-          return 0
-        fi
-        echo "car extract and get-block both failed" >&2
-      fi
-      kill $watch_pid 2>/dev/null || true
-      rm -f "$car_file" "$out"
-      return 1
+    fetch_via_aria() {
+      # --split / --max-connection-per-server control parallelism.
+      # --min-split-size keeps Range chunks large enough that overhead
+      # stays low; 16M is the aria2 default minimum that's also kind to
+      # gateway caches.
+      # --check-integrity=false: integrity is verified by Nix's outputHash.
+      # --conditional-get / --allow-overwrite=true cope with restarted builds.
+      aria2c \
+        --console-log-level=warn \
+        --summary-interval=10 \
+        --connect-timeout=30 \
+        --timeout=120 \
+        --max-tries=5 \
+        --retry-wait=10 \
+        --split=8 \
+        --max-connection-per-server=4 \
+        --min-split-size=16M \
+        --check-integrity=false \
+        --allow-overwrite=true \
+        --auto-file-renaming=false \
+        --dir="$TMPDIR" \
+        --out="fetch.bin" \
+        $urls
     }
 
     fetch_via_curl() {
       [ -z "$fallbackUrl" ] && return 1
-      echo "fetching fallback $fallbackUrl"
-      progress_watch "$out" &
-      local watch_pid=$!
-      trap 'kill $watch_pid 2>/dev/null || true' EXIT
-      curl -fL --max-time 1800 --progress-bar --retry 3 -o "$out" "$fallbackUrl"
-      local rc=$?
-      kill $watch_pid 2>/dev/null || true
-      return $rc
+      echo "[fetch-ipfs] fallback: $fallbackUrl"
+      curl -fL --max-time 1800 --progress-bar --retry 3 \
+        -o "$TMPDIR/fetch.bin" "$fallbackUrl"
     }
 
-    if fetch_via_lassie; then
+    if fetch_via_aria; then
+      mv "$TMPDIR/fetch.bin" "$out"
       exit 0
     fi
 
     if fetch_via_curl; then
+      mv "$TMPDIR/fetch.bin" "$out"
       exit 0
     fi
 
-    echo "error: lassie and fallback both failed for $cid" >&2
+    echo "[fetch-ipfs] error: aria2c and fallback both failed for $cid" >&2
     exit 1
   '';
 }

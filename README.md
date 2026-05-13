@@ -211,10 +211,16 @@ _163 games_
 ## IPFS
 
 Game files are fetched from IPFS via `fetchIpfs` (see `lib/fetch-ipfs.nix`).
-Each game carries an IPFS CID and an archive.org fallback URL. At build time,
-lassie fetches the CID from the IPFS network (DHT + HTTP gateways in
-parallel), and falls back to the archive.org URL if IPFS fails. The nix
-output hash ensures integrity regardless of source.
+Each game carries an IPFS CID and an optional archive.org fallback URL. At
+build time, `aria2c` races Range requests across multiple public IPFS HTTP
+gateways (ipfs.io, dweb.link, gateway.pinata.cloud, w3s.link,
+nftstorage.link) in parallel; if all gateways fail it falls back to the
+fallback URL. The nix output hash ensures integrity regardless of source.
+
+You can prepend a private mirror by exporting `STROM_IPFS_GATEWAYS` (comma-
+or space-separated prefixes, no trailing slash, no `/ipfs/`) before invoking
+`nix build`. The mirror is preferred when reachable and the public gateways
+serve as automatic failover.
 
 ### Setting up an IPFS node with kubo
 
@@ -283,18 +289,16 @@ curl -sI 'https://ipfs.io/ipfs/QmZPyB...' | head -5
 # content-length: 7412276595
 ```
 
-To test the full fetch path that `fetchIpfs` uses at build time (lassie +
-go-car), use the lassie binary from this flake:
+To test the full fetch path that `fetchIpfs` uses at build time, point
+`aria2c` at the same gateway set:
 
 ```bash
-nix run github:kraftwerk-gaming/strom#lassie -- fetch \
-  --progress \
-  --providers 'https://ipfs.io,https://dweb.link' \
-  -o /tmp/test.7z \
-  'QmZPyB...'
-
-# extract the file from the CAR archive
-nix shell nixpkgs#go-car -c car extract -f /tmp/test.car /tmp/test.7z
+nix run nixpkgs#aria2 -- \
+  --split=8 --max-connection-per-server=4 --min-split-size=16M \
+  --out=/tmp/test.7z \
+  https://ipfs.io/ipfs/QmZPyB... \
+  https://dweb.link/ipfs/QmZPyB... \
+  https://nftstorage.link/ipfs/QmZPyB...
 
 # verify the nix hash matches what fetchIpfs expects
 nix hash file --sri /tmp/test.7z

@@ -89,8 +89,8 @@
 
 ## fetchIpfs fallbackUrl must NOT be an IPFS gateway
 
-- `fetchIpfs` already races multiple IPFS gateways (`trustless-gateway.link`, `ipfs.io`, `dweb.link`) plus IPNI in parallel via lassie. `fallbackUrl` exists for the curl-based escape hatch when the IPFS retrieval pipeline is broken.
-- **Never set `fallbackUrl` to `https://ipfs.io/ipfs/<CID>` / `https://dweb.link/ipfs/<CID>` / `https://trustless-gateway.link/ipfs/<CID>` / any IPFS gateway URL.** Same CID + same gateway pool = no recovery value when lassie fails.
+- `fetchIpfs` already races multiple IPFS gateways (`ipfs.io`, `dweb.link`, `gateway.pinata.cloud`, `w3s.link`, `nftstorage.link`) in parallel via aria2c Range requests, plus any private mirror injected via `STROM_IPFS_GATEWAYS`. `fallbackUrl` exists for the curl-based escape hatch when the IPFS retrieval pipeline is broken.
+- **Never set `fallbackUrl` to `https://ipfs.io/ipfs/<CID>` / `https://dweb.link/ipfs/<CID>` / any IPFS gateway URL.** Same CID + same gateway pool = no recovery value when the IPFS path fails.
 - `fallbackUrl` should always point at a non-IPFS source: archive.org item, GOG/publisher CDN, project's own release URL. If no equivalent non-IPFS URL exists with matching bytes, leave `fallbackUrl = ""` (empty) OR document the upstream archive item even if the bytes differ (zip vs 7z) — the URL doubles as documentation.
 
 ## Game data directories (~/.strom/<game>)
