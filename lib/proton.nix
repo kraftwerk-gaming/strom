@@ -160,7 +160,7 @@ in
       ${lib.optionalString (config.saveLocations != [ ]) ''
         # Save-symlink relocation: pull each saveLocation out of the
         # wineprefix into $STROM_GAMEDIR (survives prefix wipes).
-        # shellcheck disable=SC2043
+        # shellcheck disable=SC2041,SC2043
         for __strom_save in ${lib.escapeShellArgs config.saveLocations}; do
           __strom_src="${config.compatDataPath}/pfx/drive_c/users/steamuser/$__strom_save"
           __strom_dst="$STROM_GAMEDIR/$(basename "$__strom_save")"
