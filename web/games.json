@@ -607,6 +607,13 @@
     "description": "Journey (thatgamecompany 2019, via Proton)",
     "runtime": "proton"
   },
+  "kknd": {
+    "cids": [
+      "QmU7RfUrkdx3sMV2h1wUExwrs1SngP81rkHKBQFzVAPLXW"
+    ],
+    "description": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "leap-year": {
     "cids": [
       "QmVhSd1hiMBQwCXcgASGp9wm7PbMX2GrJ6Ziwcs5vp4re5"
