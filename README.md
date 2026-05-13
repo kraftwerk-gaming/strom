@@ -137,6 +137,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/jet-set-radio/"><img src="https://lutris.net/games/banner/jet-set-radio.jpg" height="40" alt="jet-set-radio"></a> | [Jet Set Radio](https://lutris.net/games/jet-set-radio/) | `proton` | `nix run .#jet-set-radio` |
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
 | <a href="https://lutris.net/games/kknd/"><img src="https://lutris.net/games/banner/kknd.jpg" height="40" alt="kknd"></a> | [KKnD Xtreme / Krush Kill 'n Destroy](https://lutris.net/games/kknd/) | `proton` | `nix run .#kknd` |
+| <a href="https://lutris.net/games/lands-of-lore-the-throne-of-chaos/"><img src="https://lutris.net/games/banner/lands-of-lore-the-throne-of-chaos.jpg" height="40" alt="lands-of-lore-the-throne-of-chaos"></a> | [Lands of Lore: The Throne of Chaos](https://lutris.net/games/lands-of-lore-the-throne-of-chaos/) | `custom` | `nix run .#lands-of-lore-the-throne-of-chaos` |
 | <a href="https://lutris.net/games/leap-year/"><img src="https://lutris.net/games/banner/leap-year.jpg" height="40" alt="leap-year"></a> | [Leap Year](https://lutris.net/games/leap-year/) | `proton` | `nix run .#leap-year` |
 | <a href="https://lutris.net/games/leap-year-march/"><img src="https://lutris.net/games/banner/leap-year-march.jpg" height="40" alt="leap-year-march"></a> | [Leap Year: March](https://lutris.net/games/leap-year-march/) | `proton` | `nix run .#leap-year-march` |
 | <a href="https://lutris.net/games/legacy-of-kain-soul-reaver/"><img src="https://lutris.net/games/banner/legacy-of-kain-soul-reaver.jpg" height="40" alt="legacy-of-kain-soul-reaver"></a> | [Legacy of Kain: Soul Reaver](https://lutris.net/games/legacy-of-kain-soul-reaver/) | `proton` | `nix run .#legacy-of-kain-soul-reaver` |
@@ -243,7 +244,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_202 games_
+_203 games_
 
 <!-- END GENERATED GAMES -->
 

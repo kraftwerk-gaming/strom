@@ -693,6 +693,13 @@
     "description": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
     "runtime": "proton"
   },
+  "lands-of-lore-the-throne-of-chaos": {
+    "cids": [
+      "QmU331ijQLC4A1ziNs5wXY1aZWYPqGXCxoD55vVamitQvW"
+    ],
+    "description": "Lands of Lore: The Throne of Chaos (1993 Westwood CD, via DOSBox-X)",
+    "runtime": "custom"
+  },
   "leap-year": {
     "cids": [
       "QmVhSd1hiMBQwCXcgASGp9wm7PbMX2GrJ6Ziwcs5vp4re5"
