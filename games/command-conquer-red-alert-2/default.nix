@@ -87,7 +87,7 @@ self.lib.mkGame { inherit lib pkgs; } {
 
     # First run: let Ra2.exe (launcher) set up registry and serial,
     # then use game.exe directly on subsequent runs.
-    SYSREG="$COMPATDATA/pfx/system.reg"
+    SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
     if [ ! -f "$SYSREG" ] || ! grep -q 'Westwood' "$SYSREG"; then
       # Run Ra2.exe once to initialize - it creates prefix and sets registry
       gamescope -W 800 -H 600 -- "$PROTON_RUN" "$GAMEDIR/Ra2.exe" 2>/dev/null || true

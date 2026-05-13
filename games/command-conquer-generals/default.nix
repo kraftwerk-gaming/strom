@@ -84,13 +84,13 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   preRun = ''
-    SYSREG="$COMPATDATA/pfx/system.reg"
-    DOCS="$COMPATDATA/pfx/drive_c/users/steamuser/Documents"
+    SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
+    DOCS="$STROM_COMPATDATA/0/pfx/drive_c/users/steamuser/Documents"
     SEED="$GAMEDIR/_seed/Command and Conquer Generals Data"
 
     if ! grep -q 'EA Games\\\\Generals' "$SYSREG" 2>/dev/null; then
       echo "[strom] first-run setup: importing registry"
-      REGFILE="$COMPATDATA/install.reg"
+      REGFILE="$STROM_COMPATDATA/install.reg"
       WINEPATH="Z:$(echo "$GAMEDIR" | sed 's|/|\\\\|g')\\\\"
       python3 -c 'import sys; sys.stdout.write(open(sys.argv[1]).read().replace("@WINEPATH@", sys.argv[2]))' \
         ${./install.reg.template} "$WINEPATH" > "$REGFILE"

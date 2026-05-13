@@ -46,16 +46,16 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   preRun = ''
-        # Write 1920x1080 resolution directly to user.reg
-        USERREG="$COMPATDATA/pfx/user.reg"
-        if [ -f "$USERREG" ] && ! grep -q 'reswidth' "$USERREG"; then
-          cat >> "$USERREG" <<'EOF'
+    # Write 1920x1080 resolution directly to user.reg
+    USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
+    if [ -f "$USERREG" ] && ! grep -q 'reswidth' "$USERREG"; then
+      cat >> "$USERREG" <<'EOF'
 
     [Software\\Blizzard Entertainment\\Warcraft III\\Video]
     "reswidth"=dword:00000780
     "resheight"=dword:00000438
     EOF
-        fi
+    fi
   '';
 
   gamescope = {

@@ -47,7 +47,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   preRun = ''
         # CJ_Strife portable layout expects HKCU\Software\Blizzard Entertainment\Diablo II
         # to point at the install path. Inject keys into the prefix's user.reg.
-        USERREG="$COMPATDATA/pfx/user.reg"
+        USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
         GAMEPATH_W="Z:''${GAMEDIR//\//\\\\}"
         SAVEPATH_W="$GAMEPATH_W\\\\save"
         mkdir -p "$GAMEDIR/save"
@@ -73,7 +73,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     "Version"="win10"
     EOF
         fi
-        SYSREG="$COMPATDATA/pfx/system.reg"
+        SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
         for f in "$USERREG" "$SYSREG"; do
           [ -f "$f" ] || continue
           sed -i -E '/AppCompatFlags\\\\Layers/,/^\[/ { /Game\.exe|Diablo II\.exe/d; }' "$f"

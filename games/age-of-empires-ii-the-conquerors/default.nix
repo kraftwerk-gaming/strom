@@ -78,7 +78,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   # Wine uses GDI rendering for DirectDraw, which handles 8bpp correctly.
   # user.reg uses Wine registry format: paths relative to HKEY_CURRENT_USER.
   preRun = ''
-    reg_file="$COMPATDATA/user.reg"
+    reg_file="$STROM_COMPATDATA/0/pfx/user.reg"
     if ! grep -q 'DirectDrawRenderer' "$reg_file" 2>/dev/null; then
       printf '\n[Software\\\\Wine\\\\Direct3D]\n"DirectDrawRenderer"="gdi"\n' \
         >> "$reg_file" 2>/dev/null || true

@@ -101,7 +101,7 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   preRun = ''
         # Pin to Windows XP for this era of game
-        USERREG="$COMPATDATA/pfx/user.reg"
+        USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
         if [ -f "$USERREG" ] && ! grep -q 'AppDefaults\\\\Tod_e.exe' "$USERREG"; then
           cat >> "$USERREG" <<'EOF'
 
