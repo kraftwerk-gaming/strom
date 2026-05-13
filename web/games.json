@@ -186,6 +186,13 @@
     "description": "Chrono Trigger (Square 1995 SNES, via RetroArch / bsnes)",
     "runtime": "retroarch"
   },
+  "clive-barkers-undying": {
+    "cids": [
+      "QmfEixNEUami9F2aLM56EhzJKv79kDb3dsuCNdM8Drj4qQ"
+    ],
+    "description": "Clive Barker's Undying (DreamWorks Interactive / EA 2001, via Proton)",
+    "runtime": "proton"
+  },
   "clonk-4": {
     "cids": [
       "QmWydrkqvdj6b8Zisoixxsoi5e9M5CUAMvwRus3bXxN2Jb"
