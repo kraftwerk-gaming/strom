@@ -723,6 +723,13 @@
     "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "no-one-lives-forever": {
+    "cids": [
+      "QmNNopwiiZ9daLJQ7Z2fT6emAxKeVnFwkWiYWAp4oHC1KH"
+    ],
+    "description": "The Operative: No One Lives Forever (Monolith 2000, via Proton)",
+    "runtime": "proton"
+  },
   "noita": {
     "cids": [
       "QmRhHG2AMa5Q2GpJeBnSzcFDoFEVXShFoR8CKvFFQ8jRxD"
