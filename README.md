@@ -104,6 +104,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/far-cry/"><img src="https://lutris.net/games/banner/far-cry.jpg" height="40" alt="far-cry"></a> | [Far Cry](https://lutris.net/games/far-cry/) | `proton` | `nix run .#far-cry` |
 | <a href="https://lutris.net/games/fear/"><img src="https://lutris.net/games/banner/fear.jpg" height="40" alt="fear"></a> | [F.E.A.R. Platinum Collection](https://lutris.net/games/fear/) | `proton` | `nix run .#fear` |
 | <a href="https://lutris.net/games/fez/"><img src="https://lutris.net/games/banner/fez.jpg" height="40" alt="fez"></a> | [FEZ](https://lutris.net/games/fez/) | `native` | `nix run .#fez` |
+| <a href="https://lutris.net/games/forager/"><img src="https://lutris.net/games/banner/forager.jpg" height="40" alt="forager"></a> | [Forager](https://lutris.net/games/forager/) | `native` | `nix run .#forager` |
 | <a href="https://lutris.net/games/freelancer/"><img src="https://lutris.net/games/banner/freelancer.jpg" height="40" alt="freelancer"></a> | [Freelancer](https://lutris.net/games/freelancer/) | `proton` | `nix run .#freelancer` |
 | <a href="https://lutris.net/games/frog-fractions/"><img src="https://lutris.net/games/banner/frog-fractions.jpg" height="40" alt="frog-fractions"></a> | [frog-fractions](https://lutris.net/games/frog-fractions/) | `native` | `nix run .#frog-fractions` |
 | <a href="https://lutris.net/games/ftl-faster-than-light/"><img src="https://lutris.net/games/banner/ftl-faster-than-light.jpg" height="40" alt="ftl-faster-than-light"></a> | [FTL: Faster Than Light Advanced Edition](https://lutris.net/games/ftl-faster-than-light/) | `native` | `nix run .#ftl-faster-than-light` |
@@ -242,7 +243,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_201 games_
+_202 games_
 
 <!-- END GENERATED GAMES -->
 
