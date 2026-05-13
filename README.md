@@ -41,6 +41,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
 | <a href="https://lutris.net/games/age-of-empires-ii-the-conquerors/"><img src="https://lutris.net/games/banner/age-of-empires-ii-the-conquerors.jpg" height="40" alt="age-of-empires-ii-the-conquerors"></a> | [Age of Empires II: The Conquerors](https://lutris.net/games/age-of-empires-ii-the-conquerors/) | `proton` | `nix run .#age-of-empires-ii-the-conquerors` |
+| <a href="https://lutris.net/games/anachronox/"><img src="https://lutris.net/games/banner/anachronox.jpg" height="40" alt="anachronox"></a> | [Anachronox](https://lutris.net/games/anachronox/) | `proton` | `nix run .#anachronox` |
 | <a href="https://lutris.net/games/animal-well/"><img src="https://lutris.net/games/banner/animal-well.jpg" height="40" alt="animal-well"></a> | [ANIMAL WELL](https://lutris.net/games/animal-well/) | `proton` | `nix run .#animal-well` |
 | <a href="https://lutris.net/games/anno-1404/"><img src="https://lutris.net/games/banner/anno-1404.jpg" height="40" alt="anno-1404"></a> | [Anno 1404 Gold Edition](https://lutris.net/games/anno-1404/) | `proton` | `nix run .#anno-1404` |
 | <a href="https://lutris.net/games/anno-1503/"><img src="https://lutris.net/games/banner/anno-1503.jpg" height="40" alt="anno-1503"></a> | [Anno 1503 A.D.](https://lutris.net/games/anno-1503/) | `proton` | `nix run .#anno-1503` |
@@ -206,7 +207,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_165 games_
+_166 games_
 
 <!-- END GENERATED GAMES -->
 
