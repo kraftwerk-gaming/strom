@@ -133,6 +133,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/loop-hero/"><img src="https://lutris.net/games/banner/loop-hero.jpg" height="40" alt="loop-hero"></a> | [Loop Hero](https://lutris.net/games/loop-hero/) | `custom` | `nix run .#loop-hero` |
 | <a href="https://lutris.net/games/lorns-lure/"><img src="https://lutris.net/games/banner/lorns-lure.jpg" height="40" alt="lorns-lure"></a> | [Lorn's Lure](https://lutris.net/games/lorns-lure/) | `proton` | `nix run .#lorns-lure` |
 | <a href="https://lutris.net/games/luftrausers/"><img src="https://lutris.net/games/banner/luftrausers.jpg" height="40" alt="luftrausers"></a> | [Luftrausers](https://lutris.net/games/luftrausers/) | `custom` | `nix run .#luftrausers` |
+| <a href="https://lutris.net/games/mdk/"><img src="https://lutris.net/games/banner/mdk.jpg" height="40" alt="mdk"></a> | [MDK](https://lutris.net/games/mdk/) | `proton` | `nix run .#mdk` |
 | <a href="https://lutris.net/games/metal-gear-solid/"><img src="https://lutris.net/games/banner/metal-gear-solid.jpg" height="40" alt="metal-gear-solid"></a> | [Metal Gear Solid](https://lutris.net/games/metal-gear-solid/) | `retroarch` | `nix run .#metal-gear-solid` |
 | <a href="https://lutris.net/games/metal-gear-solid-2-substance/"><img src="https://lutris.net/games/banner/metal-gear-solid-2-substance.jpg" height="40" alt="metal-gear-solid-2-substance"></a> | [Metal Gear Solid 2: Substance](https://lutris.net/games/metal-gear-solid-2-substance/) | `pcsx2` | `nix run .#metal-gear-solid-2-substance` |
 | <a href="https://lutris.net/games/monkey-island-2-special-edition/"><img src="https://lutris.net/games/banner/monkey-island-2-special-edition.jpg" height="40" alt="monkey-island-2-special-edition"></a> | [Monkey Island 2: LeChuck's Revenge](https://lutris.net/games/monkey-island-2-special-edition/) | `native` | `nix run .#monkey-island-2-special-edition` |
@@ -209,7 +210,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 
-_168 games_
+_169 games_
 
 <!-- END GENERATED GAMES -->
 

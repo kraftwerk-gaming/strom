@@ -664,6 +664,13 @@
     "description": "Luftrausers (2014 Vlambeer / Devolver, native Linux from IndieBox USA)",
     "runtime": "custom"
   },
+  "mdk": {
+    "cids": [
+      "Qmc8qopswLHRB2UHGtY2oiNezWUsgBHxdfbVxhExuYPH8G"
+    ],
+    "description": "MDK (Shiny Entertainment 1997, via Proton)",
+    "runtime": "proton"
+  },
   "metal-gear-solid": {
     "cids": [
       "QmdZc6eT9LPvCeuG6Fi647L829LmAC2hSTzJY7kUjQ8VYZ",
