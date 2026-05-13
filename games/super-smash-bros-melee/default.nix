@@ -28,6 +28,15 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--expose-wayland" = true;
+    };
+  };
+
   runScript = ''
     DOLPHIN_USER="$STROM_GAMEDIR/dolphin-user"
     mkdir -p "$DOLPHIN_USER/Config"
@@ -91,11 +100,10 @@ self.lib.mkGame { inherit lib pkgs; } {
       fi
     fi
 
-    exec ${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -r 60 --expose-wayland -- \
-      ${pkgs.dolphin-emu}/bin/dolphin-emu \
-        --user="$DOLPHIN_USER" \
-        --batch \
-        --exec="$GAMEDIR/melee.iso"
+    exec ${pkgs.dolphin-emu}/bin/dolphin-emu \
+      --user="$DOLPHIN_USER" \
+      --batch \
+      --exec="$GAMEDIR/melee.iso"
   '';
 
   meta = {

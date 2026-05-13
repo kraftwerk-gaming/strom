@@ -359,16 +359,18 @@ let
           bwrap.ro-bind-try = x11Binds;
           bwrap.env = cfg.env;
 
-          # Always satisfy gamescope.command (required by the module
-          # schema). It's only entered when runScript is null; when the
-          # game supplies its own runScript the script invokes gamescope
-          # itself and the gamescope wrapper output is unused.
-          gamescope.command = overlayExe;
-          fhs.runScript =
+          # gamescope always wraps the inner command, so games configure
+          # it via the typed `gamescope` sub-option rather than invoking
+          # the binary themselves. If the game supplies a runScript it
+          # becomes the inner command (for env exports / mkdir / config
+          # bootstrap before the real exec); otherwise gamescope wraps
+          # the executable directly.
+          gamescope.command =
             if cfg.runScript != null then
               "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
             else
-              lib.getExe cfg.gamescope.outputs.wrapper;
+              overlayExe;
+          fhs.runScript = lib.getExe cfg.gamescope.outputs.wrapper;
           fhs.targetPkgs = cfg.targetPkgs;
           entrypoint = lib.getExe cfg.fhs.outputs.wrapper;
         })

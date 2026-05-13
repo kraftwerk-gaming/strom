@@ -3,7 +3,6 @@
   bchunk,
   fetchIpfs,
   fheroes2,
-  gamescope,
   lib,
   p7zip,
   pkgs,
@@ -65,6 +64,14 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags."--expose-wayland" = true;
+  };
+
   runScript = ''
     # fheroes2 looks for data at XDG_DATA_HOME/fheroes2/
     # and config at XDG_CONFIG_HOME/fheroes2/
@@ -73,8 +80,7 @@ self.lib.mkGame { inherit lib pkgs; } {
     mkdir -p "$XDG_DATA_HOME" "$XDG_CONFIG_HOME"
     ln -sfn "$GAMEDIR" "$XDG_DATA_HOME/fheroes2"
 
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
-      ${lib.getExe fheroes2}
+    exec ${lib.getExe fheroes2}
   '';
 
   meta = {

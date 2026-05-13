@@ -3,7 +3,6 @@
   cmake,
   fetchFromGitHub,
   fetchIpfs,
-  gamescope,
   lib,
   libpng,
   libavif,
@@ -193,6 +192,13 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+  };
+
   runScript = ''
     # Create config if not exists
     if [ ! -f "$GAMEDIR/freesynd.ini" ]; then
@@ -207,8 +213,7 @@ self.lib.mkGame { inherit lib pkgs; } {
       sed -i 's/fullscreen = true/fullscreen = false/' "$GAMEDIR/user.conf"
     fi
 
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 -- \
-      ${freesynd}/bin/freesynd -i "$GAMEDIR" -u "$GAMEDIR"
+    exec ${freesynd}/bin/freesynd -i "$GAMEDIR" -u "$GAMEDIR"
   '';
 
   meta = {

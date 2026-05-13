@@ -1,7 +1,6 @@
 {
   self,
   fetchIpfs,
-  gamescope,
   jazz2,
   lib,
   pkgs,
@@ -58,13 +57,20 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags."--expose-wayland" = true;
+  };
+
   runScript = ''
     # jazz-jackrabbit-2 uses XDG_DATA_HOME for game data and XDG_CONFIG_HOME for saves/config
     export XDG_DATA_HOME="$GAMEDIR"
     export XDG_CONFIG_HOME="$GAMEDIR"
 
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 --expose-wayland -- \
-      ${lib.getExe jazz2-mp}
+    exec ${lib.getExe jazz2-mp}
   '';
 
   meta = jazz2.meta // {

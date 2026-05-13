@@ -4,7 +4,6 @@
   pkgs,
   fetchIpfs,
   dosbox-x,
-  gamescope,
   p7zip,
   python3,
 }:
@@ -102,9 +101,21 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "custom";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 640;
+    nested-height = 480;
+    flags = {
+      "-r" = "60";
+      "--immediate-flips" = true;
+      "--expose-wayland" = true;
+      "--force-grab-cursor" = true;
+    };
+  };
+
   runScript = ''
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 640 -h 480 -r 60 --immediate-flips --expose-wayland --force-grab-cursor -- \
-      ${dosbox-x}/bin/dosbox-x \
+    exec ${dosbox-x}/bin/dosbox-x \
       -nomenu \
       -conf ${dosboxConf} \
       -c "mount c \"$GAMEDIR\"" \

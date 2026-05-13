@@ -3,7 +3,6 @@
   lib,
   pkgs,
   fetchIpfs,
-  gamescope,
   p7zip,
   rsync,
 }:
@@ -68,11 +67,23 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
 
+  gamescope = {
+    output-width = 1920;
+    output-height = 1080;
+    nested-width = 1920;
+    nested-height = 1080;
+    flags = {
+      "-r" = "60";
+      "--force-grab-cursor" = true;
+      "-s" = "0.5";
+      "--expose-wayland" = true;
+    };
+  };
+
   runScript = ''
     export XDG_CONFIG_HOME="$GAMEDIR/.config"
 
-    exec ${gamescope}/bin/gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --force-grab-cursor -s 0.5 --expose-wayland -- \
-      ${vanillaraWithData}/bin/vanillara
+    exec ${vanillaraWithData}/bin/vanillara
   '';
 
   meta = {
