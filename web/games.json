@@ -1001,6 +1001,13 @@
     "description": "SUPERHOT (SUPERHOT Team, 2016 Unity5 release, via Proton)",
     "runtime": "proton"
   },
+  "swat-4": {
+    "cids": [
+      "QmPt5rAY7fZXtgHvjWAaywnEYHgmba97qy9t38hCru29KT"
+    ],
+    "description": "SWAT 4: Gold Edition (Irrational Games 2005, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "syndicate": {
     "cids": [
       "QmegVB6p577pTEmYEYabyRyfKy77h2mukp56z5oj7ZoFey",
