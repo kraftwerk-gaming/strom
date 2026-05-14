@@ -781,6 +781,13 @@
     "description": "Max Payne (Remedy / 3D Realms 2001, retail v1.05 no-CD, via Proton)",
     "runtime": "proton"
   },
+  "max-payne-2-the-fall-of-max-payne": {
+    "cids": [
+      "QmbL7JDhPYzV4tR7RR4y9jxWbEKcvgCL9wWFM67VUFKS4D"
+    ],
+    "description": "Max Payne 2: The Fall of Max Payne (2003 Remedy / Rockstar, DEViANCE no-CD, via Proton)",
+    "runtime": "proton"
+  },
   "mdk": {
     "cids": [
       "Qmc8qopswLHRB2UHGtY2oiNezWUsgBHxdfbVxhExuYPH8G"

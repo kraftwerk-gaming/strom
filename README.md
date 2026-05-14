@@ -149,6 +149,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/magicka/"><img src="https://lutris.net/games/banner/magicka.jpg" height="40" alt="magicka"></a> | [Magicka](https://lutris.net/games/magicka/) | `proton` | `nix run .#magicka` |
 | <a href="https://lutris.net/games/manhunt/"><img src="https://lutris.net/games/banner/manhunt.jpg" height="40" alt="manhunt"></a> | [Manhunt](https://lutris.net/games/manhunt/) | `proton` | `nix run .#manhunt` |
 | <a href="https://lutris.net/games/max-payne/"><img src="https://lutris.net/games/banner/max-payne.jpg" height="40" alt="max-payne"></a> | [Max Payne](https://lutris.net/games/max-payne/) | `proton` | `nix run .#max-payne` |
+| <a href="https://lutris.net/games/max-payne-2-the-fall-of-max-payne/"><img src="https://lutris.net/games/banner/max-payne-2-the-fall-of-max-payne.jpg" height="40" alt="max-payne-2-the-fall-of-max-payne"></a> | [Max Payne 2: The Fall of Max Payne](https://lutris.net/games/max-payne-2-the-fall-of-max-payne/) | `proton` | `nix run .#max-payne-2-the-fall-of-max-payne` |
 | <a href="https://lutris.net/games/mdk/"><img src="https://lutris.net/games/banner/mdk.jpg" height="40" alt="mdk"></a> | [MDK](https://lutris.net/games/mdk/) | `proton` | `nix run .#mdk` |
 | <a href="https://lutris.net/games/medal-of-honor-allied-assault/"><img src="https://lutris.net/games/banner/medal-of-honor-allied-assault.jpg" height="40" alt="medal-of-honor-allied-assault"></a> | [Medal of Honor: Allied Assault](https://lutris.net/games/medal-of-honor-allied-assault/) | `native` | `nix run .#medal-of-honor-allied-assault` |
 | <a href="https://lutris.net/games/metal-gear-solid/"><img src="https://lutris.net/games/banner/metal-gear-solid.jpg" height="40" alt="metal-gear-solid"></a> | [Metal Gear Solid](https://lutris.net/games/metal-gear-solid/) | `retroarch` | `nix run .#metal-gear-solid` |
@@ -244,7 +245,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_203 games_
+_204 games_
 
 <!-- END GENERATED GAMES -->
 
