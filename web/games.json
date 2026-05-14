@@ -400,6 +400,13 @@
     "description": "Far Cry (Crytek/Ubisoft, 2004 retail DVD, via Proton)",
     "runtime": "proton"
   },
+  "fear": {
+    "cids": [
+      "QmbF1m9dXiSvHXTQgcK45s1zkEtJ3HaJShLkg9o17CGFbg"
+    ],
+    "description": "F.E.A.R. Platinum Collection (Monolith 2005 + TimeGate 2006/2007, GOG v2.1.0.7, via Proton)",
+    "runtime": "proton"
+  },
   "fez": {
     "cids": [
       "QmWbKaPKumQeNjRKEzxA1gSceAjATiFQyznPz4Ne4JRVHH"
