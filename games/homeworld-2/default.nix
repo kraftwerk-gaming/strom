@@ -108,15 +108,16 @@ self.lib.mkGame { inherit lib pkgs; } {
     # target latency to 60ms so the kernel/server has slack to keep the
     # stream alive and audio remains audible.
     PULSE_LATENCY_MSEC = "60";
-    # The GOG install ships DSOAL (the bundled `dsound.dll` in the
-    # Homeworld2Classic/Bin/Release dir is the DirectSound→OpenAL
-    # bridge, not Microsoft's). The Gearbox intro plays via binkw32
-    # (Bink's own audio path, no dsound), but the post-intro engine
-    # audio routes DirectSound → DSOAL → OpenAL → winepulse and the
-    # OpenAL hop drops samples on the proton 32-bit stack. Force wine
-    # to ignore the bundled DLL and use its builtin dsound, which
-    # talks to winepulse directly.
-    WINEDLLOVERRIDES = "dsound=b";
+    # The GOG release does NOT bundle DSOAL (verified: no dsound.dll in
+    # Homeworld2Classic/Bin/Release). Wine always uses its builtin
+    # dsound. Bink intro audio works (binkw32 has its own path), but
+    # the post-intro engine (seDXAudio/seFDAudio + Homeworld2.exe all
+    # import DSOUND.dll by name) routes through dsound → wine MMDevAPI
+    # → winepulse, which underruns on this host's pipewire-pulse under
+    # proton 32-bit even with PULSE_LATENCY_MSEC=60. Force wine to use
+    # the ALSA driver instead — bypasses pipewire-pulse's 32-bit
+    # stream-cycling bug, talks directly to pipewire's ALSA shim.
+    WINEDLLOVERRIDES = "dsound=b;winepulse.drv=;winealsa.drv=b";
   };
 
   preRun = ''
