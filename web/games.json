@@ -1066,6 +1066,13 @@
     "description": "System Shock (Looking Glass 1994, Enhanced CD edition, via Shockolate)",
     "runtime": "native"
   },
+  "system-shock-2": {
+    "cids": [
+      "QmYDAEVndJxfs5qwGfyantkhvimYKyEdA9ZYq3XXJoCYb4"
+    ],
+    "description": "System Shock 2 (NewDark engine, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "the-curse-of-monkey-island": {
     "cids": [
       "QmNb8LBXZ9LHKQSGmAgHSDZ6chKV1ybVHGDDh41tX1SJyM",
