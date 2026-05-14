@@ -815,6 +815,13 @@
     "description": "Portal 2 (Valve 2011, via Proton)",
     "runtime": "proton"
   },
+  "prey-2006": {
+    "cids": [
+      "QmYEridBgpmaBEpp9tKmKaBnrvEnXssktr2USi5NVRFs8X"
+    ],
+    "description": "Prey (2006 Human Head Studios, id Tech 4, via Proton)",
+    "runtime": "proton"
+  },
   "psychonauts": {
     "cids": [
       "QmUFsFYE2ywPcRZgdjt8XU4NypzP34bsU3mgnWY62HrLn7"
