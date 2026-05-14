@@ -66,15 +66,26 @@ self.lib.mkGame { inherit lib pkgs; } {
   # table. Runs cleanly under Proton on AMD Mesa.
   executable = "Homeworld2Classic/Bin/Release/Homeworld2.exe";
 
-  # Homeworld2.exe is 32-bit and proton loads the 32-bit winepulse.drv
-  # (i386-unix/winepulse.so), which links against libudev.so.1. The
-  # baseline FHS chroot ships only 64-bit systemd, so the 32-bit loader
-  # would fall back to /usr/lib/libudev.so.1 (ELFCLASS64) and refuse it,
-  # leaving winepulse in a degraded path that prints "Probable buffer
-  # underrun" in +dsound trace. Same fix as total-overdose: add 32-bit
-  # systemd so /usr/lib32/libudev.so.1 is available for the 32-bit
-  # driver.
-  targetPkgs = p: [ p.pkgsi686Linux.systemd ];
+  # 32-bit systemd → /usr/lib32/libudev.so.1 for the 32-bit winepulse.drv
+  # so it doesn't fall back to ELFCLASS64 /usr/lib/libudev.so.1.
+  #
+  # pipewire (32+64-bit) ships the ALSA bridge plugin
+  # `libasound_module_pcm_pipewire.so`. NixOS sets
+  # `pcm.!default { type pipewire }` in
+  # /etc/alsa/conf.d/99-pipewire-default.conf (the chroot symlinks
+  # /etc/alsa from the host), so without the plugin in
+  # /usr/lib(32)/alsa-lib/, winealsa's open of "default" landed on a
+  # codepath pipewire never saw — `pactl list sink-inputs` and
+  # `pw-cli ls Client` showed zero wine client while +dsound was
+  # actively mixing into the secondary buffer. With the plugin
+  # available wine registers as `PipeWire ALSA [wine-preloader]`
+  # and routes to the user's default pipewire sink (verified live:
+  # mute=no, vol=~57%, sink=bluez_output).
+  targetPkgs = p: [
+    p.pkgsi686Linux.systemd
+    p.pipewire
+    p.pkgsi686Linux.pipewire
+  ];
 
   gamescope = {
     output-width = 1920;
