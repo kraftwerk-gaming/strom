@@ -183,6 +183,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/superhot/"><img src="https://lutris.net/games/banner/superhot.jpg" height="40" alt="superhot"></a> | [SUPERHOT](https://lutris.net/games/superhot/) | `proton` | `nix run .#superhot` |
 | <a href="https://lutris.net/games/swat-4/"><img src="https://lutris.net/games/banner/swat-4.jpg" height="40" alt="swat-4"></a> | [SWAT 4: Gold Edition](https://lutris.net/games/swat-4/) | `proton` | `nix run .#swat-4` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate](https://lutris.net/games/syndicate/) | `native` | `nix run .#syndicate` |
+| <a href="https://lutris.net/games/system-shock/"><img src="https://lutris.net/games/banner/system-shock.jpg" height="40" alt="system-shock"></a> | [System Shock](https://lutris.net/games/system-shock/) | `native` | `nix run .#system-shock` |
 | <a href="https://lutris.net/games/the-curse-of-monkey-island/"><img src="https://lutris.net/games/banner/the-curse-of-monkey-island.jpg" height="40" alt="the-curse-of-monkey-island"></a> | [The Curse of Monkey Island](https://lutris.net/games/the-curse-of-monkey-island/) | `native` | `nix run .#the-curse-of-monkey-island` |
 | <a href="https://lutris.net/games/the-elder-scrolls-ii-daggerfall/"><img src="https://lutris.net/games/banner/the-elder-scrolls-ii-daggerfall.jpg" height="40" alt="the-elder-scrolls-ii-daggerfall"></a> | [The Elder Scrolls II: Daggerfall](https://lutris.net/games/the-elder-scrolls-ii-daggerfall/) | `custom` | `nix run .#the-elder-scrolls-ii-daggerfall` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg" height="40" alt="the-legend-of-zelda-a-link-to-the-past"></a> | [The Legend of Zelda: A Link to the Past](https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/) | `retroarch` | `nix run .#the-legend-of-zelda-a-link-to-the-past` |
@@ -215,7 +216,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_174 games_
+_175 games_
 
 <!-- END GENERATED GAMES -->
 

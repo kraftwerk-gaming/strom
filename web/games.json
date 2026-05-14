@@ -1023,6 +1023,13 @@
     "description": "Syndicate (via FreeSynd engine)",
     "runtime": "native"
   },
+  "system-shock": {
+    "cids": [
+      "QmWiPSJPawVFTjhBfhWHUz2Sfg84hcecZzW8jMCCThHCKC"
+    ],
+    "description": "System Shock (Looking Glass 1994, Enhanced CD edition, via Shockolate)",
+    "runtime": "native"
+  },
   "the-curse-of-monkey-island": {
     "cids": [
       "QmNb8LBXZ9LHKQSGmAgHSDZ6chKV1ybVHGDDh41tX1SJyM",
