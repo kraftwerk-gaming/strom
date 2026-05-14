@@ -678,6 +678,14 @@
     "description": "MDK (Shiny Entertainment 1997, via Proton)",
     "runtime": "proton"
   },
+  "medal-of-honor-allied-assault": {
+    "cids": [
+      "QmcmhYLPYFi32ifs5iqnuiPgoLiAHgFRCbr6zEaXfroZDt",
+      "QmUUKZ2GuYgKPgSfv8qA9gRAzng3gz5Cwcg4Xj3ZjJGXgF"
+    ],
+    "description": "Medal of Honor: Allied Assault (2015 Inc. / EA 2002, retail v1.00 data, via OpenMoHAA source port)",
+    "runtime": "native"
+  },
   "metal-gear-solid": {
     "cids": [
       "QmdZc6eT9LPvCeuG6Fi647L829LmAC2hSTzJY7kUjQ8VYZ",
