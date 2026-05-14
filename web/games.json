@@ -414,6 +414,13 @@
     "description": "FEZ (native Linux, GOG)",
     "runtime": "native"
   },
+  "freelancer": {
+    "cids": [
+      "QmWn94KUgDs59QMvs6sjyVQsXScRiwDzPnEJKbHn8EQxUN"
+    ],
+    "description": "Freelancer (Digital Anvil 2003 retail install + FLHDE 0.7.1, via Proton)",
+    "runtime": "proton"
+  },
   "frog-fractions": {
     "cids": [
       "QmNw4AfRRCfkFVuVSQ9ezXc4z2F5bLjAmLzkNT19WdDfAU"
