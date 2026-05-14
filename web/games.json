@@ -671,6 +671,13 @@
     "description": "Luftrausers (2014 Vlambeer / Devolver, native Linux from IndieBox USA)",
     "runtime": "custom"
   },
+  "manhunt": {
+    "cids": [
+      "QmZy3pG9ASgPh73tdSBr37E3pCBmDPJj4wg8TR2SEraH6D"
+    ],
+    "description": "Manhunt (Rockstar North 2003 stealth-horror, archive.org preinstalled image, via Proton)",
+    "runtime": "proton"
+  },
   "mdk": {
     "cids": [
       "Qmc8qopswLHRB2UHGtY2oiNezWUsgBHxdfbVxhExuYPH8G"
