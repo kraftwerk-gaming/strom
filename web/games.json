@@ -685,6 +685,14 @@
     "description": "Luftrausers (2014 Vlambeer / Devolver, native Linux from IndieBox USA)",
     "runtime": "custom"
   },
+  "magicka": {
+    "cids": [
+      "QmYjA47DUhTPt6aTMcjBHPtr1a1Mk2LXLYv6orJ6hNT2Gy",
+      "Qmbytir26JNwT6dRxvZh8hwFMjGXhg3MUugcbHhtju7KRR"
+    ],
+    "description": "Magicka (Arrowhead Game Studios 2011, all DLC, via Proton with pre-baked .NET 3.5 + XNA 3.1 prefix)",
+    "runtime": "proton"
+  },
   "manhunt": {
     "cids": [
       "QmZy3pG9ASgPh73tdSBr37E3pCBmDPJj4wg8TR2SEraH6D"
