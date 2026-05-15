@@ -1226,6 +1226,13 @@
     "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "total-overdose": {
+    "cids": [
+      "QmcZppB5Y4djdJkTDMoKpS5rWkpFhvEpSZC4aQS8VH8Z9W"
+    ],
+    "description": "Total Overdose: A Gunslinger's Tale in Mexico (Deadline Games 2005, via Proton)",
+    "runtime": "proton"
+  },
   "towerfall-ascension": {
     "cids": [
       "QmX1jKGFedEKzuHxh1WdSEYzLQF9JP1eVCGD2RqwJWSigo"
