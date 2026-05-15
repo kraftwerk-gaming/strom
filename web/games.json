@@ -243,6 +243,13 @@
     "description": "Cave Story / Doukutsu Monogatari (1.01 Linux freeware)",
     "runtime": "native"
   },
+  "celeste": {
+    "cids": [
+      "QmSzeKh5AQRjsuawz4u3iut255MKYzA5a6ecwCbBjYqbbS"
+    ],
+    "description": "Celeste (native Linux, v1.4.0.0)",
+    "runtime": "native"
+  },
   "chrono-trigger": {
     "cids": [
       "Qmdwp6PEMUghQXoQgRkunAzvkRaXDTQdW8f84QcQ3fqvpN"
