@@ -344,6 +344,14 @@
     "description": "Dungeon Keeper (KeeperFX, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "dungeon-siege": {
+    "cids": [
+      "QmXnPuv75FK5EshQ8CCyEuDjoU6Ta9hHuvZZ7LNNE38LH1",
+      "Qmd1iATRQFXwpXUijY84BTAYHxMAd4WcPPKcVvfV58b8yi"
+    ],
+    "description": "Dungeon Siege (Gas Powered Games 2002, GOG v1.11.1 + AMD RDNA fix, via Proton)",
+    "runtime": "proton"
+  },
   "dwarf-fortress": {
     "cids": [
       "QmYcTstDWS5mMCf6GT9AsWDu3pw7d4sZZBmBVxYrjeocA9"
@@ -700,6 +708,15 @@
     "description": "Manhunt (Rockstar North 2003 stealth-horror, archive.org preinstalled image, via Proton)",
     "runtime": "proton"
   },
+  "max-payne": {
+    "cids": [
+      "QmY33VoGafwBpgMo75HrizwEF5ZzUy8Wm4ZDiD5LjEqZWZ",
+      "QmQYYbQ4WiLrTcJbFpSNEULnizgJcRjaPf7457JvU64CSs",
+      "QmeGbpPiTMrU1VxWPdQJrkvij6YZypS4dtEqXUcW8hH1ET"
+    ],
+    "description": "Max Payne (Remedy / 3D Realms 2001, retail v1.05 no-CD, via Proton)",
+    "runtime": "proton"
+  },
   "mdk": {
     "cids": [
       "Qmc8qopswLHRB2UHGtY2oiNezWUsgBHxdfbVxhExuYPH8G"
@@ -731,6 +748,13 @@
     ],
     "description": "Metal Gear Solid 2: Substance (PS2 Europe, via PCSX2)",
     "runtime": "pcsx2"
+  },
+  "metal-slug--1": {
+    "cids": [
+      "Qmangoooph9xBwKUPEJoTrhEaQFZXtCroL9ikFTKJhrEY6"
+    ],
+    "description": "Metal Slug - Super Vehicle-001 (Nazca/SNK 1996 Neo Geo MVS, via RetroArch / FBNeo)",
+    "runtime": "retroarch"
   },
   "monkey-island-2-special-edition": {
     "cids": [
@@ -908,6 +932,13 @@
       "QmR3NEi1oBN3sNtc3RCyWtGncwnf6MiWx54gtx1hUiNyBN"
     ],
     "description": "RollerCoaster Tycoon Deluxe (GOG v1.20, via Proton)",
+    "runtime": "proton"
+  },
+  "rounds": {
+    "cids": [
+      "QmUo4XGU6BYAwt1AFsEueLhdUKmNmpXq9ogAY8YWTbyHUk"
+    ],
+    "description": "ROUNDS (Landfall 2021, 1v1 rounds-based shooter via Proton)",
     "runtime": "proton"
   },
   "serious-sam-the-second-encounter": {
@@ -1193,6 +1224,13 @@
       "QmYsKaAyDYeDXoAEHopfTfxC9ePUuTLyzTQ4jUy2dDoxMt"
     ],
     "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
+    "runtime": "proton"
+  },
+  "towerfall-ascension": {
+    "cids": [
+      "QmX1jKGFedEKzuHxh1WdSEYzLQF9JP1eVCGD2RqwJWSigo"
+    ],
+    "description": "TowerFall Ascension + Dark World (Matt Makes Games, GOG v2.5.0.6, via Proton)",
     "runtime": "proton"
   },
   "ultrakill": {
