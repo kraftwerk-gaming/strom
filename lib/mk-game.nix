@@ -237,6 +237,21 @@ let
                 # --die-with-parent + --unshare-pid on bwrap handle process
                 # cleanup, but the fuse overlay must be unmounted explicitly.
                 trap 'fusermount -uz "$STROM_OVERLAY" 2>/dev/null || true' EXIT INT TERM
+
+                ${lib.optionalString cfg.padToKb.enable ''
+                  # Launch the gamepad->keyboard remapper on the host
+                  # (uinput access lives outside the bwrap sandbox; the
+                  # synthesized /dev/input/eventN is visible inside via
+                  # the existing --dev-bind /dev /dev). The launcher
+                  # body lives in lib/pad-to-kb-launcher.sh and is
+                  # inlined here so shellcheck on the wrapper sees it.
+                  STROM_PAD_TO_KB_EVSIEVE=${lib.getExe cfg.padToKb.package}
+                  STROM_PAD_TO_KB_DEVICE_GLOBS=${lib.escapeShellArg (lib.concatStringsSep " " cfg.padToKb.inputDevices)}
+                  STROM_PAD_TO_KB_VIRTUAL_NAME=${lib.escapeShellArg cfg.padToKb.virtualName}
+                  STROM_PAD_TO_KB_MAPPING_ARGS=(${lib.concatStringsSep " " (map lib.escapeShellArg cfg.padToKb.mappingArgs)})
+                  export STROM_PAD_TO_KB_EVSIEVE STROM_PAD_TO_KB_DEVICE_GLOBS STROM_PAD_TO_KB_VIRTUAL_NAME
+                  ${builtins.readFile ./pad-to-kb-launcher.sh}
+                ''}
               '';
               # Inner script runs INSIDE bwrap: cd into the overlay, set
               # up the shader cache, run preRun, exec the chain root.
@@ -309,6 +324,10 @@ let
 
         pcsx2 = mkOption {
           type = wrapperType ./pcsx2.nix { };
+        };
+
+        padToKb = mkOption {
+          type = wrapperType ./pad-to-kb.nix { };
         };
       };
 
