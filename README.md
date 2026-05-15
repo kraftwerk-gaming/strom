@@ -63,6 +63,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/broforce/"><img src="https://lutris.net/games/banner/broforce.jpg" height="40" alt="broforce"></a> | [Broforce / Broforce Forever](https://lutris.net/games/broforce/) | `native` | `nix run .#broforce` |
 | <a href="https://lutris.net/games/burnout-3-takedown/"><img src="https://lutris.net/games/banner/burnout-3-takedown.jpg" height="40" alt="burnout-3-takedown"></a> | [Burnout 3: Takedown](https://lutris.net/games/burnout-3-takedown/) | `pcsx2` | `nix run .#burnout-3-takedown` |
 | <a href="https://lutris.net/games/burntime/"><img src="https://lutris.net/games/banner/burntime.jpg" height="40" alt="burntime"></a> | [Burntime](https://lutris.net/games/burntime/) | `custom` | `nix run .#burntime` |
+| <a href="https://lutris.net/games/call-of-cthulhu-dark-corners-of-the-earth/"><img src="https://lutris.net/games/banner/call-of-cthulhu-dark-corners-of-the-earth.jpg" height="40" alt="call-of-cthulhu-dark-corners-of-the-earth"></a> | [Call of Cthulhu: Dark Corners of the Earth](https://lutris.net/games/call-of-cthulhu-dark-corners-of-the-earth/) | `proton` | `nix run .#call-of-cthulhu-dark-corners-of-the-earth` |
 | <a href="https://lutris.net/games/carrion/"><img src="https://lutris.net/games/banner/carrion.jpg" height="40" alt="carrion"></a> | [CARRION](https://lutris.net/games/carrion/) | `custom` | `nix run .#carrion` |
 | <a href="https://lutris.net/games/cave-story--1/"><img src="https://lutris.net/games/banner/cave-story--1.jpg" height="40" alt="cave-story--1"></a> | [Cave Story / Doukutsu Monogatari](https://lutris.net/games/cave-story--1/) | `native` | `nix run .#cave-story--1` |
 | <a href="https://lutris.net/games/chrono-trigger/"><img src="https://lutris.net/games/banner/chrono-trigger.jpg" height="40" alt="chrono-trigger"></a> | [Chrono Trigger](https://lutris.net/games/chrono-trigger/) | `retroarch` | `nix run .#chrono-trigger` |
@@ -231,7 +232,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_190 games_
+_191 games_
 
 <!-- END GENERATED GAMES -->
 

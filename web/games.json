@@ -165,6 +165,13 @@
     "description": "Burntime (1993 Max Design freeware re-release, via DOSBox-X)",
     "runtime": "custom"
   },
+  "call-of-cthulhu-dark-corners-of-the-earth": {
+    "cids": [
+      "QmXshetsRsiSbvd42xRZfb26ojv7kkkKKxP11o84Rd3cm1"
+    ],
+    "description": "Call of Cthulhu: Dark Corners of the Earth (Headfirst Productions / Bethesda 2005, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "carrion": {
     "cids": [
       "QmeYaTv2cbe37S7jFtg7x12WpwToWLEQZiujfi7zhn5Ftq"
