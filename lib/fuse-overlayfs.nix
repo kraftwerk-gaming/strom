@@ -53,6 +53,22 @@
         SRC="${config.gameFiles}"
         mkdir -p "$UPPER" "$MERGED" "$WORK"
 
+        # Defensive: sweep orphan overlayfs whiteouts from the upper layer.
+        #
+        # When something runs `rm -rf` against the merged mount (or against
+        # the upper layer while still mounted), overlayfs masks lower-layer
+        # entries by writing mode-0000 char-device 0,0 nodes into the upper
+        # layer. After unmount those whiteouts persist and, on the next
+        # mount, hide the lower layer so the game directory looks empty.
+        # Strom state dirs never legitimately contain char devices, so it
+        # is safe to delete any we find. We additionally require -perm 0
+        # to avoid touching a hypothetical user-created device node.
+        whiteout_count=$(find "$UPPER" -mindepth 1 -type c -perm 0 2>/dev/null | wc -l)
+        if [ "$whiteout_count" -gt 0 ]; then
+          echo "fuse-overlayfs: sweeping $whiteout_count orphan whiteout(s) from $UPPER" >&2
+          find "$UPPER" -mindepth 1 -type c -perm 0 -delete 2>/dev/null || true
+        fi
+
         ${copyCommands}
 
         if mountpoint -q "$MERGED" 2>/dev/null; then
