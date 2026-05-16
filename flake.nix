@@ -127,6 +127,16 @@
         }
       );
 
+      modules = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          fetchIpfs = self.lib.fetchIpfs { inherit pkgs; };
+          callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
+        in
+        builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
+      );
+
       packages = {
         aarch64-darwin.publish-ipns = import ./scripts/publish-ipns.nix {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
@@ -141,11 +151,7 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          fetchIpfs = self.lib.fetchIpfs { inherit pkgs; };
-          callPackage = pkgs.lib.callPackageWith (pkgs // { inherit self fetchIpfs; });
-        in
-        let
-          games = builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games);
+          games = builtins.mapAttrs (_: m: m.outputs.wrapper) self.modules.${system};
         in
         games
         // {

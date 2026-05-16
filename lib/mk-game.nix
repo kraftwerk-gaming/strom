@@ -1,5 +1,11 @@
 # mkGame: build a strom game as a composition of typed wrapperModules.
 #
+# Returns the configured wrapperModule (the evaluated `config` of the
+# composed module set). Consumers reach the built derivation via
+# `<game>.outputs.wrapper`; mods/overrides go through `.apply { ... }`
+# or `.extend { ... }`, which re-evaluate the module with extra
+# definitions merged in.
+#
 # mkGame is its own wrapperModule. Game-level options (name, src,
 # executable, runtime, ...) sit alongside typed sub-wrapper sub-options
 # (bwrap, fhs, gamescope, proton, retroarch, pcsx2), each a submoduleWith
@@ -435,4 +441,4 @@ let
 
   configured = (wlib.wrapModule gameModule).apply cleanedSpec;
 in
-configured.outputs.wrapper
+configured

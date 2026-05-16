@@ -109,6 +109,25 @@
   - `AppData/Local/<vendor>/<game>` — local-machine state, configs, mod data
   - `Documents/<game>` or `Documents/My Games/<game>` — savegames for older titles
 - Verify by wiping `~/.strom/.compatdata/<game>` and re-launching: any prior settings/saves you confirmed should still be there.
+
+## Customizing a game (mods, flag overrides)
+
+- `flake.modules.<arch>.<slug>` IS the wrapperModule built by `lib/mk-game.nix` — the same object `packages.<arch>.<slug>` is derived from via `.outputs.wrapper`. Use `.apply { ... }.outputs.wrapper` to derive a customized build without forking the game's `default.nix`:
+
+      strom.modules.x86_64-linux.balatro.apply {
+        gamescope.flags."--immediate-flips" = lib.mkForce false;
+        targetPkgs = p: [ p.some-mod-runtime-lib ];
+        preRun = ''
+          cp -r ${mods}/. "$STROM_OVERLAY/Mods/"
+        '';
+      }.outputs.wrapper
+
+  Use `lib.mkForce` when overriding a value the game's `default.nix` already sets (`gamescope.flags`, `env`, etc.) — otherwise the module system reports a definition conflict.
+
+- Top-level options (`name`, `src`, `executable`, `executableArgs`, `runtime`, `buildScript`, `preRun`, `runScript`, `saveLocations`, `copyGlobs`, `targetPkgs`, `ipfsSources`, `env`, `padToKb`, ...) are defined in `lib/mk-game.nix`.
+- Sub-wrapper options live under `gamescope.*`, `proton.*`, `fhs.*`, `bwrap.*`, `pcsx2.*`, `retroarch.*`, `fuseOverlayfs.*`, `padToKb.*`. Their schema is the `lib/<name>.nix` file of the matching wrapper.
+- `flake.packages.<arch>.<slug>` is unchanged: still the default-args derivation, still what `nix run .#<game>` builds.
+
 - Think before acting. Read existing files before writing code.
 - Be concise in responses but thorough in reasoning.
 - Prefer editing over rewriting whole files.
