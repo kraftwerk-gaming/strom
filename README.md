@@ -188,6 +188,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/songs-of-syx/"><img src="https://lutris.net/games/banner/songs-of-syx.jpg" height="40" alt="songs-of-syx"></a> | [Songs of Syx](https://lutris.net/games/songs-of-syx/) | `custom` | `nix run .#songs-of-syx` |
 | <a href="https://lutris.net/games/stalker-shadow-of-chernobyl/"><img src="https://lutris.net/games/banner/stalker-shadow-of-chernobyl.jpg" height="40" alt="stalker-shadow-of-chernobyl"></a> | [S.T.A.L.K.E.R.: Shadow of Chernobyl](https://lutris.net/games/stalker-shadow-of-chernobyl/) | `proton` | `nix run .#stalker-shadow-of-chernobyl` |
 | <a href="https://lutris.net/games/star-wars-battlefront-2/"><img src="https://lutris.net/games/banner/star-wars-battlefront-2.jpg" height="40" alt="star-wars-battlefront-2"></a> | [Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope](https://lutris.net/games/star-wars-battlefront-2/) | `proton` | `nix run .#star-wars-battlefront-2` |
+| <a href="https://lutris.net/games/star-wars-jedi-knight-ii-jedi-outcast/"><img src="https://lutris.net/games/banner/star-wars-jedi-knight-ii-jedi-outcast.jpg" height="40" alt="star-wars-jedi-knight-ii-jedi-outcast"></a> | [Star Wars Jedi Knight II: Jedi Outcast](https://lutris.net/games/star-wars-jedi-knight-ii-jedi-outcast/) | `native` | `nix run .#star-wars-jedi-knight-ii-jedi-outcast` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War](https://lutris.net/games/starcraft/) | `proton` | `nix run .#starcraft` |
 | <a href="https://lutris.net/games/stardew-valley/"><img src="https://lutris.net/games/banner/stardew-valley.jpg" height="40" alt="stardew-valley"></a> | [Stardew Valley](https://lutris.net/games/stardew-valley/) | `custom` | `nix run .#stardew-valley` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
@@ -237,7 +238,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_196 games_
+_197 games_
 
 <!-- END GENERATED GAMES -->
 

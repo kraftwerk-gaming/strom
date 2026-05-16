@@ -1064,6 +1064,13 @@
     "description": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
     "runtime": "proton"
   },
+  "star-wars-jedi-knight-ii-jedi-outcast": {
+    "cids": [
+      "QmbBSGrnxrRM47oVLkomqJkuZAKnamq2V1Rgjga6EyN4H1"
+    ],
+    "description": "Star Wars Jedi Knight II: Jedi Outcast (LucasArts/Raven 2002, retail CD via OpenJK openjo)",
+    "runtime": "native"
+  },
   "starcraft": {
     "cids": [
       "QmcqdWwb33rKcfFzoZyTJQpL62ADcTHr8W2APG4Q6MFERx"
