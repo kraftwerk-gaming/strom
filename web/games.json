@@ -130,6 +130,13 @@
     "description": "Battlefield 1942: Desert Combat (Trauma Studios mod v0.8 final, bundled with BF1942 base, via Proton)",
     "runtime": "proton"
   },
+  "battlefield-2": {
+    "cids": [
+      "QmcaQ1SRUNpGvd7tAo1hLNbSZFPsJYK1nhf7KbhY28Ztpx"
+    ],
+    "description": "Battlefield 2 Complete Collection (DICE/EA 2005, v1.50 preinstalled repack, via Proton)",
+    "runtime": "proton"
+  },
   "beamng-dot-drive": {
     "cids": [
       "QmPSLRRfK5wTvQPWKxei2xsRGPerpVnoPToxKq8caHuUJC"
