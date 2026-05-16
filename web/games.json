@@ -282,6 +282,13 @@
     "description": "Commandos: Behind Enemy Lines (1998 Eidos / Pyro Studios, English Win95, via Proton + Kruulos Ultimate Fix)",
     "runtime": "proton"
   },
+  "condemned-criminal-origins": {
+    "cids": [
+      "QmTUyjaAtWX34K8hBtggLbupdY6XoHmomzRtab2PJ7uZ16"
+    ],
+    "description": "Condemned: Criminal Origins (Monolith Productions 2005, via Proton)",
+    "runtime": "proton"
+  },
   "cryostasis": {
     "cids": [
       "QmdbyRwrQNTHKiyYX7fVST18y394fzKuAkqKbThSMqkaXS"
