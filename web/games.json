@@ -993,6 +993,14 @@
     "description": "Sid Meier's Pirates! (Firaxis 2004 retail v1.02 with no-CD patch, via Proton)",
     "runtime": "proton"
   },
+  "silent-hill-2": {
+    "cids": [
+      "QmdQoRYZSXwER8akwbZuxZ28HTUWEEo4YWHxEg78rv3AoR",
+      "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+    ],
+    "description": "Silent Hill 2 (PS2 NTSC-U, via PCSX2)",
+    "runtime": "pcsx2"
+  },
   "simcity-2000": {
     "cids": [
       "QmeKBV2g2rp4YK1p7rCjyn54xKsNUDVehfHQXazvtWX6BH"
