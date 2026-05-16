@@ -1262,6 +1262,13 @@
     "description": "The Settlers II Gold (via Return to the Roots)",
     "runtime": "native"
   },
+  "the-simpsons-hit-run": {
+    "cids": [
+      "QmT1cgcUcMbBXMaUif8aT6oed9BGHno9tRp3ySbUE2JiSo"
+    ],
+    "description": "The Simpsons: Hit & Run (Vivendi/Radical 2003 PC port, via Proton)",
+    "runtime": "proton"
+  },
   "the-typing-of-the-dead": {
     "cids": [
       "QmeXCgXCm2ogepvGD7iCe48yNTpp5dwLB77CrjjVyeR4R7"

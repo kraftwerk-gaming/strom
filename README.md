@@ -216,6 +216,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/the-legend-of-zelda-oracle-of-seasons/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-seasons.jpg" height="40" alt="the-legend-of-zelda-oracle-of-seasons"></a> | [The Legend of Zelda: Oracle of Seasons](https://lutris.net/games/the-legend-of-zelda-oracle-of-seasons/) | `retroarch` | `nix run .#the-legend-of-zelda-oracle-of-seasons` |
 | <a href="https://lutris.net/games/the-secret-of-monkey-island/"><img src="https://lutris.net/games/banner/the-secret-of-monkey-island.jpg" height="40" alt="the-secret-of-monkey-island"></a> | [The Secret of Monkey Island](https://lutris.net/games/the-secret-of-monkey-island/) | `native` | `nix run .#the-secret-of-monkey-island` |
 | <a href="https://lutris.net/games/the-settlers-ii-gold-edition/"><img src="https://lutris.net/games/banner/the-settlers-ii-gold-edition.jpg" height="40" alt="the-settlers-ii-gold-edition"></a> | [The Settlers II Gold](https://lutris.net/games/the-settlers-ii-gold-edition/) | `native` | `nix run .#the-settlers-ii-gold-edition` |
+| <a href="https://lutris.net/games/the-simpsons-hit-run/"><img src="https://lutris.net/games/banner/the-simpsons-hit-run.jpg" height="40" alt="the-simpsons-hit-run"></a> | [The Simpsons: Hit & Run](https://lutris.net/games/the-simpsons-hit-run/) | `proton` | `nix run .#the-simpsons-hit-run` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead.jpg" height="40" alt="the-typing-of-the-dead"></a> | [The Typing of the Dead](https://lutris.net/games/the-typing-of-the-dead/) | `proton` | `nix run .#the-typing-of-the-dead` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead-overkill/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg" height="40" alt="the-typing-of-the-dead-overkill"></a> | [The Typing of the Dead: Overkill](https://lutris.net/games/the-typing-of-the-dead-overkill/) | `proton` | `nix run .#the-typing-of-the-dead-overkill` |
 | <a href="https://lutris.net/games/theme-hospital/"><img src="https://lutris.net/games/banner/theme-hospital.jpg" height="40" alt="theme-hospital"></a> | [Theme Hospital](https://lutris.net/games/theme-hospital/) | `native` | `nix run .#theme-hospital` |
@@ -241,7 +242,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_200 games_
+_201 games_
 
 <!-- END GENERATED GAMES -->
 
