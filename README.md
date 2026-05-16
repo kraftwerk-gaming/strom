@@ -54,6 +54,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/baby-steps/"><img src="https://lutris.net/games/banner/baby-steps.jpg" height="40" alt="baby-steps"></a> | [Baby Steps](https://lutris.net/games/baby-steps/) | `proton` | `nix run .#baby-steps` |
 | <a href="https://lutris.net/games/balatro/"><img src="https://lutris.net/games/banner/balatro.jpg" height="40" alt="balatro"></a> | [Balatro](https://lutris.net/games/balatro/) | `proton` | `nix run .#balatro` |
 | <a href="https://lutris.net/games/baldurs-gate-enhanced-edition/"><img src="https://lutris.net/games/banner/baldurs-gate-enhanced-edition.jpg" height="40" alt="baldurs-gate-enhanced-edition"></a> | [Baldur's Gate: Enhanced Edition + 3 DLC](https://lutris.net/games/baldurs-gate-enhanced-edition/) | `native` | `nix run .#baldurs-gate-enhanced-edition` |
+| <a href="https://lutris.net/games/baldurs-gate-ii-enhanced-edition/"><img src="https://lutris.net/games/banner/baldurs-gate-ii-enhanced-edition.jpg" height="40" alt="baldurs-gate-ii-enhanced-edition"></a> | [Baldur's Gate II: Enhanced Edition + DLC](https://lutris.net/games/baldurs-gate-ii-enhanced-edition/) | `native` | `nix run .#baldurs-gate-ii-enhanced-edition` |
 | <a href="https://lutris.net/games/ball-x-pit/"><img src="https://lutris.net/games/banner/ball-x-pit.jpg" height="40" alt="ball-x-pit"></a> | [Ball x Pit](https://lutris.net/games/ball-x-pit/) | `proton` | `nix run .#ball-x-pit` |
 | <a href="https://lutris.net/games/battlefield-1942/"><img src="https://lutris.net/games/banner/battlefield-1942.jpg" height="40" alt="battlefield-1942"></a> | [Battlefield 1942 Complete Collection](https://lutris.net/games/battlefield-1942/) | `proton` | `nix run .#battlefield-1942` |
 | <a href="https://lutris.net/games/battlefield-1942-desert-combat/"><img src="https://lutris.net/games/banner/battlefield-1942-desert-combat.jpg" height="40" alt="battlefield-1942-desert-combat"></a> | [Battlefield 1942: Desert Combat](https://lutris.net/games/battlefield-1942-desert-combat/) | `proton` | `nix run .#battlefield-1942-desert-combat` |
@@ -232,7 +233,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_191 games_
+_192 games_
 
 <!-- END GENERATED GAMES -->
 
