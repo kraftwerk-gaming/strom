@@ -133,6 +133,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/inscryption/"><img src="https://lutris.net/games/banner/inscryption.jpg" height="40" alt="inscryption"></a> | [Inscryption](https://lutris.net/games/inscryption/) | `native` | `nix run .#inscryption` |
 | <a href="https://lutris.net/games/interstate-76/"><img src="https://lutris.net/games/banner/interstate-76.jpg" height="40" alt="interstate-76"></a> | [Interstate '76 Arsenal](https://lutris.net/games/interstate-76/) | `proton` | `nix run .#interstate-76` |
 | <a href="https://lutris.net/games/jazz-jackrabbit-2/"><img src="https://lutris.net/games/banner/jazz-jackrabbit-2.jpg" height="40" alt="jazz-jackrabbit-2"></a> | [Jazz Jackrabbit 2](https://lutris.net/games/jazz-jackrabbit-2/) | `native` | `nix run .#jazz-jackrabbit-2` |
+| <a href="https://lutris.net/games/jet-set-radio/"><img src="https://lutris.net/games/banner/jet-set-radio.jpg" height="40" alt="jet-set-radio"></a> | [Jet Set Radio](https://lutris.net/games/jet-set-radio/) | `proton` | `nix run .#jet-set-radio` |
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
 | <a href="https://lutris.net/games/kknd/"><img src="https://lutris.net/games/banner/kknd.jpg" height="40" alt="kknd"></a> | [KKnD Xtreme / Krush Kill 'n Destroy](https://lutris.net/games/kknd/) | `proton` | `nix run .#kknd` |
 | <a href="https://lutris.net/games/leap-year/"><img src="https://lutris.net/games/banner/leap-year.jpg" height="40" alt="leap-year"></a> | [Leap Year](https://lutris.net/games/leap-year/) | `proton` | `nix run .#leap-year` |
@@ -239,7 +240,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_198 games_
+_199 games_
 
 <!-- END GENERATED GAMES -->
 

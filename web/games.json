@@ -665,6 +665,13 @@
     "description": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
     "runtime": "native"
   },
+  "jet-set-radio": {
+    "cids": [
+      "QmVfcnecdG5cfr9RJhHPCzrEqjqYQ2j5ZKxH5ndL4eZ5NF"
+    ],
+    "description": "Jet Set Radio (Smilebit/SEGA 2000, Blitworks 2012 PC port, via Proton)",
+    "runtime": "proton"
+  },
   "journey": {
     "cids": [
       "QmfRhR1An2SPijr8oGZZAJTW2LdkqzBTY3P4oYXPT2vZja"
