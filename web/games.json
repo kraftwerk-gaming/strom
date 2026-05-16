@@ -542,6 +542,13 @@
     "description": "Hardspace: Shipbreaker (Blackbird Interactive 2022, via Proton)",
     "runtime": "proton"
   },
+  "harvest-moon": {
+    "cids": [
+      "Qmb3XE2q79kVqrZ1iHfGwxKKj1byDCjwDwVUS27dPV1Rv9"
+    ],
+    "description": "Harvest Moon (Pack-In-Video / Natsume 1996 SNES, via RetroArch / bsnes)",
+    "runtime": "retroarch"
+  },
   "heroes-of-might-and-magic-2-gold": {
     "cids": [
       "QmRaZGqtcgX9cHNJXhkyc2czyw1qxjSvkAWRPjfEYCyVRi",
