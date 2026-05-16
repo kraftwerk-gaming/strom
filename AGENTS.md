@@ -20,7 +20,7 @@
 ## IPFS and fetchIpfs
 
 - Game files are fetched via `fetchIpfs` (`lib/fetch-ipfs.nix`), which uses `ipget` to spawn a temporary IPFS node and fetch by CID from the DHT. Falls back to archive.org if IPFS fails.
-- CIDs in this repo are generated with `ipfs add --raw-leaves`. A plain `ipfs add` without `--raw-leaves` produces a **different CID** for the same file. Always use `--raw-leaves` when adding files to match the CIDs in this repo. (`--nocopy` implies `--raw-leaves` and is fine too; it just additionally enables filestore in-place referencing.)
+- CIDs in this repo are generated with `ipfs add --raw-leaves`. A plain `ipfs add` without `--raw-leaves` produces a **different CID** for the same file. Always use `--raw-leaves` when adding files to match the CIDs in this repo. (`--nocopy` implies `--raw-leaves`; `--only-hash` does NOT, so it must be paired with `--raw-leaves` explicitly.)
 - To add a new game file to IPFS: place it on the operator's pin host. A pin watcher service auto-pins it (with `--nocopy`, so `--raw-leaves` is implied) and records the CID in the host's `cid-map.txt`.
 - When adding a new game, get the CID from `cid-map.txt` and use `fetchIpfs { cid = "..."; fallbackUrl = "https://archive.org/..."; hash = "sha256-..."; name = "..."; }`.
 - Files not yet pinned on a reachable node are not discoverable via IPFS. The file must be pinned on at least one reachable node.
@@ -62,30 +62,40 @@
 - For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
 - For `winetricks`-style verb installs (vcrun, dotnet, dxvk, etc.): manually drop the DLLs into the prefix's `system32`/`syswow64` from buildScript or preRun. Don't shell out to winetricks.
 
-## Radicle patch workflow for untested games
+## Stage-branch workflow for untested games
 
 - The `rad` remote is the canonical destination for this repo. `github` is a mirror.
-- Untested or in-progress packages live on a `patches/<slug>` branch pushed as a Radicle patch — never directly on `master`. Master is reserved for games that have been interactively tested AND have a real IPFS-pinned CID.
-- Stage-commit subject: `<slug>: stage (untested, ...)` (or `stage (broken — <why>)`, `stage (tested, awaiting IPFS pin)`, etc.). The parenthetical describes the state.
-- Master-commit subject: `<slug>: init`. Don't carry `stage` into master.
-- **One commit per game on master.** After the test passes AND the CID has been pinned, rebase the patch commit onto master and amend its subject from `stage (…)` to `init`. Don't ship two commits (`init` with `PENDING_UPLOAD` + later `update CID`).
+- Untested or in-progress packages live on a `stage/<slug>` branch pushed to `rad` as a plain git branch — never directly on `master`. Master is reserved for games that have been interactively tested AND have a real IPFS-pinned CID.
+- We do **not** use `rad patch` for game staging. Push the branch with `git push rad stage/<slug>` and link it from the issue. The patch flow added overhead (draft/open/ready state, revision-update commands, auto-merge detection) without buying anything we needed. See `docs/request-game-workflow.md` for the full procedure.
+- Stage-commit subject: `<slug>: stage (untested, awaiting IPFS pin)` (or `stage (broken - <why>)`, `stage (tested, awaiting IPFS pin)`, etc.). The parenthetical describes the state.
+- Stage-commit body MUST contain `Issue: <id>` as a Git trailer so the commit ties back to the original `package-request` issue without needing rad-issue search. Recommended template:
+
+      <slug>: stage (untested, awaiting IPFS pin)
+
+      Issue: <full-or-short-issue-id>
+      Source: <fetch URL the FOD points at>
+      Runtime: <native|proton|pcsx2|retroarch+swanstation|dolphin|...>
+
+- Master-commit subject: `<slug>: init`. Don't carry `stage` into master. The `Issue:` trailer survives the amend.
+- **One commit per game on master.** After the test passes AND the CID has been pinned, rebase the stage commit onto master and amend its subject from `stage (...)` to `init`. Don't ship two commits (`init` with `PENDING_UPLOAD` + later `update CID`).
 - Merge flow:
-  1. On `patches/<slug>`: rebase on master, amend `stage (…)` → `init`.
-  2. `rad patch update <patch-id>` — pushes the rebased+amended commit as a new revision of the patch.
-  3. `rad patch ready <patch-id>` — moves the patch from draft to open (required for auto-merge detection).
-  4. `git checkout master && git merge --ff-only patches/<slug>`.
-  5. `git push rad master` — radicle sees the patch's HEAD reachable from master and auto-marks the patch **merged**, preserving review/comment history.
-  6. `git branch -d patches/<slug>` (or `-D` if radicle's tracking ref is stale).
-- **Never archive game patches.** Even broken-in-progress games keep their patch open so future-you (or another contributor) has the diff, diagnostic notes, and revision history in one place. `rad patch archive` is only appropriate for non-game patches (lib/infrastructure refactors, tooling experiments) that get abandoned without landing.
-- Listing: `rad patch list` (open), `rad patch list --all` (all states), `rad patch show <id>` for revision history.
+  1. On `stage/<slug>`: rebase on master, amend subject `stage (...)` -> `init`.
+  2. `git push rad +stage/<slug>` — force-update the rad branch with the rebased+amended commit (preserves the branch for review during the test window).
+  3. `git checkout master && git merge --ff-only stage/<slug>`.
+  4. `git push rad master`.
+  5. `git branch -d stage/<slug>` and `git push rad :stage/<slug>` — delete the branch locally and on rad.
+  6. `rad issue comment <issue-id> --message "merged to master as <sha>."` — close the loop on the issue.
+- **Never delete unmerged stage branches.** Even broken-in-progress games keep their `stage/<slug>` branch on rad so future-you (or another contributor) has the diff, diagnostic notes, and history in one place. Delete only after merge or after the issue is explicitly abandoned.
+- Listing: `git branch -r | grep stage/` (all in-flight stage branches), `git log rad/master..rad/stage/<slug>` (the diff a particular stage adds), `rad issue show <id>` for the request context.
 - `git reset --hard` without explicit user permission AND a backup of any uncommitted work is forbidden. Default to `--mixed`. Intent-to-add files (`git add -N`) leave no recoverable blob after `--hard`.
 
 ## IPFS pinning only after testing
 
-- Game files must be IPFS-pinned (on at least one reachable node) before they're useful to other users. **Don't pin a multi-GB asset until interactive testing has confirmed the package works** — wasted bandwidth if the package never runs.
-- Phase 1 (stage): download → hash → `nix store add-file --hash-algo sha256 --name <name> /path/to/file` (seeds the local store with the file under fetchIpfs's expected output path) → write `default.nix` with `cid = "PENDING_UPLOAD"`. Build verifies locally because the FOD output path is already realized.
+- Game files must be IPFS-pinned (on at least one reachable node) before they're useful to other users. **Don't pin a multi-GB asset to a remote/public node until interactive testing has confirmed the package works** - wasted bandwidth if the package never runs.
+- Phase 1 (stage): download -> hash -> `nix store add-file --hash-algo sha256 --name <name> /path/to/file` (seeds the local store with the file under fetchIpfs's expected output path) -> write `default.nix` with `cid = "PENDING_UPLOAD"` OR a real CID if a local ipfs daemon is available (see below). Build verifies locally because the FOD output path is already realized.
+- **Use the local ipfs daemon when present.** If `ipfs id` succeeds on the staging host, run `ipfs add --only-hash --raw-leaves --quieter tmp/<asset-file>` during Phase 1 and write the real CID into `default.nix` straight away. `--only-hash` computes the deterministic CID without ingesting bytes into the local IPFS datastore (no second copy on disk, no provider record). The operator still has to pin the asset on a reachable node before other users can fetch via IPFS, but the CID in the commit is already correct - no later amend needed.
 - Phase 2 (test): user runs `nix run .#<game>` and confirms it works.
-- Phase 3 (only after Phase 2 passes): pin the file on whatever IPFS node(s) the operator uses, get the CID, update `cid` in `default.nix`, rebuild. The exact pinning method is out of scope for this file — operator-specific.
+- Phase 3 (only after Phase 2 passes): pin the file on whatever IPFS node(s) the operator uses (public/pin host), update `cid` if it was still `PENDING_UPLOAD`, rebuild. The exact pinning method is out of scope for this file - operator-specific.
 
 ## fetchIpfs fallbackUrl must NOT be an IPFS gateway
 
