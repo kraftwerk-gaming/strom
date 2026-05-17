@@ -97,11 +97,17 @@ stdenvNoCC.mkDerivation {
       # gateway caches.
       # --check-integrity=false: integrity is verified by Nix's outputHash.
       # --conditional-get / --allow-overwrite=true cope with restarted builds.
-      aria2c \
+      # --lowest-speed-limit closes any connection delivering <=10KB/s;
+      # without it aria2 keeps accepted-but-stalled gateway sockets
+      # open indefinitely. The outer `timeout 3600` is a hard ceiling
+      # so even pathological all-stalled state falls through to the
+      # curl/fallbackUrl path instead of hanging the build forever.
+      timeout 3600 aria2c \
         --console-log-level=warn \
         --summary-interval=10 \
         --connect-timeout=30 \
         --timeout=120 \
+        --lowest-speed-limit=10K \
         --max-tries=5 \
         --retry-wait=10 \
         --split=8 \
