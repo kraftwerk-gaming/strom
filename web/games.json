@@ -165,6 +165,13 @@
     "description": "Broforce / Broforce Forever (native Linux, GOG build 71321)",
     "runtime": "native"
   },
+  "bully-scholarship-edition": {
+    "cids": [
+      "QmeTAuvZ3W8FFxiPCGdUarUSouSGWLUhFdDoknhskuZK5u"
+    ],
+    "description": "Bully: Scholarship Edition (Rockstar Vancouver 2008 PC port, v1.2 + SilentPatch, via Proton)",
+    "runtime": "proton"
+  },
   "burnout-3-takedown": {
     "cids": [
       "QmTR7JR8zd4yENd9sudBy5iQBKRKKvYuB66vhymrRMLmSn",
