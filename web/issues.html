@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>strom - issue tracker</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #11191f;
+      --fg: #e3e8ec;
+      --muted: #8aa0ad;
+      --border: #2a3a45;
+      --accent: #4a9aff;
+      --row: #16222a;
+      --row-alt: #182832;
+      --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono: ui-monospace, "JetBrains Mono", "Fira Code", monospace;
+    }
+    body { margin: 0; padding: 1.5rem; font-family: var(--font); background: var(--bg); color: var(--fg); }
+    main { max-width: 1200px; margin: 0 auto; }
+    h1 { margin: 0 0 0.5rem; }
+    p, small { color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    input[type=search], select {
+      background: var(--row);
+      color: var(--fg);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: var(--font);
+    }
+    input[type=search] { min-width: 280px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.9rem; }
+    th, td { padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; cursor: pointer; user-select: none; }
+    th:hover { color: var(--accent); }
+    tbody tr:nth-child(odd) { background: var(--row); }
+    tbody tr:nth-child(even) { background: var(--row-alt); }
+    .id-cell { font-family: var(--mono); font-size: 0.8em; }
+    .title-cell { font-weight: 500; }
+    .author-cell { font-size: 0.85em; color: var(--muted); }
+    .label {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 0.7em;
+      font-weight: 600;
+      margin-right: 4px;
+      background: #2d4a8b;
+      color: #fff;
+    }
+    .label-package-request { background: #2d6b8b; }
+    .label-staged { background: #2d8b3a; }
+    .label-blocked { background: #8b3a2d; }
+    .when-cell { font-size: 0.8em; color: var(--muted); white-space: nowrap; }
+    .empty { padding: 2rem; text-align: center; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>strom &mdash; issue tracker</h1>
+    <p>
+      Live view of <code id="rid-display"></code> issues, fetched from
+      <a id="api-link" href=""><code></code></a>.
+      Open an issue from the CLI: <code>rad issue open --title "&lt;slug&gt;: package request" --labels package-request</code>.
+    </p>
+
+    <div class="controls">
+      <input type="search" id="search" placeholder="filter title, slug, author, label..." autofocus>
+      <select id="state-filter">
+        <option value="open" selected>open</option>
+        <option value="closed">closed</option>
+        <option value="all">all</option>
+      </select>
+      <select id="label-filter">
+        <option value="">any label</option>
+      </select>
+      <small id="count"></small>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th data-sort="id">id</th>
+          <th data-sort="title">title</th>
+          <th data-sort="author">author</th>
+          <th data-sort="labels">labels</th>
+          <th data-sort="timestamp">opened</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div id="empty" class="empty" hidden>no issues match</div>
+
+    <p style="margin-top: 2rem; font-size: 0.85em;">
+      Request a game:
+      <code style="background: var(--row); padding: 2px 6px; border-radius: 3px;">rad issue open --title "&lt;slug&gt;: package request" --labels package-request</code>
+    </p>
+  </main>
+
+  <script>
+    "use strict";
+
+    const RID = "rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
+    const SEEDS = [
+      "https://seed.radicle.garden",
+      "https://ash.radicle.garden",
+    ];
+    const APP_BASE = "https://radicle.network/nodes/seed.radicle.garden/" + RID + "/issues/";
+
+    const params = new URLSearchParams(location.search);
+    const initialState = params.get("state") || "open";
+    const initialSearch = params.get("q") || "";
+
+    document.getElementById("rid-display").textContent = RID;
+    document.getElementById("state-filter").value = initialState;
+    document.getElementById("search").value = initialSearch;
+
+    let allIssues = [];
+    let sortKey = "timestamp";
+    let sortDir = -1;  // newest first
+
+    function ago(ts) {
+      const s = Math.floor(Date.now() / 1000) - ts;
+      if (s < 60) return s + "s";
+      if (s < 3600) return Math.floor(s / 60) + "m";
+      if (s < 86400) return Math.floor(s / 3600) + "h";
+      if (s < 86400 * 30) return Math.floor(s / 86400) + "d";
+      if (s < 86400 * 365) return Math.floor(s / 86400 / 30) + "mo";
+      return Math.floor(s / 86400 / 365) + "y";
+    }
+
+    function alias(author) {
+      if (!author) return "";
+      if (author.alias) return author.alias;
+      const id = author.id || "";
+      return id.slice(-12);
+    }
+
+    function compare(a, b) {
+      let va = a[sortKey], vb = b[sortKey];
+      if (sortKey === "title") { va = (va || "").toLowerCase(); vb = (vb || "").toLowerCase(); }
+      if (sortKey === "author") { va = alias(a.author).toLowerCase(); vb = alias(b.author).toLowerCase(); }
+      if (sortKey === "labels") { va = (a.labels || []).join(","); vb = (b.labels || []).join(","); }
+      if (va < vb) return -1 * sortDir;
+      if (va > vb) return 1 * sortDir;
+      return 0;
+    }
+
+    function render() {
+      const q = document.getElementById("search").value.toLowerCase().trim();
+      const stateFilter = document.getElementById("state-filter").value;
+      const labelFilter = document.getElementById("label-filter").value;
+
+      const filtered = allIssues.filter(iss => {
+        if (stateFilter !== "all" && iss.state.status !== stateFilter) return false;
+        if (labelFilter && !(iss.labels || []).includes(labelFilter)) return false;
+        if (q) {
+          const hay = (iss.title + " " + alias(iss.author) + " " + (iss.labels || []).join(" ")).toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+      filtered.sort(compare);
+
+      const rows = document.getElementById("rows");
+      rows.innerHTML = "";
+      for (const iss of filtered) {
+        const tr = document.createElement("tr");
+
+        const tdId = document.createElement("td");
+        tdId.className = "id-cell";
+        const aId = document.createElement("a");
+        aId.href = APP_BASE + iss.id;
+        aId.target = "_blank";
+        aId.rel = "noopener";
+        aId.textContent = iss.id.slice(0, 7);
+        tdId.appendChild(aId);
+        tr.appendChild(tdId);
+
+        const tdTitle = document.createElement("td");
+        tdTitle.className = "title-cell";
+        const aTitle = document.createElement("a");
+        aTitle.href = APP_BASE + iss.id;
+        aTitle.target = "_blank";
+        aTitle.rel = "noopener";
+        aTitle.textContent = iss.title;
+        tdTitle.appendChild(aTitle);
+        tr.appendChild(tdTitle);
+
+        const tdAuthor = document.createElement("td");
+        tdAuthor.className = "author-cell";
+        tdAuthor.textContent = alias(iss.author);
+        tr.appendChild(tdAuthor);
+
+        const tdLabels = document.createElement("td");
+        (iss.labels || []).forEach(l => {
+          const span = document.createElement("span");
+          span.className = "label label-" + l.replace(/[^a-z0-9-]/gi, "");
+          span.textContent = l;
+          tdLabels.appendChild(span);
+        });
+        tr.appendChild(tdLabels);
+
+        const tdWhen = document.createElement("td");
+        tdWhen.className = "when-cell";
+        tdWhen.textContent = ago(iss.timestamp || iss.discussion?.[0]?.timestamp || 0);
+        tdWhen.title = new Date((iss.timestamp || iss.discussion?.[0]?.timestamp || 0) * 1000).toISOString();
+        tr.appendChild(tdWhen);
+
+        rows.appendChild(tr);
+      }
+
+      document.getElementById("count").textContent = filtered.length + " / " + allIssues.length + " issues";
+      document.getElementById("empty").hidden = filtered.length > 0;
+    }
+
+    function buildLabelOptions() {
+      const sel = document.getElementById("label-filter");
+      const labels = new Set();
+      allIssues.forEach(iss => (iss.labels || []).forEach(l => labels.add(l)));
+      [...labels].sort().forEach(l => {
+        const opt = document.createElement("option");
+        opt.value = l;
+        opt.textContent = l;
+        sel.appendChild(opt);
+      });
+    }
+
+    async function fetchIssues() {
+      let lastErr;
+      for (const seed of SEEDS) {
+        const url = seed + "/api/v1/repos/" + RID + "/issues?perPage=1000&state=all";
+        document.getElementById("api-link").href = url;
+        document.getElementById("api-link").querySelector("code").textContent = url.replace(/^https?:\/\//, "");
+        try {
+          const r = await fetch(url, { cache: "no-store" });
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          const data = await r.json();
+          // Normalize: add timestamp from first discussion entry if missing
+          for (const iss of data) {
+            if (!iss.timestamp) iss.timestamp = iss.discussion?.[0]?.timestamp || 0;
+          }
+          return data;
+        } catch (err) {
+          lastErr = err;
+        }
+      }
+      throw lastErr;
+    }
+
+    document.querySelectorAll("th[data-sort]").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.sort;
+        if (sortKey === key) sortDir *= -1;
+        else { sortKey = key; sortDir = key === "timestamp" ? -1 : 1; }
+        render();
+      });
+    });
+    document.getElementById("search").addEventListener("input", render);
+    document.getElementById("state-filter").addEventListener("change", render);
+    document.getElementById("label-filter").addEventListener("change", render);
+
+    fetchIssues()
+      .then(data => {
+        allIssues = data;
+        buildLabelOptions();
+        render();
+      })
+      .catch(err => {
+        document.getElementById("count").textContent = "failed to load: " + err.message;
+      });
+  </script>
+</body>
+</html>
