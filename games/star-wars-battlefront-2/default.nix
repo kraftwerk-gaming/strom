@@ -46,6 +46,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # SaveGames/*.profile + data/_lvl_pc/vidmode.ini next to its binary,
+  # not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "battlefrontII.exe";
 
   copyGlobs = [

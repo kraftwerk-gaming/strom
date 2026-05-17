@@ -61,6 +61,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Videocult/Rain World" ];
   executable = "RainWorld.exe";
 
   gamescope = {

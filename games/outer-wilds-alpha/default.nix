@@ -26,6 +26,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # OuterWilds_Alpha_1_2_Data/SavedData/*.ow next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "OuterWilds_Alpha_1_2.exe";
   # Skip the Unity 4 configuration dialog (ScreenSelector) and force fullscreen.
   executableArgs = [

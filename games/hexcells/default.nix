@@ -33,6 +33,13 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Hexcells stores all progress as Unity PlayerPrefs DWORDs under
+  # `HKCU\Software\Matthew Brown\Hexcells\` in user.reg, which
+  # saveLocations cannot relocate (it migrates steamuser/ dirs, not
+  # registry keys). Progress survives only because the prefix hasn't
+  # been wiped; a wipe loses everything. Tracked in rad issue 75b83cb.
+  saveLocations = [ ];
   executable = "Hexcells.exe";
 
   # Unity 4.x's startup configuration dialog (resolution/quality picker)

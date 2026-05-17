@@ -49,6 +49,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # next to its binary, not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "anox.exe";
   # Mirror anox_1280gl.bat (gl_mode 8 = 1280x1024, opengl32 renderer,
   # fullscreen via gamescope-nested). Without these the engine picks

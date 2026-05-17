@@ -25,6 +25,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  saveLocations = [ "AppData/LocalLow/House House/Untitled Goose Game" ];
   executable = "Untitled.exe";
   gamescope = {
     output-width = 1920;

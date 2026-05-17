@@ -28,6 +28,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   copyGlobs = [ ];
 
   runtime = "proton";
+
+  saveLocations = [ "AppData/Roaming/Sega/Typing of the Dead Overkill" ];
   executable = "HOTD_NG.exe";
 
   env = {

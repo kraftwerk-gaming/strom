@@ -37,6 +37,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # users/<name>.usr + usersold/ + userstmp/ next to its binary, not
+  # under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "uplink.exe";
 
   gamescope = {

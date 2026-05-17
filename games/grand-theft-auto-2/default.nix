@@ -53,6 +53,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # player/plyslot*.dat next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # gta2.exe is the actual game; "gta2 manager.exe" is the
   # configuration launcher which gamescope handles for us.
   executable = "gta2.exe";

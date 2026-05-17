@@ -72,6 +72,10 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
 
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # Saves/*.dat next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # OpenGL game -- gamescope causes a black screen with OGL rendering.
   # Run directly via proton without gamescope. Wine forks the game
   # into its own process group, so SIGKILL on the bwrap group won't

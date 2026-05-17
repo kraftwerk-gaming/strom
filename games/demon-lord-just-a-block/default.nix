@@ -26,6 +26,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  saveLocations = [ "AppData/LocalLow/YuWave/DemonLordJustABlock" ];
   executable = "DemonLordJustABlock.exe";
 
   gamescope = {

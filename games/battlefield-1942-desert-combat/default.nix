@@ -39,6 +39,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   ];
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # profile + settings under Mods/bf1942/Settings/Profiles/, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "BF1942.exe";
   executableArgs = [
     "+game"

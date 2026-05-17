@@ -144,6 +144,10 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
 
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # *.sav + cam.cfg next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   env = {
     STEAM_COMPAT_APP_ID = "211740";
     STAGING_WRITECOPY = "1";

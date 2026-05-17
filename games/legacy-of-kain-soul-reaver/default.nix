@@ -52,6 +52,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # savegame.her next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "kain2.exe";
   gamescope = {
     output-width = 1920;

@@ -30,6 +30,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/Roaming/GSE Saves" ];
   executable = "portal2.exe";
 
   gamescope = {

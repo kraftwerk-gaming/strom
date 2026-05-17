@@ -42,6 +42,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/Local/SKIDROW" ];
   executable = "jetsetradio.exe";
 
   gamescope = {

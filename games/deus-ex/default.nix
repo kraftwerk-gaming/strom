@@ -59,6 +59,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # System/User.ini, System/DeusEx.ini, Save/ next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "System/DeusEx.exe";
   # Force resolution at launch — the Unreal-1 engine probes the X server
   # for video modes and picks something tiny in the gamescope nested

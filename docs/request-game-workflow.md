@@ -336,13 +336,45 @@ stop. An empty stage branch with no commit is not worth pushing.
     for Phase 1 and flag the missing helper as a workflow/refactor
     gap.
 
-## 8. Phase 2 / Phase 3 (interactive test + IPFS pin)
+## 8. Phase 2 / Phase 3 (interactive test + IPFS pin + saveLocations audit)
 
 Out of scope for the request-handler agent - this happens
-interactively on the operator's machine. When the test passes and the
-asset is pinned, the stage branch is rebased + amended (`stage (...)`
--> `init`), force-pushed to update the rad branch, then merged to
-master:
+interactively on the operator's machine. Three gates must clear before
+the stage commit becomes a master `init`:
+
+1. **Interactive test passes.** `nix run .#<slug>` reaches the main
+   menu / a playable state without crashing.
+2. **Asset is IPFS-pinned** on at least one reachable node. The
+   placeholder `cid = "PENDING_UPLOAD"` must be replaced with the real
+   CID in `default.nix` before the commit lands on master.
+3. **`saveLocations` is filled in** for any `runtime = "proton"` game.
+   Proton's `$HOME` is tmpfs'd; saves vanish on prefix wipe unless
+   relocated. Procedure: launch once, play far enough to write a save,
+   then
+
+       PFX=~/.strom/.compatdata/<slug>/0/pfx
+       find "$PFX/drive_c/users/steamuser" -mindepth 2 -newer <reference> \
+         -not -path '*/Microsoft/*'
+
+   Add every non-Microsoft dir the engine created to `saveLocations`
+   (paths relative to `drive_c/users/steamuser/`). Common shapes:
+   `AppData/LocalLow/<vendor>/<game>` (Unity), `AppData/Roaming/<game>`
+   (.NET / Electron), `Documents/<game>`, `Documents/My Games/<game>`
+   (older titles). Verify by wiping `~/.strom/.compatdata/<slug>` and
+   re-launching — prior progress should still be there.
+
+   The only legitimate empty-or-absent case is a game that writes saves
+   *next to its binary* in the install dir — those persist via the
+   per-game fuse-overlayfs upper. Leave a comment in `default.nix`
+   explaining it (search `games/portal/default.nix`,
+   `games/magicka/default.nix` for the pattern). A future
+   `lib/mk-game.nix` revision may make this a hard assertion
+   (`runtime = "proton"` + empty `saveLocations` -> eval error) once
+   every existing proton game is audited.
+
+When all three gates clear, the stage branch is rebased + amended
+(`stage (...)` -> `init`), force-pushed to update the rad branch, then
+merged to master:
 
     git checkout stage/<slug>
     git fetch rad master

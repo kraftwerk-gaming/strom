@@ -100,6 +100,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # _appdata_/savedgames/all.sav next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "bin/xr_3da.exe";
 
   gamescope = {

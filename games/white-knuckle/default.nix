@@ -38,6 +38,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Dark Machine/White Knuckle" ];
   executable = "White Knuckle.exe";
 
   gamescope = {

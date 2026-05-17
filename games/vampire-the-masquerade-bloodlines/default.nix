@@ -47,6 +47,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # Unofficial_Patch/save/*.HL* + cfg/config.cfg next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # Loader.exe is the Unofficial Patch launcher; it sets up
   # game-specific patch flags and then calls Vampire.exe.
   executable = "Loader.exe";

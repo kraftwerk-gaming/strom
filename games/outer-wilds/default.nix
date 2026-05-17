@@ -94,6 +94,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Mobius Digital/Outer Wilds" ];
   executable = "OuterWilds.exe";
   gamescope = {
     output-width = 1920;

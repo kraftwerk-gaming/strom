@@ -55,6 +55,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # *.fot save files + I76*.DEF config + ADDON/ next to its binary, not
+  # under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # i76.exe is the base-game entry. The GOG bundle also ships
   # Interstate 76 Nitro Pack/nitro.exe for the expansion missions.
   executable = "i76.exe";

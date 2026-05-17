@@ -37,6 +37,10 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
 
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # Data/save/*.sav + Data/config/* + server.ini next to its binary,
+  # not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   buildScript = ''
     mkdir -p "$out"
 

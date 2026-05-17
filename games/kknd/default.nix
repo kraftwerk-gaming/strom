@@ -79,6 +79,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # *.sav + save.lst + ddraw.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "KKNDgame.exe";
 
   # `n,b` makes wine load the bundled native ddraw.dll first (cnc-ddraw)

@@ -40,6 +40,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # next to its binary, not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # NOLF.exe is the launcher front-end: it writes the chosen renderer /
   # rez / display config into the registry, then execs lithtech.exe.
   # Under proton+bwrap that exec chain breaks (the launcher exits and

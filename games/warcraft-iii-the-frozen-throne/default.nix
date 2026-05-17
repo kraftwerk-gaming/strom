@@ -39,6 +39,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # save/<Profile>/Campaigns.w3{p,v} + *.w3z replays next to its binary,
+  # not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "war3.exe";
 
   env = {

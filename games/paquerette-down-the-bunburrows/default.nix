@@ -46,6 +46,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Bunstack/Paquerette Down the Bunburrows" ];
   executable = "Paquerette Down the Bunburrows.exe";
 
   gamescope = {

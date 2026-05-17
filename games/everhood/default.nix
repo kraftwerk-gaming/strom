@@ -28,6 +28,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Foreign Gnomes/Everhood" ];
   executable = "Everhood.exe";
 
   gamescope = {

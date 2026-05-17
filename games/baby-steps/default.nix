@@ -30,6 +30,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/DefaultCompany/BabySteps" ];
   executable = "BabySteps.exe";
 
   gamescope = {

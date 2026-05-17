@@ -34,6 +34,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # next to its binary, not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # 1503Startup.exe is the launcher shipped by the GOG installer; it
   # invokes the actual game binary.
   executable = "1503Startup.exe";

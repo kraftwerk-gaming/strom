@@ -46,6 +46,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # mdk.cfg + ddraw.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "mdk95.exe";
   # -iamapirate disables the CD-presence check (the ISO is a pre-installed
   # tree, not a mountable game CD).

@@ -29,6 +29,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Rubeki Games/LornsLure" ];
   executable = "LornsLure.exe";
 
   gamescope = {

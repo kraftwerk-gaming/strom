@@ -36,6 +36,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/SUPERHOT_Team/SUPERHOT" ];
   executable = "SH.exe";
   # Unity 5 standalone player flags. -force-d3d11 routes through DXVK
   # instead of Unity's default D3D9 path (whose wined3d adapter

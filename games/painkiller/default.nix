@@ -159,6 +159,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # SaveGames/*/ + Bin/config.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # Bin/Painkiller.exe is the only game-side launcher in the GOG Black
   # Edition build. It handles both the original campaign and the BOOH
   # expansion via in-engine menu selection.

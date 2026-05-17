@@ -30,6 +30,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Bennett Foddy/Getting Over It" ];
   executable = "GettingOverIt.exe";
 
   gamescope = {

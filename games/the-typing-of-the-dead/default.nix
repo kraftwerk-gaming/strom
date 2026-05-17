@@ -38,6 +38,13 @@ self.lib.mkGame { inherit lib pkgs; } {
   copyGlobs = [ ];
 
   runtime = "proton";
+
+  # No persistent state observed (audited 2026-05-18: launching the
+  # game, hitting in-game save, then quitting cleanly leaves zero
+  # files in either the overlay upper or the wineprefix). The 2000
+  # SEGA/Empire PC port is arcade-style; session state appears to
+  # live in memory only.
+  saveLocations = [ ];
   executable = "Tod_e.exe";
 
   env = {

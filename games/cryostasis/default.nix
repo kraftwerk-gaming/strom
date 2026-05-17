@@ -50,6 +50,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   copyGlobs = [ ];
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # config.cfg, journal.cfg, Data/Save/* next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "cryostasis.exe";
 
   gamescope = {

@@ -59,6 +59,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # Profiles/<name>/* + local.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # The Remastered Collection ships four engine builds — HomeworldRM
   # (a modern HW1+HW2 unified DX9 renderer for the remastered
   # campaigns), Homeworld1Classic and Homeworld2Classic (legacy

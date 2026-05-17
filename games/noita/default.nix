@@ -28,6 +28,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Nolla_Games_Noita" ];
   executable = "noita.exe";
 
   gamescope = {

@@ -32,6 +32,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   copyGlobs = [ ];
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # SAVE/NFS Most Wanted/<profile>/ next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "speed.exe";
   gamescope = {
     output-width = 1920;

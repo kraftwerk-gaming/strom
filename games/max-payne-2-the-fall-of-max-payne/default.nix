@@ -206,11 +206,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   saveLocations = [
-    # MaxPayne2.exe writes savegames and settings next to the binary on
-    # Windows (savegames/, MaxPayne2.ini). Under Proton this lands in
-    # the per-game overlay; mk-game's overlay handles top-level writes.
-    # Revisit after interactive testing -- if the engine writes to
-    # AppData/Local/Remedy or Documents/Max Payne 2, add it here.
+    # MaxPayne2.exe drops savegames into Documents/Max Payne 2 Savegames
+    # under steamuser/ (one savegame00N.mp2s per slot). Relocate so
+    # progress survives prefix wipes.
+    "Documents/Max Payne 2 Savegames"
   ];
 
   env = {

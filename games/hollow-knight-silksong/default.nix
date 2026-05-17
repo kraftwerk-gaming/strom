@@ -28,6 +28,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Team Cherry/Hollow Knight Silksong" ];
   executable = "Hollow Knight Silksong.exe";
 
   gamescope = {

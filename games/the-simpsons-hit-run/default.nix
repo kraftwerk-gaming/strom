@@ -59,8 +59,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   # next to Simpsons.exe (engine strings only reference "SaveGame\\"
   # and ".\\simpsons.ini"). The fuse-overlayfs upper already persists
   # those at ~/.strom/<game>/, so no Documents/AppData relocation is
-  # needed. Verify with a real save during interactive testing and
-  # populate this list if any new wineprefix write surfaces.
+  # needed. Verified 2026-05-18: Save1 + simpsons.ini land at
+  # ~/.strom/the-simpsons-hit-run/ and survive prefix wipes.
   saveLocations = [ ];
 
   gamescope = {

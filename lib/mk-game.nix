@@ -118,7 +118,28 @@ let
         };
         saveLocations = mkOption {
           type = types.listOf types.str;
-          default = [ ];
+          description = ''
+            Paths (relative to `drive_c/users/steamuser/`) inside the
+            wineprefix that should be relocated to `~/.strom/<name>/`
+            so prefix wipes don't take user progress with it.
+
+            Required for `runtime = "proton"`. Set to `[ ]` explicitly
+            if the game writes saves *next to its binary* inside the
+            fuse-overlayfs upper (where they already persist). For
+            non-proton runtimes (`native`, `custom`, `retroarch`,
+            `pcsx2`) the bind-mount or emulator semantics handle save
+            persistence independently — this option is moot and
+            defaults to `[ ]`.
+          '';
+          default =
+            if cfg.runtime == "proton" then
+              throw "strom: ${cfg.name}: saveLocations must be set explicitly for runtime = \"proton\" (set to [ ] only if the engine writes saves next to its binary in the overlay; see AGENTS.md \"Save preservation\")"
+            else
+              [ ];
+          defaultText = lib.literalMD ''
+            `[ ]` for non-proton runtimes; throws for `runtime = "proton"`
+            unless set explicitly.
+          '';
         };
         copyGlobs = mkOption {
           type = types.listOf types.str;

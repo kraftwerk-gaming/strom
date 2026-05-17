@@ -152,6 +152,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # system.cfg, Profiles/<name>/savegames/* next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "Bin32/FarCry.exe";
   # `-DEVMODE` unlocks the engine's developer cvars and, more usefully,
   # disables the disc check that otherwise crashes the game on campaign

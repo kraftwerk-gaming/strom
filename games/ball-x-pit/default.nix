@@ -28,6 +28,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Kenny Sun/BALL x PIT" ];
   executable = "Balls.exe";
 
   gamescope = {

@@ -106,6 +106,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # Save/ + System/ next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "System/Undying.exe";
 
   # Force resolution at launch - UE1 ignores Default.ini's FullscreenViewport

@@ -28,6 +28,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # next to its binary, not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # Anno1701AddOn.exe is the Gold/AD entry point (base game + Sunken Treasure addon).
   executable = "Anno1701AddOn.exe";
 

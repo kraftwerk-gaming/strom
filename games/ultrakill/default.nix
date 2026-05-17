@@ -37,6 +37,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Hakita/ULTRAKILL" ];
   executable = "ULTRAKILL.exe";
 
   gamescope = {

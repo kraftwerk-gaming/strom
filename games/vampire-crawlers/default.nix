@@ -33,6 +33,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Nosebleed Interactive/Vampire Crawlers" ];
   executable = "Vampire Crawlers.exe";
 
   gamescope = {

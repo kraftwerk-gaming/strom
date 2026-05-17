@@ -78,6 +78,7 @@
 
 - Master-commit subject: `<slug>: init`. Don't carry `stage` into master. The `Issue:` trailer survives the amend.
 - **One commit per game on master.** After the test passes AND the CID has been pinned, rebase the stage commit onto master and amend its subject from `stage (...)` to `init`. Don't ship two commits (`init` with `PENDING_UPLOAD` + later `update CID`).
+- **`saveLocations` is required for every `runtime = "proton"` game before its commit lands on master.** Proton's `$HOME` is tmpfs'd in the bwrap sandbox — anything the engine writes into `drive_c/users/steamuser/...` evaporates with the wineprefix. Without `saveLocations`, user progress dies on the next prefix wipe (which the launcher does automatically when the proton-version pointer is GC'd, or which the iterative test loop does between fix attempts). The only legitimate empty-or-absent case is a game that writes saves *next to its binary in the install dir* — those persist via the per-game fuse-overlayfs upper. If that's the case, leave a comment in `default.nix` explaining it (search `games/portal/default.nix`, `games/magicka/default.nix` for the pattern). The discovery procedure is in `## Save preservation across prefix wipes` below; the canonical paths to check are `AppData/LocalLow/<vendor>/<game>`, `AppData/Roaming/<game>`, `Documents/<game>`, and `Documents/My Games/<game>`.
 - Merge flow:
   1. On `stage/<slug>`: rebase on master, amend subject `stage (...)` -> `init`.
   2. `git push rad +stage/<slug>` — force-update the rad branch with the rebased+amended commit (preserves the branch for review during the test window).
@@ -114,6 +115,7 @@
 
 - `~/.strom/.compatdata/<game>` (the wineprefix) is treated as **disposable**. The launcher's auto-wipe blows it away when DLL symlinks point at a garbage-collected proton store path, and the iterative test loop wipes it freely between fix attempts.
 - Anything the game writes under the wineprefix (saves, profiles, settings, shader caches) MUST be relocated to `~/.strom/<game>` so a wipe doesn't take user progress with it. Use the `saveLocations` option on `mkGame` — see `lib/mk-game.nix` for the contract. Each entry is a path relative to `drive_c/users/steamuser/`.
+- **This is non-optional for proton games before they land on master.** See `## Stage-branch workflow for untested games` above for the master-gate phrasing. A future revision of `lib/mk-game.nix` may turn this into a hard module-system assertion (`runtime = "proton"` + `saveLocations = [ ]` → eval error) once every existing proton game is audited; until then it's a process rule that reviewers must enforce by reading the spec.
 - **Before committing a new proton game**, launch it once, play far enough to write a save, then check `find ~/.strom/.compatdata/<game>/0/pfx/drive_c/users/steamuser -mindepth 2 -newer <reference>` for any non-Microsoft directory the engine created. Add each one to `saveLocations`. Common locations:
   - `AppData/Roaming/<vendor>/<game>` — user settings, saves
   - `AppData/Local/<vendor>/<game>` — local-machine state, configs, mod data

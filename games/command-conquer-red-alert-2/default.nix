@@ -78,6 +78,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # *.SAV + ra2.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # Ra2.exe is the official Westwood launcher (Play / Yuri's Revenge /
   # Quit menu). game.exe and gamemd.exe crash on the current proton at
   # startup before opening a window; the launcher route works.

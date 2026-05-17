@@ -57,6 +57,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # ContentExpansion/System/*.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # Gold Edition entry point: the Stetchkov Syndicate expansion binary
   # under ContentExpansion/System/. It loads the base-game Content/
   # tree at runtime via the engine's package search paths, so launching

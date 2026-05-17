@@ -59,6 +59,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   copyGlobs = [ ];
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # Half-Life/valve/SAVE/* + config.cfg next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "Half-Life/hl_launch.bat";
 
   preRun = "";

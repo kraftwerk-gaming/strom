@@ -58,6 +58,9 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # TODO: audit via ~/.strom/.compatdata/europa-1400-the-guild/ after user play+save.
+  saveLocations = [ ];
   executable = "Europa1400Gold.exe";
   gamescope = {
     output-width = 1920;

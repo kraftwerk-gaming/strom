@@ -56,6 +56,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Blackbird Interactive/Hardspace_ Shipbreaker" ];
   executable = "Shipbreaker.exe";
 
   # Unity 2020.3 standalone player flags: force exclusive fullscreen at the

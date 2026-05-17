@@ -30,6 +30,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # next to its binary, not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "Clonk4.exe";
 
   gamescope = {

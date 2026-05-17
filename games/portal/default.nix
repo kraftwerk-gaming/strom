@@ -34,6 +34,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # next to its binary, not under drive_c/users/steamuser/...).
+  saveLocations = [ ];
   # Launch hl2.exe directly rather than the Goldberg ColdClientLoader
   # Launcher.exe wrapper. ColdClientLoader's job is to inject the Goldberg
   # steamclient.dll into the target before launching it; under Wine that

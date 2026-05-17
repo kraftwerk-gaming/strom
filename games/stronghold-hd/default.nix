@@ -27,6 +27,8 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+
+  saveLocations = [ "Documents/Stronghold" ];
   executable = "Stronghold.exe";
   gamescope = {
     output-width = 1920;

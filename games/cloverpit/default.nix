@@ -32,6 +32,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Panik Arcade/CloverPit" ];
   executable = "CloverPit.exe";
 
   gamescope = {

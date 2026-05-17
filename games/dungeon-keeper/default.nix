@@ -66,6 +66,10 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "proton";
 
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # save/*.sav + settings.dat next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   env = {
     STAGING_WRITECOPY = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";

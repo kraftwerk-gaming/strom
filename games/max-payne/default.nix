@@ -221,12 +221,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   saveLocations = [
-    # MaxPayne.exe writes savegames + ini next to the binary on Windows
-    # (no AppData / Documents path). Under Proton that lands in
-    # drive_c/users/steamuser/<game-dir-path>, but the fuse-overlayfs
-    # upper already captures top-level writes; the only thing we need
-    # to relocate is anything the engine drops under steamuser/. Leave
-    # empty for the stage commit; revisit after interactive testing.
+    # MaxPayne.exe drops savegames into Documents/Max Payne Savegames
+    # under steamuser/ (one savegame00N.mps per slot). Relocate so
+    # progress survives prefix wipes.
+    "Documents/Max Payne Savegames"
   ];
 
   env = {

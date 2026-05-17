@@ -32,6 +32,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   copyGlobs = [ ];
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/ZAUM Studio/Disco Elysium" ];
   executable = "disco.exe";
 
   gamescope = {

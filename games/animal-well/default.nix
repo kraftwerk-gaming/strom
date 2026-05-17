@@ -30,6 +30,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   runtime = "proton";
+  saveLocations = [ "AppData/LocalLow/Billy Basso/Animal Well" ];
   executable = "Animal Well.exe";
 
   gamescope = {

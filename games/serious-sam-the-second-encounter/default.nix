@@ -49,6 +49,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   ];
 
   runtime = "proton";
+
+  # Saves persist via the per-game fuse-overlayfs upper (engine writes
+  # SaveGame/Player0/* + Scripts/PersistentSymbols.ini next to its binary, not under
+  # drive_c/users/steamuser/...).
+  saveLocations = [ ];
   executable = "Bin/SeriousSam.exe";
 
   gamescope = {
