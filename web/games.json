@@ -1234,6 +1234,13 @@
     "description": "The Elder Scrolls III: Morrowind GOTY (Bethesda 2002 GOG data, via OpenMW)",
     "runtime": "native"
   },
+  "the-elder-scrolls-iv-oblivion": {
+    "cids": [
+      "QmToRXKY2pRbvyBTUGX42LYzYbEbbRto7D2humBLBnRkT9"
+    ],
+    "description": "The Elder Scrolls IV: Oblivion GOTY (Bethesda 2006 GOG v1.2.0416, via Proton)",
+    "runtime": "proton"
+  },
   "the-legend-of-zelda-a-link-to-the-past": {
     "cids": [
       "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt"
