@@ -172,6 +172,13 @@
     "description": "Braid (native Linux, GOG)",
     "runtime": "native"
   },
+  "bridge-builder": {
+    "cids": [
+      "bafkreifyyr4daukoyvdd23vmscqdv7prpeo2m65b6mrybnazsndqhicjxi"
+    ],
+    "description": "Bridge Builder (Chronic Logic 2000 freeware demo, via Proton)",
+    "runtime": "proton"
+  },
   "broforce": {
     "cids": [
       "QmUQN3MxUKAEYQQmmuJp5C663FfNTiDfiBTVGcqwxJsNhM"
