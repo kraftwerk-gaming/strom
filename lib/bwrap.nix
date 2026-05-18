@@ -126,6 +126,17 @@ in
       default = { };
       description = "Mode bits for paths: { path = mode; } -> --chmod mode path.";
     };
+    extraPreHook = mkOption {
+      type = types.lines;
+      default = "";
+      description = ''
+        Additional shell commands to run before bwrap launches. Concatenates
+        across module definitions (types.lines), unlike the upstream `preHook`
+        (types.str) which only allows a single definition. Use this to extend
+        the strom-outer preHook from a game module — e.g. to write a file
+        that gets referenced by an extra BWRAP_ARGS bind.
+      '';
+    };
   };
 
   config = {
@@ -194,6 +205,7 @@ in
       text = ''
         ${lib.concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
+        ${config.extraPreHook}
         read -ra _bwrap_extra <<< "''${BWRAP_ARGS:-}"
         bwrap \
           ${

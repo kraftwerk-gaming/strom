@@ -296,6 +296,13 @@
     "description": "Commandos: Behind Enemy Lines (1998 Eidos / Pyro Studios, English Win95, via Proton + Kruulos Ultimate Fix)",
     "runtime": "proton"
   },
+  "company-of-heroes": {
+    "cids": [
+      "QmNiJYfpVaaYC5DjV3b1c7Cpe8iLyLQxTWLeKB1d6pX8qv"
+    ],
+    "description": "Company of Heroes (Relic 2006 retail DVD, via Proton)",
+    "runtime": "proton"
+  },
   "condemned-criminal-origins": {
     "cids": [
       "QmTUyjaAtWX34K8hBtggLbupdY6XoHmomzRtab2PJ7uZ16"

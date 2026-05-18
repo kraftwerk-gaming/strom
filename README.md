@@ -81,6 +81,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/command-conquer-renegade/"><img src="https://lutris.net/games/banner/command-conquer-renegade.jpg" height="40" alt="command-conquer-renegade"></a> | [command-conquer-renegade](https://lutris.net/games/command-conquer-renegade/) | `proton` | `nix run .#command-conquer-renegade` |
 | <a href="https://lutris.net/games/command-conquer-tiberian-sun/"><img src="https://lutris.net/games/banner/command-conquer-tiberian-sun.jpg" height="40" alt="command-conquer-tiberian-sun"></a> | [Command & Conquer: Tiberian Sun + Firestorm](https://lutris.net/games/command-conquer-tiberian-sun/) | `proton` | `nix run .#command-conquer-tiberian-sun` |
 | <a href="https://lutris.net/games/commandos-behind-enemy-lines/"><img src="https://lutris.net/games/banner/commandos-behind-enemy-lines.jpg" height="40" alt="commandos-behind-enemy-lines"></a> | [Commandos: Behind Enemy Lines](https://lutris.net/games/commandos-behind-enemy-lines/) | `proton` | `nix run .#commandos-behind-enemy-lines` |
+| <a href="https://lutris.net/games/company-of-heroes/"><img src="https://lutris.net/games/banner/company-of-heroes.jpg" height="40" alt="company-of-heroes"></a> | [Company of Heroes](https://lutris.net/games/company-of-heroes/) | `proton` | `nix run .#company-of-heroes` |
 | <a href="https://lutris.net/games/condemned-criminal-origins/"><img src="https://lutris.net/games/banner/condemned-criminal-origins.jpg" height="40" alt="condemned-criminal-origins"></a> | [Condemned: Criminal Origins](https://lutris.net/games/condemned-criminal-origins/) | `proton` | `nix run .#condemned-criminal-origins` |
 | <a href="https://lutris.net/games/cryostasis/"><img src="https://lutris.net/games/banner/cryostasis.jpg" height="40" alt="cryostasis"></a> | [Cryostasis: Sleep of Reason](https://lutris.net/games/cryostasis/) | `proton` | `nix run .#cryostasis` |
 | <a href="https://lutris.net/games/crypt-of-the-necrodancer/"><img src="https://lutris.net/games/banner/crypt-of-the-necrodancer.jpg" height="40" alt="crypt-of-the-necrodancer"></a> | [Crypt of the NecroDancer](https://lutris.net/games/crypt-of-the-necrodancer/) | `native` | `nix run .#crypt-of-the-necrodancer` |
@@ -251,7 +252,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_210 games_
+_211 games_
 
 <!-- END GENERATED GAMES -->
 
