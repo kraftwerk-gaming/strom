@@ -82,6 +82,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/commandos-behind-enemy-lines/"><img src="https://lutris.net/games/banner/commandos-behind-enemy-lines.jpg" height="40" alt="commandos-behind-enemy-lines"></a> | [Commandos: Behind Enemy Lines](https://lutris.net/games/commandos-behind-enemy-lines/) | `proton` | `nix run .#commandos-behind-enemy-lines` |
 | <a href="https://lutris.net/games/condemned-criminal-origins/"><img src="https://lutris.net/games/banner/condemned-criminal-origins.jpg" height="40" alt="condemned-criminal-origins"></a> | [Condemned: Criminal Origins](https://lutris.net/games/condemned-criminal-origins/) | `proton` | `nix run .#condemned-criminal-origins` |
 | <a href="https://lutris.net/games/cryostasis/"><img src="https://lutris.net/games/banner/cryostasis.jpg" height="40" alt="cryostasis"></a> | [Cryostasis: Sleep of Reason](https://lutris.net/games/cryostasis/) | `proton` | `nix run .#cryostasis` |
+| <a href="https://lutris.net/games/crypt-of-the-necrodancer/"><img src="https://lutris.net/games/banner/crypt-of-the-necrodancer.jpg" height="40" alt="crypt-of-the-necrodancer"></a> | [Crypt of the NecroDancer](https://lutris.net/games/crypt-of-the-necrodancer/) | `native` | `nix run .#crypt-of-the-necrodancer` |
 | <a href="https://lutris.net/games/cuphead/"><img src="https://lutris.net/games/banner/cuphead.jpg" height="40" alt="cuphead"></a> | [Cuphead Legacy](https://lutris.net/games/cuphead/) | `proton` | `nix run .#cuphead` |
 | <a href="https://lutris.net/games/dark-souls-prepare-to-die-edition/"><img src="https://lutris.net/games/banner/dark-souls-prepare-to-die-edition.jpg" height="40" alt="dark-souls-prepare-to-die-edition"></a> | [Dark Souls: Prepare to Die Edition](https://lutris.net/games/dark-souls-prepare-to-die-edition/) | `proton` | `nix run .#dark-souls-prepare-to-die-edition` |
 | <a href="https://lutris.net/games/day-of-the-tentacle/"><img src="https://lutris.net/games/banner/day-of-the-tentacle.jpg" height="40" alt="day-of-the-tentacle"></a> | [Day of the Tentacle](https://lutris.net/games/day-of-the-tentacle/) | `native` | `nix run .#day-of-the-tentacle` |
@@ -247,7 +248,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_206 games_
+_207 games_
 
 <!-- END GENERATED GAMES -->
 

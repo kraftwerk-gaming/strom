@@ -303,6 +303,13 @@
     "description": "Cryostasis: Sleep of Reason (GOG v2.0.0.13, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "crypt-of-the-necrodancer": {
+    "cids": [
+      "Qmd7xoWXSrACjnnwtDKGWwL9e5dACs4wUiDCvxq576xhs9"
+    ],
+    "description": "Crypt of the NecroDancer (native Linux, GOG v4.1.0 build 5142, + Amplified / Hatsune Miku / Synchrony DLCs)",
+    "runtime": "native"
+  },
   "cuphead": {
     "cids": [
       "QmNjJThUd5NxEAY7LSYXjDjLZjwdZdUa6hDhGLFds8Zxm9"
