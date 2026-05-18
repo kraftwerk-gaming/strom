@@ -679,6 +679,13 @@
     "description": "Interstate '76 Arsenal (Activision 1997, via Proton)",
     "runtime": "proton"
   },
+  "jade-empire-special-edition": {
+    "cids": [
+      "QmUjDgq9FLYBR3bYZsKRZPNfMzXK2Hppv9pgEgyjisTgA2"
+    ],
+    "description": "Jade Empire: Special Edition (BioWare 2007 Aurora-engine PC port, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "jazz-jackrabbit-2": {
     "cids": [
       "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb"

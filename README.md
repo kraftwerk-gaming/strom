@@ -135,6 +135,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/"><img src="https://lutris.net/games/banner/indiana-jones-and-the-last-crusade-the-graphic-adventure.jpg" height="40" alt="indiana-jones-and-the-last-crusade-the-graphic-adventure"></a> | [Indiana Jones and the Last Crusade: The Graphic Adventure](https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/) | `native` | `nix run .#indiana-jones-and-the-last-crusade-the-graphic-adventure` |
 | <a href="https://lutris.net/games/inscryption/"><img src="https://lutris.net/games/banner/inscryption.jpg" height="40" alt="inscryption"></a> | [Inscryption](https://lutris.net/games/inscryption/) | `native` | `nix run .#inscryption` |
 | <a href="https://lutris.net/games/interstate-76/"><img src="https://lutris.net/games/banner/interstate-76.jpg" height="40" alt="interstate-76"></a> | [Interstate '76 Arsenal](https://lutris.net/games/interstate-76/) | `proton` | `nix run .#interstate-76` |
+| <a href="https://lutris.net/games/jade-empire-special-edition/"><img src="https://lutris.net/games/banner/jade-empire-special-edition.jpg" height="40" alt="jade-empire-special-edition"></a> | [Jade Empire: Special Edition](https://lutris.net/games/jade-empire-special-edition/) | `proton` | `nix run .#jade-empire-special-edition` |
 | <a href="https://lutris.net/games/jazz-jackrabbit-2/"><img src="https://lutris.net/games/banner/jazz-jackrabbit-2.jpg" height="40" alt="jazz-jackrabbit-2"></a> | [Jazz Jackrabbit 2](https://lutris.net/games/jazz-jackrabbit-2/) | `native` | `nix run .#jazz-jackrabbit-2` |
 | <a href="https://lutris.net/games/jet-set-radio/"><img src="https://lutris.net/games/banner/jet-set-radio.jpg" height="40" alt="jet-set-radio"></a> | [Jet Set Radio](https://lutris.net/games/jet-set-radio/) | `proton` | `nix run .#jet-set-radio` |
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
@@ -248,7 +249,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_207 games_
+_208 games_
 
 <!-- END GENERATED GAMES -->
 
