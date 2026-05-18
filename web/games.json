@@ -151,6 +151,13 @@
     "description": "Beneath a Steel Sky (1994 Revolution Software CD freeware, via ScummVM)",
     "runtime": "native"
   },
+  "bioshock": {
+    "cids": [
+      "QmV5fHnd19vCdrwEKB99BnV5t8pTAZoJrkAxRwarsDcNFp"
+    ],
+    "description": "BioShock (2007 Irrational, Vengeance Engine, via Proton)",
+    "runtime": "proton"
+  },
   "black-and-white": {
     "cids": [
       "QmbyH7EDnyttsXsebhCue2FgwNdJsWyn8AGK6iHURVrVbC"
