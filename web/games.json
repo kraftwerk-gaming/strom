@@ -338,6 +338,13 @@
     "description": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
     "runtime": "proton"
   },
+  "dark-messiah-of-might-and-magic": {
+    "cids": [
+      "QmSVGKyNwZmDQk3LHuLWjdjVrb58fP6MxMEBo2c8ExEGqi"
+    ],
+    "description": "Dark Messiah of Might and Magic (Arkane 2006, Source engine, ElAmigos repack, via Proton)",
+    "runtime": "proton"
+  },
   "dark-souls-prepare-to-die-edition": {
     "cids": [
       "Qme47DJC984rC7qCzMdQmoMYkcowVrdzfQhBDpQyq13FdF"

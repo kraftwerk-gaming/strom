@@ -87,6 +87,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/cryostasis/"><img src="https://lutris.net/games/banner/cryostasis.jpg" height="40" alt="cryostasis"></a> | [Cryostasis: Sleep of Reason](https://lutris.net/games/cryostasis/) | `proton` | `nix run .#cryostasis` |
 | <a href="https://lutris.net/games/crypt-of-the-necrodancer/"><img src="https://lutris.net/games/banner/crypt-of-the-necrodancer.jpg" height="40" alt="crypt-of-the-necrodancer"></a> | [Crypt of the NecroDancer](https://lutris.net/games/crypt-of-the-necrodancer/) | `native` | `nix run .#crypt-of-the-necrodancer` |
 | <a href="https://lutris.net/games/cuphead/"><img src="https://lutris.net/games/banner/cuphead.jpg" height="40" alt="cuphead"></a> | [Cuphead Legacy](https://lutris.net/games/cuphead/) | `proton` | `nix run .#cuphead` |
+| <a href="https://lutris.net/games/dark-messiah-of-might-and-magic/"><img src="https://lutris.net/games/banner/dark-messiah-of-might-and-magic.jpg" height="40" alt="dark-messiah-of-might-and-magic"></a> | [Dark Messiah of Might and Magic](https://lutris.net/games/dark-messiah-of-might-and-magic/) | `proton` | `nix run .#dark-messiah-of-might-and-magic` |
 | <a href="https://lutris.net/games/dark-souls-prepare-to-die-edition/"><img src="https://lutris.net/games/banner/dark-souls-prepare-to-die-edition.jpg" height="40" alt="dark-souls-prepare-to-die-edition"></a> | [Dark Souls: Prepare to Die Edition](https://lutris.net/games/dark-souls-prepare-to-die-edition/) | `proton` | `nix run .#dark-souls-prepare-to-die-edition` |
 | <a href="https://lutris.net/games/day-of-the-tentacle/"><img src="https://lutris.net/games/banner/day-of-the-tentacle.jpg" height="40" alt="day-of-the-tentacle"></a> | [Day of the Tentacle](https://lutris.net/games/day-of-the-tentacle/) | `native` | `nix run .#day-of-the-tentacle` |
 | <a href="https://lutris.net/games/dead-cells/"><img src="https://lutris.net/games/banner/dead-cells.jpg" height="40" alt="dead-cells"></a> | [Dead Cells](https://lutris.net/games/dead-cells/) | `custom` | `nix run .#dead-cells` |
@@ -253,7 +254,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_212 games_
+_213 games_
 
 <!-- END GENERATED GAMES -->
 
