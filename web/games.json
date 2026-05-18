@@ -535,6 +535,13 @@
     "description": "Everhood (Chris Nordgren 2021, via Proton)",
     "runtime": "proton"
   },
+  "everything-is-crab": {
+    "cids": [
+      "QmeYRqXnDZfG2Rq4UkA9GFi1fwkEkPd5tmTHMe6iiu7qbX"
+    ],
+    "description": "Everything is Crab: The Animal Evolution Roguelite (Odd Dreams Digital 2026, via Proton)",
+    "runtime": "proton"
+  },
   "factorio": {
     "cids": [
       "QmQ44ijCnBwXp3n9fZHGjmkvKRj2cS9Tx1ef4FXke2r2qg"
