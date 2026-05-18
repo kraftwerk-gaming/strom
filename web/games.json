@@ -1010,6 +1010,13 @@
     "description": "Prey (2006 Human Head Studios, id Tech 4, via Proton)",
     "runtime": "proton"
   },
+  "prototype": {
+    "cids": [
+      "QmWRHVtwqmkafD5bzf7Nxprp7DsJuEeYfkxRr6ZqC7AQQa"
+    ],
+    "description": "Prototype (Radical/Activision 2009, via Proton)",
+    "runtime": "proton"
+  },
   "psychonauts": {
     "cids": [
       "QmUFsFYE2ywPcRZgdjt8XU4NypzP34bsU3mgnWY62HrLn7"

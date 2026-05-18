@@ -181,6 +181,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/portal/"><img src="https://lutris.net/games/banner/portal.jpg" height="40" alt="portal"></a> | [Portal](https://lutris.net/games/portal/) | `proton` | `nix run .#portal` |
 | <a href="https://lutris.net/games/portal-2/"><img src="https://lutris.net/games/banner/portal-2.jpg" height="40" alt="portal-2"></a> | [Portal 2](https://lutris.net/games/portal-2/) | `proton` | `nix run .#portal-2` |
 | <a href="https://lutris.net/games/prey-2006/"><img src="https://lutris.net/games/banner/prey-2006.jpg" height="40" alt="prey-2006"></a> | [Prey](https://lutris.net/games/prey-2006/) | `proton` | `nix run .#prey-2006` |
+| <a href="https://lutris.net/games/prototype/"><img src="https://lutris.net/games/banner/prototype.jpg" height="40" alt="prototype"></a> | [Prototype](https://lutris.net/games/prototype/) | `proton` | `nix run .#prototype` |
 | <a href="https://lutris.net/games/psychonauts/"><img src="https://lutris.net/games/banner/psychonauts.jpg" height="40" alt="psychonauts"></a> | [Psychonauts](https://lutris.net/games/psychonauts/) | `proton` | `nix run .#psychonauts` |
 | <a href="https://lutris.net/games/quake-iii-arena/"><img src="https://lutris.net/games/banner/quake-iii-arena.jpg" height="40" alt="quake-iii-arena"></a> | [Quake III Arena](https://lutris.net/games/quake-iii-arena/) | `native` | `nix run .#quake-iii-arena` |
 | <a href="https://lutris.net/games/rain-world/"><img src="https://lutris.net/games/banner/rain-world.jpg" height="40" alt="rain-world"></a> | [Rain World](https://lutris.net/games/rain-world/) | `proton` | `nix run .#rain-world` |
@@ -254,7 +255,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_213 games_
+_214 games_
 
 <!-- END GENERATED GAMES -->
 
