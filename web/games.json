@@ -165,6 +165,13 @@
     "description": "Black & White (Lionhead 2001, Complete Edition + v1.42 + Creature Isle v1.23, via Proton)",
     "runtime": "proton"
   },
+  "bloodborne-psx": {
+    "cids": [
+      "QmTminqp4KC2yvPuKAit7CZuxdFXMV84FbFdJPamqLjS8X"
+    ],
+    "description": "Bloodborne PSX (Lilith Walther's PSX-styled fan demake v1.05, via Proton)",
+    "runtime": "proton"
+  },
   "braid": {
     "cids": [
       "QmUVVVtFTDg7MUPL6q8a5F6wYqgZdsrtp29j653NvWesjN"

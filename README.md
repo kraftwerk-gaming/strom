@@ -63,6 +63,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/beneath-a-steel-sky/"><img src="https://lutris.net/games/banner/beneath-a-steel-sky.jpg" height="40" alt="beneath-a-steel-sky"></a> | [Beneath a Steel Sky](https://lutris.net/games/beneath-a-steel-sky/) | `native` | `nix run .#beneath-a-steel-sky` |
 | <a href="https://lutris.net/games/bioshock/"><img src="https://lutris.net/games/banner/bioshock.jpg" height="40" alt="bioshock"></a> | [BioShock](https://lutris.net/games/bioshock/) | `proton` | `nix run .#bioshock` |
 | <a href="https://lutris.net/games/black-and-white/"><img src="https://lutris.net/games/banner/black-and-white.jpg" height="40" alt="black-and-white"></a> | [Black & White](https://lutris.net/games/black-and-white/) | `proton` | `nix run .#black-and-white` |
+| <a href="https://lutris.net/games/bloodborne-psx/"><img src="https://lutris.net/games/banner/bloodborne-psx.jpg" height="40" alt="bloodborne-psx"></a> | [Bloodborne PSX](https://lutris.net/games/bloodborne-psx/) | `proton` | `nix run .#bloodborne-psx` |
 | <a href="https://lutris.net/games/braid/"><img src="https://lutris.net/games/banner/braid.jpg" height="40" alt="braid"></a> | [Braid](https://lutris.net/games/braid/) | `native` | `nix run .#braid` |
 | <a href="https://lutris.net/games/bridge-builder/"><img src="https://lutris.net/games/banner/bridge-builder.jpg" height="40" alt="bridge-builder"></a> | [Bridge Builder](https://lutris.net/games/bridge-builder/) | `proton` | `nix run .#bridge-builder` |
 | <a href="https://lutris.net/games/broforce/"><img src="https://lutris.net/games/banner/broforce.jpg" height="40" alt="broforce"></a> | [Broforce / Broforce Forever](https://lutris.net/games/broforce/) | `native` | `nix run .#broforce` |
@@ -258,7 +259,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_217 games_
+_218 games_
 
 <!-- END GENERATED GAMES -->
 
