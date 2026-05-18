@@ -416,6 +416,13 @@
     "description": "Dwarf Fortress (Bay 12 Games free Classic v53.12, native Linux)",
     "runtime": "custom"
   },
+  "emperor-battle-for-dune": {
+    "cids": [
+      "QmVuVwSfwjHY7aKCWePoQSPnBzqZRt3SLXwExR3Ps5SHB3"
+    ],
+    "description": "Emperor: Battle for Dune (Westwood 2001, via Proton with wheybags HD/multiplayer patch)",
+    "runtime": "proton"
+  },
   "environmental-station-alpha": {
     "cids": [
       "QmSKfKZbygBUXXknED9vQUpaY4yjApjHMqTXq4cwtDD9xQ"

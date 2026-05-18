@@ -98,6 +98,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/dungeon-keeper/"><img src="https://lutris.net/games/banner/dungeon-keeper.jpg" height="40" alt="dungeon-keeper"></a> | [Dungeon Keeper](https://lutris.net/games/dungeon-keeper/) | `proton` | `nix run .#dungeon-keeper` |
 | <a href="https://lutris.net/games/dungeon-siege/"><img src="https://lutris.net/games/banner/dungeon-siege.jpg" height="40" alt="dungeon-siege"></a> | [Dungeon Siege](https://lutris.net/games/dungeon-siege/) | `proton` | `nix run .#dungeon-siege` |
 | <a href="https://lutris.net/games/dwarf-fortress/"><img src="https://lutris.net/games/banner/dwarf-fortress.jpg" height="40" alt="dwarf-fortress"></a> | [Dwarf Fortress](https://lutris.net/games/dwarf-fortress/) | `custom` | `nix run .#dwarf-fortress` |
+| <a href="https://lutris.net/games/emperor-battle-for-dune/"><img src="https://lutris.net/games/banner/emperor-battle-for-dune.jpg" height="40" alt="emperor-battle-for-dune"></a> | [Emperor: Battle for Dune](https://lutris.net/games/emperor-battle-for-dune/) | `proton` | `nix run .#emperor-battle-for-dune` |
 | <a href="https://lutris.net/games/environmental-station-alpha/"><img src="https://lutris.net/games/banner/environmental-station-alpha.jpg" height="40" alt="environmental-station-alpha"></a> | [Environmental Station Alpha](https://lutris.net/games/environmental-station-alpha/) | `proton` | `nix run .#environmental-station-alpha` |
 | <a href="https://lutris.net/games/europa-1400-the-guild/"><img src="https://lutris.net/games/banner/europa-1400-the-guild.jpg" height="40" alt="europa-1400-the-guild"></a> | [Europa 1400: The Guild - Gold Edition](https://lutris.net/games/europa-1400-the-guild/) | `proton` | `nix run .#europa-1400-the-guild` |
 | <a href="https://lutris.net/games/everhood/"><img src="https://lutris.net/games/banner/everhood.jpg" height="40" alt="everhood"></a> | [Everhood](https://lutris.net/games/everhood/) | `proton` | `nix run .#everhood` |
@@ -250,7 +251,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_209 games_
+_210 games_
 
 <!-- END GENERATED GAMES -->
 
