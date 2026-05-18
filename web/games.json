@@ -151,6 +151,13 @@
     "description": "Beneath a Steel Sky (1994 Revolution Software CD freeware, via ScummVM)",
     "runtime": "native"
   },
+  "black-and-white": {
+    "cids": [
+      "QmbyH7EDnyttsXsebhCue2FgwNdJsWyn8AGK6iHURVrVbC"
+    ],
+    "description": "Black & White (Lionhead 2001, Complete Edition + v1.42 + Creature Isle v1.23, via Proton)",
+    "runtime": "proton"
+  },
   "braid": {
     "cids": [
       "QmUVVVtFTDg7MUPL6q8a5F6wYqgZdsrtp29j653NvWesjN"
