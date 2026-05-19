@@ -210,6 +210,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/rounds/"><img src="https://lutris.net/games/banner/rounds.jpg" height="40" alt="rounds"></a> | [ROUNDS](https://lutris.net/games/rounds/) | `proton` | `nix run .#rounds` |
 | <a href="https://lutris.net/games/serious-sam-the-second-encounter/"><img src="https://lutris.net/games/banner/serious-sam-the-second-encounter.jpg" height="40" alt="serious-sam-the-second-encounter"></a> | [Serious Sam: The Second Encounter](https://lutris.net/games/serious-sam-the-second-encounter/) | `proton` | `nix run .#serious-sam-the-second-encounter` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run .#shadow-of-the-colossus` |
+| <a href="https://lutris.net/games/shovel-knight/"><img src="https://lutris.net/games/banner/shovel-knight.jpg" height="40" alt="shovel-knight"></a> | [Shovel Knight: Treasure Trove](https://lutris.net/games/shovel-knight/) | `custom` | `nix run .#shovel-knight` |
 | <a href="https://lutris.net/games/shovel-knight-treasure-trove/"><img src="https://lutris.net/games/banner/shovel-knight-treasure-trove.jpg" height="40" alt="shovel-knight-treasure-trove"></a> | [Shovel Knight: Treasure Trove](https://lutris.net/games/shovel-knight-treasure-trove/) | `native` | `nix run .#shovel-knight-treasure-trove` |
 | <a href="https://lutris.net/games/sid-meiers-pirates/"><img src="https://lutris.net/games/banner/sid-meiers-pirates.jpg" height="40" alt="sid-meiers-pirates"></a> | [Sid Meier's Pirates!](https://lutris.net/games/sid-meiers-pirates/) | `proton` | `nix run .#sid-meiers-pirates` |
 | <a href="https://lutris.net/games/silent-hill-2/"><img src="https://lutris.net/games/banner/silent-hill-2.jpg" height="40" alt="silent-hill-2"></a> | [Silent Hill 2](https://lutris.net/games/silent-hill-2/) | `pcsx2` | `nix run .#silent-hill-2` |
@@ -274,7 +275,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_233 games_
+_234 games_
 
 <!-- END GENERATED GAMES -->
 

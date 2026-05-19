@@ -1216,6 +1216,13 @@
     "description": "Shadow of the Colossus (via PCSX2)",
     "runtime": "pcsx2"
   },
+  "shovel-knight": {
+    "cids": [
+      "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
+    ],
+    "description": "Shovel Knight: Treasure Trove (Yacht Club Games, native Linux GOG v4.1b)",
+    "runtime": "custom"
+  },
   "shovel-knight-treasure-trove": {
     "cids": [
       "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
