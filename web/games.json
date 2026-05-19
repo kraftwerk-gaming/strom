@@ -422,6 +422,13 @@
     "description": "Demon Lord Just A Block (via Proton)",
     "runtime": "proton"
   },
+  "detention": {
+    "cids": [
+      "QmTJWi1w8iBVv9jpecNCTeFJ5Lou7W4JM4ubJve5XnxVKY"
+    ],
+    "description": "Detention (Red Candle Games 2017, Taiwanese-school horror, Unity / Windows via Proton)",
+    "runtime": "proton"
+  },
   "deus-ex": {
     "cids": [
       "QmYirjSSa4qwbxoBWH3Cc2g8Ywn1ZwUa3hphcmH7phq8bg"
