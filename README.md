@@ -116,6 +116,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/europa-1400-the-guild/"><img src="https://lutris.net/games/banner/europa-1400-the-guild.jpg" height="40" alt="europa-1400-the-guild"></a> | [Europa 1400: The Guild - Gold Edition](https://lutris.net/games/europa-1400-the-guild/) | `proton` | `nix run .#europa-1400-the-guild` |
 | <a href="https://lutris.net/games/everhood/"><img src="https://lutris.net/games/banner/everhood.jpg" height="40" alt="everhood"></a> | [Everhood](https://lutris.net/games/everhood/) | `proton` | `nix run .#everhood` |
 | <a href="https://lutris.net/games/factorio/"><img src="https://lutris.net/games/banner/factorio.jpg" height="40" alt="factorio"></a> | [Factorio](https://lutris.net/games/factorio/) | `native` | `nix run .#factorio` |
+| <a href="https://lutris.net/games/faith-the-unholy-trinity/"><img src="https://lutris.net/games/banner/faith-the-unholy-trinity.jpg" height="40" alt="faith-the-unholy-trinity"></a> | [FAITH: The Unholy Trinity](https://lutris.net/games/faith-the-unholy-trinity/) | `proton` | `nix run .#faith-the-unholy-trinity` |
 | <a href="https://lutris.net/games/fallout/"><img src="https://lutris.net/games/banner/fallout.jpg" height="40" alt="fallout"></a> | [Fallout](https://lutris.net/games/fallout/) | `proton` | `nix run .#fallout` |
 | <a href="https://lutris.net/games/fallout-2/"><img src="https://lutris.net/games/banner/fallout-2.jpg" height="40" alt="fallout-2"></a> | [Fallout 2](https://lutris.net/games/fallout-2/) | `proton` | `nix run .#fallout-2` |
 | <a href="https://lutris.net/games/far-cry/"><img src="https://lutris.net/games/banner/far-cry.jpg" height="40" alt="far-cry"></a> | [Far Cry](https://lutris.net/games/far-cry/) | `proton` | `nix run .#far-cry` |
@@ -271,7 +272,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_230 games_
+_231 games_
 
 <!-- END GENERATED GAMES -->
 

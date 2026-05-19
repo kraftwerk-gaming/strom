@@ -542,6 +542,13 @@
     "description": "Factorio (native Linux, GOG v2.0.73)",
     "runtime": "native"
   },
+  "faith-the-unholy-trinity": {
+    "cids": [
+      "QmapahTD9VfSKG7LLMFeDsgdxzqrsad57CCprCfAA7tX9a"
+    ],
+    "description": "FAITH: The Unholy Trinity (Airdorf 2022, retro-PC horror trilogy, GOG via Proton)",
+    "runtime": "proton"
+  },
   "fallout": {
     "cids": [
       "QmVcYYsXnYEEc2zLKUcq4FnXDjBsPMTGYc3Ehiko4EMHpx"
