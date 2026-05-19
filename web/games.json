@@ -946,6 +946,13 @@
     "description": "Monkey Island 2: LeChuck's Revenge (1991 LucasArts, SE Talkie fan-edition for ScummVM: original VGA + SE speech)",
     "runtime": "native"
   },
+  "mouthwashing": {
+    "cids": [
+      "QmVJ8PQ5sm42bBVCEDqR2bxEaH1NdH877r7hc7hCuHdQTN"
+    ],
+    "description": "Mouthwashing (Wrong Organ 2024, Unity Mono horror via Proton)",
+    "runtime": "proton"
+  },
   "myst": {
     "cids": [
       "QmYh8JKdbxsSaKiHKY284F4PrdCFnb3yJ22kvag7M5JN8X"
