@@ -627,6 +627,14 @@
     "description": "Forager (native Linux, HopFrog v2.0.0 \u2014 last Linux build)",
     "runtime": "native"
   },
+  "forbidden-siren": {
+    "cids": [
+      "QmXd9RfJ3RU367weYAqgABPND21CReDApUMWqxCgDNVr8p",
+      "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+    ],
+    "description": "Forbidden Siren (Sony 2003, PAL PS2, via PCSX2)",
+    "runtime": "pcsx2"
+  },
   "freelancer": {
     "cids": [
       "QmWn94KUgDs59QMvs6sjyVQsXScRiwDzPnEJKbHn8EQxUN"
