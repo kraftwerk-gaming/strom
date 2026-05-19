@@ -3,6 +3,7 @@
   lib,
   pkgs,
   fetchIpfs,
+  fetchzip,
   p7zip,
   pkgsi686Linux,
   runCommandLocal,
@@ -24,6 +25,18 @@ let
     fallbackUrl = "https://archive.org/download/anno-1602-ge-uk/1602NOCD.7z";
     hash = "sha256-x81umVKnIr/jhaBrucAXP6iMH6PmYOEz9Fon6XpVt64=";
     name = "1602nocd.7z";
+  };
+
+  # FunkyFr3sh's cnc-ddraw: a community DDraw->OpenGL/D3D9 replacement
+  # designed for old Windows games on Linux/Wine. Wined3d's DDraw path is
+  # broken on Mesa-Intel (Optimus laptops), so we ship cnc-ddraw as a
+  # loose ddraw.dll override instead of relying on PROTON_USE_WINED3D.
+  # https://github.com/FunkyFr3sh/cnc-ddraw
+  cncDdraw = fetchzip {
+    url = "https://github.com/FunkyFr3sh/cnc-ddraw/releases/download/v7.1.0.0/cnc-ddraw.zip";
+    hash = "sha256-BGZ+7wsreutuKDdp6IjszIAHJyuxDjbor0O3Z3xDy2Q=";
+    stripRoot = false;
+    name = "cnc-ddraw-v7.1.0.0";
   };
 
   # Newer SmackW32.dll (v3.1n) than the v3.1b shipped with Anno 1602.
@@ -79,6 +92,13 @@ let
         # FS, so remove the original first.
         rm -f "$out"/SMACKW32.DLL "$out"/SmackW32.dll "$out"/smackw32.dll
         cp ${smackerDll} "$out"/SmackW32.dll
+
+        # Drop cnc-ddraw's ddraw.dll in next to 1602.exe. The retail game
+        # has no shipped ddraw.dll, but defensively strip any case variants
+        # before copying so the loose override is unambiguous on Wine's
+        # case-insensitive FS.
+        rm -f "$out"/ddraw.dll "$out"/Ddraw.dll "$out"/DDraw.dll "$out"/DDRAW.DLL
+        cp ${cncDdraw}/ddraw.dll "$out"/ddraw.dll
       '';
 in
 self.lib.mkGame { inherit lib pkgs; } {
@@ -113,9 +133,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   };
 
   env = {
-    # 1602 uses DDraw, not D3D. Force wined3d so DDraw lands on OpenGL/Vulkan
-    # instead of DXVK's missing DDraw bridge.
-    PROTON_USE_WINED3D = "1";
+    # 1602 uses DDraw, not D3D. We ship FunkyFr3sh's cnc-ddraw next to the
+    # binary as a loose ddraw.dll; tell Wine to load our native override
+    # before falling back to its builtin (wined3d's DDraw path is broken
+    # on Mesa-Intel Optimus hosts).
+    WINEDLLOVERRIDES = "ddraw=n,b";
     PULSE_LATENCY_MSEC = "60";
   };
 
