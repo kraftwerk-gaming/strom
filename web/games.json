@@ -273,7 +273,7 @@
   },
   "cloverpit": {
     "cids": [
-      "QmPre6GqGGi4WDoWLEn5PdTX1jNuWPqx7vVFMNMAeoc6n5"
+      "QmRaFP9hfudYEPJ5GqaBWWegY8C5VPEuSc5K7BB5DCN5kG"
     ],
     "description": "Cloverpit (Panik Arcade 2025, via Proton)",
     "runtime": "proton"
@@ -700,9 +700,9 @@
   },
   "homeworld": {
     "cids": [
-      "Qmep6UP4xtHUnupwGSV4mfs96M9Eh7ie7MaHLxMxSyWFn5",
-      "Qmce73FoZAZnWoceHUbqh66N4QW59VxbN9GUWvwNnw1pMS",
-      "Qmdrjc6pmPqfT2z6CQi1938gXbRES7kRNK3VK2MNP4AAfC"
+      "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",
+      "QmcAz3HugvgxsXrqUjSpoz2pKDQKiMi9bee8fbKDcz9nV4",
+      "QmWNTi4bwTDXjQRmsu2ua4z6nvPvYBK5kEBPWWyC8RxPYy"
     ],
     "description": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
     "runtime": "proton"
@@ -754,6 +754,13 @@
       "Qma3cbzkU4FucWUeNY1cfgzFML3G6XPoWr1HKYGMNdQCWh"
     ],
     "description": "Interstate '76 Arsenal (Activision 1997, via Proton)",
+    "runtime": "proton"
+  },
+  "iron-lung": {
+    "cids": [
+      "QmY5gwRVK9HpnG5mufRmDPK7cx9bxgGPx7xPz2MnTsq9RE"
+    ],
+    "description": "Iron Lung (David Szymanski 2022, Unity 2018 horror via Proton)",
     "runtime": "proton"
   },
   "jade-empire-special-edition": {
@@ -836,7 +843,7 @@
   },
   "loop-hero": {
     "cids": [
-      "QmeC5wZown2ZhNusa8dEq342Siqk88RxrJFBgxwQuVPTwD"
+      "QmQSAMV6PnygfoLfYrNwXtCm5RzGdqu8p56qxPz3DahtPn"
     ],
     "description": "Loop Hero (native Linux, GOG v1.1054 build 55873)",
     "runtime": "custom"
@@ -1390,7 +1397,7 @@
   },
   "the-legend-of-zelda-oracle-of-seasons": {
     "cids": [
-      "QmPBLaThsf3G8UbY1wQb97N2473TA2v7cT9s5fg8HeYyJc"
+      "QmcBM6xSp5VCqJL8j4NF4UEx93cQJjLF92L1JUCXhGUkyQ"
     ],
     "description": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
     "runtime": "retroarch"
