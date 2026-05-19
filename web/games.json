@@ -193,6 +193,13 @@
     "description": "Broforce / Broforce Forever (native Linux, GOG build 71321)",
     "runtime": "native"
   },
+  "buckshot-roulette": {
+    "cids": [
+      "QmS8Z3bVhozDD993VGdRGsqA2kLUdoxQgv5cCCZWNiw7gp"
+    ],
+    "description": "Buckshot Roulette (2024 Mike Klubnika, Godot 4 / Windows via Proton)",
+    "runtime": "proton"
+  },
   "bully-scholarship-edition": {
     "cids": [
       "QmeTAuvZ3W8FFxiPCGdUarUSouSGWLUhFdDoknhskuZK5u"
