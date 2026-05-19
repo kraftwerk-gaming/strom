@@ -380,6 +380,13 @@
     "description": "Death and Taxes (Placeholder Gameworks 2020, native Linux, GOG v1.2.59 build 82787)",
     "runtime": "custom"
   },
+  "deltarune": {
+    "cids": [
+      "QmSSr7w3G9i3EidAK51sjnpGUuDEX55q2cp3FwLefQN2UV"
+    ],
+    "description": "DELTARUNE (Toby Fox 2018-2025, chapters 1-4, GameMaker / Windows via Proton; LinuxRuleZ repack)",
+    "runtime": "proton"
+  },
   "demon-lord-just-a-block": {
     "cids": [
       "QmUGu12nm8YfouvUUbsj8iXj9PBpcLTpBE3DAqtQtLxEx4"
