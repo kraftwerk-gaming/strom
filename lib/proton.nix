@@ -123,14 +123,15 @@ in
       PROTONFIXES_DISABLE = lib.mkDefault "1";
       DXVK_ASYNC = lib.mkDefault "1";
       # Bluetooth Xbox controllers via xpadneo expose a /dev/hidraw with
-      # the wired Xbox 360 VID/PID (045e:028e) but speak the BLE HoG
-      # protocol. SDL's HIDAPI backend latches onto it, drives it as a
-      # wired pad, and the game sees a dead controller — meanwhile
-      # xpadneo's evdev (where state actually flows) is ignored. Force
-      # SDL to skip HIDAPI so it falls back to evdev/js0. Costs PS/
-      # Switch-Pro extras (rumble, gyro, touchpad) that ride on HIDAPI;
-      # set to "1" per-game via cfg.env if a game needs those.
-      SDL_JOYSTICK_HIDAPI = lib.mkDefault "0";
+      # the wired Xbox 360 VID/PID (045e:028e) but speak BLE HoG. SDL's
+      # Xbox 360 HIDAPI subdriver latches onto the hidraw, tries to
+      # drive it as a wired pad, and the game sees a dead controller
+      # while xpadneo's evdev (where state actually flows) is ignored.
+      # Only kill the Xbox 360 path so Switch/PS HIDAPI drivers — which
+      # provide correct button maps + rumble/gyro for those pads — stay
+      # active. Set to "1" per-game via cfg.env if a wired-360 game
+      # needs the HIDAPI driver instead of evdev.
+      SDL_JOYSTICK_HIDAPI_XBOX_360 = lib.mkDefault "0";
       # 32-bit + 64-bit FHS lib dirs so Proton's loader finds both arches.
       LD_LIBRARY_PATH = lib.mkDefault "/usr/lib32:/usr/lib:/usr/lib64";
     };
