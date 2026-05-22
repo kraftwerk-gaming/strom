@@ -1010,6 +1010,13 @@
     "description": "Pico Park (TECOPARK 2016 build, SteamStub-stripped, via Proton)",
     "runtime": "proton"
   },
+  "pico-park-2021": {
+    "cids": [
+      "QmTdBHTieEyv11xE2phVhmfFCWhJFGyk8btD3M2kMa5jti"
+    ],
+    "description": "PICO PARK (2021 paid release, Steamworks shimmed with Goldberg, via Proton)",
+    "runtime": "proton"
+  },
   "planescape-torment": {
     "cids": [
       "QmaqqPrfcQjzLyWmcAMMth42qRLwH7MWq32DnYMNehsmWm"
