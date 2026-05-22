@@ -485,6 +485,13 @@
     "description": "Driver: San Francisco (Ubisoft Reflections 2011, single-player via Proton)",
     "runtime": "proton"
   },
+  "duck-game": {
+    "cids": [
+      "Qmet6FqCu7FUP8PP1JfkP6MHp9QXm2TGhTbGzw5FE6i1pM"
+    ],
+    "description": "Duck Game (DuckGameRebuilt v1.4.7, native Linux via Mono + FNA)",
+    "runtime": "custom"
+  },
   "dungeon-keeper": {
     "cids": [
       "Qmez7AYzB1fAm129WEkUafvBnshvSfM5hPozpjQcZV8m3y"
