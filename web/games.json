@@ -996,6 +996,13 @@
     "description": "Perfect Dark (via RetroArch / mupen64plus-next)",
     "runtime": "retroarch"
   },
+  "pico-park": {
+    "cids": [
+      "QmNUoeQQd9tvFuTcCvyheCSasqStkRjRvMH1iz8kErsqNu"
+    ],
+    "description": "Pico Park (TECOPARK 2016 build, SteamStub-stripped, via Proton)",
+    "runtime": "proton"
+  },
   "planescape-torment": {
     "cids": [
       "QmaqqPrfcQjzLyWmcAMMth42qRLwH7MWq32DnYMNehsmWm"

@@ -179,6 +179,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/papers-please/"><img src="https://lutris.net/games/banner/papers-please.jpg" height="40" alt="papers-please"></a> | [Papers, Please](https://lutris.net/games/papers-please/) | `native` | `nix run .#papers-please` |
 | <a href="https://lutris.net/games/paquerette-down-the-bunburrows/"><img src="https://lutris.net/games/banner/paquerette-down-the-bunburrows.jpg" height="40" alt="paquerette-down-the-bunburrows"></a> | [Paquerette Down the Bunburrows v1.1.2](https://lutris.net/games/paquerette-down-the-bunburrows/) | `proton` | `nix run .#paquerette-down-the-bunburrows` |
 | <a href="https://lutris.net/games/perfect-dark/"><img src="https://lutris.net/games/banner/perfect-dark.jpg" height="40" alt="perfect-dark"></a> | [Perfect Dark](https://lutris.net/games/perfect-dark/) | `retroarch` | `nix run .#perfect-dark` |
+| <a href="https://lutris.net/games/pico-park/"><img src="https://lutris.net/games/banner/pico-park.jpg" height="40" alt="pico-park"></a> | [Pico Park](https://lutris.net/games/pico-park/) | `proton` | `nix run .#pico-park` |
 | <a href="https://lutris.net/games/planescape-torment/"><img src="https://lutris.net/games/banner/planescape-torment.jpg" height="40" alt="planescape-torment"></a> | [Planescape: Torment](https://lutris.net/games/planescape-torment/) | `native` | `nix run .#planescape-torment` |
 | <a href="https://lutris.net/games/portal/"><img src="https://lutris.net/games/banner/portal.jpg" height="40" alt="portal"></a> | [Portal](https://lutris.net/games/portal/) | `proton` | `nix run .#portal` |
 | <a href="https://lutris.net/games/portal-2/"><img src="https://lutris.net/games/banner/portal-2.jpg" height="40" alt="portal-2"></a> | [Portal 2](https://lutris.net/games/portal-2/) | `proton` | `nix run .#portal-2` |
@@ -257,7 +258,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_215 games_
+_217 games_
 
 <!-- END GENERATED GAMES -->
 
