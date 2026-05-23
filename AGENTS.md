@@ -81,11 +81,11 @@
 - **`saveLocations` is required for every `runtime = "proton"` game before its commit lands on master.** Proton's `$HOME` is tmpfs'd in the bwrap sandbox — anything the engine writes into `drive_c/users/steamuser/...` evaporates with the wineprefix. Without `saveLocations`, user progress dies on the next prefix wipe (which the launcher does automatically when the proton-version pointer is GC'd, or which the iterative test loop does between fix attempts). The only legitimate empty-or-absent case is a game that writes saves *next to its binary in the install dir* — those persist via the per-game fuse-overlayfs upper. If that's the case, leave a comment in `default.nix` explaining it (search `games/portal/default.nix`, `games/magicka/default.nix` for the pattern). The discovery procedure is in `## Save preservation across prefix wipes` below; the canonical paths to check are `AppData/LocalLow/<vendor>/<game>`, `AppData/Roaming/<game>`, `Documents/<game>`, and `Documents/My Games/<game>`.
 - Merge flow:
   1. On `stage/<slug>`: rebase on master, amend subject `stage (...)` -> `init`.
-  2. `git push rad +stage/<slug>` — force-update the rad branch with the rebased+amended commit (preserves the branch for review during the test window).
+  2. `git push rad +stage/<slug>`.
   3. `git checkout master && git merge --ff-only stage/<slug>`.
-  4. `git push rad master`.
-  5. `git branch -d stage/<slug>` and `git push rad :stage/<slug>` — delete the branch locally and on rad.
-  6. `rad issue comment <issue-id> --message "merged to master as <sha>."` — close the loop on the issue.
+  4. `rad issue comment <issue-id> --message "merged to master as <sha>."`.
+  5. `git worktree remove ~/tmp/strom/<slug>`, then `git branch -d stage/<slug>`, then `git push rad :stage/<slug>`. (Worktree before branch — `git branch -d` errors otherwise.)
+- The operator pushes `rad master` themselves; the agent never runs `git push rad master`.
 - **Never delete unmerged stage branches.** Even broken-in-progress games keep their `stage/<slug>` branch on rad so future-you (or another contributor) has the diff, diagnostic notes, and history in one place. Delete only after merge or after the issue is explicitly abandoned.
 - Listing: `git branch -r | grep stage/` (all in-flight stage branches), `git log rad/master..rad/stage/<slug>` (the diff a particular stage adds), `rad issue show <id>` for the request context.
 - `git reset --hard` without explicit user permission AND a backup of any uncommitted work is forbidden. Default to `--mixed`. Intent-to-add files (`git add -N`) leave no recoverable blob after `--hard`.
