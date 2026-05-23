@@ -19,10 +19,9 @@
 
 ## IPFS and fetchIpfs
 
-- Game files are fetched via `fetchIpfs` (`lib/fetch-ipfs.nix`), which uses `ipget` to spawn a temporary IPFS node and fetch by CID from the DHT. Falls back to archive.org if IPFS fails.
+- Game files are fetched via `fetchIpfs` (`lib/fetch-ipfs.nix`), which uses `aria2c` to fetch the CIDs from public gateways.
 - CIDs in this repo are generated with `ipfs add --raw-leaves`. A plain `ipfs add` without `--raw-leaves` produces a **different CID** for the same file. Always use `--raw-leaves` when adding files to match the CIDs in this repo. (`--nocopy` implies `--raw-leaves`; `--only-hash` does NOT, so it must be paired with `--raw-leaves` explicitly.)
-- To add a new game file to IPFS: place it on the operator's pin host. A pin watcher service auto-pins it (with `--nocopy`, so `--raw-leaves` is implied) and records the CID in the host's `cid-map.txt`.
-- When adding a new game, get the CID from `cid-map.txt` and use `fetchIpfs { cid = "..."; fallbackUrl = "https://archive.org/..."; hash = "sha256-..."; name = "..."; }`.
+- When adding a new game, get the CID from `ipfs add --only-hash --raw-leaves` and use `fetchIpfs { cid = "..."; fallbackUrl = "https://archive.org/..."; hash = "sha256-..."; name = "..."; }`.
 - Files not yet pinned on a reachable node are not discoverable via IPFS. The file must be pinned on at least one reachable node.
 
 ## Packaging PS2 games (PCSX2)
@@ -81,7 +80,6 @@
 - **`saveLocations` is required for every `runtime = "proton"` game before its commit lands on master.** Proton's `$HOME` is tmpfs'd in the bwrap sandbox — anything the engine writes into `drive_c/users/steamuser/...` evaporates with the wineprefix. Without `saveLocations`, user progress dies on the next prefix wipe (which the launcher does automatically when the proton-version pointer is GC'd, or which the iterative test loop does between fix attempts). The only legitimate empty-or-absent case is a game that writes saves *next to its binary in the install dir* — those persist via the per-game fuse-overlayfs upper. If that's the case, leave a comment in `default.nix` explaining it (search `games/portal/default.nix`, `games/magicka/default.nix` for the pattern). The discovery procedure is in `## Save preservation across prefix wipes` below; the canonical paths to check are `AppData/LocalLow/<vendor>/<game>`, `AppData/Roaming/<game>`, `Documents/<game>`, and `Documents/My Games/<game>`.
 - Merge flow:
   1. On `stage/<slug>`: rebase on master, amend subject `stage (...)` -> `init`.
-  2. `git push rad +stage/<slug>`.
   3. `git checkout master && git merge --ff-only stage/<slug>`.
   4. `rad issue comment <issue-id> --message "merged to master as <sha>."`.
   5. `git worktree remove ~/tmp/strom/<slug>`, then `git branch -d stage/<slug>`, then `git push rad :stage/<slug>`. (Worktree before branch — `git branch -d` errors otherwise.)
@@ -93,8 +91,7 @@
 ## IPFS pinning only after testing
 
 - Game files must be IPFS-pinned (on at least one reachable node) before they're useful to other users. **Don't pin a multi-GB asset to a remote/public node until interactive testing has confirmed the package works** - wasted bandwidth if the package never runs.
-- Phase 1 (stage): download -> hash -> `nix store add-file --hash-algo sha256 --name <name> /path/to/file` (seeds the local store with the file under fetchIpfs's expected output path) -> write `default.nix` with `cid = "PENDING_UPLOAD"` OR a real CID if a local ipfs daemon is available (see below). Build verifies locally because the FOD output path is already realized.
-- **Use the local ipfs daemon when present.** If `ipfs id` succeeds on the staging host, run `ipfs add --only-hash --raw-leaves --quieter tmp/<asset-file>` during Phase 1 and write the real CID into `default.nix` straight away. `--only-hash` computes the deterministic CID without ingesting bytes into the local IPFS datastore (no second copy on disk, no provider record). The operator still has to pin the asset on a reachable node before other users can fetch via IPFS, but the CID in the commit is already correct - no later amend needed.
+- Phase 1 (stage): download -> hash -> `nix store add-file --hash-algo sha256 --name <name> /path/to/file` (seeds the local store with the file under fetchIpfs's expected output path) -> write `default.nix` with `cid = "$HASH"` a real CID you can get by `ipfs add --only-hash --raw-leaves`. Build verifies locally because the FOD output path is already realized.
 - Phase 2 (test): user runs `nix run .#<game>` and confirms it works.
 - Phase 3 (only after Phase 2 passes): pin the file on whatever IPFS node(s) the operator uses (public/pin host), update `cid` if it was still `PENDING_UPLOAD`, rebuild. The exact pinning method is out of scope for this file - operator-specific.
 
@@ -115,7 +112,7 @@
 
 - `~/.strom/.compatdata/<game>` (the wineprefix) is treated as **disposable**. The launcher's auto-wipe blows it away when DLL symlinks point at a garbage-collected proton store path, and the iterative test loop wipes it freely between fix attempts.
 - Anything the game writes under the wineprefix (saves, profiles, settings, shader caches) MUST be relocated to `~/.strom/<game>` so a wipe doesn't take user progress with it. Use the `saveLocations` option on `mkGame` — see `lib/mk-game.nix` for the contract. Each entry is a path relative to `drive_c/users/steamuser/`.
-- **This is non-optional for proton games before they land on master.** See `## Stage-branch workflow for untested games` above for the master-gate phrasing. A future revision of `lib/mk-game.nix` may turn this into a hard module-system assertion (`runtime = "proton"` + `saveLocations = [ ]` → eval error) once every existing proton game is audited; until then it's a process rule that reviewers must enforce by reading the spec.
+- **This is enforced by `lib/mk-game.nix`.** `runtime = "proton"` without an explicit `saveLocations` throws at eval time. The legitimate empty case (saves go next to the binary in the overlay) requires writing `saveLocations = [ ]` explicitly, with a `# ...` comment explaining why.
 - **Before committing a new proton game**, launch it once, play far enough to write a save, then check `find ~/.strom/.compatdata/<game>/0/pfx/drive_c/users/steamuser -mindepth 2 -newer <reference>` for any non-Microsoft directory the engine created. Add each one to `saveLocations`. Common locations:
   - `AppData/Roaming/<vendor>/<game>` — user settings, saves
   - `AppData/Local/<vendor>/<game>` — local-machine state, configs, mod data
