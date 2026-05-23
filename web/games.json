@@ -633,6 +633,13 @@
     "description": "Graveyard Keeper +3 DLC (native Linux, GOG v1.405 build 55214)",
     "runtime": "native"
   },
+  "gubble": {
+    "cids": [
+      "QmY3cKyHYWXcYScJE8VfYmdBc5R2XJrHLFaG8UpqmRzpDM"
+    ],
+    "description": "Gubble (Actual Entertainment 1996, European CD redump, via Proton)",
+    "runtime": "proton"
+  },
   "half-life": {
     "cids": [
       "QmeUQvq7qxgmktqQyWR5XmyDEXxayjJaQrEpkMg1P8F1qP"
