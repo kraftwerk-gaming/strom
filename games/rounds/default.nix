@@ -72,9 +72,15 @@ let
   # postfixes InputManager.SetupInternal and force-adds the Unity
   # manager so InputManager.ActiveDevices populates and the lobby's
   # existing pad-join loop (PlayerAssigner.LateUpdate) can spawn
-  # one player per attached pad. Compiled at build time from
-  # ./multipad-plugin/RoundsMultiPad.cs against the same managed
-  # DLLs the runtime loads.
+  # one player per attached pad. It also dumps a per-device
+  # diagnostic block (JoystickId, profile name, every analog/button
+  # source's Unity handle and live value) to BepInEx so individual
+  # physical pads can be correlated to InControl device slots while
+  # we work out why only some pads register. Compiled at build
+  # time from ./multipad-plugin/RoundsMultiPad.cs against the same
+  # managed DLLs the runtime loads. The legacy "drop XBox One
+  # sibling of Xbox 360" dedupe heuristic is off by default; set
+  # ROUNDS_MULTIPAD_DEDUPE=1 only to experiment with it.
   multipadPluginSrc = ./multipad-plugin/RoundsMultiPad.cs;
 in
 self.lib.mkGame { inherit lib pkgs; } {
