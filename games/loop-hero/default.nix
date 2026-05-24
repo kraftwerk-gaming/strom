@@ -15,7 +15,7 @@ let
   # run.sh, libsteam_api.so, assets/, plus assets/linuxlibs/ (bundled
   # libcurl/libopenal/libssl 1.1/librtmp).
   installer = fetchIpfs {
-    cid = "QmeC5wZown2ZhNusa8dEq342Siqk88RxrJFBgxwQuVPTwD";
+    cid = "QmQSAMV6PnygfoLfYrNwXtCm5RzGdqu8p56qxPz3DahtPn";
     fallbackUrl = "https://archive.org/download/loop-hero-linux-gog-phoenix-games-lab/Game%2Floop_hero_1_1054_55873.sh";
     hash = "sha256-qItSj+ADA8ehsp96GZmdYIgKvof+Kz/JQteG0NAGSV8=";
     name = "loop-hero-linux-gog-1.1054.sh";
