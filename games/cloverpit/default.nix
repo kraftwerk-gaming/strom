@@ -8,8 +8,8 @@
 
 let
   src = fetchIpfs {
-    cid = "QmPre6GqGGi4WDoWLEn5PdTX1jNuWPqx7vVFMNMAeoc6n5";
-    fallbackUrl = "https://ipfs.io/ipfs/QmPre6GqGGi4WDoWLEn5PdTX1jNuWPqx7vVFMNMAeoc6n5";
+    cid = "QmRaFP9hfudYEPJ5GqaBWWegY8C5VPEuSc5K7BB5DCN5kG";
+    fallbackUrl = "https://ipfs.io/ipfs/QmRaFP9hfudYEPJ5GqaBWWegY8C5VPEuSc5K7BB5DCN5kG";
     hash = "sha256-hoTRiJirYfd+wiHj1pfuZAf7XyrvJ91HTlLfNY2sNV8=";
     name = "cloverpit-ankergames.zip";
   };
