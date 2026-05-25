@@ -12,21 +12,21 @@ let
   # reads them together when they sit next to each other; we symlink
   # them in $TMPDIR with the original filenames before extracting.
   setupExe = fetchIpfs {
-    cid = "Qmep6UP4xtHUnupwGSV4mfs96M9Eh7ie7MaHLxMxSyWFn5";
+    cid = "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ";
     fallbackUrl = "https://archive.org/download/homeworld-remastered-collection-gog/Homeworld%20Remastered%20Collection%20%5BGOG%5D/setup_homeworld_remastered_2.1_%283877%29.exe";
     hash = "sha256-G5xedp7ALYkNvhfF0hU1UnTGxwwxflBAlgFTZo7Cijs=";
     name = "homeworld-remastered-gog-2.1.exe";
   };
 
   setupBin1 = fetchIpfs {
-    cid = "Qmce73FoZAZnWoceHUbqh66N4QW59VxbN9GUWvwNnw1pMS";
+    cid = "QmcAz3HugvgxsXrqUjSpoz2pKDQKiMi9bee8fbKDcz9nV4";
     fallbackUrl = "https://archive.org/download/homeworld-remastered-collection-gog/Homeworld%20Remastered%20Collection%20%5BGOG%5D/setup_homeworld_remastered_2.1_%283877%29-1.bin";
     hash = "sha256-V82oiqkkQGMPEv1iohZ0d2ZiwK7PvUWKzkqU/m04aHM=";
     name = "homeworld-remastered-gog-2.1-1.bin";
   };
 
   setupBin2 = fetchIpfs {
-    cid = "Qmdrjc6pmPqfT2z6CQi1938gXbRES7kRNK3VK2MNP4AAfC";
+    cid = "QmWNTi4bwTDXjQRmsu2ua4z6nvPvYBK5kEBPWWyC8RxPYy";
     fallbackUrl = "https://archive.org/download/homeworld-remastered-collection-gog/Homeworld%20Remastered%20Collection%20%5BGOG%5D/setup_homeworld_remastered_2.1_%283877%29-2.bin";
     hash = "sha256-CjcrK21uVNwbC0Pz8/JNsviaSHwNKKfh9zt6JFd9XyQ=";
     name = "homeworld-remastered-gog-2.1-2.bin";
