@@ -85,14 +85,24 @@ in
 
     outputs.wrapper = config.pkgs.writeShellApplication {
       name = config.binName;
-      runtimeInputs = [ config.pkgs.gamescope ] ++ config.extraPackages;
+      runtimeInputs = [
+        config.pkgs.gamescope
+      ]
+      ++ config.extraPackages;
       # GAMESCOPE_ARGS: runtime-injected gamescope flags, word-split and
       # spliced in just before `--`. Useful for per-machine knobs that
       # shouldn't bake into the derivation, e.g.
       #   GAMESCOPE_ARGS="--prefer-vk-device=8086:9b41" nix run .#half-life
+      #
+      # The screenshot sidecar (sourced below) probes for the nested
+      # gamescope-* wayland socket and — when STROM_AGENT_DEBUG=1 —
+      # captures PNGs every STROM_AGENT_DEBUG_INTERVAL seconds. It is a
+      # no-op unless STROM_GAMEDIR is in scope (set by the strom
+      # bwrap.preHook), so this stays harmless for non-strom callers.
       text = ''
         ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
+        ${builtins.readFile ./screenshot-sidecar.sh}
         read -ra _gamescope_extra <<< "''${GAMESCOPE_ARGS:-}"
         ${lib.optionalString (config.postHook == "") "exec"} gamescope \
           ${lib.concatMapStringsSep " \\\n  " shellEscape flagArgs} \

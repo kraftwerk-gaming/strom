@@ -134,6 +134,7 @@
             launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
             pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
             publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
+            screenshot = pkgs.callPackage ./pkgs/screenshot.nix { };
           };
         }
       );
