@@ -1494,6 +1494,13 @@
     "description": "ULTRAKILL (New Blood / Hakita 2020 Early Access, via Proton)",
     "runtime": "proton"
   },
+  "undertale": {
+    "cids": [
+      "QmU97VATpxu6sC7KGNBw8sAqiABQTQ6UW8kj7Y6AiGQPH3"
+    ],
+    "description": "Undertale (2015 Toby Fox, Linux GOG repack via Phoenix Games Lab)",
+    "runtime": "native"
+  },
   "unreal-tournament-2004": {
     "cids": [
       "QmUcKX53WiLytqmVoDP1pphJgL1MuczqqUN9FNT3id1U74"
