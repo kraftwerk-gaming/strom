@@ -117,12 +117,23 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
+          games = builtins.mapAttrs (_: m: m.outputs.wrapper) self.modules.${system};
+          gameMeta = builtins.mapAttrs (_: p: {
+            description = p.meta.description or null;
+            runtime = p.passthru.runtime or "unknown";
+          }) games;
         in
         {
           patched-pkgs = {
             fuse-overlayfs = pkgs.callPackage ./pkgs/fuse-overlayfs.nix { };
             proton = pkgs.callPackage ./pkgs/proton.nix { };
             sdl2 = pkgs.callPackage ./pkgs/sdl2.nix { };
+          };
+          inherit games;
+          scripts = {
+            launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
+            pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
+            publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
           };
         }
       );
@@ -137,46 +148,6 @@
         builtins.mapAttrs (name: _: callPackage ./games/${name} { }) (builtins.readDir ./games)
       );
 
-      packages = {
-        aarch64-darwin.publish-ipns = import ./scripts/publish-ipns.nix {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          games = self.packages.x86_64-linux;
-        };
-        x86_64-darwin.publish-ipns = import ./scripts/publish-ipns.nix {
-          pkgs = nixpkgs.legacyPackages.x86_64-darwin;
-          games = self.packages.x86_64-linux;
-        };
-      }
-      // forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-          games = builtins.mapAttrs (_: m: m.outputs.wrapper) self.modules.${system};
-        in
-        games
-        // {
-          pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
-          publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
-        }
-      );
-
-      apps = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-          games = self.packages.${system};
-          gameMeta = builtins.mapAttrs (_: p: {
-            description = p.meta.description or null;
-            runtime = p.passthru.runtime or "unknown";
-          }) games;
-          launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
-        in
-        {
-          launcher = {
-            type = "app";
-            program = "${launcher}/bin/strom-launcher";
-          };
-        }
-      );
+      packages = forAllSystems (system: self.legacyPackages.${system}.games);
     };
 }
