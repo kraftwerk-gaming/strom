@@ -33,7 +33,7 @@ let
   # extracted from the retail CD image at archive.org/details/
   # arx_Fatalis_2002 (Arx.iso, bin/logo.avi).
   intro = fetchIpfs {
-    cid = "Qmf5Tzyci3p44UQ1PGB92vzPqQHCa9xJZp4i8y9Bu57ttv";
+    cid = "QmVoEDREzChs6XbDmt7NxWZRoiBaitoQkWanAKDxWGvRGk";
     hash = "sha256-EAzsGVtB/RgSOx6b/P7bBDtnQ3oZQX3YdjcyVG2ghAg=";
     name = "arx-fatalis-intro.avi";
   };
