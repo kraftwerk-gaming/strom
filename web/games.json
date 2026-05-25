@@ -443,6 +443,13 @@
     "description": "Disco Elysium: The Final Cut (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "dome-keeper": {
+    "cids": [
+      "QmZgXGrnP6g9rjVJ1WXws7dcGCtH3yCNmDWY4FjoPDQ5cP"
+    ],
+    "description": "Dome Keeper (Bippinbits 2022, Pioneer Pack DLC, native Linux v4.2.1, Goldberg-emulated Steam)",
+    "runtime": "custom"
+  },
   "driver-san-francisco": {
     "cids": [
       "QmY6JgHkrRdbUu3eFLynuUKqfnrPZ6FgFxCzvMWAgpLKYE"
