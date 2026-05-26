@@ -50,10 +50,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     open("$out/Half-Life/WONAuth.dll","wb").write(data)
     print("Patched WONAuth.dll")
     PYEOF
-
-        # Bat: inject key (no dashes, as game stores it) then launch at 1280x960
-        printf '@echo off\r\nreg add "HKCU\\Software\\Valve\\Half-Life" /v Key /d 3333333333333 /f\r\ncd /d "%%~dp0"\r\nhl.exe -w 1920 -h 1080 %%*\r\n' \
-          > "$out/Half-Life/hl_launch.bat"
   '';
 
   copyGlobs = [ ];
@@ -64,9 +60,50 @@ self.lib.mkGame { inherit lib pkgs; } {
   # Half-Life/valve/SAVE/* + config.cfg next to its binary, not under
   # drive_c/users/steamuser/...).
   saveLocations = [ ];
-  executable = "Half-Life/hl_launch.bat";
+  executable = "Half-Life/hl.exe";
 
-  preRun = "";
+  # Window mode + resolution: passed straight to hl.exe instead of via a
+  # cmd.exe .bat launcher. The bat used to also `reg add` the CD key,
+  # but invoking it as the proton entrypoint spawned a visible cmd.exe
+  # console alongside hl.exe — gamescope mapped both as top-level
+  # surfaces and they fought over input focus inside the nested
+  # compositor (the user saw a "reg: operation completed successfully"
+  # window plus the game, and lost input after pressing Escape). The
+  # CD-key seed is now done via preRun against user.reg directly.
+  executableArgs = [
+    "-w"
+    "1920"
+    "-h"
+    "1080"
+  ];
+
+  preRun = ''
+    # Seed the WON CD-key into the wineprefix's user.reg. The 1.1.1.0
+    # client checks HKCU\Software\Valve\Half-Life\Key on startup; with
+    # the WONAuth.dll patches the value need only be present and parse
+    # as a 13-digit string. Equivalent to the old bat's
+    #   reg add "HKCU\Software\Valve\Half-Life" /v Key /d 3333333333333 /f
+    # but without spawning cmd.exe (see the executableArgs comment).
+    USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
+    # preRun runs before proton bootstraps the wineprefix on a truly
+    # fresh launch, so user.reg may not exist yet — create a minimal
+    # header so wine accepts the seeded section on first load. (See
+    # MEMORY: feedback_prerun_userreg_bootstrap.)
+    if [ ! -f "$USERREG" ]; then
+      mkdir -p "$(dirname "$USERREG")"
+      {
+        printf 'WINE REGISTRY Version 2\n'
+        printf ';; All keys relative to \\\\User\\\\S-1-5-21-0-0-0-1000\n\n'
+      } > "$USERREG"
+    fi
+    if ! grep -q 'Valve\\\\Half-Life\]' "$USERREG"; then
+      TS=$(date +%s)
+      {
+        printf '\n[Software\\\\Valve\\\\Half-Life] %s\n' "$TS"
+        printf '"Key"="3333333333333"\n'
+      } >> "$USERREG"
+    fi
+  '';
 
   gamescope = {
     output-width = 1920;
