@@ -65,6 +65,14 @@
     "description": "AquaNox (2001 Massive Development, GOG v1.18 + SilentPatch, via Proton)",
     "runtime": "proton"
   },
+  "arcania": {
+    "cids": [
+      "QmQQGAo8PBAb75FaWVA1oWjBDgZ4hJ5RExpAPNKShDN2HW",
+      "QmU7egxTUWfC3mySHRwCtcnW3LXDBtbM2qxMnPziTAesEY"
+    ],
+    "description": "ArcaniA: Gothic 4 -- The Complete Tale (Spellbound 2010, GOG v2.0.0.2, via Proton)",
+    "runtime": "proton"
+  },
   "archimedean-dynasty": {
     "cids": [
       "QmQs4toBKxcEJagPfxKP8uvAtadT85EKQqbxPEknbMRoGV"

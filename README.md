@@ -49,6 +49,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/anno-1602-ad/"><img src="https://lutris.net/games/banner/anno-1602-ad.jpg" height="40" alt="anno-1602-ad"></a> | [Anno 1602 A.D. Gold Edition](https://lutris.net/games/anno-1602-ad/) | `proton` | `nix run .#anno-1602-ad` |
 | <a href="https://lutris.net/games/anno-1701/"><img src="https://lutris.net/games/banner/anno-1701.jpg" height="40" alt="anno-1701"></a> | [Anno 1701 + Sunken Treasure](https://lutris.net/games/anno-1701/) | `proton` | `nix run .#anno-1701` |
 | <a href="https://lutris.net/games/aquanox/"><img src="https://lutris.net/games/banner/aquanox.jpg" height="40" alt="aquanox"></a> | [AquaNox](https://lutris.net/games/aquanox/) | `proton` | `nix run .#aquanox` |
+| <a href="https://lutris.net/games/arcania/"><img src="https://lutris.net/games/banner/arcania.jpg" height="40" alt="arcania"></a> | [ArcaniA: Gothic 4 -- The Complete Tale](https://lutris.net/games/arcania/) | `proton` | `nix run .#arcania` |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run .#archimedean-dynasty` |
 | <a href="https://lutris.net/games/arx-fatalis/"><img src="https://lutris.net/games/banner/arx-fatalis.jpg" height="40" alt="arx-fatalis"></a> | [Arx Fatalis](https://lutris.net/games/arx-fatalis/) | `native` | `nix run .#arx-fatalis` |
 | <a href="https://lutris.net/games/baba-is-you/"><img src="https://lutris.net/games/banner/baba-is-you.jpg" height="40" alt="baba-is-you"></a> | [Baba Is You](https://lutris.net/games/baba-is-you/) | `native` | `nix run .#baba-is-you` |
@@ -278,7 +279,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_237 games_
+_238 games_
 
 <!-- END GENERATED GAMES -->
 

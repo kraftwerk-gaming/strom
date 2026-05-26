@@ -1,0 +1,38 @@
+<SpellboundApp root-memory="28388608" runner="PMRunnerRepeater"  repeater-port="54321" repeater-server="" >
+
+	<CreateProcess instance-name="editor" memory-size="100000" type="EditorProcess" >
+		<ConstraintInterval interval-length="10" />
+		<Message type="EditorProcessInit" />
+	</CreateProcess>
+
+	<CreateProcess instance-name="Navigation" memory-size="8000000" type="SBNavigationProcess" >
+		<ConstraintInterval interval-length="10" />
+	</CreateProcess>
+
+	<CreateGroup name="main_group" >
+		<ProcessInstance name="editor" />
+	</CreateGroup>
+
+	<ThreadConfig platform="PC" cores="1" >
+		<Thread hardware-mask="ffffffff" thread-pool-mask="00000002" />
+		<Thread hardware-mask="ffffffff" thread-pool-mask="fffffffd" />
+	</ThreadConfig>
+
+</SpellboundApp>
+<AttributeTable>
+	<Display>
+		<Attribute name="resolution_x" value="1024" type="slong" />
+		<Attribute name="resolution_y" value="768" type="slong" />
+		<Attribute name="fullscreen" value="true" type="bool" />
+	</Display>
+	<PostProcessing>
+		<Attribute name="postprocessing" value="false" type="bool" />
+	</PostProcessing>
+	<Shadows>
+		<Attribute name="shadow_entity"		value="1024" type="slong" />
+	</Shadows>
+
+	<Attribute name="gamma" x="1.0" y="1.0" z="1.0" type="vector" />
+	<Attribute name="log_level" 		value="5" type="ulong" />
+
+</AttributeTable>
