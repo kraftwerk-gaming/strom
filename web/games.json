@@ -464,6 +464,13 @@
     "description": "Dome Keeper (Bippinbits 2022, Pioneer Pack DLC, native Linux v4.2.1, Goldberg-emulated Steam)",
     "runtime": "custom"
   },
+  "doom": {
+    "cids": [
+      "QmRuNHP4mT38wHc8A1WL39cjbqvjKreSES8MMkkYvPDJN8"
+    ],
+    "description": "The Ultimate DOOM (id Software 1995, DOOM.WAD via GZDoom)",
+    "runtime": "custom"
+  },
   "driver-san-francisco": {
     "cids": [
       "QmY6JgHkrRdbUu3eFLynuUKqfnrPZ6FgFxCzvMWAgpLKYE"
