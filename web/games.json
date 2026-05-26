@@ -471,6 +471,13 @@
     "description": "The Ultimate DOOM (id Software 1995, DOOM.WAD via GZDoom)",
     "runtime": "custom"
   },
+  "doom-ii": {
+    "cids": [
+      "QmbvTqMatBt2tRcuM461BbCUdrf2kzL6hMSNUtGP4amkJc"
+    ],
+    "description": "DOOM II: Hell on Earth (id Software 1994, DOOM2.WAD via GZDoom)",
+    "runtime": "custom"
+  },
   "driver-san-francisco": {
     "cids": [
       "QmY6JgHkrRdbUu3eFLynuUKqfnrPZ6FgFxCzvMWAgpLKYE"

@@ -106,6 +106,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/disco-elysium-the-final-cut/"><img src="https://lutris.net/games/banner/disco-elysium-the-final-cut.jpg" height="40" alt="disco-elysium-the-final-cut"></a> | [Disco Elysium: The Final Cut](https://lutris.net/games/disco-elysium-the-final-cut/) | `proton` | `nix run .#disco-elysium-the-final-cut` |
 | <a href="https://lutris.net/games/dome-keeper/"><img src="https://lutris.net/games/banner/dome-keeper.jpg" height="40" alt="dome-keeper"></a> | [Dome Keeper](https://lutris.net/games/dome-keeper/) | `custom` | `nix run .#dome-keeper` |
 | <a href="https://lutris.net/games/doom/"><img src="https://lutris.net/games/banner/doom.jpg" height="40" alt="doom"></a> | [The Ultimate DOOM](https://lutris.net/games/doom/) | `custom` | `nix run .#doom` |
+| <a href="https://lutris.net/games/doom-ii/"><img src="https://lutris.net/games/banner/doom-ii.jpg" height="40" alt="doom-ii"></a> | [DOOM II: Hell on Earth](https://lutris.net/games/doom-ii/) | `custom` | `nix run .#doom-ii` |
 | <a href="https://lutris.net/games/driver-san-francisco/"><img src="https://lutris.net/games/banner/driver-san-francisco.jpg" height="40" alt="driver-san-francisco"></a> | [Driver: San Francisco](https://lutris.net/games/driver-san-francisco/) | `proton` | `nix run .#driver-san-francisco` |
 | <a href="https://lutris.net/games/dungeon-keeper/"><img src="https://lutris.net/games/banner/dungeon-keeper.jpg" height="40" alt="dungeon-keeper"></a> | [Dungeon Keeper](https://lutris.net/games/dungeon-keeper/) | `proton` | `nix run .#dungeon-keeper` |
 | <a href="https://lutris.net/games/dungeon-siege/"><img src="https://lutris.net/games/banner/dungeon-siege.jpg" height="40" alt="dungeon-siege"></a> | [Dungeon Siege](https://lutris.net/games/dungeon-siege/) | `proton` | `nix run .#dungeon-siege` |
@@ -270,7 +271,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_229 games_
+_230 games_
 
 <!-- END GENERATED GAMES -->
 
