@@ -138,6 +138,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/grand-theft-auto-san-andreas/"><img src="https://lutris.net/games/banner/grand-theft-auto-san-andreas.jpg" height="40" alt="grand-theft-auto-san-andreas"></a> | [Grand Theft Auto: San Andreas](https://lutris.net/games/grand-theft-auto-san-andreas/) | `proton` | `nix run .#grand-theft-auto-san-andreas` |
 | <a href="https://lutris.net/games/grand-theft-auto-vice-city/"><img src="https://lutris.net/games/banner/grand-theft-auto-vice-city.jpg" height="40" alt="grand-theft-auto-vice-city"></a> | [Grand Theft Auto: Vice City](https://lutris.net/games/grand-theft-auto-vice-city/) | `proton` | `nix run .#grand-theft-auto-vice-city` |
 | <a href="https://lutris.net/games/graveyard-keeper/"><img src="https://lutris.net/games/banner/graveyard-keeper.jpg" height="40" alt="graveyard-keeper"></a> | [Graveyard Keeper +3 DLC](https://lutris.net/games/graveyard-keeper/) | `native` | `nix run .#graveyard-keeper` |
+| <a href="https://lutris.net/games/grim-fandango-remastered/"><img src="https://lutris.net/games/banner/grim-fandango-remastered.jpg" height="40" alt="grim-fandango-remastered"></a> | [Grim Fandango Remastered](https://lutris.net/games/grim-fandango-remastered/) | `native` | `nix run .#grim-fandango-remastered` |
 | <a href="https://lutris.net/games/gubble/"><img src="https://lutris.net/games/banner/gubble.jpg" height="40" alt="gubble"></a> | [Gubble](https://lutris.net/games/gubble/) | `proton` | `nix run .#gubble` |
 | <a href="https://lutris.net/games/half-life/"><img src="https://lutris.net/games/banner/half-life.jpg" height="40" alt="half-life"></a> | [Half-Life](https://lutris.net/games/half-life/) | `proton` | `nix run .#half-life` |
 | <a href="https://lutris.net/games/hardspace-shipbreaker/"><img src="https://lutris.net/games/banner/hardspace-shipbreaker.jpg" height="40" alt="hardspace-shipbreaker"></a> | [Hardspace: Shipbreaker](https://lutris.net/games/hardspace-shipbreaker/) | `proton` | `nix run .#hardspace-shipbreaker` |
@@ -275,7 +276,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_234 games_
+_235 games_
 
 <!-- END GENERATED GAMES -->
 

@@ -696,6 +696,13 @@
     "description": "Graveyard Keeper +3 DLC (native Linux, GOG v1.405 build 55214)",
     "runtime": "native"
   },
+  "grim-fandango-remastered": {
+    "cids": [
+      "QmWeeupcjMJZQjn4q6rrZ4voYK5bb6VtcaLczMtEk9Wsbc"
+    ],
+    "description": "Grim Fandango Remastered (Double Fine 2015 remaster of 1998 LucasArts adventure, GOG native Linux v1.4)",
+    "runtime": "native"
+  },
   "gubble": {
     "cids": [
       "QmY3cKyHYWXcYScJE8VfYmdBc5R2XJrHLFaG8UpqmRzpDM"
