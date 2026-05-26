@@ -134,6 +134,13 @@ in
       SDL_JOYSTICK_HIDAPI_XBOX_360 = lib.mkDefault "0";
       # 32-bit + 64-bit FHS lib dirs so Proton's loader finds both arches.
       LD_LIBRARY_PATH = lib.mkDefault "/usr/lib32:/usr/lib:/usr/lib64";
+      # GE-Proton 10 ships an accessibility helper (xalia.exe) that
+      # attaches to the game process to bridge the wine a11y stack to
+      # at-spi. On freshly-bootstrapped prefixes (no at-spi bus in our
+      # bwrap) xalia spins waiting to connect and games like hl.exe
+      # deadlock waiting for the a11y handshake — single thread stuck
+      # in futex_wait_multiple. We don't need accessibility; opt out.
+      PROTON_DISABLE_XALIA = lib.mkDefault "1";
     };
 
     args = lib.mkOrder 100 [
@@ -248,7 +255,8 @@ in
                 winedevice.exe|services.exe|plugplay.exe|svchost.exe|rpcss.exe \
                 |explorer.exe|winemenubuilde|wineboot.exe|conhost.exe|start.exe \
                 |tabtip.exe|fontview.exe|rundll32.exe|regsvr32.exe \
-                |steam.exe|winebrowser.exe)
+                |steam.exe|winebrowser.exe|xalia.exe|crashpad_handle \
+                |gpgconf.exe|pingsender.exe|wineconsole.exe|winedbg.exe)
                   system=$((system + 1)) ;;
                 *.exe)
                   game=$((game + 1)) ;;
