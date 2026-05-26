@@ -584,6 +584,13 @@
     "description": "FEZ (native Linux, GOG)",
     "runtime": "native"
   },
+  "final-doom-tnt": {
+    "cids": [
+      "QmWxbxUpbCXFemuWhGqHhVJmtKQ4cfwmdaQyNNwwPHaLj5"
+    ],
+    "description": "Final Doom: TNT - Evilution (TeamTNT/id 1996, TNT.WAD via GZDoom)",
+    "runtime": "custom"
+  },
   "forager": {
     "cids": [
       "QmZJnJxJ1S8R8rwrXL9Vk9TQMqGhGccmGHXzNyhA5bKCQj"
