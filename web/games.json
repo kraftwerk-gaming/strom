@@ -13,6 +13,13 @@
     "description": "Anachronox (Ion Storm 2001, GOG v1.02 build 22258, via Proton)",
     "runtime": "proton"
   },
+  "anatomy": {
+    "cids": [
+      "QmTZdKgZN2S1SqyYp9iiReNq7kDW8V21Q79uJbVVs8yb7h"
+    ],
+    "description": "Anatomy (Kitty Horrorshow 2016, native Linux build)",
+    "runtime": "native"
+  },
   "animal-well": {
     "cids": [
       "QmcNc9smjop4rKYUooR1WtUiB54XwGuYqc4xBiXhxY1gjt"
