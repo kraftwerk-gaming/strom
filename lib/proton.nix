@@ -186,12 +186,10 @@ in
       ''}
     '';
 
-    # Graceful wineserver shutdown. Process cleanup happens at the bwrap
-    # level via --unshare-pid + --die-with-parent.
-    postHook = ''
-      ${config.package}/files/bin/wineserver -k 2>/dev/null || true
-      ${config.package}/files/bin/wineserver -w 2>/dev/null || true
-    '';
+    # Cleanup is handled by an EXIT trap installed in outputs.wrapper.text
+    # so it fires even when bash is killed by SIGTERM (gamescope does this
+    # when forwarding the WM close). See the comment there.
+    postHook = "";
 
     # Override the default wrapPackage template so PROTON_ARGS can be
     # word-split and spliced in just after the proton binary, before
@@ -204,12 +202,91 @@ in
         ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
         read -ra _proton_extra <<< "''${PROTON_ARGS:-}"
+
+        # EXIT trap fires regardless of how the wrapper bash terminates:
+        # umu returning 0, umu returning non-zero (set -e), gamescope
+        # SIGTERMing us when it forwards the WM close, ...). Without
+        # this, a sway-kill leaves wine system services (winedevice.exe,
+        # services.exe) alive in the prefix's wineserver and
+        # gamescope's subreaper keeps waiting on them forever.
+        # The loop walks /proc inside our private bwrap PID namespace
+        # (cross-session safe — each strom game has its own namespace)
+        # and SIGKILLs every wine .exe; once they're gone, the
+        # gamescopereaper has no descendants, gamescope's waitpid
+        # returns, the namespace tears down, the host wrapper unblocks.
+        # SIGKILL is critical: wine system services don't honor the
+        # SIGTERM that `wineserver -k` sends.
+        __strom_kill_wine_exes() {
+          local pid_dir comm
+          for pid_dir in /proc/[0-9]*; do
+            [ -r "$pid_dir/comm" ] || continue
+            comm=$(cat "$pid_dir/comm" 2>/dev/null) || continue
+            case "$comm" in
+              *.exe) kill -KILL "''${pid_dir##*/}" 2>/dev/null || true ;;
+            esac
+          done
+        }
+        trap __strom_kill_wine_exes EXIT
+
+        # Belt-and-suspenders watchdog: runs in a backgrounded subshell
+        # so it survives even if the wrapper bash is SIGKILLed (trap
+        # EXIT would not fire in that case). Polls every 2s; when no
+        # game .exe is alive (only wine system services remain), kills
+        # the remaining .exes — same logic as the EXIT trap, but in a
+        # process that doesn't die with the wrapper.
+        (
+          set +e
+          peaked=0
+          empty=0
+          while true; do
+            sleep 2
+            game=0; system=0
+            for pid_dir in /proc/[0-9]*; do
+              [ -r "$pid_dir/comm" ] || continue
+              comm=$(cat "$pid_dir/comm" 2>/dev/null) || continue
+              case "$comm" in
+                winedevice.exe|services.exe|plugplay.exe|svchost.exe|rpcss.exe \
+                |explorer.exe|winemenubuilde|wineboot.exe|conhost.exe|start.exe \
+                |tabtip.exe|fontview.exe|rundll32.exe|regsvr32.exe \
+                |steam.exe|winebrowser.exe)
+                  system=$((system + 1)) ;;
+                *.exe)
+                  game=$((game + 1)) ;;
+              esac
+            done
+            if [ "$system" = 0 ] && [ "$game" = 0 ]; then
+              # all wine processes gone, we're done
+              exit 0
+            fi
+            if [ "$game" -ge 1 ]; then
+              peaked=1; empty=0
+            elif [ "$peaked" = 1 ]; then
+              empty=$((empty + 1))
+              if [ "$empty" -ge 3 ]; then
+                echo "strom-proton-watchdog: SIGKILL lingering wine .exes" >&2
+                for pid_dir in /proc/[0-9]*; do
+                  [ -r "$pid_dir/comm" ] || continue
+                  comm=$(cat "$pid_dir/comm" 2>/dev/null) || continue
+                  case "$comm" in
+                    *.exe) kill -KILL "''${pid_dir##*/}" 2>/dev/null || true ;;
+                  esac
+                done
+                exit 0
+              fi
+            fi
+          done
+        ) &
+        disown 2>/dev/null || true
+
+        # `|| true` so the trap fires cleanly even if umu returns
+        # non-zero (e.g. when a sway-kill propagates as a non-zero
+        # exit through wine).
         ${config.exePath} \
           "''${_proton_extra[@]}" \
           ${
             lib.concatMapStringsSep " \\\n  " shellEscape (lib.filter (a: a != "$@") (config.args or [ ]))
           } \
-          "$@"
+          "$@" || true
         ${config.postHook}
       '';
     };

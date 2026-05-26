@@ -72,6 +72,20 @@ in
       "--output-height" = if config.output-height != null then toString config.output-height else null;
       "--nested-width" = if config.nested-width != null then toString config.nested-width else null;
       "--nested-height" = if config.nested-height != null then toString config.nested-height else null;
+      # Work around ValveSoftware/gamescope#1456: in the default
+      # SingleApplication virtual-connector mode the wayland backend
+      # races with the host compositor when the inner client briefly
+      # destroys and recreates its toplevel window — a common pattern
+      # during proton startup (wineboot dialogs, splash screens, the
+      # start.exe -> game.exe handoff). The host compositor (sway/
+      # wlroots) raises an xdg_surface protocol error, gamescope's
+      # input thread fails wl_display_get_fd, and the compositor
+      # abort()s in CWaylandInputThread::ThreadFunc. PerWindow
+      # virtual-connector strategy creates a fresh wl_surface per
+      # toplevel instead of reusing one, avoiding the unconfigured-
+      # buffer protocol error. Games can override with
+      # gamescope.flags."--virtual-connector-strategy" = null.
+      "--virtual-connector-strategy" = "PerWindow";
     }
     // lib.mapAttrs (
       _: v:

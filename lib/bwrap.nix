@@ -202,6 +202,17 @@ in
       # BWRAP_ARGS: runtime-injected bwrap flags, word-split and spliced
       # in just before `--`. Useful for ad-hoc binds during debugging,
       # e.g. BWRAP_ARGS="--bind /home/me/saves /home/me/saves".
+      #
+      # Signal-driven teardown: the host WM can close the outer gamescope
+      # window without the inner game cooperating (gamescope upstream
+      # has known hangs when wineserver lingers — see
+      # ValveSoftware/gamescope#1615). To make WM-close reliable we
+      # install a TERM/INT/HUP trap that sends polite SIGTERM to bwrap
+      # then escalates to SIGKILL after ~3s. Combined with bwrap's
+      # --die-with-parent + --unshare-pid this guarantees the entire
+      # PID namespace (gamescope + wineserver + game) tears down.
+      # `wait` runs in a slice loop so the trap fires immediately on
+      # signal delivery instead of being deferred until bwrap exits.
       text = ''
         ${lib.concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
@@ -219,7 +230,34 @@ in
           -- \
           "${config.command}" "$@" &
         BWRAP_PID=$!
-        wait $BWRAP_PID || true
+
+        __strom_bwrap_cleanup() {
+          if kill -0 "$BWRAP_PID" 2>/dev/null; then
+            kill -TERM "$BWRAP_PID" 2>/dev/null || true
+            for _ in $(seq 1 30); do
+              kill -0 "$BWRAP_PID" 2>/dev/null || break
+              sleep 0.1
+            done
+            kill -KILL "$BWRAP_PID" 2>/dev/null || true
+          fi
+        }
+        # Compose with any preHook-installed INT/TERM/HUP traps so e.g.
+        # mk-game's `fusermount -uz` cleanup still runs. EXIT traps fire
+        # too once we return and the script exits.
+        __strom_prev_int=$(trap -p INT  | sed -n "s/^trap -- '\\(.*\\)' INT$/\\1/p"  | head -n1)
+        __strom_prev_term=$(trap -p TERM | sed -n "s/^trap -- '\\(.*\\)' TERM$/\\1/p" | head -n1)
+        __strom_prev_hup=$(trap -p HUP  | sed -n "s/^trap -- '\\(.*\\)' HUP$/\\1/p"  | head -n1)
+        # shellcheck disable=SC2064 # expansion-now is intentional.
+        trap "__strom_bwrap_cleanup; ''${__strom_prev_int:-true}"  INT
+        # shellcheck disable=SC2064
+        trap "__strom_bwrap_cleanup; ''${__strom_prev_term:-true}" TERM
+        # shellcheck disable=SC2064
+        trap "__strom_bwrap_cleanup; ''${__strom_prev_hup:-true}"  HUP
+
+        while kill -0 "$BWRAP_PID" 2>/dev/null; do
+          wait "$BWRAP_PID" 2>/dev/null && break
+        done
+        trap - INT TERM HUP
         ${config.postHook}
       '';
     };
