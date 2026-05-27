@@ -178,6 +178,22 @@ in
       ++ fhs.bwrapArgs
       ++ renderPairs "--bind" config.bind
       ++ renderSingles "--tmpfs" config.tmpfs
+      # Bind a host-side control directory at /tmp/.strom-control so the
+      # inner runtime wrapper can signal "please shut down" via FIFO
+      # write (see proton.nix). The host wrapper's background reader
+      # picks the write up and SIGKILLs the bwrap PID from outside the
+      # namespace — necessary because kill -KILL of PID 1 inside an
+      # unshare-pid namespace is silently ignored by the kernel, so
+      # neither the inner bash nor gamescope can tear the ns down on
+      # its own when gamescopereaper is stuck waiting on winedevice.
+      ++ [
+        "--bind"
+        "$STROM_CONTROL_DIR"
+        "/tmp/.strom-control"
+        "--setenv"
+        "STROM_CONTROL_FIFO"
+        "/tmp/.strom-control/shutdown.fifo"
+      ]
       ++ renderPairs "--ro-bind-try" config.ro-bind-try
       ++ renderPairs "--bind-try" config.bind-try
       ++ renderSingles "--proc" config.proc
@@ -216,11 +232,34 @@ in
     #
     # BWRAP_ARGS: runtime-injected bwrap flags spliced in before `--`,
     # e.g. BWRAP_ARGS="--bind /home/me/saves /home/me/saves".
+    #
+    # Shutdown protocol:
+    #   * Host-side SIGTERM/INT/HUP of this wrapper -> trap kills bwrap.
+    #   * SIGKILL of this wrapper -> --die-with-parent tears the ns down.
+    #   * Inner write to /tmp/.strom-control/shutdown.fifo -> background
+    #     reader returns from `read`, then SIGKILLs bwrap from outside
+    #     the namespace. This is the escape hatch for the gamescope ->
+    #     gamescopereaper -> winedevice.exe waitpid() deadlock that
+    #     prevents PID-ns-internal teardown (kill -KILL of pid 1 inside
+    #     an unshare-pid namespace is dropped by the kernel safeguard).
     outputs.wrapper = config.pkgs.writeShellApplication {
       name = config.binName;
       runtimeInputs = [ config.pkgs.bubblewrap ] ++ config.extraPackages;
       text = ''
         ${lib.concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
+
+        # Host-side control FIFO. Created BEFORE preHook so that hook
+        # output can reference STROM_CONTROL_DIR if needed; bind-mounted
+        # into the bwrap at /tmp/.strom-control by the --bind argv above.
+        STROM_CONTROL_DIR=$(mktemp -d -t strom-ctl.XXXXXX)
+        export STROM_CONTROL_DIR
+        mkfifo -m 0600 "$STROM_CONTROL_DIR/shutdown.fifo"
+        # EXIT-trap rm of the FIFO dir is installed immediately so an
+        # errexit abort during preHook still leaves /tmp tidy. The
+        # signal-trap path (TERM/INT/HUP below) is a SEPARATE concern
+        # (forwarding shutdown to bwrap mid-run).
+        trap 'rm -f "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true; rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true' EXIT
+
         ${config.preHook}
         ${config.extraPreHook}
         read -ra _bwrap_extra <<< "''${BWRAP_ARGS:-}"
@@ -239,14 +278,35 @@ in
 
         __strom_bwrap_cleanup() {
           if kill -0 "$BWRAP_PID" 2>/dev/null; then
-            kill -TERM "$BWRAP_PID" 2>/dev/null || true
-            for _ in $(seq 1 30); do
-              kill -0 "$BWRAP_PID" 2>/dev/null || break
-              sleep 0.1
-            done
             kill -KILL "$BWRAP_PID" 2>/dev/null || true
           fi
         }
+
+        # Background FIFO reader. Blocks on `read` until something inside
+        # the ns writes a line (or closes the fd via ns teardown). On
+        # return, SIGKILL bwrap so the kernel atomically reaps the
+        # namespace. Open the FIFO with `9<>` to avoid the open-for-read
+        # blocking until a writer appears.
+        (
+          exec 9<>"$STROM_CONTROL_DIR/shutdown.fifo"
+          read -r _ <&9 || true
+          exec 9<&-
+          __strom_bwrap_cleanup
+        ) &
+        STROM_FIFO_READER_PID=$!
+
+        __strom_host_cleanup() {
+          __strom_bwrap_cleanup
+          # Unblock the FIFO reader (in case bwrap exited without anyone
+          # writing) so the wait below returns.
+          if kill -0 "$STROM_FIFO_READER_PID" 2>/dev/null; then
+            echo shutdown > "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true
+            kill -TERM "$STROM_FIFO_READER_PID" 2>/dev/null || true
+          fi
+          rm -f "$STROM_CONTROL_DIR/shutdown.fifo"
+          rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true
+        }
+
         # Compose with any preHook-installed signal traps.
         __strom_prev_int=$(trap -p INT  | sed -n "s/^trap -- '\\(.*\\)' INT$/\\1/p"  | head -n1)
         __strom_prev_term=$(trap -p TERM | sed -n "s/^trap -- '\\(.*\\)' TERM$/\\1/p" | head -n1)
@@ -262,6 +322,8 @@ in
           wait "$BWRAP_PID" 2>/dev/null && break
         done
         trap - INT TERM HUP
+        __strom_host_cleanup
+        wait "$STROM_FIFO_READER_PID" 2>/dev/null || true
         ${config.postHook}
       '';
     };

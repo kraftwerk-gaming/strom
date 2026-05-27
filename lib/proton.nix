@@ -3,12 +3,20 @@
 # Owns proton-specific concerns: steamclient stub, saveLocations
 # relocation, wineprefix auto-wipe on GC, baseline env.
 #
-# Cleanup is kernel-enforced by the outer bwrap's --unshare-pid +
-# --die-with-parent (no bash EXIT trap, no .exe poll-loop watchdog).
-# When the wrapper bash exits — umu return, gamescope-forwarded
-# SIGTERM, SIGKILL up the chain — bwrap dies, the PID namespace
-# tears down, and the kernel SIGKILLs every wine .exe + system
-# service in one atomic operation.
+# Shutdown:
+#   * SIGKILL of the host wrapper (kill -9 <pid>): the outer bwrap's
+#     --unshare-pid + --die-with-parent tears the PID namespace down
+#     and the kernel SIGKILLs every wine .exe atomically.
+#   * sway-kill of the gamescope window (xdg_toplevel.close forwarded
+#     by sway): gamescope SIGTERMs its primary child (this wrapper).
+#     The TERM/HUP/INT traps below write to /tmp/.strom-control/shutdown.fifo,
+#     which the host-side bwrap wrapper (lib/bwrap.nix) is reading in
+#     the background. On read return the host SIGKILLs the bwrap PID
+#     from outside the namespace, and the kernel atomically tears the
+#     ns down. This escapes the gamescope -> gamescopereaper -> winedevice
+#     waitpid() chain that would otherwise deadlock shutdown (kill -KILL
+#     of PID 1 inside an unshare-pid ns is silently dropped by the
+#     kernel, so the deadlock cannot be broken from inside).
 { config, lib, ... }:
 let
   inherit (lib) mkOption types;
@@ -191,12 +199,39 @@ in
         ${config.preHook}
         read -ra _proton_extra <<< "''${PROTON_ARGS:-}"
 
+        # Sway-kill cleanup signal. Writing one line to the host-side
+        # control FIFO wakes the bwrap.nix wrapper's background reader,
+        # which then SIGKILLs the bwrap PID from outside the ns. The
+        # kernel reaps the ns atomically, taking gamescope, the wine
+        # .exes, and this bash with it. `|| true` because if the FIFO
+        # is already gone (host wrapper raced ahead on a kill -9) we
+        # still want to exit cleanly.
+        __strom_request_shutdown() {
+          # `<>` opens the FIFO read-write, which (unlike a plain `>`)
+          # never blocks on open even if the host-side reader has
+          # already returned. One newline is enough for the host's
+          # `read -r`; if it already drained and SIGKILLed bwrap, the
+          # extra bytes go nowhere harmful.
+          [ -n "''${STROM_CONTROL_FIFO:-}" ] && [ -p "$STROM_CONTROL_FIFO" ] || return 0
+          { echo shutdown 1>&3; } 3<>"$STROM_CONTROL_FIFO" 2>/dev/null || true
+        }
+        trap '__strom_request_shutdown; exit 143' TERM
+        trap '__strom_request_shutdown; exit 129' HUP
+        trap '__strom_request_shutdown; exit 130' INT
+        # Normal-exit path (proton returned, game closed cleanly):
+        # also poke the FIFO so the host wrapper drops out of its read
+        # promptly instead of waiting on bwrap's natural exit.
+        trap '__strom_request_shutdown' EXIT
+
+        # `|| true` so the EXIT trap fires cleanly even when proton
+        # returns non-zero (e.g. when SIGTERM propagates through wine
+        # as a non-zero exit on sway-kill).
         ${config.exePath} \
           "''${_proton_extra[@]}" \
           ${
             lib.concatMapStringsSep " \\\n  " shellEscape (lib.filter (a: a != "$@") (config.args or [ ]))
           } \
-          "$@"
+          "$@" || true
         ${config.postHook}
       '';
     };
