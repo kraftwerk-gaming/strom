@@ -99,7 +99,6 @@
           };
         gamescope = wrappers.lib.wrapModule (import ./lib/gamescope.nix);
         proton = wrappers.lib.wrapModule (import ./lib/proton.nix);
-        fuse-overlayfs = wrappers.lib.wrapModule (import ./lib/fuse-overlayfs.nix);
         fetchIpfs =
           { pkgs }:
           import ./lib/fetch-ipfs.nix {
@@ -125,7 +124,6 @@
         in
         {
           patched-pkgs = {
-            fuse-overlayfs = pkgs.callPackage ./pkgs/fuse-overlayfs.nix { };
             proton = pkgs.callPackage ./pkgs/proton.nix { };
             sdl2 = pkgs.callPackage ./pkgs/sdl2.nix { };
           };
