@@ -47,8 +47,14 @@ let
 
   # Empty /lib32 placeholder so bwrap can mount fhs32 at /usr/lib32
   # after /usr has been ro-bound (otherwise it'd fail mkdir on ro fs).
+  # Also drop a ld-linux.so.2 symlink into /lib so that 32-bit Wine exes
+  # — which hardcode `/lib/ld-linux.so.2` as their ELF interpreter —
+  # can resolve it (target /usr/lib32/ld-linux.so.2 becomes valid after
+  # the runtime --ro-bind ${fhs32}/lib /usr/lib32 above). Matches what
+  # nixpkgs' buildFHSEnv does in buildFHSEnv.nix.
   lib32Mountpoint = pkgs.runCommandLocal "${name}-lib32-mountpoint" { } ''
-    mkdir -p $out/lib32
+    mkdir -p $out/lib32 $out/lib
+    ln -s /usr/lib32/ld-linux.so.2 $out/lib/ld-linux.so.2
   '';
 
   fhs64 = pkgs.buildEnv {
