@@ -39,6 +39,43 @@ self.lib.mkGame { inherit lib pkgs; } {
       { config, lib, ... }:
       let
         inherit (lib) mkOption types;
+
+        # Tree containing ONLY `SCRIPTS/Music/<sanitized-basename>` symlinks
+        # into the user's extraSoundtracks derivations. Shipped as a
+        # separate overlay lower above _gameData so changing the soundtrack
+        # list never re-extracts the 7z game tree. The kernel-overlay merge
+        # at /SCRIPTS/ exposes both gameData's SCRIPTS contents (ECM ASI,
+        # INI, BASS, deadlock fix, ...) and this layer's SCRIPTS/Music/*
+        # transparently. Runtime user-drops in
+        # ~/.strom/need-for-speed-underground-2/SCRIPTS/Music/ land in the
+        # overlay upper and still show up in the merged view.
+        soundtracks = runCommandLocal "need-for-speed-underground-2-soundtracks" { } ''
+          mkdir -p "$out/SCRIPTS/Music"
+
+          # ECM's std::filesystem path handling throws on non-ASCII
+          # filenames (kanji, unicode punctuation, ...). Sanitize each
+          # symlink's basename to printable 7-bit ASCII; on collision or
+          # when the entire name strips empty, prepend a sha256 prefix
+          # so every track keeps a unique target.
+          strom_link_track() {
+            local src="$1" base clean
+            base=$(basename "$src")
+            clean=$(printf '%s' "$base" | LC_ALL=C tr -cd 'A-Za-z0-9 ._()[]-')
+            if [ -z "$clean" ] || [ "$clean" = ".mp3" ]; then
+              clean=$(printf '%s' "$src" | sha256sum | cut -c1-8).mp3
+            fi
+            if [ -e "$out/SCRIPTS/Music/$clean" ] || [ -L "$out/SCRIPTS/Music/$clean" ]; then
+              clean=$(printf '%s' "$src" | sha256sum | cut -c1-8)-$clean
+            fi
+            ln -s "$src" "$out/SCRIPTS/Music/$clean"
+          }
+
+          ${lib.concatMapStringsSep "\n" (m: ''
+            while IFS= read -r -d "" f; do
+              strom_link_track "$f"
+            done < <(find ${m} -type f -print0)
+          '') config.extraSoundtracks}
+        '';
       in
       {
         options = {
@@ -46,22 +83,15 @@ self.lib.mkGame { inherit lib pkgs; } {
             type = types.bool;
             default = false;
             description = ''
-              When true, the launcher symlinks every file under
-              `~/.strom/need-for-speed-underground-2/music/` into the
-              overlay's `SCRIPTS/Music/` folder on each launch. ECM
-              (External Custom Music, bundled as an ASI plugin) scans
-              that folder and plays tracks via its in-game F11 overlay.
-              The host directory is created on first launch; drop
-              wav/mp1/mp2/mp3/ogg/aif files into it with no rebuild
-              required.
-
-              Note: symlink basenames are sanitized to 7-bit ASCII
-              (`A-Za-z0-9 ._()[]-`) before being placed in `Music/`.
-              ECM's `std::filesystem` enumeration crashes on filenames
-              containing kanji or unicode punctuation, so non-ASCII
-              bytes are stripped and collisions resolved by prepending
-              a sha256 prefix. The original file in `~/.strom/.../music/`
-              is untouched; only the in-overlay symlink name changes.
+              When true, install ECM (External Custom Music, an ASI
+              plugin) into `SCRIPTS/` and let the player drop tracks
+              into `~/.strom/need-for-speed-underground-2/SCRIPTS/Music/`
+              at runtime. The drop directory is the overlay UPPER, so
+              files there merge with the build-time `extraSoundtracks`
+              (shipped as a separate overlay lower) and become visible
+              to ECM without a rebuild. Supported formats per ECM:
+              wav, mp1, mp2, mp3, ogg, aif. F11 in-game toggles the
+              ECM overlay (volume / skip / playlist).
             '';
           };
 
@@ -71,19 +101,26 @@ self.lib.mkGame { inherit lib pkgs; } {
             description = ''
               Audio derivations to install at build time. Every regular
               file found under each derivation (recursive) is symlinked
-              into the overlay's `SCRIPTS/Music/` folder by basename,
-              where ECM picks them up. Supported formats per ECM:
-              wav, mp1, mp2, mp3, ogg, aif. Typical sources are
-              `pkgs.fetchurl` for individual tracks or a `runCommand`
-              that transcodes a directory of source files.
+              into a SEPARATE overlay-lower derivation at
+              `SCRIPTS/Music/<basename>`. That layer is stacked above
+              `_gameData` via `bwrap.overlay.lowers`, so adding/removing
+              tracks here does NOT trigger re-extraction of the 7z game
+              tree, and the files do NOT live in gameData or in the
+              user's `~/.strom/...` state. Runtime user-drops in
+              `~/.strom/need-for-speed-underground-2/SCRIPTS/Music/`
+              (the overlay upper) still show up alongside these tracks
+              in the merged view. Supported formats per ECM: wav, mp1,
+              mp2, mp3, ogg, aif. Typical sources are `pkgs.fetchurl`
+              for individual tracks or a `runCommand` that transcodes
+              a directory of source files.
 
               Note: symlink basenames are sanitized to 7-bit ASCII
               (`A-Za-z0-9 ._()[]-`) before being placed in `Music/`.
               ECM's `std::filesystem` enumeration crashes on filenames
               containing kanji or unicode punctuation, so non-ASCII
               bytes are stripped and collisions resolved by prepending
-              a sha256 prefix. The derivation contents are unchanged;
-              only the in-overlay symlink name differs from the source.
+              a sha256 prefix. The source derivation is untouched;
+              only the in-overlay symlink name changes.
             '';
           };
         };
@@ -130,14 +167,23 @@ self.lib.mkGame { inherit lib pkgs; } {
               # strips that root; we drop the files into `SCRIPTS/`
               # alongside the other ASI mods loaded by dinput8.dll. ECM
               # reads the `playlist` dir from its INI relative to the
-              # ASI; default `playlist = "Music"` -> `SCRIPTS/Music/`,
-              # populated at launch by preRun (build-time + runtime
-              # tracks).
+              # ASI; default `playlist = "Music"` -> `SCRIPTS/Music/`.
+              # The actual tracks live in a separate overlay lower (see
+              # `soundtracks` below) so soundtrack changes don't re-7z
+              # the game tree; runtime drops land in the overlay upper
+              # at ~/.strom/<game>/SCRIPTS/Music/.
               cp ${ecm}/ecm.x86.asi "$out/SCRIPTS/"
               cp ${ecm}/ecm.x86.ini "$out/SCRIPTS/"
               cp ${ecm}/bass.dll    "$out/SCRIPTS/"
             ''}
           '';
+
+          # Stack soundtracks above _gameData (kernel-priority order:
+          # mkBefore prepends, so soundtracks wins on any path conflict
+          # at SCRIPTS/Music/*; _gameData stays the base lower).
+          bwrap.overlay.lowers = lib.mkBefore (
+            lib.optional (config.enablePlayerSoundtracks || config.extraSoundtracks != [ ]) "${soundtracks}"
+          );
 
           # SPEED2.EXE must be a copy - game resolves its path through symlinks
           # and uses it as the base directory for saves/configs
@@ -169,48 +215,6 @@ self.lib.mkGame { inherit lib pkgs; } {
             STAGING_WRITECOPY = "1";
             WINE_LARGE_ADDRESS_AWARE = "1";
           };
-
-          preRun = lib.mkIf (config.enablePlayerSoundtracks || config.extraSoundtracks != [ ]) ''
-            # ECM scans `<asi-dir>/<playlist>/` -- with the bundled INI's
-            # `playlist = "Music"` and the ASI at SCRIPTS/, that's
-            # $STROM_OVERLAY/SCRIPTS/Music. The overlay is writable per
-            # launch; populate it with fresh symlinks each time.
-            NFSU2_MUSIC="$STROM_OVERLAY/SCRIPTS/Music"
-            mkdir -p "$NFSU2_MUSIC"
-            # Sweep stale symlinks from previous launches (real files left alone).
-            find "$NFSU2_MUSIC" -maxdepth 1 -type l -delete
-
-            # ECM's std::filesystem path handling throws on non-ASCII
-            # filenames (kanji, unicode punctuation, ...). Sanitize each
-            # symlink's basename to printable 7-bit ASCII; on collision or
-            # when the entire name strips empty, prepend a sha256 prefix
-            # so every track keeps a unique target.
-            strom_link_track() {
-              local src="$1" base clean
-              base=$(basename "$src")
-              clean=$(printf '%s' "$base" | LC_ALL=C tr -cd 'A-Za-z0-9 ._()[]-')
-              if [ -z "$clean" ] || [ "$clean" = ".mp3" ]; then
-                clean=$(printf '%s' "$src" | sha256sum | cut -c1-8).mp3
-              fi
-              if [ -e "$NFSU2_MUSIC/$clean" ] || [ -L "$NFSU2_MUSIC/$clean" ]; then
-                clean=$(printf '%s' "$src" | sha256sum | cut -c1-8)-$clean
-              fi
-              ln -sf "$src" "$NFSU2_MUSIC/$clean"
-            }
-
-            ${lib.concatMapStringsSep "\n" (m: ''
-              while IFS= read -r -d "" f; do
-                strom_link_track "$f"
-              done < <(find ${m} -type f -print0)
-            '') config.extraSoundtracks}
-
-            ${lib.optionalString config.enablePlayerSoundtracks ''
-              mkdir -p "$STROM_GAMEDIR/music"
-              while IFS= read -r -d "" f; do
-                strom_link_track "$f"
-              done < <(find "$STROM_GAMEDIR/music" -maxdepth 1 -type f -print0)
-            ''}
-          '';
         };
       }
     )
