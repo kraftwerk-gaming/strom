@@ -211,6 +211,12 @@ let
                     "$HOME/.cache/umu" "$HOME/.cache/umu-protonfixes" "$HOME/.cache/wine"
                   ''}
                 # --overlay needs an empty workdir on the same fs as upper.
+                # overlayfs creates the work/ subdir as mode 0000 (owned by
+                # our uid but unreadable), so a plain `rm -rf` fails with
+                # EACCES on relaunch. chmod ourselves into the dir first.
+                if [ -d "$STROM_CACHEDIR/overlay-work" ]; then
+                  chmod -R u+rwX "$STROM_CACHEDIR/overlay-work" 2>/dev/null || true
+                fi
                 rm -rf "$STROM_CACHEDIR/overlay-work"
                 mkdir -p "$STROM_CACHEDIR/overlay-work"
 
