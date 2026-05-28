@@ -245,14 +245,6 @@ let
                   '') cfg.copyGlobs}
                 ''}
 
-                # Sweep orphan overlayfs whiteouts (mode-0000 char
-                # devices left by `rm -rf` against the merged mount).
-                whiteout_count=$(find "$STROM_GAMEDIR" -mindepth 1 -type c -perm 0 2>/dev/null | wc -l)
-                if [ "$whiteout_count" -gt 0 ]; then
-                  echo "strom-bwrap: sweeping $whiteout_count orphan whiteout(s) from $STROM_GAMEDIR" >&2
-                  find "$STROM_GAMEDIR" -mindepth 1 -type c -perm 0 -delete 2>/dev/null || true
-                fi
-
                 # gamescope/Xwayland writes its PID into /tmp/.Xn-lock,
                 # but ours run inside --unshare-pid so the namespaced
                 # PIDs collide with every fresh ns. Check the abstract
