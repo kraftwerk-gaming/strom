@@ -130,17 +130,29 @@ in
       type = types.nullOr (
         types.submodule {
           options = {
-            lowerDir = mkOption { type = types.str; };
-            upperDir = mkOption { type = types.str; };
-            workDir = mkOption { type = types.str; };
+            lowers = mkOption {
+              type = types.listOf types.str;
+              description = ''
+                Read-only overlay lower layers in kernel priority
+                order: the first entry is closest to upper (highest
+                priority); each later entry is deeper (lower priority,
+                masked by earlier ones on path conflicts). Rendered as
+                one `--overlay-src <dir>` flag per element; bwrap
+                merges them all under the same `--overlay` dest.
+              '';
+            };
+            upper = mkOption { type = types.str; };
+            work = mkOption { type = types.str; };
             dest = mkOption { type = types.str; };
           };
         }
       );
       default = null;
       description = ''
-        Overlay mount via --overlay-src/--overlay. lowerDir is the
-        nix-store game data; upperDir takes writes; mounted at dest.
+        Overlay mount via --overlay-src/--overlay. `lowers` is the
+        stacked read-only layer list (first = highest priority, e.g.
+        mods; last = base, e.g. nix-store game data). `upper` takes
+        writes; mounted at `dest`.
       '';
     };
 
@@ -198,14 +210,20 @@ in
       ++ renderPairs "--bind-try" config.bind-try
       ++ renderSingles "--proc" config.proc
       ++ renderPairs "--dev-bind" config.dev-bind
-      ++ optionals (config.overlay != null) [
-        "--overlay-src"
-        config.overlay.lowerDir
-        "--overlay"
-        config.overlay.upperDir
-        config.overlay.workDir
-        config.overlay.dest
-      ]
+      ++ optionals (config.overlay != null) (
+        concatLists (
+          map (lower: [
+            "--overlay-src"
+            lower
+          ]) config.overlay.lowers
+        )
+        ++ [
+          "--overlay"
+          config.overlay.upper
+          config.overlay.work
+          config.overlay.dest
+        ]
+      )
       ++ optionals (config.chdir != null) [
         "--chdir"
         config.chdir

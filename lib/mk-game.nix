@@ -193,10 +193,13 @@ let
               # base --ro-bind / / makes / read-only and bwrap can't
               # mkdir a top-level mountpoint there. /tmp is RW from
               # the earlier --bind /tmp /tmp.
+              # Default lowers = [_gameData]; recipes layer mods /
+              # soundtracks / etc. on top via `lib.mkBefore [...]` on
+              # this same option (kernel priority: first = highest).
               overlay = {
-                lowerDir = "${cfg._gameData}";
-                upperDir = "$STROM_GAMEDIR";
-                workDir = "$STROM_CACHEDIR/overlay-work";
+                lowers = [ "${cfg._gameData}" ];
+                upper = "$STROM_GAMEDIR";
+                work = "$STROM_CACHEDIR/overlay-work";
                 dest = "/tmp/.strom-overlay";
               };
 
