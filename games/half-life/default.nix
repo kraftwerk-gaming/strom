@@ -50,6 +50,59 @@ self.lib.mkGame { inherit lib pkgs; } {
     open("$out/Half-Life/WONAuth.dll","wb").write(data)
     print("Patched WONAuth.dll")
     PYEOF
+
+        # Patch hl.exe: force the CD-key entry dialog to be skipped.
+        #
+        # The 1.1.1.0 hl.exe gate runs in the function at VA 0x4220f6:
+        #   * Reads HKCU\Software\Valve\Half-Life\Settings\Key into a
+        #     local CString (via Registry_GetString at 0x4250a0) unless
+        #     `-steam` is on the cmdline.
+        #   * Tests CString::IsEmpty() at 0x422254.
+        #   * If empty, falls into a dialog loop at 0x422261 that calls
+        #     LoadString id 0x162 = "Please type in the CD Key displayed
+        #     on the Half-Life CD case" then spawns the modal entry
+        #     dialog via the CreateDialogIndirectParamA wrapper at
+        #     0x49680c.
+        #   * If non-empty, jumps to 0x4224fd which calls the validator
+        #     at 0x422a1a (strlen==13 + WON checksum at 0x401000) and
+        #     either re-prompts or proceeds.
+        #
+        # Seeding the registry alone does not work: HL re-initialises
+        # the Settings subkey early in startup and overwrites our
+        # `Key` value with `""`. So we patch the IsEmpty test instead.
+        #
+        # Original:
+        #   0x42225b: 0F 84 9C 02 00 00     je 0x4224fd  ; (jump if non-empty)
+        # Patched (force unconditional jump):
+        #   0x42225b: E9 9D 02 00 00 90     jmp 0x4224fd ; nop
+        # (jmp rel32 is 5 bytes vs je 6, so we displace by +1 and tail
+        # with a NOP to keep instruction-stream alignment.)
+        #
+        # We also patch the validator at VA 0x422a1a to always return 1,
+        # so the post-jump `0x4224fd` path (which still runs the strlen
+        # + checksum check) accepts the placeholder registry value
+        # without needing it to be a genuine WON-checksum-valid key.
+        # That keeps everything table-driven: any seed survives, including
+        # the empty `""` HL writes for Settings\Key on first launch.
+        python3 << PYEOF
+    hl_path = "$out/Half-Life/hl.exe"
+    data = bytearray(open(hl_path, "rb").read())
+
+    # Skip-dialog patch: turn the `je 0x4224fd` into `jmp 0x4224fd; nop`.
+    off = 0x2225b
+    assert data[off:off+6] == b"\x0F\x84\x9C\x02\x00\x00", \
+        f"hl.exe skip-dialog pattern mismatch at 0x{off:x}: {data[off:off+6].hex()}"
+    data[off:off+6] = bytes([0xE9, 0x9D, 0x02, 0x00, 0x00, 0x90])
+
+    # Validator-stub patch: `mov eax, 1; ret 4` at the prologue.
+    off = 0x22a1a
+    assert data[off:off+3] == b"\x55\x8B\xEC", \
+        f"hl.exe validator pattern mismatch at 0x{off:x}: {data[off:off+8].hex()}"
+    data[off:off+8] = bytes([0xB8, 0x01, 0x00, 0x00, 0x00, 0xC2, 0x04, 0x00])
+
+    open(hl_path, "wb").write(data)
+    print("Patched hl.exe: CD-key dialog skip at VA 0x42225b + validator stub at VA 0x422a1a")
+    PYEOF
   '';
 
   copyGlobs = [ ];
@@ -78,12 +131,13 @@ self.lib.mkGame { inherit lib pkgs; } {
   ];
 
   preRun = ''
-    # Seed the WON CD-key into the wineprefix's user.reg. The 1.1.1.0
-    # client checks HKCU\Software\Valve\Half-Life\Key on startup; with
-    # the WONAuth.dll patches the value need only be present and parse
-    # as a 13-digit string. Equivalent to the old bat's
-    #   reg add "HKCU\Software\Valve\Half-Life" /v Key /d 3333333333333 /f
-    # but without spawning cmd.exe (see the executableArgs comment).
+    # Seed an engine-baked WON CD-key into HKCU\Software\Valve\Half-Life
+    # and \Settings. The hl.exe patches above already short-circuit the
+    # IsEmpty test and the WON-checksum validator so the dialog cannot
+    # appear, but keeping a 13-digit baked key in the registry means
+    # WONAuth.dll's (separately patched) handshake has a syntactically
+    # valid value to send if HL ever reaches it, and it survives any
+    # future revert of the hl.exe patches as a fallback.
     USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
     # preRun runs before proton bootstraps the wineprefix on a truly
     # fresh launch, so user.reg may not exist yet — create a minimal
@@ -100,7 +154,7 @@ self.lib.mkGame { inherit lib pkgs; } {
       TS=$(date +%s)
       {
         printf '\n[Software\\\\Valve\\\\Half-Life] %s\n' "$TS"
-        printf '"Key"="3333333333333"\n'
+        printf '"Key"="1911111111115"\n'
       } >> "$USERREG"
     fi
   '';
