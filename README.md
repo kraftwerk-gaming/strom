@@ -262,6 +262,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/thief-gold/"><img src="https://lutris.net/games/banner/thief-gold.jpg" height="40" alt="thief-gold"></a> | [Thief Gold with TFix](https://lutris.net/games/thief-gold/) | `proton` | `nix run .#thief-gold` |
 | <a href="https://lutris.net/games/total-overdose/"><img src="https://lutris.net/games/banner/total-overdose.jpg" height="40" alt="total-overdose"></a> | [Total Overdose: A Gunslinger's Tale in Mexico](https://lutris.net/games/total-overdose/) | `proton` | `nix run .#total-overdose` |
 | <a href="https://lutris.net/games/towerfall-ascension/"><img src="https://lutris.net/games/banner/towerfall-ascension.jpg" height="40" alt="towerfall-ascension"></a> | [TowerFall Ascension + Dark World](https://lutris.net/games/towerfall-ascension/) | `proton` | `nix run .#towerfall-ascension` |
+| <a href="https://lutris.net/games/tunic/"><img src="https://lutris.net/games/banner/tunic.jpg" height="40" alt="tunic"></a> | [TUNIC](https://lutris.net/games/tunic/) | `proton` | `nix run .#tunic` |
 | <a href="https://lutris.net/games/ultrakill/"><img src="https://lutris.net/games/banner/ultrakill.jpg" height="40" alt="ultrakill"></a> | [ULTRAKILL](https://lutris.net/games/ultrakill/) | `proton` | `nix run .#ultrakill` |
 | <a href="https://lutris.net/games/undertale/"><img src="https://lutris.net/games/banner/undertale.jpg" height="40" alt="undertale"></a> | [Undertale](https://lutris.net/games/undertale/) | `native` | `nix run .#undertale` |
 | <a href="https://lutris.net/games/unreal-tournament-2004/"><img src="https://lutris.net/games/banner/unreal-tournament-2004.jpg" height="40" alt="unreal-tournament-2004"></a> | [Unreal Tournament 2004](https://lutris.net/games/unreal-tournament-2004/) | `native` | `nix run .#unreal-tournament-2004` |
@@ -281,7 +282,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_240 games_
+_241 games_
 
 <!-- END GENERATED GAMES -->
 

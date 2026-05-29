@@ -1587,6 +1587,13 @@
     "description": "TowerFall Ascension + Dark World (Matt Makes Games, GOG v2.5.0.6, via Proton)",
     "runtime": "proton"
   },
+  "tunic": {
+    "cids": [
+      "QmYSZpUkTM1fjVhy9krrjAJwgZdkPhtYGFx8SbevwHxd4b"
+    ],
+    "description": "TUNIC (Andrew Shouldice / Finji 2022, isometric action-adventure, via Proton)",
+    "runtime": "proton"
+  },
   "ultrakill": {
     "cids": [
       "QmTP87KiyUYcqq58U78JQpfgg8tqraM8cVxHys79h6hnNx"
