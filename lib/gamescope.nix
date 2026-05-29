@@ -72,20 +72,26 @@ in
       "--output-height" = if config.output-height != null then toString config.output-height else null;
       "--nested-width" = if config.nested-width != null then toString config.nested-width else null;
       "--nested-height" = if config.nested-height != null then toString config.nested-height else null;
-      # Work around ValveSoftware/gamescope#1456: in the default
-      # SingleApplication virtual-connector mode the wayland backend
-      # races with the host compositor when the inner client briefly
-      # destroys and recreates its toplevel window — a common pattern
-      # during proton startup (wineboot dialogs, splash screens, the
-      # start.exe -> game.exe handoff). The host compositor (sway/
-      # wlroots) raises an xdg_surface protocol error, gamescope's
-      # input thread fails wl_display_get_fd, and the compositor
-      # abort()s in CWaylandInputThread::ThreadFunc. PerWindow
-      # virtual-connector strategy creates a fresh wl_surface per
-      # toplevel instead of reusing one, avoiding the unconfigured-
-      # buffer protocol error. Games can override with
-      # gamescope.flags."--virtual-connector-strategy" = null.
-      "--virtual-connector-strategy" = "PerWindow";
+      # NOTE: --virtual-connector-strategy=PerWindow was previously
+      # set here to work around ValveSoftware/gamescope#1456 (the
+      # CWaylandInputThread::ThreadFunc SingleApplication race during
+      # proton startup, where the inner client briefly destroys and
+      # recreates its toplevel — wineboot dialogs, splash screens, the
+      # start.exe -> game.exe handoff — triggering an xdg_surface
+      # protocol error that abort()s gamescope). That race turned out
+      # to be driven by xalia's transient windows; disabling xalia via
+      # PROTON_DISABLE_XALIA=1 (see lib/proton.nix) plus the EXIT-trap
+      # process allowlist supersedes the PerWindow workaround.
+      #
+      # PerWindow had a nasty side-effect: it holds back mapping of
+      # the outer xdg-toplevel until the inner xwayland client
+      # creates *its* toplevel. Games with slow-to-create main
+      # windows (Half-Life plays its Valve/Sierra intro videos
+      # *before* hl.exe creates the main toplevel) end up invisible
+      # on the host for several seconds — audio plays but no window
+      # appears until the intro finishes. Dropping PerWindow here
+      # restores immediate window-mapping; the SingleApplication
+      # race stays suppressed by the xalia-disable fix.
     }
     // lib.mapAttrs (
       _: v:
