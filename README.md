@@ -145,6 +145,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/grim-fandango-remastered/"><img src="https://lutris.net/games/banner/grim-fandango-remastered.jpg" height="40" alt="grim-fandango-remastered"></a> | [Grim Fandango Remastered](https://lutris.net/games/grim-fandango-remastered/) | `native` | `nix run .#grim-fandango-remastered` |
 | <a href="https://lutris.net/games/gubble/"><img src="https://lutris.net/games/banner/gubble.jpg" height="40" alt="gubble"></a> | [Gubble](https://lutris.net/games/gubble/) | `proton` | `nix run .#gubble` |
 | <a href="https://lutris.net/games/half-life/"><img src="https://lutris.net/games/banner/half-life.jpg" height="40" alt="half-life"></a> | [Half-Life](https://lutris.net/games/half-life/) | `proton` | `nix run .#half-life` |
+| <a href="https://lutris.net/games/half-life-uplink/"><img src="https://lutris.net/games/banner/half-life-uplink.jpg" height="40" alt="half-life-uplink"></a> | [Half-Life: Uplink](https://lutris.net/games/half-life-uplink/) | `proton` | `nix run .#half-life-uplink` |
 | <a href="https://lutris.net/games/hardspace-shipbreaker/"><img src="https://lutris.net/games/banner/hardspace-shipbreaker.jpg" height="40" alt="hardspace-shipbreaker"></a> | [Hardspace: Shipbreaker](https://lutris.net/games/hardspace-shipbreaker/) | `proton` | `nix run .#hardspace-shipbreaker` |
 | <a href="https://lutris.net/games/harvest-moon/"><img src="https://lutris.net/games/banner/harvest-moon.jpg" height="40" alt="harvest-moon"></a> | [Harvest Moon](https://lutris.net/games/harvest-moon/) | `retroarch` | `nix run .#harvest-moon` |
 | <a href="https://lutris.net/games/heroes-of-might-and-magic-2-gold/"><img src="https://lutris.net/games/banner/heroes-of-might-and-magic-2-gold.jpg" height="40" alt="heroes-of-might-and-magic-2-gold"></a> | [Heroes of Might & Magic II Gold](https://lutris.net/games/heroes-of-might-and-magic-2-gold/) | `native` | `nix run .#heroes-of-might-and-magic-2-gold` |
@@ -282,7 +283,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/xenogears/"><img src="https://lutris.net/games/banner/xenogears.jpg" height="40" alt="xenogears"></a> | [Xenogears](https://lutris.net/games/xenogears/) | `retroarch` | `nix run .#xenogears` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_241 games_
+_242 games_
 
 <!-- END GENERATED GAMES -->
 

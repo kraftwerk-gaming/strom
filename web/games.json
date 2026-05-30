@@ -747,6 +747,13 @@
     "description": "Half-Life (WON v1.1.1.0, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "half-life-uplink": {
+    "cids": [
+      "QmYZmQwo9Mf47S5nzLm8gSqcfXuYcKJtL8TADCEfh3J69X"
+    ],
+    "description": "Half-Life: Uplink (Valve 1999 free demo campaign, via WON Half-Life + Proton)",
+    "runtime": "proton"
+  },
   "hardspace-shipbreaker": {
     "cids": [
       "QmcVJd7C6vARAN7RudbqDB1aZr141ELitzqtCuN3wPoPaU"
