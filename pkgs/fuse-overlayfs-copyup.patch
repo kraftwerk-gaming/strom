@@ -1,0 +1,22 @@
+--- a/b/main.c	2026-04-01 19:25:30.670947142 +0200
++++ b/main.c	2026-04-01 19:25:30.676816215 +0200
+@@ -957,6 +957,10 @@
+   st->st_uid = find_mapping (st->st_uid, data, true, true);
+   st->st_gid = find_mapping (st->st_gid, data, true, false);
+ 
++      /* Grant owner write permission when squash is active, enabling copy-up */
++      if (data->squash_to_uid != -1 || data->squash_to_root)
++        st->st_mode |= S_IWUSR | (S_ISDIR (st->st_mode) ? S_IXUSR : 0);
++
+   st->st_ino = node->tmp_ino;
+   st->st_dev = node->tmp_dev;
+ 
+@@ -3124,7 +3128,7 @@
+   if (override_mode (src->layer, sfd, NULL, NULL, &st) < 0 && errno != ENODATA && errno != EOPNOTSUPP)
+     return -1;
+ 
+-  ret = create_directory (lo, get_upper_layer (lo)->fd, src->path, times, src->parent, src->layer, sfd, st.st_uid, st.st_gid, st.st_mode, false, NULL);
++  ret = create_directory (lo, get_upper_layer (lo)->fd, src->path, times, src->parent, src->layer, sfd, st.st_uid, st.st_gid, st.st_mode | (lo->euid > 0 ? 0700 : 0), false, NULL);
+   if (ret == 0)
+     {
+       src->layer = get_upper_layer (lo);

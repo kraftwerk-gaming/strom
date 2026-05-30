@@ -11,9 +11,11 @@
 #   retroarch : rom -> retroarch -> bwrap
 #   pcsx2     : iso -> pcsx2 -> bwrap
 #
-# Single outer bwrap call handles FHS at /usr (strom-fhs.nix) AND the
-# read-write overlay over the nix-store game data (bwrap --overlay).
-# No nested buildFHSEnv, no fuse-overlayfs daemon.
+# Single outer bwrap call handles FHS at /usr (strom-fhs.nix). The
+# read-write overlay over the nix-store game data is mounted on the host
+# with patched fuse-overlayfs (kernel --overlay can't make 0555 store
+# lowers writable in this single-uid userns) and bind-mounted into the
+# sandbox. No nested buildFHSEnv.
 {
   lib,
   pkgs,
@@ -192,10 +194,12 @@ let
               # /tmp/.strom-overlay (not /strom/overlay) because the
               # base --ro-bind / / makes / read-only and bwrap can't
               # mkdir a top-level mountpoint there. /tmp is RW from
-              # the earlier --bind /tmp /tmp.
+              # the earlier --bind /tmp /tmp. The merged tree is mounted
+              # on the host with fuse-overlayfs (see bwrap.nix) and
+              # bind-mounted here.
               # Default lowers = [_gameData]; recipes layer mods /
               # soundtracks / etc. on top via `lib.mkBefore [...]` on
-              # this same option (kernel priority: first = highest).
+              # this same option (first = highest priority).
               overlay = {
                 lowers = [ "${cfg._gameData}" ];
                 upper = "$STROM_GAMEDIR";
@@ -213,10 +217,10 @@ let
                   ${lib.optionalString (cfg.runtime == "proton") ''
                     "$HOME/.cache/umu" "$HOME/.cache/umu-protonfixes" "$HOME/.cache/wine"
                   ''}
-                # --overlay needs an empty workdir on the same fs as upper.
-                # overlayfs creates the work/ subdir as mode 0000 (owned by
-                # our uid but unreadable), so a plain `rm -rf` fails with
-                # EACCES on relaunch. chmod ourselves into the dir first.
+                # fuse-overlayfs needs an empty workdir on the same fs as
+                # upper. overlayfs creates the work/ subdir as mode 0000
+                # (owned by our uid but unreadable), so a plain `rm -rf`
+                # fails with EACCES on relaunch. chmod ourselves in first.
                 if [ -d "$STROM_CACHEDIR/overlay-work" ]; then
                   chmod -R u+rwX "$STROM_CACHEDIR/overlay-work" 2>/dev/null || true
                 fi
