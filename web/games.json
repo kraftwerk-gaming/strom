@@ -1488,6 +1488,13 @@
     "description": "The Curse of Monkey Island (1997 LucasArts, 2-CD PC EU release, via ScummVM)",
     "runtime": "native"
   },
+  "the-elder-scrolls-arena": {
+    "cids": [
+      "QmXbuyCFgRhEzaZroetAdgUKFmipfu1McDVtqg4WB4fXDt"
+    ],
+    "description": "The Elder Scrolls: Arena (Bethesda 1994, freeware re-release via DOSBox-X)",
+    "runtime": "custom"
+  },
   "the-elder-scrolls-ii-daggerfall": {
     "cids": [
       "QmPPaCz8XMebVU5Hm4S37PiABjXRB85dopX1Am3TESFB4H"
