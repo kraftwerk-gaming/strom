@@ -128,9 +128,10 @@ in
         # compositor is running"), and so the screenshot sidecar can't pick up
         # another session's frames. Each gamescope becomes gamescope-0 in its
         # own dir. The host wayland + audio sockets are symlinked through;
-        # /dev/dri and /run/pipewire are bound separately and unaffected. We
-        # keep `exec` below (no EXIT-trap cleanup), so leaked dirs -- tmpfs
-        # symlink stubs -- are swept on the next launch after a day.
+        # /dev/dri and /run/pipewire are bound separately and unaffected.
+        # Cleaned up on exit: we set an EXIT trap (the screenshot sidecar
+        # chains it) and run gamescope WITHOUT exec so the trap can fire; a
+        # 1-day sweep only backstops the rare uncatchable SIGKILL.
         _strom_priv=""
         _strom_xrd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
         _strom_ln() {
@@ -140,6 +141,7 @@ in
         }
         if [ -d "$_strom_xrd" ] && [ -w "$_strom_xrd" ] \
           && _strom_priv="$(mktemp -d "$_strom_xrd/strom-gs-XXXXXX" 2>/dev/null)"; then
+          trap 'rm -rf "$_strom_priv"' EXIT
           find "$_strom_xrd" -maxdepth 1 -name 'strom-gs-*' -type d -mmin +1440 \
             -exec rm -rf {} + 2>/dev/null || true
           if [ -n "''${WAYLAND_DISPLAY:-}" ]; then
@@ -153,7 +155,7 @@ in
         fi
         ${builtins.readFile ./screenshot-sidecar.sh}
         read -ra _gamescope_extra <<< "''${GAMESCOPE_ARGS:-}"
-        ${lib.optionalString (config.postHook == "") "exec"} gamescope \
+        gamescope \
           ${lib.concatMapStringsSep " \\\n  " shellEscape flagArgs} \
           "''${_gamescope_extra[@]}" \
           -- \
