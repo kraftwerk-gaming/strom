@@ -1339,6 +1339,13 @@
     "description": "Simon the Sorcerer (Adventure Soft, 1993 CD/Windows English talkie, via ScummVM)",
     "runtime": "native"
   },
+  "sin": {
+    "cids": [
+      "Qmbj3vMjcFQoFd8kCKgS1wMuB2L5swHtcFATKU7SCbhLy6"
+    ],
+    "description": "SiN Gold (Ritual Entertainment 1998, GOG v1.13b build 36951, via Proton)",
+    "runtime": "proton"
+  },
   "slay-the-spire": {
     "cids": [
       "Qmb1jof4oMBy4KkAQq6wXLG1JDGagZjwpTQCusJUZGLcHJ"
