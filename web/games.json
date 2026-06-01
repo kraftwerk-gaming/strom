@@ -1296,6 +1296,13 @@
     "description": "Sid Meier's Pirates! (Firaxis 2004 retail v1.02 with no-CD patch, via Proton)",
     "runtime": "proton"
   },
+  "signalis": {
+    "cids": [
+      "QmRzNSoG7yP2hQHda9LCyqtJVxtxiSjmoqH2XNEKUoTma9"
+    ],
+    "description": "Signalis (rose-engine 2022, Unity IL2CPP horror via Proton)",
+    "runtime": "proton"
+  },
   "silent-hill-2": {
     "cids": [
       "QmdQoRYZSXwER8akwbZuxZ28HTUWEEo4YWHxEg78rv3AoR",
