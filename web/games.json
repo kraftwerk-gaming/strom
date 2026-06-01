@@ -73,6 +73,13 @@
     "description": "ArcaniA: Gothic 4 -- The Complete Tale (Spellbound 2010, GOG v2.0.0.2, via Proton)",
     "runtime": "proton"
   },
+  "arcanum-of-steamworks-and-magick-obscura": {
+    "cids": [
+      "QmWtEG4aRWfkPC5z6ec5hNdAkxJLBHYL8V8eDMjS1pJyoq"
+    ],
+    "description": "Arcanum: Of Steamworks and Magick Obscura (Troika 2001, GOG v1.0.7.4 hotfix build 24155, via Proton)",
+    "runtime": "proton"
+  },
   "archimedean-dynasty": {
     "cids": [
       "QmQs4toBKxcEJagPfxKP8uvAtadT85EKQqbxPEknbMRoGV"

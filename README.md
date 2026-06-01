@@ -50,6 +50,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/anno-1701/"><img src="https://lutris.net/games/banner/anno-1701.jpg" height="40" alt="anno-1701"></a> | [Anno 1701 + Sunken Treasure](https://lutris.net/games/anno-1701/) | `proton` | `nix run .#anno-1701` |
 | <a href="https://lutris.net/games/aquanox/"><img src="https://lutris.net/games/banner/aquanox.jpg" height="40" alt="aquanox"></a> | [AquaNox](https://lutris.net/games/aquanox/) | `proton` | `nix run .#aquanox` |
 | <a href="https://lutris.net/games/arcania/"><img src="https://lutris.net/games/banner/arcania.jpg" height="40" alt="arcania"></a> | [ArcaniA: Gothic 4 -- The Complete Tale](https://lutris.net/games/arcania/) | `proton` | `nix run .#arcania` |
+| <a href="https://lutris.net/games/arcanum-of-steamworks-and-magick-obscura/"><img src="https://lutris.net/games/banner/arcanum-of-steamworks-and-magick-obscura.jpg" height="40" alt="arcanum-of-steamworks-and-magick-obscura"></a> | [Arcanum: Of Steamworks and Magick Obscura](https://lutris.net/games/arcanum-of-steamworks-and-magick-obscura/) | `proton` | `nix run .#arcanum-of-steamworks-and-magick-obscura` |
 | <a href="https://lutris.net/games/archimedean-dynasty/"><img src="https://lutris.net/games/banner/archimedean-dynasty.jpg" height="40" alt="archimedean-dynasty"></a> | [Archimedean Dynasty / Schleichfahrt](https://lutris.net/games/archimedean-dynasty/) | `custom` | `nix run .#archimedean-dynasty` |
 | <a href="https://lutris.net/games/arx-fatalis/"><img src="https://lutris.net/games/banner/arx-fatalis.jpg" height="40" alt="arx-fatalis"></a> | [Arx Fatalis](https://lutris.net/games/arx-fatalis/) | `native` | `nix run .#arx-fatalis` |
 | <a href="https://lutris.net/games/atomicrops/"><img src="https://lutris.net/games/banner/atomicrops.jpg" height="40" alt="atomicrops"></a> | [Atomicrops](https://lutris.net/games/atomicrops/) | `proton` | `nix run .#atomicrops` |
@@ -289,7 +290,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_248 games_
+_249 games_
 
 <!-- END GENERATED GAMES -->
 
