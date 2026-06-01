@@ -1729,6 +1729,13 @@
     "description": "Xenogears (via RetroArch / SwanStation)",
     "runtime": "retroarch"
   },
+  "yume-nikki": {
+    "cids": [
+      "QmPr1FAGbr5genqeZcMDzSrRfFpEjeDcR8pUU3VecYta4o"
+    ],
+    "description": "Yume Nikki (Kikiyama, RPG Maker 2003 freeware; Playism 2012 official English release, via EasyRPG Player)",
+    "runtime": "native"
+  },
   "z": {
     "cids": [
       "QmQ5Q51cBoG66qiMkQq25vR8YCQJxovHU45JqeQaxwfPAd"
