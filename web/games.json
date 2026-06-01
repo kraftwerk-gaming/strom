@@ -1252,6 +1252,13 @@
     "description": "ROUNDS (Landfall 2021, 1v1 rounds-based shooter via Proton)",
     "runtime": "proton"
   },
+  "sanitarium": {
+    "cids": [
+      "QmTaE4GSe356NYc8tHTpcLoHsaim6MA1JBPxRpTxsLFDGe"
+    ],
+    "description": "Sanitarium (DreamForge 1998, GOG Windows release driven via native pkgs.scummvm)",
+    "runtime": "native"
+  },
   "serious-sam-the-second-encounter": {
     "cids": [
       "Qmc1kVGaJCmJRAXEY1jPvXrTvsPFUZWG54th4fqpfY1TF9"
