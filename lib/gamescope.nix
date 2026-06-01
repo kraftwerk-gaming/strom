@@ -122,6 +122,35 @@ in
       text = ''
         ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
+        # strom: per-launch private XDG_RUNTIME_DIR so parallel gamescope
+        # instances don't race on the shared gamescope-N wayland socket and
+        # lockfile ("unable to lock lockfile .../gamescope-N.lock, maybe another
+        # compositor is running"), and so the screenshot sidecar can't pick up
+        # another session's frames. Each gamescope becomes gamescope-0 in its
+        # own dir. The host wayland + audio sockets are symlinked through;
+        # /dev/dri and /run/pipewire are bound separately and unaffected. We
+        # keep `exec` below (no EXIT-trap cleanup), so leaked dirs -- tmpfs
+        # symlink stubs -- are swept on the next launch after a day.
+        _strom_priv=""
+        _strom_xrd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+        _strom_ln() {
+          if [ -e "$_strom_xrd/$1" ]; then
+            ln -sfn "$_strom_xrd/$1" "$_strom_priv/$1" 2>/dev/null || true
+          fi
+        }
+        if [ -d "$_strom_xrd" ] && [ -w "$_strom_xrd" ] \
+          && _strom_priv="$(mktemp -d "$_strom_xrd/strom-gs-XXXXXX" 2>/dev/null)"; then
+          find "$_strom_xrd" -maxdepth 1 -name 'strom-gs-*' -type d -mmin +1440 \
+            -exec rm -rf {} + 2>/dev/null || true
+          if [ -n "''${WAYLAND_DISPLAY:-}" ]; then
+            _strom_ln "$WAYLAND_DISPLAY"
+            _strom_ln "''${WAYLAND_DISPLAY}.lock"
+          fi
+          for _strom_s in pipewire-0 pipewire-0.lock pulse bus; do
+            _strom_ln "$_strom_s"
+          done
+          export XDG_RUNTIME_DIR="$_strom_priv"
+        fi
         ${builtins.readFile ./screenshot-sidecar.sh}
         read -ra _gamescope_extra <<< "''${GAMESCOPE_ARGS:-}"
         ${lib.optionalString (config.postHook == "") "exec"} gamescope \
