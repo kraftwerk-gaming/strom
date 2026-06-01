@@ -1459,6 +1459,13 @@
     "description": "System Shock 2 (NewDark engine, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "the-cat-lady": {
+    "cids": [
+      "QmTqn8YPyiBbN4WVF4tar46mnyTx8KGU3PZNUF4zBzV4ip"
+    ],
+    "description": "The Cat Lady (Harvester Games 2012 AGS adventure, GOG via Proton)",
+    "runtime": "proton"
+  },
   "the-curse-of-monkey-island": {
     "cids": [
       "QmNb8LBXZ9LHKQSGmAgHSDZ6chKV1ybVHGDDh41tX1SJyM",
