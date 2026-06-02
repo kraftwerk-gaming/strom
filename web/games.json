@@ -961,6 +961,13 @@
     "description": "Legacy of Kain Soul Reaver 1+2 Remastered (Crystal Dynamics / Aspyr 2024, GOG v1.01, via Proton)",
     "runtime": "proton"
   },
+  "lego-star-wars-the-complete-saga": {
+    "cids": [
+      "Qmd5fuTDVghgvRrbJnqSPyA2QEWXGed2B8nrBKdip6qjY9"
+    ],
+    "description": "LEGO Star Wars: The Complete Saga (Traveller's Tales / LucasArts 2007/2009, Modern Overhaul community bundle, via Proton)",
+    "runtime": "proton"
+  },
   "lemmings": {
     "cids": [
       "QmWtMqf1RBi8RR56W9AQi2WFxB6Qt5rjuULkQCPaTB8nKb",

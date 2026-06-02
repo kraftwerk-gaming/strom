@@ -175,6 +175,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/leap-year-march/"><img src="https://lutris.net/games/banner/leap-year-march.jpg" height="40" alt="leap-year-march"></a> | [Leap Year: March](https://lutris.net/games/leap-year-march/) | `proton` | `nix run .#leap-year-march` |
 | <a href="https://lutris.net/games/legacy-of-kain-soul-reaver/"><img src="https://lutris.net/games/banner/legacy-of-kain-soul-reaver.jpg" height="40" alt="legacy-of-kain-soul-reaver"></a> | [Legacy of Kain: Soul Reaver](https://lutris.net/games/legacy-of-kain-soul-reaver/) | `proton` | `nix run .#legacy-of-kain-soul-reaver` |
 | <a href="https://lutris.net/games/legacy-of-kaintm-soul-reaver-12-remastered/"><img src="https://lutris.net/games/banner/legacy-of-kaintm-soul-reaver-12-remastered.jpg" height="40" alt="legacy-of-kaintm-soul-reaver-12-remastered"></a> | [Legacy of Kain Soul Reaver 1+2 Remastered](https://lutris.net/games/legacy-of-kaintm-soul-reaver-12-remastered/) | `proton` | `nix run .#legacy-of-kaintm-soul-reaver-12-remastered` |
+| <a href="https://lutris.net/games/lego-star-wars-the-complete-saga/"><img src="https://lutris.net/games/banner/lego-star-wars-the-complete-saga.jpg" height="40" alt="lego-star-wars-the-complete-saga"></a> | [LEGO Star Wars: The Complete Saga](https://lutris.net/games/lego-star-wars-the-complete-saga/) | `proton` | `nix run .#lego-star-wars-the-complete-saga` |
 | <a href="https://lutris.net/games/lemmings/"><img src="https://lutris.net/games/banner/lemmings.jpg" height="40" alt="lemmings"></a> | [Lemmings](https://lutris.net/games/lemmings/) | `native` | `nix run .#lemmings` |
 | <a href="https://lutris.net/games/lemmings-95/"><img src="https://lutris.net/games/banner/lemmings-95.jpg" height="40" alt="lemmings-95"></a> | [Lemmings 95](https://lutris.net/games/lemmings-95/) | `native` | `nix run .#lemmings-95` |
 | <a href="https://lutris.net/games/loop-hero/"><img src="https://lutris.net/games/banner/loop-hero.jpg" height="40" alt="loop-hero"></a> | [Loop Hero](https://lutris.net/games/loop-hero/) | `custom` | `nix run .#loop-hero` |
@@ -296,7 +297,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_255 games_
+_256 games_
 
 <!-- END GENERATED GAMES -->
 
