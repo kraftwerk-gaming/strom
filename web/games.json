@@ -1273,6 +1273,13 @@
     "description": "Sanitarium (DreamForge 1998, GOG Windows release driven via native pkgs.scummvm)",
     "runtime": "native"
   },
+  "serious-sam": {
+    "cids": [
+      "QmUauVkZopH2gW1yZhcaaWp428kisXUXdRsgKbdmAW4rmj"
+    ],
+    "description": "Serious Sam: The First Encounter (Croteam 2001, retail v1.05, via Proton)",
+    "runtime": "proton"
+  },
   "serious-sam-the-second-encounter": {
     "cids": [
       "Qmc1kVGaJCmJRAXEY1jPvXrTvsPFUZWG54th4fqpfY1TF9"
