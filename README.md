@@ -206,6 +206,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/paquerette-down-the-bunburrows/"><img src="https://lutris.net/games/banner/paquerette-down-the-bunburrows.jpg" height="40" alt="paquerette-down-the-bunburrows"></a> | [Paquerette Down the Bunburrows v1.1.2](https://lutris.net/games/paquerette-down-the-bunburrows/) | `proton` | `nix run .#paquerette-down-the-bunburrows` |
 | <a href="https://lutris.net/games/perfect-dark/"><img src="https://lutris.net/games/banner/perfect-dark.jpg" height="40" alt="perfect-dark"></a> | [Perfect Dark](https://lutris.net/games/perfect-dark/) | `retroarch` | `nix run .#perfect-dark` |
 | <a href="https://lutris.net/games/pico-park/"><img src="https://lutris.net/games/banner/pico-park.jpg" height="40" alt="pico-park"></a> | [Pico Park](https://lutris.net/games/pico-park/) | `proton` | `nix run .#pico-park` |
+| <a href="https://lutris.net/games/pico-park-2/"><img src="https://lutris.net/games/banner/pico-park-2.jpg" height="40" alt="pico-park-2"></a> | [Pico Park 2](https://lutris.net/games/pico-park-2/) | `proton` | `nix run .#pico-park-2` |
 | <a href="https://lutris.net/games/pico-park-2021/"><img src="https://lutris.net/games/banner/pico-park-2021.jpg" height="40" alt="pico-park-2021"></a> | [PICO PARK](https://lutris.net/games/pico-park-2021/) | `proton` | `nix run .#pico-park-2021` |
 | <a href="https://lutris.net/games/planescape-torment/"><img src="https://lutris.net/games/banner/planescape-torment.jpg" height="40" alt="planescape-torment"></a> | [Planescape: Torment](https://lutris.net/games/planescape-torment/) | `native` | `nix run .#planescape-torment` |
 | <a href="https://lutris.net/games/populous-the-beginning/"><img src="https://lutris.net/games/banner/populous-the-beginning.jpg" height="40" alt="populous-the-beginning"></a> | [Populous: The Beginning](https://lutris.net/games/populous-the-beginning/) | `proton` | `nix run .#populous-the-beginning` |
@@ -302,7 +303,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_261 games_
+_262 games_
 
 <!-- END GENERATED GAMES -->
 

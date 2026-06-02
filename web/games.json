@@ -1187,6 +1187,13 @@
     "description": "Pico Park (TECOPARK 2016 build, SteamStub-stripped, via Proton)",
     "runtime": "proton"
   },
+  "pico-park-2": {
+    "cids": [
+      "QmcxX6cAgrjXkuXwe9bZQVCwTJydbHZC2m4sa3stCha2Kf"
+    ],
+    "description": "Pico Park 2 (TECOPARK 2023 Unity build, SteamStub-stripped + gbe_fork, via Proton)",
+    "runtime": "proton"
+  },
   "pico-park-2021": {
     "cids": [
       "QmTdBHTieEyv11xE2phVhmfFCWhJFGyk8btD3M2kMa5jti"
