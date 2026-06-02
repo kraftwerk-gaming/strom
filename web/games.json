@@ -374,6 +374,13 @@
     "description": "Condemned: Criminal Origins (Monolith Productions 2005, via Proton)",
     "runtime": "proton"
   },
+  "crosscode": {
+    "cids": [
+      "QmRoRNXvqHwBVnhgPprtpQgYPMxJWoGTVJVsUfC7Lhwnft"
+    ],
+    "description": "CrossCode + 3 DLC (v1.4.2-3, native Linux NW.js, GOG)",
+    "runtime": "native"
+  },
   "cryostasis": {
     "cids": [
       "QmdbyRwrQNTHKiyYX7fVST18y394fzKuAkqKbThSMqkaXS"
