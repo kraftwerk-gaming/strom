@@ -1229,6 +1229,13 @@
     "description": "Prey (2006 Human Head Studios, id Tech 4, via Proton)",
     "runtime": "proton"
   },
+  "project-zomboid": {
+    "cids": [
+      "QmRcW42meitnUQ7xDXYBT6piM4YwqtJPN4Q9UF3P7PPRnH"
+    ],
+    "description": "Project Zomboid (The Indie Stone, native Linux GOG v41.78.16 build 89157)",
+    "runtime": "custom"
+  },
   "prototype": {
     "cids": [
       "QmWRHVtwqmkafD5bzf7Nxprp7DsJuEeYfkxRr6ZqC7AQQa"
