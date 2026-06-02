@@ -130,8 +130,19 @@ in
         # own dir. The host wayland + audio sockets are symlinked through;
         # /dev/dri and /run/pipewire are bound separately and unaffected.
         # Cleaned up on exit: we set an EXIT trap (the screenshot sidecar
-        # chains it) and run gamescope WITHOUT exec so the trap can fire; a
-        # 1-day sweep only backstops the rare uncatchable SIGKILL.
+        # chains it) and run gamescope WITHOUT exec so the trap can fire.
+        # On a sway window-close of a PROTON game the EXIT trap is NOT
+        # enough: gamescope exits, but before this bash returns to run the
+        # trap the proton-wrapper's FIFO shutdown fires and the host
+        # bwrap-wrapper SIGKILLs the bwrap PID, tearing the whole PID
+        # namespace (this bash included) down with an uncatchable SIGKILL —
+        # so the trap never runs and the strom-gs dir leaks. The dir lives
+        # on the host-shared /run bind, so we additionally record its path
+        # into the host-side control dir (bound at /tmp/.strom-control via
+        # STROM_CONTROL_FIFO); the host bwrap-wrapper — the one process the
+        # teardown never kills, since it does the killing — rms it from its
+        # own EXIT trap. The 1-day sweep only backstops the rare case where
+        # even that path is missed (e.g. a SIGKILL of the host wrapper).
         _strom_priv=""
         _strom_xrd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
         _strom_ln() {
@@ -142,6 +153,10 @@ in
         if [ -d "$_strom_xrd" ] && [ -w "$_strom_xrd" ] \
           && _strom_priv="$(mktemp -d "$_strom_xrd/strom-gs-XXXXXX" 2>/dev/null)"; then
           trap 'rm -rf "$_strom_priv"' EXIT
+          _strom_ctl="''${STROM_CONTROL_FIFO%/*}"
+          if [ -n "''${STROM_CONTROL_FIFO:-}" ] && [ -d "$_strom_ctl" ]; then
+            printf '%s\n' "$_strom_priv" >> "$_strom_ctl/strom-gs-dirs" 2>/dev/null || true
+          fi
           find "$_strom_xrd" -maxdepth 1 -name 'strom-gs-*' -type d -mmin +1440 \
             -exec rm -rf {} + 2>/dev/null || true
           if [ -n "''${WAYLAND_DISPLAY:-}" ]; then

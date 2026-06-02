@@ -330,10 +330,28 @@ in
         # via this EXIT trap and never reaches postHook). Without it a
         # force-killed run would leak the mount until the next launch's
         # stale-sweep.
+        #
+        # We also reap the inner gamescope's per-launch private
+        # XDG_RUNTIME_DIR (the strom-gs-* dir lib/gamescope.nix creates on
+        # the host-shared /run bind). On a sway window-close of a proton
+        # game the FIFO shutdown SIGKILLs the whole PID namespace, so the
+        # gamescope-wrapper's own EXIT trap never runs and that dir leaks.
+        # gamescope-wrapper appends its dir path to
+        # $STROM_CONTROL_DIR/strom-gs-dirs; this host wrapper is never
+        # killed by its own teardown (it does the killing), so its EXIT
+        # trap is the reliable place to rm them.
+        __strom_reap_gs_dirs() {
+          [ -f "$STROM_CONTROL_DIR/strom-gs-dirs" ] || return 0
+          while IFS= read -r _strom_gs_dir; do
+            case "$_strom_gs_dir" in
+              */strom-gs-*) rm -rf "$_strom_gs_dir" 2>/dev/null || true ;;
+            esac
+          done < "$STROM_CONTROL_DIR/strom-gs-dirs"
+        }
         trap '${
           lib.optionalString (config.overlay != null)
             ''mountpoint -q "$STROM_CACHEDIR/overlay-merged" 2>/dev/null && fusermount3 -u "$STROM_CACHEDIR/overlay-merged" 2>/dev/null; ''
-        }rm -f "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true; rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true' EXIT
+        }__strom_reap_gs_dirs; rm -f "$STROM_CONTROL_DIR/strom-gs-dirs" "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true; rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true' EXIT
 
         ${config.preHook}
         ${config.extraPreHook}
@@ -378,7 +396,8 @@ in
             echo shutdown > "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true
             kill -TERM "$STROM_FIFO_READER_PID" 2>/dev/null || true
           fi
-          rm -f "$STROM_CONTROL_DIR/shutdown.fifo"
+          __strom_reap_gs_dirs
+          rm -f "$STROM_CONTROL_DIR/strom-gs-dirs" "$STROM_CONTROL_DIR/shutdown.fifo"
           rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true
         }
 
