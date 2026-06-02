@@ -1572,6 +1572,13 @@
     "description": "The Elder Scrolls IV: Oblivion GOTY (Bethesda 2006 GOG v1.2.0416, via Proton)",
     "runtime": "proton"
   },
+  "the-floor-is-jelly": {
+    "cids": [
+      "QmR2g2EaFsJLXRW37mVgJyTXwD9KnXSH9PtJxUMG6dTRZB"
+    ],
+    "description": "The Floor is Jelly (Ian Snyder 2014, Adobe AIR / Windows via Proton)",
+    "runtime": "proton"
+  },
   "the-legend-of-zelda-a-link-to-the-past": {
     "cids": [
       "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt"

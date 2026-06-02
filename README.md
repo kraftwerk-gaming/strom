@@ -260,6 +260,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/the-elder-scrolls-ii-daggerfall/"><img src="https://lutris.net/games/banner/the-elder-scrolls-ii-daggerfall.jpg" height="40" alt="the-elder-scrolls-ii-daggerfall"></a> | [The Elder Scrolls II: Daggerfall](https://lutris.net/games/the-elder-scrolls-ii-daggerfall/) | `custom` | `nix run .#the-elder-scrolls-ii-daggerfall` |
 | <a href="https://lutris.net/games/the-elder-scrolls-iii-morrowind/"><img src="https://lutris.net/games/banner/the-elder-scrolls-iii-morrowind.jpg" height="40" alt="the-elder-scrolls-iii-morrowind"></a> | [The Elder Scrolls III: Morrowind GOTY](https://lutris.net/games/the-elder-scrolls-iii-morrowind/) | `native` | `nix run .#the-elder-scrolls-iii-morrowind` |
 | <a href="https://lutris.net/games/the-elder-scrolls-iv-oblivion/"><img src="https://lutris.net/games/banner/the-elder-scrolls-iv-oblivion.jpg" height="40" alt="the-elder-scrolls-iv-oblivion"></a> | [The Elder Scrolls IV: Oblivion GOTY](https://lutris.net/games/the-elder-scrolls-iv-oblivion/) | `proton` | `nix run .#the-elder-scrolls-iv-oblivion` |
+| <a href="https://lutris.net/games/the-floor-is-jelly/"><img src="https://lutris.net/games/banner/the-floor-is-jelly.jpg" height="40" alt="the-floor-is-jelly"></a> | [The Floor is Jelly](https://lutris.net/games/the-floor-is-jelly/) | `proton` | `nix run .#the-floor-is-jelly` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg" height="40" alt="the-legend-of-zelda-a-link-to-the-past"></a> | [The Legend of Zelda: A Link to the Past](https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/) | `retroarch` | `nix run .#the-legend-of-zelda-a-link-to-the-past` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-majoras-mask/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-majoras-mask.jpg" height="40" alt="the-legend-of-zelda-majoras-mask"></a> | [The Legend of Zelda: Majora's Mask](https://lutris.net/games/the-legend-of-zelda-majoras-mask/) | `retroarch` | `nix run .#the-legend-of-zelda-majoras-mask` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-ocarina-of-time.jpg" height="40" alt="the-legend-of-zelda-ocarina-of-time"></a> | [The Legend of Zelda: Ocarina of Time](https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/) | `retroarch` | `nix run .#the-legend-of-zelda-ocarina-of-time` |
@@ -297,7 +298,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_256 games_
+_257 games_
 
 <!-- END GENERATED GAMES -->
 
