@@ -1081,6 +1081,13 @@
     "description": "Metal Slug - Super Vehicle-001 (Nazca/SNK 1996 Neo Geo MVS, via RetroArch / FBNeo)",
     "runtime": "retroarch"
   },
+  "metro-2033-redux": {
+    "cids": [
+      "QmRgowFfaJXv3Cvhpe1arUxGPzgAhhcDnG1im6h6oD4NoW"
+    ],
+    "description": "Metro 2033 Redux (4A Games 2014 native Linux remaster)",
+    "runtime": "custom"
+  },
   "monkey-island-2-special-edition": {
     "cids": [
       "QmYs37wpRTvw1ihxgzd4HR8Zf1Y1QqSATd8rHZMKETTuTm"
