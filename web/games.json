@@ -1664,6 +1664,14 @@
     "description": "Undertale (2015 Toby Fox, Linux GOG repack via Phoenix Games Lab)",
     "runtime": "native"
   },
+  "unreal-tournament": {
+    "cids": [
+      "QmRgRLP6Z1DXxwJ2aVbgmnwMqK1o9T1HkeZfkXFnH3jyDa",
+      "QmR3az4L1Jpj4Sx6GdgmGkHc2J627RAukeZW4zh2Ziwe4T"
+    ],
+    "description": "Unreal Tournament (GOTY, 1999; OldUnreal v469e native Linux)",
+    "runtime": "native"
+  },
   "unreal-tournament-2004": {
     "cids": [
       "QmUcKX53WiLytqmVoDP1pphJgL1MuczqqUN9FNT3id1U74"
