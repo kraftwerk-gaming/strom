@@ -183,8 +183,16 @@ let
                 "$STROM_GAMEDIR" = "$STROM_GAMEDIR";
                 "$STROM_COMPATDATA" = "$STROM_COMPATDATA";
                 "$STROM_CACHEDIR" = "$STROM_CACHEDIR";
-                "$HOME/.cache/umu" = "$HOME/.cache/umu";
-                "$HOME/.cache/umu-protonfixes" = "$HOME/.cache/umu-protonfixes";
+                # Per-game umu/protonfixes cache. umu-protonfixes' logger
+                # appends to $XDG_CACHE_HOME/umu-protonfixes/protonfixes_test.log
+                # (XDG_CACHE_HOME unset -> $HOME/.cache) on every launch
+                # (including the PROTONFIXES_DISABLE=1 "unit test" skip path);
+                # a single shared host dir means concurrent Proton games race
+                # on that file. Bind a private per-game source onto the shared
+                # in-sandbox path so each game gets its own umu state, mirroring
+                # the per-launch private XDG_RUNTIME_DIR in lib/gamescope.nix.
+                "$HOME/.cache/umu" = "$STROM_CACHEDIR/umu";
+                "$HOME/.cache/umu-protonfixes" = "$STROM_CACHEDIR/umu-protonfixes";
                 "$HOME/.cache/wine" = "$HOME/.cache/wine";
               };
               ro-bind-try = lib.genAttrs (lib.genList (n: "/tmp/.X11-unix/X${toString n}") 10) (p: p) // {
@@ -215,7 +223,7 @@ let
                 export STROM_GAMEDIR STROM_COMPATDATA STROM_CACHEDIR STROM_OVERLAY
                 mkdir -p "$STROM_GAMEDIR" "$STROM_COMPATDATA" "$STROM_CACHEDIR" \
                   ${lib.optionalString (cfg.runtime == "proton") ''
-                    "$HOME/.cache/umu" "$HOME/.cache/umu-protonfixes" "$HOME/.cache/wine"
+                    "$STROM_CACHEDIR/umu" "$STROM_CACHEDIR/umu-protonfixes" "$HOME/.cache/wine"
                   ''}
                 # fuse-overlayfs needs an empty workdir on the same fs as
                 # upper. overlayfs creates the work/ subdir as mode 0000
