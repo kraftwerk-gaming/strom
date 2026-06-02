@@ -81,9 +81,36 @@ in
         p.openal
         p.systemd
         (config.pkgs.callPackage ../pkgs/sdl2.nix { })
+        # GStreamer runtime deps for winegstreamer/DirectShow. Proton
+        # bundles libgstreamer + its plugins under
+        # $PROTON/files/lib/{i386,x86_64}-linux-gnu/{,gstreamer-1.0/} but
+        # NOT glib/wayland (it relies on the Steam Linux Runtime container
+        # to provide those). Strom has no SLR container, so they must come
+        # from the FHS.
+        #
+        # Wine loads winegstreamer's unix lib (lib/wine/<arch>-unix/
+        # winegstreamer.so) with dlopen(RTLD_NOW); that lib is NEEDED-linked
+        # against libgstgl-1.0, which in turn NEEDs libwayland-{client,
+        # cursor,egl}. If ANY of those is unresolved the whole dlopen fails
+        # with STATUS_DLL_NOT_FOUND, gst_init never runs, and winegstreamer's
+        # class factory returns E_OUTOFMEMORY (0x8007000e) — DirectShow
+        # autoplug then fails to build the graph and games hang on a black
+        # screen before any intro movie plays (e.g. GTA: Vice City's
+        # Logo.mpg/GTAtitles.mpg). glib additionally needs libz/libffi/
+        # libpcre2; buildEnv links only the packages listed here, never
+        # their runtime deps, so each must be named explicitly.
+        p.glib
+        p.zlib
+        p.pcre2
+        p.libffi
+        p.wayland
         p.pkgsi686Linux.freetype
         p.pkgsi686Linux.glibc
         p.pkgsi686Linux.glib
+        p.pkgsi686Linux.zlib
+        p.pkgsi686Linux.pcre2
+        p.pkgsi686Linux.libffi
+        p.pkgsi686Linux.wayland
         p.pkgsi686Linux.libx11
         p.pkgsi686Linux.libxext
         p.pkgsi686Linux.libxcb
