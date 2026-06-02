@@ -719,6 +719,13 @@
     "description": "Golden Sun: The Lost Age (Camelot/Nintendo, 2003 GBA, via RetroArch / mGBA)",
     "runtime": "retroarch"
   },
+  "gothic": {
+    "cids": [
+      "QmPjRAE7pbQEqxSm7vtaK9ws9vQj7DWpbbEFuzRsoYjaEN"
+    ],
+    "description": "Gothic (Piranha Bytes 2001, GOG 1.08k, via Proton)",
+    "runtime": "proton"
+  },
   "grand-theft-auto-2": {
     "cids": [
       "QmXf4yBiYYqCPc18buJCL4MtFiHDR5dNhVyfEhyVqSzYsy"
