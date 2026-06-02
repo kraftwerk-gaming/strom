@@ -1215,6 +1215,13 @@
     "description": "Planescape: Torment (1999, GOG 1.01a + GemRB engine)",
     "runtime": "native"
   },
+  "plants-vs-zombies": {
+    "cids": [
+      "QmVjy6i8g6JhSXcfLues1QYsQxeqr3s1JCvrCLdrzhCbft"
+    ],
+    "description": "Plants vs. Zombies: Game of the Year Edition (PopCap 2009, GOG, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "populous-the-beginning": {
     "cids": [
       "QmSLdTZSiCJcguj7FaKcFC2PMQiSahAe4UvoDDWwM89gAv"
