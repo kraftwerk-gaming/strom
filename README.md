@@ -217,6 +217,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/quake-iii-arena/"><img src="https://lutris.net/games/banner/quake-iii-arena.jpg" height="40" alt="quake-iii-arena"></a> | [Quake III Arena](https://lutris.net/games/quake-iii-arena/) | `native` | `nix run .#quake-iii-arena` |
 | <a href="https://lutris.net/games/rain-world/"><img src="https://lutris.net/games/banner/rain-world.jpg" height="40" alt="rain-world"></a> | [Rain World](https://lutris.net/games/rain-world/) | `proton` | `nix run .#rain-world` |
 | <a href="https://lutris.net/games/return-of-the-obra-dinn/"><img src="https://lutris.net/games/banner/return-of-the-obra-dinn.jpg" height="40" alt="return-of-the-obra-dinn"></a> | [Return of the Obra Dinn](https://lutris.net/games/return-of-the-obra-dinn/) | `proton` | `nix run .#return-of-the-obra-dinn` |
+| <a href="https://lutris.net/games/rhythm-doctor/"><img src="https://lutris.net/games/banner/rhythm-doctor.jpg" height="40" alt="rhythm-doctor"></a> | [Rhythm Doctor](https://lutris.net/games/rhythm-doctor/) | `custom` | `nix run .#rhythm-doctor` |
 | <a href="https://lutris.net/games/risk-of-rain/"><img src="https://lutris.net/games/banner/risk-of-rain.jpg" height="40" alt="risk-of-rain"></a> | [Risk of Rain](https://lutris.net/games/risk-of-rain/) | `proton` | `nix run .#risk-of-rain` |
 | <a href="https://lutris.net/games/roketz--1/"><img src="https://lutris.net/games/banner/roketz--1.jpg" height="40" alt="roketz--1"></a> | [Roketz](https://lutris.net/games/roketz--1/) | `custom` | `nix run .#roketz--1` |
 | <a href="https://lutris.net/games/rollercoaster-tycoon/"><img src="https://lutris.net/games/banner/rollercoaster-tycoon.jpg" height="40" alt="rollercoaster-tycoon"></a> | [RollerCoaster Tycoon Deluxe](https://lutris.net/games/rollercoaster-tycoon/) | `proton` | `nix run .#rollercoaster-tycoon` |
@@ -298,7 +299,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_257 games_
+_258 games_
 
 <!-- END GENERATED GAMES -->
 

@@ -1266,6 +1266,13 @@
     "description": "Return of the Obra Dinn (via Proton)",
     "runtime": "proton"
   },
+  "rhythm-doctor": {
+    "cids": [
+      "QmUaVWWi5qFG2HkkWMD8vQA7TZyFwYwW28PVZGLqCtX6zV"
+    ],
+    "description": "Rhythm Doctor (7th Beat Games 2021, native Linux v1.0.0, LinuxRuleZ! repack)",
+    "runtime": "custom"
+  },
   "risk-of-rain": {
     "cids": [
       "QmUiGfcZ9zbgubBA8RZCwGvMhz4drAKztWZr3eKZ9s4C3m"
