@@ -1685,6 +1685,13 @@
     "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "total-annihilation": {
+    "cids": [
+      "QmRPU9ZPykAtfCMEfbHQGzd2F66EWuAzEJM1PnASW9keQd"
+    ],
+    "description": "Total Annihilation - Commander Pack (Cavedog 1997, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "total-overdose": {
     "cids": [
       "QmcZppB5Y4djdJkTDMoKpS5rWkpFhvEpSZC4aQS8VH8Z9W"
