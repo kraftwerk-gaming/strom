@@ -292,6 +292,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/void-stranger/"><img src="https://lutris.net/games/banner/void-stranger.jpg" height="40" alt="void-stranger"></a> | [Void Stranger](https://lutris.net/games/void-stranger/) | `proton` | `nix run .#void-stranger` |
 | <a href="https://lutris.net/games/vvvvvv/"><img src="https://lutris.net/games/banner/vvvvvv.jpg" height="40" alt="vvvvvv"></a> | [VVVVVV](https://lutris.net/games/vvvvvv/) | `native` | `nix run .#vvvvvv` |
 | <a href="https://lutris.net/games/warcraft-iii-the-frozen-throne/"><img src="https://lutris.net/games/banner/warcraft-iii-the-frozen-throne.jpg" height="40" alt="warcraft-iii-the-frozen-throne"></a> | [Warcraft III: Reign of Chaos + The Frozen Throne v1.26a](https://lutris.net/games/warcraft-iii-the-frozen-throne/) | `proton` | `nix run .#warcraft-iii-the-frozen-throne` |
+| <a href="https://lutris.net/games/warzone-2100/"><img src="https://lutris.net/games/banner/warzone-2100.jpg" height="40" alt="warzone-2100"></a> | [Warzone 2100](https://lutris.net/games/warzone-2100/) | `native` | `nix run .#warzone-2100` |
 | <a href="https://lutris.net/games/white-knuckle/"><img src="https://lutris.net/games/banner/white-knuckle.jpg" height="40" alt="white-knuckle"></a> | [White Knuckle](https://lutris.net/games/white-knuckle/) | `proton` | `nix run .#white-knuckle` |
 | <a href="https://lutris.net/games/world-of-goo/"><img src="https://lutris.net/games/banner/world-of-goo.jpg" height="40" alt="world-of-goo"></a> | [World of Goo](https://lutris.net/games/world-of-goo/) | `native` | `nix run .#world-of-goo` |
 | <a href="https://lutris.net/games/worms-wmd/"><img src="https://lutris.net/games/banner/worms-wmd.jpg" height="40" alt="worms-wmd"></a> | [Worms W.M.D](https://lutris.net/games/worms-wmd/) | `proton` | `nix run .#worms-wmd` |
@@ -299,7 +300,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_258 games_
+_259 games_
 
 <!-- END GENERATED GAMES -->
 
