@@ -6,6 +6,13 @@
     "description": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "age-of-empires-iii": {
+    "cids": [
+      "QmZSFvpZ4Z4PzcXccX5eRHU8Y65YGeykNJLcYKtZ4S8dzJ"
+    ],
+    "description": "Age of Empires III: Complete Collection (via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "anachronox": {
     "cids": [
       "Qma31wDiB337AYUrJqQmJfeuc7RoZCWDUtVdeWbQnLrojD"

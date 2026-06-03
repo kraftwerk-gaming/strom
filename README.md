@@ -41,6 +41,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
 | <a href="https://lutris.net/games/age-of-empires-ii-the-conquerors/"><img src="https://lutris.net/games/banner/age-of-empires-ii-the-conquerors.jpg" height="40" alt="age-of-empires-ii-the-conquerors"></a> | [Age of Empires II: The Conquerors](https://lutris.net/games/age-of-empires-ii-the-conquerors/) | `proton` | `nix run .#age-of-empires-ii-the-conquerors` |
+| <a href="https://lutris.net/games/age-of-empires-iii/"><img src="https://lutris.net/games/banner/age-of-empires-iii.jpg" height="40" alt="age-of-empires-iii"></a> | [Age of Empires III: Complete Collection](https://lutris.net/games/age-of-empires-iii/) | `proton` | `nix run .#age-of-empires-iii` |
 | <a href="https://lutris.net/games/anachronox/"><img src="https://lutris.net/games/banner/anachronox.jpg" height="40" alt="anachronox"></a> | [Anachronox](https://lutris.net/games/anachronox/) | `proton` | `nix run .#anachronox` |
 | <a href="https://lutris.net/games/anatomy/"><img src="https://lutris.net/games/banner/anatomy.jpg" height="40" alt="anatomy"></a> | [Anatomy](https://lutris.net/games/anatomy/) | `native` | `nix run .#anatomy` |
 | <a href="https://lutris.net/games/animal-well/"><img src="https://lutris.net/games/banner/animal-well.jpg" height="40" alt="animal-well"></a> | [ANIMAL WELL](https://lutris.net/games/animal-well/) | `proton` | `nix run .#animal-well` |
@@ -306,7 +307,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_265 games_
+_266 games_
 
 <!-- END GENERATED GAMES -->
 
