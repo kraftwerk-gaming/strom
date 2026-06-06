@@ -1684,6 +1684,13 @@
     "description": "The Settlers II Gold (via Return to the Roots)",
     "runtime": "native"
   },
+  "the-settlers-iii": {
+    "cids": [
+      "QmaWFgt4NGDQ3uAW17Qj2tZHoujciB2yWersWNNM4Sf69D"
+    ],
+    "description": "The Settlers III (Blue Byte 1998, GOG Ultimate Collection v1.60 v2 English, via Proton)",
+    "runtime": "proton"
+  },
   "the-simpsons-hit-run": {
     "cids": [
       "QmT1cgcUcMbBXMaUif8aT6oed9BGHno9tRp3ySbUE2JiSo"
