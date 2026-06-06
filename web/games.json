@@ -1,4 +1,11 @@
 {
+  "a-short-hike": {
+    "cids": [
+      "QmYRmLbaW6FhEhU51pepXRXc1cZrkGvFe1UoFbTtApgK6d"
+    ],
+    "description": "A Short Hike (adamgryu 2019, native Linux, GOG v1.9 v3 build 51666)",
+    "runtime": "custom"
+  },
   "age-of-empires-ii-the-conquerors": {
     "cids": [
       "Qmaty9puM8eHXB1qmdHYF7G9dBJNVr6ezV99w5iuNADPxY"

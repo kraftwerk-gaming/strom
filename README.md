@@ -40,6 +40,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 
 | | Game | Runtime | Run |
 | --- | --- | --- | --- |
+| <a href="https://lutris.net/games/a-short-hike/"><img src="https://lutris.net/games/banner/a-short-hike.jpg" height="40" alt="a-short-hike"></a> | [A Short Hike](https://lutris.net/games/a-short-hike/) | `custom` | `nix run .#a-short-hike` |
 | <a href="https://lutris.net/games/age-of-empires-ii-the-conquerors/"><img src="https://lutris.net/games/banner/age-of-empires-ii-the-conquerors.jpg" height="40" alt="age-of-empires-ii-the-conquerors"></a> | [Age of Empires II: The Conquerors](https://lutris.net/games/age-of-empires-ii-the-conquerors/) | `proton` | `nix run .#age-of-empires-ii-the-conquerors` |
 | <a href="https://lutris.net/games/age-of-empires-iii/"><img src="https://lutris.net/games/banner/age-of-empires-iii.jpg" height="40" alt="age-of-empires-iii"></a> | [Age of Empires III: Complete Collection](https://lutris.net/games/age-of-empires-iii/) | `proton` | `nix run .#age-of-empires-iii` |
 | <a href="https://lutris.net/games/anachronox/"><img src="https://lutris.net/games/banner/anachronox.jpg" height="40" alt="anachronox"></a> | [Anachronox](https://lutris.net/games/anachronox/) | `proton` | `nix run .#anachronox` |
@@ -307,7 +308,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_266 games_
+_267 games_
 
 <!-- END GENERATED GAMES -->
 
