@@ -300,6 +300,13 @@
     "description": "Celeste (native Linux, v1.4.0.0)",
     "runtime": "native"
   },
+  "chants-of-sennaar": {
+    "cids": [
+      "QmNR74MJe5Sjr7JiVVHsgZvidzzhL2aB9r8f9Gy2sFr3Sr"
+    ],
+    "description": "Chants of Sennaar (Rundisc 2023, Unity language-deciphering adventure, GOG via Proton)",
+    "runtime": "proton"
+  },
   "chrono-trigger": {
     "cids": [
       "Qmdwp6PEMUghQXoQgRkunAzvkRaXDTQdW8f84QcQ3fqvpN"
