@@ -208,6 +208,13 @@
     "description": "Black & White (Lionhead 2001, Complete Edition + v1.42 + Creature Isle v1.23, via Proton)",
     "runtime": "proton"
   },
+  "blood-omen-legacy-of-kain": {
+    "cids": [
+      "QmUB18G41smnpTJUE3sb3YjZstM1kxB9BU2V8X3ChtDNKk"
+    ],
+    "description": "Blood Omen: Legacy of Kain (Silicon Knights / Crystal Dynamics 1996, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "bloodborne-psx": {
     "cids": [
       "QmTminqp4KC2yvPuKAit7CZuxdFXMV84FbFdJPamqLjS8X"
