@@ -402,6 +402,13 @@
     "description": "CrossCode + 3 DLC (v1.4.2-3, native Linux NW.js, GOG)",
     "runtime": "native"
   },
+  "crow-country": {
+    "cids": [
+      "QmPaPLesWagh5s8ZpKNiCMWSYxhNypN8CAcvTydoxmGrsY"
+    ],
+    "description": "Crow Country (SFB Games 2024, Unity survival-horror, GOG via Proton)",
+    "runtime": "proton"
+  },
   "cryostasis": {
     "cids": [
       "QmdbyRwrQNTHKiyYX7fVST18y394fzKuAkqKbThSMqkaXS"

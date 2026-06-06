@@ -96,6 +96,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/company-of-heroes/"><img src="https://lutris.net/games/banner/company-of-heroes.jpg" height="40" alt="company-of-heroes"></a> | [Company of Heroes](https://lutris.net/games/company-of-heroes/) | `proton` | `nix run .#company-of-heroes` |
 | <a href="https://lutris.net/games/condemned-criminal-origins/"><img src="https://lutris.net/games/banner/condemned-criminal-origins.jpg" height="40" alt="condemned-criminal-origins"></a> | [Condemned: Criminal Origins](https://lutris.net/games/condemned-criminal-origins/) | `proton` | `nix run .#condemned-criminal-origins` |
 | <a href="https://lutris.net/games/crosscode/"><img src="https://lutris.net/games/banner/crosscode.jpg" height="40" alt="crosscode"></a> | [CrossCode + 3 DLC](https://lutris.net/games/crosscode/) | `native` | `nix run .#crosscode` |
+| <a href="https://lutris.net/games/crow-country/"><img src="https://lutris.net/games/banner/crow-country.jpg" height="40" alt="crow-country"></a> | [Crow Country](https://lutris.net/games/crow-country/) | `proton` | `nix run .#crow-country` |
 | <a href="https://lutris.net/games/cryostasis/"><img src="https://lutris.net/games/banner/cryostasis.jpg" height="40" alt="cryostasis"></a> | [Cryostasis: Sleep of Reason](https://lutris.net/games/cryostasis/) | `proton` | `nix run .#cryostasis` |
 | <a href="https://lutris.net/games/crypt-of-the-necrodancer/"><img src="https://lutris.net/games/banner/crypt-of-the-necrodancer.jpg" height="40" alt="crypt-of-the-necrodancer"></a> | [Crypt of the NecroDancer](https://lutris.net/games/crypt-of-the-necrodancer/) | `native` | `nix run .#crypt-of-the-necrodancer` |
 | <a href="https://lutris.net/games/cuphead/"><img src="https://lutris.net/games/banner/cuphead.jpg" height="40" alt="cuphead"></a> | [Cuphead Legacy](https://lutris.net/games/cuphead/) | `proton` | `nix run .#cuphead` |
@@ -311,7 +312,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_270 games_
+_271 games_
 
 <!-- END GENERATED GAMES -->
 
