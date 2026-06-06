@@ -100,6 +100,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/cuphead/"><img src="https://lutris.net/games/banner/cuphead.jpg" height="40" alt="cuphead"></a> | [Cuphead Legacy](https://lutris.net/games/cuphead/) | `proton` | `nix run .#cuphead` |
 | <a href="https://lutris.net/games/dark-messiah-of-might-and-magic/"><img src="https://lutris.net/games/banner/dark-messiah-of-might-and-magic.jpg" height="40" alt="dark-messiah-of-might-and-magic"></a> | [Dark Messiah of Might and Magic](https://lutris.net/games/dark-messiah-of-might-and-magic/) | `proton` | `nix run .#dark-messiah-of-might-and-magic` |
 | <a href="https://lutris.net/games/dark-souls-prepare-to-die-edition/"><img src="https://lutris.net/games/banner/dark-souls-prepare-to-die-edition.jpg" height="40" alt="dark-souls-prepare-to-die-edition"></a> | [Dark Souls: Prepare to Die Edition](https://lutris.net/games/dark-souls-prepare-to-die-edition/) | `proton` | `nix run .#dark-souls-prepare-to-die-edition` |
+| <a href="https://lutris.net/games/darkest-dungeon/"><img src="https://lutris.net/games/banner/darkest-dungeon.jpg" height="40" alt="darkest-dungeon"></a> | [Darkest Dungeon](https://lutris.net/games/darkest-dungeon/) | `custom` | `nix run .#darkest-dungeon` |
 | <a href="https://lutris.net/games/day-of-the-tentacle/"><img src="https://lutris.net/games/banner/day-of-the-tentacle.jpg" height="40" alt="day-of-the-tentacle"></a> | [Day of the Tentacle](https://lutris.net/games/day-of-the-tentacle/) | `native` | `nix run .#day-of-the-tentacle` |
 | <a href="https://lutris.net/games/dead-cells/"><img src="https://lutris.net/games/banner/dead-cells.jpg" height="40" alt="dead-cells"></a> | [Dead Cells](https://lutris.net/games/dead-cells/) | `custom` | `nix run .#dead-cells` |
 | <a href="https://lutris.net/games/death-and-taxes/"><img src="https://lutris.net/games/banner/death-and-taxes.jpg" height="40" alt="death-and-taxes"></a> | [Death and Taxes](https://lutris.net/games/death-and-taxes/) | `custom` | `nix run .#death-and-taxes` |
@@ -309,7 +310,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_268 games_
+_269 games_
 
 <!-- END GENERATED GAMES -->
 

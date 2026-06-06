@@ -430,6 +430,13 @@
     "description": "Dark Souls: Prepare to Die Edition (single-player, DSCM stripped, via Proton)",
     "runtime": "proton"
   },
+  "darkest-dungeon": {
+    "cids": [
+      "QmSMioNkvVNH2UZSys9UwmZvJhhhF8np18g73jDhNtBfGi"
+    ],
+    "description": "Darkest Dungeon (native Linux, GOG v24788 build 82473)",
+    "runtime": "custom"
+  },
   "day-of-the-tentacle": {
     "cids": [
       "Qmb4tE5gCLyppBRWu94wnNpjcbdMt9Dqt1W9EMev8HaW7Z"
