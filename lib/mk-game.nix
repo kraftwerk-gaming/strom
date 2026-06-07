@@ -160,7 +160,19 @@ let
               unshare-pid = true;
               die-with-parent = true;
               chdir = "/";
-              ro-bind."/" = "/";
+              # Don't bind host "/" as the root: bwrap's default root is
+              # a writable tmpfs, which lets the FHS binds (/usr /bin /lib
+              # /lib64 in strom-fhs.nix) mkdir their own mountpoints even
+              # on hosts that lack a top-level /lib. A read-only --ro-bind
+              # / / root could only bind onto pre-existing host dirs and so
+              # aborted on hosts without /lib. We re-add just the host dirs
+              # games need: /nix (store) and /etc (resolv.conf, fonts, ssl,
+              # machine-id). /run + /tmp are bound RW below; /dev /proc via
+              # dev-bind/proc; /sys in proton.nix.
+              ro-bind = {
+                "/nix" = "/nix";
+                "/etc" = "/etc";
+              };
               dev-bind."/dev" = "/dev";
               proc = [ "/proc" ];
 
@@ -199,12 +211,10 @@ let
                 "$HOME/.local/share/vulkan" = "$HOME/.local/share/vulkan";
               };
 
-              # /tmp/.strom-overlay (not /strom/overlay) because the
-              # base --ro-bind / / makes / read-only and bwrap can't
-              # mkdir a top-level mountpoint there. /tmp is RW from
-              # the earlier --bind /tmp /tmp. The merged tree is mounted
-              # on the host with fuse-overlayfs (see bwrap.nix) and
-              # bind-mounted here.
+              # /tmp/.strom-overlay (not /strom/overlay): /tmp is RW from
+              # the earlier --bind /tmp /tmp, a known-writable mountpoint.
+              # The merged tree is mounted on the host with fuse-overlayfs
+              # (see bwrap.nix) and bind-mounted here.
               # Default lowers = [_gameData]; recipes layer mods /
               # soundtracks / etc. on top via `lib.mkBefore [...]` on
               # this same option (first = highest priority).
