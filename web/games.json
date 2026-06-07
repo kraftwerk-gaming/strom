@@ -123,6 +123,13 @@
     "description": "Baba Is You (native Linux)",
     "runtime": "native"
   },
+  "babbdi": {
+    "cids": [
+      "QmcGUudkqnj5KUyMNwUchifDV8PvhLfK5jqeAcw1VvaoJj"
+    ],
+    "description": "Babbdi (Lemaitre Bros 2022, free first-person exploration, Unity Mono via Proton)",
+    "runtime": "proton"
+  },
   "baby-steps": {
     "cids": [
       "QmZzc2ffQdtsokSZ8CxBWdSdzohoKwJBfcRv1dnzd9Q5Fw"

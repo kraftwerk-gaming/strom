@@ -57,6 +57,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/arx-fatalis/"><img src="https://lutris.net/games/banner/arx-fatalis.jpg" height="40" alt="arx-fatalis"></a> | [Arx Fatalis](https://lutris.net/games/arx-fatalis/) | `native` | `nix run .#arx-fatalis` |
 | <a href="https://lutris.net/games/atomicrops/"><img src="https://lutris.net/games/banner/atomicrops.jpg" height="40" alt="atomicrops"></a> | [Atomicrops](https://lutris.net/games/atomicrops/) | `proton` | `nix run .#atomicrops` |
 | <a href="https://lutris.net/games/baba-is-you/"><img src="https://lutris.net/games/banner/baba-is-you.jpg" height="40" alt="baba-is-you"></a> | [Baba Is You](https://lutris.net/games/baba-is-you/) | `native` | `nix run .#baba-is-you` |
+| <a href="https://lutris.net/games/babbdi/"><img src="https://lutris.net/games/banner/babbdi.jpg" height="40" alt="babbdi"></a> | [Babbdi](https://lutris.net/games/babbdi/) | `proton` | `nix run .#babbdi` |
 | <a href="https://lutris.net/games/baby-steps/"><img src="https://lutris.net/games/banner/baby-steps.jpg" height="40" alt="baby-steps"></a> | [Baby Steps](https://lutris.net/games/baby-steps/) | `proton` | `nix run .#baby-steps` |
 | <a href="https://lutris.net/games/balatro/"><img src="https://lutris.net/games/banner/balatro.jpg" height="40" alt="balatro"></a> | [Balatro](https://lutris.net/games/balatro/) | `proton` | `nix run .#balatro` |
 | <a href="https://lutris.net/games/baldurs-gate-enhanced-edition/"><img src="https://lutris.net/games/banner/baldurs-gate-enhanced-edition.jpg" height="40" alt="baldurs-gate-enhanced-edition"></a> | [Baldur's Gate: Enhanced Edition + 3 DLC](https://lutris.net/games/baldurs-gate-enhanced-edition/) | `native` | `nix run .#baldurs-gate-enhanced-edition` |
@@ -314,7 +315,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_273 games_
+_274 games_
 
 <!-- END GENERATED GAMES -->
 
