@@ -166,12 +166,15 @@ let
               # on hosts that lack a top-level /lib. A read-only --ro-bind
               # / / root could only bind onto pre-existing host dirs and so
               # aborted on hosts without /lib. We re-add just the host dirs
-              # games need: /nix (store) and /etc (resolv.conf, fonts, ssl,
-              # machine-id). /run + /tmp are bound RW below; /dev /proc via
-              # dev-bind/proc; /sys in proton.nix.
+              # games need: /nix (store), /etc (resolv.conf, fonts, ssl,
+              # machine-id) and /sys (DRM/Vulkan + wayland device probing —
+              # without it radv can't enumerate and gamescope falls back to
+              # llvmpipe). /run + /tmp are bound RW below; /dev /proc via
+              # dev-bind/proc.
               ro-bind = {
                 "/nix" = "/nix";
                 "/etc" = "/etc";
+                "/sys" = "/sys";
               };
               dev-bind."/dev" = "/dev";
               proc = [ "/proc" ];
@@ -356,9 +359,8 @@ let
 
       config = lib.mkMerge [
         (lib.mkIf (cfg.runtime == "proton") {
-          # /sys ro-bind for vulkan/wayland device probing; tmpfs $HOME
-          # so proton.preHook can write ~/.steam/sdk{32,64}/.
-          bwrap.ro-bind."/sys" = "/sys";
+          # tmpfs $HOME so proton.preHook can write ~/.steam/sdk{32,64}/.
+          # (/sys is bound universally above for DRM/Vulkan probing.)
           bwrap.tmpfs = [ "$HOME" ];
 
           # Extend the universal FHS with proton's graphics/audio stack
