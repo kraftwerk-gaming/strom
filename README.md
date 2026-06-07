@@ -73,6 +73,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/bloodborne-psx/"><img src="https://lutris.net/games/banner/bloodborne-psx.jpg" height="40" alt="bloodborne-psx"></a> | [Bloodborne PSX](https://lutris.net/games/bloodborne-psx/) | `proton` | `nix run .#bloodborne-psx` |
 | <a href="https://lutris.net/games/braid/"><img src="https://lutris.net/games/banner/braid.jpg" height="40" alt="braid"></a> | [Braid](https://lutris.net/games/braid/) | `native` | `nix run .#braid` |
 | <a href="https://lutris.net/games/bridge-builder/"><img src="https://lutris.net/games/banner/bridge-builder.jpg" height="40" alt="bridge-builder"></a> | [Bridge Builder](https://lutris.net/games/bridge-builder/) | `proton` | `nix run .#bridge-builder` |
+| <a href="https://lutris.net/games/bridge-builder-2/"><img src="https://lutris.net/games/banner/bridge-builder-2.jpg" height="40" alt="bridge-builder-2"></a> | [Bridge Builder 2 / Bridge Construction Set](https://lutris.net/games/bridge-builder-2/) | `proton` | `nix run .#bridge-builder-2` |
 | <a href="https://lutris.net/games/broforce/"><img src="https://lutris.net/games/banner/broforce.jpg" height="40" alt="broforce"></a> | [Broforce / Broforce Forever](https://lutris.net/games/broforce/) | `native` | `nix run .#broforce` |
 | <a href="https://lutris.net/games/buckshot-roulette/"><img src="https://lutris.net/games/banner/buckshot-roulette.jpg" height="40" alt="buckshot-roulette"></a> | [Buckshot Roulette](https://lutris.net/games/buckshot-roulette/) | `proton` | `nix run .#buckshot-roulette` |
 | <a href="https://lutris.net/games/bully-scholarship-edition/"><img src="https://lutris.net/games/banner/bully-scholarship-edition.jpg" height="40" alt="bully-scholarship-edition"></a> | [Bully: Scholarship Edition](https://lutris.net/games/bully-scholarship-edition/) | `proton` | `nix run .#bully-scholarship-edition` |
@@ -313,7 +314,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_272 games_
+_273 games_
 
 <!-- END GENERATED GAMES -->
 

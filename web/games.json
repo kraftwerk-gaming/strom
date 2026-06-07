@@ -236,6 +236,13 @@
     "description": "Bridge Builder (Chronic Logic 2000 freeware demo, via Proton)",
     "runtime": "proton"
   },
+  "bridge-builder-2": {
+    "cids": [
+      "Qmee5ebL8uQf1RX8QWz8mRResbuWvm9ET45d4h3VbQiJpR"
+    ],
+    "description": "Bridge Builder 2 / Bridge Construction Set (Chronic Logic 2004, German Halycon release, via Proton)",
+    "runtime": "proton"
+  },
   "broforce": {
     "cids": [
       "QmUQN3MxUKAEYQQmmuJp5C663FfNTiDfiBTVGcqwxJsNhM"
