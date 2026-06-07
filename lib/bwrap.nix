@@ -171,6 +171,34 @@ in
       description = ''
         Extra shell commands before bwrap launches. types.lines, so
         multiple definitions concatenate (unlike upstream preHook).
+
+        Runs host-side after preHook and BEFORE bwrap reads $BWRAP_ARGS
+        into its argv; a hook may append flags to $BWRAP_ARGS and set up
+        file descriptors here.
+      '';
+    };
+
+    postLaunchHook = mkOption {
+      type = types.lines;
+      default = "";
+      description = ''
+        Shell commands spliced in immediately after bwrap is launched in
+        the background, with $BWRAP_PID in scope. For starting helper
+        processes whose lifetime is tied to the sandbox. types.lines, so
+        multiple definitions concatenate.
+      '';
+    };
+
+    cleanupHook = mkOption {
+      type = types.lines;
+      default = "";
+      description = ''
+        Shell commands run on sandbox teardown. Folded into BOTH the
+        wrapper EXIT trap and the host-cleanup function, so the body
+        MUST be idempotent. For reaping helper processes started in
+        postLaunchHook and removing temp files. Interpolated into a
+        single-quoted trap string, so it must not contain single quotes.
+        types.lines, so multiple definitions concatenate.
       '';
     };
   };
@@ -310,7 +338,10 @@ in
     #     an unshare-pid namespace is dropped by the kernel safeguard).
     outputs.wrapper = config.pkgs.writeShellApplication {
       name = config.binName;
-      runtimeInputs = [ config.pkgs.bubblewrap ] ++ config.extraPackages;
+      runtimeInputs = [
+        config.pkgs.bubblewrap
+      ]
+      ++ config.extraPackages;
       text = ''
         ${lib.concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
 
@@ -349,8 +380,13 @@ in
           done < "$STROM_CONTROL_DIR/strom-gs-dirs"
         }
         trap '${
-          lib.optionalString (config.overlay != null)
-            ''mountpoint -q "$STROM_CACHEDIR/overlay-merged" 2>/dev/null && fusermount3 -u "$STROM_CACHEDIR/overlay-merged" 2>/dev/null; ''
+          lib.optionalString (config.overlay != null) ''
+            mountpoint -q "$STROM_CACHEDIR/overlay-merged" 2>/dev/null && fusermount3 -u "$STROM_CACHEDIR/overlay-merged" 2>/dev/null
+          ''
+        }${
+          lib.optionalString (config.cleanupHook != "") ''
+            ${config.cleanupHook}
+          ''
         }__strom_reap_gs_dirs; rm -f "$STROM_CONTROL_DIR/strom-gs-dirs" "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true; rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true' EXIT
 
         ${config.preHook}
@@ -368,6 +404,8 @@ in
           -- \
           "${config.command}" "$@" &
         BWRAP_PID=$!
+
+        ${config.postLaunchHook}
 
         __strom_bwrap_cleanup() {
           if kill -0 "$BWRAP_PID" 2>/dev/null; then
@@ -390,6 +428,7 @@ in
 
         __strom_host_cleanup() {
           __strom_bwrap_cleanup
+          ${config.cleanupHook}
           # Unblock the FIFO reader (in case bwrap exited without anyone
           # writing) so the wait below returns.
           if kill -0 "$STROM_FIFO_READER_PID" 2>/dev/null; then

@@ -309,6 +309,21 @@ let
                 export MESA_SHADER_CACHE_DIR="$GAMECACHE"
                 export DXVK_STATE_CACHE_PATH="$GAMECACHE"
 
+                ${lib.optionalString cfg.n2n.enable ''
+                  # n2n edge inside the sandbox (own netns + slirp4netns
+                  # connector wired up host-side). Runs only when
+                  # $N2N_SUPERNODE is set; otherwise this fragment is a
+                  # no-op and the game keeps the shared host net. The
+                  # readiness FIFO lives in the host control dir bound at
+                  # /tmp/.strom-control; the host writes one byte to it
+                  # after slirp has tap0 + the default route up.
+                  STROM_N2N_EDGE=${cfg.n2n.package}/bin/edge
+                  STROM_N2N_COMMUNITY=${lib.escapeShellArg cfg.n2n.community}
+                  STROM_N2N_READY_FIFO=/tmp/.strom-control/n2n-ready.fifo
+                  STROM_N2N_EXTRA_ARGS=(${lib.concatStringsSep " " (map lib.escapeShellArg cfg.n2n.extraEdgeArgs)})
+                  ${builtins.readFile ./n2n-edge-launcher.sh}
+                ''}
+
                 ${cfg.preRun}
                 exec ${cfg.entrypoint} ${lib.escapeShellArgs cfg.executableArgs} "$@"
               ''}";
@@ -355,6 +370,10 @@ let
         padToKb = mkOption {
           type = wrapperType ./pad-to-kb.nix { };
         };
+
+        n2n = mkOption {
+          type = wrapperType ./n2n.nix { };
+        };
       };
 
       config = lib.mkMerge [
@@ -399,6 +418,126 @@ let
         (lib.mkIf (cfg.runtime == "pcsx2") {
           pcsx2.isoPath = overlayExe;
           entrypoint = lib.getExe cfg.pcsx2.outputs.wrapper;
+        })
+
+        (lib.mkIf cfg.n2n.enable {
+          # Host-side netns plumbing on bwrap's GENERIC hooks (bwrap.nix
+          # knows nothing of n2n). All inert until $N2N_SUPERNODE is set;
+          # the in-sandbox edge launcher is sourced into the inner command
+          # above.
+          #
+          # Fully EVENT-DRIVEN — no poll/sleep anywhere. Readiness rides
+          # the fds the primitives already expose:
+          #   * bwrap --info-fd      -> blocking-read the in-ns child-pid
+          #   * slirp4netns --ready-fd -> blocking-read "network is up"
+          #   * slirp4netns --exit-fd  -> slirp self-terminates when the
+          #     wrapper dies (its write end auto-closes). THIS IS THE
+          #     ENTIRE TEARDOWN: no reap function, no cleanupHook, no
+          #     trap folding.
+          # All FIFOs live in $STROM_CONTROL_DIR, which the existing
+          # generic EXIT trap in bwrap.nix already rm -rf's.
+          bwrap.extraPackages = [
+            cfg.n2n.connectorPackage
+            pkgs.jq
+          ];
+
+          # Before launch: give the sandbox its own netns + tun +
+          # CAP_NET_ADMIN, and capture the in-ns child-pid via --info-fd
+          # (the outer bwrap is in the parent netns, so $BWRAP_PID is the
+          # wrong target). Only the info FIFO is opened here — bwrap MUST
+          # inherit its write end. It is opened read+write (<>) so the
+          # open() never blocks on a missing peer; the wrapper only reads.
+          # The slirp ready/exit FIFOs are deliberately NOT opened until
+          # postLaunchHook (after bwrap forks) so the sandbox never inherits
+          # the host-side control fds. No supernode -> scrub N2N_SUPERNODE so
+          # the in-sandbox launcher stays inert and the sandbox keeps host
+          # net.
+          bwrap.extraPreHook = ''
+            if [ -n "''${N2N_SUPERNODE:-}" ]; then
+              mkfifo -m 0600 \
+                "$STROM_CONTROL_DIR/n2n-info" \
+                "$STROM_CONTROL_DIR/n2n-slirp-ready" \
+                "$STROM_CONTROL_DIR/n2n-slirp-exit" \
+                "$STROM_CONTROL_DIR/n2n-ready.fifo"
+              exec {STROM_N2N_INFO_FD}<>"$STROM_CONTROL_DIR/n2n-info"
+              BWRAP_ARGS="''${BWRAP_ARGS:-} --unshare-net --cap-add CAP_NET_ADMIN --dev-bind /dev/net/tun /dev/net/tun --setenv N2N_SUPERNODE $N2N_SUPERNODE --info-fd $STROM_N2N_INFO_FD"
+            else
+              BWRAP_ARGS="''${BWRAP_ARGS:-} --unsetenv N2N_SUPERNODE"
+            fi
+          '';
+
+          # After launch: a LINEAR sequence of blocking reads, no loops on
+          # the network state, no sleep.
+          #   1. Block-read the child-pid bwrap wrote to the info fd. bwrap
+          #      pretty-prints a multi-line JSON object then keeps the fd
+          #      open, so we read lines until the closing brace (an
+          #      event-driven blocking read, NOT a poll) and feed the blob
+          #      to jq.
+          #   2. Start slirp4netns with --ready-fd / --exit-fd. slirp NATs
+          #      the netns to the real network so the in-ns edge can reach
+          #      the supernode (pasta can't: it rewrites the UDP source and
+          #      n2n rejects the ACK). Every FIFO end is opened STRICTLY
+          #      single-direction (slirp gets ready write-only + exit
+          #      read-only in its own subshell; the wrapper gets ready
+          #      read-only + exit write-only). Single-direction opens are
+          #      essential: a <> open would give the wrapper a self-write
+          #      dup that masks the ready EOF and the exit POLLHUP, and the
+          #      reads/teardown would hang. Both helper subshells open by
+          #      PATH so they never inherit the sibling direction.
+          #   3. Block-read slirp's ready fd ONCE — slirp writes "1" when
+          #      tap0 + the default route are up, then closes it.
+          #   4. Write one byte to the in-sandbox readiness FIFO the edge
+          #      launcher is blocking on; it then brings up edge0.
+          #
+          # Teardown: the wrapper holds the exit-fd WRITE end for its whole
+          # lifetime; when the wrapper exits by ANY path that fd closes,
+          # slirp gets POLLHUP on its read end and terminates on its own.
+          # THIS IS THE ENTIRE TEARDOWN — no kill, no reap, no trap, no
+          # cleanupHook. The FIFOs live in $STROM_CONTROL_DIR, which the
+          # existing generic EXIT trap in bwrap.nix already removes.
+          bwrap.postLaunchHook = ''
+            if [ -n "''${N2N_SUPERNODE:-}" ]; then
+              __strom_n2n_json=
+              while IFS= read -r __strom_n2n_line <&"$STROM_N2N_INFO_FD"; do
+                __strom_n2n_json="$__strom_n2n_json$__strom_n2n_line"
+                case "$__strom_n2n_line" in "}") break ;; esac
+              done
+              exec {STROM_N2N_INFO_FD}<&-
+              __strom_n2n_child=$(printf '%s' "$__strom_n2n_json" | jq -r '."child-pid"' 2>/dev/null)
+              if [ -n "$__strom_n2n_child" ] && [ "$__strom_n2n_child" != null ]; then
+                (
+                  # slirp's own fds: exit read-only THEN ready write-only.
+                  # Opened by path here so this subshell never holds the
+                  # sibling (write) end of exit nor the (read) end of ready.
+                  # Order mirrors the wrapper's opens below so each FIFO's
+                  # two ends rendezvous in lockstep (exit pair first, then
+                  # ready pair) — opening them in opposite orders on the two
+                  # sides would deadlock.
+                  exec {__strom_exit_rd}<"$STROM_CONTROL_DIR/n2n-slirp-exit"
+                  exec {__strom_ready_wr}>"$STROM_CONTROL_DIR/n2n-slirp-ready"
+                  exec ${cfg.n2n.connectorPackage}/bin/slirp4netns --configure --disable-dns \
+                    --ready-fd "$__strom_ready_wr" \
+                    --exit-fd "$__strom_exit_rd" \
+                    "$__strom_n2n_child" tap0 >&2
+                ) &
+                # Rendezvous with slirp's opens, same order (exit then
+                # ready). The exit WRITE end is held for the wrapper's whole
+                # lifetime — its close is the teardown trigger (never
+                # referenced again on purpose).
+                # shellcheck disable=SC2034
+                exec {STROM_N2N_SLIRP_EXIT_FD}>"$STROM_CONTROL_DIR/n2n-slirp-exit"
+                exec {STROM_N2N_SLIRP_READY_FD}<"$STROM_CONTROL_DIR/n2n-slirp-ready"
+                # Block until slirp writes "1"; its close then EOFs our read.
+                IFS= read -r _ <&"$STROM_N2N_SLIRP_READY_FD" || true
+                exec {STROM_N2N_SLIRP_READY_FD}<&-
+                # Release the in-sandbox edge launcher (it opened the read
+                # end of this FIFO <>, so this write does not block).
+                echo ready > "$STROM_CONTROL_DIR/n2n-ready.fifo"
+              else
+                echo "n2n: could not read child-pid from bwrap --info-fd; edge will have no network" >&2
+              fi
+            fi
+          '';
         })
 
         (lib.mkIf (cfg.runtime == "custom") {
