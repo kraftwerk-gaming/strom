@@ -606,6 +606,13 @@
     "description": "Dungeon Siege (Gas Powered Games 2002, GOG v1.11.1 + AMD RDNA fix, via Proton)",
     "runtime": "proton"
   },
+  "dungeons-2": {
+    "cids": [
+      "QmdzEMeM1wbYdLgt6daJWabcjzBoeSLnVPZhwJcjWsqcs3"
+    ],
+    "description": "Dungeons 2 (Realmforge/Kalypso 2015, native Linux, GOG v2.0.0.1)",
+    "runtime": "custom"
+  },
   "dwarf-fortress": {
     "cids": [
       "QmYcTstDWS5mMCf6GT9AsWDu3pw7d4sZZBmBVxYrjeocA9"
