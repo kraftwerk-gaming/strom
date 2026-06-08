@@ -71,5 +71,16 @@ if [ -n "${N2N_SUPERNODE:-}" ]; then
       IFS= read -r _ <&"${__strom_mon_fd}" || break
     done
     ip route add table local broadcast 255.255.255.255 dev edge0 2>/dev/null || true
+
+    # Record edge0's overlay address to a host-visible marker so the
+    # `strom-ip <slug>` command can report "our" n2n IP. STROM_GAMEDIR is
+    # bound through to ~/.strom/<slug> (the same path the screenshot sidecar
+    # writes its marker to). Only written once edge0 has an address, so the
+    # marker's presence means n2n is up; a launch without $N2N_SUPERNODE
+    # never reaches this fragment and leaves no marker.
+    if [ -n "${STROM_GAMEDIR:-}" ]; then
+      ip -o -4 addr show edge0 2>/dev/null | awk 'NR==1 {print $4}' | cut -d/ -f1 \
+        > "$STROM_GAMEDIR/.strom-n2n-ip" 2>/dev/null || true
+    fi
   ) &
 fi

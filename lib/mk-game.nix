@@ -238,6 +238,13 @@ let
                   ${lib.optionalString (cfg.runtime == "proton") ''
                     "$STROM_CACHEDIR/umu" "$STROM_CACHEDIR/umu-protonfixes" "$HOME/.cache/wine"
                   ''}
+
+                # Clear any stale n2n IP marker from a previous run so a launch
+                # without $N2N_SUPERNODE can't report an old overlay IP. The
+                # in-sandbox edge launcher rewrites it only if n2n actually
+                # comes up this launch (see lib/n2n-edge-launcher.sh).
+                rm -f "$STROM_GAMEDIR/.strom-n2n-ip"
+
                 # fuse-overlayfs needs an empty workdir on the same fs as
                 # upper. overlayfs creates the work/ subdir as mode 0000
                 # (owned by our uid but unreadable), so a plain `rm -rf`
