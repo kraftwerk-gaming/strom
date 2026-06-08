@@ -627,6 +627,13 @@
     "description": "Empire Earth II Gold (Mad Doc/Vivendi 2005, via Proton)",
     "runtime": "proton"
   },
+  "encased": {
+    "cids": [
+      "QmPQL52zQWar61rF7UFQfAhemypJTEZSkhsPsXoTVvpgy6"
+    ],
+    "description": "Encased: A Sci-Fi Post-Apocalyptic RPG (Dark Crystal Games 2021, native Linux, GOG v1.3.1517.1645)",
+    "runtime": "native"
+  },
   "environmental-station-alpha": {
     "cids": [
       "QmSKfKZbygBUXXknED9vQUpaY4yjApjHMqTXq4cwtDD9xQ"
