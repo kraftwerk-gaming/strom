@@ -620,6 +620,13 @@
     "description": "Dwarf Fortress (Bay 12 Games free Classic v53.12, native Linux)",
     "runtime": "custom"
   },
+  "earth-2150": {
+    "cids": [
+      "QmSYnrqEct1KYknMXmg1GRtm9UX562CksbEtRck9BDEtam"
+    ],
+    "description": "Earth 2150: Escape from the Blue Planet (Reality Pump 2000, GOG, via Proton -- campaign FMV cutscenes don't render, see note above)",
+    "runtime": "proton"
+  },
   "emperor-battle-for-dune": {
     "cids": [
       "QmVuVwSfwjHY7aKCWePoQSPnBzqZRt3SLXwExR3Ps5SHB3"

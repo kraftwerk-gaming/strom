@@ -127,6 +127,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/dungeon-siege/"><img src="https://lutris.net/games/banner/dungeon-siege.jpg" height="40" alt="dungeon-siege"></a> | [Dungeon Siege](https://lutris.net/games/dungeon-siege/) | `proton` | `nix run .#dungeon-siege` |
 | <a href="https://lutris.net/games/dungeons-2/"><img src="https://lutris.net/games/banner/dungeons-2.jpg" height="40" alt="dungeons-2"></a> | [Dungeons 2](https://lutris.net/games/dungeons-2/) | `custom` | `nix run .#dungeons-2` |
 | <a href="https://lutris.net/games/dwarf-fortress/"><img src="https://lutris.net/games/banner/dwarf-fortress.jpg" height="40" alt="dwarf-fortress"></a> | [Dwarf Fortress](https://lutris.net/games/dwarf-fortress/) | `custom` | `nix run .#dwarf-fortress` |
+| <a href="https://lutris.net/games/earth-2150/"><img src="https://lutris.net/games/banner/earth-2150.jpg" height="40" alt="earth-2150"></a> | [Earth 2150: Escape from the Blue Planet](https://lutris.net/games/earth-2150/) | `proton` | `nix run .#earth-2150` |
 | <a href="https://lutris.net/games/emperor-battle-for-dune/"><img src="https://lutris.net/games/banner/emperor-battle-for-dune.jpg" height="40" alt="emperor-battle-for-dune"></a> | [Emperor: Battle for Dune](https://lutris.net/games/emperor-battle-for-dune/) | `proton` | `nix run .#emperor-battle-for-dune` |
 | <a href="https://lutris.net/games/empire-earth-ii/"><img src="https://lutris.net/games/banner/empire-earth-ii.jpg" height="40" alt="empire-earth-ii"></a> | [Empire Earth II Gold](https://lutris.net/games/empire-earth-ii/) | `proton` | `nix run .#empire-earth-ii` |
 | <a href="https://lutris.net/games/encased/"><img src="https://lutris.net/games/banner/encased.jpg" height="40" alt="encased"></a> | [Encased: A Sci-Fi Post-Apocalyptic RPG](https://lutris.net/games/encased/) | `native` | `nix run .#encased` |
@@ -321,7 +322,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_280 games_
+_281 games_
 
 <!-- END GENERATED GAMES -->
 
