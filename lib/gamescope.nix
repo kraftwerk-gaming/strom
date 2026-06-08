@@ -27,6 +27,18 @@ let
     ) (lib.filterAttrs (_: v: v != null && v != false) config.gamescopeFlags)
   );
   shellEscape = arg: ''"${arg}"'';
+
+  # gamescope's xwm channel emits two benign warnings that spam stderr
+  # ("got the same buffer committed twice, ignoring." on duplicate frame
+  # commits, and "No upscale images free!"). Both are handled internally
+  # and harmless. Raise the xwm log channel to `error` via gamescope's own
+  # Lua convar API so those warnings are dropped while xwm *errors* still
+  # print. Loaded by pointing GAMESCOPE_SCRIPT_PATH at this dir below
+  # (alongside the bundled default scripts).
+  quietXwmScript = config.pkgs.writeTextDir "zz-strom-quiet-xwm.lua" ''
+    local c = gamescope.convars.log_xwm
+    if c then c:call("error") end
+  '';
 in
 {
   _class = "wrapper";
@@ -169,6 +181,10 @@ in
           export XDG_RUNTIME_DIR="$_strom_priv"
         fi
         ${builtins.readFile ./screenshot-sidecar.sh}
+        # Load gamescope's bundled scripts plus our xwm-quiet convar script.
+        # Setting GAMESCOPE_SCRIPT_PATH skips the compiled-in default folder,
+        # so re-list it here to keep the stock scripts loading.
+        export GAMESCOPE_SCRIPT_PATH="${config.pkgs.gamescope}/share/gamescope/scripts:${quietXwmScript}''${GAMESCOPE_SCRIPT_PATH:+:$GAMESCOPE_SCRIPT_PATH}"
         read -ra _gamescope_extra <<< "''${GAMESCOPE_ARGS:-}"
         gamescope \
           ${lib.concatMapStringsSep " \\\n  " shellEscape flagArgs} \
