@@ -1299,6 +1299,13 @@
     "description": "Plants vs. Zombies: Game of the Year Edition (PopCap 2009, GOG, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "pokemon-ranger": {
+    "cids": [
+      "QmZHUyEk66jfC4EA9oxPwQqqU2HH5kbyqvDeGEjtsd6h5f"
+    ],
+    "description": "Pok\u00e9mon Ranger (via RetroArch / melonDS)",
+    "runtime": "retroarch"
+  },
   "populous-the-beginning": {
     "cids": [
       "QmSLdTZSiCJcguj7FaKcFC2PMQiSahAe4UvoDDWwM89gAv"
