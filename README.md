@@ -119,6 +119,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/dome-keeper/"><img src="https://lutris.net/games/banner/dome-keeper.jpg" height="40" alt="dome-keeper"></a> | [Dome Keeper](https://lutris.net/games/dome-keeper/) | `custom` | `nix run .#dome-keeper` |
 | <a href="https://lutris.net/games/doom/"><img src="https://lutris.net/games/banner/doom.jpg" height="40" alt="doom"></a> | [The Ultimate DOOM](https://lutris.net/games/doom/) | `custom` | `nix run .#doom` |
 | <a href="https://lutris.net/games/doom-ii/"><img src="https://lutris.net/games/banner/doom-ii.jpg" height="40" alt="doom-ii"></a> | [DOOM II: Hell on Earth](https://lutris.net/games/doom-ii/) | `custom` | `nix run .#doom-ii` |
+| <a href="https://lutris.net/games/dredge/"><img src="https://lutris.net/games/banner/dredge.jpg" height="40" alt="dredge"></a> | [DREDGE](https://lutris.net/games/dredge/) | `proton` | `nix run .#dredge` |
 | <a href="https://lutris.net/games/driver-san-francisco/"><img src="https://lutris.net/games/banner/driver-san-francisco.jpg" height="40" alt="driver-san-francisco"></a> | [Driver: San Francisco](https://lutris.net/games/driver-san-francisco/) | `proton` | `nix run .#driver-san-francisco` |
 | <a href="https://lutris.net/games/duck-game/"><img src="https://lutris.net/games/banner/duck-game.jpg" height="40" alt="duck-game"></a> | [Duck Game](https://lutris.net/games/duck-game/) | `custom` | `nix run .#duck-game` |
 | <a href="https://lutris.net/games/dungeon-keeper/"><img src="https://lutris.net/games/banner/dungeon-keeper.jpg" height="40" alt="dungeon-keeper"></a> | [Dungeon Keeper](https://lutris.net/games/dungeon-keeper/) | `proton` | `nix run .#dungeon-keeper` |
@@ -315,7 +316,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_274 games_
+_275 games_
 
 <!-- END GENERATED GAMES -->
 
