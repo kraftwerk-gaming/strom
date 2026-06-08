@@ -46,6 +46,20 @@ in
       '';
     };
 
+    defaultRoute = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Move the sandbox's default route onto the n2n edge0 interface
+        (away from slirp's tap0). Enable per game for titles whose "host
+        game" screen reports the default-gateway adapter's IP — e.g.
+        Diablo II's TCP/IP mode — so they advertise the overlay address
+        instead of slirp's. The game then has no general internet (LAN
+        play needs none); the edge keeps reaching the supernode via a
+        pinned route. Only takes effect when `$N2N_SUPERNODE` is set.
+      '';
+    };
+
     extraEdgeArgs = mkOption {
       type = types.listOf types.str;
       default = [ ];

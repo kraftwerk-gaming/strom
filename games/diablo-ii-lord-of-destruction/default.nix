@@ -33,6 +33,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "Game.exe";
 
+  # D2's TCP/IP "Host Game" screen reports the default-gateway adapter's
+  # IP; route the default over n2n so it advertises the overlay address
+  # (the game then has no general internet, which LAN play doesn't need).
+  n2n.defaultRoute = true;
+
   saveLocations = [
     "AppData/Local/Blizzard Entertainment"
     "Documents/Diablo II"

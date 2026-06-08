@@ -27,6 +27,10 @@
 #   N2N_SUPERNODE         - supernode `ip:port` (host-set, propagated
 #                           into the sandbox via --setenv)
 #
+# A game with n2n.defaultRoute = true gets an extra build-time-templated
+# block (in mk-game.nix) that, after edge0 is up, moves the default route
+# onto it — emitted by Nix only for those games, not gated at runtime.
+#
 # No edge PID tracking: edge runs `-f` (foreground) as a child of this
 # script, so the --unshare-pid teardown reaps it with the namespace.
 

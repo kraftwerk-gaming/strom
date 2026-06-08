@@ -322,6 +322,36 @@ let
                   STROM_N2N_READY_FIFO=/tmp/.strom-control/n2n-ready.fifo
                   STROM_N2N_EXTRA_ARGS=(${lib.concatStringsSep " " (map lib.escapeShellArg cfg.n2n.extraEdgeArgs)})
                   ${builtins.readFile ./n2n-edge-launcher.sh}
+                  ${lib.optionalString cfg.n2n.defaultRoute ''
+                    # n2n.defaultRoute (build-time templated, only for this
+                    # game): once edge0 has its address, move the default
+                    # route onto it so games that report the default-gateway
+                    # adapter's IP (Diablo II's TCP/IP host screen) advertise
+                    # the overlay address. Pin the supernode to tap0 first so
+                    # the edge keeps reaching it; the game then has no general
+                    # internet (LAN play needs none). edge0's on-link .1 is the
+                    # nominal gateway so the adapter has a non-empty gateway
+                    # list. Event-driven (own `ip monitor` wait), no poll.
+                    (
+                      exec {__strom_dr_mon}< <(exec ip monitor link address 2>/dev/null)
+                      until ip -4 addr show edge0 2>/dev/null | grep -q 'inet '; do
+                        IFS= read -r _ <&"''${__strom_dr_mon}" || break
+                      done
+                      # Parse `ip -j` (JSON) with jq rather than positional
+                      # awk/sed on human-readable output.
+                      __strom_dr_tap_gw=$(ip -j -4 route show default 2>/dev/null \
+                        | ${pkgs.jq}/bin/jq -r '.[0].gateway // empty')
+                      __strom_dr_edge_ip=$(ip -j -4 addr show edge0 2>/dev/null \
+                        | ${pkgs.jq}/bin/jq -r '[.[].addr_info[]? | select(.family == "inet") | .local][0] // empty')
+                      if [ -n "''${__strom_dr_tap_gw:-}" ]; then
+                        ip route add "''${N2N_SUPERNODE%%:*}" via "$__strom_dr_tap_gw" dev tap0 2>/dev/null || true
+                      fi
+                      if [ -n "''${__strom_dr_edge_ip:-}" ]; then
+                        # nominal on-link gateway = .1 of edge0's /24 overlay
+                        ip route replace default via "''${__strom_dr_edge_ip%.*}.1" dev edge0 2>/dev/null || true
+                      fi
+                    ) &
+                  ''}
                 ''}
 
                 ${cfg.preRun}
