@@ -1399,6 +1399,13 @@
     "description": "Rain World (Videocult, GOG v1.9.07b-v3 build 63290, via Proton)",
     "runtime": "proton"
   },
+  "realms-of-the-haunting": {
+    "cids": [
+      "QmVsZihNvVW3MmmdUQupGE7bpQmnNudvD8DWJBmFBLhGVj"
+    ],
+    "description": "Realms of the Haunting (1996 Gremlin Interactive FMV adventure, via DOSBox-X)",
+    "runtime": "custom"
+  },
   "return-of-the-obra-dinn": {
     "cids": [
       "QmefADojRgYj81RXePWmpEVGNBCR7RCyGQrgFZLqmmPFUe"
