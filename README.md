@@ -116,6 +116,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/diablo-ii-lord-of-destruction/"><img src="https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg" height="40" alt="diablo-ii-lord-of-destruction"></a> | [Diablo II + Lord of Destruction](https://lutris.net/games/diablo-ii-lord-of-destruction/) | `proton` | `nix run .#diablo-ii-lord-of-destruction` |
 | <a href="https://lutris.net/games/disco-elysium-game-boy-edition/"><img src="https://lutris.net/games/banner/disco-elysium-game-boy-edition.jpg" height="40" alt="disco-elysium-game-boy-edition"></a> | [Disco Elysium: Game Boy Edition](https://lutris.net/games/disco-elysium-game-boy-edition/) | `retroarch` | `nix run .#disco-elysium-game-boy-edition` |
 | <a href="https://lutris.net/games/disco-elysium-the-final-cut/"><img src="https://lutris.net/games/banner/disco-elysium-the-final-cut.jpg" height="40" alt="disco-elysium-the-final-cut"></a> | [Disco Elysium: The Final Cut](https://lutris.net/games/disco-elysium-the-final-cut/) | `proton` | `nix run .#disco-elysium-the-final-cut` |
+| <a href="https://lutris.net/games/dishonored-definitive-edition/"><img src="https://lutris.net/games/banner/dishonored-definitive-edition.jpg" height="40" alt="dishonored-definitive-edition"></a> | [Dishonored: Definitive Edition](https://lutris.net/games/dishonored-definitive-edition/) | `proton` | `nix run .#dishonored-definitive-edition` |
 | <a href="https://lutris.net/games/dome-keeper/"><img src="https://lutris.net/games/banner/dome-keeper.jpg" height="40" alt="dome-keeper"></a> | [Dome Keeper](https://lutris.net/games/dome-keeper/) | `custom` | `nix run .#dome-keeper` |
 | <a href="https://lutris.net/games/doom/"><img src="https://lutris.net/games/banner/doom.jpg" height="40" alt="doom"></a> | [The Ultimate DOOM](https://lutris.net/games/doom/) | `custom` | `nix run .#doom` |
 | <a href="https://lutris.net/games/doom-ii/"><img src="https://lutris.net/games/banner/doom-ii.jpg" height="40" alt="doom-ii"></a> | [DOOM II: Hell on Earth](https://lutris.net/games/doom-ii/) | `custom` | `nix run .#doom-ii` |
@@ -316,7 +317,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_275 games_
+_276 games_
 
 <!-- END GENERATED GAMES -->
 
