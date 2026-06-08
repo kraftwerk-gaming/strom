@@ -331,27 +331,34 @@ let
                   ${builtins.readFile ./n2n-edge-launcher.sh}
                   ${lib.optionalString cfg.n2n.defaultRoute ''
                     # n2n.defaultRoute (build-time templated, only for this
-                    # game): once edge0 has its address, move the default
-                    # route onto it so games that report the default-gateway
-                    # adapter's IP (Diablo II's TCP/IP host screen) advertise
-                    # the overlay address. Pin the supernode to tap0 first so
-                    # the edge keeps reaching it; the game then has no general
-                    # internet (LAN play needs none). edge0's on-link .1 is the
-                    # nominal gateway so the adapter has a non-empty gateway
-                    # list. Event-driven (own `ip monitor` wait), no poll.
+                    # game): move the default route onto edge0 so the game reports
+                    # the overlay address. Diablo II's TCP/IP host screen picks
+                    # "my IP" by BEST-ROUTE to the internet (not the literal
+                    # default-gateway adapter -- the /1 OpenVPN trick was tried and
+                    # made D2 pick slirp's tap0 address), so internet egress must
+                    # be edge0; only the supernode keeps a pin-hole out tap0 so the
+                    # n2n control channel survives (LAN play needs no other
+                    # internet). The supernode's IP is resolved host-side (see the
+                    # n2n bwrap.extraPreHook -> STROM_N2N_SUPERNODE_IP) because the
+                    # netns has no DNS and `ip route add <hostname>` fails -- that
+                    # bare-hostname pin was the "supernode not responding" bug.
+                    # Overlay peers stay on-link via edge0's /24. Event-driven
+                    # (own `ip monitor` wait), no poll.
                     (
                       exec {__strom_dr_mon}< <(exec ip monitor link address 2>/dev/null)
                       until ip -4 addr show edge0 2>/dev/null | grep -q 'inet '; do
                         IFS= read -r _ <&"''${__strom_dr_mon}" || break
                       done
-                      # Parse `ip -j` (JSON) with jq rather than positional
-                      # awk/sed on human-readable output.
+                      # Parse `ip -j` (JSON) with jq, not positional awk/sed.
                       __strom_dr_tap_gw=$(ip -j -4 route show default 2>/dev/null \
                         | ${pkgs.jq}/bin/jq -r '.[0].gateway // empty')
                       __strom_dr_edge_ip=$(ip -j -4 addr show edge0 2>/dev/null \
                         | ${pkgs.jq}/bin/jq -r '[.[].addr_info[]? | select(.family == "inet") | .local][0] // empty')
-                      if [ -n "''${__strom_dr_tap_gw:-}" ]; then
-                        ip route add "''${N2N_SUPERNODE%%:*}" via "$__strom_dr_tap_gw" dev tap0 2>/dev/null || true
+                      # Pin the supernode (its IP was resolved host-side into
+                      # STROM_N2N_SUPERNODE_IP) FIRST, so it never drops -- tap0
+                      # is still the default here. Then move the default to edge0.
+                      if [ -n "''${__strom_dr_tap_gw:-}" ] && [ -n "''${STROM_N2N_SUPERNODE_IP:-}" ]; then
+                        ip route add "$STROM_N2N_SUPERNODE_IP" via "$__strom_dr_tap_gw" dev tap0 2>/dev/null || true
                       fi
                       if [ -n "''${__strom_dr_edge_ip:-}" ]; then
                         # nominal on-link gateway = .1 of edge0's /24 overlay
@@ -498,6 +505,23 @@ let
                 "$STROM_CONTROL_DIR/n2n-ready.fifo"
               exec {STROM_N2N_INFO_FD}<>"$STROM_CONTROL_DIR/n2n-info"
               BWRAP_ARGS="''${BWRAP_ARGS:-} --unshare-net --cap-add CAP_NET_ADMIN --dev-bind /dev/net/tun /dev/net/tun --setenv N2N_SUPERNODE $N2N_SUPERNODE --info-fd $STROM_N2N_INFO_FD"
+              ${lib.optionalString cfg.n2n.defaultRoute ''
+                # defaultRoute pins the supernode's route onto the real uplink,
+                # which needs its IP. Resolve it HERE on the host -- the sandbox
+                # netns has no working DNS, and doing it host-side is one clean
+                # lookup with no in-netns mgmt-port/retry plumbing. `dig +short`
+                # prints address lines (keep the first IPv4); an IP literal
+                # passes straight through.
+                __strom_sn="''${N2N_SUPERNODE%%:*}"
+                if printf '%s' "$__strom_sn" | grep -qE '^[0-9.]+$'; then
+                  __strom_sn_ip="$__strom_sn"
+                else
+                  __strom_sn_ip=$(${pkgs.dnsutils}/bin/dig +short "$__strom_sn" A 2>/dev/null \
+                    | grep -m1 -E '^[0-9.]+$' || true)
+                fi
+                [ -n "$__strom_sn_ip" ] \
+                  && BWRAP_ARGS="$BWRAP_ARGS --setenv STROM_N2N_SUPERNODE_IP $__strom_sn_ip"
+              ''}
             else
               BWRAP_ARGS="''${BWRAP_ARGS:-} --unsetenv N2N_SUPERNODE"
             fi
