@@ -137,6 +137,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/fallout/"><img src="https://lutris.net/games/banner/fallout.jpg" height="40" alt="fallout"></a> | [Fallout](https://lutris.net/games/fallout/) | `proton` | `nix run .#fallout` |
 | <a href="https://lutris.net/games/fallout-2/"><img src="https://lutris.net/games/banner/fallout-2.jpg" height="40" alt="fallout-2"></a> | [Fallout 2](https://lutris.net/games/fallout-2/) | `proton` | `nix run .#fallout-2` |
 | <a href="https://lutris.net/games/far-cry/"><img src="https://lutris.net/games/banner/far-cry.jpg" height="40" alt="far-cry"></a> | [Far Cry](https://lutris.net/games/far-cry/) | `proton` | `nix run .#far-cry` |
+| <a href="https://lutris.net/games/far-cry-2/"><img src="https://lutris.net/games/banner/far-cry-2.jpg" height="40" alt="far-cry-2"></a> | [Far Cry 2: Fortune's Edition + Realism Plus Redux](https://lutris.net/games/far-cry-2/) | `proton` | `nix run .#far-cry-2` |
 | <a href="https://lutris.net/games/fear/"><img src="https://lutris.net/games/banner/fear.jpg" height="40" alt="fear"></a> | [F.E.A.R. Platinum Collection](https://lutris.net/games/fear/) | `proton` | `nix run .#fear` |
 | <a href="https://lutris.net/games/fez/"><img src="https://lutris.net/games/banner/fez.jpg" height="40" alt="fez"></a> | [FEZ](https://lutris.net/games/fez/) | `native` | `nix run .#fez` |
 | <a href="https://lutris.net/games/final-doom-plutonia/"><img src="https://lutris.net/games/banner/final-doom-plutonia.jpg" height="40" alt="final-doom-plutonia"></a> | [Final Doom: The Plutonia Experiment](https://lutris.net/games/final-doom-plutonia/) | `custom` | `nix run .#final-doom-plutonia` |
@@ -318,7 +319,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_277 games_
+_278 games_
 
 <!-- END GENERATED GAMES -->
 

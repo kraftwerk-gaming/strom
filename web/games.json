@@ -690,6 +690,13 @@
     "description": "Far Cry (Crytek/Ubisoft, 2004 retail DVD, via Proton)",
     "runtime": "proton"
   },
+  "far-cry-2": {
+    "cids": [
+      "QmYRVdmUSPFjWzfCLPTiUmhLQ9n4VxycFE8s4oiB7GosnY"
+    ],
+    "description": "Far Cry 2: Fortune's Edition + Realism Plus Redux (Ubisoft 2008, Dunia, via Proton)",
+    "runtime": "proton"
+  },
   "fear": {
     "cids": [
       "QmbF1m9dXiSvHXTQgcK45s1zkEtJ3HaJShLkg9o17CGFbg"
