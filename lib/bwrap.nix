@@ -426,6 +426,31 @@ in
         ) &
         STROM_FIFO_READER_PID=$!
 
+        # Orphan watchdog. An abrupt teardown (e.g. `tmux kill-session`)
+        # SIGHUPs gamescope but NOT this nested wrapper, which lives in a
+        # child session: its INT/TERM/HUP traps never fire and it would sit
+        # in the wait loop below holding the fuse-overlayfs mount + bwrap,
+        # reparented to init. Detect being reparented to PID 1 (parent
+        # died) and fire the shutdown FIFO so the normal teardown path
+        # (FIFO reader -> SIGKILL bwrap -> wait breaks -> EXIT trap unmount)
+        # runs. PPid is read from /proc/<pid>/status (unambiguous, unlike
+        # awk-on-stat with a parenthesised comm). Only fire on a TRANSITION
+        # to PPid 1, so a wrapper legitimately started by init/systemd
+        # (PPid 1 from the start) is never falsely torn down.
+        __strom_wrapper_pid=$$
+        __strom_start_ppid=$(awk '/^PPid:/{print $2}' "/proc/$__strom_wrapper_pid/status" 2>/dev/null)
+        (
+          while kill -0 "$BWRAP_PID" 2>/dev/null; do
+            __strom_now_ppid=$(awk '/^PPid:/{print $2}' "/proc/$__strom_wrapper_pid/status" 2>/dev/null)
+            if [ "$__strom_now_ppid" = 1 ] && [ "$__strom_start_ppid" != 1 ]; then
+              echo shutdown > "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true
+              break
+            fi
+            sleep 2
+          done
+        ) &
+        STROM_ORPHAN_WATCHDOG_PID=$!
+
         __strom_host_cleanup() {
           __strom_bwrap_cleanup
           ${config.cleanupHook}
@@ -435,6 +460,9 @@ in
             echo shutdown > "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true
             kill -TERM "$STROM_FIFO_READER_PID" 2>/dev/null || true
           fi
+          # Stop the orphan watchdog (it self-exits when bwrap dies, but
+          # reap it promptly so it does not linger up to one poll interval).
+          kill -TERM "$STROM_ORPHAN_WATCHDOG_PID" 2>/dev/null || true
           __strom_reap_gs_dirs
           rm -f "$STROM_CONTROL_DIR/strom-gs-dirs" "$STROM_CONTROL_DIR/shutdown.fifo"
           rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true
