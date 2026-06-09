@@ -901,6 +901,13 @@
     "description": "Harvest Moon (Pack-In-Video / Natsume 1996 SNES, via RetroArch / bsnes)",
     "runtime": "retroarch"
   },
+  "heave-ho": {
+    "cids": [
+      "QmXqCGP9bKyeLMYdFjujeMgXYv5Un9JqqTW1SMrdoXwPx4"
+    ],
+    "description": "Heave Ho (Le Cartel Studio 2019, Unity co-op party game, v1.08 via Proton)",
+    "runtime": "proton"
+  },
   "heroes-of-might-and-magic-2-gold": {
     "cids": [
       "QmRaZGqtcgX9cHNJXhkyc2czyw1qxjSvkAWRPjfEYCyVRi",
