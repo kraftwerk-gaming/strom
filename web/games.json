@@ -1622,6 +1622,13 @@
     "description": "Stubbs the Zombie in Rebel Without a Pulse (Wideload Games / Aspyr, GOG 2021 re-release v1.0 build 45609, via Proton)",
     "runtime": "proton"
   },
+  "sun-haven": {
+    "cids": [
+      "QmY8oHub4D9nTTUtPBEyt8qGPfhQAFYRSDQFDpFynwAw3u"
+    ],
+    "description": "Sun Haven (Pixel Sprout Studios 2023, via Proton)",
+    "runtime": "proton"
+  },
   "super-hexagon": {
     "cids": [
       "QmQq1TdmAFnEVQ7pVLCEsH72jygtQPp8s2MYKRJVCbpZrf"
