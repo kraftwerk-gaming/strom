@@ -655,6 +655,13 @@
     "description": "Encased: A Sci-Fi Post-Apocalyptic RPG (Dark Crystal Games 2021, native Linux, GOG v1.3.1517.1645)",
     "runtime": "native"
   },
+  "endless-legend": {
+    "cids": [
+      "QmVoD5P94HyrKAjz4vRAZCujtfgUc3NiPSvE4b7dKhvkGZ"
+    ],
+    "description": "Endless Legend (Amplitude Studios 2014, via Proton)",
+    "runtime": "proton"
+  },
   "environmental-station-alpha": {
     "cids": [
       "QmSKfKZbygBUXXknED9vQUpaY4yjApjHMqTXq4cwtDD9xQ"
