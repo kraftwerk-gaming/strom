@@ -641,6 +641,13 @@
     "description": "Empire Earth II Gold (Mad Doc/Vivendi 2005, via Proton)",
     "runtime": "proton"
   },
+  "empire-earth-iii": {
+    "cids": [
+      "QmebEL9cUfCPqTMJNTBxWfsBeZ3Fikk5bDctSpwqLSGUQi"
+    ],
+    "description": "Empire Earth III (Mad Doc 2007, GOG offline installer, via Proton)",
+    "runtime": "proton"
+  },
   "encased": {
     "cids": [
       "QmPQL52zQWar61rF7UFQfAhemypJTEZSkhsPsXoTVvpgy6"

@@ -130,6 +130,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/earth-2150/"><img src="https://lutris.net/games/banner/earth-2150.jpg" height="40" alt="earth-2150"></a> | [Earth 2150: Escape from the Blue Planet](https://lutris.net/games/earth-2150/) | `proton` | `nix run .#earth-2150` |
 | <a href="https://lutris.net/games/emperor-battle-for-dune/"><img src="https://lutris.net/games/banner/emperor-battle-for-dune.jpg" height="40" alt="emperor-battle-for-dune"></a> | [Emperor: Battle for Dune](https://lutris.net/games/emperor-battle-for-dune/) | `proton` | `nix run .#emperor-battle-for-dune` |
 | <a href="https://lutris.net/games/empire-earth-ii/"><img src="https://lutris.net/games/banner/empire-earth-ii.jpg" height="40" alt="empire-earth-ii"></a> | [Empire Earth II Gold](https://lutris.net/games/empire-earth-ii/) | `proton` | `nix run .#empire-earth-ii` |
+| <a href="https://lutris.net/games/empire-earth-iii/"><img src="https://lutris.net/games/banner/empire-earth-iii.jpg" height="40" alt="empire-earth-iii"></a> | [Empire Earth III](https://lutris.net/games/empire-earth-iii/) | `proton` | `nix run .#empire-earth-iii` |
 | <a href="https://lutris.net/games/encased/"><img src="https://lutris.net/games/banner/encased.jpg" height="40" alt="encased"></a> | [Encased: A Sci-Fi Post-Apocalyptic RPG](https://lutris.net/games/encased/) | `native` | `nix run .#encased` |
 | <a href="https://lutris.net/games/environmental-station-alpha/"><img src="https://lutris.net/games/banner/environmental-station-alpha.jpg" height="40" alt="environmental-station-alpha"></a> | [Environmental Station Alpha](https://lutris.net/games/environmental-station-alpha/) | `proton` | `nix run .#environmental-station-alpha` |
 | <a href="https://lutris.net/games/europa-1400-the-guild/"><img src="https://lutris.net/games/banner/europa-1400-the-guild.jpg" height="40" alt="europa-1400-the-guild"></a> | [Europa 1400: The Guild - Gold Edition](https://lutris.net/games/europa-1400-the-guild/) | `proton` | `nix run .#europa-1400-the-guild` |
@@ -326,7 +327,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_285 games_
+_286 games_
 
 <!-- END GENERATED GAMES -->
 
