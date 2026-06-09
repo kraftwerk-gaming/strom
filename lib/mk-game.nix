@@ -421,6 +421,17 @@ let
       };
 
       config = lib.mkMerge [
+        (lib.mkIf cfg.padToKb.enable {
+          # pad-to-kb starts its evsieve helper in preHook (pre-exec) and
+          # reaps it via an EXIT/TERM trap that `exec strom-run` would
+          # discard, leaving the evsieve uinput device behind. Keep padToKb
+          # games on the legacy bash supervision until the helper is
+          # migrated. (n2n needs no build-time opt-out: it is inert unless
+          # $N2N_SUPERNODE is set at runtime, and bwrap.nix only hands off
+          # to strom-run when it is unset.)
+          bwrap.useStromRun = false;
+        })
+
         (lib.mkIf (cfg.runtime == "proton") {
           # tmpfs $HOME so proton.preHook can write ~/.steam/sdk{32,64}/.
           # (/sys is bound universally above for DRM/Vulkan probing.)
