@@ -1538,6 +1538,13 @@
     "description": "Rhythm Doctor (7th Beat Games 2021, native Linux v1.0.0, LinuxRuleZ! repack)",
     "runtime": "custom"
   },
+  "risen": {
+    "cids": [
+      "QmV2FoMcwjyxqyBM65cLSBpjXRY2rXBkTXZoTCbJNaLLkY"
+    ],
+    "description": "Risen (Piranha Bytes 2009, GOG v2.0.0.6, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "risk-of-rain": {
     "cids": [
       "QmUiGfcZ9zbgubBA8RZCwGvMhz4drAKztWZr3eKZ9s4C3m"
