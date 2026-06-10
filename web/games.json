@@ -1257,6 +1257,13 @@
     "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "nidhogg": {
+    "cids": [
+      "QmXpnfHL8bphczGSpi1m8JkNeJTcgH7KNEju6Bm9LAJxXP"
+    ],
+    "description": "Nidhogg (Messhof 2014 fencing game, v7341652, via Proton)",
+    "runtime": "proton"
+  },
   "no-one-lives-forever": {
     "cids": [
       "QmNNopwiiZ9daLJQ7Z2fT6emAxKeVnFwkWiYWAp4oHC1KH"
