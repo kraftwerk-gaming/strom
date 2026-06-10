@@ -1160,6 +1160,13 @@
     "description": "Lemmings 95 (Windows 95 version via Wine)",
     "runtime": "native"
   },
+  "lone-survivor": {
+    "cids": [
+      "QmcwMQYu7baPa7Ans6yM6ARCfZLx8htu9z32Ao2DvrjwwX"
+    ],
+    "description": "Lone Survivor: The Director's Cut (Superflat Games, GOG v1.0 build 21178, via Proton)",
+    "runtime": "proton"
+  },
   "loop-hero": {
     "cids": [
       "QmQSAMV6PnygfoLfYrNwXtCm5RzGdqu8p56qxPz3DahtPn"

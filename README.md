@@ -203,6 +203,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/lego-star-wars-the-complete-saga/"><img src="https://lutris.net/games/banner/lego-star-wars-the-complete-saga.jpg" height="40" alt="lego-star-wars-the-complete-saga"></a> | [LEGO Star Wars: The Complete Saga](https://lutris.net/games/lego-star-wars-the-complete-saga/) | `proton` | `nix run .#lego-star-wars-the-complete-saga` |
 | <a href="https://lutris.net/games/lemmings/"><img src="https://lutris.net/games/banner/lemmings.jpg" height="40" alt="lemmings"></a> | [Lemmings](https://lutris.net/games/lemmings/) | `native` | `nix run .#lemmings` |
 | <a href="https://lutris.net/games/lemmings-95/"><img src="https://lutris.net/games/banner/lemmings-95.jpg" height="40" alt="lemmings-95"></a> | [Lemmings 95](https://lutris.net/games/lemmings-95/) | `native` | `nix run .#lemmings-95` |
+| <a href="https://lutris.net/games/lone-survivor/"><img src="https://lutris.net/games/banner/lone-survivor.jpg" height="40" alt="lone-survivor"></a> | [Lone Survivor: The Director's Cut](https://lutris.net/games/lone-survivor/) | `proton` | `nix run .#lone-survivor` |
 | <a href="https://lutris.net/games/loop-hero/"><img src="https://lutris.net/games/banner/loop-hero.jpg" height="40" alt="loop-hero"></a> | [Loop Hero](https://lutris.net/games/loop-hero/) | `custom` | `nix run .#loop-hero` |
 | <a href="https://lutris.net/games/lorns-lure/"><img src="https://lutris.net/games/banner/lorns-lure.jpg" height="40" alt="lorns-lure"></a> | [Lorn's Lure](https://lutris.net/games/lorns-lure/) | `proton` | `nix run .#lorns-lure` |
 | <a href="https://lutris.net/games/luftrausers/"><img src="https://lutris.net/games/banner/luftrausers.jpg" height="40" alt="luftrausers"></a> | [Luftrausers](https://lutris.net/games/luftrausers/) | `custom` | `nix run .#luftrausers` |
@@ -337,7 +338,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_296 games_
+_297 games_
 
 <!-- END GENERATED GAMES -->
 
