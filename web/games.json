@@ -646,6 +646,13 @@
     "description": "Emperor: Battle for Dune (Westwood 2001, via Proton with wheybags HD/multiplayer patch)",
     "runtime": "proton"
   },
+  "empire-earth": {
+    "cids": [
+      "QmedoMJTRgLNK3R4PGtKQCzzU2euwAzj4mSmXqCGkoovgY"
+    ],
+    "description": "Empire Earth: Gold Edition (Art of Conquest, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "empire-earth-ii": {
     "cids": [
       "QmNhH3tSdDNcWaBYnN5ZARd2XNR4qwVL9avBcCEkKVMxbK"
