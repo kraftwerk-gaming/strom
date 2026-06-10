@@ -162,6 +162,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/golden-sun/"><img src="https://lutris.net/games/banner/golden-sun.jpg" height="40" alt="golden-sun"></a> | [Golden Sun](https://lutris.net/games/golden-sun/) | `retroarch` | `nix run .#golden-sun` |
 | <a href="https://lutris.net/games/golden-sun-the-lost-age/"><img src="https://lutris.net/games/banner/golden-sun-the-lost-age.jpg" height="40" alt="golden-sun-the-lost-age"></a> | [Golden Sun: The Lost Age](https://lutris.net/games/golden-sun-the-lost-age/) | `retroarch` | `nix run .#golden-sun-the-lost-age` |
 | <a href="https://lutris.net/games/gothic/"><img src="https://lutris.net/games/banner/gothic.jpg" height="40" alt="gothic"></a> | [Gothic](https://lutris.net/games/gothic/) | `proton` | `nix run .#gothic` |
+| <a href="https://lutris.net/games/gothic-3/"><img src="https://lutris.net/games/banner/gothic-3.jpg" height="40" alt="gothic-3"></a> | [Gothic 3](https://lutris.net/games/gothic-3/) | `proton` | `nix run .#gothic-3` |
 | <a href="https://lutris.net/games/gothic-ii/"><img src="https://lutris.net/games/banner/gothic-ii.jpg" height="40" alt="gothic-ii"></a> | [Gothic II: Gold Edition](https://lutris.net/games/gothic-ii/) | `proton` | `nix run .#gothic-ii` |
 | <a href="https://lutris.net/games/grand-theft-auto-2/"><img src="https://lutris.net/games/banner/grand-theft-auto-2.jpg" height="40" alt="grand-theft-auto-2"></a> | [Grand Theft Auto 2](https://lutris.net/games/grand-theft-auto-2/) | `proton` | `nix run .#grand-theft-auto-2` |
 | <a href="https://lutris.net/games/grand-theft-auto-san-andreas/"><img src="https://lutris.net/games/banner/grand-theft-auto-san-andreas.jpg" height="40" alt="grand-theft-auto-san-andreas"></a> | [Grand Theft Auto: San Andreas](https://lutris.net/games/grand-theft-auto-san-andreas/) | `proton` | `nix run .#grand-theft-auto-san-andreas` |
@@ -339,7 +340,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_298 games_
+_299 games_
 
 <!-- END GENERATED GAMES -->
 

@@ -864,6 +864,14 @@
     "description": "Gothic (Piranha Bytes 2001, GOG 1.08k, via Proton)",
     "runtime": "proton"
   },
+  "gothic-3": {
+    "cids": [
+      "QmVcH9mzi6oCCmBFzpBTWjuWr5jjp6P9W7jmuUZYrRB2Lx",
+      "QmVhehUcbAfHPmEkD2iZ6qBYCwXdd3SLeuDhtGvuWoGa18"
+    ],
+    "description": "Gothic 3 (Piranha Bytes 2006, GOG v1.75.14L build 21829 + Community Patch, via Proton)",
+    "runtime": "proton"
+  },
   "gothic-ii": {
     "cids": [
       "QmeTtngpG3MdbSFyhpiZjF5tjBeoADwy1fJk9xPVv1kHcw",
