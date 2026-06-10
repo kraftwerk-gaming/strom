@@ -1044,6 +1044,13 @@
     "description": "Interstate '76 Arsenal (Activision 1997, via Proton)",
     "runtime": "proton"
   },
+  "invisible-inc": {
+    "cids": [
+      "QmeiVKXeDFitaCqqHzSvmV6cgGA7aVU6PGXxo3Go3AJbXb"
+    ],
+    "description": "Invisible, Inc. (Klei 2015, native Linux, GOG v281021)",
+    "runtime": "native"
+  },
   "iron-lung": {
     "cids": [
       "QmY5gwRVK9HpnG5mufRmDPK7cx9bxgGPx7xPz2MnTsq9RE"
