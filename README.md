@@ -185,6 +185,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/indiana-jones-and-the-fate-of-atlantis/"><img src="https://lutris.net/games/banner/indiana-jones-and-the-fate-of-atlantis.jpg" height="40" alt="indiana-jones-and-the-fate-of-atlantis"></a> | [Indiana Jones and the Fate of Atlantis](https://lutris.net/games/indiana-jones-and-the-fate-of-atlantis/) | `native` | `nix run .#indiana-jones-and-the-fate-of-atlantis` |
 | <a href="https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/"><img src="https://lutris.net/games/banner/indiana-jones-and-the-last-crusade-the-graphic-adventure.jpg" height="40" alt="indiana-jones-and-the-last-crusade-the-graphic-adventure"></a> | [Indiana Jones and the Last Crusade: The Graphic Adventure](https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/) | `native` | `nix run .#indiana-jones-and-the-last-crusade-the-graphic-adventure` |
 | <a href="https://lutris.net/games/inscryption/"><img src="https://lutris.net/games/banner/inscryption.jpg" height="40" alt="inscryption"></a> | [Inscryption](https://lutris.net/games/inscryption/) | `native` | `nix run .#inscryption` |
+| <a href="https://lutris.net/games/inside/"><img src="https://lutris.net/games/banner/inside.jpg" height="40" alt="inside"></a> | [INSIDE](https://lutris.net/games/inside/) | `proton` | `nix run .#inside` |
 | <a href="https://lutris.net/games/interstate-76/"><img src="https://lutris.net/games/banner/interstate-76.jpg" height="40" alt="interstate-76"></a> | [Interstate '76 Arsenal](https://lutris.net/games/interstate-76/) | `proton` | `nix run .#interstate-76` |
 | <a href="https://lutris.net/games/iron-lung/"><img src="https://lutris.net/games/banner/iron-lung.jpg" height="40" alt="iron-lung"></a> | [Iron Lung](https://lutris.net/games/iron-lung/) | `proton` | `nix run .#iron-lung` |
 | <a href="https://lutris.net/games/jade-empire-special-edition/"><img src="https://lutris.net/games/banner/jade-empire-special-edition.jpg" height="40" alt="jade-empire-special-edition"></a> | [Jade Empire: Special Edition](https://lutris.net/games/jade-empire-special-edition/) | `proton` | `nix run .#jade-empire-special-edition` |
@@ -333,7 +334,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_292 games_
+_293 games_
 
 <!-- END GENERATED GAMES -->
 

@@ -1030,6 +1030,13 @@
     "description": "Inscryption (native Linux, GOG v1.10 build 57447)",
     "runtime": "native"
   },
+  "inside": {
+    "cids": [
+      "QmavAbnNuAu4EoCiPxDwbec5S9V4Q6dVY68qncg2ao1J6R"
+    ],
+    "description": "INSIDE (Playdead 2016, puzzle-platformer via Proton, GOG v10 build 16955)",
+    "runtime": "proton"
+  },
   "interstate-76": {
     "cids": [
       "Qma3cbzkU4FucWUeNY1cfgzFML3G6XPoWr1HKYGMNdQCWh"
