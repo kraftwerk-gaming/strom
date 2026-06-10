@@ -309,6 +309,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/the-simpsons-hit-run/"><img src="https://lutris.net/games/banner/the-simpsons-hit-run.jpg" height="40" alt="the-simpsons-hit-run"></a> | [The Simpsons: Hit & Run](https://lutris.net/games/the-simpsons-hit-run/) | `proton` | `nix run .#the-simpsons-hit-run` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead.jpg" height="40" alt="the-typing-of-the-dead"></a> | [The Typing of the Dead](https://lutris.net/games/the-typing-of-the-dead/) | `proton` | `nix run .#the-typing-of-the-dead` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead-overkill/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg" height="40" alt="the-typing-of-the-dead-overkill"></a> | [The Typing of the Dead: Overkill](https://lutris.net/games/the-typing-of-the-dead-overkill/) | `proton` | `nix run .#the-typing-of-the-dead-overkill` |
+| <a href="https://lutris.net/games/the-witness/"><img src="https://lutris.net/games/banner/the-witness.jpg" height="40" alt="the-witness"></a> | [The Witness](https://lutris.net/games/the-witness/) | `proton` | `nix run .#the-witness` |
 | <a href="https://lutris.net/games/theme-hospital/"><img src="https://lutris.net/games/banner/theme-hospital.jpg" height="40" alt="theme-hospital"></a> | [Theme Hospital](https://lutris.net/games/theme-hospital/) | `native` | `nix run .#theme-hospital` |
 | <a href="https://lutris.net/games/thief-2/"><img src="https://lutris.net/games/banner/thief-2.jpg" height="40" alt="thief-2"></a> | [Thief II: The Metal Age](https://lutris.net/games/thief-2/) | `proton` | `nix run .#thief-2` |
 | <a href="https://lutris.net/games/thief-gold/"><img src="https://lutris.net/games/banner/thief-gold.jpg" height="40" alt="thief-gold"></a> | [Thief Gold with TFix](https://lutris.net/games/thief-gold/) | `proton` | `nix run .#thief-gold` |
@@ -338,7 +339,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_297 games_
+_298 games_
 
 <!-- END GENERATED GAMES -->
 
