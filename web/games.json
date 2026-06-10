@@ -1399,6 +1399,13 @@
     "description": "PICO PARK (2021 paid release, Steamworks shimmed with Goldberg, via Proton)",
     "runtime": "proton"
   },
+  "pikuniku": {
+    "cids": [
+      "Qmb1oRLhCtE8oxPsDLVjykHbrZcMfPJwMDaehKHMfBrsWy"
+    ],
+    "description": "Pikuniku (Unity, GOG v1.0.5-GOG1, via Proton)",
+    "runtime": "proton"
+  },
   "planescape-torment": {
     "cids": [
       "QmaqqPrfcQjzLyWmcAMMth42qRLwH7MWq32DnYMNehsmWm"
