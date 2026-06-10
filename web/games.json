@@ -857,6 +857,14 @@
     "description": "Gothic (Piranha Bytes 2001, GOG 1.08k, via Proton)",
     "runtime": "proton"
   },
+  "gothic-ii": {
+    "cids": [
+      "QmeTtngpG3MdbSFyhpiZjF5tjBeoADwy1fJk9xPVv1kHcw",
+      "QmRqRswjxcgiqBUZNwHphd7xC6AtarKnjubZxMwjzXirHH"
+    ],
+    "description": "Gothic II: Gold Edition (Piranha Bytes 2003, GOG v2.7 win10 build 55878, via Proton)",
+    "runtime": "proton"
+  },
   "grand-theft-auto-2": {
     "cids": [
       "QmXf4yBiYYqCPc18buJCL4MtFiHDR5dNhVyfEhyVqSzYsy"
