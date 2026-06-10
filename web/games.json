@@ -255,6 +255,13 @@
     "description": "Bridge Builder 2 / Bridge Construction Set (Chronic Logic 2004, German Halycon release, via Proton)",
     "runtime": "proton"
   },
+  "bridge-it": {
+    "cids": [
+      "QmTFNcg4GcaXtrC4cNYQy98A9oFNyzZZ9PQ25Hiz6fTV6i"
+    ],
+    "description": "Bridge It Plus v1.32 (Chronic Logic, EN full, via Proton)",
+    "runtime": "proton"
+  },
   "broforce": {
     "cids": [
       "QmUQN3MxUKAEYQQmmuJp5C663FfNTiDfiBTVGcqwxJsNhM"
