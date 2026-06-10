@@ -201,6 +201,11 @@
     "description": "Beneath a Steel Sky (1994 Revolution Software CD freeware, via ScummVM)",
     "runtime": "native"
   },
+  "beyond-all-reason": {
+    "cids": [],
+    "description": "Beyond All Reason (free RTS on the Recoil/Spring engine; engine+assets pre-fetched at build time)",
+    "runtime": "custom"
+  },
   "bioshock": {
     "cids": [
       "QmV5fHnd19vCdrwEKB99BnV5t8pTAZoJrkAxRwarsDcNFp"

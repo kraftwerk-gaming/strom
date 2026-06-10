@@ -68,6 +68,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/battlefield-2/"><img src="https://lutris.net/games/banner/battlefield-2.jpg" height="40" alt="battlefield-2"></a> | [Battlefield 2 Complete Collection](https://lutris.net/games/battlefield-2/) | `proton` | `nix run .#battlefield-2` |
 | <a href="https://lutris.net/games/beamng-dot-drive/"><img src="https://lutris.net/games/banner/beamng-dot-drive.jpg" height="40" alt="beamng-dot-drive"></a> | [BeamNG.drive](https://lutris.net/games/beamng-dot-drive/) | `native` | `nix run .#beamng-dot-drive` |
 | <a href="https://lutris.net/games/beneath-a-steel-sky/"><img src="https://lutris.net/games/banner/beneath-a-steel-sky.jpg" height="40" alt="beneath-a-steel-sky"></a> | [Beneath a Steel Sky](https://lutris.net/games/beneath-a-steel-sky/) | `native` | `nix run .#beneath-a-steel-sky` |
+| <a href="https://lutris.net/games/beyond-all-reason/"><img src="https://lutris.net/games/banner/beyond-all-reason.jpg" height="40" alt="beyond-all-reason"></a> | [Beyond All Reason](https://lutris.net/games/beyond-all-reason/) | `custom` | `nix run .#beyond-all-reason` |
 | <a href="https://lutris.net/games/bioshock/"><img src="https://lutris.net/games/banner/bioshock.jpg" height="40" alt="bioshock"></a> | [BioShock](https://lutris.net/games/bioshock/) | `proton` | `nix run .#bioshock` |
 | <a href="https://lutris.net/games/black-and-white/"><img src="https://lutris.net/games/banner/black-and-white.jpg" height="40" alt="black-and-white"></a> | [Black & White](https://lutris.net/games/black-and-white/) | `proton` | `nix run .#black-and-white` |
 | <a href="https://lutris.net/games/blood-omen-legacy-of-kain/"><img src="https://lutris.net/games/banner/blood-omen-legacy-of-kain.jpg" height="40" alt="blood-omen-legacy-of-kain"></a> | [Blood Omen: Legacy of Kain](https://lutris.net/games/blood-omen-legacy-of-kain/) | `proton` | `nix run .#blood-omen-legacy-of-kain` |
@@ -328,7 +329,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_287 games_
+_288 games_
 
 <!-- END GENERATED GAMES -->
 
