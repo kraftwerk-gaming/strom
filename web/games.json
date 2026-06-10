@@ -829,6 +829,16 @@
     "description": "The Game of Robot (1988, via DOSBox-X)",
     "runtime": "native"
   },
+  "gamedec": {
+    "cids": [
+      "QmcSXNFgdp491vKjsXkcs1Qc4RbS7nQ4Qfh7WwMsfNcrVQ",
+      "QmYpapEoXumkidm99Cd3RWFx2zdoqSaAS9SFsCfwQfAvLd",
+      "QmRKZ8dPEiZzmoSgDHe6MrkquL3xgCFGyFDF5C8QCoQQ4F",
+      "QmTWgvBJRpM9XMBC6Vi5NzBCnFGip66nPPyKKXKgcrnE9T"
+    ],
+    "description": "Gamedec - Definitive Edition (Anshar Studios 2021, UE4 isometric cyberpunk RPG, GOG via Proton)",
+    "runtime": "proton"
+  },
   "getting-over-it-with-bennett-foddy": {
     "cids": [
       "QmcSQfYfra3Scgmj9drWygX4GgVEoVpMCxQibH8JUzCvue"

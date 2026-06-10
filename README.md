@@ -157,6 +157,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/ftl-faster-than-light/"><img src="https://lutris.net/games/banner/ftl-faster-than-light.jpg" height="40" alt="ftl-faster-than-light"></a> | [FTL: Faster Than Light Advanced Edition](https://lutris.net/games/ftl-faster-than-light/) | `native` | `nix run .#ftl-faster-than-light` |
 | <a href="https://lutris.net/games/full-throttle/"><img src="https://lutris.net/games/banner/full-throttle.jpg" height="40" alt="full-throttle"></a> | [Full Throttle](https://lutris.net/games/full-throttle/) | `native` | `nix run .#full-throttle` |
 | <a href="https://lutris.net/games/game-of-robot/"><img src="https://lutris.net/games/banner/game-of-robot.jpg" height="40" alt="game-of-robot"></a> | [The Game of Robot](https://lutris.net/games/game-of-robot/) | `native` | `nix run .#game-of-robot` |
+| <a href="https://lutris.net/games/gamedec/"><img src="https://lutris.net/games/banner/gamedec.jpg" height="40" alt="gamedec"></a> | [Gamedec - Definitive Edition](https://lutris.net/games/gamedec/) | `proton` | `nix run .#gamedec` |
 | <a href="https://lutris.net/games/getting-over-it-with-bennett-foddy/"><img src="https://lutris.net/games/banner/getting-over-it-with-bennett-foddy.jpg" height="40" alt="getting-over-it-with-bennett-foddy"></a> | [Getting Over It with Bennett Foddy](https://lutris.net/games/getting-over-it-with-bennett-foddy/) | `proton` | `nix run .#getting-over-it-with-bennett-foddy` |
 | <a href="https://lutris.net/games/gish/"><img src="https://lutris.net/games/banner/gish.jpg" height="40" alt="gish"></a> | [Gish](https://lutris.net/games/gish/) | `native` | `nix run .#gish` |
 | <a href="https://lutris.net/games/golden-sun/"><img src="https://lutris.net/games/banner/golden-sun.jpg" height="40" alt="golden-sun"></a> | [Golden Sun](https://lutris.net/games/golden-sun/) | `retroarch` | `nix run .#golden-sun` |
@@ -340,7 +341,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_299 games_
+_300 games_
 
 <!-- END GENERATED GAMES -->
 
