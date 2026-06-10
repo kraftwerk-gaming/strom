@@ -1293,6 +1293,13 @@
     "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "nice-day-for-fishing": {
+    "cids": [
+      "QmZCgP8XjfWpmc5fPXDybTCykETXUumLupyJRXoF8b7op3"
+    ],
+    "description": "Nice Day for Fishing (FusionPlay / Team17 2025, GOG v1.2.15, via Proton)",
+    "runtime": "proton"
+  },
   "nidhogg": {
     "cids": [
       "QmXpnfHL8bphczGSpi1m8JkNeJTcgH7KNEju6Bm9LAJxXP"
