@@ -76,6 +76,17 @@ let
           ];
           default = "custom";
         };
+        enableGamescope = mkOption {
+          type = types.bool;
+          default = true;
+          description = ''
+            Whether the entrypoint runs the game nested inside gamescope.
+            Every game wrapper additionally exposes a `no-gamescope` passthru
+            built with this set to false, which renders directly to the host
+            display (still bwrap-sandboxed + proton'd) — run it with
+            `nix run .#<game>.no-gamescope`.
+          '';
+        };
         executable = mkOption {
           type = types.str;
           default = "";
@@ -445,25 +456,35 @@ let
           proton.exe = overlayExe;
           proton.env = cfg.env;
           gamescope.command = lib.getExe cfg.proton.outputs.wrapper;
-          entrypoint = lib.getExe cfg.gamescope.outputs.wrapper;
-        })
-
-        (lib.mkIf (cfg.runtime == "native") {
-          # $STROM_GAMEDIR -> $HOME so XDG saves persist.
-          bwrap.bind."$HOME" = "$STROM_GAMEDIR";
-          bwrap.env = cfg.env;
-
-          # Inner command is gamescope. If a runScript is set it
-          # becomes the inner command (for env exports / mkdir / config
-          # bootstrap before the real exec); otherwise gamescope wraps
-          # the executable directly.
-          gamescope.command =
-            if cfg.runScript != null then
-              "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
+          entrypoint =
+            if cfg.enableGamescope then
+              lib.getExe cfg.gamescope.outputs.wrapper
             else
-              overlayExe;
-          entrypoint = lib.getExe cfg.gamescope.outputs.wrapper;
+              lib.getExe cfg.proton.outputs.wrapper;
         })
+
+        (lib.mkIf (cfg.runtime == "native") (
+          let
+            # If a runScript is set it becomes the inner command (env
+            # exports / mkdir / config bootstrap before the real exec);
+            # otherwise the executable is launched directly. Reused as both
+            # the gamescope inner command and the no-gamescope entrypoint.
+            nativeCommand =
+              if cfg.runScript != null then
+                "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
+              else
+                overlayExe;
+          in
+          {
+            # $STROM_GAMEDIR -> $HOME so XDG saves persist.
+            bwrap.bind."$HOME" = "$STROM_GAMEDIR";
+            bwrap.env = cfg.env;
+
+            gamescope.command = nativeCommand;
+            entrypoint =
+              if cfg.enableGamescope then lib.getExe cfg.gamescope.outputs.wrapper else nativeCommand;
+          }
+        ))
 
         (lib.mkIf (cfg.runtime == "retroarch") {
           retroarch.romPath = overlayExe;
@@ -612,20 +633,26 @@ let
           '';
         })
 
-        (lib.mkIf (cfg.runtime == "custom") {
-          # Like native (HOME -> $STROM_GAMEDIR); FHS at /usr is on by
-          # default for bare-soname dlopen of bundled libs.
-          # `bwrap.fhsMultilib = true` opt-in for 32-bit games.
-          bwrap.bind."$HOME" = "$STROM_GAMEDIR";
-          bwrap.env = cfg.env;
+        (lib.mkIf (cfg.runtime == "custom") (
+          let
+            nativeCommand =
+              if cfg.runScript != null then
+                "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
+              else
+                overlayExe;
+          in
+          {
+            # Like native (HOME -> $STROM_GAMEDIR); FHS at /usr is on by
+            # default for bare-soname dlopen of bundled libs.
+            # `bwrap.fhsMultilib = true` opt-in for 32-bit games.
+            bwrap.bind."$HOME" = "$STROM_GAMEDIR";
+            bwrap.env = cfg.env;
 
-          gamescope.command =
-            if cfg.runScript != null then
-              "${pkgs.writeShellScript "${cfg.name}-runscript" cfg.runScript}"
-            else
-              overlayExe;
-          entrypoint = lib.getExe cfg.gamescope.outputs.wrapper;
-        })
+            gamescope.command = nativeCommand;
+            entrypoint =
+              if cfg.enableGamescope then lib.getExe cfg.gamescope.outputs.wrapper else nativeCommand;
+          }
+        ))
 
         # Final derivation: bwrap.outputs.wrapper with pname/passthru/meta.
         {
@@ -647,5 +674,26 @@ let
   cleanedSpec = removeAttrs gameSpec [ "meta" ];
 
   configured = (wlib.wrapModule gameModule).apply cleanedSpec;
+
+  # The same game with gamescope bypassed: the inner bwrap script execs the
+  # runtime command directly (rendering to the host display) instead of
+  # nesting it in gamescope. Built WITHOUT re-injecting the no-gamescope
+  # passthru below, so there is no recursion.
+  configuredNoGamescope = (wlib.wrapModule gameModule).apply (
+    cleanedSpec // { enableGamescope = false; }
+  );
 in
+# Expose the variant as a `no-gamescope` passthru on the wrapper derivation
+# itself, so it rides through every attr path that reaches the wrapper
+# (packages.<sys>.<game>, legacyPackages.<sys>.games.<game>, ...):
+#   nix run .#<game>.no-gamescope
 configured
+// {
+  outputs = configured.outputs // {
+    wrapper = configured.outputs.wrapper.overrideAttrs (old: {
+      passthru = (old.passthru or { }) // {
+        no-gamescope = configuredNoGamescope.outputs.wrapper;
+      };
+    });
+  };
+}
