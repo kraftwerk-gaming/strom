@@ -537,23 +537,23 @@ let
                 "$STROM_CONTROL_DIR/n2n-ready.fifo"
               exec {STROM_N2N_INFO_FD}<>"$STROM_CONTROL_DIR/n2n-info"
               BWRAP_ARGS="''${BWRAP_ARGS:-} --unshare-net --cap-add CAP_NET_ADMIN --dev-bind /dev/net/tun /dev/net/tun --setenv N2N_SUPERNODE $N2N_SUPERNODE --info-fd $STROM_N2N_INFO_FD"
-              ${lib.optionalString cfg.n2n.defaultRoute ''
-                # defaultRoute pins the supernode's route onto the real uplink,
-                # which needs its IP. Resolve it HERE on the host -- the sandbox
-                # netns has no working DNS, and doing it host-side is one clean
-                # lookup with no in-netns mgmt-port/retry plumbing. `dig +short`
-                # prints address lines (keep the first IPv4); an IP literal
-                # passes straight through.
-                __strom_sn="''${N2N_SUPERNODE%%:*}"
-                if printf '%s' "$__strom_sn" | grep -qE '^[0-9.]+$'; then
-                  __strom_sn_ip="$__strom_sn"
-                else
-                  __strom_sn_ip=$(${pkgs.dnsutils}/bin/dig +short "$__strom_sn" A 2>/dev/null \
-                    | grep -m1 -E '^[0-9.]+$' || true)
-                fi
-                [ -n "$__strom_sn_ip" ] \
-                  && BWRAP_ARGS="$BWRAP_ARGS --setenv STROM_N2N_SUPERNODE_IP $__strom_sn_ip"
-              ''}
+              # Resolve the supernode's host part to an IP HERE on the host --
+              # the sandbox netns has no working DNS, so the in-ns edge cannot
+              # resolve a hostname (n2n's supernode2sock fails with EAI_AGAIN).
+              # Host-side is one clean lookup with no in-netns mgmt-port/retry
+              # plumbing. `dig +short` prints address lines (keep the first
+              # IPv4); an IP literal passes straight through. ALWAYS set when
+              # N2N_SUPERNODE is set: the edge uses it for -l, and
+              # n2n.defaultRoute additionally pins a route to it.
+              __strom_sn="''${N2N_SUPERNODE%%:*}"
+              if printf '%s' "$__strom_sn" | grep -qE '^[0-9.]+$'; then
+                __strom_sn_ip="$__strom_sn"
+              else
+                __strom_sn_ip=$(${pkgs.dnsutils}/bin/dig +short "$__strom_sn" A 2>/dev/null \
+                  | grep -m1 -E '^[0-9.]+$' || true)
+              fi
+              [ -n "$__strom_sn_ip" ] \
+                && BWRAP_ARGS="$BWRAP_ARGS --setenv STROM_N2N_SUPERNODE_IP $__strom_sn_ip"
             else
               BWRAP_ARGS="''${BWRAP_ARGS:-} --unsetenv N2N_SUPERNODE"
             fi

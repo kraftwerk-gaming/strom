@@ -16,8 +16,10 @@
 # supernode ACK.
 #
 # The community + key are hardcoded to "strom"/"strom" in the launcher
-# fragment; the supernode address comes from $N2N_SUPERNODE (expected
-# `ip:port` — a hostname may not resolve inside the isolated netns).
+# fragment; the supernode address comes from $N2N_SUPERNODE (`ip:port`,
+# or `host:port` — a hostname is resolved host-side into
+# STROM_N2N_SUPERNODE_IP before launch, since the isolated netns has no
+# DNS; see mk-game's bwrap.extraPreHook and n2n-edge-launcher.sh).
 { config, lib, ... }:
 let
   inherit (lib) mkOption types;

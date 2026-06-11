@@ -42,6 +42,15 @@ if [ -n "${N2N_SUPERNODE:-}" ]; then
   IFS= read -r _ <&"${__strom_n2n_ready_fd}" || true
   exec {__strom_n2n_ready_fd}<&-
 
+  # The sandbox netns has no working DNS, so the edge cannot resolve a
+  # hostname supernode (n2n's supernode2sock fails with EAI_AGAIN). The
+  # wrapper resolved N2N_SUPERNODE's host part host-side into
+  # STROM_N2N_SUPERNODE_IP; use that, keeping the original port. Fall back
+  # to the raw value (already an ip:port, or resolution failed).
+  __strom_sn_host="${N2N_SUPERNODE%%:*}"
+  __strom_sn_port="${N2N_SUPERNODE#"$__strom_sn_host"}"
+  __strom_sn_l="${STROM_N2N_SUPERNODE_IP:-$__strom_sn_host}${__strom_sn_port}"
+
   # -E accept multicast MAC, -r route/forward, -f foreground (so edge
   # stays a reaped child of the --unshare-pid ns), -u/-g map to our
   # uid/gid (edge would otherwise drop to an unmapped nobody and die).
@@ -50,7 +59,7 @@ if [ -n "${N2N_SUPERNODE:-}" ]; then
   "$STROM_N2N_EDGE" \
     -c "$STROM_N2N_COMMUNITY" \
     -k "$STROM_N2N_COMMUNITY" \
-    -l "$N2N_SUPERNODE" \
+    -l "$__strom_sn_l" \
     -d edge0 \
     -r -E -f \
     -u "$(id -u)" -g "$(id -g)" \
