@@ -1552,6 +1552,13 @@
     "description": "Risk of Rain (2013 Hopoo Games, original v1.2.2 Windows build via Proton)",
     "runtime": "proton"
   },
+  "risk-of-rain-returns": {
+    "cids": [
+      "QmNiTVVP7VDELisTdURfps3UitHddSLPQ45RLj63whApd7"
+    ],
+    "description": "Risk of Rain Returns (Hopoo Games / Gearbox 2023, GameMaker Studio 2 Windows build via Proton)",
+    "runtime": "proton"
+  },
   "roketz--1": {
     "cids": [
       "QmZ1nZ8Hkm81P48ABcfGBot8rSkb2c4K2badYPBrMsT2zp"
