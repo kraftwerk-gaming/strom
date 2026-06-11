@@ -60,6 +60,10 @@
 
       checks = forAllSystems (system: {
         pre-commit-check = mkPreCommit system;
+        # Compile + (future) unit-test strom-run in isolation, so it can be
+        # built via `nix build .#checks.<system>.strom-run` without running
+        # the whole-flake `nix flake check`.
+        strom-run = self.legacyPackages.${system}.scripts.strom-run;
       });
 
       devShells = forAllSystems (
@@ -134,6 +138,7 @@
             publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
             screenshot = pkgs.callPackage ./pkgs/screenshot.nix { };
             strom-ip = pkgs.callPackage ./pkgs/strom-ip.nix { };
+            strom-run = pkgs.callPackage ./pkgs/strom-run { };
           };
         }
       );

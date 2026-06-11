@@ -1,0 +1,19 @@
+[package]
+name = "strom-run"
+version = "0.1.0"
+edition = "2021"
+description = "Atomic cgroup teardown supervisor for strom game process trees"
+
+[[bin]]
+name = "strom-run"
+path = "src/main.rs"
+
+[dependencies]
+libc = "0.2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
