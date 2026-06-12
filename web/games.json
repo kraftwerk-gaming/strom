@@ -1616,6 +1616,13 @@
     "description": "Shadow of the Colossus (via PCSX2)",
     "runtime": "pcsx2"
   },
+  "shadowrun-dragonfall-directors-cut": {
+    "cids": [
+      "QmVfdbdot5WARgLhi1eJ9BxRvmrsDD8e97RnAsMrZc2Y9h"
+    ],
+    "description": "Shadowrun: Dragonfall \u2014 Director's Cut (Harebrained Schemes 2014, native Linux, GOG v2.0.9)",
+    "runtime": "native"
+  },
   "shovel-knight": {
     "cids": [
       "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
