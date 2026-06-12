@@ -259,9 +259,20 @@ in
         fusermount3 -u "$STROM_OVERLAY_MERGED" 2>/dev/null || true
       fi
       mkdir -p "$STROM_OVERLAY_MERGED"
+      # `9<&-` closes the single-instance lock fd for the fuse-overlayfs
+      # daemon ONLY. mk-game's preHook opened the flock as fd 9 (`exec
+      # 9>.../.lock`) and strom-run inherits it across exec to hold the
+      # lock for the launch's lifetime. fuse-overlayfs is a plain child of
+      # this wrapper, so without this it ALSO inherits fd 9 -- and because
+      # an flock is held until EVERY fd to that open-file-description is
+      # closed, an overlay daemon that outlives strom-run keeps the lock
+      # held forever (observed: an orphaned fuse-overlayfs pinned the lock
+      # after the game exited). Closing fd 9 here means only strom-run can
+      # hold the lock, so it is always released when strom-run is reaped.
+      # No-op when fd 9 is unopened (non-proton runtimes don't flock).
       fuse-overlayfs \
         -o "lowerdir=${lib.concatStringsSep ":" config.overlay.lowers},upperdir=${config.overlay.upper},workdir=${config.overlay.work},squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
-        "$STROM_OVERLAY_MERGED"
+        "$STROM_OVERLAY_MERGED" 9<&-
     '';
 
     # Note: the host fuse-overlayfs unmount is handled by the EXIT trap

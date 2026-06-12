@@ -306,6 +306,41 @@ fn unmount_overlay(fusermount3: &str, merged: &str) {
     eprintln!("strom-run: overlay unmount of {merged} failed");
 }
 
+// Belt-and-suspenders after unmount: SIGKILL any fuse-overlayfs daemon still
+// backing `merged`. A daemon can outlive its mount -- e.g. the mount was torn
+// down out-of-band so `fusermount3 -u` had nothing to do, or it was orphaned
+// (reparented to init) on a hard teardown -- and any such daemon that inherited
+// the wrapper's lock fd would keep the single-instance lock held. The bwrap.nix
+// `9<&-` stops the inheritance going forward; this guarantees the process is
+// gone regardless. Match on comm == fuse-overlayfs AND argv containing the
+// merged path, so we never touch another game's daemon.
+fn reap_overlay_daemon(merged: &str) {
+    let Ok(entries) = fs::read_dir("/proc") else {
+        return;
+    };
+    for entry in entries.flatten() {
+        let Ok(pid) = entry.file_name().to_string_lossy().parse::<i32>() else {
+            continue;
+        };
+        // comm is truncated to 15 bytes; "fuse-overlayfs" (14) fits exactly.
+        let is_fuse = fs::read_to_string(format!("/proc/{pid}/comm"))
+            .map(|c| c.trim_end() == "fuse-overlayfs")
+            .unwrap_or(false);
+        if !is_fuse {
+            continue;
+        }
+        let backs_merged = fs::read_to_string(format!("/proc/{pid}/cmdline"))
+            .map(|c| c.split('\0').any(|a| a == merged))
+            .unwrap_or(false);
+        if backs_merged {
+            unsafe {
+                libc::kill(pid, libc::SIGKILL);
+            }
+            eprintln!("strom-run: reaped lingering fuse-overlayfs (pid {pid}) for {merged}");
+        }
+    }
+}
+
 fn reap_gs_dirs(file: &str) {
     if let Ok(content) = fs::read_to_string(file) {
         for line in content.lines() {
@@ -361,9 +396,11 @@ fn teardown_logged(cfg: &Config, cg: &Cgroup, child: c_int, reason: Reason, why:
     cg.remove();
 
     // 4. The tree is dead, so the host fuse-overlayfs mount has no users:
-    //    unmount it (idempotent; skipped if already unmounted).
+    //    unmount it (idempotent; skipped if already unmounted), then make
+    //    sure no overlay daemon for it lingers (which would pin the lock).
     if let (Some(merged), Some(fmnt)) = (&cfg.overlay_unmount, &cfg.fusermount3) {
         unmount_overlay(fmnt, merged);
+        reap_overlay_daemon(merged);
     }
 
     // 5. Reap the per-launch gamescope private dirs the inner wrapper
