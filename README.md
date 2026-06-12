@@ -192,6 +192,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/invisible-inc/"><img src="https://lutris.net/games/banner/invisible-inc.jpg" height="40" alt="invisible-inc"></a> | [Invisible, Inc.](https://lutris.net/games/invisible-inc/) | `native` | `nix run .#invisible-inc` |
 | <a href="https://lutris.net/games/iron-lung/"><img src="https://lutris.net/games/banner/iron-lung.jpg" height="40" alt="iron-lung"></a> | [Iron Lung](https://lutris.net/games/iron-lung/) | `proton` | `nix run .#iron-lung` |
 | <a href="https://lutris.net/games/jade-empire-special-edition/"><img src="https://lutris.net/games/banner/jade-empire-special-edition.jpg" height="40" alt="jade-empire-special-edition"></a> | [Jade Empire: Special Edition](https://lutris.net/games/jade-empire-special-edition/) | `proton` | `nix run .#jade-empire-special-edition` |
+| <a href="https://lutris.net/games/jagged-alliance-2/"><img src="https://lutris.net/games/banner/jagged-alliance-2.jpg" height="40" alt="jagged-alliance-2"></a> | [Jagged Alliance 2](https://lutris.net/games/jagged-alliance-2/) | `native` | `nix run .#jagged-alliance-2` |
 | <a href="https://lutris.net/games/jazz-jackrabbit-2/"><img src="https://lutris.net/games/banner/jazz-jackrabbit-2.jpg" height="40" alt="jazz-jackrabbit-2"></a> | [Jazz Jackrabbit 2](https://lutris.net/games/jazz-jackrabbit-2/) | `native` | `nix run .#jazz-jackrabbit-2` |
 | <a href="https://lutris.net/games/jet-set-radio/"><img src="https://lutris.net/games/banner/jet-set-radio.jpg" height="40" alt="jet-set-radio"></a> | [Jet Set Radio](https://lutris.net/games/jet-set-radio/) | `proton` | `nix run .#jet-set-radio` |
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
@@ -343,7 +344,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_302 games_
+_303 games_
 
 <!-- END GENERATED GAMES -->
 
