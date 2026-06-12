@@ -59,6 +59,12 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     PULSE_LATENCY_MSEC = "60";
+    # On Intel iGPUs the engine's GPU-vendor check makes battlefrontII.exe
+    # exit cleanly at launch (no Wine error). DXVK's d3d9.hideIntelGpu only
+    # defaults to Auto, which doesn't cover this title on older Intel parts
+    # (e.g. HD 620 / Gen9), so force it on to report the Intel GPU as AMD.
+    # No-op on AMD/Nvidia seats.
+    DXVK_CONFIG = "d3d9.hideIntelGpu = True";
   };
 
   meta = {
