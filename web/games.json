@@ -1630,6 +1630,13 @@
     "description": "Shadowrun: Hong Kong \u2014 Extended Edition (Harebrained Schemes 2015, native Linux, GOG v2.8.0.11)",
     "runtime": "native"
   },
+  "shadowrun-returns": {
+    "cids": [
+      "QmUxYa9rWM68JjTBLRE94JzCh7kkXqGYf73roH4xh5pLNa"
+    ],
+    "description": "Shadowrun Returns (Harebrained Schemes 2013, native Linux, GOG v2.0.0.7)",
+    "runtime": "native"
+  },
   "shovel-knight": {
     "cids": [
       "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
