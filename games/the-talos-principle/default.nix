@@ -33,7 +33,7 @@ let
   # Exe: Bin/x64/Talos.exe (64-bit Serious Engine 4 binary).
   # Saves: %LOCALAPPDATA%\Talos\ (drive_c/users/steamuser/AppData/Local/Talos).
   src = fetchIpfs {
-    cid = "PENDING_UPLOAD";
+    cid = "QmTKrq36w4qrb7seHHJPZRWVa9zyx8FzJabQkw4e5syJN2";
     fallbackUrl = "https://archive.org/download/the-talos-principle/The%20Talos%20Principle.7z";
     hash = "sha256-Qp3N3Sq3nL4aYvKGinvLHECNmho7sQKxszmP8Zgf4JM=";
     name = "the-talos-principle-gog-41435.7z";
