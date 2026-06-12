@@ -177,6 +177,25 @@ self.lib.mkGame { inherit lib pkgs; } {
       tar --zstd -xf ${prefixTarball} -C "$STROM_COMPATDATA/0"
       touch "$__magicka_sentinel"
     fi
+
+    # The Pioneer repack ships a FIXED Goldberg identity in
+    # settings/user_steam_id.txt (76561199946885903) — so every machine is the
+    # SAME Steam user. LAN co-op discovery (broadcast) still works, but the
+    # lobby JOIN fails (you cannot join a lobby hosted by "yourself"). Mint a
+    # unique per-machine SteamID64 the first time the shipped default is seen
+    # and write it into the per-machine overlay upper ($GAMEDIR/settings/); the
+    # content check is self-healing (a previously-seeded random ID is kept, a
+    # wiped overlay reverts to the default and gets re-seeded) so no separate
+    # sentinel is needed and saves/unlocks keyed on the ID stay stable.
+    __mag_sid="$GAMEDIR/settings/user_steam_id.txt"
+    if [ "$(cat "$__mag_sid" 2>/dev/null)" = "76561199946885903" ]; then
+      __mag_acct=$(od -An -N4 -tu4 /dev/urandom | tr -d ' ')
+      [ "''${__mag_acct:-0}" -eq 0 ] && __mag_acct=1
+      printf '%s' "$((76561197960265728 + __mag_acct))" > "$__mag_sid"
+      printf '%s' "player-$(hostname 2>/dev/null || printf '%s' "$__mag_acct")" \
+        > "$GAMEDIR/settings/account_name.txt"
+      echo "magicka: seeded unique Goldberg SteamID for LAN co-op" >&2
+    fi
   '';
 
   gamescope = {
