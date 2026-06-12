@@ -1623,6 +1623,13 @@
     "description": "Shadowrun: Dragonfall \u2014 Director's Cut (Harebrained Schemes 2014, native Linux, GOG v2.0.9)",
     "runtime": "native"
   },
+  "shadowrun-hong-kong-extended-edition": {
+    "cids": [
+      "QmZx67dsoursuByjTNYt8jPHqrSJzWpJfecr4fQMePDDCg"
+    ],
+    "description": "Shadowrun: Hong Kong \u2014 Extended Edition (Harebrained Schemes 2015, native Linux, GOG v2.8.0.11)",
+    "runtime": "native"
+  },
   "shovel-knight": {
     "cids": [
       "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
