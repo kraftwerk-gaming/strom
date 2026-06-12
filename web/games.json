@@ -2034,6 +2034,13 @@
     "description": "TUNIC (Andrew Shouldice / Finji 2022, isometric action-adventure, via Proton)",
     "runtime": "proton"
   },
+  "ultimate-chicken-horse": {
+    "cids": [
+      "QmdtHMaEgNNfiLfXdrJPJMUSmerwhysKaoPkcbA2WuHkht"
+    ],
+    "description": "Ultimate Chicken Horse (Clever Endeavour Games 2016, Windows v1.13.13, via Proton)",
+    "runtime": "proton"
+  },
   "ultrakill": {
     "cids": [
       "QmTP87KiyUYcqq58U78JQpfgg8tqraM8cVxHys79h6hnNx"

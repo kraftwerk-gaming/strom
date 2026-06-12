@@ -325,6 +325,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/total-overdose/"><img src="https://lutris.net/games/banner/total-overdose.jpg" height="40" alt="total-overdose"></a> | [Total Overdose: A Gunslinger's Tale in Mexico](https://lutris.net/games/total-overdose/) | `proton` | `nix run .#total-overdose` |
 | <a href="https://lutris.net/games/towerfall-ascension/"><img src="https://lutris.net/games/banner/towerfall-ascension.jpg" height="40" alt="towerfall-ascension"></a> | [TowerFall Ascension + Dark World](https://lutris.net/games/towerfall-ascension/) | `proton` | `nix run .#towerfall-ascension` |
 | <a href="https://lutris.net/games/tunic/"><img src="https://lutris.net/games/banner/tunic.jpg" height="40" alt="tunic"></a> | [TUNIC](https://lutris.net/games/tunic/) | `proton` | `nix run .#tunic` |
+| <a href="https://lutris.net/games/ultimate-chicken-horse/"><img src="https://lutris.net/games/banner/ultimate-chicken-horse.jpg" height="40" alt="ultimate-chicken-horse"></a> | [Ultimate Chicken Horse](https://lutris.net/games/ultimate-chicken-horse/) | `proton` | `nix run .#ultimate-chicken-horse` |
 | <a href="https://lutris.net/games/ultrakill/"><img src="https://lutris.net/games/banner/ultrakill.jpg" height="40" alt="ultrakill"></a> | [ULTRAKILL](https://lutris.net/games/ultrakill/) | `proton` | `nix run .#ultrakill` |
 | <a href="https://lutris.net/games/undertale/"><img src="https://lutris.net/games/banner/undertale.jpg" height="40" alt="undertale"></a> | [Undertale](https://lutris.net/games/undertale/) | `native` | `nix run .#undertale` |
 | <a href="https://lutris.net/games/unreal-tournament/"><img src="https://lutris.net/games/banner/unreal-tournament.jpg" height="40" alt="unreal-tournament"></a> | [Unreal Tournament](https://lutris.net/games/unreal-tournament/) | `native` | `nix run .#unreal-tournament` |
@@ -347,7 +348,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_306 games_
+_307 games_
 
 <!-- END GENERATED GAMES -->
 
