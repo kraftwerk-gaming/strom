@@ -315,6 +315,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/the-settlers-ii-gold-edition/"><img src="https://lutris.net/games/banner/the-settlers-ii-gold-edition.jpg" height="40" alt="the-settlers-ii-gold-edition"></a> | [The Settlers II Gold](https://lutris.net/games/the-settlers-ii-gold-edition/) | `native` | `nix run .#the-settlers-ii-gold-edition` |
 | <a href="https://lutris.net/games/the-settlers-iii/"><img src="https://lutris.net/games/banner/the-settlers-iii.jpg" height="40" alt="the-settlers-iii"></a> | [The Settlers III](https://lutris.net/games/the-settlers-iii/) | `proton` | `nix run .#the-settlers-iii` |
 | <a href="https://lutris.net/games/the-simpsons-hit-run/"><img src="https://lutris.net/games/banner/the-simpsons-hit-run.jpg" height="40" alt="the-simpsons-hit-run"></a> | [The Simpsons: Hit & Run](https://lutris.net/games/the-simpsons-hit-run/) | `proton` | `nix run .#the-simpsons-hit-run` |
+| <a href="https://lutris.net/games/the-talos-principle/"><img src="https://lutris.net/games/banner/the-talos-principle.jpg" height="40" alt="the-talos-principle"></a> | [The Talos Principle: Gold Edition](https://lutris.net/games/the-talos-principle/) | `proton` | `nix run .#the-talos-principle` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead.jpg" height="40" alt="the-typing-of-the-dead"></a> | [The Typing of the Dead](https://lutris.net/games/the-typing-of-the-dead/) | `proton` | `nix run .#the-typing-of-the-dead` |
 | <a href="https://lutris.net/games/the-typing-of-the-dead-overkill/"><img src="https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg" height="40" alt="the-typing-of-the-dead-overkill"></a> | [The Typing of the Dead: Overkill](https://lutris.net/games/the-typing-of-the-dead-overkill/) | `proton` | `nix run .#the-typing-of-the-dead-overkill` |
 | <a href="https://lutris.net/games/the-witness/"><img src="https://lutris.net/games/banner/the-witness.jpg" height="40" alt="the-witness"></a> | [The Witness](https://lutris.net/games/the-witness/) | `proton` | `nix run .#the-witness` |
@@ -337,6 +338,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/vampire-survivors/"><img src="https://lutris.net/games/banner/vampire-survivors.jpg" height="40" alt="vampire-survivors"></a> | [Vampire Survivors + 3 DLC](https://lutris.net/games/vampire-survivors/) | `native` | `nix run .#vampire-survivors` |
 | <a href="https://lutris.net/games/vampire-the-masquerade-bloodlines/"><img src="https://lutris.net/games/banner/vampire-the-masquerade-bloodlines.jpg" height="40" alt="vampire-the-masquerade-bloodlines"></a> | [Vampire: The Masquerade — Bloodlines](https://lutris.net/games/vampire-the-masquerade-bloodlines/) | `proton` | `nix run .#vampire-the-masquerade-bloodlines` |
 | <a href="https://lutris.net/games/vectronom/"><img src="https://lutris.net/games/banner/vectronom.jpg" height="40" alt="vectronom"></a> | [Vectronom](https://lutris.net/games/vectronom/) | `proton` | `nix run .#vectronom` |
+| <a href="https://lutris.net/games/vintage-story/"><img src="https://lutris.net/games/banner/vintage-story.jpg" height="40" alt="vintage-story"></a> | [Vintage Story](https://lutris.net/games/vintage-story/) | `custom` | `nix run .#vintage-story` |
 | <a href="https://lutris.net/games/void-stranger/"><img src="https://lutris.net/games/banner/void-stranger.jpg" height="40" alt="void-stranger"></a> | [Void Stranger](https://lutris.net/games/void-stranger/) | `proton` | `nix run .#void-stranger` |
 | <a href="https://lutris.net/games/vvvvvv/"><img src="https://lutris.net/games/banner/vvvvvv.jpg" height="40" alt="vvvvvv"></a> | [VVVVVV](https://lutris.net/games/vvvvvv/) | `native` | `nix run .#vvvvvv` |
 | <a href="https://lutris.net/games/warcraft-iii-the-frozen-throne/"><img src="https://lutris.net/games/banner/warcraft-iii-the-frozen-throne.jpg" height="40" alt="warcraft-iii-the-frozen-throne"></a> | [Warcraft III: Reign of Chaos + The Frozen Throne v1.26a](https://lutris.net/games/warcraft-iii-the-frozen-throne/) | `proton` | `nix run .#warcraft-iii-the-frozen-throne` |
@@ -348,7 +350,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_307 games_
+_309 games_
 
 <!-- END GENERATED GAMES -->
 

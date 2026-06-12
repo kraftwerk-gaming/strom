@@ -1963,6 +1963,13 @@
     "description": "The Simpsons: Hit & Run (Vivendi/Radical 2003 PC port, via Proton)",
     "runtime": "proton"
   },
+  "the-talos-principle": {
+    "cids": [
+      "PENDING_UPLOAD"
+    ],
+    "description": "The Talos Principle: Gold Edition (Croteam 2014, Serious Engine 4, GOG via Proton)",
+    "runtime": "proton"
+  },
   "the-typing-of-the-dead": {
     "cids": [
       "QmeXCgXCm2ogepvGD7iCe48yNTpp5dwLB77CrjjVyeR4R7"
@@ -2118,6 +2125,13 @@
     ],
     "description": "Vectronom (Ludopium 2019 rhythm puzzle, via Proton)",
     "runtime": "proton"
+  },
+  "vintage-story": {
+    "cids": [
+      "QmQYxnSfCDhtjQ7WqRJwFtMsAkkVoeDkDstaJNdweG7AVP"
+    ],
+    "description": "Vintage Story (native Linux, v1.22.0 with built-in libs)",
+    "runtime": "custom"
   },
   "void-stranger": {
     "cids": [
