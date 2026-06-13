@@ -1332,6 +1332,13 @@
     "description": "Myst: Masterpiece Edition (1999 Cyan/Ubisoft, via ScummVM Mohawk)",
     "runtime": "native"
   },
+  "need-for-speed-carbon": {
+    "cids": [
+      "Qmb6B7BWnVvJLSywmPWHVB7J5qP3abc26aWvkN6Hz9VEWu"
+    ],
+    "description": "Need for Speed: Carbon (2006) (via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "need-for-speed-most-wanted": {
     "cids": [
       "QmbeRJkSiVupPcbNp6vGpMpNBUwYEUuS3fPiqgpP1Eadfs"
