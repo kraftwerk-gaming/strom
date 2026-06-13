@@ -233,6 +233,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/noita/"><img src="https://lutris.net/games/banner/noita.jpg" height="40" alt="noita"></a> | [Noita](https://lutris.net/games/noita/) | `proton` | `nix run .#noita` |
 | <a href="https://lutris.net/games/olliolli/"><img src="https://lutris.net/games/banner/olliolli.jpg" height="40" alt="olliolli"></a> | [OlliOlli](https://lutris.net/games/olliolli/) | `proton` | `nix run .#olliolli` |
 | <a href="https://lutris.net/games/osmos/"><img src="https://lutris.net/games/banner/osmos.jpg" height="40" alt="osmos"></a> | [Osmos](https://lutris.net/games/osmos/) | `native` | `nix run .#osmos` |
+| <a href="https://lutris.net/games/ostranauts/"><img src="https://lutris.net/games/banner/ostranauts.jpg" height="40" alt="ostranauts"></a> | [Ostranauts](https://lutris.net/games/ostranauts/) | `proton` | `nix run .#ostranauts` |
 | <a href="https://lutris.net/games/outer-wilds/"><img src="https://lutris.net/games/banner/outer-wilds.jpg" height="40" alt="outer-wilds"></a> | [Outer Wilds](https://lutris.net/games/outer-wilds/) | `proton` | `nix run .#outer-wilds` |
 | <a href="https://lutris.net/games/outer-wilds-alpha/"><img src="https://lutris.net/games/banner/outer-wilds-alpha.jpg" height="40" alt="outer-wilds-alpha"></a> | [Outer Wilds Alpha 1.2](https://lutris.net/games/outer-wilds-alpha/) | `proton` | `nix run .#outer-wilds-alpha` |
 | <a href="https://lutris.net/games/painkiller/"><img src="https://lutris.net/games/banner/painkiller.jpg" height="40" alt="painkiller"></a> | [Painkiller: Black Edition](https://lutris.net/games/painkiller/) | `proton` | `nix run .#painkiller` |
@@ -363,7 +364,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_322 games_
+_323 games_
 
 <!-- END GENERATED GAMES -->
 

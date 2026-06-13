@@ -1381,6 +1381,13 @@
     "description": "Osmos (native Linux, Hemisphere Games)",
     "runtime": "native"
   },
+  "ostranauts": {
+    "cids": [
+      "QmbTCFt7zsSkTvjo7aar6VRczPALPYXY36ovdu4UAJaFSx"
+    ],
+    "description": "Ostranauts (Blue Bottle Games 2024, Unity spaceship-survival sim, via Proton)",
+    "runtime": "proton"
+  },
   "outer-wilds": {
     "cids": [
       "Qmb1sbog54M4NwpRf1yg8yp5rqU6QcJXLfiUByytow7diF"
