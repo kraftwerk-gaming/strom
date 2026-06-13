@@ -350,6 +350,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/warcraft-iii-the-frozen-throne/"><img src="https://lutris.net/games/banner/warcraft-iii-the-frozen-throne.jpg" height="40" alt="warcraft-iii-the-frozen-throne"></a> | [Warcraft III: Reign of Chaos + The Frozen Throne v1.26a](https://lutris.net/games/warcraft-iii-the-frozen-throne/) | `proton` | `nix run .#warcraft-iii-the-frozen-throne` |
 | <a href="https://lutris.net/games/warhammer-40000-dawn-of-war/"><img src="https://lutris.net/games/banner/warhammer-40000-dawn-of-war.jpg" height="40" alt="warhammer-40000-dawn-of-war"></a> | [Warhammer 40,000: Dawn of War](https://lutris.net/games/warhammer-40000-dawn-of-war/) | `proton` | `nix run .#warhammer-40000-dawn-of-war` |
 | <a href="https://lutris.net/games/warhammer-40000-dawn-of-war-dark-crusade/"><img src="https://lutris.net/games/banner/warhammer-40000-dawn-of-war-dark-crusade.jpg" height="40" alt="warhammer-40000-dawn-of-war-dark-crusade"></a> | [Warhammer 40,000: Dawn of War - Dark Crusade](https://lutris.net/games/warhammer-40000-dawn-of-war-dark-crusade/) | `proton` | `nix run .#warhammer-40000-dawn-of-war-dark-crusade` |
+| <a href="https://lutris.net/games/warhammer-40000-dawn-of-war-winter-assault/"><img src="https://lutris.net/games/banner/warhammer-40000-dawn-of-war-winter-assault.jpg" height="40" alt="warhammer-40000-dawn-of-war-winter-assault"></a> | [Warhammer 40,000: Dawn of War - Winter Assault](https://lutris.net/games/warhammer-40000-dawn-of-war-winter-assault/) | `proton` | `nix run .#warhammer-40000-dawn-of-war-winter-assault` |
 | <a href="https://lutris.net/games/warzone-2100/"><img src="https://lutris.net/games/banner/warzone-2100.jpg" height="40" alt="warzone-2100"></a> | [Warzone 2100](https://lutris.net/games/warzone-2100/) | `native` | `nix run .#warzone-2100` |
 | <a href="https://lutris.net/games/white-knuckle/"><img src="https://lutris.net/games/banner/white-knuckle.jpg" height="40" alt="white-knuckle"></a> | [White Knuckle](https://lutris.net/games/white-knuckle/) | `proton` | `nix run .#white-knuckle` |
 | <a href="https://lutris.net/games/world-of-goo/"><img src="https://lutris.net/games/banner/world-of-goo.jpg" height="40" alt="world-of-goo"></a> | [World of Goo](https://lutris.net/games/world-of-goo/) | `native` | `nix run .#world-of-goo` |
@@ -358,7 +359,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_317 games_
+_318 games_
 
 <!-- END GENERATED GAMES -->
 
