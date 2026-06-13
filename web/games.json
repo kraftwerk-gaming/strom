@@ -1723,6 +1723,13 @@
     "description": "Spec Ops: The Line (2012 Yager, GOG, via Proton)",
     "runtime": "proton"
   },
+  "spellforce-platinum": {
+    "cids": [
+      "QmStWVhi1QxkM7UPe3vgZxpnGFsEGP6HUTUKgiUtbUugpK"
+    ],
+    "description": "SpellForce Platinum Edition (Phenomic / JoWooD 2003-2004: The Order of Dawn + Breath of Winter + Shadow of the Phoenix, via Proton)",
+    "runtime": "proton"
+  },
   "stalker-shadow-of-chernobyl": {
     "cids": [
       "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
