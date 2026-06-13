@@ -2120,6 +2120,13 @@
     "description": "TowerFall Ascension + Dark World (Matt Makes Games, GOG v2.5.0.6, via Proton)",
     "runtime": "proton"
   },
+  "trackmania-nation": {
+    "cids": [
+      "QmcnK2Y7DwFsc8Fc3kWkuAWHTMs8gPCcBEE2GP3KSQHbuc"
+    ],
+    "description": "TrackMania Nations Forever (Nadeo, free, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "tunic": {
     "cids": [
       "QmYSZpUkTM1fjVhy9krrjAJwgZdkPhtYGFx8SbevwHxd4b"
