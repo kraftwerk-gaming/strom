@@ -716,6 +716,13 @@
     "description": "Factorio (native Linux, GOG v2.0.73)",
     "runtime": "native"
   },
+  "fahrenheit-indigo-prophecy": {
+    "cids": [
+      "Qma75dt9uFe6vHUr81YPBX8gUTHXxCPo1qYqeB9g14NbuM"
+    ],
+    "description": "Fahrenheit: Indigo Prophecy Remastered (Aspyr 2015 native Linux i686 port, Goldberg Steam shim)",
+    "runtime": "native"
+  },
   "faith-the-unholy-trinity": {
     "cids": [
       "QmapahTD9VfSKG7LLMFeDsgdxzqrsad57CCprCfAA7tX9a"

@@ -141,6 +141,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/everhood/"><img src="https://lutris.net/games/banner/everhood.jpg" height="40" alt="everhood"></a> | [Everhood](https://lutris.net/games/everhood/) | `proton` | `nix run .#everhood` |
 | <a href="https://lutris.net/games/everything-is-crab/"><img src="https://lutris.net/games/banner/everything-is-crab.jpg" height="40" alt="everything-is-crab"></a> | [Everything is Crab: The Animal Evolution Roguelite](https://lutris.net/games/everything-is-crab/) | `proton` | `nix run .#everything-is-crab` |
 | <a href="https://lutris.net/games/factorio/"><img src="https://lutris.net/games/banner/factorio.jpg" height="40" alt="factorio"></a> | [Factorio](https://lutris.net/games/factorio/) | `native` | `nix run .#factorio` |
+| <a href="https://lutris.net/games/fahrenheit-indigo-prophecy/"><img src="https://lutris.net/games/banner/fahrenheit-indigo-prophecy.jpg" height="40" alt="fahrenheit-indigo-prophecy"></a> | [Fahrenheit: Indigo Prophecy Remastered](https://lutris.net/games/fahrenheit-indigo-prophecy/) | `native` | `nix run .#fahrenheit-indigo-prophecy` |
 | <a href="https://lutris.net/games/faith-the-unholy-trinity/"><img src="https://lutris.net/games/banner/faith-the-unholy-trinity.jpg" height="40" alt="faith-the-unholy-trinity"></a> | [FAITH: The Unholy Trinity](https://lutris.net/games/faith-the-unholy-trinity/) | `proton` | `nix run .#faith-the-unholy-trinity` |
 | <a href="https://lutris.net/games/fallout/"><img src="https://lutris.net/games/banner/fallout.jpg" height="40" alt="fallout"></a> | [Fallout](https://lutris.net/games/fallout/) | `proton` | `nix run .#fallout` |
 | <a href="https://lutris.net/games/fallout-2/"><img src="https://lutris.net/games/banner/fallout-2.jpg" height="40" alt="fallout-2"></a> | [Fallout 2](https://lutris.net/games/fallout-2/) | `proton` | `nix run .#fallout-2` |
@@ -360,7 +361,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_319 games_
+_320 games_
 
 <!-- END GENERATED GAMES -->
 
