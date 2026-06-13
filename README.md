@@ -236,6 +236,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/ostranauts/"><img src="https://lutris.net/games/banner/ostranauts.jpg" height="40" alt="ostranauts"></a> | [Ostranauts](https://lutris.net/games/ostranauts/) | `proton` | `nix run .#ostranauts` |
 | <a href="https://lutris.net/games/outer-wilds/"><img src="https://lutris.net/games/banner/outer-wilds.jpg" height="40" alt="outer-wilds"></a> | [Outer Wilds](https://lutris.net/games/outer-wilds/) | `proton` | `nix run .#outer-wilds` |
 | <a href="https://lutris.net/games/outer-wilds-alpha/"><img src="https://lutris.net/games/banner/outer-wilds-alpha.jpg" height="40" alt="outer-wilds-alpha"></a> | [Outer Wilds Alpha 1.2](https://lutris.net/games/outer-wilds-alpha/) | `proton` | `nix run .#outer-wilds-alpha` |
+| <a href="https://lutris.net/games/overcooked-2/"><img src="https://lutris.net/games/banner/overcooked-2.jpg" height="40" alt="overcooked-2"></a> | [Overcooked! 2](https://lutris.net/games/overcooked-2/) | `proton` | `nix run .#overcooked-2` |
 | <a href="https://lutris.net/games/painkiller/"><img src="https://lutris.net/games/banner/painkiller.jpg" height="40" alt="painkiller"></a> | [Painkiller: Black Edition](https://lutris.net/games/painkiller/) | `proton` | `nix run .#painkiller` |
 | <a href="https://lutris.net/games/papers-please/"><img src="https://lutris.net/games/banner/papers-please.jpg" height="40" alt="papers-please"></a> | [Papers, Please](https://lutris.net/games/papers-please/) | `native` | `nix run .#papers-please` |
 | <a href="https://lutris.net/games/paquerette-down-the-bunburrows/"><img src="https://lutris.net/games/banner/paquerette-down-the-bunburrows.jpg" height="40" alt="paquerette-down-the-bunburrows"></a> | [Paquerette Down the Bunburrows v1.1.2](https://lutris.net/games/paquerette-down-the-bunburrows/) | `proton` | `nix run .#paquerette-down-the-bunburrows` |
@@ -364,7 +365,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_323 games_
+_324 games_
 
 <!-- END GENERATED GAMES -->
 

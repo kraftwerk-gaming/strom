@@ -1402,6 +1402,13 @@
     "description": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
     "runtime": "proton"
   },
+  "overcooked-2": {
+    "cids": [
+      "QmcVBZrRcaxjjUgzRSviiXo7bQ1CFpdG4sehFDcfV2QPdp"
+    ],
+    "description": "Overcooked! 2 (Ghost Town Games / Team17 2018, Unity, via Proton)",
+    "runtime": "proton"
+  },
   "painkiller": {
     "cids": [
       "QmZbeXCa8N3iWv7aoNMJTceV1743tKhgYmNV5maB85voYC"
