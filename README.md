@@ -281,6 +281,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/slay-the-spire-2/"><img src="https://lutris.net/games/banner/slay-the-spire-2.jpg" height="40" alt="slay-the-spire-2"></a> | [Slay the Spire 2](https://lutris.net/games/slay-the-spire-2/) | `proton` | `nix run .#slay-the-spire-2` |
 | <a href="https://lutris.net/games/songs-of-syx/"><img src="https://lutris.net/games/banner/songs-of-syx.jpg" height="40" alt="songs-of-syx"></a> | [Songs of Syx](https://lutris.net/games/songs-of-syx/) | `custom` | `nix run .#songs-of-syx` |
 | <a href="https://lutris.net/games/spec-ops-the-line/"><img src="https://lutris.net/games/banner/spec-ops-the-line.jpg" height="40" alt="spec-ops-the-line"></a> | [Spec Ops: The Line](https://lutris.net/games/spec-ops-the-line/) | `proton` | `nix run .#spec-ops-the-line` |
+| <a href="https://lutris.net/games/spellforce-2-anniversary-edition/"><img src="https://lutris.net/games/banner/spellforce-2-anniversary-edition.jpg" height="40" alt="spellforce-2-anniversary-edition"></a> | [SpellForce 2 - Anniversary Edition](https://lutris.net/games/spellforce-2-anniversary-edition/) | `proton` | `nix run .#spellforce-2-anniversary-edition` |
 | <a href="https://lutris.net/games/spellforce-platinum/"><img src="https://lutris.net/games/banner/spellforce-platinum.jpg" height="40" alt="spellforce-platinum"></a> | [SpellForce Platinum Edition](https://lutris.net/games/spellforce-platinum/) | `proton` | `nix run .#spellforce-platinum` |
 | <a href="https://lutris.net/games/stalker-shadow-of-chernobyl/"><img src="https://lutris.net/games/banner/stalker-shadow-of-chernobyl.jpg" height="40" alt="stalker-shadow-of-chernobyl"></a> | [S.T.A.L.K.E.R.: Shadow of Chernobyl](https://lutris.net/games/stalker-shadow-of-chernobyl/) | `proton` | `nix run .#stalker-shadow-of-chernobyl` |
 | <a href="https://lutris.net/games/star-wars-battlefront-2/"><img src="https://lutris.net/games/banner/star-wars-battlefront-2.jpg" height="40" alt="star-wars-battlefront-2"></a> | [Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope](https://lutris.net/games/star-wars-battlefront-2/) | `proton` | `nix run .#star-wars-battlefront-2` |
@@ -356,7 +357,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_315 games_
+_316 games_
 
 <!-- END GENERATED GAMES -->
 

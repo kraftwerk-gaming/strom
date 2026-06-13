@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application screenrefresh="0" maxshader="0" antialiasing="0" vsync="0" fullscreen="1" screenheight="1080" screenwidth="1920" simd="1" soundprovider="Miles" fx2dvolume="0.500000000" fx3dvolume="0.500000000" speechvolume="0.500000000" musicvolume="0.500000000" globalvolume="1.000000000" />
+<vismain optionterraintextureanisotropy="1" optionshadowmapfilter="1" optionshadowobjects="1" optionshadowmap="0" optionenableskydome="1" optiontexturesizebias="8.000000000" optionwaterquality="0" optionenablegrass="1" optionenableautoexposure="1" optionenableglow="0" optionenableflatshades="0" filtermaxdistance="225.000000000" optiongama="1.000000000" optionlighting="1" optionfog="1" optionenableblur="0" optionenablesharpen="0" optionenablenoise="0" optionenablecolorgrading="1" optioncolorblind="0" optionrenderhealthbars="1" optionrenderdonuts="1" optionrenderdigits="0" optionrenderfiguredamagedigits="0" optionrenderbuildingdeliverdigits="0" optionautolighting="1" />
+<debugmain optionfileaccesslogfile="" optionlogfileaccess="0" optionfunctionindex="0" optionvalueindex="0" />
+<meta testcase="0" lastvendorid="4098" lastdeviceid="4372" lastdriverversion="32767.65535.65535.65535" forcecheckdriver="0" forcechecksettings="0" />
+<gui last_used_campaign_avatar="test" sp_start_immediate="0" always_show_untargetable_spells="1" cammovementspeed="60.000000000" camrotationspeed="4.000000000" camrotation3rdpersonspeed="8.000000000" camrotationwasdspeed="2.000000000" camzoomspeed="1.000000000" cam3rdinverty="1.000000000" borderscrolling="1" toggle_perspective_mode="0" zoom_level_count_max="0" mouseover_healthbars="1" extended_tooltips="1" />
+<script optiondump="0" />
+<vissound optionackenable="1" />
+<gui_internal internal_frontfactor="1.000000000" internal_backfactor="10.000000000" internal_sidefactor="3.000000000" internal_rank_cap="60.000000000" internal_tolerance="3.000000000" internal_offset="5.000000000" />
