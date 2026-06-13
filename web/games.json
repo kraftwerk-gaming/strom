@@ -234,6 +234,13 @@
     "description": "Bloodborne PSX (Lilith Walther's PSX-styled fan demake v1.05, via Proton)",
     "runtime": "proton"
   },
+  "boomerang-fu": {
+    "cids": [
+      "QmPDpQsXaTKKiKpRzQhpWVbJCKpH9keJb7waC8saMywMg3"
+    ],
+    "description": "Boomerang Fu (Cranky Watermelon 2020, Unity couch-PvP party game, via Proton)",
+    "runtime": "proton"
+  },
   "braid": {
     "cids": [
       "QmUVVVtFTDg7MUPL6q8a5F6wYqgZdsrtp29j653NvWesjN"
