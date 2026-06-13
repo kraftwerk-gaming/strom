@@ -2078,6 +2078,13 @@
     "description": "ULTRAKILL (New Blood / Hakita 2020 Early Access, via Proton)",
     "runtime": "proton"
   },
+  "underrail": {
+    "cids": [
+      "QmVoaY6jTJWyrv9jHAUDXQ3NPrQjFmuFWbtLSBYSZnSe4h"
+    ],
+    "description": "UnderRail (Stygian Software 2015, v1.3.0.15 P2P, via Proton)",
+    "runtime": "proton"
+  },
   "undertale": {
     "cids": [
       "QmU97VATpxu6sC7KGNBw8sAqiABQTQ6UW8kj7Y6AiGQPH3"
