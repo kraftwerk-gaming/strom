@@ -2168,6 +2168,13 @@
     "description": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
     "runtime": "proton"
   },
+  "warhammer-40000-dawn-of-war": {
+    "cids": [
+      "QmWVBVaegsTkbezUYNk5f5tvS58toqeJx9Sca4yoiUUzvr"
+    ],
+    "description": "Warhammer 40,000: Dawn of War (Relic, 2004, GOG Game of the Year edition, via Proton)",
+    "runtime": "proton"
+  },
   "warzone-2100": {
     "cids": [],
     "description": "Warzone 2100 (1999 Pumpkin Studios, GPL free software, native Linux)",
