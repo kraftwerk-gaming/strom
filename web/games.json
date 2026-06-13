@@ -2212,6 +2212,13 @@
     "description": "Warhammer 40,000: Dawn of War - Dark Crusade (Relic, 2006, GOG standalone, via Proton)",
     "runtime": "proton"
   },
+  "warhammer-40000-dawn-of-war-soulstorm": {
+    "cids": [
+      "QmPQB7v72d8pgKy8rX6TYD9EheuC9DbRKnSQQAS3upzTTG"
+    ],
+    "description": "Warhammer 40,000: Dawn of War - Soulstorm (Relic, 2008, GOG standalone, via Proton)",
+    "runtime": "proton"
+  },
   "warhammer-40000-dawn-of-war-winter-assault": {
     "cids": [
       "Qmd4Nrec6TXLY1VDA3T46zWU9RrHMZSrKfb7C4V5XCLW2d"
