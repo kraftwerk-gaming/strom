@@ -224,6 +224,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/metro-2033-redux/"><img src="https://lutris.net/games/banner/metro-2033-redux.jpg" height="40" alt="metro-2033-redux"></a> | [Metro 2033 Redux](https://lutris.net/games/metro-2033-redux/) | `custom` | `nix run .#metro-2033-redux` |
 | <a href="https://lutris.net/games/monkey-island-2-special-edition/"><img src="https://lutris.net/games/banner/monkey-island-2-special-edition.jpg" height="40" alt="monkey-island-2-special-edition"></a> | [Monkey Island 2: LeChuck's Revenge](https://lutris.net/games/monkey-island-2-special-edition/) | `native` | `nix run .#monkey-island-2-special-edition` |
 | <a href="https://lutris.net/games/mouthwashing/"><img src="https://lutris.net/games/banner/mouthwashing.jpg" height="40" alt="mouthwashing"></a> | [Mouthwashing](https://lutris.net/games/mouthwashing/) | `proton` | `nix run .#mouthwashing` |
+| <a href="https://lutris.net/games/moving-out/"><img src="https://lutris.net/games/banner/moving-out.jpg" height="40" alt="moving-out"></a> | [Moving Out](https://lutris.net/games/moving-out/) | `proton` | `nix run .#moving-out` |
 | <a href="https://lutris.net/games/myst/"><img src="https://lutris.net/games/banner/myst.jpg" height="40" alt="myst"></a> | [Myst: Masterpiece Edition](https://lutris.net/games/myst/) | `native` | `nix run .#myst` |
 | <a href="https://lutris.net/games/need-for-speed-most-wanted/"><img src="https://lutris.net/games/banner/need-for-speed-most-wanted.jpg" height="40" alt="need-for-speed-most-wanted"></a> | [Need for Speed: Most Wanted (2005)](https://lutris.net/games/need-for-speed-most-wanted/) | `proton` | `nix run .#need-for-speed-most-wanted` |
 | <a href="https://lutris.net/games/need-for-speed-underground-2/"><img src="https://lutris.net/games/banner/need-for-speed-underground-2.jpg" height="40" alt="need-for-speed-underground-2"></a> | [Need for Speed: Underground 2](https://lutris.net/games/need-for-speed-underground-2/) | `proton` | `nix run .#need-for-speed-underground-2` |
@@ -366,7 +367,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_325 games_
+_326 games_
 
 <!-- END GENERATED GAMES -->
 
