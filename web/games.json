@@ -1821,6 +1821,13 @@
     "description": "SUPERHOT (SUPERHOT Team, 2016 Unity5 release, via Proton)",
     "runtime": "proton"
   },
+  "supraland": {
+    "cids": [
+      "QmbxzpQNY8RPAG6t2DhGSah5nT6dWRzi1128rMtZx5BRDS"
+    ],
+    "description": "Supraland (Supra Games 2019, v1.23.7 P2P pre-installed, via Proton)",
+    "runtime": "proton"
+  },
   "swat-4": {
     "cids": [
       "QmPt5rAY7fZXtgHvjWAaywnEYHgmba97qy9t38hCru29KT"
