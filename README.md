@@ -289,6 +289,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/star-wars-jedi-knight-ii-jedi-outcast/"><img src="https://lutris.net/games/banner/star-wars-jedi-knight-ii-jedi-outcast.jpg" height="40" alt="star-wars-jedi-knight-ii-jedi-outcast"></a> | [Star Wars Jedi Knight II: Jedi Outcast](https://lutris.net/games/star-wars-jedi-knight-ii-jedi-outcast/) | `native` | `nix run .#star-wars-jedi-knight-ii-jedi-outcast` |
 | <a href="https://lutris.net/games/starcraft/"><img src="https://lutris.net/games/banner/starcraft.jpg" height="40" alt="starcraft"></a> | [StarCraft + Brood War](https://lutris.net/games/starcraft/) | `proton` | `nix run .#starcraft` |
 | <a href="https://lutris.net/games/stardew-valley/"><img src="https://lutris.net/games/banner/stardew-valley.jpg" height="40" alt="stardew-valley"></a> | [Stardew Valley](https://lutris.net/games/stardew-valley/) | `custom` | `nix run .#stardew-valley` |
+| <a href="https://lutris.net/games/stick-fight-the-game/"><img src="https://lutris.net/games/banner/stick-fight-the-game.jpg" height="40" alt="stick-fight-the-game"></a> | [Stick Fight: The Game](https://lutris.net/games/stick-fight-the-game/) | `proton` | `nix run .#stick-fight-the-game` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
 | <a href="https://lutris.net/games/stubbs-the-zombie-in-rebel-without-a-pulse/"><img src="https://lutris.net/games/banner/stubbs-the-zombie-in-rebel-without-a-pulse.jpg" height="40" alt="stubbs-the-zombie-in-rebel-without-a-pulse"></a> | [Stubbs the Zombie in Rebel Without a Pulse](https://lutris.net/games/stubbs-the-zombie-in-rebel-without-a-pulse/) | `proton` | `nix run .#stubbs-the-zombie-in-rebel-without-a-pulse` |
 | <a href="https://lutris.net/games/sun-haven/"><img src="https://lutris.net/games/banner/sun-haven.jpg" height="40" alt="sun-haven"></a> | [Sun Haven](https://lutris.net/games/sun-haven/) | `proton` | `nix run .#sun-haven` |
@@ -361,7 +362,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_320 games_
+_321 games_
 
 <!-- END GENERATED GAMES -->
 

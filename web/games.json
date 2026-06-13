@@ -1779,6 +1779,13 @@
     "description": "Stardew Valley (native Linux, GOG v1.6.15.24357 build 78675)",
     "runtime": "custom"
   },
+  "stick-fight-the-game": {
+    "cids": [
+      "QmPUJ1qwyjKBw4B2NuSXqjy76VdARFzYWcwzeqRCBrbn1Z"
+    ],
+    "description": "Stick Fight: The Game (Landfall 2017, physics brawler via Proton)",
+    "runtime": "proton"
+  },
   "stronghold-hd": {
     "cids": [
       "QmVuY5eMwcMHa6DE3BUfvMByULz2P18NJNDSpUUtYCq9oh"
