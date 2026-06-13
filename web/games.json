@@ -1835,6 +1835,13 @@
     "description": "Supraland (Supra Games 2019, v1.23.7 P2P pre-installed, via Proton)",
     "runtime": "proton"
   },
+  "supraland-six-inches-under": {
+    "cids": [
+      "QmYg4ALK7ahcJr59NoUX12iC8dcwrC54E8s4qQwStiiGhg"
+    ],
+    "description": "Supraland Six Inches Under (Supra Games 2022, Unreal Engine 4, via Proton)",
+    "runtime": "proton"
+  },
   "swat-4": {
     "cids": [
       "QmPt5rAY7fZXtgHvjWAaywnEYHgmba97qy9t38hCru29KT"

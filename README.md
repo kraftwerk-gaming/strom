@@ -297,6 +297,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/super-smash-bros-melee/"><img src="https://lutris.net/games/banner/super-smash-bros-melee.jpg" height="40" alt="super-smash-bros-melee"></a> | [Super Smash Bros. Melee](https://lutris.net/games/super-smash-bros-melee/) | `native` | `nix run .#super-smash-bros-melee` |
 | <a href="https://lutris.net/games/superhot/"><img src="https://lutris.net/games/banner/superhot.jpg" height="40" alt="superhot"></a> | [SUPERHOT](https://lutris.net/games/superhot/) | `proton` | `nix run .#superhot` |
 | <a href="https://lutris.net/games/supraland/"><img src="https://lutris.net/games/banner/supraland.jpg" height="40" alt="supraland"></a> | [Supraland](https://lutris.net/games/supraland/) | `proton` | `nix run .#supraland` |
+| <a href="https://lutris.net/games/supraland-six-inches-under/"><img src="https://lutris.net/games/banner/supraland-six-inches-under.jpg" height="40" alt="supraland-six-inches-under"></a> | [Supraland Six Inches Under](https://lutris.net/games/supraland-six-inches-under/) | `proton` | `nix run .#supraland-six-inches-under` |
 | <a href="https://lutris.net/games/swat-4/"><img src="https://lutris.net/games/banner/swat-4.jpg" height="40" alt="swat-4"></a> | [SWAT 4: Gold Edition](https://lutris.net/games/swat-4/) | `proton` | `nix run .#swat-4` |
 | <a href="https://lutris.net/games/syndicate/"><img src="https://lutris.net/games/banner/syndicate.jpg" height="40" alt="syndicate"></a> | [Syndicate](https://lutris.net/games/syndicate/) | `native` | `nix run .#syndicate` |
 | <a href="https://lutris.net/games/system-shock/"><img src="https://lutris.net/games/banner/system-shock.jpg" height="40" alt="system-shock"></a> | [System Shock](https://lutris.net/games/system-shock/) | `native` | `nix run .#system-shock` |
@@ -355,7 +356,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_314 games_
+_315 games_
 
 <!-- END GENERATED GAMES -->
 
