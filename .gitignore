@@ -6,3 +6,27 @@ TODO.md
 .direnv/
 __pycache__/
 /.pre-commit-config.yaml
+
+# --- staging guard: never let a game SOURCE get committed into the flake ---
+# Stage agents download multi-GB sources into per-game worktrees; a stray
+# `git add -A` once staged an 8.3 GB rar+iso into a worktree index and bloated
+# .git to 45 G. Game sources belong in IPFS/the nix store, never in git.
+*.rar
+*.iso
+*.7z
+*.zip
+*.tar
+*.tar.*
+*.bin
+*.run
+*.exe
+*.dll
+*.pak
+*.wad
+*.pk3
+*.zst
+src-download/
+dl/
+_src/
+extract/
+iso_files/
