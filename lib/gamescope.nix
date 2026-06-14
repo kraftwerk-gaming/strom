@@ -132,6 +132,19 @@ in
       # no-op unless STROM_GAMEDIR is in scope (set by the strom
       # bwrap.preHook), so this stays harmless for non-strom callers.
       text = ''
+        # gamescope's nested Xwayland does NOT inherit the host seat's xkb
+        # layout (gamescope#203): it builds its keymap from XKB_DEFAULT_LAYOUT
+        # at seat init, and `setxkbmap` on the outer X never reaches the nest.
+        # Left unset, letter keys don't translate to WM_CHAR under Wine, so any
+        # typing path (name entry / chat / dev console / word-games like
+        # cryptmaster) silently breaks while digits + mouse still work. Default
+        # the nest to a sane keymap here. These exports PRECEDE config.env, so a
+        # per-game `gamescope.env.XKB_DEFAULT_LAYOUT` still wins; the `:-`
+        # defaults also respect an externally-set value (e.g. a non-US user
+        # running `XKB_DEFAULT_LAYOUT=de nix run .#game`). VARIANT defaults empty
+        # — a non-empty variant the nest can't build segfaults its Xwayland.
+        export XKB_DEFAULT_LAYOUT="''${XKB_DEFAULT_LAYOUT:-us}"
+        export XKB_DEFAULT_VARIANT="''${XKB_DEFAULT_VARIANT:-}"
         ${lib.concatStringsSep "\n" (lib.mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
         ${config.preHook}
         # strom: per-launch private XDG_RUNTIME_DIR so parallel gamescope
