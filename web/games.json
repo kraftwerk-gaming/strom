@@ -568,6 +568,13 @@
     "description": "Diablo II + Lord of Destruction (CJ_Strife portable, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "die-in-the-dungeon-classic": {
+    "cids": [
+      "QmQznuRJuvebACp4a9bUoy37YoXTtCsKf3khU8At5qN1tp"
+    ],
+    "description": "Die in the Dungeon: CLASSIC (Alarts/ATICO 2021, native Linux, itch.io v1.6.2f)",
+    "runtime": "custom"
+  },
   "disco-elysium-game-boy-edition": {
     "cids": [
       "Qme3jE9E7fCJTFiZrcBeWQ7swsQrzZucLxKoE1KdvbrmPX"

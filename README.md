@@ -120,6 +120,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/detention/"><img src="https://lutris.net/games/banner/detention.jpg" height="40" alt="detention"></a> | [Detention](https://lutris.net/games/detention/) | `proton` | `nix run .#detention` |
 | <a href="https://lutris.net/games/deus-ex/"><img src="https://lutris.net/games/banner/deus-ex.jpg" height="40" alt="deus-ex"></a> | [Deus Ex GOTY](https://lutris.net/games/deus-ex/) | `proton` | `nix run .#deus-ex` |
 | <a href="https://lutris.net/games/diablo-ii-lord-of-destruction/"><img src="https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg" height="40" alt="diablo-ii-lord-of-destruction"></a> | [Diablo II + Lord of Destruction](https://lutris.net/games/diablo-ii-lord-of-destruction/) | `proton` | `nix run .#diablo-ii-lord-of-destruction` |
+| <a href="https://lutris.net/games/die-in-the-dungeon-classic/"><img src="https://lutris.net/games/banner/die-in-the-dungeon-classic.jpg" height="40" alt="die-in-the-dungeon-classic"></a> | [Die in the Dungeon: CLASSIC](https://lutris.net/games/die-in-the-dungeon-classic/) | `custom` | `nix run .#die-in-the-dungeon-classic` |
 | <a href="https://lutris.net/games/disco-elysium-game-boy-edition/"><img src="https://lutris.net/games/banner/disco-elysium-game-boy-edition.jpg" height="40" alt="disco-elysium-game-boy-edition"></a> | [Disco Elysium: Game Boy Edition](https://lutris.net/games/disco-elysium-game-boy-edition/) | `retroarch` | `nix run .#disco-elysium-game-boy-edition` |
 | <a href="https://lutris.net/games/disco-elysium-the-final-cut/"><img src="https://lutris.net/games/banner/disco-elysium-the-final-cut.jpg" height="40" alt="disco-elysium-the-final-cut"></a> | [Disco Elysium: The Final Cut](https://lutris.net/games/disco-elysium-the-final-cut/) | `proton` | `nix run .#disco-elysium-the-final-cut` |
 | <a href="https://lutris.net/games/dishonored-definitive-edition/"><img src="https://lutris.net/games/banner/dishonored-definitive-edition.jpg" height="40" alt="dishonored-definitive-edition"></a> | [Dishonored: Definitive Edition](https://lutris.net/games/dishonored-definitive-edition/) | `proton` | `nix run .#dishonored-definitive-edition` |
@@ -381,7 +382,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_340 games_
+_341 games_
 
 <!-- END GENERATED GAMES -->
 
