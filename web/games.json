@@ -463,6 +463,13 @@
     "description": "Crypt of the NecroDancer (native Linux, GOG v4.1.0 build 5142, + Amplified / Hatsune Miku / Synchrony DLCs)",
     "runtime": "native"
   },
+  "cryptmaster": {
+    "cids": [
+      "QmWjQzXRXQbWTBBTbMmuZoU4uR3AUjUd8UU73EcFpMPJJn"
+    ],
+    "description": "Cryptmaster (Paul Hart & Lee Williams / Akupara Games 2024, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "cult-of-the-lamb": {
     "cids": [
       "QmU2q6xopnGA8iVxtrAZFLXwjig7UkiYjxF9RVycquodBP"
