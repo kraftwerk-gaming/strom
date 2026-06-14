@@ -519,6 +519,13 @@
     "description": "Death and Taxes (Placeholder Gameworks 2020, native Linux, GOG v1.2.59 build 82787)",
     "runtime": "custom"
   },
+  "deep-rock-galactic-survivor": {
+    "cids": [
+      "QmSL5h9UesxVdWGxAdPzXEgr1cTJ2puw2LJv71mcUgtSR4"
+    ],
+    "description": "Deep Rock Galactic: Survivor (Funday Games 2024, Unity auto-shooter via Proton)",
+    "runtime": "proton"
+  },
   "deltarune": {
     "cids": [
       "QmSSr7w3G9i3EidAK51sjnpGUuDEX55q2cp3FwLefQN2UV"
