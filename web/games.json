@@ -1678,6 +1678,13 @@
     "description": "ROUNDS (Landfall 2021, 1v1 rounds-based shooter via Proton)",
     "runtime": "proton"
   },
+  "rune-dice": {
+    "cids": [
+      "QmWto77kLwyysUAQTGbQadxQj4uTZmctZjA8yyNxJGp5E2"
+    ],
+    "description": "Rune Dice (Smart Raven Studio 2026, dice roguelike deckbuilder, via Proton)",
+    "runtime": "proton"
+  },
   "sanitarium": {
     "cids": [
       "QmTaE4GSe356NYc8tHTpcLoHsaim6MA1JBPxRpTxsLFDGe"
