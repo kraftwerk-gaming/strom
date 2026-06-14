@@ -463,6 +463,13 @@
     "description": "Crypt of the NecroDancer (native Linux, GOG v4.1.0 build 5142, + Amplified / Hatsune Miku / Synchrony DLCs)",
     "runtime": "native"
   },
+  "cult-of-the-lamb": {
+    "cids": [
+      "QmU2q6xopnGA8iVxtrAZFLXwjig7UkiYjxF9RVycquodBP"
+    ],
+    "description": "Cult of the Lamb (Massive Monster / Devolver Digital 2022, Unity roguelike, native Linux v1.2.7.29)",
+    "runtime": "native"
+  },
   "cuphead": {
     "cids": [
       "QmNjJThUd5NxEAY7LSYXjDjLZjwdZdUa6hDhGLFds8Zxm9"
