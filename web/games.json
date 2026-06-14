@@ -1786,6 +1786,13 @@
     "description": "SpellForce Platinum Edition (Phenomic / JoWooD 2003-2004: The Order of Dawn + Breath of Winter + Shadow of the Phoenix, via Proton)",
     "runtime": "proton"
   },
+  "squirrel-stapler": {
+    "cids": [
+      "QmX8wwU4JhQRGVZ4WVWcJYn2xEjq3Hetod6jDcYKEaLqTX"
+    ],
+    "description": "Squirrel Stapler (David Szymanski / DreadXP 2021, via Proton)",
+    "runtime": "proton"
+  },
   "stalker-shadow-of-chernobyl": {
     "cids": [
       "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
