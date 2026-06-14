@@ -617,6 +617,13 @@
     "description": "Duck Game (DuckGameRebuilt v1.4.7, native Linux via Mono + FNA)",
     "runtime": "custom"
   },
+  "dungeon-clawler": {
+    "cids": [
+      "QmS2f4TY3LxxZVoJnDKMzAg4AP9nzryhotTjDwPe3ZnNa6"
+    ],
+    "description": "Dungeon Clawler (Stray Fawn Studio 2025, via Proton)",
+    "runtime": "proton"
+  },
   "dungeon-keeper": {
     "cids": [
       "Qmez7AYzB1fAm129WEkUafvBnshvSfM5hPozpjQcZV8m3y"

@@ -127,6 +127,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/dredge/"><img src="https://lutris.net/games/banner/dredge.jpg" height="40" alt="dredge"></a> | [DREDGE](https://lutris.net/games/dredge/) | `proton` | `nix run .#dredge` |
 | <a href="https://lutris.net/games/driver-san-francisco/"><img src="https://lutris.net/games/banner/driver-san-francisco.jpg" height="40" alt="driver-san-francisco"></a> | [Driver: San Francisco](https://lutris.net/games/driver-san-francisco/) | `proton` | `nix run .#driver-san-francisco` |
 | <a href="https://lutris.net/games/duck-game/"><img src="https://lutris.net/games/banner/duck-game.jpg" height="40" alt="duck-game"></a> | [Duck Game](https://lutris.net/games/duck-game/) | `custom` | `nix run .#duck-game` |
+| <a href="https://lutris.net/games/dungeon-clawler/"><img src="https://lutris.net/games/banner/dungeon-clawler.jpg" height="40" alt="dungeon-clawler"></a> | [Dungeon Clawler](https://lutris.net/games/dungeon-clawler/) | `proton` | `nix run .#dungeon-clawler` |
 | <a href="https://lutris.net/games/dungeon-keeper/"><img src="https://lutris.net/games/banner/dungeon-keeper.jpg" height="40" alt="dungeon-keeper"></a> | [Dungeon Keeper](https://lutris.net/games/dungeon-keeper/) | `proton` | `nix run .#dungeon-keeper` |
 | <a href="https://lutris.net/games/dungeon-siege/"><img src="https://lutris.net/games/banner/dungeon-siege.jpg" height="40" alt="dungeon-siege"></a> | [Dungeon Siege](https://lutris.net/games/dungeon-siege/) | `proton` | `nix run .#dungeon-siege` |
 | <a href="https://lutris.net/games/dungeons-2/"><img src="https://lutris.net/games/banner/dungeons-2.jpg" height="40" alt="dungeons-2"></a> | [Dungeons 2](https://lutris.net/games/dungeons-2/) | `custom` | `nix run .#dungeons-2` |
@@ -376,7 +377,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_335 games_
+_336 games_
 
 <!-- END GENERATED GAMES -->
 
