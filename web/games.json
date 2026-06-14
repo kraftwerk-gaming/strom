@@ -1828,6 +1828,13 @@
     "description": "Star Wars Jedi Knight II: Jedi Outcast (LucasArts/Raven 2002, retail CD via OpenJK openjo)",
     "runtime": "native"
   },
+  "star-wars-republic-commando": {
+    "cids": [
+      "QmZe2GTKZQG97ibJk9mSKmqEXNtFKedEDzjZy31aHBra7U"
+    ],
+    "description": "Star Wars: Republic Commando (LucasArts 2005, Unreal Engine 2, GOG v2.0.0.6, via Proton)",
+    "runtime": "proton"
+  },
   "starcraft": {
     "cids": [
       "QmcqdWwb33rKcfFzoZyTJQpL62ADcTHr8W2APG4Q6MFERx"
