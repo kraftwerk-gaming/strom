@@ -1339,6 +1339,13 @@
     "description": "Metro 2033 Redux (4A Games 2014 native Linux remaster)",
     "runtime": "custom"
   },
+  "mina-the-hollower": {
+    "cids": [
+      "QmbRZQvqyvxLaHvxt38ZQz4zN1q6zaEHBsADkYMnXqoXdy"
+    ],
+    "description": "Mina the Hollower (Yacht Club Games 2026, via Proton)",
+    "runtime": "proton"
+  },
   "monkey-island-2-special-edition": {
     "cids": [
       "QmYs37wpRTvw1ihxgzd4HR8Zf1Y1QqSATd8rHZMKETTuTm"
