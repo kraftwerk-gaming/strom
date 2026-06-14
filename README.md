@@ -213,6 +213,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/loop-hero/"><img src="https://lutris.net/games/banner/loop-hero.jpg" height="40" alt="loop-hero"></a> | [Loop Hero](https://lutris.net/games/loop-hero/) | `custom` | `nix run .#loop-hero` |
 | <a href="https://lutris.net/games/lorns-lure/"><img src="https://lutris.net/games/banner/lorns-lure.jpg" height="40" alt="lorns-lure"></a> | [Lorn's Lure](https://lutris.net/games/lorns-lure/) | `proton` | `nix run .#lorns-lure` |
 | <a href="https://lutris.net/games/luftrausers/"><img src="https://lutris.net/games/banner/luftrausers.jpg" height="40" alt="luftrausers"></a> | [Luftrausers](https://lutris.net/games/luftrausers/) | `custom` | `nix run .#luftrausers` |
+| <a href="https://lutris.net/games/lunacid/"><img src="https://lutris.net/games/banner/lunacid.jpg" height="40" alt="lunacid"></a> | [Lunacid](https://lutris.net/games/lunacid/) | `proton` | `nix run .#lunacid` |
 | <a href="https://lutris.net/games/magicka/"><img src="https://lutris.net/games/banner/magicka.jpg" height="40" alt="magicka"></a> | [Magicka](https://lutris.net/games/magicka/) | `proton` | `nix run .#magicka` |
 | <a href="https://lutris.net/games/manhunt/"><img src="https://lutris.net/games/banner/manhunt.jpg" height="40" alt="manhunt"></a> | [Manhunt](https://lutris.net/games/manhunt/) | `proton` | `nix run .#manhunt` |
 | <a href="https://lutris.net/games/max-payne/"><img src="https://lutris.net/games/banner/max-payne.jpg" height="40" alt="max-payne"></a> | [Max Payne](https://lutris.net/games/max-payne/) | `proton` | `nix run .#max-payne` |
@@ -375,7 +376,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_334 games_
+_335 games_
 
 <!-- END GENERATED GAMES -->
 

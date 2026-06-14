@@ -1234,6 +1234,13 @@
     "description": "Luftrausers (2014 Vlambeer / Devolver, native Linux from IndieBox USA)",
     "runtime": "custom"
   },
+  "lunacid": {
+    "cids": [
+      "QmPC94pgFSKLU22yk9LjDEafKaF8pTPyDjcQYecv4xzotZ"
+    ],
+    "description": "Lunacid (Kira 2023, Unity King's Field-style first-person dungeon crawler, via Proton)",
+    "runtime": "proton"
+  },
   "magicka": {
     "cids": [
       "QmYjA47DUhTPt6aTMcjBHPtr1a1Mk2LXLYv6orJ6hNT2Gy",
