@@ -1,21 +1,22 @@
 // strom-run: the outermost process of a strom game launch (`bin/<game>`).
 //
 // It replaces the host-side bash that used to hand-roll the game's
-// process-tree lifecycle in lib/bwrap.nix (a flock, a fuse-overlayfs
-// unmount, a cross-namespace shutdown FIFO reader, a /proc PPid orphan
-// watchdog, composed signal traps and a wait loop). Those leaked the
-// lock, the overlay mount and the per-launch gamescope dirs whenever
-// teardown took the SIGKILL path (sway window-close), because bash
-// cannot atomically own a process tree.
+// process-tree lifecycle in lib/bwrap.nix (a flock, a cross-namespace
+// shutdown FIFO reader, a /proc PPid orphan watchdog, composed signal
+// traps and a wait loop). Those leaked the lock and the per-launch
+// gamescope dirs whenever teardown took the SIGKILL path (sway
+// window-close), because bash cannot atomically own a process tree.
 //
 // strom-run owns the tree via cgroup v2: it forks `bwrap ...` into a
 // child cgroup and, on any teardown trigger, writes cgroup.kill. That
 // SIGKILLs the whole subtree atomically from outside the pid namespace
 // — bypassing both the "kill of pid 1 in an unshare-pid ns is dropped"
 // kernel safeguard and the gamescope->reaper->winedevice waitpid()
-// deadlock — so the overlay can be unmounted with the tree guaranteed
-// dead, and the inherited flock (fd 9) is released because strom-run is
-// always reaped.
+// deadlock — and the inherited flock (fd 9) is released because
+// strom-run is always reaped. The read-write game overlay is mounted
+// with fuse-overlayfs INSIDE the bwrap namespace, so killing the tree
+// tears down its mount-ns and the daemon + mount vanish with it; there
+// is nothing host-side for strom-run to unmount.
 //
 // Teardown triggers, multiplexed in one poll() loop:
 //   * the bwrap child exits           (pidfd)      -> normal game quit
@@ -47,7 +48,7 @@ use std::fs;
 use std::mem;
 use std::os::raw::c_int;
 use std::path::PathBuf;
-use std::process::{exit, Command};
+use std::process::exit;
 use std::ptr;
 use std::thread::sleep;
 use std::time::{Duration, Instant};
@@ -62,8 +63,6 @@ struct Config {
     control_dir: Option<String>,
     control_fifo: Option<String>,
     gs_dirs: Option<String>,
-    overlay_unmount: Option<String>,
-    fusermount3: Option<String>,
     childv: Vec<String>,
 }
 
@@ -74,8 +73,6 @@ fn parse() -> Config {
         control_dir: None,
         control_fifo: None,
         gs_dirs: None,
-        overlay_unmount: None,
-        fusermount3: None,
         childv: Vec::new(),
     };
     macro_rules! val {
@@ -90,8 +87,6 @@ fn parse() -> Config {
             "--control-dir" => c.control_dir = Some(val!("--control-dir")),
             "--control-fifo" => c.control_fifo = Some(val!("--control-fifo")),
             "--gs-dirs" => c.gs_dirs = Some(val!("--gs-dirs")),
-            "--overlay-unmount" => c.overlay_unmount = Some(val!("--overlay-unmount")),
-            "--fusermount3" => c.fusermount3 = Some(val!("--fusermount3")),
             "--" => {
                 c.childv = args.by_ref().collect();
                 break;
@@ -279,68 +274,6 @@ fn supervise(sfd: c_int, child_pidfd: c_int, fifo_fd: c_int) -> Reason {
 
 // ---- teardown -------------------------------------------------------------
 
-fn is_mounted(path: &str) -> bool {
-    fs::read_to_string("/proc/self/mountinfo")
-        .map(|s| s.lines().any(|l| l.split(' ').nth(4) == Some(path)))
-        .unwrap_or(false)
-}
-
-fn unmount_overlay(fusermount3: &str, merged: &str) {
-    if !is_mounted(merged) {
-        return;
-    }
-    for attempt in 0..2 {
-        let ok = Command::new(fusermount3)
-            .arg("-u")
-            .arg(merged)
-            .status()
-            .map(|s| s.success())
-            .unwrap_or(false);
-        if ok {
-            return;
-        }
-        if attempt == 0 {
-            sleep(Duration::from_millis(50));
-        }
-    }
-    eprintln!("strom-run: overlay unmount of {merged} failed");
-}
-
-// Belt-and-suspenders after unmount: SIGKILL any fuse-overlayfs daemon still
-// backing `merged`. A daemon can outlive its mount -- e.g. the mount was torn
-// down out-of-band so `fusermount3 -u` had nothing to do, or it was orphaned
-// (reparented to init) on a hard teardown -- and any such daemon that inherited
-// the wrapper's lock fd would keep the single-instance lock held. The bwrap.nix
-// `9<&-` stops the inheritance going forward; this guarantees the process is
-// gone regardless. Match on comm == fuse-overlayfs AND argv containing the
-// merged path, so we never touch another game's daemon.
-fn reap_overlay_daemon(merged: &str) {
-    let Ok(entries) = fs::read_dir("/proc") else {
-        return;
-    };
-    for entry in entries.flatten() {
-        let Ok(pid) = entry.file_name().to_string_lossy().parse::<i32>() else {
-            continue;
-        };
-        // comm is truncated to 15 bytes; "fuse-overlayfs" (14) fits exactly.
-        let is_fuse = fs::read_to_string(format!("/proc/{pid}/comm"))
-            .map(|c| c.trim_end() == "fuse-overlayfs")
-            .unwrap_or(false);
-        if !is_fuse {
-            continue;
-        }
-        let backs_merged = fs::read_to_string(format!("/proc/{pid}/cmdline"))
-            .map(|c| c.split('\0').any(|a| a == merged))
-            .unwrap_or(false);
-        if backs_merged {
-            unsafe {
-                libc::kill(pid, libc::SIGKILL);
-            }
-            eprintln!("strom-run: reaped lingering fuse-overlayfs (pid {pid}) for {merged}");
-        }
-    }
-}
-
 fn reap_gs_dirs(file: &str) {
     if let Ok(content) = fs::read_to_string(file) {
         for line in content.lines() {
@@ -391,30 +324,26 @@ fn teardown_logged(cfg: &Config, cg: &Cgroup, child: c_int, reason: Reason, why:
         }
     }
 
-    // 3. Wait for the subtree to drain, then remove the cgroup.
+    // 3. Wait for the subtree to drain, then remove the cgroup. The game
+    //    overlay was mounted with fuse-overlayfs INSIDE the bwrap
+    //    namespace, so killing the tree tears its mount-ns down and the
+    //    daemon + mount vanish with it -- there is nothing host-side to
+    //    unmount or reap.
     cg.wait_empty(Duration::from_secs(10));
     cg.remove();
 
-    // 4. The tree is dead, so the host fuse-overlayfs mount has no users:
-    //    unmount it (idempotent; skipped if already unmounted), then make
-    //    sure no overlay daemon for it lingers (which would pin the lock).
-    if let (Some(merged), Some(fmnt)) = (&cfg.overlay_unmount, &cfg.fusermount3) {
-        unmount_overlay(fmnt, merged);
-        reap_overlay_daemon(merged);
-    }
-
-    // 5. Reap the per-launch gamescope private dirs the inner wrapper
+    // 4. Reap the per-launch gamescope private dirs the inner wrapper
     //    recorded but couldn't clean (SIGKILL skipped its EXIT trap).
     if let Some(f) = &cfg.gs_dirs {
         reap_gs_dirs(f);
     }
 
-    // 6. Remove the host control dir (shutdown FIFO + gs-dirs list).
+    // 5. Remove the host control dir (shutdown FIFO + gs-dirs list).
     if let Some(d) = &cfg.control_dir {
         let _ = fs::remove_dir_all(d);
     }
 
-    // 7. Exit. Any inherited flock (fd 9) is released as we exit.
+    // 6. Exit. Any inherited flock (fd 9) is released as we exit.
     match reason {
         Reason::ChildExit => {
             if libc::WIFEXITED(status) {

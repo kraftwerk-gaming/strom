@@ -34,14 +34,6 @@ let
     );
   shellEscape = arg: ''"${arg}"'';
 
-  # Patched fuse-overlayfs (squash_to_uid + copy-up mode-OR) for the
-  # read-write game overlay. fusermount3 (mount/unmount) is the host's
-  # setuid /run/wrappers/bin/fusermount3, reached via the appended $PATH
-  # (we must NOT ship fuse3 here — see extraPackages).
-  fuseOverlayfs = config.pkgs.callPackage ../pkgs/fuse-overlayfs.nix {
-    inherit (config) pkgs;
-  };
-
   # Native supervisor that owns the game process tree via cgroup v2 and
   # tears it down atomically (see pkgs/strom-run). Used on the common
   # launch path; the legacy host-side bash below stays for the n2n-LAN
@@ -174,9 +166,11 @@ in
       );
       default = null;
       description = ''
-        Read-write overlay over read-only nix-store game data, mounted
-        on the host with patched fuse-overlayfs (preHook) and bound into
-        the sandbox at `dest`. `lowers` is the stacked read-only layer
+        Read-write overlay over read-only nix-store game data. bwrap.nix
+        creates the `dest` mountpoint inside the sandbox and grants
+        CAP_SYS_ADMIN; the inner script (lib/mk-game.nix) mounts patched
+        fuse-overlayfs onto it IN the namespace, so it auto-vanishes with
+        the namespace on teardown. `lowers` is the stacked read-only layer
         list (first = highest priority, e.g. mods; last = base, e.g.
         nix-store game data). `upper` takes writes; `work` is the
         overlay scratch dir.
@@ -232,52 +226,11 @@ in
     # from the FHS are unreachable.
     setenv.PATH = lib.mkDefault "/usr/bin:/usr/sbin:/usr/local/bin:/run/current-system/sw/bin";
 
-    # Patched fuse-overlayfs on the host wrapper's PATH (overlay mount).
-    # We deliberately do NOT add fuse3 here: its fusermount3 is plain
-    # (non-setuid) and would shadow the host's setuid
-    # /run/wrappers/bin/fusermount3 (reached via the appended $PATH).
-    # Unmounting an existing fuse mount needs that setuid helper —
-    # the non-setuid one fails with EPERM — and fuse-overlayfs also
-    # finds the setuid helper for the mount.
-    extraPackages = lib.optionals (config.overlay != null) [ fuseOverlayfs ];
-
-    # Mount the read-write game overlay on the HOST with patched
-    # fuse-overlayfs before bwrap launches; the recursive `--bind` in
-    # args carries it into the sandbox at `overlay.dest`. Runs in
-    # extraPreHook (concatenated AFTER preHook), so $STROM_CACHEDIR /
-    # overlay-work are already set up by the time we mount.
-    extraPreHook = lib.optionalString (config.overlay != null) ''
-      # Tear down any stale mount from a crashed prior run, then mount
-      # the merged tree. squash_to_uid presents the 0555 root-owned
-      # nix-store lowers as caller-owned + writable; the copy-up patch
-      # keeps copied-up dirs writable, so the engine can create any new
-      # file on demand. Only written content lands in the upper
-      # ($STROM_GAMEDIR); nothing is predeclared.
-      STROM_OVERLAY_MERGED="$STROM_CACHEDIR/overlay-merged"
-      export STROM_OVERLAY_MERGED
-      if mountpoint -q "$STROM_OVERLAY_MERGED" 2>/dev/null; then
-        fusermount3 -u "$STROM_OVERLAY_MERGED" 2>/dev/null || true
-      fi
-      mkdir -p "$STROM_OVERLAY_MERGED"
-      # `9<&-` closes the single-instance lock fd for the fuse-overlayfs
-      # daemon ONLY. mk-game's preHook opened the flock as fd 9 (`exec
-      # 9>.../.lock`) and strom-run inherits it across exec to hold the
-      # lock for the launch's lifetime. fuse-overlayfs is a plain child of
-      # this wrapper, so without this it ALSO inherits fd 9 -- and because
-      # an flock is held until EVERY fd to that open-file-description is
-      # closed, an overlay daemon that outlives strom-run keeps the lock
-      # held forever (observed: an orphaned fuse-overlayfs pinned the lock
-      # after the game exited). Closing fd 9 here means only strom-run can
-      # hold the lock, so it is always released when strom-run is reaped.
-      # No-op when fd 9 is unopened (non-proton runtimes don't flock).
-      fuse-overlayfs \
-        -o "lowerdir=${lib.concatStringsSep ":" config.overlay.lowers},upperdir=${config.overlay.upper},workdir=${config.overlay.work},squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
-        "$STROM_OVERLAY_MERGED" 9<&-
-    '';
-
-    # Note: the host fuse-overlayfs unmount is handled by the EXIT trap
-    # in outputs.wrapper (covers normal exit AND the TERM/INT/HUP path,
-    # which never reaches postHook), not here.
+    # The read-write game overlay is mounted INSIDE the namespace by the
+    # inner script (lib/mk-game.nix) after bwrap enters the ns, not on the
+    # host -- so it auto-vanishes with the namespace on any teardown and
+    # cannot leak a host mount or daemon. Nothing overlay-related happens
+    # in this host-side hook anymore.
 
     # Argv order: --ro-bind / / first, then FHS overrides at /usr+/bin+
     # /lib, then RW binds, then tmpfs carve-outs, then bind-try inside
@@ -312,21 +265,27 @@ in
       ++ renderPairs "--bind-try" config.bind-try
       ++ renderSingles "--proc" config.proc
       ++ renderPairs "--dev-bind" config.dev-bind
-      # Bind the host-side fuse-overlayfs merged tree (mounted in the
-      # preHook below) into the sandbox at the overlay dest. We use
-      # patched fuse-overlayfs instead of the kernel `--overlay` because
-      # the nix-store lowers are 0555 root-owned and, in this single-uid
-      # userns, map to the unmapped 65534 so CAP_DAC_OVERRIDE never
-      # applies -- kernel overlayfs leaves any lower-only subdir
-      # permanently unwritable. fuse-overlayfs with squash_to_uid +
-      # the copy-up mode-OR patch presents every dir as caller-owned and
+      # The read-write game overlay is mounted with patched fuse-overlayfs
+      # INSIDE this namespace by the inner script (lib/mk-game.nix), not on
+      # the host: a host-side mount + daemon would leak if strom-run were
+      # SIGKILL'd (uncatchable), whereas an in-ns mount auto-vanishes when
+      # the user+mount+pid namespace dies on ANY teardown (SIGKILL
+      # included). We just create the mountpoint dir here and grant
+      # CAP_SYS_ADMIN so the unprivileged in-userns mount(2) is permitted
+      # (fusermount3's mount syscall needs it; bwrap drops all caps by
+      # default). We use fuse-overlayfs instead of the kernel `--overlay`
+      # because the nix-store lowers are 0555 root-owned and, in this
+      # single-uid userns, map to the unmapped 65534 so CAP_DAC_OVERRIDE
+      # never applies -- kernel overlayfs leaves any lower-only subdir
+      # permanently unwritable. fuse-overlayfs with squash_to_uid + the
+      # copy-up mode-OR patch presents every dir as caller-owned and
       # writable, so the engine can create ANY new file on demand with
       # ZERO predeclaration; only actual writes land in the upper
-      # ($STROM_GAMEDIR). The bind is recursive, so the fuse mount made
-      # on the host is carried into the namespace.
+      # ($STROM_GAMEDIR).
       ++ optionals (config.overlay != null) [
-        "--bind"
-        "$STROM_CACHEDIR/overlay-merged"
+        "--cap-add"
+        "CAP_SYS_ADMIN"
+        "--dir"
         config.overlay.dest
       ]
       ++ optionals (config.chdir != null) [
@@ -380,24 +339,16 @@ in
           bwrapArgs = concatMapStringsSep " \\\n          " shellEscape (
             lib.filter (a: a != "$@") (config.args or [ ])
           );
-          stromRunArgs = lib.concatStringsSep " " (
-            [
-              "--cgroup-name"
-              ''"strom-${config.binName}"''
-              "--control-dir"
-              ''"$STROM_CONTROL_DIR"''
-              "--control-fifo"
-              ''"$STROM_CONTROL_DIR/shutdown.fifo"''
-              "--gs-dirs"
-              ''"$STROM_CONTROL_DIR/strom-gs-dirs"''
-            ]
-            ++ lib.optionals (config.overlay != null) [
-              "--overlay-unmount"
-              ''"$STROM_CACHEDIR/overlay-merged"''
-              "--fusermount3"
-              "fusermount3"
-            ]
-          );
+          stromRunArgs = lib.concatStringsSep " " [
+            "--cgroup-name"
+            ''"strom-${config.binName}"''
+            "--control-dir"
+            ''"$STROM_CONTROL_DIR"''
+            "--control-fifo"
+            ''"$STROM_CONTROL_DIR/shutdown.fifo"''
+            "--gs-dirs"
+            ''"$STROM_CONTROL_DIR/strom-gs-dirs"''
+          ];
         in
         ''
           ${lib.concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${toString v}"'') config.env)}
@@ -411,13 +362,9 @@ in
           # EXIT-trap rm of the FIFO dir is installed immediately so an
           # errexit abort during preHook still leaves /tmp tidy. The
           # signal-trap path (TERM/INT/HUP below) is a SEPARATE concern
-          # (forwarding shutdown to bwrap mid-run).
-          # The overlay unmount lives here too (not just postHook) so the
-          # host fuse-overlayfs mount is released on EVERY exit path —
-          # normal quit, errexit, and the TERM/INT/HUP trap (which exits
-          # via this EXIT trap and never reaches postHook). Without it a
-          # force-killed run would leak the mount until the next launch's
-          # stale-sweep.
+          # (forwarding shutdown to bwrap mid-run). The game overlay needs
+          # no unmount here: it lives inside the bwrap namespace and dies
+          # with it.
           #
           # We also reap the inner gamescope's per-launch private
           # XDG_RUNTIME_DIR (the strom-gs-* dir lib/gamescope.nix creates on
@@ -437,10 +384,6 @@ in
             done < "$STROM_CONTROL_DIR/strom-gs-dirs"
           }
           trap '${
-            lib.optionalString (config.overlay != null) ''
-              mountpoint -q "$STROM_CACHEDIR/overlay-merged" 2>/dev/null && fusermount3 -u "$STROM_CACHEDIR/overlay-merged" 2>/dev/null
-            ''
-          }${
             lib.optionalString (config.cleanupHook != "") ''
               ${config.cleanupHook}
             ''
@@ -453,9 +396,10 @@ in
             # Common path: hand the whole tree to the native supervisor,
             # which forks bwrap into a child cgroup and tears it down with
             # cgroup.kill (atomic, from outside the pid ns) on game-exit /
-            # signal / shutdown-FIFO / orphaning, then unmounts the overlay
-            # and reaps the gamescope dirs. The inherited flock (fd 9) is
-            # released when strom-run is reaped, so it cannot leak. The
+            # signal / shutdown-FIFO / orphaning, then reaps the gamescope
+            # dirs. The in-ns game overlay dies with the namespace, so there
+            # is nothing to unmount. The inherited flock (fd 9) is released
+            # when strom-run is reaped, so it cannot leak. The
             # EXIT trap installed above is discarded by exec (and serves as
             # the pre-exec safety net until then). Skipped when the n2n
             # overlay is active this launch ($N2N_SUPERNODE set): that path

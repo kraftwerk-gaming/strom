@@ -12,10 +12,11 @@
 #   pcsx2     : iso -> pcsx2 -> bwrap
 #
 # Single outer bwrap call handles FHS at /usr (strom-fhs.nix). The
-# read-write overlay over the nix-store game data is mounted on the host
-# with patched fuse-overlayfs (kernel --overlay can't make 0555 store
-# lowers writable in this single-uid userns) and bind-mounted into the
-# sandbox. No nested buildFHSEnv.
+# read-write overlay over the nix-store game data is mounted with patched
+# fuse-overlayfs (kernel --overlay can't make 0555 store lowers writable
+# in this single-uid userns) INSIDE the bwrap namespace by the inner
+# script, so it auto-vanishes with the namespace on teardown. No nested
+# buildFHSEnv.
 {
   lib,
   pkgs,
@@ -28,6 +29,17 @@ gameSpec:
 let
   inherit (lib) mkOption types;
   wlib = wrappers.lib;
+
+  # Patched fuse-overlayfs (squash_to_uid + copy-up mode-OR) for the
+  # read-write game overlay, mounted INSIDE the bwrap namespace by the
+  # inner script below so it auto-vanishes with the namespace on any
+  # teardown (no host mount/daemon to leak). Both binaries are referenced
+  # by store path (reachable inside via the /nix ro-bind); fusermount3 is
+  # the PLAIN store helper (NOT the host setuid /run/wrappers one): inside
+  # the userns the caller holds CAP_SYS_ADMIN, so the unprivileged
+  # mount(2) the helper performs is permitted without setuid.
+  fuseOverlayfs = pkgs.callPackage ../pkgs/fuse-overlayfs.nix { inherit pkgs; };
+  fusermount3Bin = "${pkgs.fuse3}/bin/fusermount3";
 
   # submoduleWith over the wrapper-base modules plus a raw wrapper
   # source. `extraDefaults` is a module that sets strom-specific
@@ -227,8 +239,9 @@ let
 
               # /tmp/.strom-overlay (not /strom/overlay): /tmp is RW from
               # the earlier --bind /tmp /tmp, a known-writable mountpoint.
-              # The merged tree is mounted on the host with fuse-overlayfs
-              # (see bwrap.nix) and bind-mounted here.
+              # bwrap.nix creates this dir (--dir) inside the namespace; the
+              # inner script (command, below) mounts fuse-overlayfs onto it
+              # IN-NS so it auto-vanishes with the namespace on teardown.
               # Default lowers = [_gameData]; recipes layer mods /
               # soundtracks / etc. on top via `lib.mkBefore [...]` on
               # this same option (first = highest priority).
@@ -315,10 +328,34 @@ let
                   ${builtins.readFile ./pad-to-kb-launcher.sh}
                 ''}
               '';
-              # Inner script (inside bwrap): cd to overlay, shader
-              # cache, preRun, exec the runtime entrypoint.
+              # Inner script (inside bwrap): mount the RW overlay in-ns,
+              # cd to it, shader cache, preRun, exec the runtime entrypoint.
               command = "${pkgs.writeShellScript "${cfg.name}-inner" ''
                 set -euo pipefail
+
+                # Mount the read-write game overlay INSIDE this namespace.
+                # bwrap granted CAP_SYS_ADMIN over its own userns/mountns
+                # (see lib/bwrap.nix --cap-add), so the unprivileged mount(2)
+                # that fusermount3 performs is permitted. squash_to_uid
+                # presents the 0555 root-owned nix-store lowers as
+                # caller-owned + writable; the copy-up patch keeps copied-up
+                # dirs writable, so the engine can create any file on demand.
+                # Only written content lands in the upper ($STROM_GAMEDIR).
+                # libfuse spawns fusermount3 by PATH lookup, so the plain
+                # store fuse3 must be reachable -- prepend it (and set
+                # FUSERMOUNT_PROG belt-and-suspenders). The daemon lives in
+                # this pid-ns and dies with it on any teardown (SIGKILL
+                # included), so nothing host-side can leak.
+                export PATH="${pkgs.fuse3}/bin:''${PATH:-}"
+                export FUSERMOUNT_PROG="${fusermount3Bin}"
+                ${fuseOverlayfs}/bin/fuse-overlayfs \
+                  -o "lowerdir=${lib.concatStringsSep ":" cfg.bwrap.overlay.lowers},upperdir=$STROM_GAMEDIR,workdir=$STROM_CACHEDIR/overlay-work,squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
+                  "$STROM_OVERLAY"
+                if ! ${pkgs.util-linux}/bin/mountpoint -q "$STROM_OVERLAY"; then
+                  echo "${cfg.name}: in-ns overlay mount at $STROM_OVERLAY failed" >&2
+                  exit 1
+                fi
+
                 export GAMEDIR="$STROM_OVERLAY"
                 cd "$GAMEDIR"
 
