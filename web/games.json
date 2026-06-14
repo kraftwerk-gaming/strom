@@ -1828,6 +1828,13 @@
     "description": "Stardew Valley (native Linux, GOG v1.6.15.24357 build 78675)",
     "runtime": "custom"
   },
+  "stay-out-of-the-house": {
+    "cids": [
+      "QmeYYsBsxj68RyCSGSK2BaSaY18QTB3rY96TVXDNrZrP2d"
+    ],
+    "description": "Stay Out of the House (Puppet Combo 2022, via Proton)",
+    "runtime": "proton"
+  },
   "stick-fight-the-game": {
     "cids": [
       "QmPUJ1qwyjKBw4B2NuSXqjy76VdARFzYWcwzeqRCBrbn1Z"
