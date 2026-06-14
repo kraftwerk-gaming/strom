@@ -1912,6 +1912,13 @@
     "description": "SUPERHOT (SUPERHOT Team, 2016 Unity5 release, via Proton)",
     "runtime": "proton"
   },
+  "superliminal": {
+    "cids": [
+      "QmTHZZB5YwxEMurv341kd7W8X9JgjE3MtADdbLXahxRwrM"
+    ],
+    "description": "Superliminal (Pillow Castle 2019, Unity forced-perspective puzzle game, Windows Steam build + gbe_fork co-op via Proton)",
+    "runtime": "proton"
+  },
   "supraland": {
     "cids": [
       "QmbxzpQNY8RPAG6t2DhGSah5nT6dWRzi1128rMtZx5BRDS"
