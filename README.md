@@ -278,6 +278,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/shadowrun-hong-kong-extended-edition/"><img src="https://lutris.net/games/banner/shadowrun-hong-kong-extended-edition.jpg" height="40" alt="shadowrun-hong-kong-extended-edition"></a> | [Shadowrun: Hong Kong — Extended Edition](https://lutris.net/games/shadowrun-hong-kong-extended-edition/) | `native` | `nix run .#shadowrun-hong-kong-extended-edition` |
 | <a href="https://lutris.net/games/shadowrun-returns/"><img src="https://lutris.net/games/banner/shadowrun-returns.jpg" height="40" alt="shadowrun-returns"></a> | [Shadowrun Returns](https://lutris.net/games/shadowrun-returns/) | `native` | `nix run .#shadowrun-returns` |
 | <a href="https://lutris.net/games/shovel-knight/"><img src="https://lutris.net/games/banner/shovel-knight.jpg" height="40" alt="shovel-knight"></a> | [Shovel Knight: Treasure Trove](https://lutris.net/games/shovel-knight/) | `custom` | `nix run .#shovel-knight` |
+| <a href="https://lutris.net/games/shovel-knight-dig/"><img src="https://lutris.net/games/banner/shovel-knight-dig.jpg" height="40" alt="shovel-knight-dig"></a> | [Shovel Knight Dig](https://lutris.net/games/shovel-knight-dig/) | `proton` | `nix run .#shovel-knight-dig` |
 | <a href="https://lutris.net/games/shovel-knight-treasure-trove/"><img src="https://lutris.net/games/banner/shovel-knight-treasure-trove.jpg" height="40" alt="shovel-knight-treasure-trove"></a> | [Shovel Knight: Treasure Trove](https://lutris.net/games/shovel-knight-treasure-trove/) | `native` | `nix run .#shovel-knight-treasure-trove` |
 | <a href="https://lutris.net/games/sid-meiers-pirates/"><img src="https://lutris.net/games/banner/sid-meiers-pirates.jpg" height="40" alt="sid-meiers-pirates"></a> | [Sid Meier's Pirates!](https://lutris.net/games/sid-meiers-pirates/) | `proton` | `nix run .#sid-meiers-pirates` |
 | <a href="https://lutris.net/games/signalis/"><img src="https://lutris.net/games/banner/signalis.jpg" height="40" alt="signalis"></a> | [Signalis](https://lutris.net/games/signalis/) | `proton` | `nix run .#signalis` |
@@ -373,7 +374,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_332 games_
+_333 games_
 
 <!-- END GENERATED GAMES -->
 
