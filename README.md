@@ -117,6 +117,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/dead-cells/"><img src="https://lutris.net/games/banner/dead-cells.jpg" height="40" alt="dead-cells"></a> | [Dead Cells](https://lutris.net/games/dead-cells/) | `custom` | `nix run .#dead-cells` |
 | <a href="https://lutris.net/games/death-and-taxes/"><img src="https://lutris.net/games/banner/death-and-taxes.jpg" height="40" alt="death-and-taxes"></a> | [Death and Taxes](https://lutris.net/games/death-and-taxes/) | `custom` | `nix run .#death-and-taxes` |
 | <a href="https://lutris.net/games/deep-rock-galactic-survivor/"><img src="https://lutris.net/games/banner/deep-rock-galactic-survivor.jpg" height="40" alt="deep-rock-galactic-survivor"></a> | [Deep Rock Galactic: Survivor](https://lutris.net/games/deep-rock-galactic-survivor/) | `proton` | `nix run .#deep-rock-galactic-survivor` |
+| <a href="https://lutris.net/games/delta-force/"><img src="https://lutris.net/games/banner/delta-force.jpg" height="40" alt="delta-force"></a> | [Delta Force: Land Warrior](https://lutris.net/games/delta-force/) | `proton` | `nix run .#delta-force` |
 | <a href="https://lutris.net/games/deltarune/"><img src="https://lutris.net/games/banner/deltarune.jpg" height="40" alt="deltarune"></a> | [DELTARUNE](https://lutris.net/games/deltarune/) | `proton` | `nix run .#deltarune` |
 | <a href="https://lutris.net/games/demon-lord-just-a-block/"><img src="https://lutris.net/games/banner/demon-lord-just-a-block.jpg" height="40" alt="demon-lord-just-a-block"></a> | [Demon Lord Just A Block](https://lutris.net/games/demon-lord-just-a-block/) | `proton` | `nix run .#demon-lord-just-a-block` |
 | <a href="https://lutris.net/games/detention/"><img src="https://lutris.net/games/banner/detention.jpg" height="40" alt="detention"></a> | [Detention](https://lutris.net/games/detention/) | `proton` | `nix run .#detention` |
@@ -385,7 +386,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_344 games_
+_345 games_
 
 <!-- END GENERATED GAMES -->
 
