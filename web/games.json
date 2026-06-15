@@ -716,6 +716,13 @@
     "description": "Earth 2150: Escape from the Blue Planet (Reality Pump 2000, GOG, via Proton -- campaign FMV cutscenes don't render, see note above)",
     "runtime": "proton"
   },
+  "easy-delivery-co": {
+    "cids": [
+      "QmcLPetJ1bDALGMUnspzJSsB4aTwob58537ic2fm8uiDWv"
+    ],
+    "description": "Easy Delivery Co. (Sam C. / Oro Interactive 2025, via Proton)",
+    "runtime": "proton"
+  },
   "emperor-battle-for-dune": {
     "cids": [
       "QmVuVwSfwjHY7aKCWePoQSPnBzqZRt3SLXwExR3Ps5SHB3"
