@@ -355,6 +355,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-ocarina-of-time.jpg" height="40" alt="the-legend-of-zelda-ocarina-of-time"></a> | [The Legend of Zelda: Ocarina of Time](https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/) | `retroarch` | `nix run .#the-legend-of-zelda-ocarina-of-time` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-oracle-of-ages/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-ages.jpg" height="40" alt="the-legend-of-zelda-oracle-of-ages"></a> | [The Legend of Zelda: Oracle of Ages](https://lutris.net/games/the-legend-of-zelda-oracle-of-ages/) | `retroarch` | `nix run .#the-legend-of-zelda-oracle-of-ages` |
 | <a href="https://lutris.net/games/the-legend-of-zelda-oracle-of-seasons/"><img src="https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-seasons.jpg" height="40" alt="the-legend-of-zelda-oracle-of-seasons"></a> | [The Legend of Zelda: Oracle of Seasons](https://lutris.net/games/the-legend-of-zelda-oracle-of-seasons/) | `retroarch` | `nix run .#the-legend-of-zelda-oracle-of-seasons` |
+| <a href="https://lutris.net/games/the-library-of-babel/"><img src="https://lutris.net/games/banner/the-library-of-babel.jpg" height="40" alt="the-library-of-babel"></a> | [The Library of Babel](https://lutris.net/games/the-library-of-babel/) | `proton` | `nix run .#the-library-of-babel` |
 | <a href="https://lutris.net/games/the-secret-of-monkey-island/"><img src="https://lutris.net/games/banner/the-secret-of-monkey-island.jpg" height="40" alt="the-secret-of-monkey-island"></a> | [The Secret of Monkey Island](https://lutris.net/games/the-secret-of-monkey-island/) | `native` | `nix run .#the-secret-of-monkey-island` |
 | <a href="https://lutris.net/games/the-settlers-ii-gold-edition/"><img src="https://lutris.net/games/banner/the-settlers-ii-gold-edition.jpg" height="40" alt="the-settlers-ii-gold-edition"></a> | [The Settlers II Gold](https://lutris.net/games/the-settlers-ii-gold-edition/) | `native` | `nix run .#the-settlers-ii-gold-edition` |
 | <a href="https://lutris.net/games/the-settlers-iii/"><img src="https://lutris.net/games/banner/the-settlers-iii.jpg" height="40" alt="the-settlers-iii"></a> | [The Settlers III](https://lutris.net/games/the-settlers-iii/) | `proton` | `nix run .#the-settlers-iii` |
@@ -376,6 +377,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/ultrakill/"><img src="https://lutris.net/games/banner/ultrakill.jpg" height="40" alt="ultrakill"></a> | [ULTRAKILL](https://lutris.net/games/ultrakill/) | `proton` | `nix run .#ultrakill` |
 | <a href="https://lutris.net/games/underrail/"><img src="https://lutris.net/games/banner/underrail.jpg" height="40" alt="underrail"></a> | [UnderRail](https://lutris.net/games/underrail/) | `proton` | `nix run .#underrail` |
 | <a href="https://lutris.net/games/undertale/"><img src="https://lutris.net/games/banner/undertale.jpg" height="40" alt="undertale"></a> | [Undertale](https://lutris.net/games/undertale/) | `native` | `nix run .#undertale` |
+| <a href="https://lutris.net/games/unrailed/"><img src="https://lutris.net/games/banner/unrailed.jpg" height="40" alt="unrailed"></a> | [Unrailed!](https://lutris.net/games/unrailed/) | `proton` | `nix run .#unrailed` |
 | <a href="https://lutris.net/games/unreal-tournament/"><img src="https://lutris.net/games/banner/unreal-tournament.jpg" height="40" alt="unreal-tournament"></a> | [Unreal Tournament](https://lutris.net/games/unreal-tournament/) | `native` | `nix run .#unreal-tournament` |
 | <a href="https://lutris.net/games/unreal-tournament-2004/"><img src="https://lutris.net/games/banner/unreal-tournament-2004.jpg" height="40" alt="unreal-tournament-2004"></a> | [Unreal Tournament 2004](https://lutris.net/games/unreal-tournament-2004/) | `native` | `nix run .#unreal-tournament-2004` |
 | <a href="https://lutris.net/games/untitled-goose-game/"><img src="https://lutris.net/games/banner/untitled-goose-game.jpg" height="40" alt="untitled-goose-game"></a> | [Untitled Goose Game](https://lutris.net/games/untitled-goose-game/) | `proton` | `nix run .#untitled-goose-game` |
@@ -401,7 +403,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_360 games_
+_362 games_
 
 <!-- END GENERATED GAMES -->
 

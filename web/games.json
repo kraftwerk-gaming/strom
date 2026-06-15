@@ -2245,6 +2245,13 @@
     "description": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
     "runtime": "retroarch"
   },
+  "the-library-of-babel": {
+    "cids": [
+      "QmYFD1X1zfm8daN5yre6aQZAwHSVSCgXhoYANNmMvuA6rQ"
+    ],
+    "description": "The Library of Babel (Tanuki Game Studio 2023, Unity stealth puzzle-platformer, via Proton)",
+    "runtime": "proton"
+  },
   "the-secret-of-monkey-island": {
     "cids": [
       "QmWQubvmz8QmRtk6beb4bNzKmwvv9vwzGMYcHXejB1yvrG"
@@ -2394,6 +2401,13 @@
     ],
     "description": "Undertale (2015 Toby Fox, Linux GOG repack via Phoenix Games Lab)",
     "runtime": "native"
+  },
+  "unrailed": {
+    "cids": [
+      "QmT6Wj96bGUg57FJM3hU7PZ4MV9MMw8btDNwuWKtBPb7Mo"
+    ],
+    "description": "Unrailed! (Indoor Astronaut / Daedalic 2020, FNA co-op track-builder, via Proton)",
+    "runtime": "proton"
   },
   "unreal-tournament": {
     "cids": [
