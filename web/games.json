@@ -2160,6 +2160,13 @@
     "description": "System Shock 2 (NewDark engine, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "the-backrooms-1998": {
+    "cids": [
+      "QmUU5ZeXzio1BcLRaNcqmNP96Jy7riyWydiogQc1RAQxfX"
+    ],
+    "description": "The Backrooms: 1998 (Steelkrill Studio 2022, free found-footage horror demo, Unity Mono via Proton)",
+    "runtime": "proton"
+  },
   "the-cat-lady": {
     "cids": [
       "QmTqn8YPyiBbN4WVF4tar46mnyTx8KGU3PZNUF4zBzV4ip"
