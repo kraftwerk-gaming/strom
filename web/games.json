@@ -702,6 +702,13 @@
     "description": "Dwarf Fortress (Bay 12 Games free Classic v53.12, native Linux)",
     "runtime": "custom"
   },
+  "earth-2140": {
+    "cids": [
+      "QmZnCAckaMvrujj6B2Ym3arx57HmsX25inPbGzoELuWN6a"
+    ],
+    "description": "Earth 2140 (Reality Pump / TopWare 1997, GOG Trilogy) via Proton",
+    "runtime": "proton"
+  },
   "earth-2150": {
     "cids": [
       "QmSYnrqEct1KYknMXmg1GRtm9UX562CksbEtRck9BDEtam"
