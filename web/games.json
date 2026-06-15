@@ -1355,6 +1355,13 @@
     "description": "Manhunt (Rockstar North 2003 stealth-horror, archive.org preinstalled image, via Proton)",
     "runtime": "proton"
   },
+  "manifold-garden": {
+    "cids": [
+      "QmPu3YiQH3mFBBgPJu6BRXUD1c9X92ck8kYkpgU3LYDR4y"
+    ],
+    "description": "Manifold Garden (William Chyr Studio 2019, Unity recursive-gravity puzzle, via Proton)",
+    "runtime": "proton"
+  },
   "max-payne": {
     "cids": [
       "QmY33VoGafwBpgMo75HrizwEF5ZzUy8Wm4ZDiD5LjEqZWZ",
@@ -1444,6 +1451,14 @@
     ],
     "description": "Moving Out (SMG Studio / Team17 2020, Unity co-op moving party game incl. all DLC, via Proton)",
     "runtime": "proton"
+  },
+  "myhouse-wad": {
+    "cids": [
+      "QmbvTqMatBt2tRcuM461BbCUdrf2kzL6hMSNUtGP4amkJc",
+      "QmSpTzD3sLHw9FqECyjDBxb46fLMxHnwnHGiKyBwgCcmLs"
+    ],
+    "description": "MyHouse.wad (Veddge 2023, non-euclidean horror mod; myhouse.pk3 + DOOM2.WAD via GZDoom)",
+    "runtime": "custom"
   },
   "myst": {
     "cids": [

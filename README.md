@@ -230,6 +230,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/lunacid/"><img src="https://lutris.net/games/banner/lunacid.jpg" height="40" alt="lunacid"></a> | [Lunacid](https://lutris.net/games/lunacid/) | `proton` | `nix run .#lunacid` |
 | <a href="https://lutris.net/games/magicka/"><img src="https://lutris.net/games/banner/magicka.jpg" height="40" alt="magicka"></a> | [Magicka](https://lutris.net/games/magicka/) | `proton` | `nix run .#magicka` |
 | <a href="https://lutris.net/games/manhunt/"><img src="https://lutris.net/games/banner/manhunt.jpg" height="40" alt="manhunt"></a> | [Manhunt](https://lutris.net/games/manhunt/) | `proton` | `nix run .#manhunt` |
+| <a href="https://lutris.net/games/manifold-garden/"><img src="https://lutris.net/games/banner/manifold-garden.jpg" height="40" alt="manifold-garden"></a> | [Manifold Garden](https://lutris.net/games/manifold-garden/) | `proton` | `nix run .#manifold-garden` |
 | <a href="https://lutris.net/games/max-payne/"><img src="https://lutris.net/games/banner/max-payne.jpg" height="40" alt="max-payne"></a> | [Max Payne](https://lutris.net/games/max-payne/) | `proton` | `nix run .#max-payne` |
 | <a href="https://lutris.net/games/max-payne-2-the-fall-of-max-payne/"><img src="https://lutris.net/games/banner/max-payne-2-the-fall-of-max-payne.jpg" height="40" alt="max-payne-2-the-fall-of-max-payne"></a> | [Max Payne 2: The Fall of Max Payne](https://lutris.net/games/max-payne-2-the-fall-of-max-payne/) | `proton` | `nix run .#max-payne-2-the-fall-of-max-payne` |
 | <a href="https://lutris.net/games/mdk/"><img src="https://lutris.net/games/banner/mdk.jpg" height="40" alt="mdk"></a> | [MDK](https://lutris.net/games/mdk/) | `proton` | `nix run .#mdk` |
@@ -242,6 +243,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/monkey-island-2-special-edition/"><img src="https://lutris.net/games/banner/monkey-island-2-special-edition.jpg" height="40" alt="monkey-island-2-special-edition"></a> | [Monkey Island 2: LeChuck's Revenge](https://lutris.net/games/monkey-island-2-special-edition/) | `native` | `nix run .#monkey-island-2-special-edition` |
 | <a href="https://lutris.net/games/mouthwashing/"><img src="https://lutris.net/games/banner/mouthwashing.jpg" height="40" alt="mouthwashing"></a> | [Mouthwashing](https://lutris.net/games/mouthwashing/) | `proton` | `nix run .#mouthwashing` |
 | <a href="https://lutris.net/games/moving-out/"><img src="https://lutris.net/games/banner/moving-out.jpg" height="40" alt="moving-out"></a> | [Moving Out](https://lutris.net/games/moving-out/) | `proton` | `nix run .#moving-out` |
+| <a href="https://lutris.net/games/myhouse-wad/"><img src="https://lutris.net/games/banner/myhouse-wad.jpg" height="40" alt="myhouse-wad"></a> | [MyHouse.wad](https://lutris.net/games/myhouse-wad/) | `custom` | `nix run .#myhouse-wad` |
 | <a href="https://lutris.net/games/myst/"><img src="https://lutris.net/games/banner/myst.jpg" height="40" alt="myst"></a> | [Myst: Masterpiece Edition](https://lutris.net/games/myst/) | `native` | `nix run .#myst` |
 | <a href="https://lutris.net/games/need-for-speed-carbon/"><img src="https://lutris.net/games/banner/need-for-speed-carbon.jpg" height="40" alt="need-for-speed-carbon"></a> | [Need for Speed: Carbon (2006)](https://lutris.net/games/need-for-speed-carbon/) | `proton` | `nix run .#need-for-speed-carbon` |
 | <a href="https://lutris.net/games/need-for-speed-most-wanted/"><img src="https://lutris.net/games/banner/need-for-speed-most-wanted.jpg" height="40" alt="need-for-speed-most-wanted"></a> | [Need for Speed: Most Wanted (2005)](https://lutris.net/games/need-for-speed-most-wanted/) | `proton` | `nix run .#need-for-speed-most-wanted` |
@@ -393,7 +395,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_352 games_
+_354 games_
 
 <!-- END GENERATED GAMES -->
 
