@@ -1799,11 +1799,25 @@
     "description": "ROUNDS (Landfall 2021, 1v1 rounds-based shooter via Proton)",
     "runtime": "proton"
   },
+  "routine": {
+    "cids": [
+      "QmZxtbLWyArTEGhyotaLjHjypsbrFczPmGx2X5ZoYgmGkN"
+    ],
+    "description": "ROUTINE (Lunar Software / Raw Fury 2025, via Proton)",
+    "runtime": "proton"
+  },
   "rune-dice": {
     "cids": [
       "QmWto77kLwyysUAQTGbQadxQj4uTZmctZjA8yyNxJGp5E2"
     ],
     "description": "Rune Dice (Smart Raven Studio 2026, dice roguelike deckbuilder, via Proton)",
+    "runtime": "proton"
+  },
+  "samurai-gunn": {
+    "cids": [
+      "QmY91zCdfq89VwWnfSdziBofhEL8wHeyzV2exY2BndtGWs"
+    ],
+    "description": "Samurai Gunn (Teknopants 2013, GameMaker local-versus brawler, via Proton)",
     "runtime": "proton"
   },
   "sanitarium": {

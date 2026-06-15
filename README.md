@@ -292,7 +292,9 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/roketz--1/"><img src="https://lutris.net/games/banner/roketz--1.jpg" height="40" alt="roketz--1"></a> | [Roketz](https://lutris.net/games/roketz--1/) | `custom` | `nix run .#roketz--1` |
 | <a href="https://lutris.net/games/rollercoaster-tycoon/"><img src="https://lutris.net/games/banner/rollercoaster-tycoon.jpg" height="40" alt="rollercoaster-tycoon"></a> | [RollerCoaster Tycoon Deluxe](https://lutris.net/games/rollercoaster-tycoon/) | `proton` | `nix run .#rollercoaster-tycoon` |
 | <a href="https://lutris.net/games/rounds/"><img src="https://lutris.net/games/banner/rounds.jpg" height="40" alt="rounds"></a> | [ROUNDS](https://lutris.net/games/rounds/) | `proton` | `nix run .#rounds` |
+| <a href="https://lutris.net/games/routine/"><img src="https://lutris.net/games/banner/routine.jpg" height="40" alt="routine"></a> | [ROUTINE](https://lutris.net/games/routine/) | `proton` | `nix run .#routine` |
 | <a href="https://lutris.net/games/rune-dice/"><img src="https://lutris.net/games/banner/rune-dice.jpg" height="40" alt="rune-dice"></a> | [Rune Dice](https://lutris.net/games/rune-dice/) | `proton` | `nix run .#rune-dice` |
+| <a href="https://lutris.net/games/samurai-gunn/"><img src="https://lutris.net/games/banner/samurai-gunn.jpg" height="40" alt="samurai-gunn"></a> | [Samurai Gunn](https://lutris.net/games/samurai-gunn/) | `proton` | `nix run .#samurai-gunn` |
 | <a href="https://lutris.net/games/sanitarium/"><img src="https://lutris.net/games/banner/sanitarium.jpg" height="40" alt="sanitarium"></a> | [Sanitarium](https://lutris.net/games/sanitarium/) | `native` | `nix run .#sanitarium` |
 | <a href="https://lutris.net/games/scritchy-scratchy/"><img src="https://lutris.net/games/banner/scritchy-scratchy.jpg" height="40" alt="scritchy-scratchy"></a> | [Scritchy Scratchy](https://lutris.net/games/scritchy-scratchy/) | `proton` | `nix run .#scritchy-scratchy` |
 | <a href="https://lutris.net/games/serious-sam/"><img src="https://lutris.net/games/banner/serious-sam.jpg" height="40" alt="serious-sam"></a> | [Serious Sam: The First Encounter](https://lutris.net/games/serious-sam/) | `proton` | `nix run .#serious-sam` |
@@ -399,7 +401,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_358 games_
+_360 games_
 
 <!-- END GENERATED GAMES -->
 
