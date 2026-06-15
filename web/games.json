@@ -1743,6 +1743,13 @@
     "description": "Rhythm Doctor (7th Beat Games 2021, native Linux v1.0.0, LinuxRuleZ! repack)",
     "runtime": "custom"
   },
+  "rift-of-the-necrodancer": {
+    "cids": [
+      "QmXYVe3vFfKvpMTzGP45BjMxrXwUmHDEMih8LZS5rRaqUb"
+    ],
+    "description": "Rift of the NecroDancer (Brace Yourself Games 2025, Unity rhythm game incl. all DLC, via Proton)",
+    "runtime": "proton"
+  },
   "risen": {
     "cids": [
       "QmV2FoMcwjyxqyBM65cLSBpjXRY2rXBkTXZoTCbJNaLLkY"
