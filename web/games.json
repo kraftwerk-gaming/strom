@@ -1643,6 +1643,13 @@
     "description": "Pok\u00e9mon Ranger (via RetroArch / melonDS)",
     "runtime": "retroarch"
   },
+  "pools": {
+    "cids": [
+      "QmdEe9RAT2md6TaVzgtMzG5Jw7bvmtfvtWhDeJPvzrfJ5m"
+    ],
+    "description": "POOLS (Tensori 2024, liminal walking-horror, Unity IL2CPP via Proton)",
+    "runtime": "proton"
+  },
   "populous-the-beginning": {
     "cids": [
       "QmSLdTZSiCJcguj7FaKcFC2PMQiSahAe4UvoDDWwM89gAv"
@@ -1683,6 +1690,13 @@
       "QmWRHVtwqmkafD5bzf7Nxprp7DsJuEeYfkxRr6ZqC7AQQa"
     ],
     "description": "Prototype (Radical/Activision 2009, via Proton)",
+    "runtime": "proton"
+  },
+  "proximate": {
+    "cids": [
+      "QmbfvvcMU8J4YnCwtxYLDkvRe7H3nRowEu2zH9QpbXM1QX"
+    ],
+    "description": "PROXIMATE (Cain Maddox 2024, deep-sea visor horror, Unity Mono via Proton)",
     "runtime": "proton"
   },
   "psychonauts": {
