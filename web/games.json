@@ -688,6 +688,13 @@
     "description": "Dungeons 2 (Realmforge/Kalypso 2015, native Linux, GOG v2.0.0.1)",
     "runtime": "custom"
   },
+  "dwarf-eats-mountain": {
+    "cids": [
+      "QmYJrkgroH1NRewj7X8aJA3oq2tFGfamZP2YBUkxTuKZdh"
+    ],
+    "description": "Dwarf Eats Mountain (Green Wizard 2026, via Proton)",
+    "runtime": "proton"
+  },
   "dwarf-fortress": {
     "cids": [
       "QmYcTstDWS5mMCf6GT9AsWDu3pw7d4sZZBmBVxYrjeocA9"
