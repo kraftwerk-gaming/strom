@@ -2330,6 +2330,13 @@
     "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "time-flies": {
+    "cids": [
+      "QmepDyeoMCh1xbqrgWX7QiVA3m6AdHZmCsakCC1U83zzaN"
+    ],
+    "description": "Time Flies (Playables / Panic 2023, via Proton)",
+    "runtime": "proton"
+  },
   "torment-tides-of-numenera": {
     "cids": [
       "QmZZDSGK5fuBHNk9NeVsMw5yPdSv3EPXCQ3awR9SSREsoG",

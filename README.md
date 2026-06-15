@@ -367,6 +367,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/theme-hospital/"><img src="https://lutris.net/games/banner/theme-hospital.jpg" height="40" alt="theme-hospital"></a> | [Theme Hospital](https://lutris.net/games/theme-hospital/) | `native` | `nix run .#theme-hospital` |
 | <a href="https://lutris.net/games/thief-2/"><img src="https://lutris.net/games/banner/thief-2.jpg" height="40" alt="thief-2"></a> | [Thief II: The Metal Age](https://lutris.net/games/thief-2/) | `proton` | `nix run .#thief-2` |
 | <a href="https://lutris.net/games/thief-gold/"><img src="https://lutris.net/games/banner/thief-gold.jpg" height="40" alt="thief-gold"></a> | [Thief Gold with TFix](https://lutris.net/games/thief-gold/) | `proton` | `nix run .#thief-gold` |
+| <a href="https://lutris.net/games/time-flies/"><img src="https://lutris.net/games/banner/time-flies.jpg" height="40" alt="time-flies"></a> | [Time Flies](https://lutris.net/games/time-flies/) | `proton` | `nix run .#time-flies` |
 | <a href="https://lutris.net/games/torment-tides-of-numenera/"><img src="https://lutris.net/games/banner/torment-tides-of-numenera.jpg" height="40" alt="torment-tides-of-numenera"></a> | [Torment: Tides of Numenera](https://lutris.net/games/torment-tides-of-numenera/) | `proton` | `nix run .#torment-tides-of-numenera` |
 | <a href="https://lutris.net/games/total-annihilation/"><img src="https://lutris.net/games/banner/total-annihilation.jpg" height="40" alt="total-annihilation"></a> | [Total Annihilation - Commander Pack](https://lutris.net/games/total-annihilation/) | `proton` | `nix run .#total-annihilation` |
 | <a href="https://lutris.net/games/total-overdose/"><img src="https://lutris.net/games/banner/total-overdose.jpg" height="40" alt="total-overdose"></a> | [Total Overdose: A Gunslinger's Tale in Mexico](https://lutris.net/games/total-overdose/) | `proton` | `nix run .#total-overdose` |
@@ -403,7 +404,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_362 games_
+_363 games_
 
 <!-- END GENERATED GAMES -->
 
