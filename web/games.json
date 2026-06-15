@@ -1290,6 +1290,21 @@
     "description": "Lemmings 95 (Windows 95 version via Wine)",
     "runtime": "native"
   },
+  "lidar-dot-exe": {
+    "cids": [
+      "QmQn77sU6sU4MNZJfKQUQHX7Xmd641d8dZN9hpJdL5ZpND"
+    ],
+    "description": "LiDAR Exploration Program (KenForest 2025, first-person LIDAR-scanner horror, Unity via Proton)",
+    "runtime": "proton"
+  },
+  "liminal-doom-2": {
+    "cids": [
+      "QmcYboes353EtSS4xYFtAgzcKDEybEaioRrLBsbk3d2WiV",
+      "QmbvTqMatBt2tRcuM461BbCUdrf2kzL6hMSNUtGP4amkJc"
+    ],
+    "description": "Liminal Doom 2: Crossing The Threshold (dashlet 2024, MBF21 PWAD via GZDoom)",
+    "runtime": "custom"
+  },
   "lone-survivor": {
     "cids": [
       "QmcwMQYu7baPa7Ans6yM6ARCfZLx8htu9z32Ao2DvrjwwX"
