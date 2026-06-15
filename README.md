@@ -191,6 +191,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/heave-ho/"><img src="https://lutris.net/games/banner/heave-ho.jpg" height="40" alt="heave-ho"></a> | [Heave Ho](https://lutris.net/games/heave-ho/) | `proton` | `nix run .#heave-ho` |
 | <a href="https://lutris.net/games/heroes-of-might-and-magic-2-gold/"><img src="https://lutris.net/games/banner/heroes-of-might-and-magic-2-gold.jpg" height="40" alt="heroes-of-might-and-magic-2-gold"></a> | [Heroes of Might & Magic II Gold](https://lutris.net/games/heroes-of-might-and-magic-2-gold/) | `native` | `nix run .#heroes-of-might-and-magic-2-gold` |
 | <a href="https://lutris.net/games/hexcells/"><img src="https://lutris.net/games/banner/hexcells.jpg" height="40" alt="hexcells"></a> | [Hexcells](https://lutris.net/games/hexcells/) | `proton` | `nix run .#hexcells` |
+| <a href="https://lutris.net/games/hollow-cocoon/"><img src="https://lutris.net/games/banner/hollow-cocoon.jpg" height="40" alt="hollow-cocoon"></a> | [Hollow Cocoon](https://lutris.net/games/hollow-cocoon/) | `proton` | `nix run .#hollow-cocoon` |
 | <a href="https://lutris.net/games/hollow-knight/"><img src="https://lutris.net/games/banner/hollow-knight.jpg" height="40" alt="hollow-knight"></a> | [Hollow Knight](https://lutris.net/games/hollow-knight/) | `proton` | `nix run .#hollow-knight` |
 | <a href="https://lutris.net/games/hollow-knight-silksong/"><img src="https://lutris.net/games/banner/hollow-knight-silksong.jpg" height="40" alt="hollow-knight-silksong"></a> | [Hollow Knight: Silksong](https://lutris.net/games/hollow-knight-silksong/) | `proton` | `nix run .#hollow-knight-silksong` |
 | <a href="https://lutris.net/games/homeworld/"><img src="https://lutris.net/games/banner/homeworld.jpg" height="40" alt="homeworld"></a> | [Homeworld 2](https://lutris.net/games/homeworld/) | `proton` | `nix run .#homeworld` |
@@ -389,7 +390,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_348 games_
+_349 games_
 
 <!-- END GENERATED GAMES -->
 
