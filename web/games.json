@@ -1699,6 +1699,13 @@
     "description": "Sanitarium (DreamForge 1998, GOG Windows release driven via native pkgs.scummvm)",
     "runtime": "native"
   },
+  "scritchy-scratchy": {
+    "cids": [
+      "QmaJ3vHdT8Pi7LkWVi5YD88Mej7ynYSbfHKyLHcygjSt3G"
+    ],
+    "description": "Scritchy Scratchy (Lunch Money Games 2026, Unity scratch-card incremental, Steam via Proton)",
+    "runtime": "proton"
+  },
   "serious-sam": {
     "cids": [
       "QmUauVkZopH2gW1yZhcaaWp428kisXUXdRsgKbdmAW4rmj"
