@@ -45,6 +45,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/age-of-empires-iii/"><img src="https://lutris.net/games/banner/age-of-empires-iii.jpg" height="40" alt="age-of-empires-iii"></a> | [Age of Empires III: Complete Collection](https://lutris.net/games/age-of-empires-iii/) | `proton` | `nix run .#age-of-empires-iii` |
 | <a href="https://lutris.net/games/anachronox/"><img src="https://lutris.net/games/banner/anachronox.jpg" height="40" alt="anachronox"></a> | [Anachronox](https://lutris.net/games/anachronox/) | `proton` | `nix run .#anachronox` |
 | <a href="https://lutris.net/games/anatomy/"><img src="https://lutris.net/games/banner/anatomy.jpg" height="40" alt="anatomy"></a> | [Anatomy](https://lutris.net/games/anatomy/) | `native` | `nix run .#anatomy` |
+| <a href="https://lutris.net/games/anemoiapolis/"><img src="https://lutris.net/games/banner/anemoiapolis.jpg" height="40" alt="anemoiapolis"></a> | [Anemoiapolis: Chapter 1](https://lutris.net/games/anemoiapolis/) | `proton` | `nix run .#anemoiapolis` |
 | <a href="https://lutris.net/games/animal-well/"><img src="https://lutris.net/games/banner/animal-well.jpg" height="40" alt="animal-well"></a> | [ANIMAL WELL](https://lutris.net/games/animal-well/) | `proton` | `nix run .#animal-well` |
 | <a href="https://lutris.net/games/anno-1404/"><img src="https://lutris.net/games/banner/anno-1404.jpg" height="40" alt="anno-1404"></a> | [Anno 1404 Gold Edition](https://lutris.net/games/anno-1404/) | `proton` | `nix run .#anno-1404` |
 | <a href="https://lutris.net/games/anno-1503/"><img src="https://lutris.net/games/banner/anno-1503.jpg" height="40" alt="anno-1503"></a> | [Anno 1503 A.D.](https://lutris.net/games/anno-1503/) | `proton` | `nix run .#anno-1503` |
@@ -383,7 +384,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_342 games_
+_343 games_
 
 <!-- END GENERATED GAMES -->
 

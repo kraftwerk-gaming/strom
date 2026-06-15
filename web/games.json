@@ -34,6 +34,13 @@
     "description": "Anatomy (Kitty Horrorshow 2016, native Linux build)",
     "runtime": "native"
   },
+  "anemoiapolis": {
+    "cids": [
+      "QmdFDwC6TXWJwNf7T9rAumNgg9ermgrFuRK37guyhX4tFW"
+    ],
+    "description": "Anemoiapolis: Chapter 1 (Andrew Quist 2023, via Proton)",
+    "runtime": "proton"
+  },
   "animal-well": {
     "cids": [
       "QmcNc9smjop4rKYUooR1WtUiB54XwGuYqc4xBiXhxY1gjt"
