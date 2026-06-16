@@ -384,6 +384,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/undertale/"><img src="https://lutris.net/games/banner/undertale.jpg" height="40" alt="undertale"></a> | [Undertale](https://lutris.net/games/undertale/) | `native` | `nix run .#undertale` |
 | <a href="https://lutris.net/games/unloved/"><img src="https://lutris.net/games/banner/unloved.jpg" height="40" alt="unloved"></a> | [Unloved](https://lutris.net/games/unloved/) | `custom` | `nix run .#unloved` |
 | <a href="https://lutris.net/games/unrailed/"><img src="https://lutris.net/games/banner/unrailed.jpg" height="40" alt="unrailed"></a> | [Unrailed!](https://lutris.net/games/unrailed/) | `proton` | `nix run .#unrailed` |
+| <a href="https://lutris.net/games/unreal/"><img src="https://lutris.net/games/banner/unreal.jpg" height="40" alt="unreal"></a> | [Unreal](https://lutris.net/games/unreal/) | `native` | `nix run .#unreal` |
 | <a href="https://lutris.net/games/unreal-tournament/"><img src="https://lutris.net/games/banner/unreal-tournament.jpg" height="40" alt="unreal-tournament"></a> | [Unreal Tournament](https://lutris.net/games/unreal-tournament/) | `native` | `nix run .#unreal-tournament` |
 | <a href="https://lutris.net/games/unreal-tournament-2004/"><img src="https://lutris.net/games/banner/unreal-tournament-2004.jpg" height="40" alt="unreal-tournament-2004"></a> | [Unreal Tournament 2004](https://lutris.net/games/unreal-tournament-2004/) | `native` | `nix run .#unreal-tournament-2004` |
 | <a href="https://lutris.net/games/untitled-goose-game/"><img src="https://lutris.net/games/banner/untitled-goose-game.jpg" height="40" alt="untitled-goose-game"></a> | [Untitled Goose Game](https://lutris.net/games/untitled-goose-game/) | `proton` | `nix run .#untitled-goose-game` |
@@ -409,7 +410,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_368 games_
+_369 games_
 
 <!-- END GENERATED GAMES -->
 

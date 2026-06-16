@@ -2452,6 +2452,14 @@
     "description": "Unrailed! (Indoor Astronaut / Daedalic 2020, FNA co-op track-builder, via Proton)",
     "runtime": "proton"
   },
+  "unreal": {
+    "cids": [
+      "QmQo8zf4inN41Bh8FJdas3qCCmw42F47u9yqkCze3ZYcTc",
+      "QmPDmGmwRcPyxMAXStAVf2Hg4s1SdA7ZNB6JvtnvhE5phx"
+    ],
+    "description": "Unreal (Gold; Epic/Digital Extremes 1998, OldUnreal v227k native Linux)",
+    "runtime": "native"
+  },
   "unreal-tournament": {
     "cids": [
       "QmRgRLP6Z1DXxwJ2aVbgmnwMqK1o9T1HkeZfkXFnH3jyDa",
