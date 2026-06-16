@@ -2344,6 +2344,13 @@
     "description": "Time Flies (Playables / Panic 2023, via Proton)",
     "runtime": "proton"
   },
+  "tom-clancys-splinter-cell-chaos-theory": {
+    "cids": [
+      "QmZvjRD1KbdzkjBAbkAM7vnk8HweuEY5nUQnYVuAWZkyNd"
+    ],
+    "description": "Tom Clancy's Splinter Cell: Chaos Theory (Ubisoft Montreal 2005, Unreal Engine 2.5, DODI repack, via Proton)",
+    "runtime": "proton"
+  },
   "torment-tides-of-numenera": {
     "cids": [
       "QmZZDSGK5fuBHNk9NeVsMw5yPdSv3EPXCQ3awR9SSREsoG",
