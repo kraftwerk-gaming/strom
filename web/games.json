@@ -2430,6 +2430,14 @@
     "description": "Undertale (2015 Toby Fox, Linux GOG repack via Phoenix Games Lab)",
     "runtime": "native"
   },
+  "unloved": {
+    "cids": [
+      "QmbvTqMatBt2tRcuM461BbCUdrf2kzL6hMSNUtGP4amkJc",
+      "QmW3M6hLUCYsHmYVzcnytnrKe4qiPPcPT2Cn2NdQyXNuub"
+    ],
+    "description": "Unloved (Paul Schneider 2010, GZDoom horror mod for DOOM II)",
+    "runtime": "custom"
+  },
   "unrailed": {
     "cids": [
       "QmT6Wj96bGUg57FJM3hU7PZ4MV9MMw8btDNwuWKtBPb7Mo"
