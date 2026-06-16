@@ -2374,6 +2374,13 @@
     "description": "Total Annihilation - Commander Pack (Cavedog 1997, GOG, via Proton)",
     "runtime": "proton"
   },
+  "total-chaos": {
+    "cids": [
+      "QmW45VEGeZ4qjDvsUkWwCGBpbu353sfLW5budbhpkgNX1c"
+    ],
+    "description": "Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom",
+    "runtime": "custom"
+  },
   "total-overdose": {
     "cids": [
       "QmcZppB5Y4djdJkTDMoKpS5rWkpFhvEpSZC4aQS8VH8Z9W"

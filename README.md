@@ -373,6 +373,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/tom-clancys-splinter-cell-chaos-theory/"><img src="https://lutris.net/games/banner/tom-clancys-splinter-cell-chaos-theory.jpg" height="40" alt="tom-clancys-splinter-cell-chaos-theory"></a> | [Tom Clancy's Splinter Cell: Chaos Theory](https://lutris.net/games/tom-clancys-splinter-cell-chaos-theory/) | `proton` | `nix run .#tom-clancys-splinter-cell-chaos-theory` |
 | <a href="https://lutris.net/games/torment-tides-of-numenera/"><img src="https://lutris.net/games/banner/torment-tides-of-numenera.jpg" height="40" alt="torment-tides-of-numenera"></a> | [Torment: Tides of Numenera](https://lutris.net/games/torment-tides-of-numenera/) | `proton` | `nix run .#torment-tides-of-numenera` |
 | <a href="https://lutris.net/games/total-annihilation/"><img src="https://lutris.net/games/banner/total-annihilation.jpg" height="40" alt="total-annihilation"></a> | [Total Annihilation - Commander Pack](https://lutris.net/games/total-annihilation/) | `proton` | `nix run .#total-annihilation` |
+| <a href="https://lutris.net/games/total-chaos/"><img src="https://lutris.net/games/banner/total-chaos.jpg" height="40" alt="total-chaos"></a> | [Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom](https://lutris.net/games/total-chaos/) | `custom` | `nix run .#total-chaos` |
 | <a href="https://lutris.net/games/total-overdose/"><img src="https://lutris.net/games/banner/total-overdose.jpg" height="40" alt="total-overdose"></a> | [Total Overdose: A Gunslinger's Tale in Mexico](https://lutris.net/games/total-overdose/) | `proton` | `nix run .#total-overdose` |
 | <a href="https://lutris.net/games/towerfall-ascension/"><img src="https://lutris.net/games/banner/towerfall-ascension.jpg" height="40" alt="towerfall-ascension"></a> | [TowerFall Ascension + Dark World](https://lutris.net/games/towerfall-ascension/) | `proton` | `nix run .#towerfall-ascension` |
 | <a href="https://lutris.net/games/trackmania-nation/"><img src="https://lutris.net/games/banner/trackmania-nation.jpg" height="40" alt="trackmania-nation"></a> | [TrackMania Nations Forever](https://lutris.net/games/trackmania-nation/) | `proton` | `nix run .#trackmania-nation` |
@@ -408,7 +409,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_367 games_
+_368 games_
 
 <!-- END GENERATED GAMES -->
 
