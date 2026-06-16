@@ -299,6 +299,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/scritchy-scratchy/"><img src="https://lutris.net/games/banner/scritchy-scratchy.jpg" height="40" alt="scritchy-scratchy"></a> | [Scritchy Scratchy](https://lutris.net/games/scritchy-scratchy/) | `proton` | `nix run .#scritchy-scratchy` |
 | <a href="https://lutris.net/games/serious-sam/"><img src="https://lutris.net/games/banner/serious-sam.jpg" height="40" alt="serious-sam"></a> | [Serious Sam: The First Encounter](https://lutris.net/games/serious-sam/) | `proton` | `nix run .#serious-sam` |
 | <a href="https://lutris.net/games/serious-sam-the-second-encounter/"><img src="https://lutris.net/games/banner/serious-sam-the-second-encounter.jpg" height="40" alt="serious-sam-the-second-encounter"></a> | [Serious Sam: The Second Encounter](https://lutris.net/games/serious-sam-the-second-encounter/) | `proton` | `nix run .#serious-sam-the-second-encounter` |
+| <a href="https://lutris.net/games/shadow-man-remastered/"><img src="https://lutris.net/games/banner/shadow-man-remastered.jpg" height="40" alt="shadow-man-remastered"></a> | [Shadow Man Remastered](https://lutris.net/games/shadow-man-remastered/) | `proton` | `nix run .#shadow-man-remastered` |
 | <a href="https://lutris.net/games/shadow-of-the-colossus/"><img src="https://lutris.net/games/banner/shadow-of-the-colossus.jpg" height="40" alt="shadow-of-the-colossus"></a> | [Shadow of the Colossus](https://lutris.net/games/shadow-of-the-colossus/) | `pcsx2` | `nix run .#shadow-of-the-colossus` |
 | <a href="https://lutris.net/games/shadowrun-dragonfall-directors-cut/"><img src="https://lutris.net/games/banner/shadowrun-dragonfall-directors-cut.jpg" height="40" alt="shadowrun-dragonfall-directors-cut"></a> | [Shadowrun: Dragonfall — Director's Cut](https://lutris.net/games/shadowrun-dragonfall-directors-cut/) | `native` | `nix run .#shadowrun-dragonfall-directors-cut` |
 | <a href="https://lutris.net/games/shadowrun-hong-kong-extended-edition/"><img src="https://lutris.net/games/banner/shadowrun-hong-kong-extended-edition.jpg" height="40" alt="shadowrun-hong-kong-extended-edition"></a> | [Shadowrun: Hong Kong — Extended Edition](https://lutris.net/games/shadowrun-hong-kong-extended-edition/) | `native` | `nix run .#shadowrun-hong-kong-extended-edition` |
@@ -406,7 +407,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_365 games_
+_366 games_
 
 <!-- END GENERATED GAMES -->
 

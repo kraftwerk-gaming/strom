@@ -1848,6 +1848,13 @@
     "description": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
     "runtime": "proton"
   },
+  "shadow-man-remastered": {
+    "cids": [
+      "QmWZHqBRM2R8mDmpn64hBMXK2QM8fgBX1myCBxpissvzTz"
+    ],
+    "description": "Shadow Man Remastered (Nightdive Studios 2021, KEX engine, GOG via Proton)",
+    "runtime": "proton"
+  },
   "shadow-of-the-colossus": {
     "cids": [
       "QmfNb23JQhMmGoKzyU3b7otgJMt1tVUa2a3zsPwmX9wmoD",
