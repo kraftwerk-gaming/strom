@@ -73,31 +73,44 @@ self.lib.mkGame { inherit lib pkgs; } {
   # The GOG installer normally writes a handful of HKCU registry values
   # under "Fish Technology Group\\RollerCoaster Tycoon Setup" — the game
   # reads Path/SetupPath/Executable/AddOn from there and falls back to
-  # asking for the CD when they're missing. Inject them on every launch
-  # because $GAMEDIR (the overlay) is a fresh path each run.
+  # asking for the CD when they're missing.
+  #
+  # These are appended directly as Wine registry text (no regedit /
+  # PROTON_RUN, which is not exported at preRun time). proton creates the
+  # prefix on first launch, so on a truly fresh prefix user.reg does not
+  # exist yet and that first launch comes up without the keys; they land on
+  # the next launch once proton has bootstrapped the prefix, and persist.
+  # GAMEDIR_WIN is the in-prefix Z: path mapping to the fuse-overlayfs
+  # $GAMEDIR. RCT.EXE is a 32-bit Win9x-era app, so on a win64 prefix its
+  # HKCU\Software reads are redirected to HKCU\Software\Wow6432Node; the key
+  # is written to both views so the engine resolves it either way.
   preRun = ''
-    GAMEDIR_WIN="Z:''${GAMEDIR//\//\\\\}"
-    cat > "$GAMEDIR/rct-setup.reg" <<EOF
-    Windows Registry Editor Version 5.00
-
-    [HKEY_CURRENT_USER\\Software\\Fish Technology Group\\RollerCoaster Tycoon Setup]
-    "Title"="Roll"
-    "Path"="$GAMEDIR_WIN"
-    "SetupPath"="$GAMEDIR_WIN"
-    "Executable"="rct.exe"
-    "FontPointSize"=dword:0000000c
-    "Language"=dword:00000000
-    "CDKey"=dword:00000000
-    "CharSet"=dword:00000000
-    "FontFaceName"="MS Sans Serif"
-    "OKPrompt"="OK"
-    "CancelPrompt"="Cancel"
-    "AddOn"=dword:00000001
-    EOF
-    # The proton wrapper ends with `kill -9 0`, which would tear down the
-    # whole process group. Run it under setsid so only the regedit
-    # subprocess gets killed, and the main game launch proceeds.
-    setsid "$PROTON_RUN" regedit /S "$GAMEDIR\\rct-setup.reg" || true
+    USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
+    if [ -f "$USERREG" ] \
+        && ! grep -q 'Fish Technology Group\\\\RollerCoaster Tycoon Setup' "$USERREG"; then
+      echo "[strom] first-run setup: seeding RollerCoaster Tycoon Setup registry"
+      GAMEDIR_WIN="Z:''${GAMEDIR//\//\\\\}"
+      TS=$(date +%s)
+      for base in \
+        'Software\\Fish Technology Group' \
+        'Software\\Wow6432Node\\Fish Technology Group'; do
+        {
+          printf '\n[%s\\\\RollerCoaster Tycoon Setup] %s\n' "$base" "$TS"
+          printf '"Title"="Roll"\n'
+          printf '"Path"="%s"\n' "$GAMEDIR_WIN"
+          printf '"SetupPath"="%s"\n' "$GAMEDIR_WIN"
+          printf '"Executable"="rct.exe"\n'
+          printf '"FontPointSize"=dword:0000000c\n'
+          printf '"Language"=dword:00000000\n'
+          printf '"CDKey"=dword:00000000\n'
+          printf '"CharSet"=dword:00000000\n'
+          printf '"FontFaceName"="MS Sans Serif"\n'
+          printf '"OKPrompt"="OK"\n'
+          printf '"CancelPrompt"="Cancel"\n'
+          printf '"AddOn"=dword:00000001\n'
+        } >>"$USERREG"
+      done
+    fi
   '';
 
   meta = {
