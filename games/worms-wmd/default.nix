@@ -15,6 +15,20 @@ let
     hash = "sha256-uSStgGLq9OcEN8i+UPphIWJ5X/CDlHlUbOkH/6jW44Y=";
     name = "vcredist_x86.exe";
   };
+
+  # GE-Proton's bundled 32-bit libavcodec.so.58 (gst-libav, the only
+  # WMV/VC-1 decoder in Proton's gstreamer) is DT_NEEDED-linked against
+  # libvpx.so.6 -- the libvpx 1.8 ABI. Current nixpkgs ships libvpx 1.16
+  # (libvpx.so.9), so pin the old ABI here just for this game's FHS.
+  libvpx6 = pkgs.pkgsi686Linux.libvpx.overrideAttrs (_: {
+    version = "1.8.2";
+    src = pkgs.fetchFromGitHub {
+      owner = "webmproject";
+      repo = "libvpx";
+      rev = "v1.8.2";
+      hash = "sha256-2VbLrN/Z1mcjpHahvaqWxJmZjd25p1pDPduJtqYj2D8=";
+    };
+  });
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "worms-wmd";
@@ -76,19 +90,40 @@ self.lib.mkGame { inherit lib pkgs; } {
   # Saves/*.dat next to its binary, not under
   # drive_c/users/steamuser/...).
   saveLocations = [ ];
-  # OpenGL game -- gamescope causes a black screen with OGL rendering.
-  # Run directly via proton without gamescope. Wine forks the game
-  # into its own process group, so SIGKILL on the bwrap group won't
-  # reach it. We background proton-run and kill wineserver on signal.
-  runScript = ''
-    exec "$PROTON_RUN" "$GAMEDIR/Worms W.M.D.exe"
-  '';
+
+  executable = "Worms W.M.D.exe";
+
+  # Render directly to the host display instead of nesting in gamescope.
+  # This OpenGL engine drives its own fullscreen window and fills the
+  # screen natively; under gamescope it renders into a small top-left
+  # corner of the nest (gamescope composites its window at native size and
+  # no nested/output/--force-windows-fullscreen/scaler combination makes it
+  # fill). Verified on a 2880x1920 seat: gamescope -> ~1280x720 in the
+  # corner; no-gamescope -> full-screen menu.
+  enableGamescope = false;
 
   env = {
     STEAM_COMPAT_APP_ID = "327030";
     SteamAppId = "327030";
     SteamGameId = "327030";
   };
+
+  # The .wmv intro/logo splashes (uidata/video/*.wmv) decode through
+  # Proton's Media-Foundation -> gst-libav -> bundled ffmpeg path.
+  # libgstlibav.so is dlopen'd RTLD_NOW and drags in libavcodec/format/util,
+  # whose DT_NEEDED libs are absent from the base proton FHS; with any
+  # missing the decoder fails to load and the intros render black. The game
+  # is 32-bit (32-bit winegstreamer -> 32-bit gstreamer plugins), so only
+  # the i686 libs are needed:
+  #   libvpx.so.6 (libavcodec), libbz2.so.1.0 (libavformat),
+  #   libva*.so.2 + libvdpau.so.1 (libavutil) and their libdrm.so.2 dep.
+  targetPkgs = pkgs: [
+    libvpx6
+    pkgs.pkgsi686Linux.bzip2.out
+    pkgs.pkgsi686Linux.libva
+    pkgs.pkgsi686Linux.libvdpau
+    pkgs.pkgsi686Linux.libdrm
+  ];
 
   meta = {
     description = "Worms W.M.D (GOG build, via Proton and gamescope)";
