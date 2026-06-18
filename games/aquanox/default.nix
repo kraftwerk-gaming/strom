@@ -89,20 +89,37 @@ self.lib.mkGame { inherit lib pkgs; } {
     WINEDLLOVERRIDES = "dinput8=n,b";
   };
 
+  # First-run registry seeding. AquaNox reads its install paths from
+  # HKLM\Software\Massive Development\AquaNox\Installation (PathDat/PathExe);
+  # without them the engine cannot locate its data and fails to start.
+  #
+  # Appended directly as Wine registry text (no regedit / PROTON_RUN, which is
+  # not exported at preRun time). proton creates the prefix on first launch, so
+  # on a truly fresh prefix system.reg does not exist yet and that first launch
+  # comes up without the keys; they land on the next launch once proton has
+  # bootstrapped the prefix, and persist. GAMEDIR_WIN is the in-prefix Z: path
+  # mapping to the fuse-overlayfs $GAMEDIR. Aqua.exe is a 32-bit PE in a win64
+  # prefix, so its HKLM\Software reads are redirected to Wow6432Node; the key is
+  # written to both the plain and Wow6432Node views so it resolves regardless.
   preRun = ''
-    GAMEDIR_WIN="Z:''${GAMEDIR//\//\\\\}"
-    {
-      cat <<'EOF'
-    Windows Registry Editor Version 5.00
-
-    [HKEY_LOCAL_MACHINE\Software\Massive Development\AquaNox\Installation]
-    EOF
-      printf '"PathDat"="%s"\n' "$GAMEDIR_WIN"
-      printf '"PathExe"="%s\\\\Aqua.exe"\n' "$GAMEDIR_WIN"
-      printf '"Version"="1.18eoem"\n'
-      printf '"Inst"="Yes"\n'
-    } > "$GAMEDIR/aquanox-install.reg"
-    setsid "$PROTON_RUN" regedit /S "$GAMEDIR/aquanox-install.reg" || true
+    SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
+    if [ -f "$SYSREG" ] \
+        && ! grep -q 'Massive Development\\\\AquaNox\\\\Installation' "$SYSREG"; then
+      echo "[strom] first-run setup: seeding AquaNox install-path registry"
+      GAMEDIR_WIN="Z:''${GAMEDIR//\//\\\\}"
+      TS=$(date +%s)
+      for base in \
+        'Software\\Massive Development\\AquaNox\\Installation' \
+        'Software\\Wow6432Node\\Massive Development\\AquaNox\\Installation'; do
+        {
+          printf '\n[%s] %s\n' "$base" "$TS"
+          printf '"PathDat"="%s"\n' "$GAMEDIR_WIN"
+          printf '"PathExe"="%s\\\\Aqua.exe"\n' "$GAMEDIR_WIN"
+          printf '"Version"="1.18eoem"\n'
+          printf '"Inst"="Yes"\n'
+        } >>"$SYSREG"
+      done
+    fi
 
     appdata="$STROM_COMPATDATA/0/pfx/drive_c/users/steamuser/AppData/Roaming/AquaNox"
     if [ ! -f "$appdata/playerm.des" ] && [ -d "$GAMEDIR/_supportprofile" ]; then
