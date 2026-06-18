@@ -83,21 +83,44 @@ self.lib.mkGame { inherit lib pkgs; } {
     flags."--force-grab-cursor" = true;
   };
 
+  # First-run registry seeding. The Generals launcher reads its install
+  # location and metadata from HKLM\Software\Electronic Arts\EA Games\Generals
+  # (InstallPath, Language, UserDataLeafName, MapPackVersion, Version, plus the
+  # ergc serial). Without these the engine cannot locate its install tree and
+  # exits. generals.exe is 32-bit, so on the win64 prefix its HKLM\Software
+  # reads redirect to Software\Wow6432Node; the keys are written to BOTH views.
+  #
+  # These are appended directly as Wine registry text (no regedit / PROTON_RUN,
+  # which is not exported at preRun time). proton creates the prefix on first
+  # launch, so on a truly fresh prefix system.reg does not exist yet and that
+  # first launch comes up without the keys; they land on the next launch once
+  # proton has bootstrapped the prefix, and persist. WINEPATH is the in-prefix
+  # Z: path mapping to the fuse-overlayfs $GAMEDIR (doubled backslashes, with a
+  # trailing backslash, the convention the Generals launcher expects).
   preRun = ''
     SYSREG="$STROM_COMPATDATA/0/pfx/system.reg"
     DOCS="$STROM_COMPATDATA/0/pfx/drive_c/users/steamuser/Documents"
     SEED="$GAMEDIR/_seed/Command and Conquer Generals Data"
 
-    if ! grep -q 'EA Games\\\\Generals' "$SYSREG" 2>/dev/null; then
-      echo "[strom] first-run setup: importing registry"
-      REGFILE="$STROM_COMPATDATA/install.reg"
-      WINEPATH="Z:$(echo "$GAMEDIR" | sed 's|/|\\\\|g')\\\\"
-      python3 -c 'import sys; sys.stdout.write(open(sys.argv[1]).read().replace("@WINEPATH@", sys.argv[2]))' \
-        ${./install.reg.template} "$WINEPATH" > "$REGFILE"
-      # Run proton in a new session so its postHook 'kill -9 0' does not
-      # kill this preRun shell.
-      setsid -w "$PROTON_RUN" regedit /S "$REGFILE" || true
-      sleep 2
+    if [ -f "$SYSREG" ] \
+        && ! grep -q 'EA Games\\\\Generals' "$SYSREG"; then
+      echo "[strom] first-run setup: seeding install registry"
+      WINEPATH="Z:''${GAMEDIR//\//\\\\}\\\\"
+      TS=$(date +%s)
+      for base in \
+        'Software\\Electronic Arts\\EA Games\\Generals' \
+        'Software\\Wow6432Node\\Electronic Arts\\EA Games\\Generals'; do
+        {
+          printf '\n[%s] %s\n' "$base" "$TS"
+          printf '"Language"="english"\n'
+          printf '"InstallPath"="%s"\n' "$WINEPATH"
+          printf '"MapPackVersion"=dword:00010000\n'
+          printf '"Version"=dword:00010007\n'
+          printf '"UserDataLeafName"="Command and Conquer Generals Data"\n'
+          printf '\n[%s\\\\ergc] %s\n' "$base" "$TS"
+          printf '@="5412001460717777331746"\n'
+        } >>"$SYSREG"
+      done
     fi
 
     if [ ! -d "$DOCS/Command and Conquer Generals Data" ] && [ -d "$SEED" ]; then
