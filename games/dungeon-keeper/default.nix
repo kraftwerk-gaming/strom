@@ -70,17 +70,18 @@ self.lib.mkGame { inherit lib pkgs; } {
   # save/*.sav + settings.dat next to its binary, not under
   # drive_c/users/steamuser/...).
   saveLocations = [ ];
+  executable = "keeperfx.exe";
   env = {
     STAGING_WRITECOPY = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";
   };
 
-  runScript = ''
+  # KeeperFX writes saves into save/ next to its binary; create it before
+  # launch so the first save doesn't fail on a missing directory. (The
+  # framework supplies the outer gamescope nest and a dedicated DXVK state
+  # cache, so neither is set here.)
+  preRun = ''
     mkdir -p "$GAMEDIR/save"
-    export DXVK_STATE_CACHE_PATH="$GAMEDIR"
-
-    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      "$PROTON_RUN" "$GAMEDIR/keeperfx.exe"
   '';
 
   meta = {
