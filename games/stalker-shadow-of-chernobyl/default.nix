@@ -120,16 +120,31 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   # The engine reads the UI language from
   # HKCU\Software\GSC Game World\STALKER-SHOC\language and falls back to
-  # the OS default (Spanish on this build's setup) if missing. Inject
-  # "eng" before launch so menus/text come up in English.
+  # the OS default (Spanish on this build's setup) if missing. Seed "eng"
+  # so menus/text come up in English.
+  #
+  # Appended directly as Wine registry text (no regedit / PROTON_RUN, which
+  # is not exported at preRun time). proton creates the prefix on first
+  # launch, so on a truly fresh prefix user.reg does not exist yet and that
+  # first launch comes up without the key; it lands on the next launch once
+  # proton has bootstrapped the prefix, and persists. xr_3da.exe is 32-bit,
+  # so on a win64 prefix its HKCU\Software reads are redirected to
+  # HKCU\Software\Wow6432Node; write both views so it resolves regardless.
   preRun = ''
-    cat > "$GAMEDIR/stalker-lang.reg" <<'EOF'
-    Windows Registry Editor Version 5.00
-
-    [HKEY_CURRENT_USER\Software\GSC Game World\STALKER-SHOC]
-    "language"="eng"
-    EOF
-    setsid "$PROTON_RUN" regedit /S "$GAMEDIR/stalker-lang.reg" || true
+    USERREG="$STROM_COMPATDATA/0/pfx/user.reg"
+    if [ -f "$USERREG" ] \
+        && ! grep -q 'GSC Game World\\\\STALKER-SHOC' "$USERREG"; then
+      echo "[strom] first-run setup: seeding UI language registry"
+      TS=$(date +%s)
+      for base in \
+        'Software\\GSC Game World' \
+        'Software\\Wow6432Node\\GSC Game World'; do
+        {
+          printf '\n[%s\\\\STALKER-SHOC] %s\n' "$base" "$TS"
+          printf '"language"="eng"\n'
+        } >>"$USERREG"
+      done
+    fi
   '';
 
   meta = {
