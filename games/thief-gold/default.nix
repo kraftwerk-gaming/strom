@@ -159,6 +159,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   # SAVES/*.sav + cam.cfg next to its binary, not under
   # drive_c/users/steamuser/...).
   saveLocations = [ ];
+  executable = "Thief.exe";
   env = {
     STEAM_COMPAT_APP_ID = "211600";
     STAGING_WRITECOPY = "1";
@@ -166,17 +167,18 @@ self.lib.mkGame { inherit lib pkgs; } {
     PULSE_LATENCY_MSEC = "40";
   };
 
-  runScript = ''
-    # DXVK config for Thief's d3d9 renderer
+  # Drop a DXVK d3d9 tuning file and an OpenAL config next to the binary,
+  # then point the engine at them via env exported into the launch (preRun
+  # runs in the inner shell that execs the runtime, so these inherit). The
+  # framework supplies the outer gamescope nest and DXVK state cache.
+  preRun = ''
     cat > "$GAMEDIR/dxvk.conf" <<DXVKCONF
     d3d9.floatEmulation = strict
     d3d9.invariantPosition = True
     d3d9.memoryTrackTest = True
     DXVKCONF
     export DXVK_CONFIG_FILE="$GAMEDIR/dxvk.conf"
-    export DXVK_STATE_CACHE_PATH="$GAMEDIR"
 
-    # OpenAL config
     mkdir -p "$GAMEDIR/openal"
     cat > "$GAMEDIR/openal/alsoft.conf" <<ALCONF
     [general]
@@ -188,9 +190,6 @@ self.lib.mkGame { inherit lib pkgs; } {
     allow-moves = true
     ALCONF
     export ALSOFT_CONF="$GAMEDIR/openal/alsoft.conf"
-
-    gamescope -W 1920 -H 1080 -w 1920 -h 1080 -r 60 --immediate-flips --expose-wayland -- \
-      "$PROTON_RUN" "$GAMEDIR/Thief.exe"
   '';
 
   meta = {
