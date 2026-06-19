@@ -25,21 +25,28 @@ let
   # remove the disc check and flagged large-address-aware so the engine
   # can address >2 GiB of textures (required for ModLoader / WS Fix /
   # SilentPatch to coexist without out-of-memory crashes during
-  # streaming). Hosted on Codeberg via the same mirror Lutris uses.
+  # streaming). Hosted on Codeberg via the same mirror Lutris uses. Pinned
+  # to an immutable commit instead of raw/branch/main so a push to that
+  # repo can't silently change the binary under us.
   hoodlumExe = fetchurl {
-    url = "https://codeberg.org/xls69/gta_sa_largeaddress/raw/branch/main/gta_sa.exe";
+    url = "https://codeberg.org/xls69/gta_sa_largeaddress/raw/commit/d59292bc49d43ddcc209531620734da5a77ca5b9/gta_sa.exe";
     hash = "sha256-8BoAzpUPpAyh7VnfDniYSMbtz2QFRWJ0lliF0JKTQ6w=";
     name = "gta_sa.exe";
   };
 
-  # ThirteenAG's Ultimate ASI Loader, vorbisFile.dll variant. Hijacks
-  # the Vorbis OGG codec the game already loads at startup, then loads
-  # any *.asi plugin from the game directory (SilentPatchSA.asi,
-  # GTASA.WidescreenFix.asi, modloader.asi, ...).
+  # ThirteenAG's Ultimate ASI Loader. Hijacks the Vorbis OGG codec the
+  # game already loads at startup, then loads any *.asi plugin from the
+  # game directory (SilentPatchSA.asi, GTASA.WidescreenFix.asi,
+  # modloader.asi, ...). Pinned to the immutable v9.7.2 release instead of
+  # the rolling Win32-latest tag (which gets force-overwritten on every
+  # upstream build, drifting the hash). The loader is a single universal
+  # proxy DLL shipped as dinput8.dll here; it selects its proxy target
+  # from its own filename, so the buildScript renames it to vorbisFile.dll
+  # (byte-identical to the old vorbisFile-Win32.zip payload, verified).
   asiLoader = fetchurl {
-    url = "https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases/download/Win32-latest/vorbisFile-Win32.zip";
-    hash = "sha256-+VkJ6DVXl7pmPKUQdRf+f0ziypWba6G+0h6u7WYvXZQ=";
-    name = "vorbisFile-Win32.zip";
+    url = "https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases/download/v9.7.2/Ultimate-ASI-Loader.zip";
+    hash = "sha256-DzR1izDqoO+1n3rgQQDbeJkU4aCIkbiYeLj9sYnCp8U=";
+    name = "Ultimate-ASI-Loader-Win32-v9.7.2.zip";
   };
 
   # thelink2012's ModLoader: lets you drop .img / .txd / .dff / .ide
@@ -54,9 +61,12 @@ let
 
   # SilentPatchSA: the canonical bug-fix patch for the v1.0 binary.
   # Restores radio stations, fixes timing-dependent physics that broke
-  # on >60 FPS, fixes plane shadows, fog flicker, etc.
+  # on >60 FPS, fixes plane shadows, fog flicker, etc. Pinned to the
+  # immutable 1.1-BUILD33.1-SA tag instead of releases/latest (whose
+  # SilentPatchSA.zip moves as new per-game hotfixes ship); byte-identical
+  # to the previous releases/latest payload.
   silentPatch = fetchurl {
-    url = "https://github.com/CookiePLMonster/SilentPatch/releases/latest/download/SilentPatchSA.zip";
+    url = "https://github.com/CookiePLMonster/SilentPatch/releases/download/1.1-BUILD33.1-SA/SilentPatchSA.zip";
     hash = "sha256-XZFenzu6txN+H7nRw/cx6JWoilAFV2SSkflpTAB+9hE=";
     name = "SilentPatchSA.zip";
   };
@@ -116,8 +126,11 @@ self.lib.mkGame { inherit lib pkgs; } {
     # build (no-DVD, >2 GiB heap).
     cp -f ${hoodlumExe} "$out/gta_sa.exe"
 
-    # ASI Loader: drop vorbisFile.dll next to gta_sa.exe.
-    unzip -q -o ${asiLoader} -d "$out"
+    # ASI Loader: the v9.7.2 zip ships the universal loader as dinput8.dll;
+    # install it as vorbisFile.dll next to gta_sa.exe (UAL picks its proxy
+    # target from its own filename).
+    unzip -q -o ${asiLoader} dinput8.dll -d "$out"
+    mv "$out/dinput8.dll" "$out/vorbisFile.dll"
 
     # ModLoader: drops modloader.asi + modloader/ at the game root.
     unzip -q -o ${modLoader} -d "$out"
