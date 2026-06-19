@@ -87,6 +87,20 @@ let
     hash = "sha256-CdDD+dbiYZ2F7+h7moVkq+z6g1JsOajddZM8JGGwIHU=";
     name = "wshps.asi";
   };
+
+  # Improved Fast Loader by Link/2012: the canonical no-keypress intro
+  # skip for GTA SA 1.0 US (see buildScript for the winegstreamer
+  # EC_COMPLETE hang it works around). The original GTAGarage host
+  # (mod 37720) is defunct; pinned to an immutable Wayback raw ('id_')
+  # capture of the original gtanet CDN download. Source (MIT/public
+  # domain, by the same author as ModLoader) is bundled in the zip as
+  # src.zip. The .asi version-checks the exe and no-ops on anything but
+  # 1.0 US, so it is inert if the base exe ever changes.
+  improvedFastLoader = fetchurl {
+    url = "https://web.archive.org/web/20150508104139id_/http://download.gtanet.com/gtagarage/files/37720/imfast.zip?st=Pe025nK-HZTSMM4eHwzhRw&e=1431082005";
+    hash = "sha256-YFBYNDcsh+kv2IS6AK1Njy40F7MRi7pPnfzYPa96G6I=";
+    name = "improved-fast-loader-imfast.zip";
+  };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "grand-theft-auto-san-andreas";
@@ -120,7 +134,13 @@ self.lib.mkGame { inherit lib pkgs; } {
     # entry point the ASI Loader needs). Strip them so the loader path
     # is clean for SilentPatch / WidescreenFix / ModLoader.
     rm -f "$out"/{samp.exe,samp.dll,samp_debug.exe,SAMPUninstall.exe,rcon.exe} \
-          "$out"/{vorbisFile.dll,vorbishooked.dll,samp-license.txt}
+          "$out"/{vorbisFile.dll,vorbishooked.dll,samp-license.txt} \
+          "$out"/{samp.saa,sampgui.png}
+
+    # Drop the repack's pre-existing generic "gta screen fix.asi": a
+    # third-party resolution-forcing ASI that collides with ThirteenAG's
+    # WidescreenFix + SilentPatch we install below.
+    rm -f "$out/gta screen fix.asi"
 
     # Replace the stock gta_sa.exe with the HOODLUM large-address-aware
     # build (no-DVD, >2 GiB heap).
@@ -153,6 +173,25 @@ self.lib.mkGame { inherit lib pkgs; } {
     cp -f "$TMPDIR/wsfix/GTASA.WidescreenFix/scripts/GTASA.WidescreenFix.ini" \
          "$out/modloader/WidescreenFix/"
     cp -f ${wshpsAsi} "$out/modloader/WidescreenFix/wshps.asi"
+
+    # Improved Fast Loader (Link/2012). Skips the startup intro movies
+    # WITHOUT a keypress. On Proton the PC build plays movies/Logo.mpg +
+    # movies/GTAtitles.mpg through DirectShow -> winegstreamer, and the
+    # engine then blocks on the DirectShow graph's EC_COMPLETE
+    # (end-of-stream) event to auto-advance to the FrontEnd menu — but
+    # winegstreamer never fires EC_COMPLETE for these MPEG-1 program
+    # streams, so the game hangs forever on a black screen (it does not
+    # crash; only a keypress dismisses it). Deleting or 0-byting the
+    # .mpg files does NOT help: the engine still enters the movie-wait
+    # state and waits for input. imfast.asi hooks SA's startup state
+    # machine (START_GAME_AT=3) to skip the movie stage entirely so the
+    # menu renders on its own. Must live in the GAME ROOT, not modloader/
+    # (in modloader/ its load-last-save feature breaks). Loaded by the
+    # ThirteenAG vorbisFile ASI shim installed above.
+    mkdir -p "$TMPDIR/imfast"
+    unzip -q -o ${improvedFastLoader} -d "$TMPDIR/imfast"
+    cp -f "$TMPDIR/imfast/imfast.asi" "$out/imfast.asi"
+    cp -f "$TMPDIR/imfast/imfast.ini" "$out/imfast.ini"
   '';
 
   runtime = "proton";
