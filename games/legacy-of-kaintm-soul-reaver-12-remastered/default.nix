@@ -22,7 +22,7 @@ let
   # SRX.exe is the unmodified Aspyr launcher and `playTasks[0].path` in
   # goggame-1214553287.info points at it directly.
   src = fetchIpfs {
-    cid = "QmepRDNXxVXbHCMDM2g2JqMwXXMoQx2m58zpze75yRMjX7";
+    cid = "QmfJRiEGTapvtvps35o46DrJ6zpVSDFfFJgauzQ9cvWGNv";
     fallbackUrl = "https://archive.org/download/CA-WINDOWS-Soul-Reaver-1-and-2-Remastered/Soul%20Reaver%201%20and%202%20-%20Remastered.7z";
     hash = "sha256-BMX8QlY6jqFho2uzj8GTUXZZ8Tb1RvEsduAjpU1EOcI=";
     name = "soul-reaver-1-2-remastered.7z";
