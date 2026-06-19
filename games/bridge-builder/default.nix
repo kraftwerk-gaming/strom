@@ -54,6 +54,12 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "bridge.exe";
 
+  # Engine writes its saves (bridge.cfg, bridge*.bdg slots) next to
+  # bridge.exe; the per-game fuse-overlayfs upper captures them, so no
+  # prefix relocation is needed. Verified by playtest: writes land in
+  # ~/.strom/bridge-builder/, not the steamuser profile.
+  saveLocations = [ ];
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;
