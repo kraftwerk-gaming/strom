@@ -61,6 +61,20 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "proton";
   executable = "JadeEmpire.exe";
 
+  # The Aurora engine writes savegames binary-adjacent, into a Save/
+  # subdir of the install folder (PCGamingWiki: "{{p|game}}\Save\"),
+  # NOT into Documents/ or AppData/LocalLow. The install dir is the
+  # fuse-overlayfs game overlay whose writable upper IS $STROM_GAMEDIR
+  # (= ~/.strom/<slug>/ on plain btrfs; see lib/bwrap.nix), so writes
+  # to Save/ land there and persist across prefix/overlay wipes with no
+  # relocation needed — hence saveLocations is empty. (The lib's
+  # steamuser-rooted migration in lib/proton.nix only handles
+  # drive_c/users/steamuser paths and does not apply here.) Verified at
+  # build time: the fresh tree has no Save/ dir; the engine creates it
+  # on first save, and a prior test run already produced a persisted
+  # ~/.strom/jade-empire-special-edition/Save/.
+  saveLocations = [ ];
+
   # Force 1920x1080 widescreen on every launch. The Aurora engine reads
   # JadeEmpire.ini from the install dir (the merged overlay); the file is
   # created lazily by JadeEmpireConfig.exe on first launch with 640x480
@@ -68,6 +82,12 @@ self.lib.mkGame { inherit lib pkgs; } {
   # already exists, otherwise seed a minimal [Render] block so the engine
   # picks up the resolution from the very first run. Widescreen=1 is
   # mandatory: the engine crashes on a widescreen ScrW/ScrH with Widescreen=0.
+  #
+  # The edit is done with a temp file under $STROM_GAMEDIR (the overlay's
+  # real btrfs upper) plus `cat >` back into place rather than `sed -i`:
+  # sed -i renames its temp over the target, and on the fuse-overlayfs
+  # merged mount that rename crosses a device boundary ("Invalid
+  # cross-device link") and aborts the launch (bwrap exit 4).
   preRun = ''
         __ini="$STROM_OVERLAY/JadeEmpire.ini"
         if [ ! -f "$__ini" ]; then
@@ -80,13 +100,17 @@ self.lib.mkGame { inherit lib pkgs; } {
     DispFmt=1
     Windowed=0
     RefreshRate=60
+    ClampFPS=0
     EOF
         else
-          sed -i \
+          __tmp="$STROM_GAMEDIR/.JadeEmpire.ini.tmp"
+          sed \
             -e 's/^ScrW=.*/ScrW=1920/' \
             -e 's/^ScrH=.*/ScrH=1080/' \
             -e 's/^Widescreen=.*/Widescreen=1/' \
-            "$__ini"
+            "$__ini" > "$__tmp"
+          cat "$__tmp" > "$__ini"
+          rm -f "$__tmp"
         fi
   '';
 
