@@ -90,6 +90,87 @@ stdenvNoCC.mkDerivation {
     echo "[fetch-ipfs] $cid via aria2c across:"
     for u in $urls; do echo "  $u"; done
 
+    # --- structured download progress -----------------------------------
+    # Emit "@nix {...}" JSON log lines so the Nix daemon renders this FOD
+    # in the aggregate "X MiB DL" progress bar, exactly like a native
+    # fetchurl. The daemon parses builder stderr untrusted, which means it
+    # only admits actFileTransfer (101) activities (see Nix's
+    # handleJSONLogMessage); that is precisely the download case, so we
+    # open one such activity and report bytes by polling the output file
+    # size. Polling the file (rather than scraping aria2c's stdout) works
+    # identically for the curl fallback and survives aria2c log-format
+    # changes. Field/level values mirror libstore/filetransfer.cc.
+    #
+    # The daemon parses the build log line by line; a "@nix {...}" line is
+    # only recognised when it arrives intact (it must start with "@nix "
+    # and parse as JSON). So once the poller starts, it must be the *sole*
+    # writer to the log stream — otherwise aria2c's concurrent stderr
+    # interleaves mid-line and the structured tick is silently dropped.
+    # We therefore funnel aria2c/curl chatter to a file and only surface
+    # it on total failure.
+    act_id=1
+    nix_emit() { printf '@nix %s\n' "$1" >&2; }
+
+    # Probe a gateway for the total size so the bar shows a percentage.
+    # Optional: if no gateway yields a Content-Length the bar just counts
+    # bytes up without a denominator.
+    expected=0
+    for u in $urls; do
+      len=$(curl -fsSL -I --max-time 20 "$u" 2>/dev/null \
+        | tr -d '\r' \
+        | awk 'tolower($1) == "content-length:" { print $2 }' \
+        | tail -n1)
+      case "$len" in
+        "" | *[!0-9]*) ;;
+        *)
+          expected=$len
+          break
+          ;;
+      esac
+    done
+
+    nix_emit "{\"action\":\"start\",\"id\":$act_id,\"level\":4,\"type\":101,\"text\":\"fetching $cid\",\"fields\":[\"ipfs://$cid\"]}"
+    if [ "$expected" -gt 0 ]; then
+      nix_emit "{\"action\":\"result\",\"id\":$act_id,\"type\":106,\"fields\":[101,$expected]}"
+    fi
+
+    # Report *allocated* blocks (st_blocks, always 512-byte units), not
+    # st_size: aria2c writes each Range segment at its own offset, so with
+    # a sparse file st_size jumps to the full length the moment the last
+    # segment is seeked, whereas st_blocks counts only bytes actually
+    # written. --file-allocation=none keeps the file sparse for this to
+    # hold; the curl fallback writes sequentially, where it holds too.
+    progress_poll() {
+      while :; do
+        if [ -f "$TMPDIR/fetch.bin" ]; then
+          blocks=$(stat -c %b "$TMPDIR/fetch.bin" 2>/dev/null || echo 0)
+          cur=$((blocks * 512))
+          if [ "$expected" -gt 0 ] && [ "$cur" -gt "$expected" ]; then
+            cur=$expected
+          fi
+          nix_emit "{\"action\":\"result\",\"id\":$act_id,\"type\":105,\"fields\":[$cur,$expected,0,0]}"
+        fi
+        sleep 1
+      done
+    }
+    progress_poll &
+    poll_pid=$!
+
+    # Idempotent: called on every success path before the mv (so the bar
+    # doesn't flash back to 0 once fetch.bin is moved away) and once more
+    # via the EXIT trap as a safety net on the failure path.
+    stop_poll() {
+      [ -n "''${poll_pid:-}" ] || return 0
+      kill "$poll_pid" 2>/dev/null || true
+      wait "$poll_pid" 2>/dev/null || true
+      poll_pid=""
+      if [ "$expected" -gt 0 ]; then
+        nix_emit "{\"action\":\"result\",\"id\":$act_id,\"type\":105,\"fields\":[$expected,$expected,0,0]}"
+      fi
+      nix_emit "{\"action\":\"stop\",\"id\":$act_id}"
+    }
+    trap stop_poll EXIT
+
     fetch_via_aria() {
       # --split / --max-connection-per-server control parallelism.
       # --min-split-size keeps Range chunks large enough that overhead
@@ -113,32 +194,41 @@ stdenvNoCC.mkDerivation {
         --split=8 \
         --max-connection-per-server=4 \
         --min-split-size=16M \
+        --file-allocation=none \
         --check-integrity=false \
         --allow-overwrite=true \
         --auto-file-renaming=false \
         --dir="$TMPDIR" \
         --out="fetch.bin" \
-        $urls
+        $urls >>"$TMPDIR/fetch.log" 2>&1
     }
 
     fetch_via_curl() {
       [ -z "$fallbackUrl" ] && return 1
-      echo "[fetch-ipfs] fallback: $fallbackUrl"
-      curl -fL --max-time 1800 --progress-bar --retry 3 \
-        -o "$TMPDIR/fetch.bin" "$fallbackUrl"
+      echo "[fetch-ipfs] fallback: $fallbackUrl" >>"$TMPDIR/fetch.log"
+      # No --progress-bar: our poller owns the log stream; curl's progress
+      # would interleave with it and corrupt structured ticks.
+      curl -fL --max-time 1800 --retry 3 \
+        -o "$TMPDIR/fetch.bin" "$fallbackUrl" >>"$TMPDIR/fetch.log" 2>&1
     }
 
     if fetch_via_aria; then
+      stop_poll
       mv "$TMPDIR/fetch.bin" "$out"
       exit 0
     fi
 
     if fetch_via_curl; then
+      stop_poll
       mv "$TMPDIR/fetch.bin" "$out"
       exit 0
     fi
 
+    # Total failure: stop the poller first so it no longer owns the log
+    # stream, then surface the captured aria2c/curl diagnostics.
+    stop_poll
     echo "[fetch-ipfs] error: aria2c and fallback both failed for $cid" >&2
+    [ -f "$TMPDIR/fetch.log" ] && cat "$TMPDIR/fetch.log" >&2
     exit 1
   '';
 }
