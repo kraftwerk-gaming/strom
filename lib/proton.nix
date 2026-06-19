@@ -137,7 +137,10 @@ in
   };
 
   config = {
-    package = config.pkgs.callPackage ../pkgs/proton.nix { };
+    # mkDefault so a game (or `.override`) can replace the Proton build
+    # without lib.mkForce, e.g.
+    #   strom.modules.<sys>.<game>.override { proton.package = myProton; }
+    package = lib.mkDefault (config.pkgs.callPackage ../pkgs/proton.nix { });
     exePath = "${config.package}/proton";
     binName = lib.mkDefault "proton-wrapper";
 

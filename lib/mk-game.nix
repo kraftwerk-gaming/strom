@@ -712,25 +712,39 @@ let
 
   configured = (wlib.wrapModule gameModule).apply cleanedSpec;
 
-  # The same game with gamescope bypassed: the inner bwrap script execs the
-  # runtime command directly (rendering to the host display) instead of
-  # nesting it in gamescope. Built WITHOUT re-injecting the no-gamescope
-  # passthru below, so there is no recursion.
-  configuredNoGamescope = (wlib.wrapModule gameModule).apply (
-    cleanedSpec // { enableGamescope = false; }
-  );
+  # Instantiate the game from a spec and attach strom passthrus to its
+  # wrapper derivation:
+  #
+  #   .override overrides  - re-instantiate the game with `overrides`
+  #                          deep-merged into the spec (chainable), e.g.
+  #                            strom.packages.<sys>.<game>.override {
+  #                              proton.package = myProton;
+  #                            }
+  #   .no-gamescope        - the same game rendered directly to the host
+  #                          display instead of nested in gamescope:
+  #                            nix run .#<game>.no-gamescope
+  #
+  # Both are simply the game re-instantiated from a modified spec, so
+  # they take the exact same `.apply` evaluation path as the base build.
+  # That sidesteps the wrapper-module API entirely: no `.extend` (whose
+  # results expose `.config.outputs` instead of `.outputs` and are not
+  # re-extendable) and no mkForce — `recursiveUpdate` / `//` replace the
+  # option in the spec, even one the game's own spec pins (enableGamescope).
+  # The passthrus are lazy, so the recursion only unfolds as far as you
+  # reach, and they ride every attr path to the wrapper
+  # (packages.<sys>.<game>, legacyPackages.<sys>.games.<game>, ...).
+  mkWrapper =
+    spec:
+    ((wlib.wrapModule gameModule).apply spec).outputs.wrapper.overrideAttrs (old: {
+      passthru = (old.passthru or { }) // {
+        override = overrides: mkWrapper (lib.recursiveUpdate spec overrides);
+        no-gamescope = mkWrapper (spec // { enableGamescope = false; });
+      };
+    });
 in
-# Expose the variant as a `no-gamescope` passthru on the wrapper derivation
-# itself, so it rides through every attr path that reaches the wrapper
-# (packages.<sys>.<game>, legacyPackages.<sys>.games.<game>, ...):
-#   nix run .#<game>.no-gamescope
 configured
 // {
   outputs = configured.outputs // {
-    wrapper = configured.outputs.wrapper.overrideAttrs (old: {
-      passthru = (old.passthru or { }) // {
-        no-gamescope = configuredNoGamescope.outputs.wrapper;
-      };
-    });
+    wrapper = mkWrapper cleanedSpec;
   };
 }
