@@ -38,7 +38,7 @@ let
   # GTASA.WidescreenFix.asi, modloader.asi, ...).
   asiLoader = fetchurl {
     url = "https://github.com/ThirteenAG/Ultimate-ASI-Loader/releases/download/Win32-latest/vorbisFile-Win32.zip";
-    hash = "sha256-8rUwUA6wtlB9vBJoCO84S5owQj16eEQaxzHGxMKaVP8=";
+    hash = "sha256-+VkJ6DVXl7pmPKUQdRf+f0ziypWba6G+0h6u7WYvXZQ=";
     name = "vorbisFile-Win32.zip";
   };
 
