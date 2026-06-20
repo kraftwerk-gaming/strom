@@ -14,7 +14,7 @@ let
   # multi-part installer as a single zip: the .exe stub + two RAR-packed
   # .bin slices. innoextract --gog handles them when unar is on PATH.
   src = fetchIpfs {
-    cid = "QmUFsFYE2ywPcRZgdjt8XU4NypzP34bsU3mgnWY62HrLn7";
+    cid = "QmWYZZzaDxXdrm3FoDCFKHuVB7Xw4YaXvGZTKpTjH3WpdQ";
     fallbackUrl = "https://archive.org/download/psychonauts_202602/Psychonauts.zip";
     hash = "sha256-GvppUhQHq6XmBmtwgKRfWE85swX6eKsLdyW12VXOFOE=";
     name = "psychonauts-gog.zip";

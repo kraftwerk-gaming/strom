@@ -20,7 +20,7 @@ let
   };
 
   setupBin = fetchIpfs {
-    cid = "QmTeGedgifZfckQw64AeDRPRaaVh954iEGHaQAwb3Q7o7Z";
+    cid = "QmXZBznavGsxtbmXgcUHrtBkzPdNXRi8mYjupR7YwGtk8J";
     fallbackUrl = "https://archive.org/download/rain-world/Rain_World_1.9.07b-v3_%2863290%29_win_gog/setup_rain_world_03-21-2023-1.9.07b-v3_%2863290%29-1.bin";
     hash = "sha256-usIfo4bRjg4GAibvlh/wLx0c+MapTLFKjhkg8aGdcX4=";
     name = "rain-world-gog-1.9.07b-v3-1.bin";
