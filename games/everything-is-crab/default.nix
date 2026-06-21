@@ -26,7 +26,7 @@ let
   # down for "malware" at the time of staging, so it isn't a valid
   # fallback URL even though it would be the cleanest CDN.
   src = fetchIpfs {
-    cid = "QmeYRqXnDZfG2Rq4UkA9GFi1fwkEkPd5tmTHMe6iiu7qbX";
+    cid = "QmUwUvaj5DmqcraPZ74xpepwhx5HbgMCWQweeWM1aMHHXk";
     fallbackUrl = "https://www.mediafire.com/file/c0bp2z465ooa46z/Everything.is.Crab.v1.0.1.zip";
     hash = "sha256-GXtrfO/AexSav8D5P9rB3aF0JCD6ptGhLRbiihOuc0U=";
     name = "everything-is-crab.zip";
