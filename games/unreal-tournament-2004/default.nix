@@ -212,10 +212,16 @@ self.lib.mkGame { inherit lib pkgs; } {
     ];
   };
 
-  # run without gamescope
+  # The OldUnreal Linux patch keeps per-user config in $HOME/.ut2004. $HOME is
+  # already the persistent overlay upper ($STROM_GAMEDIR), so just create the
+  # directory there directly. Do NOT symlink it to $GAMEDIR/.ut2004:
+  # $GAMEDIR (/tmp/.strom-overlay) overlays onto $HOME, so $GAMEDIR/.ut2004 and
+  # $HOME/.ut2004 resolve to the same file — symlinking one to the other makes
+  # a self-referential loop (ELOOP, "Too many levels of symbolic links"), which
+  # leaves the engine with no writable config dir and it dies on launch with
+  # "Can't find ini:Engine.Engine.GameEngine".
   runScript = ''
-    mkdir -p "$GAMEDIR/.ut2004"
-    ln -sfn "$GAMEDIR/.ut2004" "$HOME/.ut2004"
+    mkdir -p "$HOME/.ut2004"
     export LD_LIBRARY_PATH="$GAMEDIR/System''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
     exec "$GAMEDIR/System/UT2004" "$@"
   '';
