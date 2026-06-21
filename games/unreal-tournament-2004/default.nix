@@ -159,6 +159,18 @@ let
       # game binaries expect (specific soname versions)
       rm -f "$DEST/System/libopenal.so"*
 
+      # Step 9: default to a WINDOWED 1280x720 client. strom runs this game
+      # without the gamescope nest (enableGamescope = false, needed for cursor
+      # visibility), so the game's own window mode is what's seen — and it must
+      # not grab the whole seat. The native build uses the SDL client, so flip
+      # StartupFullscreen only inside [SDLDrv.SDLClient]; the [WinDrv.*] section
+      # is unused on Linux. A fresh config then opens as a normal window; the
+      # user can still switch to fullscreen in-game if they want.
+      # NB: these .ini files are CRLF, so do not anchor the value with `$`
+      # (there's a trailing \r) — match the line start only.
+      sed -i '/^\[SDLDrv\.SDLClient\]/,/^\[/ s/^StartupFullscreen=True/StartupFullscreen=False/' \
+        "$DEST/System/Default.ini"
+
       runHook postBuild
     '';
 
@@ -189,6 +201,17 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   runtime = "native";
   executable = "System/UT2004";
+
+  # Run WITHOUT the gamescope nest. UT2004's OldUnreal SDL3 client uses an SDL
+  # system (hardware) cursor for the menu, and gamescope's nested wlroots
+  # backend does not composite an inner client's hardware-cursor plane, so the
+  # pointer is invisible inside the nest (ValveSoftware/gamescope#707). Three
+  # in-nest fixes were tried and ALL failed on real hardware:
+  # --force-grab-cursor, env SDL_VIDEODRIVER=x11 (which also broke teardown via
+  # an X11 fullscreen input-grab), and --backend sdl. Rendering directly to the
+  # host compositor lets the hardware cursor show normally. (worms-wmd uses the
+  # same enableGamescope = false for a render-correctness reason.)
+  enableGamescope = false;
 
   # SDL3 dlopen's X11/Wayland/cursor/input libraries at runtime;
   # on NixOS these aren't in standard paths so we must provide them
