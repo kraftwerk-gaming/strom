@@ -185,6 +185,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/grim-fandango-remastered/"><img src="https://lutris.net/games/banner/grim-fandango-remastered.jpg" height="40" alt="grim-fandango-remastered"></a> | [Grim Fandango Remastered](https://lutris.net/games/grim-fandango-remastered/) | `native` | `nix run .#grim-fandango-remastered` |
 | <a href="https://lutris.net/games/gubble/"><img src="https://lutris.net/games/banner/gubble.jpg" height="40" alt="gubble"></a> | [Gubble](https://lutris.net/games/gubble/) | `proton` | `nix run .#gubble` |
 | <a href="https://lutris.net/games/half-life/"><img src="https://lutris.net/games/banner/half-life.jpg" height="40" alt="half-life"></a> | [Half-Life](https://lutris.net/games/half-life/) | `proton` | `nix run .#half-life` |
+| <a href="https://lutris.net/games/half-life-2/"><img src="https://lutris.net/games/banner/half-life-2.jpg" height="40" alt="half-life-2"></a> | [Half-Life 2](https://lutris.net/games/half-life-2/) | `proton` | `nix run .#half-life-2` |
 | <a href="https://lutris.net/games/half-life-uplink/"><img src="https://lutris.net/games/banner/half-life-uplink.jpg" height="40" alt="half-life-uplink"></a> | [Half-Life: Uplink](https://lutris.net/games/half-life-uplink/) | `proton` | `nix run .#half-life-uplink` |
 | <a href="https://lutris.net/games/hardspace-shipbreaker/"><img src="https://lutris.net/games/banner/hardspace-shipbreaker.jpg" height="40" alt="hardspace-shipbreaker"></a> | [Hardspace: Shipbreaker](https://lutris.net/games/hardspace-shipbreaker/) | `proton` | `nix run .#hardspace-shipbreaker` |
 | <a href="https://lutris.net/games/harvest-moon/"><img src="https://lutris.net/games/banner/harvest-moon.jpg" height="40" alt="harvest-moon"></a> | [Harvest Moon](https://lutris.net/games/harvest-moon/) | `retroarch` | `nix run .#harvest-moon` |
@@ -410,7 +411,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_369 games_
+_370 games_
 
 <!-- END GENERATED GAMES -->
 
