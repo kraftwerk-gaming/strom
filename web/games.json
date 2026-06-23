@@ -2259,6 +2259,13 @@
     "description": "The Floor is Jelly (Ian Snyder 2014, Adobe AIR / Windows via Proton)",
     "runtime": "proton"
   },
+  "the-jackbox-megapicker": {
+    "cids": [
+      "QmTuc6xHziHS2JUQDwh9xdrwEgzeMpwQw4GkGcZ7C9eXnj"
+    ],
+    "description": "The Jackbox Party Pack 7 (Jackbox Games 2020, Scaleform GFx, via Proton)",
+    "runtime": "proton"
+  },
   "the-legend-of-zelda-a-link-to-the-past": {
     "cids": [
       "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt"
