@@ -870,6 +870,13 @@
     "description": "Final Doom: TNT - Evilution (TeamTNT/id 1996, TNT.WAD via GZDoom)",
     "runtime": "custom"
   },
+  "flappy-bird": {
+    "cids": [
+      "QmS16Ytszjha3zfKfUV6kgMcLDvKwUgCgDqN9Q5gkPEnEd"
+    ],
+    "description": "Flappy Bird (Fl\u00f6ppy Bird, faithful Love2D clone by NiroUwU, native Linux)",
+    "runtime": "native"
+  },
   "forager": {
     "cids": [
       "QmZJnJxJ1S8R8rwrXL9Vk9TQMqGhGccmGHXzNyhA5bKCQj"

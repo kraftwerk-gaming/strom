@@ -163,6 +163,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/fez/"><img src="https://lutris.net/games/banner/fez.jpg" height="40" alt="fez"></a> | [FEZ](https://lutris.net/games/fez/) | `native` | `nix run .#fez` |
 | <a href="https://lutris.net/games/final-doom-plutonia/"><img src="https://lutris.net/games/banner/final-doom-plutonia.jpg" height="40" alt="final-doom-plutonia"></a> | [Final Doom: The Plutonia Experiment](https://lutris.net/games/final-doom-plutonia/) | `custom` | `nix run .#final-doom-plutonia` |
 | <a href="https://lutris.net/games/final-doom-tnt/"><img src="https://lutris.net/games/banner/final-doom-tnt.jpg" height="40" alt="final-doom-tnt"></a> | [Final Doom: TNT - Evilution](https://lutris.net/games/final-doom-tnt/) | `custom` | `nix run .#final-doom-tnt` |
+| <a href="https://lutris.net/games/flappy-bird/"><img src="https://lutris.net/games/banner/flappy-bird.jpg" height="40" alt="flappy-bird"></a> | [Flappy Bird](https://lutris.net/games/flappy-bird/) | `native` | `nix run .#flappy-bird` |
 | <a href="https://lutris.net/games/forager/"><img src="https://lutris.net/games/banner/forager.jpg" height="40" alt="forager"></a> | [Forager](https://lutris.net/games/forager/) | `native` | `nix run .#forager` |
 | <a href="https://lutris.net/games/forbidden-siren/"><img src="https://lutris.net/games/banner/forbidden-siren.jpg" height="40" alt="forbidden-siren"></a> | [Forbidden Siren](https://lutris.net/games/forbidden-siren/) | `pcsx2` | `nix run .#forbidden-siren` |
 | <a href="https://lutris.net/games/freelancer/"><img src="https://lutris.net/games/banner/freelancer.jpg" height="40" alt="freelancer"></a> | [Freelancer](https://lutris.net/games/freelancer/) | `proton` | `nix run .#freelancer` |
@@ -411,7 +412,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_370 games_
+_371 games_
 
 <!-- END GENERATED GAMES -->
 
