@@ -214,6 +214,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/journey/"><img src="https://lutris.net/games/banner/journey.jpg" height="40" alt="journey"></a> | [Journey](https://lutris.net/games/journey/) | `proton` | `nix run .#journey` |
 | <a href="https://lutris.net/games/katamari-damacy-reroll/"><img src="https://lutris.net/games/banner/katamari-damacy-reroll.jpg" height="40" alt="katamari-damacy-reroll"></a> | [Katamari Damacy REROLL](https://lutris.net/games/katamari-damacy-reroll/) | `proton` | `nix run .#katamari-damacy-reroll` |
 | <a href="https://lutris.net/games/kknd/"><img src="https://lutris.net/games/banner/kknd.jpg" height="40" alt="kknd"></a> | [KKnD Xtreme / Krush Kill 'n Destroy](https://lutris.net/games/kknd/) | `proton` | `nix run .#kknd` |
+| <a href="https://lutris.net/games/kknd2-krossfire/"><img src="https://lutris.net/games/banner/kknd2-krossfire.jpg" height="40" alt="kknd2-krossfire"></a> | [KKND2: Krossfire](https://lutris.net/games/kknd2-krossfire/) | `proton` | `nix run .#kknd2-krossfire` |
 | <a href="https://lutris.net/games/lands-of-lore-ii-guardians-of-destiny/"><img src="https://lutris.net/games/banner/lands-of-lore-ii-guardians-of-destiny.jpg" height="40" alt="lands-of-lore-ii-guardians-of-destiny"></a> | [Lands of Lore II: Guardians of Destiny](https://lutris.net/games/lands-of-lore-ii-guardians-of-destiny/) | `proton` | `nix run .#lands-of-lore-ii-guardians-of-destiny` |
 | <a href="https://lutris.net/games/lands-of-lore-the-throne-of-chaos/"><img src="https://lutris.net/games/banner/lands-of-lore-the-throne-of-chaos.jpg" height="40" alt="lands-of-lore-the-throne-of-chaos"></a> | [Lands of Lore: The Throne of Chaos](https://lutris.net/games/lands-of-lore-the-throne-of-chaos/) | `custom` | `nix run .#lands-of-lore-the-throne-of-chaos` |
 | <a href="https://lutris.net/games/leap-year/"><img src="https://lutris.net/games/banner/leap-year.jpg" height="40" alt="leap-year"></a> | [Leap Year](https://lutris.net/games/leap-year/) | `proton` | `nix run .#leap-year` |
@@ -413,7 +414,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_372 games_
+_373 games_
 
 <!-- END GENERATED GAMES -->
 

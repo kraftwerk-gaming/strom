@@ -1237,6 +1237,13 @@
     "description": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
     "runtime": "proton"
   },
+  "kknd2-krossfire": {
+    "cids": [
+      "QmYsaybnh1rqpPwiCo6Aa349TZCGuGqUcuiE4uuHCDA5Rg"
+    ],
+    "description": "KKND2: Krossfire (Beam Software 1998, GOG, via Proton)",
+    "runtime": "proton"
+  },
   "lands-of-lore-ii-guardians-of-destiny": {
     "cids": [
       "QmPjapo3soDkDW3a3pSdV7g66ozEktqMDiBDRMQz4vNd3h",
