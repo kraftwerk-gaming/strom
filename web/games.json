@@ -1799,6 +1799,13 @@
     "description": "Risen (Piranha Bytes 2009, GOG v2.0.0.6, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "risen-2-dark-waters": {
+    "cids": [
+      "QmaDyzewYrCrhq2ykqffzdNxWfaum2LoPZ9gEqdApHok6p"
+    ],
+    "description": "Risen 2: Dark Waters (Piranha Bytes 2012, GOG Gold Edition v1.0, via Proton and gamescope)",
+    "runtime": "proton"
+  },
   "risk-of-rain": {
     "cids": [
       "QmUiGfcZ9zbgubBA8RZCwGvMhz4drAKztWZr3eKZ9s4C3m"

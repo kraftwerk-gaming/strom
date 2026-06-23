@@ -292,6 +292,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/rhythm-doctor/"><img src="https://lutris.net/games/banner/rhythm-doctor.jpg" height="40" alt="rhythm-doctor"></a> | [Rhythm Doctor](https://lutris.net/games/rhythm-doctor/) | `custom` | `nix run .#rhythm-doctor` |
 | <a href="https://lutris.net/games/rift-of-the-necrodancer/"><img src="https://lutris.net/games/banner/rift-of-the-necrodancer.jpg" height="40" alt="rift-of-the-necrodancer"></a> | [Rift of the NecroDancer](https://lutris.net/games/rift-of-the-necrodancer/) | `proton` | `nix run .#rift-of-the-necrodancer` |
 | <a href="https://lutris.net/games/risen/"><img src="https://lutris.net/games/banner/risen.jpg" height="40" alt="risen"></a> | [Risen](https://lutris.net/games/risen/) | `proton` | `nix run .#risen` |
+| <a href="https://lutris.net/games/risen-2-dark-waters/"><img src="https://lutris.net/games/banner/risen-2-dark-waters.jpg" height="40" alt="risen-2-dark-waters"></a> | [Risen 2: Dark Waters](https://lutris.net/games/risen-2-dark-waters/) | `proton` | `nix run .#risen-2-dark-waters` |
 | <a href="https://lutris.net/games/risk-of-rain/"><img src="https://lutris.net/games/banner/risk-of-rain.jpg" height="40" alt="risk-of-rain"></a> | [Risk of Rain](https://lutris.net/games/risk-of-rain/) | `proton` | `nix run .#risk-of-rain` |
 | <a href="https://lutris.net/games/risk-of-rain-returns/"><img src="https://lutris.net/games/banner/risk-of-rain-returns.jpg" height="40" alt="risk-of-rain-returns"></a> | [Risk of Rain Returns](https://lutris.net/games/risk-of-rain-returns/) | `proton` | `nix run .#risk-of-rain-returns` |
 | <a href="https://lutris.net/games/roketz--1/"><img src="https://lutris.net/games/banner/roketz--1.jpg" height="40" alt="roketz--1"></a> | [Roketz](https://lutris.net/games/roketz--1/) | `custom` | `nix run .#roketz--1` |
@@ -417,7 +418,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_376 games_
+_377 games_
 
 <!-- END GENERATED GAMES -->
 
