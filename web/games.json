@@ -1671,6 +1671,18 @@
     "description": "Plants vs. Zombies: Game of the Year Edition (PopCap 2009, GOG, via Proton and gamescope)",
     "runtime": "proton"
   },
+  "pokemmo": {
+    "cids": [
+      "QmP6QZebT27cydKwg2fs6qBJw52qnk7TYniKoNbzVEfBFo",
+      "QmavUhtUyGRnT4vNRPGCuMuZxvAusA4ZcqJfG7ATy5pS4i",
+      "QmcJuHrudsqmmexuCmt7259zZvGNPjP9smEiJwjq19rNqm",
+      "QmVviHYSUADxgNNmkF1XqKxw8kAmxNBFnmHo6BE4AaA51R",
+      "QmStjHkYeC1NomWEVknoSzvBKdAL1TqqeaaGa4XK1sgAU6",
+      "QmWDWwXu6iQrPpMAfcpGeeb7hc93D2QVhW6cAMjNbSyMC2"
+    ],
+    "description": "PokeMMO (Java multiplayer Pokemon client; ROMs preconfigured)",
+    "runtime": "native"
+  },
   "pokemon-ranger": {
     "cids": [
       "QmZHUyEk66jfC4EA9oxPwQqqU2HH5kbyqvDeGEjtsd6h5f"
