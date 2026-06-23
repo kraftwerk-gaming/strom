@@ -1650,6 +1650,13 @@
     "description": "Pikuniku (Unity, GOG v1.0.5-GOG1, via Proton)",
     "runtime": "proton"
   },
+  "pioneers-of-pagonia": {
+    "cids": [
+      "QmS5RZD8tD9r2cXg3Rr8NRgy33ufp4dyRa5QjLCbHQBVpq"
+    ],
+    "description": "Pioneers of Pagonia (Envision Entertainment 2023, via Proton)",
+    "runtime": "proton"
+  },
   "planescape-torment": {
     "cids": [
       "QmaqqPrfcQjzLyWmcAMMth42qRLwH7MWq32DnYMNehsmWm"
