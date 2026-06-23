@@ -78,6 +78,13 @@
     "description": "Anno 1701 + Sunken Treasure (Gold/AD, via Proton)",
     "runtime": "proton"
   },
+  "antichamber": {
+    "cids": [
+      "QmNqHYfVSpdkBLCpYSFQUC7dii1uorK9oJGP42dpUW4QLn"
+    ],
+    "description": "Antichamber (Alexander Bruce 2013, UDK/UE3 puzzle, via Proton)",
+    "runtime": "proton"
+  },
   "aquanox": {
     "cids": [
       "QmdyH6yPQixyf5viA3ht3maMkdbU25n6r9QJPAmH9sgJJW",
