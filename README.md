@@ -335,6 +335,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/stick-fight-the-game/"><img src="https://lutris.net/games/banner/stick-fight-the-game.jpg" height="40" alt="stick-fight-the-game"></a> | [Stick Fight: The Game](https://lutris.net/games/stick-fight-the-game/) | `proton` | `nix run .#stick-fight-the-game` |
 | <a href="https://lutris.net/games/stronghold-hd/"><img src="https://lutris.net/games/banner/stronghold-hd.jpg" height="40" alt="stronghold-hd"></a> | [Stronghold HD](https://lutris.net/games/stronghold-hd/) | `proton` | `nix run .#stronghold-hd` |
 | <a href="https://lutris.net/games/stubbs-the-zombie-in-rebel-without-a-pulse/"><img src="https://lutris.net/games/banner/stubbs-the-zombie-in-rebel-without-a-pulse.jpg" height="40" alt="stubbs-the-zombie-in-rebel-without-a-pulse"></a> | [Stubbs the Zombie in Rebel Without a Pulse](https://lutris.net/games/stubbs-the-zombie-in-rebel-without-a-pulse/) | `proton` | `nix run .#stubbs-the-zombie-in-rebel-without-a-pulse` |
+| <a href="https://lutris.net/games/subnautica-below-zero/"><img src="https://lutris.net/games/banner/subnautica-below-zero.jpg" height="40" alt="subnautica-below-zero"></a> | [Subnautica: Below Zero](https://lutris.net/games/subnautica-below-zero/) | `proton` | `nix run .#subnautica-below-zero` |
 | <a href="https://lutris.net/games/sun-haven/"><img src="https://lutris.net/games/banner/sun-haven.jpg" height="40" alt="sun-haven"></a> | [Sun Haven](https://lutris.net/games/sun-haven/) | `proton` | `nix run .#sun-haven` |
 | <a href="https://lutris.net/games/super-hexagon/"><img src="https://lutris.net/games/banner/super-hexagon.jpg" height="40" alt="super-hexagon"></a> | [Super Hexagon](https://lutris.net/games/super-hexagon/) | `native` | `nix run .#super-hexagon` |
 | <a href="https://lutris.net/games/super-mario-64/"><img src="https://lutris.net/games/banner/super-mario-64.jpg" height="40" alt="super-mario-64"></a> | [Super Mario 64](https://lutris.net/games/super-mario-64/) | `retroarch` | `nix run .#super-mario-64` |
@@ -416,7 +417,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_375 games_
+_376 games_
 
 <!-- END GENERATED GAMES -->
 

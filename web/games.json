@@ -2103,6 +2103,13 @@
     "description": "Stubbs the Zombie in Rebel Without a Pulse (Wideload Games / Aspyr, GOG 2021 re-release v1.0 build 45609, via Proton)",
     "runtime": "proton"
   },
+  "subnautica-below-zero": {
+    "cids": [
+      "Qmf4ynWQ5huycLzWpeoB7dfu2CLwBSj3d3VWkAcSref7fd"
+    ],
+    "description": "Subnautica: Below Zero (Unknown Worlds 2021, Unity underwater survival via Proton)",
+    "runtime": "proton"
+  },
   "sun-haven": {
     "cids": [
       "QmY8oHub4D9nTTUtPBEyt8qGPfhQAFYRSDQFDpFynwAw3u"
