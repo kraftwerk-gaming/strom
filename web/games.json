@@ -1445,6 +1445,13 @@
     "description": "Metal Slug - Super Vehicle-001 (Nazca/SNK 1996 Neo Geo MVS, via RetroArch / FBNeo)",
     "runtime": "retroarch"
   },
+  "metal-slug-tactics": {
+    "cids": [
+      "QmNbqY58iVsj3FCchrg5xHQSe6yZFG4cPA7aVWJUhxa94N"
+    ],
+    "description": "Metal Slug Tactics (Leikir Studio / Dotemu 2024, Unity tactical-RPG roguelike, via Proton)",
+    "runtime": "proton"
+  },
   "metro-2033-redux": {
     "cids": [
       "QmRgowFfaJXv3Cvhpe1arUxGPzgAhhcDnG1im6h6oD4NoW"
