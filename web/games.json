@@ -1973,6 +1973,14 @@
     "description": "Shovel Knight: Treasure Trove (native Linux, GOG v4.1B Arby's build 46298)",
     "runtime": "native"
   },
+  "sid-meiers-civilization-iv": {
+    "cids": [
+      "Qme5gCJd65fFqtYwq1tA1k7igvsNyZJMQQLfkNdys2ZkQK",
+      "QmQQnubn2XRTGZtyjbv2NrdZVsNZ9NPfevwKDvwsDZw7Ls"
+    ],
+    "description": "Sid Meier's Civilization IV: The Complete Edition (Firaxis 2005, GOG build 2.0.0.4, via Proton)",
+    "runtime": "proton"
+  },
   "sid-meiers-pirates": {
     "cids": [
       "Qma2AyXzbaDPJq2Ztx2ahETHESGt8DHDBv2sFoUrdC8mzE",
