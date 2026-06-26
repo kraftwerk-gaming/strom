@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: this is the 1998 PSX original. The only Steam listing is the 2017 'Crash Bandicoot N. Sane Trilogy' remake (appid 731490), a different product whose HD art and description would misrepresent what this package ships.",
+  "appid": null,
+  "cids": [
+    "QmNdTd9Avt4fJVSQgAocBrGS2fq8h2cmZ6LDpopcY5gyai",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Crash Bandicoot 3: Warped (PSX 1998 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Naughty Dog"
+  ],
+  "genres": [
+    "Platformer",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/crash-bandicoot-3-warped.jpg",
+  "lutris": "https://lutris.net/games/crash-bandicoot-3-warped/",
+  "name": "Crash Bandicoot 3: Warped",
+  "runtime": "retroarch",
+  "short": "Crash chases Uka Uka through time to recover the Crystals, platforming across medieval castles, ancient Egypt, the Great Wall and prehistory -- with jetski, biplane and motorcycle stages between the run-and-jump levels.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}
