@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: the 1998 PSX original has no Steam release (the 2019 remake was PS4-exclusive), so any fuzzy match would be a different product.",
+  "appid": null,
+  "cids": [
+    "QmNWndhQEyzddjJfBoob9n2Nv9Yojzf9JywRvGUZxWqw8j",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "MediEvil (PSX 1998 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "SCE Cambridge Studio"
+  ],
+  "genres": [
+    "Action-Adventure",
+    "Hack and Slash"
+  ],
+  "hero": "https://lutris.net/games/banner/medievil.jpg",
+  "lutris": "https://lutris.net/games/medievil/",
+  "name": "MediEvil",
+  "runtime": "retroarch",
+  "short": "Resurrected by the sorcerer he failed to defeat, one-armed knight Sir Daniel Fortesque hacks his way across Gallowmere's graveyards and crypts to earn the heroic death the history books already gave him.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}
