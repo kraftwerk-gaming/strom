@@ -94,6 +94,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/clive-barkers-undying/"><img src="https://lutris.net/games/banner/clive-barkers-undying.jpg" height="40" alt="clive-barkers-undying"></a> | [Clive Barker's Undying](https://lutris.net/games/clive-barkers-undying/) | `proton` | `nix run .#clive-barkers-undying` |
 | <a href="https://lutris.net/games/clonk-4/"><img src="https://lutris.net/games/banner/clonk-4.jpg" height="40" alt="clonk-4"></a> | [Clonk 4](https://lutris.net/games/clonk-4/) | `proton` | `nix run .#clonk-4` |
 | <a href="https://lutris.net/games/cloverpit/"><img src="https://lutris.net/games/banner/cloverpit.jpg" height="40" alt="cloverpit"></a> | [Cloverpit](https://lutris.net/games/cloverpit/) | `proton` | `nix run .#cloverpit` |
+| <a href="https://lutris.net/games/colony-ship-a-post-earth-role-playing-game/"><img src="https://lutris.net/games/banner/colony-ship-a-post-earth-role-playing-game.jpg" height="40" alt="colony-ship-a-post-earth-role-playing-game"></a> | [Colony Ship: A Post-Earth Role Playing Game](https://lutris.net/games/colony-ship-a-post-earth-role-playing-game/) | `proton` | `nix run .#colony-ship-a-post-earth-role-playing-game` |
 | <a href="https://lutris.net/games/command-conquer/"><img src="https://lutris.net/games/banner/command-conquer.jpg" height="40" alt="command-conquer"></a> | [Command & Conquer: Tiberian Dawn](https://lutris.net/games/command-conquer/) | `native` | `nix run .#command-conquer` |
 | <a href="https://lutris.net/games/command-conquer-generals/"><img src="https://lutris.net/games/banner/command-conquer-generals.jpg" height="40" alt="command-conquer-generals"></a> | [Command & Conquer: Generals](https://lutris.net/games/command-conquer-generals/) | `proton` | `nix run .#command-conquer-generals` |
 | <a href="https://lutris.net/games/command-conquer-red-alert/"><img src="https://lutris.net/games/banner/command-conquer-red-alert.jpg" height="40" alt="command-conquer-red-alert"></a> | [Command & Conquer: Red Alert](https://lutris.net/games/command-conquer-red-alert/) | `native` | `nix run .#command-conquer-red-alert` |
@@ -422,7 +423,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_381 games_
+_382 games_
 
 <!-- END GENERATED GAMES -->
 
