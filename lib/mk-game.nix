@@ -525,7 +525,17 @@ let
 
         (lib.mkIf (cfg.runtime == "retroarch") {
           retroarch.romPath = overlayExe;
-          entrypoint = lib.getExe cfg.retroarch.outputs.wrapper;
+          # RetroArch's vulkan WSI connects to gamescope's wayland; gamescope
+          # only serves a usable wayland display to clients when --expose-wayland
+          # is set (without it the client gets "Failed to create wl_display" and
+          # renders black). Every wayland game under gamescope sets this.
+          gamescope.flags."--expose-wayland" = lib.mkDefault true;
+          gamescope.command = lib.getExe cfg.retroarch.outputs.wrapper;
+          entrypoint =
+            if cfg.enableGamescope then
+              lib.getExe cfg.gamescope.outputs.wrapper
+            else
+              lib.getExe cfg.retroarch.outputs.wrapper;
         })
 
         (lib.mkIf (cfg.runtime == "pcsx2") {
