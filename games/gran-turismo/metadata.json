@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: the Gran Turismo series is a PlayStation exclusive and has never been released on Steam, so any fuzzy match would be an unrelated racing game.",
+  "appid": null,
+  "cids": [
+    "Qmade5Sep26jg7GiozNWgwVpY2aRnn5zpYgdwLM29C6Fe6",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Gran Turismo (PSX 1997 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Polyphony Digital"
+  ],
+  "genres": [
+    "Racing",
+    "Simulation"
+  ],
+  "hero": "https://lutris.net/games/banner/gran-turismo.jpg",
+  "lutris": "https://lutris.net/games/gran-turismo/",
+  "name": "Gran Turismo",
+  "runtime": "retroarch",
+  "short": "Polyphony Digital's driving simulator: earn licences, buy and tune from 140 real production cars, and race them across eleven circuits in Arcade and the career-style Simulation mode.",
+  "tags": [
+    "Single-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 1997
+}
