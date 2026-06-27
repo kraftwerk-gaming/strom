@@ -38,7 +38,7 @@ let
     [UI]
     SettingsVersion = 1
     SetupWizardIncomplete = false
-    StartFullscreen = false
+    StartFullscreen = true
     HideMouseCursor = true
     HideMainWindowWhenRunning = true
 
@@ -165,6 +165,11 @@ in
 
     env = {
       XDG_CONFIG_HOME = "$STROM_GAMEDIR/config";
+      # Force PCSX2-Qt onto the X11/xcb backend. Its wayland backend renders
+      # the game display into a Qt subsurface, which gamescope's compositor
+      # doesn't support ("Can't create subsurface") -> grey screen + VM stall.
+      # xcb runs it through gamescope's nested Xwayland, which works.
+      QT_QPA_PLATFORM = "xcb";
     };
 
     preHook = ''

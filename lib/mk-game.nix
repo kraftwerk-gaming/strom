@@ -540,7 +540,16 @@ let
 
         (lib.mkIf (cfg.runtime == "pcsx2") {
           pcsx2.isoPath = overlayExe;
-          entrypoint = lib.getExe cfg.pcsx2.outputs.wrapper;
+          # NB: PCSX2 must NOT use gamescope's wayland — its Qt wayland backend
+          # renders the game into a subsurface gamescope can't create (grey
+          # screen + VM stall). pcsx2.nix forces QT_QPA_PLATFORM=xcb so it runs
+          # on the nested Xwayland instead; hence no --expose-wayland here.
+          gamescope.command = lib.getExe cfg.pcsx2.outputs.wrapper;
+          entrypoint =
+            if cfg.enableGamescope then
+              lib.getExe cfg.gamescope.outputs.wrapper
+            else
+              lib.getExe cfg.pcsx2.outputs.wrapper;
         })
 
         (lib.mkIf cfg.n2n.enable {
