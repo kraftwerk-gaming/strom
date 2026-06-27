@@ -273,6 +273,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/pico-park/"><img src="https://lutris.net/games/banner/pico-park.jpg" height="40" alt="pico-park"></a> | [Pico Park](https://lutris.net/games/pico-park/) | `proton` | `nix run .#pico-park` |
 | <a href="https://lutris.net/games/pico-park-2/"><img src="https://lutris.net/games/banner/pico-park-2.jpg" height="40" alt="pico-park-2"></a> | [Pico Park 2](https://lutris.net/games/pico-park-2/) | `proton` | `nix run .#pico-park-2` |
 | <a href="https://lutris.net/games/pico-park-2021/"><img src="https://lutris.net/games/banner/pico-park-2021.jpg" height="40" alt="pico-park-2021"></a> | [PICO PARK](https://lutris.net/games/pico-park-2021/) | `proton` | `nix run .#pico-park-2021` |
+| <a href="https://lutris.net/games/pikmin/"><img src="https://lutris.net/games/banner/pikmin.jpg" height="40" alt="pikmin"></a> | [Pikmin](https://lutris.net/games/pikmin/) | `native` | `nix run .#pikmin` |
 | <a href="https://lutris.net/games/pikuniku/"><img src="https://lutris.net/games/banner/pikuniku.jpg" height="40" alt="pikuniku"></a> | [Pikuniku](https://lutris.net/games/pikuniku/) | `proton` | `nix run .#pikuniku` |
 | <a href="https://lutris.net/games/pioneers-of-pagonia/"><img src="https://lutris.net/games/banner/pioneers-of-pagonia.jpg" height="40" alt="pioneers-of-pagonia"></a> | [Pioneers of Pagonia](https://lutris.net/games/pioneers-of-pagonia/) | `proton` | `nix run .#pioneers-of-pagonia` |
 | <a href="https://lutris.net/games/planescape-torment/"><img src="https://lutris.net/games/banner/planescape-torment.jpg" height="40" alt="planescape-torment"></a> | [Planescape: Torment](https://lutris.net/games/planescape-torment/) | `native` | `nix run .#planescape-torment` |
@@ -423,7 +424,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_382 games_
+_383 games_
 
 <!-- END GENERATED GAMES -->
 

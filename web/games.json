@@ -1667,6 +1667,13 @@
     "description": "PICO PARK (2021 paid release, Steamworks shimmed with Goldberg, via Proton)",
     "runtime": "proton"
   },
+  "pikmin": {
+    "cids": [
+      "Qmd1bP4XPoia96JkSFwpZ6UxoCMETLm1gLor4NcNocQAiC"
+    ],
+    "description": "Pikmin (via Dolphin)",
+    "runtime": "native"
+  },
   "pikuniku": {
     "cids": [
       "Qmb1oRLhCtE8oxPsDLVjykHbrZcMfPJwMDaehKHMfBrsWy"
