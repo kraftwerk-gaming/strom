@@ -32,11 +32,19 @@ const FEATURES = [
 ];
 
 // Facet groups, evaluated as OR within a group and AND across groups, the way
-// Steam's store filters behave. `values` returns a game's values for the group.
+// Steam's store filters behave. `values` returns a game's values for the group;
+// `label` maps an internal value to its display text (defaults to identity).
+const SOURCE_LABEL = { steam: "Steam", community: "Community" };
 const GROUPS = [
   { key: "runtime", title: "Runtime", values: (e) => [e.runtime] },
   { key: "genre", title: "Genre", values: (e) => e.genres || [] },
   { key: "feature", title: "Features", values: (e) => e._features },
+  {
+    key: "source",
+    title: "Metadata",
+    values: (e) => [e._source],
+    label: (v) => SOURCE_LABEL[v] || v,
+  },
 ];
 
 const el = {
@@ -58,7 +66,7 @@ const state = {
   catalog: {}, // slug -> entry
   slugs: [], // sorted by name
   query: "",
-  f: { runtime: new Set(), genre: new Set(), feature: new Set() },
+  f: { runtime: new Set(), genre: new Set(), feature: new Set(), source: new Set() },
   open: new Set(["Runtime", "Genre", "Features"]), // expanded facet groups
 };
 
@@ -102,12 +110,14 @@ async function loadCatalog() {
   return fromGamesJson(await r.json());
 }
 
-// Precompute which feature buckets each game satisfies, once, at load.
+// Precompute, once at load: which feature buckets each game satisfies, and
+// whether its metadata came from Steam or was curated manually (no Steam match).
 function annotate(entry) {
   const tags = new Set(entry.tags || []);
   entry._features = FEATURES.filter(([, cats]) => cats.some((c) => tags.has(c))).map(
     ([label]) => label,
   );
+  entry._source = entry.steam_appid ? "steam" : "community";
 }
 
 /* ---------- helpers ---------- */
@@ -205,7 +215,7 @@ function renderFacets() {
         badge.textContent = value;
         name.appendChild(badge);
       } else {
-        name.textContent = value;
+        name.textContent = g.label ? g.label(value) : value;
       }
       const cnt = document.createElement("span");
       cnt.className = "facet-count";
@@ -256,6 +266,16 @@ function makeBadge(rt) {
   return b;
 }
 
+// Marker shown on games whose metadata was hand-curated rather than pulled
+// from Steam, so it is clear which entries are not first-party Steam data.
+function makeSourceBadge() {
+  const b = document.createElement("span");
+  b.className = "badge community";
+  b.textContent = "community";
+  b.title = "Metadata curated for strom — not from Steam";
+  return b;
+}
+
 function makeCard(slug) {
   const e = state.catalog[slug];
   const card = document.createElement("a");
@@ -283,6 +303,7 @@ function makeCard(slug) {
   title.className = "title";
   title.textContent = e.name;
   meta.append(title, makeBadge(e.runtime));
+  if (e._source === "community") meta.appendChild(makeSourceBadge());
   card.appendChild(meta);
   return card;
 }
@@ -315,6 +336,7 @@ function metaRow(e) {
   const row = document.createElement("div");
   row.className = "meta-row";
   const parts = [makeBadge(e.runtime)];
+  if (e._source === "community") parts.push(makeSourceBadge());
   if (e.year) parts.push(textSpan(String(e.year)));
   if (e.genres && e.genres.length) parts.push(textSpan(e.genres.join(", ")));
   if (e.developers && e.developers.length) parts.push(textSpan(e.developers.join(", ")));

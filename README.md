@@ -72,6 +72,10 @@ the game's `default.nix`:
 }
 ```
 
+Games with no Steam match are flagged in the GUI with a **community** badge
+(on the tile and detail page) and a **Metadata** filter (Steam vs Community),
+making clear which entries are hand-curated rather than pulled from Steam.
+
 These fields are merged **over** whatever Steam/lutris produced (lists replace,
 they don't append) the next time you run `scripts/fetch-steam-metadata.py`.
 Recognized fields: `name`, `short`, `long`, `genres`, `tags`, `year`,

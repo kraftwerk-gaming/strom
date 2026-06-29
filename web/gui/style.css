@@ -239,6 +239,11 @@ a { color: var(--accent); text-decoration: none; }
 .rt-pcsx2 { background: var(--rt-pcsx2); }
 .rt-dosbox { background: var(--rt-dosbox); }
 .rt-unknown { background: var(--rt-unknown); }
+.badge.community {
+  background: transparent;
+  color: var(--rt-dosbox);
+  border: 1px solid var(--rt-dosbox);
+}
 
 .empty {
   grid-column: 1 / -1;

@@ -33,6 +33,7 @@
   - Remote Play Together → `Remote Play Together`
   - PvP → `PvP`, `Online PvP`, `Shared/Split Screen PvP`, `LAN PvP`
 - `games/<slug>/gui.json` is inert for the Nix build (`callPackage` imports `default.nix` only); it is read solely by the catalog script.
+- The GUI derives a data-source marker from `steam_appid`: entries with no Steam match (`null`) render a **community** badge and can be filtered via the **Metadata** facet, so it is always visible which games are hand-curated vs. pulled from Steam. No field controls this — it follows automatically from whether the game matched Steam.
 
 ## IPFS and fetchIpfs
 
