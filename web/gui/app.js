@@ -14,13 +14,37 @@ const CATALOG_URL = "../catalog.json";
 const GAMES_URL = "../games.json";
 const LUTRIS_BANNER = (slug) => `https://lutris.net/games/banner/${slug}.jpg`;
 
-// Chip order; "all" is prepended at render time. Unknown runtimes still work.
+// Chip order; unknown runtimes still work, appended after these.
 const RUNTIMES = ["proton", "native", "custom", "retroarch", "pcsx2", "dosbox"];
+
+/* Player-mode feature buckets. Each maps a friendly label (what the user
+ * filters on) to the set of Steam "category" descriptions that imply it —
+ * mirroring how Steam groups its store filters. A game belongs to a bucket
+ * when any of its tags match. */
+const FEATURES = [
+  ["Single-player", ["Single-player"]],
+  ["Online multiplayer", ["Multi-player", "Online PvP", "Cross-Platform Multiplayer"]],
+  ["Local multiplayer", ["Shared/Split Screen", "Shared/Split Screen PvP", "LAN PvP"]],
+  ["Online co-op", ["Online Co-op"]],
+  ["Local co-op", ["Shared/Split Screen Co-op", "LAN Co-op"]],
+  ["Remote Play Together", ["Remote Play Together"]],
+  ["PvP", ["PvP", "Online PvP", "Shared/Split Screen PvP", "LAN PvP"]],
+];
+
+// Facet groups, evaluated as OR within a group and AND across groups, the way
+// Steam's store filters behave. `values` returns a game's values for the group.
+const GROUPS = [
+  { key: "runtime", title: "Runtime", values: (e) => [e.runtime] },
+  { key: "genre", title: "Genre", values: (e) => e.genres || [] },
+  { key: "feature", title: "Features", values: (e) => e._features },
+];
 
 const el = {
   search: document.getElementById("search"),
   count: document.getElementById("count"),
-  filters: document.getElementById("filters"),
+  clear: document.getElementById("clear-filters"),
+  facets: document.getElementById("facets"),
+  layout: document.getElementById("layout"),
   library: document.getElementById("library"),
   detail: document.getElementById("detail"),
   lightbox: document.getElementById("lightbox"),
@@ -34,7 +58,8 @@ const state = {
   catalog: {}, // slug -> entry
   slugs: [], // sorted by name
   query: "",
-  runtime: "all",
+  f: { runtime: new Set(), genre: new Set(), feature: new Set() },
+  open: new Set(["Runtime", "Genre", "Features"]), // expanded facet groups
 };
 
 /* ---------- data loading ---------- */
@@ -54,6 +79,7 @@ function fromGamesJson(games) {
       short: m.description || "",
       long: "",
       genres: [],
+      tags: [],
       year: null,
       developers: [],
       hero: LUTRIS_BANNER(slug),
@@ -76,23 +102,149 @@ async function loadCatalog() {
   return fromGamesJson(await r.json());
 }
 
+// Precompute which feature buckets each game satisfies, once, at load.
+function annotate(entry) {
+  const tags = new Set(entry.tags || []);
+  entry._features = FEATURES.filter(([, cats]) => cats.some((c) => tags.has(c))).map(
+    ([label]) => label,
+  );
+}
+
 /* ---------- helpers ---------- */
 
 function runtimeClass(rt) {
   return RUNTIMES.includes(rt) ? `rt-${rt}` : "rt-unknown";
 }
 
-function matches(entry) {
-  if (state.runtime !== "all" && entry.runtime !== state.runtime) return false;
-  if (!state.query) return true;
-  const hay = [entry.name, entry.runtime, ...(entry.genres || [])]
-    .join(" ")
-    .toLowerCase();
-  return hay.includes(state.query);
+// True when entry satisfies all active facets (skipping `skipKey`, used for
+// faceted counts) and the search query.
+function passes(entry, skipKey) {
+  for (const g of GROUPS) {
+    if (g.key === skipKey) continue;
+    const sel = state.f[g.key];
+    if (!sel.size) continue;
+    if (!g.values(entry).some((v) => sel.has(v))) return false;
+  }
+  if (state.query) {
+    const hay = [entry.name, entry.runtime, ...(entry.genres || []), ...entry._features]
+      .join(" ")
+      .toLowerCase();
+    if (!hay.includes(state.query)) return false;
+  }
+  return true;
+}
+
+function activeFilterCount() {
+  return GROUPS.reduce((n, g) => n + state.f[g.key].size, 0);
 }
 
 function visibleSlugs() {
-  return state.slugs.filter((s) => matches(state.catalog[s]));
+  return state.slugs.filter((s) => passes(state.catalog[s], null));
+}
+
+/* ---------- facets sidebar ---------- */
+
+// Count of games for option `value` in group `g`, given every OTHER active
+// facet + search — Steam's "this many match if you also pick this" counts.
+function optionCount(g, value) {
+  let n = 0;
+  for (const s of state.slugs) {
+    const e = state.catalog[s];
+    if (passes(e, g.key) && g.values(e).includes(value)) n++;
+  }
+  return n;
+}
+
+// Which option values exist for a group, in display order.
+function groupOptions(g) {
+  if (g.key === "feature") {
+    return FEATURES.map(([label]) => label);
+  }
+  const present = new Set();
+  for (const s of state.slugs) for (const v of g.values(state.catalog[s])) present.add(v);
+  const vals = [...present];
+  if (g.key === "runtime") {
+    vals.sort((a, b) => {
+      const ia = RUNTIMES.indexOf(a);
+      const ib = RUNTIMES.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
+    });
+  } else {
+    vals.sort((a, b) => a.localeCompare(b));
+  }
+  return vals;
+}
+
+function renderFacets() {
+  el.facets.replaceChildren();
+  for (const g of GROUPS) {
+    const sel = state.f[g.key];
+    const rows = [];
+    for (const value of groupOptions(g)) {
+      const checked = sel.has(value);
+      const count = optionCount(g, value);
+      if (count === 0 && !checked) continue; // hide impossible options, Steam-style
+
+      const row = document.createElement("label");
+      row.className = "facet-row";
+      const box = document.createElement("input");
+      box.type = "checkbox";
+      box.checked = checked;
+      box.addEventListener("change", () => {
+        if (box.checked) sel.add(value);
+        else sel.delete(value);
+        renderFacets();
+        renderLibrary();
+        syncClear();
+      });
+      const name = document.createElement("span");
+      name.className = "facet-name";
+      if (g.key === "runtime") {
+        const badge = document.createElement("span");
+        badge.className = `badge ${runtimeClass(value)}`;
+        badge.textContent = value;
+        name.appendChild(badge);
+      } else {
+        name.textContent = value;
+      }
+      const cnt = document.createElement("span");
+      cnt.className = "facet-count";
+      cnt.textContent = String(count);
+      row.append(box, name, cnt);
+      rows.push(row);
+    }
+    if (rows.length === 0) continue;
+
+    const group = document.createElement("details");
+    group.className = "facet-group";
+    group.open = state.open.has(g.title);
+    group.addEventListener("toggle", () => {
+      if (group.open) state.open.add(g.title);
+      else state.open.delete(g.title);
+    });
+    const summary = document.createElement("summary");
+    summary.textContent = g.title;
+    if (sel.size) {
+      const b = document.createElement("span");
+      b.className = "facet-active";
+      b.textContent = String(sel.size);
+      summary.appendChild(b);
+    }
+    group.appendChild(summary);
+    for (const r of rows) group.appendChild(r);
+    el.facets.appendChild(group);
+  }
+}
+
+function syncClear() {
+  el.clear.hidden = activeFilterCount() === 0;
+}
+
+function clearFilters() {
+  for (const g of GROUPS) state.f[g.key].clear();
+  renderFacets();
+  renderLibrary();
+  syncClear();
 }
 
 /* ---------- library grid ---------- */
@@ -142,7 +294,7 @@ function renderLibrary() {
   if (slugs.length === 0) {
     const p = document.createElement("p");
     p.className = "empty";
-    p.textContent = "No games match your search.";
+    p.textContent = "No games match your filters.";
     el.library.appendChild(p);
     return;
   }
@@ -151,38 +303,21 @@ function renderLibrary() {
   el.library.appendChild(frag);
 }
 
-function renderFilters() {
-  const present = new Set(state.slugs.map((s) => state.catalog[s].runtime));
-  const order = ["all", ...RUNTIMES.filter((r) => present.has(r))];
-  for (const r of present) if (!order.includes(r)) order.push(r);
-
-  el.filters.replaceChildren();
-  for (const rt of order) {
-    const chip = document.createElement("button");
-    chip.className = "chip";
-    chip.type = "button";
-    chip.textContent = rt;
-    chip.setAttribute("aria-pressed", String(rt === state.runtime));
-    chip.addEventListener("click", () => {
-      state.runtime = rt;
-      renderFilters();
-      renderLibrary();
-    });
-    el.filters.appendChild(chip);
-  }
-}
-
 /* ---------- detail view ---------- */
+
+function textSpan(t) {
+  const s = document.createElement("span");
+  s.textContent = t;
+  return s;
+}
 
 function metaRow(e) {
   const row = document.createElement("div");
   row.className = "meta-row";
-  const parts = [];
-  parts.push(makeBadge(e.runtime));
+  const parts = [makeBadge(e.runtime)];
   if (e.year) parts.push(textSpan(String(e.year)));
   if (e.genres && e.genres.length) parts.push(textSpan(e.genres.join(", ")));
-  if (e.developers && e.developers.length)
-    parts.push(textSpan(e.developers.join(", ")));
+  if (e.developers && e.developers.length) parts.push(textSpan(e.developers.join(", ")));
   parts.forEach((node, i) => {
     if (i > 0) {
       const dot = document.createElement("span");
@@ -195,10 +330,17 @@ function metaRow(e) {
   return row;
 }
 
-function textSpan(t) {
-  const s = document.createElement("span");
-  s.textContent = t;
-  return s;
+function featureChips(e) {
+  if (!e._features || e._features.length === 0) return null;
+  const wrap = document.createElement("div");
+  wrap.className = "feature-chips";
+  for (const f of e._features) {
+    const c = document.createElement("span");
+    c.className = "feature-chip";
+    c.textContent = f;
+    wrap.appendChild(c);
+  }
+  return wrap;
 }
 
 function openLightbox(src) {
@@ -233,8 +375,7 @@ function renderDetail(slug) {
   el.detail.replaceChildren();
   el.detail.dataset.open = "1";
   el.detail.hidden = false;
-  el.library.hidden = true;
-  el.filters.hidden = true;
+  el.layout.hidden = true;
 
   const hero = document.createElement("div");
   hero.className = "detail-hero";
@@ -265,6 +406,9 @@ function renderDetail(slug) {
   play.addEventListener("click", () => launch(slug, e.name));
   body.appendChild(play);
 
+  const chips = featureChips(e);
+  if (chips) body.appendChild(chips);
+
   if (e.short) {
     const p = document.createElement("p");
     p.className = "short";
@@ -288,8 +432,7 @@ function renderDetail(slug) {
 function closeDetail() {
   el.detail.hidden = true;
   el.detail.dataset.open = "0";
-  el.library.hidden = false;
-  el.filters.hidden = false;
+  el.layout.hidden = false;
 }
 
 /* ---------- launch ---------- */
@@ -324,8 +467,10 @@ function router() {
 function wireEvents() {
   el.search.addEventListener("input", () => {
     state.query = el.search.value.trim().toLowerCase();
+    renderFacets();
     renderLibrary();
   });
+  el.clear.addEventListener("click", clearFilters);
   el.overlayClose.addEventListener("click", closeOverlay);
   el.lightbox.addEventListener("click", () => {
     el.lightbox.hidden = true;
@@ -349,18 +494,19 @@ async function init() {
   try {
     state.catalog = await loadCatalog();
   } catch (err) {
-    el.library.innerHTML = "";
     const p = document.createElement("p");
     p.className = "empty";
     p.textContent = `Failed to load catalog: ${err.message}`;
-    el.library.appendChild(p);
+    el.library.replaceChildren(p);
     return;
   }
+  for (const e of Object.values(state.catalog)) annotate(e);
   state.slugs = Object.keys(state.catalog).sort((a, b) =>
     state.catalog[a].name.localeCompare(state.catalog[b].name),
   );
-  renderFilters();
+  renderFacets();
   renderLibrary();
+  syncClear();
   wireEvents();
   router();
 }

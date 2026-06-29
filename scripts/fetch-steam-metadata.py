@@ -233,6 +233,13 @@ def build_entry(
             "short": (details.get("short_description") or "").strip(),
             "long": strip_html(long_html),
             "genres": [g["description"] for g in details.get("genres", [])],
+            # Steam "categories" carry the player-mode features the GUI filters
+            # on (Single-player, Co-op, Remote Play Together, ...).
+            "tags": [
+                c["description"]
+                for c in details.get("categories", [])
+                if c.get("description")
+            ],
             "year": parse_year(details.get("release_date", {})),
             "developers": details.get("developers", []),
             "hero": details.get("header_image") or LUTRIS_BANNER.format(slug=slug),
@@ -249,6 +256,7 @@ def build_entry(
         "short": (meta.get("description") or "").strip(),
         "long": "",
         "genres": [],
+        "tags": [],
         "year": None,
         "developers": [],
         "hero": LUTRIS_BANNER.format(slug=slug),

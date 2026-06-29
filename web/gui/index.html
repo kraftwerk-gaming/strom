@@ -15,12 +15,14 @@
       <input id="search" type="search" placeholder="Search games&hellip;"
              aria-label="Search games" autocomplete="off" spellcheck="false">
     </div>
+    <button id="clear-filters" class="btn-ghost" type="button" hidden>Clear filters</button>
     <span id="count" class="count" aria-live="polite"></span>
   </header>
 
-  <nav class="filters" id="filters" aria-label="Filter by runtime"></nav>
-
-  <main id="library" class="grid" aria-label="Game library" tabindex="-1"></main>
+  <div class="layout" id="layout">
+    <aside class="facets" id="facets" aria-label="Filters"></aside>
+    <main id="library" class="grid" aria-label="Game library" tabindex="-1"></main>
+  </div>
 
   <section id="detail" class="detail" aria-label="Game details" hidden></section>
 

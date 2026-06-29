@@ -23,6 +23,19 @@
     ],
     "short": "Hike, climb, and soar through the peaceful mountainside landscapes of Hawk Peak Provincial Park as you make your way to the summit.",
     "steam_appid": 1055540,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "age-of-empires-ii-the-conquerors": {
@@ -36,6 +49,7 @@
     "screenshots": [],
     "short": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "age-of-empires-iii": {
@@ -65,6 +79,18 @@
     ],
     "short": "Age of Empires III: Definitive Edition offers players a trial of this historical single &amp; multiplayer RTS experience. *Note: To unlock all features of the game please see the \u201cBase Game\u201d product.",
     "steam_appid": 933110,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "LAN PvP",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "anachronox": {
@@ -91,6 +117,11 @@
     ],
     "short": "Join Sylvester &quot;Sly&quot; Boots and Stiletto Anyway as they trek across six bizarre planets investigating a galaxy-crushing mystery, searching for artefacts from an extinct alien race and unlocking the secrets of a powerful, advanced technology. It's your turn. PICK YOUR POISON.",
     "steam_appid": 242940,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "anatomy": {
@@ -104,6 +135,7 @@
     "screenshots": [],
     "short": "Anatomy (Kitty Horrorshow 2016, native Linux build)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "anemoiapolis": {
@@ -131,6 +163,12 @@
     ],
     "short": "The most relaxing horror game you'll ever play. Anemoiapolis exists in the uncanny valley of American architecture -- endless carpeted floors and lonely malls. Escape for your life, and enjoy the scenery.",
     "steam_appid": 1522960,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "animal-well": {
@@ -159,6 +197,18 @@
     ],
     "short": "Explore a dense, interconnected labyrinth, and unravel its many secrets. Collect items to manipulate your environment in surprising and meaningful ways. Encounter beautiful and unsettling creatures, as you attempt to survive what lurks in the dark. There is more than what you see.",
     "steam_appid": 813230,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "anno-1404": {
@@ -184,6 +234,12 @@
     ],
     "short": "Relive the captivating gameplay of a true city-building classic with Anno\u00ae 1404 History Edition.",
     "steam_appid": 1281630,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Includes level editor"
+    ],
     "year": 2020
   },
   "anno-1503": {
@@ -197,6 +253,7 @@
     "screenshots": [],
     "short": "Anno 1503 A.D. (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "anno-1602-ad": {
@@ -210,6 +267,7 @@
     "screenshots": [],
     "short": "Anno 1602 A.D. Gold Edition (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "anno-1701": {
@@ -223,6 +281,7 @@
     "screenshots": [],
     "short": "Anno 1701 + Sunken Treasure (Gold/AD, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "antichamber": {
@@ -250,6 +309,11 @@
     ],
     "short": "Antichamber is a mind-bending psychological exploration game where nothing can be taken for granted. Discover an Escher-like world where hallways wrap around upon each other, spaces reconfigure themselves, and accomplishing the impossible may just be the only way forward.",
     "steam_appid": 219890,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "aquanox": {
@@ -274,6 +338,11 @@
     ],
     "short": "The water is no longer calm. The undersea world has undergone a transformation from tranquil environment to a place of unspeakable violence, graphic murder and horrific danger.",
     "steam_appid": 39630,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Family Sharing"
+    ],
     "year": 2010
   },
   "arcania": {
@@ -287,6 +356,7 @@
     "screenshots": [],
     "short": "ArcaniA: Gothic 4 -- The Complete Tale (Spellbound 2010, GOG v2.0.0.2, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "arcanum-of-steamworks-and-magick-obscura": {
@@ -300,6 +370,7 @@
     "screenshots": [],
     "short": "Arcanum: Of Steamworks and Magick Obscura (Troika 2001, GOG v1.0.7.4 hotfix build 24155, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "archimedean-dynasty": {
@@ -313,6 +384,7 @@
     "screenshots": [],
     "short": "Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "arx-fatalis": {
@@ -339,6 +411,10 @@
     ],
     "short": "This critically acclaimed first-person RPG from Arkane Studios takes the player on an amazing journey into the fantasy world of Arx. Arx is wrought with turmoil, brought to the brink of destruction by a violent war.",
     "steam_appid": 1700,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2007
   },
   "atomicrops": {
@@ -366,6 +442,13 @@
     ],
     "short": "A twin-stick, bullet-hell, roguelite where you must cultivate and defend the last farm in a post-apocalyptic wasteland. Farm mutated crops, upgrade your weapons, marry townsfolk, and kill every mutant creature that tries to invade your homestead! Yee-haw!",
     "steam_appid": 757320,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "baba-is-you": {
@@ -392,6 +475,20 @@
     ],
     "short": "Baba Is You is a puzzle game where the rules you have to follow are present as blocks you can interact with. By manipulating them, you can change how the game works, repurpose things you find in the levels and cause surprising interactions!",
     "steam_appid": 736260,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "babbdi": {
@@ -405,6 +502,7 @@
     "screenshots": [],
     "short": "Babbdi (Lemaitre Bros 2022, free first-person exploration, Unity Mono via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "baby-steps": {
@@ -436,6 +534,18 @@
     ],
     "short": "Play as Nate, an unemployed failson with nothing going for him, until one day he discovers a power he never knew he had\u2026 putting one foot in front of the other.",
     "steam_appid": 1281040,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "balatro": {
@@ -464,6 +574,21 @@
     ],
     "short": "The poker roguelike. Balatro is a hypnotically satisfying deckbuilder where you play illegal poker hands, discover game-changing jokers, and trigger adrenaline-pumping, outrageous combos.",
     "steam_appid": 2379780,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Touch Only Option",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "baldurs-gate-enhanced-edition": {
@@ -477,6 +602,7 @@
     "screenshots": [],
     "short": "Baldur's Gate: Enhanced Edition + 3 DLC (native Linux, Beamdog GOG v2.6.6.0p, fixed libs)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "baldurs-gate-ii-enhanced-edition": {
@@ -490,6 +616,7 @@
     "screenshots": [],
     "short": "Baldur's Gate II: Enhanced Edition + DLC (native Linux, Beamdog GOG v2.6.6.0p)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "ball-x-pit": {
@@ -517,6 +644,18 @@
     ],
     "short": "BALL x PIT is a brick-breaking, ball-fusing, base-building survival roguelite. Batter hordes of enemies with ricocheting balls and gather the riches of the pit to expand your homestead, generate resources and recruit unique heroes.",
     "steam_appid": 2062430,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "battlefield-1942": {
@@ -530,6 +669,7 @@
     "screenshots": [],
     "short": "Battlefield 1942 Complete Collection (DICE 2002, community HD repack, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "battlefield-1942-desert-combat": {
@@ -543,6 +683,7 @@
     "screenshots": [],
     "short": "Battlefield 1942: Desert Combat (Trauma Studios mod v0.8 final, bundled with BF1942 base, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "battlefield-2": {
@@ -556,6 +697,7 @@
     "screenshots": [],
     "short": "Battlefield 2 Complete Collection (DICE/EA 2005, v1.50 preinstalled repack, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "beamng-dot-drive": {
@@ -584,6 +726,27 @@
     ],
     "short": "A dynamic soft-body physics vehicle simulator capable of doing just about anything.",
     "steam_appid": 284160,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Surround Sound",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "beneath-a-steel-sky": {
@@ -612,6 +775,10 @@
     ],
     "short": "After being abducted by brutal soldiers and his kinfolk butchered, Robert Foster finds himself in Union City - a vast metropolis under the tyranny of a fascist AI. Alone, save for the circuit board of his best friend, Foster must discover the sinister truth - and why they specifically came for him.",
     "steam_appid": 1368340,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "beyond-all-reason": {
@@ -625,6 +792,7 @@
     "screenshots": [],
     "short": "Beyond All Reason (free RTS on the Recoil/Spring engine; engine+assets pre-fetched at build time)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "bioshock": {
@@ -653,6 +821,11 @@
     ],
     "short": "BioShock is a shooter unlike any you've ever played, loaded with weapons and tactics never seen. You'll have a complete arsenal at your disposal from simple revolvers to grenade launchers and chemical throwers, but you'll also be forced to genetically modify your DNA to create an even more deadly weapon: you.",
     "steam_appid": 7670,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Family Sharing"
+    ],
     "year": 2007
   },
   "black-and-white": {
@@ -682,6 +855,12 @@
     ],
     "short": "&quot;Black &amp; White&quot; is a dystopian visual novel + war chess game: black and white, sensibility and reason, freedom and order: follow your beliefs and join your camp.",
     "steam_appid": 1998450,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "blood-omen-legacy-of-kain": {
@@ -695,6 +874,7 @@
     "screenshots": [],
     "short": "Blood Omen: Legacy of Kain (Silicon Knights / Crystal Dynamics 1996, GOG, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "bloodborne-psx": {
@@ -708,6 +888,7 @@
     "screenshots": [],
     "short": "Bloodborne PSX (Lilith Walther's PSX-styled fan demake v1.05, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "boomerang-fu": {
@@ -736,6 +917,31 @@
     ],
     "short": "Slice and dice your friends with boomerangs in this frantic physics party game. Join a crew of your favorite foods as you grill, chill and spill your enemies. Discover ridiculous power-ups and stack them together in deadly combinations.",
     "steam_appid": 965680,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Gamepad Recommended",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "braid": {
@@ -764,6 +970,14 @@
     ],
     "short": "This is the original version of Braid from 2009, which may not work well on newer systems. For an updated version of the game with nicer graphics, more levels and a large amount of developer commentary, see Braid, Anniversary Edition.",
     "steam_appid": 26800,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "bridge-builder": {
@@ -791,6 +1005,14 @@
     ],
     "short": "Bridge Builder Racer is the ultimate test for both your engineering and driving skills. You'll have to build your bridge without any limitations other than your creativity, using the most cost effective route, and then drive your car over the bridge to go from point A to B.",
     "steam_appid": 1084970,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "bridge-builder-2": {
@@ -804,6 +1026,7 @@
     "screenshots": [],
     "short": "Bridge Builder 2 / Bridge Construction Set (Chronic Logic 2004, German Halycon release, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "bridge-it": {
@@ -817,6 +1040,7 @@
     "screenshots": [],
     "short": "Bridge It Plus v1.32 (Chronic Logic, EN full, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "broforce": {
@@ -830,6 +1054,7 @@
     "screenshots": [],
     "short": "Broforce / Broforce Forever (native Linux, GOG build 71321)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "buckshot-roulette": {
@@ -858,6 +1083,21 @@
     ],
     "short": "Play Russian roulette with a 12-gauge shotgun. Four enter. One leaves. Roll the dice with your life. Good luck!",
     "steam_appid": 2835570,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Partial Controller Support",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "bully-scholarship-edition": {
@@ -885,6 +1125,11 @@
     ],
     "short": "Bully tells the story of mischievous 15-year-old Jimmy Hopkins as he goes through the hilarity and awkwardness of adolescence. Beat the jocks at dodge ball, play pranks on the preppies, save the nerds, kiss the girl and navigate the social hierarchy in the worst school around.",
     "steam_appid": 12200,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Family Sharing"
+    ],
     "year": 2010
   },
   "burnout-3-takedown": {
@@ -898,6 +1143,7 @@
     "screenshots": [],
     "short": "Burnout 3: Takedown (via PCSX2)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "burntime": {
@@ -925,6 +1171,14 @@
     ],
     "short": "Burntime is a remaster and expansion of Max Design's post-apocalyptic strategy game 'Burntime' from 1993. It includes improvements like doubled resolution and wide screen support.",
     "steam_appid": 3269080,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "call-of-cthulhu-dark-corners-of-the-earth": {
@@ -947,6 +1201,10 @@
     ],
     "short": "Call of Cthulhu: Dark Corners of the Earth is a first-person horror game that combines intense action and adventure elements.",
     "steam_appid": 22340,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "carrion": {
@@ -975,6 +1233,18 @@
     ],
     "short": "CARRION is a reverse horror game in which you assume the role of an amorphous creature of unknown origins, stalking and consuming those that imprisoned you.",
     "steam_appid": 953490,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "cave-story--1": {
@@ -988,6 +1258,7 @@
     "screenshots": [],
     "short": "Cave Story / Doukutsu Monogatari (1.01 Linux freeware)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "celeste": {
@@ -1017,6 +1288,21 @@
     ],
     "short": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight platformer from the creators of TowerFall. Brave hundreds of hand-crafted challenges, uncover devious secrets, and piece together the mystery of the mountain.",
     "steam_appid": 504230,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "chants-of-sennaar": {
@@ -1043,6 +1329,23 @@
     ],
     "short": "In this award-winning puzzle adventure game, play as the Traveler on a quest to reunite the Peoples of the Tower. Observe, listen, and decipher ancient languages in a fascinating universe inspired by the Myth of Babel.",
     "steam_appid": 1931770,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Mouse Only Option",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Touch Only Option",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "chrono-trigger": {
@@ -1069,6 +1372,21 @@
     ],
     "short": "The timeless RPG classic returns loaded with upgrades! Journey to the forgotten past, to the far future, and to the end of time. A big adventure to save the planet, now begins\u2026",
     "steam_appid": 613830,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Custom Volume Controls",
+      "Keyboard Only Option",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "Touch Only Option",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "clive-barkers-undying": {
@@ -1082,6 +1400,7 @@
     "screenshots": [],
     "short": "Clive Barker's Undying (DreamWorks Interactive / EA 2001, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "clonk-4": {
@@ -1095,6 +1414,7 @@
     "screenshots": [],
     "short": "Clonk 4 (1998 freeware release, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "cloverpit": {
@@ -1126,6 +1446,14 @@
     ],
     "short": "A rogue-lite slot machine nightmare. Gamble for your life in a never-ending debt simulator!",
     "steam_appid": 3314790,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "colony-ship-a-post-earth-role-playing-game": {
@@ -1152,6 +1480,12 @@
     ],
     "short": "Colony Ship is a turn-based, party-based role-playing game set aboard a generation ship launched to Proxima Centauri. The game features a detailed skill-based character system, multiple ways to handle quests, choices &amp; consequences, and branching dialogue trees.",
     "steam_appid": 648410,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "command-conquer": {
@@ -1165,6 +1499,7 @@
     "screenshots": [],
     "short": "Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "command-conquer-generals": {
@@ -1189,6 +1524,11 @@
     ],
     "short": "Command &amp; Conquer Generals puts your trigger finger on the pulse of modern warfare. Prepare your forces General... it's time to engage in the next generation of real-time strategy.",
     "steam_appid": 2229870,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "command-conquer-red-alert": {
@@ -1216,6 +1556,13 @@
     ],
     "short": "The desperate leadership of a doomed Soviet Union travels back in time to change history and restore the glory of Mother Russia.",
     "steam_appid": 17480,
+    "tags": [
+      "Single-player",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "command-conquer-red-alert-2": {
@@ -1229,6 +1576,7 @@
     "screenshots": [],
     "short": "Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "command-conquer-renegade": {
@@ -1254,6 +1602,13 @@
     ],
     "short": "Command &amp; Conquer gets up close and personal in this classic First Person Shooter for one of the most iconic franchises.",
     "steam_appid": 2229890,
+    "tags": [
+      "Single-player",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "command-conquer-tiberian-sun": {
@@ -1267,6 +1622,7 @@
     "screenshots": [],
     "short": "Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "commandos-behind-enemy-lines": {
@@ -1280,6 +1636,7 @@
     "screenshots": [],
     "short": "Commandos: Behind Enemy Lines (1998 Eidos / Pyro Studios, English Win95, via Proton + Kruulos Ultimate Fix)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "company-of-heroes": {
@@ -1306,6 +1663,14 @@
     ],
     "short": "Delivering a visceral WWII gaming experience, Company of Heroes redefines RTS by bringing the sacrifice of heroic soldiers, war-ravaged environments, and dynamic battlefields to life. Please visit the &quot;Company of Heroes - Legacy Edition&quot; page for additional user reviews.",
     "steam_appid": 228200,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2006
   },
   "condemned-criminal-origins": {
@@ -1319,6 +1684,7 @@
     "screenshots": [],
     "short": "Condemned: Criminal Origins (Monolith Productions 2005, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "conscript": {
@@ -1348,6 +1714,23 @@
     ],
     "short": "During the First World War, a lone French soldier must navigate twisted trenches, scavenge for limited supplies and solve complex puzzles\u2014all whilst fighting for survival in the midst of mankind\u2019s most brutal and horrifying conflict. CONSCRIPT is a new historical take on classic survival horror.",
     "steam_appid": 1286990,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "crosscode": {
@@ -1361,6 +1744,7 @@
     "screenshots": [],
     "short": "CrossCode + 3 DLC (v1.4.2-3, native Linux NW.js, GOG)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "crow-country": {
@@ -1388,6 +1772,25 @@
     ],
     "short": "The year is 1990. It\u2019s been two years since the mysterious disappearance of Edward Crow and the abrupt closure of his theme park, Crow Country. But your arrival has broken the silence, Mara Forest. If you want answers, you\u2019ll have to venture deep into the darkness of Crow Country to find them\u2026",
     "steam_appid": 1996010,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Gamepad Recommended",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "cryostasis": {
@@ -1401,6 +1804,7 @@
     "screenshots": [],
     "short": "Cryostasis: Sleep of Reason (GOG v2.0.0.13, via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "crypt-of-the-necrodancer": {
@@ -1427,6 +1831,39 @@
     ],
     "short": "Crypt of the NecroDancer is an award winning hardcore roguelike rhythm game. Move to the music and deliver beatdowns to the beat! Groove to the epic Danny Baranowsky soundtrack, or select songs from your own MP3 collection!",
     "steam_appid": 247080,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Captions available",
+      "Steam Workshop",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Input API Support",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Includes level editor",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "cryptmaster": {
@@ -1457,6 +1894,22 @@
     ],
     "short": "SAY ANYTHING in this bizarre dungeon adventure where words control everything. Fill in the blanks with text or voice to uncover lost abilities, embark on strange quests, and solve mindbending riddles. Can you conquer the crypt and uncover the mystery at the heart of CRYPTMASTER?",
     "steam_appid": 1885110,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Captions available",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "Subtitle Options",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "cult-of-the-lamb": {
@@ -1486,6 +1939,29 @@
     ],
     "short": "Start your own cult in a land of false prophets, venturing out into diverse and mysterious regions to build a loyal community of woodland Followers and spread your Word to become the one true cult.",
     "steam_appid": 1313140,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Gamepad Recommended",
+      "Keyboard Only Option",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "cuphead": {
@@ -1499,6 +1975,7 @@
     "screenshots": [],
     "short": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "dark-messiah-of-might-and-magic": {
@@ -1512,6 +1989,7 @@
     "screenshots": [],
     "short": "Dark Messiah of Might and Magic (Arkane 2006, Source engine, ElAmigos repack, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "dark-souls-prepare-to-die-edition": {
@@ -1525,6 +2003,7 @@
     "screenshots": [],
     "short": "Dark Souls: Prepare to Die Edition (single-player, DSCM stripped, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "darkest-dungeon": {
@@ -1553,6 +2032,16 @@
     ],
     "short": "Darkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring. Recruit, train, and lead a team of flawed heroes against unimaginable horrors, stress, disease, and the ever-encroaching dark. Can you keep your heroes together when all hope is lost?",
     "steam_appid": 262060,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "day-of-the-tentacle": {
@@ -1580,6 +2069,18 @@
     ],
     "short": "Originally released by LucasArts in 1993 as a sequel to Ron Gilbert\u2019s ground breaking Maniac Mansion, Day of the Tentacle is back in a remastered edition that features all new hand-drawn, high resolution artwork, with remastered audio, music and sound effects.",
     "steam_appid": 388210,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Commentary available",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "dead-cells": {
@@ -1608,6 +2109,18 @@
     ],
     "short": "Dead Cells is a roguelite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you\u2019re able to fight your way past its keepers in 2D souls-lite combat. No checkpoints. Kill, die, learn, repeat.",
     "steam_appid": 588650,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "death-and-taxes": {
@@ -1638,6 +2151,15 @@
     ],
     "short": "In this 2D, short narrative-based game, you assume the role of the Grim Reaper... on an office job. Your job is to decide which people are going to live or die. The consequences of your choices are yours to bear, while the mystery of your incarnation awaits revelation!",
     "steam_appid": 1166290,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "deep-rock-galactic-survivor": {
@@ -1664,6 +2186,23 @@
     ],
     "short": "DEEP ROCK GALACTIC: SURVIVOR is a single player survivor-like auto-shooter. Take on hordes of lethal aliens, mine riches, and unlock powerful upgrades to survive, as you wield the full arsenal of Deep Rock Galactic. It's one dwarf against all of Planet Hoxxes!",
     "steam_appid": 2321470,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "delta-force": {
@@ -1687,6 +2226,11 @@
     ],
     "short": "Engage the enemy across vast outdoor environments and expansive indoor environments as you take control of the US Army's elite anti-terrorist unit. Delta Force Land Warrior\u2122 introduces new weapons and characters for both single player and intense online multiplayer via NovaWorld.",
     "steam_appid": 32640,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "deltarune": {
@@ -1714,6 +2258,15 @@
     ],
     "short": "Dive into the parallel story to UNDERTALE! Fight or spare your way through action-packed battles as you explore a mysterious world alongside an endearing cast of new and familiar characters. Chapters 1-5 are available now, with more planned as free updates!",
     "steam_appid": 1671210,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "demon-lord-just-a-block": {
@@ -1745,6 +2298,23 @@
     ],
     "short": "Seek revenge on fantasy heroes as a reborn Demon Lord! Dive into this satisfying roguelite action game where the world only moves when you do. Plan your moves step by step or play swiftly with quick dodges and parries, colliding with enemies to land powerful attacks!",
     "steam_appid": 3720420,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Workshop",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "detention": {
@@ -1772,6 +2342,15 @@
     ],
     "short": "Detention is an atmospheric horror game set in 1960s Taiwan under martial law. Incorporated religious elements based in Taiwanese/Chinese culture and mythology, the game provided players with unique graphics and gaming experience.",
     "steam_appid": 555220,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "deus-ex": {
@@ -1800,6 +2379,24 @@
     ],
     "short": "You play as Adam Jensen, an experienced covert operative operating in a world that despises his kind: augmented humans. Choose from an arsenal of state-of-the-art weapons and augmentations to build your playstyle, and decide who you'll trust, to unravel a vast worldwide conspiracy.",
     "steam_appid": 337000,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Surround Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "diablo-ii-lord-of-destruction": {
@@ -1813,6 +2410,7 @@
     "screenshots": [],
     "short": "Diablo II + Lord of Destruction (CJ_Strife portable, via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "die-in-the-dungeon-classic": {
@@ -1826,6 +2424,7 @@
     "screenshots": [],
     "short": "Die in the Dungeon: CLASSIC (Alarts/ATICO 2021, native Linux, itch.io v1.6.2f)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "disco-elysium-game-boy-edition": {
@@ -1839,6 +2438,7 @@
     "screenshots": [],
     "short": "Disco Elysium: Game Boy Edition (fan demake, via RetroArch / mGBA)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "disco-elysium-the-final-cut": {
@@ -1865,6 +2465,19 @@
     ],
     "short": "Disco Elysium - The Final Cut is a groundbreaking role playing game. You\u2019re a detective with a unique skill system at your disposal and a whole city to carve your path across. Interrogate unforgettable characters, crack murders or take bribes. Become a hero or an absolute disaster of a human being.",
     "steam_appid": 632470,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "dishonored-definitive-edition": {
@@ -1890,6 +2503,20 @@
     ],
     "short": "Dishonored is an immersive first-person action game that casts you as a supernatural assassin driven by revenge. With Dishonored\u2019s flexible combat system, creatively eliminate your targets as you combine the supernatural abilities, weapons and unusual gadgets at your disposal.",
     "steam_appid": 205100,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Color Alternatives",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "Stereo Sound",
+      "Surround Sound",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "dome-keeper": {
@@ -1919,6 +2546,30 @@
     ],
     "short": "Defend against waves of alien monsters in this unique roguelike action miner. Dig for resources, collect useful gadgets, and upgrade equipment to increase odds of survival \u2013 just hurry back before your dome is destroyed!",
     "steam_appid": 1637320,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "LAN PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Online Co-op",
+      "LAN Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "doom": {
@@ -1932,6 +2583,7 @@
     "screenshots": [],
     "short": "The Ultimate DOOM (id Software 1995, DOOM.WAD via GZDoom)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "doom-ii": {
@@ -1945,6 +2597,7 @@
     "screenshots": [],
     "short": "DOOM II: Hell on Earth (id Software 1994, DOOM2.WAD via GZDoom)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "dredge": {
@@ -1972,6 +2625,20 @@
     ],
     "short": "DREDGE is a single-player fishing adventure with a sinister undercurrent. Sell your catch, upgrade your boat, and dredge the depths for long-buried secrets. Explore a mysterious archipelago and discover why some things are best left forgotten.",
     "steam_appid": 1562430,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "driver-san-francisco": {
@@ -1985,6 +2652,7 @@
     "screenshots": [],
     "short": "Driver: San Francisco (Ubisoft Reflections 2011, single-player via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "duck-game": {
@@ -2012,6 +2680,26 @@
     ],
     "short": "Enter the futuristic year of 1984, an age where ducks run wild in a frantic battle for glory. Blast your friends with Shotguns, Net Guns, Mind Control Rays, Saxophones, Magnet Guns, and much, much more. This is DUCK GAME. Don't blink.",
     "steam_appid": 312530,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "LAN PvP",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "dungeon-clawler": {
@@ -2042,6 +2730,25 @@
     ],
     "short": "Dungeon Clawler is a Roguelike Claw Machine Deckbuilder. Build your deck, grab weapons and items from the claw machine to battle enemies, discover powerful perks that create game-changing synergies and unleash crazy combos as you fight your way through the dungeon!",
     "steam_appid": 2356780,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "dungeon-keeper": {
@@ -2069,6 +2776,11 @@
     ],
     "short": "Bad guys have all the fun. Discover your dark side as you build an evil underground kingdom and defend it against the forces of good.",
     "steam_appid": 2616460,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "dungeon-siege": {
@@ -2092,6 +2804,11 @@
     ],
     "short": "Dungeon Siege\u00ae combines the immersive elements of a role-playing game with over-the-top intensity and non-stop action. Dungeon Siege plunges you into a continuous 3D fantasy world where you face off against an army of evil that has been unleashed.",
     "steam_appid": 39190,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2011
   },
   "dungeons-2": {
@@ -2120,6 +2837,16 @@
     ],
     "short": "The Dungeon Lord is back \u2013 and this time he\u2019s serious! In Dungeons 2, fulfil the Dungeon Lord\u2019s insatiable quest for vengeance by recruiting fearsome new monsters from all corners of the underworld in order to undertake his evil bidding.",
     "steam_appid": 262280,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "dwarf-eats-mountain": {
@@ -2149,6 +2876,20 @@
     ],
     "short": "Dwarves hunger for gold, and no mountain shall\u00a0stand\u00a0in their way! Mine\u00a0riches, unearth\u00a0artifacts, and\u00a0upgrade your dwarves\u00a0to\u00a0devour ever-bigger\u00a0peaks in this whimsical\u00a0incremental\u00a0game.",
     "steam_appid": 4078200,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "Save Anytime",
+      "Steam Cloud",
+      "Stats",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "dwarf-fortress": {
@@ -2177,6 +2918,11 @@
     ],
     "short": "Build a fortress and try to help your dwarves survive against a deeply generated world. Keep your dwarves happy, grow their community and beware of digging too deeply. The deepest, most intricate simulation of a world that's ever been created.",
     "steam_appid": 975370,
+    "tags": [
+      "Single-player",
+      "Steam Workshop",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "earth-2140": {
@@ -2190,6 +2936,7 @@
     "screenshots": [],
     "short": "Earth 2140 (Reality Pump / TopWare 1997, GOG Trilogy) via Proton",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "earth-2150": {
@@ -2203,6 +2950,7 @@
     "screenshots": [],
     "short": "Earth 2150: Escape from the Blue Planet (Reality Pump 2000, GOG, via Proton -- campaign FMV cutscenes don't render, see note above)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "easy-delivery-co": {
@@ -2232,6 +2980,15 @@
     ],
     "short": "Easy Delivery Co. is a relaxing driving game with strange secrets. Chill out, make deliveries and get to know the mysterious residents of this scenic mountain town, all while earning well below minimum wage.",
     "steam_appid": 3293010,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "emperor-battle-for-dune": {
@@ -2245,6 +3002,7 @@
     "screenshots": [],
     "short": "Emperor: Battle for Dune (Westwood 2001, via Proton with wheybags HD/multiplayer patch)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "empire-earth": {
@@ -2273,6 +3031,12 @@
     ],
     "short": "With dozens of hours of gameplay set across a rich tapestry of time, Empire Earth: Gold Edition offers real-time strategy for the ages. Choose any point in time - from the discovery of fire to the laser battles of the future - and command your civilization with one goal: make Earth your Empire.",
     "steam_appid": 254760,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "empire-earth-ii": {
@@ -2300,6 +3064,12 @@
     ],
     "short": "Empire Earth II: Gold Edition refines the series\u2019 time-spanning gameplay with a host of new features. With advanced AI, picture-in-picture control, dynamic weather and many other additions, this RTS doesn\u2019t just stand the test of time \u2013 it annihilates it.",
     "steam_appid": 254780,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "empire-earth-iii": {
@@ -2327,6 +3097,11 @@
     ],
     "short": "In Empire Earth III it\u2019s you who creates history. Build your empire from three distinct factions or create a custom faction of your choosing. Lead your people to supremacy in technology, politics and economy, from ancient times to the future. Your quest for world domination is finally at hand.",
     "steam_appid": 254800,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "encased": {
@@ -2356,6 +3131,14 @@
     ],
     "short": "A tactical sci-fi RPG set in an alternative 1970's, where an enormous and inexplicable artifact \u2013the Dome\u2013 is discovered in a remote desert. Fight enemies, explore the anomalous wasteland, level up your character, join one of the forces in the ruined world.",
     "steam_appid": 921800,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "endless-legend": {
@@ -2383,6 +3166,19 @@
     ],
     "short": "ENDLESS Legend\u2122 is a 4X turn-based fantasy strategy game by the creators of ENDLESS Space\u2122 and Dungeon of the ENDLESS\u2122. Control every aspect of your civilization as you struggle to save your homeworld Auriga. Create your own Legend!",
     "steam_appid": 289130,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "environmental-station-alpha": {
@@ -2412,6 +3208,14 @@
     ],
     "short": "Explore an abandoned space station in this retro-themed explorative action platformer.",
     "steam_appid": 350070,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "europa-1400-the-guild": {
@@ -2425,6 +3229,7 @@
     "screenshots": [],
     "short": "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "everhood": {
@@ -2455,6 +3260,18 @@
     ],
     "short": "An UNCONVENTIONAL ADVENTURE RPG that takes place in an inexpressible world filled with amusing musical battles and strange delightful encounters. To put it simply: You are in for a ride.\ud83c\udf44",
     "steam_appid": 1229380,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "everything-is-crab": {
@@ -2484,6 +3301,21 @@
     ],
     "short": "The Animal Evolution Roguelite. Hunt, Flee, Scavenge and Thrive in a living ecosystem. Choose from 125+ Evolutions and Specialisations for unique creature combinations in every run. Adapt to survive the natural curve in order to beat carcinisation... or get Darwin'd trying!",
     "steam_appid": 3526710,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "factorio": {
@@ -2513,6 +3345,31 @@
     ],
     "short": "Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don't really like you.",
     "steam_appid": 427520,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "LAN Co-op",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Subtitle Options",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "fahrenheit-indigo-prophecy": {
@@ -2541,6 +3398,14 @@
     ],
     "short": "Fahrenheit (known as Indigo Prophecy in North America) was a breakthrough in interactive narrative. This newly remastered edition features updated textures in HD, expanded controller support, and is based on the uncut and uncensored international version of the game.",
     "steam_appid": 312840,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "faith-the-unholy-trinity": {
@@ -2568,6 +3433,14 @@
     ],
     "short": "What you are about to do has not been approved by the Vatican. As a young priest, struggle against demons, cultists, and your own weakening faith in this pixel horror game inspired by the era of classic 8-bit gaming and the &quot;Satanic Panic&quot; of the 1980s.",
     "steam_appid": 1179080,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "fallout": {
@@ -2594,6 +3467,22 @@
     ],
     "short": "Bethesda Game Studios welcome you to Fallout 76. Twenty-five years after the bombs fall, you and your fellow Vault Dwellers emerge into post-nuclear America. Explore a vast wasteland in this open-world multiplayer addition to the Fallout story.",
     "steam_appid": 1151340,
+    "tags": [
+      "Multi-player",
+      "MMO",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "In-App Purchases",
+      "Chat Speech-to-text",
+      "Playable without Timed Input",
+      "Stereo Sound",
+      "Surround Sound",
+      "Partial Controller Support",
+      "Remote Play on Tablet"
+    ],
     "year": 2020
   },
   "fallout-2": {
@@ -2618,6 +3507,11 @@
     ],
     "short": "Fallout\u00ae 2 is the sequel to the critically acclaimed game that took RPG'ing out of the dungeons and into a dynamic, apocalyptic retro-future. It's been 80 long years since your ancestors trod across the wastelands.",
     "steam_appid": 38410,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "far-cry": {
@@ -2641,6 +3535,10 @@
     ],
     "short": "A tropical paradise seethes with hidden evil in Far Cry\u00ae, a cunningly detailed action shooter that pushes the boundaries of combat to shocking new levels. Freelance mariner Jack Carver is cursing the day he ever came to this island.",
     "steam_appid": 13520,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2008
   },
   "far-cry-2": {
@@ -2654,6 +3552,7 @@
     "screenshots": [],
     "short": "Far Cry 2: Fortune's Edition + Realism Plus Redux (Ubisoft 2008, Dunia, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "fear": {
@@ -2667,6 +3566,7 @@
     "screenshots": [],
     "short": "F.E.A.R. Platinum Collection (Monolith 2005 + TimeGate 2006/2007, GOG v2.1.0.7, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "fez": {
@@ -2693,6 +3593,14 @@
     ],
     "short": "Gomez is a 2D creature living in a 2D world. Or is he? When the existence of a mysterious 3rd dimension is revealed to him, Gomez is sent out on a journey that will take him to the very end of time and space. Use your ability to navigate 3D structures from 4 distinct classic 2D perspectives.",
     "steam_appid": 224760,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "final-doom-plutonia": {
@@ -2706,6 +3614,7 @@
     "screenshots": [],
     "short": "Final Doom: The Plutonia Experiment (Casali/id 1996, PLUTONIA.WAD via GZDoom)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "final-doom-tnt": {
@@ -2719,6 +3628,7 @@
     "screenshots": [],
     "short": "Final Doom: TNT - Evilution (TeamTNT/id 1996, TNT.WAD via GZDoom)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "flappy-bird": {
@@ -2732,6 +3642,7 @@
     "screenshots": [],
     "short": "Flappy Bird (Fl\u00f6ppy Bird, faithful Love2D clone by NiroUwU, native Linux)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "forager": {
@@ -2761,6 +3672,20 @@
     ],
     "short": "The highly popular and quirky &quot;idle game that you want to actively keep playing&quot;. Explore, craft, gather &amp; manage resources, find secrets and build your base out of nothing! Buy land to explore and expand!",
     "steam_appid": 751780,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Commentary available",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "forbidden-siren": {
@@ -2774,6 +3699,7 @@
     "screenshots": [],
     "short": "Forbidden Siren (Sony 2003, PAL PS2, via PCSX2)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "freelancer": {
@@ -2801,6 +3727,10 @@
     ],
     "short": "You earn money by doing various kinds of work that you receive as a &quot;Freelance&quot; over the computer. With the money you earn, you can customize the house, improve yourself, have fun and more.",
     "steam_appid": 2360310,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": null
   },
   "frog-fractions": {
@@ -2829,6 +3759,11 @@
     ],
     "short": "The classic web game, reborn! Enjoy this remaster in glorious 4k resolution! Follow this frog on its arcade action adventure through swarm of bugs and beyond! Purchase the hat DLC for the ultimate experience, if you want to eat bugs while wearing a hat!",
     "steam_appid": 1194840,
+    "tags": [
+      "Single-player",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "ftl-faster-than-light": {
@@ -2842,6 +3777,7 @@
     "screenshots": [],
     "short": "FTL: Faster Than Light Advanced Edition (native Linux, GOG v1.6.12)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "full-throttle": {
@@ -2868,6 +3804,16 @@
     ],
     "short": "Originally released by LucasArts in 1995, Full Throttle is a classic graphic adventure game from industry legend Tim Schafer, telling the story of Ben Throttle; butt-kicking leader of biker gang the Polecats, who gets caught up in a tale of Motorcycles, Mayhem and Murder.",
     "steam_appid": 228360,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "game-of-robot": {
@@ -2881,6 +3827,7 @@
     "screenshots": [],
     "short": "The Game of Robot (1988, via DOSBox-X)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "gamedec": {
@@ -2909,6 +3856,21 @@
     ],
     "short": "Gamedec is a single-player cyberpunk isometric RPG. You are a game detective, who solves crimes inside virtual worlds. Use your wits to gather info from your witnesses and suspects, getting to the bottom of deceptive schemes. The game continually adapts to your decisions and never judges.",
     "steam_appid": 917720,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Adjustable Text Size",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Mouse Only Option",
+      "Save Anytime",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "getting-over-it-with-bennett-foddy": {
@@ -2932,6 +3894,14 @@
     ],
     "short": "A game I made for a certain kind of person. To hurt them.",
     "steam_appid": 240720,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Commentary available",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "gish": {
@@ -2961,6 +3931,17 @@
     ],
     "short": "Gish isn't your average hero. In fact, he's not your average anything...you see, Gish is a ball of tar. A Sunday stroll with his lady friend, Brea, goes awry when a shadowy figure emerges from an open manhole and pulls Brea below ground.",
     "steam_appid": 9500,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Partial Controller Support",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2007
   },
   "golden-sun": {
@@ -2974,6 +3955,7 @@
     "screenshots": [],
     "short": "Golden Sun (Camelot/Nintendo, 2001 GBA, via RetroArch / mGBA)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "golden-sun-the-lost-age": {
@@ -2987,6 +3969,7 @@
     "screenshots": [],
     "short": "Golden Sun: The Lost Age (Camelot/Nintendo, 2003 GBA, via RetroArch / mGBA)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "gothic": {
@@ -3014,6 +3997,24 @@
     ],
     "short": "The Legend is Back - Return to the Valley of the Mines in this faithful remake of the genre-defining classic RPG. Explore a hand-crafted, organic open world that reacts dynamically to your actions in a gritty, unrestricted experience like no other.",
     "steam_appid": 1297900,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Surround Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "gothic-3": {
@@ -3041,6 +4042,11 @@
     ],
     "short": "A nameless hero becomes a legend! Myrtana, a world in upheaval: overrun by orcs from the dark lands in the north, King Rhobar is defending Vengard, the former stronghold of the humans, with his last troop of followers.",
     "steam_appid": 39500,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "gothic-ii": {
@@ -3068,6 +4074,10 @@
     ],
     "short": "Gothic II: Gold Edition brings together the excitement of Gothic II and the add-on Night of the Raven to your fingertips!",
     "steam_appid": 39510,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2010
   },
   "grand-theft-auto-2": {
@@ -3081,6 +4091,7 @@
     "screenshots": [],
     "short": "Grand Theft Auto 2 (DMA Design / Rockstar 1999, freeware, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "grand-theft-auto-san-andreas": {
@@ -3105,6 +4116,10 @@
     ],
     "short": "Grand Theft Auto: San Andreas: It\u2019s the early \u201990s. After a couple of cops frame him for homicide, Carl \u2018CJ\u2019 Johnson is forced on a journey that takes him across the entire state of San Andreas, to save his family and to take control of the streets.",
     "steam_appid": 1547000,
+    "tags": [
+      "Single-player",
+      "Full controller support"
+    ],
     "year": 2023
   },
   "grand-theft-auto-vice-city": {
@@ -3129,6 +4144,10 @@
     ],
     "short": "Welcome to the 1980s. From the decade of big hair and pastel suits comes the story of one man's rise to the top of the criminal pile. Grand Theft Auto returns with Tommy Vercetti\u2019s tale of betrayal and revenge in a neon-soaked tropical town full of excess and brimming with possibilities.",
     "steam_appid": 1546990,
+    "tags": [
+      "Single-player",
+      "Full controller support"
+    ],
     "year": 2023
   },
   "graveyard-keeper": {
@@ -3142,6 +4161,7 @@
     "screenshots": [],
     "short": "Graveyard Keeper +3 DLC (native Linux, GOG v1.405 build 55214)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "grim-fandango-remastered": {
@@ -3167,6 +4187,17 @@
     ],
     "short": "One of the most acclaimed adventure games of all time is now back, better than ever. Grim Fandango Remastered has the all the beautiful art and engaging story fans remember, but has also been remastered to look, sound, and control even better than the award-winning original release.",
     "steam_appid": 316790,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Commentary available",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "gubble": {
@@ -3193,6 +4224,10 @@
     ],
     "short": "Gubble is a 3D action puzzle maze game featuring Gubbe D Gleep as he escapes each level by removing all of the screws, nuts and bolts.",
     "steam_appid": 1090920,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "half-life": {
@@ -3219,6 +4254,29 @@
     ],
     "short": "Named Game of the Year by over 50 publications, Valve's debut title blends action and adventure with award-winning technology to create a frighteningly realistic world where players must think to survive. Also includes an exciting multiplayer mode that allows you to play against friends and enemies around the world.",
     "steam_appid": 70,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Full controller support",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Valve Anti-Cheat enabled",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 1998
   },
   "half-life-2": {
@@ -3245,6 +4303,35 @@
     ],
     "short": "Reawakened from stasis in the occupied metropolis of City 17, Gordon Freeman is joined by Alyx Vance as he leads a desperate human resistance. Experience the landmark first-person shooter packed with immersive world-building, boundary-pushing physics, and exhilarating combat.",
     "steam_appid": 220,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Captions available",
+      "Steam Workshop",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Input API Support",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Surround Sound",
+      "Steam Cloud",
+      "Includes Source SDK",
+      "Commentary available",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play Together",
+      "Family Sharing",
+      "Steam Timeline"
+    ],
     "year": 2004
   },
   "half-life-uplink": {
@@ -3258,6 +4345,7 @@
     "screenshots": [],
     "short": "Half-Life: Uplink (Valve 1999 free demo campaign, via WON Half-Life + Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "hardspace-shipbreaker": {
@@ -3284,6 +4372,15 @@
     ],
     "short": "Equipped with cutting-edge salvaging tech, carve &amp; slice spaceships to recover valuable materials. Upgrade your gear to take on more lucrative contracts and pay your billion credits debt to LYNX Corp!",
     "steam_appid": 1161580,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "harvest-moon": {
@@ -3312,6 +4409,14 @@
     ],
     "short": "Explore the wide world of Anthos with the help of your wacky inventor friend Doc Jr. and many others! It\u2019ll be up to you to revive the Harvest Goddess and the Harvest Sprites, as well as reconnect all of the villages of Anthos with each other! Farm all around Anthos using the improved Expando-Farm!",
     "steam_appid": 2140650,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Gamepad Recommended",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "heave-ho": {
@@ -3339,6 +4444,22 @@
     ],
     "short": "Heave Ho is a riotous multiplayer party game for up to four players in couch co-op and versus play, or online with Steam Remote Play. Reach out, get a grip, and swing to victory \u2014 or meet your messy end!",
     "steam_appid": 905340,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "heroes-of-might-and-magic-2-gold": {
@@ -3366,6 +4487,14 @@
     ],
     "short": "The most popular Heroes\u00ae title of all time is back in HD! Fifteen years later, rediscover the epic tale of Queen Catherine Ironfist, as she re-embarks on her critically acclaimed quest to unite her ravaged homeland and re-conquer the kingdom of Erathia.",
     "steam_appid": 297000,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Steam Achievements",
+      "Includes level editor",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "hexcells": {
@@ -3392,6 +4521,12 @@
     ],
     "short": "Hexcells is an ambient logic puzzle game for PC, Mac and Linux.",
     "steam_appid": 265890,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "hollow-cocoon": {
@@ -3419,6 +4554,17 @@
     ],
     "short": "&quot;Trapped in a cocoon, the silkworm weaves her final dream.&quot; Hollow Cocoon is a first-person horror adventure game set in 1980s Japan. Immerse yourself in meticulously recreated environments as you venture into the depths of unspeakable horrors that await you.",
     "steam_appid": 2414630,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "hollow-knight": {
@@ -3447,6 +4593,17 @@
     ],
     "short": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
     "steam_appid": 367520,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "hollow-knight-silksong": {
@@ -3475,6 +4632,25 @@
     ],
     "short": "Discover a vast, haunted kingdom in Hollow Knight: Silksong! Explore, fight and survive as you ascend to the peak of a land ruled by silk and song.",
     "steam_appid": 1030300,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Gamepad Recommended",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "homeworld": {
@@ -3488,6 +4664,7 @@
     "screenshots": [],
     "short": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "hotline-miami": {
@@ -3512,6 +4689,15 @@
     ],
     "short": "Hotline Miami is a high-octane action game overflowing with raw brutality, hard-boiled gunplay and skull crushing close combat.",
     "steam_appid": 219150,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "hotline-miami-2-wrong-number": {
@@ -3538,6 +4724,17 @@
     ],
     "short": "Hotline Miami 2: Wrong Number is the brutal conclusion to the Hotline Miami saga, set against a backdrop of escalating violence and retribution over spilled blood in the original game.",
     "steam_appid": 274170,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Includes level editor",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "hyper-metroid": {
@@ -3551,6 +4748,7 @@
     "screenshots": [],
     "short": "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "indiana-jones-and-the-fate-of-atlantis": {
@@ -3577,6 +4775,11 @@
     ],
     "short": "The Man With The Hat Is Back In His Greatest Adventure Yet! 1939 - The eve of World War II. Nazi agents are about to get their hands on a weapon more dangerous than the atom bomb. Only Indy can stop them before they unleash the deadly secret that sank Atlantis.",
     "steam_appid": 6010,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "indiana-jones-and-the-last-crusade-the-graphic-adventure": {
@@ -3590,6 +4793,7 @@
     "screenshots": [],
     "short": "Indiana Jones and the Last Crusade: The Graphic Adventure (1989 Lucasfilm SCUMM floppy, via ScummVM)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "inscryption": {
@@ -3618,6 +4822,13 @@
     ],
     "short": "Inscryption is an inky black card-based odyssey that blends the deckbuilding roguelike, escape-room style puzzles, and psychological horror into a blood-laced smoothie. Darker still are the secrets inscrybed upon the cards...",
     "steam_appid": 1092790,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "inside": {
@@ -3646,6 +4857,18 @@
     ],
     "short": "Hunted and alone, a boy finds himself drawn into the center of a dark project. INSIDE is a dark, narrative-driven platformer combining intense action with challenging puzzles. It has been critically acclaimed for its moody art style, ambient soundtrack and unsettling atmosphere.",
     "steam_appid": 304430,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Color Alternatives",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "interstate-76": {
@@ -3659,6 +4882,7 @@
     "screenshots": [],
     "short": "Interstate '76 Arsenal (Activision 1997, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "invisible-inc": {
@@ -3684,6 +4908,14 @@
     ],
     "short": "Take control of Invisible's agents in the field and infiltrate the world's most dangerous corporations. Stealth, precision, and teamwork are essential in high-stakes, high-profit missions, where every move may cost an agent their life.",
     "steam_appid": 243970,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "iron-lung": {
@@ -3710,6 +4942,17 @@
     ],
     "short": "A short horror game where you pilot a tiny submarine through an ocean of blood on an alien moon.",
     "steam_appid": 1846170,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Playable without Timed Input",
+      "Stereo Sound",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "jade-empire-special-edition": {
@@ -3736,6 +4979,11 @@
     ],
     "short": "Step into the role of an aspiring martial-arts master and follow the path of the open palm or the closed fist.",
     "steam_appid": 7110,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Family Sharing"
+    ],
     "year": 2007
   },
   "jagged-alliance-2": {
@@ -3763,6 +5011,12 @@
     ],
     "short": "Even if the regime is totally inept and corrupt, don't suppose for a moment that you as the liberator will be greeted with open arms.JAGGED ALLIANCE 2: WILDFIRE brings you back to Arulco. The population is being terrorized by a reckless army; in the meantime the main export goods are drugs.",
     "steam_appid": 215930,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "jazz-jackrabbit-2": {
@@ -3776,6 +5030,7 @@
     "screenshots": [],
     "short": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "jet-set-radio": {
@@ -3789,6 +5044,7 @@
     "screenshots": [],
     "short": "Jet Set Radio (Smilebit/SEGA 2000, Blitworks 2012 PC port, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "journey": {
@@ -3815,6 +5071,24 @@
     ],
     "short": "Explore the ancient, mysterious world of Journey as you soar above ruins and glide across sands to discover its secrets.",
     "steam_appid": 638230,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "Full controller support",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "katamari-damacy-reroll": {
@@ -3839,6 +5113,20 @@
     ],
     "short": "The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!",
     "steam_appid": 848350,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "kknd": {
@@ -3852,6 +5140,7 @@
     "screenshots": [],
     "short": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "kknd2-krossfire": {
@@ -3865,6 +5154,7 @@
     "screenshots": [],
     "short": "KKND2: Krossfire (Beam Software 1998, GOG, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "lands-of-lore-ii-guardians-of-destiny": {
@@ -3878,6 +5168,7 @@
     "screenshots": [],
     "short": "Lands of Lore II: Guardians of Destiny (Westwood 1997, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "lands-of-lore-the-throne-of-chaos": {
@@ -3891,6 +5182,7 @@
     "screenshots": [],
     "short": "Lands of Lore: The Throne of Chaos (1993 Westwood CD, via DOSBox-X)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "leap-year": {
@@ -3916,6 +5208,12 @@
     ],
     "short": "Leap Year is a clumsy platformer about knowledge and discovery. Explore a compact, hand drawn world filled with hidden paths. Understand the game\u2019s secrets to reach new areas and collect all the pages of your calendar.",
     "steam_appid": 2951770,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "leap-year-march": {
@@ -3941,6 +5239,13 @@
     ],
     "short": "Leap Year: March continues the adventure for players who have beaten Leap Year and want an even greater challenge. Use the same tools you learned in Leap Year to explore another hand drawn world that\u2019s both larger and much more complex.",
     "steam_appid": 3458170,
+    "tags": [
+      "Single-player",
+      "Downloadable Content",
+      "Steam Achievements",
+      "Full controller support",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "legacy-of-kain-soul-reaver": {
@@ -3969,6 +5274,18 @@
     ],
     "short": "Experience the epic conflict of Kain and Raziel in original form or with remastered graphics.",
     "steam_appid": 2521380,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "legacy-of-kain-soul-reaver-2": {
@@ -3996,6 +5313,10 @@
     ],
     "short": "In this sequel to the critically acclaimed Legacy of Kain: Soul Reaver, reassume the role of Raziel, and travel back through the currents of time into various eras of Nosgoth's past in your relentless pursuit of Kain.",
     "steam_appid": 224940,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "legacy-of-kaintm-soul-reaver-12-remastered": {
@@ -4009,6 +5330,7 @@
     "screenshots": [],
     "short": "Legacy of Kain Soul Reaver 1+2 Remastered (Crystal Dynamics / Aspyr 2024, GOG v1.01, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "lego-star-wars-the-complete-saga": {
@@ -4035,6 +5357,18 @@
     ],
     "short": "Kick Some Brick in I through VI! Play through all six Star Wars movies in one videogame! Adding new characters, new levels, new features and for the first time ever, the chance to build and battle your way through a fun Star Wars galaxy on your PC!",
     "steam_appid": 32440,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Shared/Split Screen",
+      "Full controller support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "lemmings": {
@@ -4048,6 +5382,7 @@
     "screenshots": [],
     "short": "Lemmings (DOS CD version with CD audio, via DOSBox-X)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "lemmings-95": {
@@ -4061,6 +5396,7 @@
     "screenshots": [],
     "short": "Lemmings 95 (Windows 95 version via Wine)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "lidar-dot-exe": {
@@ -4088,6 +5424,12 @@
     ],
     "short": "LiDAR Exploration Program is a relaxing atmospheric game with light horror elements, where you explore in complete darkness using a scanner to reveal the world around you.",
     "steam_appid": 1882190,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "liminal-doom-2": {
@@ -4101,6 +5443,7 @@
     "screenshots": [],
     "short": "Liminal Doom 2: Crossing The Threshold (dashlet 2024, MBF21 PWAD via GZDoom)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "lone-survivor": {
@@ -4114,6 +5457,7 @@
     "screenshots": [],
     "short": "Lone Survivor: The Director's Cut (Superflat Games, GOG v1.0 build 21178, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "loop-hero": {
@@ -4142,6 +5486,13 @@
     ],
     "short": "The Lich has thrown the world into a timeless loop and plunged its inhabitants into never ending chaos. Wield an expanding deck of mystical cards to place enemies, buildings, and terrain along each unique expedition loop for the brave hero.",
     "steam_appid": 1282730,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "lorns-lure": {
@@ -4170,6 +5521,17 @@
     ],
     "short": "An android is led through a vast structure by a glitch in his visual system. Lorn's Lure is an atmospheric narrative first-person platformer with novel climb-anything mechanics and modernized retro 3D graphics.",
     "steam_appid": 1417930,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "luftrausers": {
@@ -4196,6 +5558,15 @@
     ],
     "short": "The skies are aflame and the seas will overflow with wreckage in Vlambeer\u2019s stylish arcade shooter LUFTRAUSERS! Take to the skies in customized fighter planes to battle battleships, submarines, and rival aces for glory, honor, and high scores.",
     "steam_appid": 233150,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "lunacid": {
@@ -4223,6 +5594,14 @@
     ],
     "short": "Cast into the Great Well, unwanted by the world above. You delve the dark in search of the Old One, your last salvation. Lunacid is a dark fantasy dungeon crawler inspired by Shadow Tower and King\u2019s Field.",
     "steam_appid": 1745510,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "magicka": {
@@ -4250,6 +5629,21 @@
     ],
     "short": "Magicka is a satirical action-adventure game set in a rich fantasy world based on Norse mythology. The player assumes the role of a wizard from a sacred order tasked with stopping an evil sorcerer who has thrown the world into turmoil, his foul creations besieging the forces of good.",
     "steam_appid": 42910,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2011
   },
   "manhunt": {
@@ -4263,6 +5657,7 @@
     "screenshots": [],
     "short": "Manhunt (Rockstar North 2003 stealth-horror, archive.org preinstalled image, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "manifold-garden": {
@@ -4290,6 +5685,15 @@
     ],
     "short": "Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.",
     "steam_appid": 473950,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "max-payne": {
@@ -4316,6 +5720,12 @@
     ],
     "short": "No longer a New York City cop, Max Payne moves to S\u00e3o Paulo to protect a wealthy family in an effort to finally escape his troubled past. This complete edition of Max Payne 3 includes the complete original game and all previously released downloadable content.",
     "steam_appid": 204100,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Steam Achievements",
+      "Partial Controller Support"
+    ],
     "year": 2012
   },
   "max-payne-2-the-fall-of-max-payne": {
@@ -4338,6 +5748,10 @@
     ],
     "short": "Max Payne 2: The Fall of Max Payne is a violent, film-noir love story. Dark, tragic and intense, the in-depth story is a thrill-ride of shocking twists and revelations. Love hurts.",
     "steam_appid": 12150,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2001
   },
   "mdk": {
@@ -4364,6 +5778,10 @@
     ],
     "short": "ON A GOOD DAY, ONLY 2.5 MILLION PEOPLE WILL DIE. As vast alien mining cities suck the power and minerals from every major metropolis on Earth simultaneously, time is of the essence as millions of civilians are expiring by the second.",
     "steam_appid": 38450,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "medal-of-honor-allied-assault": {
@@ -4377,6 +5795,7 @@
     "screenshots": [],
     "short": "Medal of Honor: Allied Assault (2015 Inc. / EA 2002, retail v1.00 data, via OpenMoHAA source port)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "metal-gear-solid": {
@@ -4404,6 +5823,30 @@
     ],
     "short": "A remake of the 2004 game METAL GEAR SOLID 3: SNAKE EATER, with the same gripping story and engrossing world, now with all new graphics and 3D audio that enhance the jungle atmosphere. Get ready for the ultimate survival stealth action experience.",
     "steam_appid": 2417610,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Gamepad Recommended",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Surround Sound",
+      "Steam Cloud",
+      "HDR available",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "metal-gear-solid-2-substance": {
@@ -4417,6 +5860,7 @@
     "screenshots": [],
     "short": "Metal Gear Solid 2: Substance (PS2 Europe, via PCSX2)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "metal-slug--1": {
@@ -4443,6 +5887,22 @@
     ],
     "short": "\u201cMETAL SLUG \u201d, the very first title in SNK\u2019s legendary 2D run &amp; gun action shooting game series where all began, returns to the missions on the Steam gaming platform!",
     "steam_appid": 366250,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "metal-slug-tactics": {
@@ -4472,6 +5932,15 @@
     ],
     "short": "METAL SLUG makes an explosive return! Dive into this dynamic tactical RPG with a roguelite thrill and experience the iconic run'n'gun action of the original series, redefined. Grab your weapons, assemble your squad and conquer the battlefield to defeat the infamous Rebel Army.",
     "steam_appid": 1590760,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "metro-2033-redux": {
@@ -4495,6 +5964,14 @@
     ],
     "short": "In 2013 the world was devastated by an apocalyptic event, annihilating almost all mankind and turning the Earth's surface into a poisonous wasteland. A handful of survivors took refuge in the depths of the Moscow underground, and human civilization entered a new Dark Age. The year is 2033.",
     "steam_appid": 286690,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "mina-the-hollower": {
@@ -4522,6 +5999,22 @@
     ],
     "short": "Take control of Mina, a renowned Hollower hurtled into a desperate mission to rescue a cursed island. Whip foes, burrow through the ground, and explore a pixel-perfect world in Mina the Hollower, a brand new game from the developers who brought you Shovel Knight!",
     "steam_appid": 1875580,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Custom Volume Controls",
+      "Keyboard Only Option",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "monkey-island-2-special-edition": {
@@ -4535,6 +6028,7 @@
     "screenshots": [],
     "short": "Monkey Island 2: LeChuck's Revenge (1991 LucasArts, SE Talkie fan-edition for ScummVM: original VGA + SE speech)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "mouthwashing": {
@@ -4561,6 +6055,13 @@
     ],
     "short": "The five crew members of the Tulpar are stranded in the empty reaches of space, shrouded in perpetual sunset. God is not watching.",
     "steam_appid": 2475490,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "moving-out": {
@@ -4591,6 +6092,28 @@
     ],
     "short": "Moving Out is a ridiculous physics-based moving simulator that brings new meaning to &quot;couch co-op&quot;! Are you ready for an exciting career in furniture? As a newly certified Furniture Arrangement &amp; Relocation Technician, you\u2019ll take on moving jobs all across the busy town of Packmore.",
     "steam_appid": 996770,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "Subtitle Options",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "myhouse-wad": {
@@ -4604,6 +6127,7 @@
     "screenshots": [],
     "short": "MyHouse.wad (Veddge 2023, non-euclidean horror mod; myhouse.pk3 + DOOM2.WAD via GZDoom)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "myst": {
@@ -4631,6 +6155,15 @@
     ],
     "short": "The classic Myst experience with point and click controls, released as a remaster to the original in 2000. Enter a world where nothing is as it seems... and adventure knows no bounds!",
     "steam_appid": 63660,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Family Sharing"
+    ],
     "year": 2011
   },
   "need-for-speed-carbon": {
@@ -4644,6 +6177,7 @@
     "screenshots": [],
     "short": "Need for Speed: Carbon (2006) (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "need-for-speed-most-wanted": {
@@ -4657,6 +6191,7 @@
     "screenshots": [],
     "short": "Need for Speed: Most Wanted (2005) (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "need-for-speed-underground-2": {
@@ -4670,6 +6205,7 @@
     "screenshots": [],
     "short": "Need for Speed: Underground 2 (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "nice-day-for-fishing": {
@@ -4697,6 +6233,15 @@
     ],
     "short": "The world needs you Adventurer! Embark on an RPG pixel adventure where you\u2019ll play as Baelin the humble fisherman, who must rise-up to become the hero of Honeywood. Battle fish with precision timing and magic spells, upgrade your abilities, defeat evil and rebuild Honeywood.",
     "steam_appid": 2393160,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "nidhogg": {
@@ -4725,6 +6270,22 @@
     ],
     "short": "Nidhogg is the epic award-winning game of fencing tug-of-war complete with flying giant worms.",
     "steam_appid": 94400,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Stats",
+      "Steam Leaderboards",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "no-one-lives-forever": {
@@ -4738,6 +6299,7 @@
     "screenshots": [],
     "short": "The Operative: No One Lives Forever (Monolith 2000, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "noita": {
@@ -4768,6 +6330,14 @@
     ],
     "short": "Noita is a magical action roguelite set in a world where every pixel is physically simulated. Fight, explore, melt, burn, freeze and evaporate your way through the procedurally generated world using spells you've created yourself.",
     "steam_appid": 881100,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Workshop",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "okami": {
@@ -4791,6 +6361,14 @@
     ],
     "short": "Experience the critically acclaimed masterpiece with its renowned Sumi-e ink art style in breathtaking high resolution.",
     "steam_appid": 587620,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "olliolli": {
@@ -4819,6 +6397,15 @@
     ],
     "short": "OlliOlli mixes addictive one-life gameplay with over 120 tricks and grinds across 50 deviously crafted levels, 250 Challenges, Spots Mode and Daily Grind.",
     "steam_appid": 274250,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Stats",
+      "Steam Leaderboards",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "osmos": {
@@ -4846,6 +6433,11 @@
     ],
     "short": "Enter the ambient world of Osmos: elegant, physics-based gameplay, dreamlike visuals, and a minimalist, electronic soundtrack. Your objective is to grow by absorbing other motes. Propel yourself by ejecting matter behind you. But be wise: ejecting matter also shrinks you. Relax - good things come to those who wait.",
     "steam_appid": 29180,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "ostranauts": {
@@ -4875,6 +6467,21 @@
     ],
     "short": "Navigate your scrappy ship through the boneyard in search of valuable parts in abandoned vessels. Use salvage to upgrade your ship, or sell it for cash to pay down your mounting debt, or restock fuel, air, or food. Fly and role-play aboard your dream spaceship in this hardcore noir space-sim.",
     "steam_appid": 1022980,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "outer-wilds": {
@@ -4899,6 +6506,30 @@
     ],
     "short": "Named Game of the Year 2019 by Giant Bomb, Polygon, Eurogamer, and The Guardian, Outer Wilds is a critically-acclaimed and award-winning open world mystery about a solar system trapped in an endless time loop.",
     "steam_appid": 753640,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Gamepad Recommended",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Surround Sound",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "outer-wilds-alpha": {
@@ -4912,6 +6543,7 @@
     "screenshots": [],
     "short": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "overcooked-2": {
@@ -4941,6 +6573,26 @@
     ],
     "short": "Overcooked returns with a brand-new helping of chaotic cooking action! Journey back to the Onion Kingdom and assemble your team of chefs in classic couch co-op or online play for up to four players. Hold onto your aprons\u2026 it\u2019s time to save the world again!",
     "steam_appid": 728880,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "painkiller": {
@@ -4967,6 +6619,9 @@
     ],
     "short": "Painkiller Black Edition includes the expansion pack Battle Out of Hell, featuring 10 additional single-player levels and many new villains.",
     "steam_appid": 39530,
+    "tags": [
+      "Family Sharing"
+    ],
     "year": 2007
   },
   "papers-please": {
@@ -4994,6 +6649,17 @@
     ],
     "short": "Congratulations. The October labor lottery is complete. Your name was pulled. For immediate placement, report to the Ministry of Admission at Grestin Border Checkpoint. An apartment will be provided for you and your family in East Grestin. Expect a Class-8 dwelling.",
     "steam_appid": 239030,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Stats",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "paquerette-down-the-bunburrows": {
@@ -5007,6 +6673,7 @@
     "screenshots": [],
     "short": "Paquerette Down the Bunburrows v1.1.2 (GOG, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "perfect-dark": {
@@ -5020,6 +6687,7 @@
     "screenshots": [],
     "short": "Perfect Dark (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "pico-park": {
@@ -5045,6 +6713,14 @@
     ],
     "short": "PICO PARK is a cooperative local/online multiplay action puzzle game for 2-8 players.",
     "steam_appid": 1509960,
+    "tags": [
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "pico-park-2": {
@@ -5070,6 +6746,24 @@
     ],
     "short": "PICO PARK is back with all new levels! Play with 2-8 players locally or online in this co-op action-puzzle game!",
     "steam_appid": 2644470,
+    "tags": [
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Input API Support",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "pico-park-2021": {
@@ -5095,6 +6789,14 @@
     ],
     "short": "PICO PARK is a cooperative local/online multiplay action puzzle game for 2-8 players.",
     "steam_appid": 1509960,
+    "tags": [
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "pikuniku": {
@@ -5128,6 +6830,24 @@
     ],
     "short": "Pikuniku is an absurdly wonderful puzzle-exploration game that takes place in a strange but playful world where not everything is as happy as it seems. Help peculiar characters overcome struggles, uncover a deep state conspiracy, and start a little revolution in this delightful dystopian adventure!",
     "steam_appid": 572890,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Stats",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "pioneers-of-pagonia": {
@@ -5155,6 +6875,26 @@
     ],
     "short": "Rebuild hope in a world that was lost in the fog. Lead your Pioneers across the isles of Pagonia, unite scattered tribes, raise thriving communities and discover the history of your people as you reclaim your world in the new story campaign.",
     "steam_appid": 2155180,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "Save Anytime",
+      "Stereo Sound",
+      "Surround Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "planescape-torment": {
@@ -5182,6 +6922,13 @@
     ],
     "short": "Uncover secrets of past lives in this story-rich, tactical roleplaying game set in Sigil, a dark fantasy city at the heart of the Dungeons &amp; Dragons multiverse. Explore the planes, survive combat alongside a party of bizarre companions, and solve puzzles unlike any ever seen in the genre.",
     "steam_appid": 466300,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "plants-vs-zombies": {
@@ -5206,6 +6953,24 @@
     ],
     "short": "The classic Plants vs. Zombies returns in glorious HD! The original battle between Plants and Zombies is back \u2014 bigger, brighter, and crazier than ever before! Experience the game that started it all, now remastered with stunning HD graphics and packed with new secrets and content to uncover.",
     "steam_appid": 3654560,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "pokemmo": {
@@ -5219,6 +6984,7 @@
     "screenshots": [],
     "short": "PokeMMO (Java multiplayer Pokemon client; ROMs preconfigured)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "pokemon-ranger": {
@@ -5232,6 +6998,7 @@
     "screenshots": [],
     "short": "Pok\u00e9mon Ranger (via RetroArch / melonDS)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "pools": {
@@ -5258,6 +7025,26 @@
     ],
     "short": "Walking simulator. Explore, admire and listen. Uncanny. Relaxing. Unnerving. Eerie. Immersive. No monsters chasing you or jumping at your screen, but can feel oppressive at times by invoking fears of getting lost, the dark, tight spaces and liminal space architecture. Inspired by backrooms.",
     "steam_appid": 2663530,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Tracked Controller Support",
+      "VR Supported",
+      "Steam Trading Cards",
+      "Camera Comfort",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Surround Sound",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "populous-the-beginning": {
@@ -5285,6 +7072,14 @@
     ],
     "short": "In the third part of the Populous series, you control your shaman and the tribe of her followers in a difficult quest to conquer all 25 planets of a star system and ascend to godhood.",
     "steam_appid": 2616430,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "LAN PvP",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "portal": {
@@ -5311,6 +7106,29 @@
     ],
     "short": "Portal\u2122 is a new single player game from Valve. Set in the mysterious Aperture Science Laboratories, Portal has been called one of the most innovative new games on the horizon and will offer gamers hours of unique gameplay.",
     "steam_appid": 400,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Captions available",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Input API Support",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Surround Sound",
+      "Includes level editor",
+      "Includes Source SDK",
+      "Commentary available",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2007
   },
   "portal-2": {
@@ -5338,6 +7156,40 @@
     ],
     "short": "The &quot;Perpetual Testing Initiative&quot; has been expanded to allow you to design co-op puzzles for you and your friends!",
     "steam_appid": 620,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Captions available",
+      "Steam Workshop",
+      "Steam Workshop",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Input API Support",
+      "Stereo Sound",
+      "Surround Sound",
+      "Steam Cloud",
+      "Stats",
+      "Includes level editor",
+      "Commentary available",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2011
   },
   "prey-2006": {
@@ -5365,6 +7217,19 @@
     ],
     "short": "In Prey, you awaken aboard Talos I, a space station orbiting the moon in the year 2032. You are the key subject of an experiment meant to alter humanity forever \u2013 but things have gone terribly wrong. The space station has been overrun by hostile aliens and you are now being hunted.",
     "steam_appid": 480490,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Color Alternatives",
+      "Save Anytime",
+      "Stereo Sound",
+      "Surround Sound",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "project-zomboid": {
@@ -5394,6 +7259,23 @@
     ],
     "short": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite..",
     "steam_appid": 108600,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Cross-Platform Multiplayer",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "prototype": {
@@ -5407,6 +7289,7 @@
     "screenshots": [],
     "short": "Prototype (Radical/Activision 2009, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "proximate": {
@@ -5432,6 +7315,12 @@
     ],
     "short": "Congratulations, contractor! You've been approved to trial our cutting-edge AI visor. Use it to explore the Neuras lab and recover the staff's research. Your visor is safe, reliable, and up to 99% accurate. Just don't ask why the &quot;ketchup&quot; in the corner makes such a horrible crunching sound.",
     "steam_appid": 2957800,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "Gamepad Recommended",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "psychonauts": {
@@ -5458,6 +7347,16 @@
     ],
     "short": "A Psychic Odyssey Through the Minds of Misfits, Monsters, and Madmen. This classic action/adventure platformer from acclaimed developers Double Fine Productions follows the story of a young psychic named Razputin.",
     "steam_appid": 3830,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2006
   },
   "quake-iii-arena": {
@@ -5471,6 +7370,7 @@
     "screenshots": [],
     "short": "Quake III Arena (id Software 1999, retail CD v1.11, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "rain-world": {
@@ -5499,6 +7399,24 @@
     ],
     "short": "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary\u2014 other, bigger creatures have the same plan... and slugcats look delicious.",
     "steam_appid": 312520,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Stereo Sound",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "rainbow-six": {
@@ -5526,6 +7444,23 @@
     ],
     "short": "Tom Clancy's Rainbow Six Siege is an elite, tactical team-based shooter where superior planning and execution triumph.",
     "steam_appid": 359550,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Full controller support",
+      "Steam Trading Cards",
+      "In-App Purchases",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Remote Play on Phone",
+      "Remote Play on Tablet"
+    ],
     "year": 2015
   },
   "realms-of-the-haunting": {
@@ -5552,6 +7487,10 @@
     ],
     "short": "Forged in the Beginning and protected by the Seven Seals, there lies a place where thought and creation intertwine. The center for all realms of existence, it is the balancing force between good and evil, man and spirit. A focal point for all energies, and the one element that has kept the consuming nature of darkness at bay... Until now.",
     "steam_appid": 292390,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "return-of-the-obra-dinn": {
@@ -5579,6 +7518,14 @@
     ],
     "short": "Lost at sea 1803 ~ The good ship Obra Dinn.",
     "steam_appid": 653530,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "rhythm-doctor": {
@@ -5609,6 +7556,23 @@
     ],
     "short": "Save patients with your rhythm mastery! Rhythm Doctor is a rhythm game where you heal patients by defibrillating in time to their heartbeats. Learn each patient's unique heartbeat and defeat boss viruses trying to sabotage your rhythm, all set to heart-pumping, soul-soothing music.",
     "steam_appid": 774181,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Workshop",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Narrated Game Menus",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "rift-of-the-necrodancer": {
@@ -5638,6 +7602,26 @@
     ],
     "short": "The NecroDancer's back in an all-new rhythm game! Dragged into a strange new world, Cadence must engage in musical combat with monsters surging through the Rift! Face pulse-pounding Rhythm Rifts where every beat is a battle, all set to an original soundtrack by Danny Baranowsky &amp; friends.",
     "steam_appid": 2073250,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Input API Support",
+      "Steam Cloud",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "risen": {
@@ -5665,6 +7649,14 @@
     ],
     "short": "Delve into a gritty, raw and atmospheric fantasy world in which every action has a consequence. In the epic world of Risen, filled with mysterious earthquakes, fearsome monsters and unimaginable treasures, forge your path with the sword, learn the art of staff fighting or become a powerful mage.",
     "steam_appid": 40300,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "risen-2-dark-waters": {
@@ -5691,6 +7683,14 @@
     ],
     "short": "Set several years after the end of Risen, raging titans have devastated the world and pushed humanity to the brink of existence. Subsequently, monstrous creatures have risen from the watery depths of the sea and their attacks have brought all seafaring to a grinding halt.",
     "steam_appid": 40390,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Partial Controller Support",
+      "Stats",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "risk-of-rain": {
@@ -5716,6 +7716,28 @@
     ],
     "short": "Escape a chaotic alien planet by fighting through hordes of frenzied monsters \u2013 with your friends, or on your own. Combine loot in surprising ways and master each character until you become the havoc you feared upon your first crash landing.",
     "steam_appid": 632360,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Stereo Sound",
+      "Surround Sound",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "risk-of-rain-returns": {
@@ -5742,6 +7764,29 @@
     ],
     "short": "Carefully designed, beautifully remastered, and loaded with new ways to play\u2014Risk of Rain is back and better than ever! Dive into the iconic roguelike full of unique loot combinations, enhanced with new Survivors, overhauled multiplayer, fan favorite content from Risk of Rain 2, and more!",
     "steam_appid": 1337520,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Adjustable Text Size",
+      "Camera Comfort",
+      "Color Alternatives",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Playable without Timed Input",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "roketz--1": {
@@ -5755,6 +7800,7 @@
     "screenshots": [],
     "short": "Roketz (1996, via DOSBox-X)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "rollercoaster-tycoon": {
@@ -5779,6 +7825,10 @@
     ],
     "short": "One of the best games from acclaimed Tycoon series, with well designed gameplay mechanics, appealing graphics, and really high re-playability value. There\u2019s no limit to what you can create so design and build the most thrilling roller coaster the world has ever seen!",
     "steam_appid": 285310,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "rounds": {
@@ -5806,6 +7856,16 @@
     ],
     "short": "Rounds is a 1v1 rogue-lite shooter where each round gets more intense. The losing player of each round unlocks clever upgrades to create a better build to counter their opponent.",
     "steam_appid": 1557740,
+    "tags": [
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen",
+      "Partial Controller Support",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "routine": {
@@ -5834,6 +7894,13 @@
     ],
     "short": "ROUTINE is a First Person Sci-Fi Horror set on an abandoned lunar base designed around an 80s vision of the future. Explore and investigate your surroundings as you survive against unknown threats.",
     "steam_appid": 606160,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "rune-dice": {
@@ -5862,6 +7929,20 @@
     ],
     "short": "Tactical deckbuilding in bite-sized sessions. Launch dice to create magical chain reactions. Choose from distinct hero classes with unique abilities. Build synergies between dice, relics, and runes to defeat challenging bosses.",
     "steam_appid": 3542380,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Keyboard Only Option",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "samurai-gunn": {
@@ -5887,6 +7968,24 @@
     ],
     "short": "Samurai GUNN is a lightning-fast Bushido brawler for 2 to 4 players. Each samurai is armed with a sword and gunn, with only 3 bullets to a life. Strategy and quick reflexes are the key to deflecting bullets and sending your opponents\u2019 heads rolling.",
     "steam_appid": 239090,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Partial Controller Support",
+      "Stats",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "sanitarium": {
@@ -5911,6 +8010,12 @@
     ],
     "short": "Originally released in 1998 on PC, and awarded as the Adventure Game of the Year, The timeless horror point-and-click, Sanitarium, is returning to frighten the bravest adventure game fans.",
     "steam_appid": 284050,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "scritchy-scratchy": {
@@ -5939,6 +8044,17 @@
     ],
     "short": "Scritchy Scratchy is a super-satisfying scratch card incremental game. Buy stacks of scratch-offs, unlock auto-scratching, and chase massive jackpots. Will you play it safe or go all-in?",
     "steam_appid": 3948120,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Custom Volume Controls",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "Save Anytime",
+      "Touch Only Option",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "serious-sam": {
@@ -5952,6 +8068,7 @@
     "screenshots": [],
     "short": "Serious Sam: The First Encounter (Croteam 2001, retail v1.05, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "serious-sam-the-second-encounter": {
@@ -5965,6 +8082,7 @@
     "screenshots": [],
     "short": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "shadow-man-remastered": {
@@ -5993,6 +8111,13 @@
     ],
     "short": "He is coming, stalking criminals in the spirit world and the real world. A possessed man is coming, a voodoo mask in his chest and lines of power in his back. Shadow Man is coming, trailing evil from Liveside to Deadside. To stop an apocalypse. To save your soul.",
     "steam_appid": 1413870,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "shadow-of-the-colossus": {
@@ -6006,6 +8131,7 @@
     "screenshots": [],
     "short": "Shadow of the Colossus (via PCSX2)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "shadowrun-dragonfall-directors-cut": {
@@ -6019,6 +8145,7 @@
     "screenshots": [],
     "short": "Shadowrun: Dragonfall \u2014 Director's Cut (Harebrained Schemes 2014, native Linux, GOG v2.0.9)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "shadowrun-hong-kong-extended-edition": {
@@ -6032,6 +8159,7 @@
     "screenshots": [],
     "short": "Shadowrun: Hong Kong \u2014 Extended Edition (Harebrained Schemes 2015, native Linux, GOG v2.8.0.11)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "shadowrun-returns": {
@@ -6061,6 +8189,15 @@
     ],
     "short": "The unique cyberpunk-meets-fantasy world of Shadowrun has gained a huge cult following since its creation nearly 25 years ago. Now, creator Jordan Weisman returns to the world of Shadowrun, modernizing this classic game setting as a single player, turn-based tactical RPG.",
     "steam_appid": 234650,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "shovel-knight": {
@@ -6089,6 +8226,26 @@
     ],
     "short": "Shovel Knight: Treasure Trove is the complete Shovel Knight collection, containing all 5 games in the epic saga! Dig, blast, slash, and bash your way through a fantastical, 8-bit inspired world of pixel-perfect platforming, memorable characters, and world-class action-adventure gameplay.",
     "steam_appid": 250760,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "shovel-knight-dig": {
@@ -6117,6 +8274,18 @@
     ],
     "short": "Meet new friends and foes, visit strange lands, and outfit yourself in your quest to keep the entire land from collapsing underfoot! Jump, slash, and dig your way down an ever-changing chasm of mystery in Shovel Knight Dig, an all-new Shovel Knight adventure!",
     "steam_appid": 1416050,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "shovel-knight-treasure-trove": {
@@ -6145,6 +8314,26 @@
     ],
     "short": "Shovel Knight: Treasure Trove is the complete Shovel Knight collection, containing all 5 games in the epic saga! Dig, blast, slash, and bash your way through a fantastical, 8-bit inspired world of pixel-perfect platforming, memorable characters, and world-class action-adventure gameplay.",
     "steam_appid": 250760,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "sid-meiers-civilization-iv": {
@@ -6158,6 +8347,7 @@
     "screenshots": [],
     "short": "Sid Meier's Civilization IV: The Complete Edition (Firaxis 2005, GOG build 2.0.0.4, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "sid-meiers-pirates": {
@@ -6181,6 +8371,10 @@
     ],
     "short": "Sail the Caribbean, marauding all on the high seas or ally your ship and crew as a privateer in search of riches - the life you choose is up to you. Face dogged enemies, raid unsuspecting villages, woo fair maidens, avoid capture or dig for buried treasure. Discover what it takes to become one of the most famous pirates in history!",
     "steam_appid": 3920,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2005
   },
   "signalis": {
@@ -6209,6 +8403,17 @@
     ],
     "short": "A classic survival horror experience set in a dystopian future where humanity has uncovered a dark secret. Unravel a cosmic mystery, escape terrifying creatures, and scavenge an off-world government facility as Elster, a technician Replika searching for her lost dreams.",
     "steam_appid": 1262350,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "silent-hill-2": {
@@ -6236,6 +8441,17 @@
     ],
     "short": "Investigating a letter from his late wife, James returns to where they made so many memories - Silent Hill. What he finds is a ghost town, prowled by disturbing monsters and cloaked in deep fog. Confront the monsters, solve puzzles, and search for traces of your wife in this remake of SILENT HILL 2.",
     "steam_appid": 2124490,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "simcity-2000": {
@@ -6249,6 +8465,7 @@
     "screenshots": [],
     "short": "SimCity 2000 Special Edition (Maxis 1996 DOS, via DOSBox-X)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "simon-the-sorcerer": {
@@ -6276,6 +8493,11 @@
     ],
     "short": "Simon is back and this time in 3 dimensions! Once again explore with Simon a vast fantastical world and help him find a way back home by uncovering the secrets of 'The Nexus'. Do this before your arch nemesis, Sordid, can use its power for more evil means.",
     "steam_appid": 1417950,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "sin": {
@@ -6289,6 +8511,7 @@
     "screenshots": [],
     "short": "SiN Gold (Ritual Entertainment 1998, GOG v1.13b build 36951, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "slay-the-spire": {
@@ -6314,6 +8537,26 @@
     ],
     "short": "We fused card games and roguelikes together to make the best single player deckbuilder we could. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and Slay the Spire!",
     "steam_appid": 646570,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Adjustable Text Size",
+      "Custom Volume Controls",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "Save Anytime",
+      "Touch Only Option",
+      "Steam Cloud",
+      "Stats",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "slay-the-spire-2": {
@@ -6340,6 +8583,23 @@
     ],
     "short": "The iconic roguelike deckbuilder returns. Craft a unique deck, encounter bizarre creatures, and discover relics of immense power in Slay the Spire 2!",
     "steam_appid": 2868840,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Full controller support",
+      "Custom Volume Controls",
+      "Mouse Only Option",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Steam Input API Support",
+      "Steam Cloud",
+      "Stats",
+      "Steam Leaderboards",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "songs-of-syx": {
@@ -6370,6 +8630,14 @@
     ],
     "short": "Songs of Syx is a fantasy city-builder with vast battles simulating thousands of citizens and soldiers. Start off as a small village and build, scheme, and fight your way towards a mighty empire. The mechanics are deep and true to life, where tiny events can spiral into the collapse of kingdoms.",
     "steam_appid": 1162750,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "spec-ops-the-line": {
@@ -6383,6 +8651,7 @@
     "screenshots": [],
     "short": "Spec Ops: The Line (2012 Yager, GOG, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "spellforce-2-anniversary-edition": {
@@ -6411,6 +8680,17 @@
     ],
     "short": "SpellForce 2 - Anniversary Edition presents the award-winning SpellForce saga hits: &quot;SpellForce 2 \u2013 Shadow Wars&quot; and the add-on &quot;SpellForce 2 \u2013 Dragon Storm&quot; for a spectacular game experience!",
     "steam_appid": 39550,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Steam Cloud",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": null
   },
   "spellforce-platinum": {
@@ -6438,6 +8718,11 @@
     ],
     "short": "Included in the Platinum Edition are three titles:SpellForce: The Order of DawnIn a world beyond imagination...In their immeasurable greed and constant thirst for power, the thirteen most powerful Mages of all time doomed the land, hurling it into an endless spiral of chaos and despair.",
     "steam_appid": 39540,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "squirrel-stapler": {
@@ -6464,6 +8749,14 @@
     ],
     "short": "Hunt squirrels, staple them to a corpse, and meet god.",
     "steam_appid": 2535830,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Playable without Timed Input",
+      "Stereo Sound",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "stalker-shadow-of-chernobyl": {
@@ -6477,6 +8770,7 @@
     "screenshots": [],
     "short": "S.T.A.L.K.E.R.: Shadow of Chernobyl (THC DVD English, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "star-wars-battlefront-2": {
@@ -6490,6 +8784,7 @@
     "screenshots": [],
     "short": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "star-wars-jedi-knight-ii-jedi-outcast": {
@@ -6516,6 +8811,17 @@
     ],
     "short": "The Legacy of Star Wars Dark Forces\u2122 and Star Wars\u00ae Jedi Knight lives on in the intense first-person action of Jedi Outcast.",
     "steam_appid": 6030,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "star-wars-republic-commando": {
@@ -6542,6 +8848,15 @@
     ],
     "short": "You are the leader of an elite squad of Republic Commandos, your mission is to infiltrate, dominate, and ultimately, annihilate the enemy. Your squad will follow your orders and your lead, working together as a team - instinctively, intelligently, instantly. You are their leader. They are your weapon.",
     "steam_appid": 6000,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "starcraft": {
@@ -6555,6 +8870,7 @@
     "screenshots": [],
     "short": "StarCraft + Brood War (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "stardew-valley": {
@@ -6583,6 +8899,23 @@
     ],
     "short": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life. Can you learn to live off the land and turn these overgrown fields into a thriving home?",
     "steam_appid": 413150,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "LAN Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "stay-out-of-the-house": {
@@ -6612,6 +8945,11 @@
     ],
     "short": "Can you escape the home of a cannibal serial killer? It's only a matter of time until you're dinner!",
     "steam_appid": 896520,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "stick-fight-the-game": {
@@ -6637,6 +8975,18 @@
     ],
     "short": "Stick Fight is a physics-based couch/online fighting game where you battle it out as the iconic stick figures from the golden age of the internet.",
     "steam_appid": 674940,
+    "tags": [
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen",
+      "Partial Controller Support",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "stronghold-hd": {
@@ -6664,6 +9014,16 @@
     ],
     "short": "The original castle sim, Stronghold HD allows you to design, build and destroy historical castles. Engage in medieval warfare against the AI in one of two single player campaigns or online with up to 8 players.",
     "steam_appid": 40950,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "stubbs-the-zombie-in-rebel-without-a-pulse": {
@@ -6690,6 +9050,19 @@
     ],
     "short": "Be the Zombie. Kick A** and Take Brains.",
     "steam_appid": 7800,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "subnautica-below-zero": {
@@ -6717,6 +9090,16 @@
     ],
     "short": "Dive into a freezing underwater adventure on an alien planet. Below Zero is set two years after the original Subnautica. Return to Planet 4546B to uncover the truth behind a deadly cover-up. Survive by building habitats, crafting tools, &amp; diving deeper into the world of Subnautica.",
     "steam_appid": 848450,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2021
   },
   "sun-haven": {
@@ -6747,6 +9130,17 @@
     ],
     "short": "Build your farm and relationships with townsfolk, or forge ahead on a quest of magic, monsters, and dragons. Level up through a skill tree in 8 person multiplayer, or adventure solo!",
     "steam_appid": 1432860,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "In-App Purchases",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "super-hexagon": {
@@ -6772,6 +9166,11 @@
     ],
     "short": "Super Hexagon is a minimal action game by Terry Cavanagh, with music by Chipzel.",
     "steam_appid": 221640,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "super-mario-64": {
@@ -6785,6 +9184,7 @@
     "screenshots": [],
     "short": "Super Mario 64 (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "super-meat-boy": {
@@ -6811,6 +9211,18 @@
     ],
     "short": "The infamous, tough-as-nails platformer comes to Steam with a playable Head Crab character (Steam-exclusive)!",
     "steam_appid": 40800,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Gamepad Recommended",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2010
   },
   "super-metroid": {
@@ -6824,6 +9236,7 @@
     "screenshots": [],
     "short": "Super Metroid (Nintendo R&D1, 1994 SNES, via RetroArch / bsnes)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "super-smash-bros-melee": {
@@ -6837,6 +9250,7 @@
     "screenshots": [],
     "short": "Super Smash Bros. Melee (via Dolphin)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "superhot": {
@@ -6864,6 +9278,19 @@
     ],
     "short": "SUPERHOT is the smash-hit FPS where time moves only when you move. No regenerating health bars. No conveniently placed ammo drops. It's you, alone, outnumbered and outgunned. Snatch weapons from fallen enemies to shoot, slice and dodge through a truly cinematic hurricane of slow-motion bullets.",
     "steam_appid": 322500,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "superliminal": {
@@ -6889,6 +9316,24 @@
     ],
     "short": "Perception is reality. In this mind-bending first-person puzzler, you escape a surreal dream world through solving impossible puzzles using the ambiguity of depth and perspective.",
     "steam_appid": 1049410,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Captions available",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Commentary available",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "supraland": {
@@ -6918,6 +9363,14 @@
     ],
     "short": "Try the demo! A mix between Portal, Zelda and Metroid. Exploration, puzzles, terrible combat, secret upgrades and new abilities that help you reach new places. Playtime 12-25h.",
     "steam_appid": 813630,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "supraland-six-inches-under": {
@@ -6942,6 +9395,13 @@
     ],
     "short": "A mix between Portal, Zelda and Metroid. Exploration, puzzles, combat! A first-person-metroidvania taking place six inches under Supraland.",
     "steam_appid": 1522870,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "swat-4": {
@@ -6955,6 +9415,7 @@
     "screenshots": [],
     "short": "SWAT 4: Gold Edition (Irrational Games 2005, GOG, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "syndicate": {
@@ -6968,6 +9429,7 @@
     "screenshots": [],
     "short": "Syndicate (via FreeSynd engine)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "system-shock": {
@@ -6995,6 +9457,13 @@
     ],
     "short": "A first-person fight to the death in the depths of space!",
     "steam_appid": 482400,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "system-shock-2": {
@@ -7025,6 +9494,23 @@
     ],
     "short": "System Shock\u00ae 2: 25th Anniversary Remaster is a genre defining experience that established innovative game-play mechanics that are a staple of the FPS and RPG genre today. Survive the wretched corridors of the Von Braun. Your training has prepared you for this.",
     "steam_appid": 866570,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "LAN Co-op",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Full controller support",
+      "Captions available",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "the-backrooms-1998": {
@@ -7054,6 +9540,12 @@
     ],
     "short": "The Backrooms: 1998 is a first-person found footage psychological horror survival game where it tells the story of a young teen after accidentally falling into the depths of The Backrooms in 1998. Roam freely, mark, explore and try unravel the story - however you are not alone. Don't scream.",
     "steam_appid": 1985930,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "the-cat-lady": {
@@ -7081,6 +9573,13 @@
     ],
     "short": "The Cat Lady follows Susan Ashworth, a lonely 40-year old on the verge of suicide. She has no family, no friends and no hope for a better future. One day she discovers that five strangers will come along and change everything...",
     "steam_appid": 253110,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2013
   },
   "the-curse-of-monkey-island": {
@@ -7107,6 +9606,11 @@
     ],
     "short": "The only pirate adventure that asks the question: What's sharper, your sword or your wit?",
     "steam_appid": 730820,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "the-elder-scrolls-arena": {
@@ -7131,6 +9635,11 @@
     ],
     "short": "THE LEGEND BEGINS",
     "steam_appid": 1812290,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "the-elder-scrolls-ii-daggerfall": {
@@ -7156,6 +9665,12 @@
     ],
     "short": "THE GREAT MACHINE AWAKENS",
     "steam_appid": 1812390,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "the-elder-scrolls-iii-morrowind": {
@@ -7182,6 +9697,11 @@
     ],
     "short": "The Elder Scrolls III: Morrowind\u00ae Game of the Year Edition includes Morrowind plus all of the content from the Bloodmoon and Tribunal expansions. The original Mod Construction Set is not included in this package. An epic, open-ended single-player RPG, Morrowind allows you to create and play any kind of character imaginable.",
     "steam_appid": 22320,
+    "tags": [
+      "Single-player",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "the-elder-scrolls-iv-oblivion": {
@@ -7207,6 +9727,21 @@
     ],
     "short": "Explore Cyrodiil like never before with stunning new visuals and refined gameplay in The Elder Scrolls IV: Oblivion\u2122 Remastered.",
     "steam_appid": 2623190,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Custom Volume Controls",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Stereo Sound",
+      "Surround Sound",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "the-floor-is-jelly": {
@@ -7220,6 +9755,7 @@
     "screenshots": [],
     "short": "The Floor is Jelly (Ian Snyder 2014, Adobe AIR / Windows via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-jackbox-megapicker": {
@@ -7248,6 +9784,22 @@
     ],
     "short": "Five new games: the hit threequel Quiplash 3, the collaborative chaos of The Devils and the Details, the fierce drawing game Champ\u2019d Up, the speech game Talking Points and the guessing game Blather 'Round. Use phones or tablets as controllers and play with up to 8 players, and an audience of 10,000!",
     "steam_appid": 1211630,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "the-legend-of-zelda-a-link-to-the-past": {
@@ -7261,6 +9813,7 @@
     "screenshots": [],
     "short": "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-legend-of-zelda-majoras-mask": {
@@ -7274,6 +9827,7 @@
     "screenshots": [],
     "short": "The Legend of Zelda: Majora's Mask (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-legend-of-zelda-ocarina-of-time": {
@@ -7287,6 +9841,7 @@
     "screenshots": [],
     "short": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-legend-of-zelda-oracle-of-ages": {
@@ -7300,6 +9855,7 @@
     "screenshots": [],
     "short": "The Legend of Zelda: Oracle of Ages (via RetroArch / mGBA)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-legend-of-zelda-oracle-of-seasons": {
@@ -7313,6 +9869,7 @@
     "screenshots": [],
     "short": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-library-of-babel": {
@@ -7340,6 +9897,15 @@
     ],
     "short": "Join Ludovik in a 2D Stealth Platformer and Graphic Adventure, as he explores the jungles of a futuristic Babylon to discover the secret behind the Library of Babel\u2019s sudden lockdown and the mysteries behind their mythical creators.",
     "steam_appid": 1822030,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "the-secret-of-monkey-island": {
@@ -7366,6 +9932,15 @@
     ],
     "short": "Back by popular demand, The Secret of Monkey Island\u2122: Special Edition faithfully re-imagines the internationally-acclaimed classic game (originally released in 1990) for original and new audiences alike.",
     "steam_appid": 32360,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "the-settlers-ii-gold-edition": {
@@ -7379,6 +9954,7 @@
     "screenshots": [],
     "short": "The Settlers II Gold (via Return to the Roots)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-settlers-iii": {
@@ -7392,6 +9968,7 @@
     "screenshots": [],
     "short": "The Settlers III (Blue Byte 1998, GOG Ultimate Collection v1.60 v2 English, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-simpsons-hit-run": {
@@ -7405,6 +9982,7 @@
     "screenshots": [],
     "short": "The Simpsons: Hit & Run (Vivendi/Radical 2003 PC port, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-talos-principle": {
@@ -7431,6 +10009,17 @@
     ],
     "short": "The Talos Principle is a first-person puzzle game in the tradition of philosophical science fiction. Made by Croteam and written by Tom Jubert (FTL, The Swapper) and Jonas Kyratzes (The Sea Will Claim Everything).",
     "steam_appid": 257510,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2014
   },
   "the-typing-of-the-dead": {
@@ -7444,6 +10033,7 @@
     "screenshots": [],
     "short": "The Typing of the Dead (2001 PC port, via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-typing-of-the-dead-overkill": {
@@ -7457,6 +10047,7 @@
     "screenshots": [],
     "short": "The Typing of the Dead: Overkill (Steam, via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "the-witness": {
@@ -7482,6 +10073,16 @@
     ],
     "short": "You wake up, alone, on a strange island full of puzzles that will challenge and surprise you.",
     "steam_appid": 210970,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Captions available",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "theme-hospital": {
@@ -7495,6 +10096,7 @@
     "screenshots": [],
     "short": "Theme Hospital (via CorsixTH engine)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "thief-2": {
@@ -7522,6 +10124,10 @@
     ],
     "short": "The ultimate thief is back! Tread softly as you make your way through 15 new complex, non-linear levels full of loot to steal and guards to outsmart. Improved enemy AI, new gadgets and a riveting story will draw you into the world of Thief II: The Metal Age, a place of powerful new technologies, fanatical religions and corruption.",
     "steam_appid": 211740,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2012
   },
   "thief-gold": {
@@ -7535,6 +10141,7 @@
     "screenshots": [],
     "short": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "time-flies": {
@@ -7562,6 +10169,18 @@
     ],
     "short": "Time Flies is a little adventure about our limited time in this world.",
     "steam_appid": 2000120,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "tom-clancys-splinter-cell-chaos-theory": {
@@ -7585,6 +10204,10 @@
     ],
     "short": "Experience one of the most critically acclaimed stealth-action games of all time. Uncover a conspiracy that hits close to home and stop World War III.",
     "steam_appid": 13570,
+    "tags": [
+      "Single-player",
+      "Family Sharing"
+    ],
     "year": 2009
   },
   "torment-tides-of-numenera": {
@@ -7614,6 +10237,14 @@
     ],
     "short": "Torment: Tides of Numenera is the thematic successor to Planescape: Torment, one of the most critically acclaimed role-playing games of all time. Immerse yourself in a single-player, isometric, story-driven RPG set in Monte Cook\u2019s Numenera universe. What does one life matter? Find your answer.",
     "steam_appid": 272270,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2017
   },
   "total-annihilation": {
@@ -7640,6 +10271,11 @@
     ],
     "short": "What began as a conflict over the transfer of consciousness from flesh to machines escalated into a war which has decimated a million worlds. The Core and the Arm have all but exhausted the resources of a galaxy in their struggle for domination.",
     "steam_appid": 298030,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "total-chaos": {
@@ -7653,6 +10289,7 @@
     "screenshots": [],
     "short": "Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "total-overdose": {
@@ -7666,6 +10303,7 @@
     "screenshots": [],
     "short": "Total Overdose: A Gunslinger's Tale in Mexico (Deadline Games 2005, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "towerfall-ascension": {
@@ -7679,6 +10317,7 @@
     "screenshots": [],
     "short": "TowerFall Ascension + Dark World (Matt Makes Games, GOG v2.5.0.6, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "trackmania-nation": {
@@ -7703,6 +10342,12 @@
     ],
     "short": "A free game in the truest sense of the word, TrackMania Nations Forever lets you drive at mind-blowing speeds on fun and spectacular tracks in solo and multiplayer modes.TrackMania Nations Forever offers a new &quot;Forever&quot; version of the Stadium environment, a solid solo mode and 65 brand new, progressively challenging tracks.",
     "steam_appid": 11020,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Includes level editor",
+      "Family Sharing"
+    ],
     "year": 2008
   },
   "tunic": {
@@ -7731,6 +10376,13 @@
     ],
     "short": "Explore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure.",
     "steam_appid": 553420,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2022
   },
   "ultimate-chicken-horse": {
@@ -7759,6 +10411,28 @@
     ],
     "short": "Ultimate Chicken Horse is a party platformer game where you build the level as you play, placing traps and hazards to screw your friends over, but trying not to screw yourself.",
     "steam_appid": 386940,
+    "tags": [
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "ultrakill": {
@@ -7787,6 +10461,16 @@
     ],
     "short": "ULTRAKILL is a fast-paced ultra-violent retro FPS that combines the skill-based style scoring of character action games with the unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weaponry and shower in their blood to regain your health.",
     "steam_appid": 1229490,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "underrail": {
@@ -7814,6 +10498,11 @@
     ],
     "short": "UnderRail is an old-school turn-based isometric role-playing game that features a large open post-apocalyptic world, deep and challenging combat and an intricate storyline.",
     "steam_appid": 250520,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "undertale": {
@@ -7840,6 +10529,13 @@
     ],
     "short": "UNDERTALE! The RPG game where you don't have to destroy anyone.",
     "steam_appid": 391540,
+    "tags": [
+      "Single-player",
+      "Steam Trading Cards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Family Sharing"
+    ],
     "year": 2015
   },
   "unloved": {
@@ -7866,6 +10562,17 @@
     ],
     "short": "Based on the community award-winning Doom2 mod with the same name by the same creator, UNLOVED is reimagined in the Unreal Engine 4 to bring forth the unspeakable terror in new ways. Play coop with your friends, increase your skills, mod your weapons and face the horror that this unearthly place holds...",
     "steam_appid": 321270,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Online Co-op",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "unrailed": {
@@ -7892,6 +10599,32 @@
     ],
     "short": "Unrailed! is a co-op multiplayer game where you have to work together with your friends to build a train track across endless procedurally generated worlds. Master random encounters with its inhabitants, upgrade your train and keep it from derailing!",
     "steam_appid": 1016920,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Cross-Platform Multiplayer",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Gamepad Recommended",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "unreal": {
@@ -7920,6 +10653,13 @@
     ],
     "short": "And now, for today's story.",
     "steam_appid": 1335560,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "unreal-tournament": {
@@ -7933,6 +10673,7 @@
     "screenshots": [],
     "short": "Unreal Tournament (GOTY, 1999; OldUnreal v469e native Linux)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "unreal-tournament-2004": {
@@ -7946,6 +10687,7 @@
     "screenshots": [],
     "short": "Unreal Tournament 2004 (OldUnreal native Linux)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "untitled-goose-game": {
@@ -7973,6 +10715,23 @@
     ],
     "short": "It's a lovely morning in the village and you are a horrible goose.",
     "steam_appid": 837470,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "uplink": {
@@ -7986,6 +10745,7 @@
     "screenshots": [],
     "short": "Uplink: Hacker Elite v1.6 (via Proton and gamescope)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "v-rising": {
@@ -8014,6 +10774,32 @@
     ],
     "short": "Awaken as a Vampire. Hunt for blood in nearby settlements to regain your strength and evade the scorching sun to survive. Raise your castle and thrive in an ever-changing, open world full of mystery. Gain allies online and conquer the land of the living.",
     "steam_appid": 1604030,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "LAN PvP",
+      "Co-op",
+      "Online Co-op",
+      "LAN Co-op",
+      "Steam Achievements",
+      "Camera Comfort",
+      "Custom Volume Controls",
+      "Adjustable Difficulty",
+      "Playable without Timed Input",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Save Anytime",
+      "Stereo Sound",
+      "Subtitle Options",
+      "Surround Sound",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2024
   },
   "vampire-crawlers": {
@@ -8043,6 +10829,17 @@
     ],
     "short": "From the creators of Vampire Survivors comes a turbo-charged, turn-based roguelite deckbuilder! Deal world-ending combos, blitz through infested dungeons, and master the Turboturn to obliterate hordes of familiar foes with a chaotic hand of cards.",
     "steam_appid": 3265700,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "vampire-survivors": {
@@ -8056,6 +10853,7 @@
     "screenshots": [],
     "short": "Vampire Survivors + 3 DLC (Emergency Meeting v1.11.108, native Linux Unity / IL2CPP, Goldberg Steam shim)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "vampire-the-masquerade-bloodlines": {
@@ -8069,6 +10867,7 @@
     "screenshots": [],
     "short": "Vampire: The Masquerade \u2014 Bloodlines (GOG + Unofficial Patch 11.5, via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "vectronom": {
@@ -8098,6 +10897,21 @@
     ],
     "short": "Welcome to the psychedelic world of Vectronom: experience waves of color and a pulsing geometric path that changes with the beat! All set to a hypnotic electronic soundtrack. There\u2019s only one thing to do: turn up the volume and go with the flow.",
     "steam_appid": 925460,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Shared/Split Screen PvP",
+      "Co-op",
+      "Shared/Split Screen Co-op",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Partial Controller Support",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2019
   },
   "vintage-story": {
@@ -8111,6 +10925,7 @@
     "screenshots": [],
     "short": "Vintage Story (native Linux, v1.22.0 with built-in libs)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "void-stranger": {
@@ -8138,6 +10953,12 @@
     ],
     "short": "Place your faith and embrace the Void.",
     "steam_appid": 2121980,
+    "tags": [
+      "Single-player",
+      "Full controller support",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2023
   },
   "vvvvvv": {
@@ -8165,6 +10986,16 @@
     ],
     "short": "VVVVVV is a platform game all about exploring one simple mechanical idea - what if you reversed gravity instead of jumping?",
     "steam_appid": 70300,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Includes level editor",
+      "Remote Play on TV",
+      "Family Sharing"
+    ],
     "year": 2010
   },
   "warcraft-iii-the-frozen-throne": {
@@ -8178,6 +11009,7 @@
     "screenshots": [],
     "short": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "warhammer-40000-dawn-of-war": {
@@ -8205,6 +11037,15 @@
     ],
     "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
     "steam_appid": 2272360,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "warhammer-40000-dawn-of-war-dark-crusade": {
@@ -8232,6 +11073,15 @@
     ],
     "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
     "steam_appid": 2272360,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "warhammer-40000-dawn-of-war-soulstorm": {
@@ -8259,6 +11109,15 @@
     ],
     "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
     "steam_appid": 2272360,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "warhammer-40000-dawn-of-war-winter-assault": {
@@ -8286,6 +11145,15 @@
     ],
     "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
     "steam_appid": 2272360,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Co-op",
+      "Online Co-op",
+      "Family Sharing"
+    ],
     "year": 2026
   },
   "warzone-2100": {
@@ -8314,6 +11182,18 @@
     ],
     "short": "In the late 21st century, the world's civilizations are wiped out by a series of nuclear strikes, seemingly caused by a massive malfunction of the new NASDA (North American Strategic Defense Agency) strategic defense system.",
     "steam_appid": 1241950,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "LAN PvP",
+      "Co-op",
+      "Online Co-op",
+      "LAN Co-op",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2020
   },
   "white-knuckle": {
@@ -8340,6 +11220,16 @@
     ],
     "short": "White Knuckle is a first-person roguelite speed-climbing game. Ascend through the guts of SUB-STRUCTURE 17 using precision movement mechanics. Sharp reflexes and resource management will bring you out from under ten thousand meters of concrete and decay.",
     "steam_appid": 3195790,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Full controller support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "DualShock Controller Support",
+      "Family Sharing"
+    ],
     "year": 2025
   },
   "world-of-goo": {
@@ -8366,6 +11256,13 @@
     ],
     "short": "World of Goo is a multiple award winning physics based puzzle / construction game made entirely by two guys.",
     "steam_appid": 22000,
+    "tags": [
+      "Single-player",
+      "Steam Achievements",
+      "Steam Trading Cards",
+      "Steam Cloud",
+      "Family Sharing"
+    ],
     "year": 2008
   },
   "worms-wmd": {
@@ -8392,6 +11289,25 @@
     ],
     "short": "The worms are back in their most destructive game yet. With a gorgeous, hand-drawn 2D look, brand new weapons, the introduction of crafting, vehicles and buildings plus the return of some much-loved classic weapons and gameplay, Worms W.M.D is the best worms experience ever.",
     "steam_appid": 327030,
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "PvP",
+      "Online PvP",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen",
+      "Steam Achievements",
+      "Full controller support",
+      "Steam Trading Cards",
+      "Steam Workshop",
+      "Steam Cloud",
+      "Steam Leaderboards",
+      "Remote Play on Phone",
+      "Remote Play on Tablet",
+      "Remote Play on TV",
+      "Remote Play Together",
+      "Family Sharing"
+    ],
     "year": 2016
   },
   "xenogears": {
@@ -8405,6 +11321,7 @@
     "screenshots": [],
     "short": "Xenogears (via RetroArch / SwanStation)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   },
   "yume-nikki": {
@@ -8434,6 +11351,11 @@
     ],
     "short": "This is a game in which you traverse the extremely dark world inside a dream.",
     "steam_appid": 650700,
+    "tags": [
+      "Single-player",
+      "Partial Controller Support",
+      "Family Sharing"
+    ],
     "year": 2018
   },
   "z": {
@@ -8447,6 +11369,7 @@
     "screenshots": [],
     "short": "Z (Bitmap Brothers 1996, via DOSBox-X)",
     "steam_appid": null,
+    "tags": [],
     "year": null
   }
 }
