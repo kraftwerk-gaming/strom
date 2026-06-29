@@ -404,7 +404,7 @@ a { color: var(--accent); text-decoration: none; }
   font-size: 0.86rem;
   color: var(--muted);
 }
-.overlay-fallback summary { cursor: pointer; }
+.overlay-fallback .fallback-head { color: var(--fg); font-weight: 600; margin: 0 0 0.3rem; }
 .overlay-fallback p { color: var(--muted); margin: 0.5rem 0; }
 .overlay-fallback code { color: var(--fg); }
 .cmd {
