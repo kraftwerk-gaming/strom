@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>strom</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#library">Skip to library</a>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="strom home">STROM</a>
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search games&hellip;"
+             aria-label="Search games" autocomplete="off" spellcheck="false">
+    </div>
+    <span id="count" class="count" aria-live="polite"></span>
+  </header>
+
+  <nav class="filters" id="filters" aria-label="Filter by runtime"></nav>
+
+  <main id="library" class="grid" aria-label="Game library" tabindex="-1"></main>
+
+  <section id="detail" class="detail" aria-label="Game details" hidden></section>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true"
+       aria-label="Screenshot" hidden>
+    <img id="lightbox-img" alt="">
+  </div>
+
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true"
+       aria-label="Launching game" hidden>
+    <div class="overlay-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <h2 id="overlay-title">Launching&hellip;</h2>
+      <p class="overlay-note">
+        A launcher window shows download &amp; build progress.
+        The game opens when it is ready.
+      </p>
+      <button id="overlay-close" class="btn-ghost">Back to library</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

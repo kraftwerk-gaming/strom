@@ -1,0 +1,10 @@
+{
+  "_comment": "Manual slug -> Steam appid fixups for fetch-steam-metadata.py. Use an integer appid to force a match, or null to skip Steam entirely and use the lutris fallback (for GOG-only games, fan ports, abandonware, etc.).",
+  "battlefield-2": 24860,
+  "bioshock": 7670,
+  "balatro": 2379780,
+  "animal-well": 813230,
+  "anatomy": null,
+  "bloodborne-psx": null,
+  "babbdi": null
+}

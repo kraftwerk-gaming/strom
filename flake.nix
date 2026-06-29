@@ -91,6 +91,7 @@
 
       nixosModules = {
         ipfs-mirror = import ./nixos/mirror-module.nix;
+        strom-desktop = import ./nixos/desktop-module.nix { inherit self; };
         default = self.nixosModules.ipfs-mirror;
       };
 
@@ -134,6 +135,8 @@
           inherit games;
           scripts = {
             launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
+            gui = pkgs.callPackage ./pkgs/gui { };
+            strom-launch = pkgs.callPackage ./pkgs/strom-launch { inherit gameMeta; };
             pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
             publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
             screenshot = pkgs.callPackage ./pkgs/screenshot.nix { };
@@ -163,5 +166,25 @@
       # attribute: games without an APK definition only error when
       # their attribute is actually evaluated.
       apks = nixpkgs.lib.mapAttrs (_: m: m.android.outputs.apk) self.modules.x86_64-linux;
+      apps = forAllSystems (
+        system:
+        let
+          scripts = self.legacyPackages.${system}.scripts;
+        in
+        {
+          gui = {
+            type = "app";
+            program = "${scripts.gui}/bin/strom-gui";
+          };
+          launcher = {
+            type = "app";
+            program = "${scripts.launcher}/bin/strom-launcher";
+          };
+          strom-launch = {
+            type = "app";
+            program = "${scripts.strom-launch}/bin/strom-launch";
+          };
+        }
+      );
     };
 }

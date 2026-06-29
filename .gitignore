@@ -7,6 +7,9 @@ TODO.md
 __pycache__/
 /.pre-commit-config.yaml
 
+# Steam metadata API response cache for scripts/fetch-steam-metadata.py.
+web/.steam-cache/
+
 # --- staging guard: never let a game SOURCE get committed into the flake ---
 # Stage agents download multi-GB sources into per-game worktrees; a stray
 # `git add -A` once staged an 8.3 GB rar+iso into a worktree index and bloated
