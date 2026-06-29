@@ -397,7 +397,32 @@ a { color: var(--accent); text-decoration: none; }
   box-shadow: var(--shadow);
 }
 .overlay-card h2 { margin: 1rem 0 0.4rem; }
-.overlay-note { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.4rem; }
+.overlay-note { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+.overlay-fallback {
+  text-align: left;
+  margin: 0 0 1.2rem;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.overlay-fallback summary { cursor: pointer; }
+.overlay-fallback p { color: var(--muted); margin: 0.5rem 0; }
+.overlay-fallback code { color: var(--fg); }
+.cmd {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+.cmd code {
+  flex: 1;
+  font-family: ui-monospace, "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+.cmd button { flex: none; padding: 0.25rem 0.7rem; font-size: 0.8rem; }
 .spinner {
   width: 46px;
   height: 46px;

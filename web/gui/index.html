@@ -40,6 +40,15 @@
         A launcher window shows download &amp; build progress.
         The game opens when it is ready.
       </p>
+      <details class="overlay-fallback">
+        <summary>Nothing happened?</summary>
+        <p>The <code>strom://</code> handler may not be installed. Run this in a
+          terminal instead:</p>
+        <div class="cmd">
+          <code id="overlay-cmd"></code>
+          <button id="overlay-copy" class="btn-ghost" type="button">Copy</button>
+        </div>
+      </details>
       <button id="overlay-close" class="btn-ghost">Back to library</button>
     </div>
   </div>

@@ -60,7 +60,13 @@ const el = {
   overlay: document.getElementById("overlay"),
   overlayTitle: document.getElementById("overlay-title"),
   overlayClose: document.getElementById("overlay-close"),
+  overlayCmd: document.getElementById("overlay-cmd"),
+  overlayCopy: document.getElementById("overlay-copy"),
 };
+
+// Public flake the strom:// handler launches from; also shown as the manual
+// fallback command. Keep in sync with pkgs/strom-launch default STROM_FLAKE.
+const FLAKE_REF = "github:kraftwerk-gaming/strom";
 
 const state = {
   catalog: {}, // slug -> entry
@@ -461,11 +467,14 @@ function closeDetail() {
 
 function launch(slug, name) {
   el.overlayTitle.textContent = `Launching ${name}…`;
+  el.overlayCmd.textContent = `nix run ${FLAKE_REF}#${slug}`;
+  el.overlayCopy.textContent = "Copy";
   el.overlay.hidden = false;
   el.overlayClose.focus();
   // Hand off to the XDG scheme handler. Fire-and-forget: the browser cannot
   // observe the nix download/build, so progress is shown in the native
-  // launcher window spawned by pkgs/strom-launch.
+  // launcher window spawned by pkgs/strom-launch. If no handler is registered
+  // the browser does nothing — hence the copyable fallback command.
   window.location.href = `strom://${encodeURIComponent(slug)}`;
 }
 
@@ -494,6 +503,14 @@ function wireEvents() {
   });
   el.clear.addEventListener("click", clearFilters);
   el.overlayClose.addEventListener("click", closeOverlay);
+  el.overlayCopy.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(el.overlayCmd.textContent);
+      el.overlayCopy.textContent = "Copied";
+    } catch (_) {
+      el.overlayCopy.textContent = "Copy failed";
+    }
+  });
   el.lightbox.addEventListener("click", () => {
     el.lightbox.hidden = true;
     el.lightboxImg.src = "";
