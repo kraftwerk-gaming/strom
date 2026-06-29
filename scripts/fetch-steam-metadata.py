@@ -30,10 +30,30 @@ from typing import Any
 
 SCRIPT_DIR = Path(__file__).parent
 ROOT = SCRIPT_DIR.parent
+GAMES_DIR = ROOT / "games"
 GAMES_JSON = ROOT / "web" / "games.json"
 CATALOG_JSON = ROOT / "web" / "catalog.json"
 OVERRIDES_JSON = SCRIPT_DIR / "steam-overrides.json"
 CACHE_DIR = ROOT / "web" / ".steam-cache"
+
+# Fields a per-game games/<slug>/gui.json may set. Manual values override
+# whatever Steam (or the lutris fallback) produced; lists replace, they do not
+# merge. This is how non-Steam games get screenshots / genres / features, and
+# how a wrong Steam field can be corrected.
+MANUAL_FIELDS = frozenset(
+    {
+        "name",
+        "short",
+        "long",
+        "genres",
+        "tags",
+        "year",
+        "developers",
+        "hero",
+        "screenshots",
+        "lutris",
+    }
+)
 
 STORESEARCH_URL = "https://store.steampowered.com/api/storesearch/"
 APPDETAILS_URL = "https://store.steampowered.com/api/appdetails"
@@ -266,6 +286,34 @@ def build_entry(
     }
 
 
+def load_manual(slug: str) -> dict[str, Any]:
+    """Read optional manual metadata from games/<slug>/gui.json."""
+    path = GAMES_DIR / slug / "gui.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text())
+    except json.JSONDecodeError as exc:
+        log(f"  ! {path}: invalid JSON ({exc}); ignoring")
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def merge_manual(entry: dict[str, Any], manual: dict[str, Any], slug: str) -> bool:
+    """Overlay manual fields onto a catalog entry. Returns True if anything was
+    applied. Keys starting with ``_`` are treated as comments."""
+    applied = False
+    for key, value in manual.items():
+        if key.startswith("_"):
+            continue
+        if key not in MANUAL_FIELDS:
+            log(f"  ! {slug}/gui.json: unknown field {key!r}, skipping")
+            continue
+        entry[key] = value
+        applied = True
+    return applied
+
+
 def write_catalog(catalog: dict[str, Any]) -> bool:
     payload = json.dumps(catalog, indent=2, sort_keys=True) + "\n"
     CATALOG_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -313,9 +361,12 @@ def main() -> int:
         details = fetch_appdetails(appid, args.offline) if appid else None
         if details:
             matched += 1
-        catalog[slug] = build_entry(slug, games, appid, details)
-        tag = f"steam:{appid}" if details else "fallback"
-        log(f"[{i}/{len(slugs)}] {slug} -> {tag}")
+        entry = build_entry(slug, games, appid, details)
+        source = f"steam:{appid}" if details else "fallback"
+        if merge_manual(entry, load_manual(slug), slug):
+            source += "+manual"
+        catalog[slug] = entry
+        log(f"[{i}/{len(slugs)}] {slug} -> {source}")
 
     log(f"\nMatched {matched}/{len(slugs)} games to Steam.")
     if write_catalog(catalog):

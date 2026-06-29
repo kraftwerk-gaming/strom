@@ -687,18 +687,27 @@
     "year": null
   },
   "battlefield-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Digital Illusions CE"
+    ],
+    "genres": [
+      "Action",
+      "FPS"
+    ],
     "hero": "https://lutris.net/games/banner/battlefield-2.jpg",
-    "long": "",
+    "long": "Large-scale modern-combat warfare across land, sea and air. Battlefield 2 pits two teams over sprawling maps with jets, helicopters, tanks and transports, a commander layer with UAV/artillery support, and squad-based play. This Complete Collection bundles the Special Forces, Euro Force and Armored Fury expansions.",
     "lutris": "https://lutris.net/games/battlefield-2/",
     "name": "Battlefield 2 Complete Collection",
     "runtime": "proton",
     "screenshots": [],
     "short": "Battlefield 2 Complete Collection (DICE/EA 2005, v1.50 preinstalled repack, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Multi-player",
+      "Online Co-op",
+      "LAN Co-op"
+    ],
+    "year": 2005
   },
   "beamng-dot-drive": {
     "developers": [

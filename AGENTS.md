@@ -17,6 +17,23 @@
 - After adding or removing a game, regenerate both the games table and the JSON metadata: `python3 scripts/generate-readme.py`
 - The script reads flake metadata via `scripts/generate-readme.nix`, rewrites the block between the `<!-- BEGIN/END GENERATED GAMES -->` markers in `README.md`, and writes `web/games.json` (consumed by the static checker at `web/index.html`). Do not edit either generated file by hand.
 
+## Web GUI catalog metadata
+
+- The Steam-like web GUI (`web/gui`, run via `nix run .#gui`) reads `web/catalog.json`: per-game name, description, genres, player-mode `tags`, year, developers, hero image and screenshots.
+- Regenerate it with `python3 scripts/fetch-steam-metadata.py` **after** `generate-readme.py` (it reads the slug list from `web/games.json`). It matches each slug to a Steam app via the store search API and pulls metadata from `appdetails`; raw responses are cached under `web/.steam-cache/` (gitignored), so reruns are fast and `--offline` works. Commit the regenerated `web/catalog.json`.
+- When adding a game, always rerun this script so the new game gets a tile. Games with no Steam match fall back to their lutris banner and the strom description — they still render, just without screenshots/genres/features.
+- **Steam matching fixups** live in `scripts/steam-overrides.json`, keyed by slug: an integer forces a specific Steam appid, `null` skips Steam entirely (use for GOG-only games, fan ports, abandonware, delisted titles).
+- **Manual metadata** for non-Steam games (or to correct wrong Steam data) goes in an optional `games/<slug>/gui.json`. Its fields are merged **over** the Steam/fallback entry (lists replace, they do not append). Recognized fields: `name`, `short`, `long`, `genres` (list), `tags` (list), `year` (int), `developers` (list), `hero` (image URL), `screenshots` (list of image URLs), `lutris` (URL). Keys starting with `_` are comments; unknown keys warn and are ignored. See `games/battlefield-2/gui.json` for a worked example.
+- `tags` drive the Features filter. Use these exact Steam-category strings so a game lands in the right bucket:
+  - Single-player → `Single-player`
+  - Online multiplayer → `Multi-player`, `Online PvP`, `Cross-Platform Multiplayer`
+  - Local multiplayer → `Shared/Split Screen`, `Shared/Split Screen PvP`, `LAN PvP`
+  - Online co-op → `Online Co-op`
+  - Local co-op → `Shared/Split Screen Co-op`, `LAN Co-op`
+  - Remote Play Together → `Remote Play Together`
+  - PvP → `PvP`, `Online PvP`, `Shared/Split Screen PvP`, `LAN PvP`
+- `games/<slug>/gui.json` is inert for the Nix build (`callPackage` imports `default.nix` only); it is read solely by the catalog script.
+
 ## IPFS and fetchIpfs
 
 - Game files are fetched via `fetchIpfs` (`lib/fetch-ipfs.nix`), which uses `aria2c` to fetch the CIDs from public gateways.
