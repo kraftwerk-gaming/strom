@@ -45,10 +45,10 @@ _STUB_JMP = bytes.fromhex("c6052cd9580045c70530d9580001000000e9a3000000")
 # (file_offset, bytes) — see module docstring for what each one does.
 SIMPLE_PATCHES: list[tuple[int, bytes]] = [
     (0x70190, _STUB_RET),  # VA 0x470d90  generic "Please insert CD" loop
-    (0x702d0, _STUB_RET),  # VA 0x470ed0  silent "I76_CD2" presence check
+    (0x702D0, _STUB_RET),  # VA 0x470ed0  silent "I76_CD2" presence check
     (0x70390, _STUB_RET),  # VA 0x470f90  auth-path "I76_CD2" scan
-    (0x706b6, _STUB_JMP),  # VA 0x4712b6  startup init, jmp to post-scan
-    (0x98f25, bytes.fromhex("b8c8000000")),  # VA 0x499b25  mov eax,200
+    (0x706B6, _STUB_JMP),  # VA 0x4712b6  startup init, jmp to post-scan
+    (0x98F25, bytes.fromhex("b8c8000000")),  # VA 0x499b25  mov eax,200
 ]
 
 
@@ -189,15 +189,11 @@ def apply(path: Path) -> None:
 
     slack = text["raw_size"] - text["vs"]
     if slack < len(PATCH4_BODY):
-        raise RuntimeError(
-            f".text slack {slack:#x} < patch4 {len(PATCH4_BODY):#x}"
-        )
+        raise RuntimeError(f".text slack {slack:#x} < patch4 {len(PATCH4_BODY):#x}")
     patch4_va = IMAGE_BASE + text["va"] + text["vs"]
     patch4_file = text["raw_ptr"] + text["vs"]
     buf[patch4_file : patch4_file + len(PATCH4_BODY)] = PATCH4_BODY
-    struct.pack_into(
-        "<I", buf, text["header_off"] + 8, text["vs"] + len(PATCH4_BODY)
-    )
+    struct.pack_into("<I", buf, text["header_off"] + 8, text["vs"] + len(PATCH4_BODY))
 
     p5_file = _va_to_file(sections, PATCH5_OFS)
     orig_target = _rewrite_rel32(buf, p5_file, PATCH5_OFS, patch4_va)

@@ -40,14 +40,12 @@ def clear(path: str) -> None:
             patched += 1
 
     if not patched:
-        print(f"{path}: no PT_GNU_STACK with PF_X (already clear)",
-              file=sys.stderr)
+        print(f"{path}: no PT_GNU_STACK with PF_X (already clear)", file=sys.stderr)
         return
 
     with open(path, "wb") as f:
         f.write(data)
-    print(f"{path}: cleared PF_X on {patched} PT_GNU_STACK entries",
-          file=sys.stderr)
+    print(f"{path}: cleared PF_X on {patched} PT_GNU_STACK entries", file=sys.stderr)
 
 
 if __name__ == "__main__":

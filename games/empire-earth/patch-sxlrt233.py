@@ -71,7 +71,9 @@ def patch(path: str) -> None:
     dllchar_off = opt_off + 70
     current_flags = struct.unpack_from("<H", data, dllchar_off)[0]
     if current_flags & DYNAMIC_BASE:
-        print(f"{path}: DYNAMIC_BASE already set (flags=0x{current_flags:04x}), nothing to do")
+        print(
+            f"{path}: DYNAMIC_BASE already set (flags=0x{current_flags:04x}), nothing to do"
+        )
         return
     new_flags = current_flags | DYNAMIC_BASE
     struct.pack_into("<H", data, dllchar_off, new_flags)
