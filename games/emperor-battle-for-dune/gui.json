@@ -1,0 +1,7 @@
+{
+  "genres": ["Strategy", "RTS"],
+  "tags": ["Single-player", "Multi-player", "Online PvP", "LAN PvP"],
+  "year": 2001,
+  "developers": ["Westwood Studios"],
+  "long": "Emperor: Battle for Dune is a 3D real-time strategy game based on Frank Herbert's Dune, in which House Atreides, House Harkonnen and House Ordos fight for control of the spice-rich planet Arrakis. It blends a branching campaign with full-motion-video storytelling and lets players ally with five sub-factions. This build applies the wheybags patch, restoring HD resolutions and multiplayer, and runs through Proton."
+}

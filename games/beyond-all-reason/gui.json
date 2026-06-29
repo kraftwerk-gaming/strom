@@ -1,0 +1,7 @@
+{
+  "genres": ["Strategy", "RTS"],
+  "tags": ["Single-player", "Multi-player", "Online PvP", "LAN PvP", "Online Co-op"],
+  "year": 2023,
+  "developers": ["Beyond All Reason team"],
+  "long": "Beyond All Reason is a free, open-source real-time strategy game built on the Recoil/Spring engine, inspired by Total Annihilation and Supreme Commander. Players command armies of robotic units, harvest metal and energy, and fight massive battles featuring large unit counts and an economy-driven tech tree. It supports skirmishes against AI as well as large multiplayer and cooperative matches."
+}

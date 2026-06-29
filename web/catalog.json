@@ -39,18 +39,28 @@
     "year": 2019
   },
   "age-of-empires-ii-the-conquerors": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Ensemble Studios"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/age-of-empires-ii-the-conquerors.jpg",
-    "long": "",
+    "long": "Age of Empires II: The Conquerors is the expansion to The Age of Kings, adding five new civilizations, new campaigns, and additional units and technologies. It is a historical real-time strategy game in which players gather resources, build towns, and command armies across the ages. The combined Age of Kings + Conquerors release became the definitive classic edition of the game.",
     "lutris": "https://lutris.net/games/age-of-empires-ii-the-conquerors/",
     "name": "Age of Empires II: The Conquerors",
     "runtime": "proton",
     "screenshots": [],
     "short": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "Online PvP"
+    ],
+    "year": 2000
   },
   "age-of-empires-iii": {
     "developers": [
@@ -125,18 +135,26 @@
     "year": 2013
   },
   "anatomy": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Kitty Horrorshow"
+    ],
+    "genres": [
+      "Horror",
+      "Adventure",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/anatomy.jpg",
-    "long": "",
+    "long": "Anatomy is a short first-person psychological horror game set inside a dark, empty house. The player explores room by room, collecting cassette tapes that deliver an unsettling lecture comparing the house to a living body. Built in Unity, it is known for its oppressive atmosphere and metafictional scares.",
     "lutris": "https://lutris.net/games/anatomy/",
     "name": "Anatomy",
     "runtime": "native",
     "screenshots": [],
     "short": "Anatomy (Kitty Horrorshow 2016, native Linux build)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2016
   },
   "anemoiapolis": {
     "developers": [
@@ -243,46 +261,75 @@
     "year": 2020
   },
   "anno-1503": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Max Design"
+    ],
+    "genres": [
+      "Strategy",
+      "Simulation",
+      "City Builder"
+    ],
     "hero": "https://lutris.net/games/banner/anno-1503.jpg",
-    "long": "",
+    "long": "Anno 1503 A.D. is a city-building and economic strategy game set in a colonial Age of Discovery. Players settle uninhabited islands, develop trade and supply chains, manage diplomacy, and wage war on land and sea. It is the second entry in the Anno series, published by Sunflowers.",
     "lutris": "https://lutris.net/games/anno-1503/",
     "name": "Anno 1503 A.D.",
     "runtime": "proton",
     "screenshots": [],
     "short": "Anno 1503 A.D. (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2002
   },
   "anno-1602-ad": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Max Design"
+    ],
+    "genres": [
+      "Strategy",
+      "Simulation",
+      "City Builder"
+    ],
     "hero": "https://lutris.net/games/banner/anno-1602-ad.jpg",
-    "long": "",
+    "long": "Anno 1602 A.D. is the first game in the Anno series, blending city building, economic simulation, exploration, and combat in a colonial setting. Players establish settlements on island archipelagos, balance production chains and citizen needs, and expand through trade or conquest. The Gold Edition bundles the base game with its New Islands, New Adventures expansion.",
     "lutris": "https://lutris.net/games/anno-1602-ad/",
     "name": "Anno 1602 A.D. Gold Edition",
     "runtime": "proton",
     "screenshots": [],
     "short": "Anno 1602 A.D. Gold Edition (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1998
   },
   "anno-1701": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Related Designs"
+    ],
+    "genres": [
+      "Strategy",
+      "Simulation",
+      "City Builder"
+    ],
     "hero": "https://lutris.net/games/banner/anno-1701.jpg",
-    "long": "",
+    "long": "Anno 1701 is a city-building and economic strategy game set in the 18th century colonial era. Players colonize islands, develop economies and citizen populations, conduct diplomacy and trade, and engage in naval and land warfare. This release includes the Sunken Treasure (Gold/AD) expansion content.",
     "lutris": "https://lutris.net/games/anno-1701/",
     "name": "Anno 1701 + Sunken Treasure",
     "runtime": "proton",
     "screenshots": [],
     "short": "Anno 1701 + Sunken Treasure (Gold/AD, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "Online PvP"
+    ],
+    "year": 2006
   },
   "antichamber": {
     "developers": [
@@ -346,46 +393,69 @@
     "year": 2010
   },
   "arcania": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Spellbound Entertainment"
+    ],
+    "genres": [
+      "RPG",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/arcania.jpg",
-    "long": "",
+    "long": "ArcaniA: Gothic 4 is an action role-playing game set in the Gothic universe on the island of Argaan. The player controls a young hero seeking revenge, exploring an open fantasy world, fighting enemies in real time, and developing combat and magic skills. The Complete Tale edition folds in the Fall of Setarrif add-on.",
     "lutris": "https://lutris.net/games/arcania/",
     "name": "ArcaniA: Gothic 4 -- The Complete Tale",
     "runtime": "proton",
     "screenshots": [],
     "short": "ArcaniA: Gothic 4 -- The Complete Tale (Spellbound 2010, GOG v2.0.0.2, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2010
   },
   "arcanum-of-steamworks-and-magick-obscura": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Troika Games"
+    ],
+    "genres": [
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/arcanum-of-steamworks-and-magick-obscura.jpg",
-    "long": "",
+    "long": "Arcanum: Of Steamworks and Magick Obscura is a deep isometric role-playing game set in a world where steampunk technology and traditional magic coexist and conflict. Players create a character, choose between tech and magick paths, and shape a branching story through dialogue, combat, and character builds. It is renowned for its open-ended freedom and was developed by Troika Games.",
     "lutris": "https://lutris.net/games/arcanum-of-steamworks-and-magick-obscura/",
     "name": "Arcanum: Of Steamworks and Magick Obscura",
     "runtime": "proton",
     "screenshots": [],
     "short": "Arcanum: Of Steamworks and Magick Obscura (Troika 2001, GOG v1.0.7.4 hotfix build 24155, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2001
   },
   "archimedean-dynasty": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Massive Development"
+    ],
+    "genres": [
+      "Simulation",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/archimedean-dynasty.jpg",
-    "long": "",
+    "long": "Archimedean Dynasty (German: Schleichfahrt) is an underwater submarine combat simulation set in a future where humanity lives in the deep ocean. The player is a mercenary submarine pilot taking on missions through a story-driven campaign, fighting enemy subs and upgrading equipment. It launched the Aquanox series and was developed by Massive Development.",
     "lutris": "https://lutris.net/games/archimedean-dynasty/",
     "name": "Archimedean Dynasty / Schleichfahrt",
     "runtime": "custom",
     "screenshots": [],
     "short": "Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1996
   },
   "arx-fatalis": {
     "developers": [
@@ -492,18 +562,25 @@
     "year": 2019
   },
   "babbdi": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Lemaitre Bros"
+    ],
+    "genres": [
+      "Adventure",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/babbdi.jpg",
-    "long": "",
+    "long": "Babbdi is a short free first-person exploration game set in an oppressive, brutalist concrete city. The player's only goal is to find a way to leave by train, traversing the surreal environment and collecting tools and items that grant new movement abilities. It is known for its dreamlike atmosphere and fluid traversal.",
     "lutris": "https://lutris.net/games/babbdi/",
     "name": "Babbdi",
     "runtime": "proton",
     "screenshots": [],
     "short": "Babbdi (Lemaitre Bros 2022, free first-person exploration, Unity Mono via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2022
   },
   "baby-steps": {
     "developers": [
@@ -592,32 +669,52 @@
     "year": 2024
   },
   "baldurs-gate-enhanced-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "BioWare",
+      "Beamdog"
+    ],
+    "genres": [
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/baldurs-gate-enhanced-edition.jpg",
-    "long": "",
+    "long": "Baldur's Gate: Enhanced Edition is a remaster of BioWare's classic 1998 Dungeons & Dragons role-playing game built on the Infinity Engine. Players create a hero, recruit a party, and explore the Sword Coast in a sprawling story of murder and intrigue, using real-time-with-pause AD&D 2nd Edition combat. The Enhanced Edition adds new companions, updated visuals, and the Siege of Dragonspear expansion.",
     "lutris": "https://lutris.net/games/baldurs-gate-enhanced-edition/",
     "name": "Baldur's Gate: Enhanced Edition + 3 DLC",
     "runtime": "native",
     "screenshots": [],
     "short": "Baldur's Gate: Enhanced Edition + 3 DLC (native Linux, Beamdog GOG v2.6.6.0p, fixed libs)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online Co-op",
+      "LAN Co-op"
+    ],
+    "year": 1998
   },
   "baldurs-gate-ii-enhanced-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "BioWare",
+      "Beamdog"
+    ],
+    "genres": [
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/baldurs-gate-ii-enhanced-edition.jpg",
-    "long": "",
+    "long": "Baldur's Gate II: Enhanced Edition is a remaster of BioWare's acclaimed 2000 Dungeons & Dragons role-playing game on the Infinity Engine. Players continue the saga of the Bhaalspawn through the city of Athkatla and beyond, with deep party-based real-time-with-pause AD&D combat and rich companion stories. This edition bundles the Throne of Bhaal expansion plus new content from Beamdog.",
     "lutris": "https://lutris.net/games/baldurs-gate-ii-enhanced-edition/",
     "name": "Baldur's Gate II: Enhanced Edition + DLC",
     "runtime": "native",
     "screenshots": [],
     "short": "Baldur's Gate II: Enhanced Edition + DLC (native Linux, Beamdog GOG v2.6.6.0p)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online Co-op",
+      "LAN Co-op"
+    ],
+    "year": 2000
   },
   "ball-x-pit": {
     "developers": [
@@ -659,32 +756,52 @@
     "year": 2025
   },
   "battlefield-1942": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "DICE"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/battlefield-1942.jpg",
-    "long": "",
+    "long": "Battlefield 1942 is a first-person shooter set in World War II, built around large-scale combined-arms battles across land, sea, and air. Players fight on foot or pilot tanks, planes, ships, and other vehicles to capture control points on sprawling historical maps. The Complete Collection bundles the base game with the Road to Rome and Secret Weapons of WWII expansions.",
     "lutris": "https://lutris.net/games/battlefield-1942/",
     "name": "Battlefield 1942 Complete Collection",
     "runtime": "proton",
     "screenshots": [],
     "short": "Battlefield 1942 Complete Collection (DICE 2002, community HD repack, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2002
   },
   "battlefield-1942-desert-combat": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Trauma Studios"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/battlefield-1942-desert-combat.jpg",
-    "long": "",
+    "long": "Desert Combat is a popular total-conversion mod for Battlefield 1942 that moves the action from World War II to modern desert warfare inspired by the Gulf War. It replaces the WWII arsenal with contemporary jets, helicopters, tanks, and infantry weapons across large multiplayer maps. The mod's success led to Trauma Studios being acquired by DICE.",
     "lutris": "https://lutris.net/games/battlefield-1942-desert-combat/",
     "name": "Battlefield 1942: Desert Combat",
     "runtime": "proton",
     "screenshots": [],
     "short": "Battlefield 1942: Desert Combat (Trauma Studios mod v0.8 final, bundled with BF1942 base, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2003
   },
   "battlefield-2": {
     "developers": [
@@ -791,18 +908,29 @@
     "year": 2020
   },
   "beyond-all-reason": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Beyond All Reason team"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/beyond-all-reason.jpg",
-    "long": "",
+    "long": "Beyond All Reason is a free, open-source real-time strategy game built on the Recoil/Spring engine, inspired by Total Annihilation and Supreme Commander. Players command armies of robotic units, harvest metal and energy, and fight massive battles featuring large unit counts and an economy-driven tech tree. It supports skirmishes against AI as well as large multiplayer and cooperative matches.",
     "lutris": "https://lutris.net/games/beyond-all-reason/",
     "name": "Beyond All Reason",
     "runtime": "custom",
     "screenshots": [],
     "short": "Beyond All Reason (free RTS on the Recoil/Spring engine; engine+assets pre-fetched at build time)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP",
+      "Online Co-op"
+    ],
+    "year": 2023
   },
   "bioshock": {
     "developers": [
@@ -873,32 +1001,48 @@
     "year": 2023
   },
   "blood-omen-legacy-of-kain": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Silicon Knights"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/blood-omen-legacy-of-kain.jpg",
-    "long": "",
+    "long": "Blood Omen: Legacy of Kain is a top-down action-adventure RPG that launched the Legacy of Kain series. The player controls the vampire Kain on a dark quest for revenge across the gothic world of Nosgoth, using swords, spells, and shapeshifting abilities. It is known for its mature storytelling and atmospheric narration.",
     "lutris": "https://lutris.net/games/blood-omen-legacy-of-kain/",
     "name": "Blood Omen: Legacy of Kain",
     "runtime": "proton",
     "screenshots": [],
     "short": "Blood Omen: Legacy of Kain (Silicon Knights / Crystal Dynamics 1996, GOG, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1996
   },
   "bloodborne-psx": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Lilith Walther"
+    ],
+    "genres": [
+      "Action",
+      "RPG",
+      "Horror"
+    ],
     "hero": "https://lutris.net/games/banner/bloodborne-psx.jpg",
-    "long": "",
+    "long": "Bloodborne PSX is a free fan-made demake that reimagines the opening hours of FromSoftware's Bloodborne in the low-poly visual style of a first-generation PlayStation game. Built in Unreal Engine 4, it recreates the gothic city of Yharnam and its challenging melee-and-firearm combat against grotesque enemies. It was created by Lilith Walther as a non-commercial tribute.",
     "lutris": "https://lutris.net/games/bloodborne-psx/",
     "name": "Bloodborne PSX",
     "runtime": "proton",
     "screenshots": [],
     "short": "Bloodborne PSX (Lilith Walther's PSX-styled fan demake v1.05, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2022
   },
   "boomerang-fu": {
     "developers": [
@@ -1025,46 +1169,73 @@
     "year": 2019
   },
   "bridge-builder-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Chronic Logic"
+    ],
+    "genres": [
+      "Puzzle",
+      "Simulation",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/bridge-builder-2.jpg",
-    "long": "",
+    "long": "Bridge Builder 2, also known as Bridge Construction Set, is a physics-based bridge-engineering puzzle game. Players design and build bridges within a budget, then test whether their structures can bear the weight of crossing trains and vehicles. It is a sequel to Chronic Logic's Pontifex/Bridge Builder line.",
     "lutris": "https://lutris.net/games/bridge-builder-2/",
     "name": "Bridge Builder 2 / Bridge Construction Set",
     "runtime": "proton",
     "screenshots": [],
     "short": "Bridge Builder 2 / Bridge Construction Set (Chronic Logic 2004, German Halycon release, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2004
   },
   "bridge-it": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Chronic Logic"
+    ],
+    "genres": [
+      "Puzzle",
+      "Simulation",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/bridge-it.jpg",
-    "long": "",
+    "long": "Bridge It is a physics-based bridge-building puzzle game in which players construct bridges from limited materials and a fixed budget. Each level is solved by engineering a structure strong enough to let trains pass without collapsing. The Plus edition adds extra levels and content over the base release.",
     "lutris": "https://lutris.net/games/bridge-it/",
     "name": "Bridge It Plus v1.32",
     "runtime": "proton",
     "screenshots": [],
     "short": "Bridge It Plus v1.32 (Chronic Logic, EN full, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2008
   },
   "broforce": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Free Lives"
+    ],
+    "genres": [
+      "Action",
+      "Platformer",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/broforce.jpg",
-    "long": "",
+    "long": "Broforce is a fast-paced run-and-gun platformer where players control parody action-movie heroes liberating the world from terrorists. Levels feature fully destructible environments and over-the-top explosions. It supports local and online cooperative play for up to four players, plus competitive deathmatch modes.",
     "lutris": "https://lutris.net/games/broforce/",
     "name": "Broforce / Broforce Forever",
     "runtime": "native",
     "screenshots": [],
     "short": "Broforce / Broforce Forever (native Linux, GOG build 71321)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Online Co-op",
+      "Shared/Split Screen Co-op",
+      "PvP"
+    ],
+    "year": 2015
   },
   "buckshot-roulette": {
     "developers": [
@@ -1142,18 +1313,27 @@
     "year": 2010
   },
   "burnout-3-takedown": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Criterion Games"
+    ],
+    "genres": [
+      "Racing",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/burnout-3-takedown.jpg",
-    "long": "",
+    "long": "Burnout 3: Takedown is an arcade racing game centered on aggressive driving, where players earn boost by drifting, drafting, and slamming rivals into traffic and obstacles. Its signature Takedown and Crash modes reward spectacular, high-speed wrecks. The game includes split-screen multiplayer for local competition.",
     "lutris": "https://lutris.net/games/burnout-3-takedown/",
     "name": "Burnout 3: Takedown",
     "runtime": "pcsx2",
     "screenshots": [],
     "short": "Burnout 3: Takedown (via PCSX2)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Shared/Split Screen"
+    ],
+    "year": 2004
   },
   "burntime": {
     "developers": [
@@ -1257,18 +1437,27 @@
     "year": 2020
   },
   "cave-story--1": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Studio Pixel"
+    ],
+    "genres": [
+      "Platformer",
+      "Adventure",
+      "Metroidvania",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/cave-story--1.jpg",
-    "long": "",
+    "long": "Cave Story (Doukutsu Monogatari) is a freeware action-adventure platformer created almost entirely by a single developer, Daisuke Amaya. Players explore an interconnected cavern world inhabited by the rabbit-like Mimiga, upgrading weapons and uncovering the story behind the floating island. It is widely regarded as a landmark of the independent game movement.",
     "lutris": "https://lutris.net/games/cave-story--1/",
     "name": "Cave Story / Doukutsu Monogatari",
     "runtime": "native",
     "screenshots": [],
     "short": "Cave Story / Doukutsu Monogatari (1.01 Linux freeware)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2004
   },
   "celeste": {
     "developers": [
@@ -1399,32 +1588,51 @@
     "year": 2018
   },
   "clive-barkers-undying": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "DreamWorks Interactive"
+    ],
+    "genres": [
+      "FPS",
+      "Horror",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/clive-barkers-undying.jpg",
-    "long": "",
+    "long": "Clive Barker's Undying is a first-person horror shooter set in 1920s Ireland, where paranormal investigator Patrick Galloway battles a curse afflicting the Covenant family estate. The player wields conventional weapons in one hand and magic spells in the other, including an ability to perceive the spirit world. The atmospheric story was created in collaboration with horror author Clive Barker.",
     "lutris": "https://lutris.net/games/clive-barkers-undying/",
     "name": "Clive Barker's Undying",
     "runtime": "proton",
     "screenshots": [],
     "short": "Clive Barker's Undying (DreamWorks Interactive / EA 2001, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2001
   },
   "clonk-4": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "RedWolf Design"
+    ],
+    "genres": [
+      "Strategy",
+      "Action",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/clonk-4.jpg",
-    "long": "",
+    "long": "Clonk 4 (Clonk Planet) is a 2D multiplayer action-strategy game where players command small humanoid creatures called Clonks to dig through landscapes, mine resources, build structures, and fight. It blends real-time tactics with physics-driven, fully diggable terrain. The game emphasizes network and local multiplayer with both cooperative and competitive scenarios.",
     "lutris": "https://lutris.net/games/clonk-4/",
     "name": "Clonk 4",
     "runtime": "proton",
     "screenshots": [],
     "short": "Clonk 4 (1998 freeware release, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "LAN Co-op"
+    ],
+    "year": 1998
   },
   "cloverpit": {
     "developers": [
@@ -1498,18 +1706,27 @@
     "year": 2023
   },
   "command-conquer": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Westwood Studios"
+    ],
+    "genres": [
+      "RTS",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/command-conquer.jpg",
-    "long": "",
+    "long": "Command & Conquer: Tiberian Dawn is the original entry in the seminal real-time strategy series, pitting the Global Defense Initiative against the terrorist Brotherhood of Nod in a war over the mysterious resource Tiberium. Players harvest resources, build bases, and command armies across full-motion-video briefed campaigns. This Vanilla Conquer port runs the game natively and retains its skirmish and network multiplayer.",
     "lutris": "https://lutris.net/games/command-conquer/",
     "name": "Command & Conquer: Tiberian Dawn",
     "runtime": "native",
     "screenshots": [],
     "short": "Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1995
   },
   "command-conquer-generals": {
     "developers": [
@@ -1575,18 +1792,27 @@
     "year": 2009
   },
   "command-conquer-red-alert-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Westwood Studios"
+    ],
+    "genres": [
+      "RTS",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/command-conquer-red-alert-2.jpg",
-    "long": "",
+    "long": "Command & Conquer: Red Alert 2 is a real-time strategy game set in an alternate-history Cold War, where the Soviet Union invades the United States and the Allies fight back with experimental technology. It is known for its campy full-motion-video cutscenes and asymmetric Allied and Soviet factions. This build bundles the Yuri's Revenge expansion, which adds a third faction, and supports skirmish and LAN multiplayer.",
     "lutris": "https://lutris.net/games/command-conquer-red-alert-2/",
     "name": "Command & Conquer: Red Alert 2 + Yuri's Revenge",
     "runtime": "proton",
     "screenshots": [],
     "short": "Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 2000
   },
   "command-conquer-renegade": {
     "developers": [
@@ -1621,32 +1847,48 @@
     "year": 2024
   },
   "command-conquer-tiberian-sun": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Westwood Studios"
+    ],
+    "genres": [
+      "RTS",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/command-conquer-tiberian-sun.jpg",
-    "long": "",
+    "long": "Command & Conquer: Tiberian Sun continues the GDI versus Nod conflict decades after the original, on an Earth increasingly mutated by spreading Tiberium. It introduced a new engine with deformable terrain, lighting effects, and a tech tree of futuristic units. This build bundles the Firestorm expansion and supports skirmish and LAN multiplayer.",
     "lutris": "https://lutris.net/games/command-conquer-tiberian-sun/",
     "name": "Command & Conquer: Tiberian Sun + Firestorm",
     "runtime": "proton",
     "screenshots": [],
     "short": "Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1999
   },
   "commandos-behind-enemy-lines": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Pyro Studios"
+    ],
+    "genres": [
+      "Strategy",
+      "Stealth"
+    ],
     "hero": "https://lutris.net/games/banner/commandos-behind-enemy-lines.jpg",
-    "long": "",
+    "long": "Commandos: Behind Enemy Lines is a real-time tactics game set in World War II, where the player directs a small squad of elite Allied commandos through carefully designed missions behind Axis lines. Each commando has unique specialist skills, and success demands stealth, planning, and precise coordination rather than brute force. It is a single-player title built around isometric puzzle-like scenarios.",
     "lutris": "https://lutris.net/games/commandos-behind-enemy-lines/",
     "name": "Commandos: Behind Enemy Lines",
     "runtime": "proton",
     "screenshots": [],
     "short": "Commandos: Behind Enemy Lines (1998 Eidos / Pyro Studios, English Win95, via Proton + Kruulos Ultimate Fix)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1998
   },
   "company-of-heroes": {
     "developers": [
@@ -1683,18 +1925,27 @@
     "year": 2006
   },
   "condemned-criminal-origins": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Monolith Productions"
+    ],
+    "genres": [
+      "Horror",
+      "FPS",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/condemned-criminal-origins.jpg",
-    "long": "",
+    "long": "Condemned: Criminal Origins is a first-person psychological horror game in which FBI agent Ethan Thomas hunts serial killers through derelict, decaying urban environments. Combat focuses on brutal, improvised melee using found objects, complemented by forensic investigation of crime scenes. The single-player game is built on the Lithtech Jupiter EX engine for tense, atmospheric encounters.",
     "lutris": "https://lutris.net/games/condemned-criminal-origins/",
     "name": "Condemned: Criminal Origins",
     "runtime": "proton",
     "screenshots": [],
     "short": "Condemned: Criminal Origins (Monolith Productions 2005, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2005
   },
   "conscript": {
     "developers": [
@@ -1743,18 +1994,27 @@
     "year": 2024
   },
   "crosscode": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Radical Fish Games"
+    ],
+    "genres": [
+      "RPG",
+      "Action",
+      "Adventure",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/crosscode.jpg",
-    "long": "",
+    "long": "CrossCode is a retro-inspired action RPG set inside a fictional massively multiplayer online game, following the mute player-character Lea as she recovers her memories. It combines fast 2D combat and ball-throwing puzzle mechanics with a deep story and exploration across a sci-fi fantasy world. This build includes the game's three additional DLC content packs.",
     "lutris": "https://lutris.net/games/crosscode/",
     "name": "CrossCode + 3 DLC",
     "runtime": "native",
     "screenshots": [],
     "short": "CrossCode + 3 DLC (v1.4.2-3, native Linux NW.js, GOG)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2018
   },
   "crow-country": {
     "developers": [
@@ -1803,18 +2063,27 @@
     "year": 2024
   },
   "cryostasis": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Action Forms"
+    ],
+    "genres": [
+      "Horror",
+      "FPS",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/cryostasis.jpg",
-    "long": "",
+    "long": "Cryostasis: Sleep of Reason is a first-person survival horror game set aboard a Soviet nuclear icebreaker frozen in the Arctic. The player must manage body heat against the lethal cold while exploring the ship, and can use a Mental Echo ability to enter the memories of the dead and alter past events. It is a single-player narrative experience known for its oppressive atmosphere and PhysX-driven ice effects.",
     "lutris": "https://lutris.net/games/cryostasis/",
     "name": "Cryostasis: Sleep of Reason",
     "runtime": "proton",
     "screenshots": [],
     "short": "Cryostasis: Sleep of Reason (GOG v2.0.0.13, via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2008
   },
   "crypt-of-the-necrodancer": {
     "developers": [
@@ -1974,46 +2243,70 @@
     "year": 2022
   },
   "cuphead": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Studio MDHR"
+    ],
+    "genres": [
+      "Action",
+      "Platformer",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/cuphead.jpg",
-    "long": "",
+    "long": "Cuphead is a run-and-gun action game famous for its hand-drawn, 1930s rubber-hose cartoon art style and jazz soundtrack. Players battle through a series of challenging, pattern-heavy boss fights and run-and-gun levels to repay a debt to the Devil. It can be played solo or in local two-player cooperative mode.",
     "lutris": "https://lutris.net/games/cuphead/",
     "name": "Cuphead Legacy",
     "runtime": "proton",
     "screenshots": [],
     "short": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2017
   },
   "dark-messiah-of-might-and-magic": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Arkane Studios"
+    ],
+    "genres": [
+      "Action",
+      "RPG",
+      "FPS"
+    ],
     "hero": "https://lutris.net/games/banner/dark-messiah-of-might-and-magic.jpg",
-    "long": "",
+    "long": "Dark Messiah of Might and Magic is a first-person action RPG built on Valve's Source engine, set in the Might and Magic fantasy universe. Combat emphasizes physics-driven, environmental kills, letting players kick enemies into spike traps, off ledges, or into hazards alongside swords, bows, and magic. This is the single-player campaign following the apprentice Sareth.",
     "lutris": "https://lutris.net/games/dark-messiah-of-might-and-magic/",
     "name": "Dark Messiah of Might and Magic",
     "runtime": "proton",
     "screenshots": [],
     "short": "Dark Messiah of Might and Magic (Arkane 2006, Source engine, ElAmigos repack, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2006
   },
   "dark-souls-prepare-to-die-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "FromSoftware"
+    ],
+    "genres": [
+      "RPG",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/dark-souls-prepare-to-die-edition.jpg",
-    "long": "",
+    "long": "Dark Souls: Prepare to Die Edition is an action RPG renowned for its punishing difficulty, deliberate combat, and interconnected dark-fantasy world of Lordran. Players manage stamina, learn enemy patterns, and recover lost souls after each death while uncovering cryptic environmental storytelling. This build runs the single-player experience with the multiplayer netcode stripped out.",
     "lutris": "https://lutris.net/games/dark-souls-prepare-to-die-edition/",
     "name": "Dark Souls: Prepare to Die Edition",
     "runtime": "proton",
     "screenshots": [],
     "short": "Dark Souls: Prepare to Die Edition (single-player, DSCM stripped, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2012
   },
   "darkest-dungeon": {
     "developers": [
@@ -2409,45 +2702,72 @@
     "year": 2016
   },
   "diablo-ii-lord-of-destruction": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Blizzard North"
+    ],
+    "genres": [
+      "RPG",
+      "Action",
+      "Hack and Slash"
+    ],
     "hero": "https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg",
-    "long": "",
+    "long": "Diablo II is an isometric action RPG and hack-and-slash dungeon crawler in which players battle through randomized levels, collecting loot and developing a character across skill trees. The Lord of Destruction expansion adds two new character classes, a fifth act, and expanded itemization. This build supports local and LAN multiplayer for cooperative play and player-versus-player duels.",
     "lutris": "https://lutris.net/games/diablo-ii-lord-of-destruction/",
     "name": "Diablo II + Lord of Destruction",
     "runtime": "proton",
     "screenshots": [],
     "short": "Diablo II + Lord of Destruction (CJ_Strife portable, via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "LAN Co-op"
+    ],
+    "year": 2001
   },
   "die-in-the-dungeon-classic": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Alarts"
+    ],
+    "genres": [
+      "Roguelike",
+      "Strategy",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/die-in-the-dungeon-classic.jpg",
-    "long": "",
+    "long": "Die in the Dungeon: CLASSIC is a dice-based roguelike dungeon crawler originally created for the Brackeys Game Jam. Players place and combine dice on a board to attack, defend, and trigger effects as they descend through procedurally arranged encounters. The free prototype emphasizes deck-building-style synergy with dice instead of cards.",
     "lutris": "https://lutris.net/games/die-in-the-dungeon-classic/",
     "name": "Die in the Dungeon: CLASSIC",
     "runtime": "custom",
     "screenshots": [],
     "short": "Die in the Dungeon: CLASSIC (Alarts/ATICO 2021, native Linux, itch.io v1.6.2f)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2021
   },
   "disco-elysium-game-boy-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Optriromontain"
+    ],
+    "genres": [
+      "RPG",
+      "Adventure",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/disco-elysium-game-boy-edition.jpg",
-    "long": "",
+    "long": "Disco Elysium: Game Boy Edition is an unofficial fan demake of ZA/UM's acclaimed detective RPG, reimagined as a Game Boy Color cartridge. It compresses the original's dialogue-driven investigation and skill-check systems into a retro 8-bit presentation. The ROM is played through a Game Boy emulator.",
     "lutris": "https://lutris.net/games/disco-elysium-game-boy-edition/",
     "name": "Disco Elysium: Game Boy Edition",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Disco Elysium: Game Boy Edition (fan demake, via RetroArch / mGBA)",
     "steam_appid": null,
-    "tags": [],
+    "tags": [
+      "Single-player"
+    ],
     "year": null
   },
   "disco-elysium-the-final-cut": {
@@ -2582,32 +2902,52 @@
     "year": 2022
   },
   "doom": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "id Software"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/doom.jpg",
-    "long": "",
+    "long": "The Ultimate DOOM is the definitive re-release of the genre-defining first-person shooter, bundling the original three episodes with the fourth, Thy Flesh Consumed. Players blast through demon-infested Mars bases and hellish landscapes with an iconic arsenal at breakneck speed. Driven here by the GZDoom source port, it supports cooperative and deathmatch multiplayer over a network.",
     "lutris": "https://lutris.net/games/doom/",
     "name": "The Ultimate DOOM",
     "runtime": "custom",
     "screenshots": [],
     "short": "The Ultimate DOOM (id Software 1995, DOOM.WAD via GZDoom)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "LAN Co-op"
+    ],
+    "year": 1995
   },
   "doom-ii": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "id Software"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/doom-ii.jpg",
-    "long": "",
+    "long": "DOOM II: Hell on Earth is id Software's sequel to the genre-defining first-person shooter, pitting the lone marine against demonic hordes across 32 levels set on a ravaged Earth. It introduced the double-barreled super shotgun and new enemy types like the Arch-vile and Mancubus. This package runs the commercial DOOM2.WAD through the modern open-source GZDoom engine, which adds OpenGL/Vulkan rendering and supports classic cooperative and deathmatch network play.",
     "lutris": "https://lutris.net/games/doom-ii/",
     "name": "DOOM II: Hell on Earth",
     "runtime": "custom",
     "screenshots": [],
     "short": "DOOM II: Hell on Earth (id Software 1994, DOOM2.WAD via GZDoom)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN Co-op",
+      "LAN PvP"
+    ],
+    "year": 1994
   },
   "dredge": {
     "developers": [
@@ -2651,18 +2991,26 @@
     "year": 2023
   },
   "driver-san-francisco": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Ubisoft Reflections"
+    ],
+    "genres": [
+      "Racing",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/driver-san-francisco.jpg",
-    "long": "",
+    "long": "Driver: San Francisco is an open-world action driving game in which detective John Tanner pursues his nemesis Charles Jericho across the city. Its signature \"Shift\" mechanic lets the player instantly teleport between any vehicle on the road. This package runs the single-player campaign through Proton with the Ubisoft DRM stubbed out, so online and friends features are unavailable.",
     "lutris": "https://lutris.net/games/driver-san-francisco/",
     "name": "Driver: San Francisco",
     "runtime": "proton",
     "screenshots": [],
     "short": "Driver: San Francisco (Ubisoft Reflections 2011, single-player via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2011
   },
   "duck-game": {
     "developers": [
@@ -2935,32 +3283,51 @@
     "year": 2022
   },
   "earth-2140": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Reality Pump Studios"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/earth-2140.jpg",
-    "long": "",
+    "long": "Earth 2140 is a real-time strategy game set in a post-apocalyptic future where the Eurasian Dynasty and the United Civilized States wage war over the planet's dwindling resources. Players build bases, harvest materials and command land, air and naval units across two campaigns. This GOG reissue is an SDL2 source port run through Proton.",
     "lutris": "https://lutris.net/games/earth-2140/",
     "name": "Earth 2140 (Reality Pump / TopWare 1997, GOG Trilogy) via Proton",
     "runtime": "proton",
     "screenshots": [],
     "short": "Earth 2140 (Reality Pump / TopWare 1997, GOG Trilogy) via Proton",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1997
   },
   "earth-2150": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Reality Pump Studios"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/earth-2150.jpg",
-    "long": "",
+    "long": "Earth 2150: Escape from the Blue Planet is a fully 3D real-time strategy game continuing the war between the Eurasian Dynasty, the United Civilized States and the Lunar Corporation as they race to evacuate a doomed Earth. It features dynamic terrain deformation, day/night cycles and persistent unit and research progress carried between missions. Runs through Proton; note that the campaign FMV cutscenes do not render under this setup.",
     "lutris": "https://lutris.net/games/earth-2150/",
     "name": "Earth 2150: Escape from the Blue Planet",
     "runtime": "proton",
     "screenshots": [],
     "short": "Earth 2150: Escape from the Blue Planet (Reality Pump 2000, GOG, via Proton -- campaign FMV cutscenes don't render, see note above)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2000
   },
   "easy-delivery-co": {
     "developers": [
@@ -3001,18 +3368,28 @@
     "year": 2025
   },
   "emperor-battle-for-dune": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Westwood Studios"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/emperor-battle-for-dune.jpg",
-    "long": "",
+    "long": "Emperor: Battle for Dune is a 3D real-time strategy game based on Frank Herbert's Dune, in which House Atreides, House Harkonnen and House Ordos fight for control of the spice-rich planet Arrakis. It blends a branching campaign with full-motion-video storytelling and lets players ally with five sub-factions. This build applies the wheybags patch, restoring HD resolutions and multiplayer, and runs through Proton.",
     "lutris": "https://lutris.net/games/emperor-battle-for-dune/",
     "name": "Emperor: Battle for Dune",
     "runtime": "proton",
     "screenshots": [],
     "short": "Emperor: Battle for Dune (Westwood 2001, via Proton with wheybags HD/multiplayer patch)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2001
   },
   "empire-earth": {
     "developers": [
@@ -3228,18 +3605,28 @@
     "year": 2015
   },
   "europa-1400-the-guild": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "4HEAD Studios"
+    ],
+    "genres": [
+      "Simulation",
+      "Strategy",
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/europa-1400-the-guild.jpg",
-    "long": "",
+    "long": "Europa 1400: The Guild is a life and business simulation set in late-medieval Europe, where the player builds a dynasty by running a trade, craft or service while scheming through politics, courts and intrigue against rival families. It blends economic management with role-playing and emergent social simulation across multiple generations. This Gold Edition runs through Proton and gamescope.",
     "lutris": "https://lutris.net/games/europa-1400-the-guild/",
     "name": "Europa 1400: The Guild - Gold Edition",
     "runtime": "proton",
     "screenshots": [],
     "short": "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 2002
   },
   "everhood": {
     "developers": [
@@ -3551,32 +3938,51 @@
     "year": 2008
   },
   "far-cry-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Ubisoft Montreal"
+    ],
+    "genres": [
+      "FPS",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/far-cry-2.jpg",
-    "long": "",
+    "long": "Far Cry 2 is an open-world first-person shooter set in a war-torn African nation, where a mercenary suffering from malaria hunts an arms dealer known as the Jackal. It is known for its emergent systems, including spreading fire, weapon degradation and self-administered field medicine. This package is Fortune's Edition with the community Realism Plus Redux overhaul applied, run through Proton.",
     "lutris": "https://lutris.net/games/far-cry-2/",
     "name": "Far Cry 2: Fortune's Edition + Realism Plus Redux",
     "runtime": "proton",
     "screenshots": [],
     "short": "Far Cry 2: Fortune's Edition + Realism Plus Redux (Ubisoft 2008, Dunia, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2008
   },
   "fear": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Monolith Productions",
+      "TimeGate Studios"
+    ],
+    "genres": [
+      "FPS",
+      "Horror",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/fear.jpg",
-    "long": "",
+    "long": "F.E.A.R. (First Encounter Assault Recon) is a horror first-person shooter that combines cinematic slow-motion gunfights and aggressive enemy AI with a supernatural storyline centered on the ghostly Alma Wade. The Platinum Collection bundles Monolith's 2005 original with the TimeGate expansions Extraction Point and Perseus Mandate. Runs through Proton from the GOG release.",
     "lutris": "https://lutris.net/games/fear/",
     "name": "F.E.A.R. Platinum Collection",
     "runtime": "proton",
     "screenshots": [],
     "short": "F.E.A.R. Platinum Collection (Monolith 2005 + TimeGate 2006/2007, GOG v2.1.0.7, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP"
+    ],
+    "year": 2005
   },
   "fez": {
     "developers": [
@@ -3613,45 +4019,73 @@
     "year": 2013
   },
   "final-doom-plutonia": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "id Software"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/final-doom-plutonia.jpg",
-    "long": "",
+    "long": "Final Doom: The Plutonia Experiment is a 32-level commercial megawad created by Dario and Milo Casali and released by id Software as one half of Final Doom. It is notorious for its punishing difficulty, throwing dense monster encounters and tight traps at the player. PLUTONIA.WAD is a standalone DOOM II replacement, driven here by the modern GZDoom engine with support for classic cooperative and deathmatch play.",
     "lutris": "https://lutris.net/games/final-doom-plutonia/",
     "name": "Final Doom: The Plutonia Experiment",
     "runtime": "custom",
     "screenshots": [],
     "short": "Final Doom: The Plutonia Experiment (Casali/id 1996, PLUTONIA.WAD via GZDoom)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN Co-op",
+      "LAN PvP"
+    ],
+    "year": 1996
   },
   "final-doom-tnt": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "TeamTNT",
+      "id Software"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/final-doom-tnt.jpg",
-    "long": "",
+    "long": "Final Doom: TNT - Evilution is a 32-level commercial megawad built by the TeamTNT community group and published by id Software as one half of Final Doom. It sends the player through UAC bases and demonic landscapes with new level design and music. TNT.WAD is a standalone DOOM II replacement, run here through the modern GZDoom engine with support for classic cooperative and deathmatch play.",
     "lutris": "https://lutris.net/games/final-doom-tnt/",
     "name": "Final Doom: TNT - Evilution",
     "runtime": "custom",
     "screenshots": [],
     "short": "Final Doom: TNT - Evilution (TeamTNT/id 1996, TNT.WAD via GZDoom)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN Co-op",
+      "LAN PvP"
+    ],
+    "year": 1996
   },
   "flappy-bird": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "NiroUwU"
+    ],
+    "genres": [
+      "Casual",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/flappy-bird.jpg",
-    "long": "",
+    "long": "Flappy Bird is a minimalist arcade game in which the player taps to keep a bird aloft, threading it through an endless series of pipe gaps for as high a score as possible. The original 2013 mobile hit by .Gears had no PC release. This package ships \"Floppy Bird\", a faithful open-source clone by NiroUwU built on the LOVE (Love2D) engine and run natively on Linux.",
     "lutris": "https://lutris.net/games/flappy-bird/",
     "name": "Flappy Bird",
     "runtime": "native",
     "screenshots": [],
     "short": "Flappy Bird (Fl\u00f6ppy Bird, faithful Love2D clone by NiroUwU, native Linux)",
     "steam_appid": null,
-    "tags": [],
+    "tags": [
+      "Single-player"
+    ],
     "year": null
   },
   "forager": {
@@ -3698,18 +4132,26 @@
     "year": 2019
   },
   "forbidden-siren": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "SCE Japan Studio"
+    ],
+    "genres": [
+      "Horror",
+      "Survival",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/forbidden-siren.jpg",
-    "long": "",
+    "long": "Forbidden Siren is a survival horror game set in the cursed Japanese village of Hanuda, where the dead rise as relentless \"Shibito\" after a failed ritual. Its signature \"sightjacking\" mechanic lets players tap into enemies' vision to plan stealthy movement, as the helpless cast must mostly evade rather than fight. This PlayStation 2 release runs via the PCSX2 emulator.",
     "lutris": "https://lutris.net/games/forbidden-siren/",
     "name": "Forbidden Siren",
     "runtime": "pcsx2",
     "screenshots": [],
     "short": "Forbidden Siren (Sony 2003, PAL PS2, via PCSX2)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2003
   },
   "freelancer": {
     "developers": [
@@ -3776,18 +4218,26 @@
     "year": 2020
   },
   "ftl-faster-than-light": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Subset Games"
+    ],
+    "genres": [
+      "Strategy",
+      "Roguelike",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/ftl-faster-than-light.jpg",
-    "long": "",
+    "long": "FTL: Faster Than Light is a spaceship-management roguelike in which the player captains a vessel fleeing across the galaxy while carrying critical information, managing power, crew and systems through real-time tactical encounters. Each run is procedurally generated, with permanent death and branching event choices. This is the free Advanced Edition content update, run as a native Linux build from GOG.",
     "lutris": "https://lutris.net/games/ftl-faster-than-light/",
     "name": "FTL: Faster Than Light Advanced Edition",
     "runtime": "native",
     "screenshots": [],
     "short": "FTL: Faster Than Light Advanced Edition (native Linux, GOG v1.6.12)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2012
   },
   "full-throttle": {
     "developers": [
@@ -3827,17 +4277,21 @@
   },
   "game-of-robot": {
     "developers": [],
-    "genres": [],
+    "genres": [
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/game-of-robot.jpg",
-    "long": "",
+    "long": "The Game of Robot is an obscure 1988 MS-DOS action game. It runs here through the DOSBox-X emulator.",
     "lutris": "https://lutris.net/games/game-of-robot/",
     "name": "The Game of Robot",
     "runtime": "native",
     "screenshots": [],
     "short": "The Game of Robot (1988, via DOSBox-X)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1988
   },
   "gamedec": {
     "developers": [
@@ -3954,32 +4408,46 @@
     "year": 2007
   },
   "golden-sun": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Camelot Software Planning"
+    ],
+    "genres": [
+      "RPG",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/golden-sun.jpg",
-    "long": "",
+    "long": "Golden Sun is a Game Boy Advance role-playing game following the young Adept Isaac on a quest to stop the dangerous power of Alchemy from being unleashed upon the world. It is known for its elemental \"Psynergy\" abilities used in and out of battle, and for collectible Djinn that customize characters and summon powerful creatures. This package runs the GBA ROM through RetroArch using the mGBA core.",
     "lutris": "https://lutris.net/games/golden-sun/",
     "name": "Golden Sun",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Golden Sun (Camelot/Nintendo, 2001 GBA, via RetroArch / mGBA)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2001
   },
   "golden-sun-the-lost-age": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Camelot Software Planning"
+    ],
+    "genres": [
+      "RPG",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/golden-sun-the-lost-age.jpg",
-    "long": "",
+    "long": "Golden Sun: The Lost Age is the Game Boy Advance sequel that continues the first game's story from the perspective of the rival party led by Felix, expanding the world and the consequences of unleashing Alchemy. It refines the elemental Psynergy and Djinn systems and lets players import data from the original game. This package runs the GBA ROM through RetroArch using the mGBA core.",
     "lutris": "https://lutris.net/games/golden-sun-the-lost-age/",
     "name": "Golden Sun: The Lost Age",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Golden Sun: The Lost Age (Camelot/Nintendo, 2003 GBA, via RetroArch / mGBA)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2003
   },
   "gothic": {
     "developers": [
@@ -4090,18 +4558,28 @@
     "year": 2010
   },
   "grand-theft-auto-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "DMA Design"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/grand-theft-auto-2.jpg",
-    "long": "",
+    "long": "Grand Theft Auto 2 is a top-down open-world action game set in a retro-futuristic city divided among rival criminal gangs, where the player takes on missions, builds reputation with each gang and causes mayhem for cash. It expanded on the original with a gang-respect system and more chaotic sandbox play. Released as freeware by Rockstar, this NT-kernel-patched portable build runs through Proton.",
     "lutris": "https://lutris.net/games/grand-theft-auto-2/",
     "name": "Grand Theft Auto 2",
     "runtime": "proton",
     "screenshots": [],
     "short": "Grand Theft Auto 2 (DMA Design / Rockstar 1999, freeware, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 1999
   },
   "grand-theft-auto-san-andreas": {
     "developers": [
@@ -4160,18 +4638,26 @@
     "year": 2023
   },
   "graveyard-keeper": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Lazy Bear Games"
+    ],
+    "genres": [
+      "Simulation",
+      "RPG",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/graveyard-keeper.jpg",
-    "long": "",
+    "long": "Graveyard Keeper is a darkly comic medieval cemetery-management simulation in which the player inherits a graveyard and must tend graves, gather resources, craft, cook and build a business while cutting morally dubious corners. It mixes survival and RPG progression with a branching story and a satirical tone. This package bundles three DLC and runs as a native Linux build from GOG.",
     "lutris": "https://lutris.net/games/graveyard-keeper/",
     "name": "Graveyard Keeper +3 DLC",
     "runtime": "native",
     "screenshots": [],
     "short": "Graveyard Keeper +3 DLC (native Linux, GOG v1.405 build 55214)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2018
   },
   "grim-fandango-remastered": {
     "developers": [
@@ -4344,18 +4830,25 @@
     "year": 2004
   },
   "half-life-uplink": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Valve"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/half-life-uplink.jpg",
-    "long": "",
+    "long": "Half-Life: Uplink is a standalone single-player demo released by Valve in 1999, featuring an exclusive chapter not found in the full game in which Gordon Freeman fights through the Black Mesa facility to reach a communications relay. It showcases the original GoldSrc engine's scripted set-pieces and combat. This package runs the genuine Uplink gamedir on the WON Half-Life engine through Proton.",
     "lutris": "https://lutris.net/games/half-life-uplink/",
     "name": "Half-Life: Uplink",
     "runtime": "proton",
     "screenshots": [],
     "short": "Half-Life: Uplink (Valve 1999 free demo campaign, via WON Half-Life + Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1999
   },
   "hardspace-shipbreaker": {
     "developers": [
@@ -4663,18 +5156,28 @@
     "year": 2025
   },
   "homeworld": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Relic Entertainment"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/homeworld.jpg",
-    "long": "",
+    "long": "Homeworld 2 is a fully three-dimensional real-time strategy game set in space, continuing the story of the Hiigarans and their Mothership. Players build and command fleets of capital ships, fighters and corvettes while managing resources and research across a single-player campaign. It is renowned for its cinematic presentation, tactical formations and full freedom of movement in 3D combat.",
     "lutris": "https://lutris.net/games/homeworld/",
     "name": "Homeworld 2",
     "runtime": "proton",
     "screenshots": [],
     "short": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2003
   },
   "hotline-miami": {
     "developers": [
@@ -4747,18 +5250,27 @@
     "year": 2015
   },
   "hyper-metroid": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "RealRed"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Metroidvania",
+      "Platformer"
+    ],
     "hero": "https://lutris.net/games/banner/hyper-metroid.jpg",
-    "long": "",
+    "long": "Hyper Metroid is a full-length ROM hack of Super Metroid that overhauls the world map, item progression and enemies into an entirely new adventure. Samus explores an interconnected alien planet, gaining upgrades that unlock previously inaccessible areas in classic Metroidvania fashion. It features redesigned graphics, new music and rebalanced boss encounters.",
     "lutris": "https://lutris.net/games/hyper-metroid/",
     "name": "Hyper Metroid",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2015
   },
   "indiana-jones-and-the-fate-of-atlantis": {
     "developers": [
@@ -4792,18 +5304,25 @@
     "year": 2009
   },
   "indiana-jones-and-the-last-crusade-the-graphic-adventure": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Lucasfilm Games"
+    ],
+    "genres": [
+      "Adventure",
+      "Point & Click"
+    ],
     "hero": "https://lutris.net/games/banner/indiana-jones-and-the-last-crusade-the-graphic-adventure.jpg",
-    "long": "",
+    "long": "Indiana Jones and the Last Crusade: The Graphic Adventure is a point-and-click adventure based on the film, built on the SCUMM engine. Players guide Indy through puzzles and dialogue as he searches for the Holy Grail, with multiple solution paths and an IQ scoring system that rewards exploration. It blends item-based puzzle solving with fist-fight sequences.",
     "lutris": "https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/",
     "name": "Indiana Jones and the Last Crusade: The Graphic Adventure",
     "runtime": "native",
     "screenshots": [],
     "short": "Indiana Jones and the Last Crusade: The Graphic Adventure (1989 Lucasfilm SCUMM floppy, via ScummVM)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1989
   },
   "inscryption": {
     "developers": [
@@ -4881,18 +5400,27 @@
     "year": 2016
   },
   "interstate-76": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Activision"
+    ],
+    "genres": [
+      "Action",
+      "Simulation",
+      "Racing"
+    ],
     "hero": "https://lutris.net/games/banner/interstate-76.jpg",
-    "long": "",
+    "long": "Interstate '76 is a vehicular combat game set in an alternate 1976 of the American Southwest, styled after 1970s exploitation cinema. Players drive armed muscle cars through a story-driven campaign, customizing weapons and armor while engaging in highway shootouts. The Arsenal edition bundles the original game with the Nitro Pack expansion and additional missions and vehicles.",
     "lutris": "https://lutris.net/games/interstate-76/",
     "name": "Interstate '76 Arsenal",
     "runtime": "proton",
     "screenshots": [],
     "short": "Interstate '76 Arsenal (Activision 1997, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 1997
   },
   "invisible-inc": {
     "developers": [
@@ -5029,32 +5557,52 @@
     "year": 2012
   },
   "jazz-jackrabbit-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Epic MegaGames"
+    ],
+    "genres": [
+      "Action",
+      "Platformer"
+    ],
     "hero": "https://lutris.net/games/banner/jazz-jackrabbit-2.jpg",
-    "long": "",
+    "long": "Jazz Jackrabbit 2 is a fast-paced side-scrolling platformer starring the green rabbit Jazz and his brother Spaz. Players run, jump and shoot through colorful cartoon levels collecting gems and power-ups. The Jazz2 Resurrection reimplementation adds online and local multiplayer, including cooperative and competitive modes on modern systems.",
     "lutris": "https://lutris.net/games/jazz-jackrabbit-2/",
     "name": "Jazz Jackrabbit 2",
     "runtime": "native",
     "screenshots": [],
     "short": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "Shared/Split Screen",
+      "Online Co-op",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 1998
   },
   "jet-set-radio": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Smilebit",
+      "BlitWorks"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/jet-set-radio.jpg",
-    "long": "",
+    "long": "Jet Set Radio is a cel-shaded action game where players control a gang of rollerblading youths who spray graffiti and grind across the streets of Tokyo-to. Players evade police and rival gangs while tagging territory in time-pressured stages set to an eclectic soundtrack. The 2012 PC port by BlitWorks brings the Dreamcast classic to modern hardware with high resolution support.",
     "lutris": "https://lutris.net/games/jet-set-radio/",
     "name": "Jet Set Radio",
     "runtime": "proton",
     "screenshots": [],
     "short": "Jet Set Radio (Smilebit/SEGA 2000, Blitworks 2012 PC port, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2000
   },
   "journey": {
     "developers": [
@@ -5139,60 +5687,91 @@
     "year": 2018
   },
   "kknd": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Beam Software"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/kknd.jpg",
-    "long": "",
+    "long": "Krush Kill 'n Destroy (KKnD) is a post-apocalyptic real-time strategy game pitting the surface-dwelling Survivors against the mutant Evolved. Players harvest resources, build bases and command armored units across a campaign of base-building skirmishes. The Xtreme re-release adds extra missions and higher-resolution support.",
     "lutris": "https://lutris.net/games/kknd/",
     "name": "KKnD Xtreme / Krush Kill 'n Destroy",
     "runtime": "proton",
     "screenshots": [],
     "short": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1997
   },
   "kknd2-krossfire": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Beam Software"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/kknd2-krossfire.jpg",
-    "long": "",
+    "long": "KKND2: Krossfire is the sequel to Krush Kill 'n Destroy, a post-apocalyptic real-time strategy game adding a third faction, the underground Series 9 robots, alongside the Survivors and Evolved. Players gather resources, construct bases and wage war across single-player campaigns and multiplayer skirmishes. It moved to a fully sprite-based engine with refined unit control.",
     "lutris": "https://lutris.net/games/kknd2-krossfire/",
     "name": "KKND2: Krossfire",
     "runtime": "proton",
     "screenshots": [],
     "short": "KKND2: Krossfire (Beam Software 1998, GOG, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1998
   },
   "lands-of-lore-ii-guardians-of-destiny": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Westwood Studios"
+    ],
+    "genres": [
+      "RPG",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/lands-of-lore-ii-guardians-of-destiny.jpg",
-    "long": "",
+    "long": "Lands of Lore II: Guardians of Destiny is a first-person action role-playing game and sequel to The Throne of Chaos. Players control Luther, son of the sorceress Scotia, who is cursed with shape-shifting transformations he must master to break. The game mixes real-time melee and spellcasting combat with adventure-style puzzle solving across a 3D world with prerendered scenes.",
     "lutris": "https://lutris.net/games/lands-of-lore-ii-guardians-of-destiny/",
     "name": "Lands of Lore II: Guardians of Destiny",
     "runtime": "proton",
     "screenshots": [],
     "short": "Lands of Lore II: Guardians of Destiny (Westwood 1997, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1997
   },
   "lands-of-lore-the-throne-of-chaos": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Westwood Studios"
+    ],
+    "genres": [
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/lands-of-lore-the-throne-of-chaos.jpg",
-    "long": "",
+    "long": "Lands of Lore: The Throne of Chaos is a first-person grid-based role-playing game in the tradition of Eye of the Beholder. Players lead a party against the shape-shifting witch Scotia, exploring dungeons, solving puzzles and battling monsters in real time. It features digitized character portraits and a voice cameo by Patrick Stewart as King Richard.",
     "lutris": "https://lutris.net/games/lands-of-lore-the-throne-of-chaos/",
     "name": "Lands of Lore: The Throne of Chaos",
     "runtime": "custom",
     "screenshots": [],
     "short": "Lands of Lore: The Throne of Chaos (1993 Westwood CD, via DOSBox-X)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1993
   },
   "leap-year": {
     "developers": [
@@ -5329,18 +5908,26 @@
     "year": 2012
   },
   "legacy-of-kaintm-soul-reaver-12-remastered": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Crystal Dynamics",
+      "Aspyr"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/legacy-of-kaintm-soul-reaver-12-remastered.jpg",
-    "long": "",
+    "long": "Legacy of Kain Soul Reaver 1+2 Remastered bundles the two classic action-adventure games following the vampire-turned-wraith Raziel. Players explore the gothic world of Nosgoth, shifting between the spectral and material planes to solve environmental puzzles and battle enemies. The 2024 remaster adds modernized visuals, updated controls and quality-of-life improvements while preserving the original gameplay.",
     "lutris": "https://lutris.net/games/legacy-of-kaintm-soul-reaver-12-remastered/",
     "name": "Legacy of Kain Soul Reaver 1+2 Remastered",
     "runtime": "proton",
     "screenshots": [],
     "short": "Legacy of Kain Soul Reaver 1+2 Remastered (Crystal Dynamics / Aspyr 2024, GOG v1.01, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2024
   },
   "lego-star-wars-the-complete-saga": {
     "developers": [
@@ -5381,31 +5968,45 @@
     "year": 2009
   },
   "lemmings": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "DMA Design"
+    ],
+    "genres": [
+      "Puzzle",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/lemmings.jpg",
-    "long": "",
+    "long": "Lemmings is a puzzle game in which players guide a steady stream of mindless lemming creatures safely to an exit. By assigning skills such as digging, building and blocking to individual lemmings, players carve safe paths through hazardous levels. The CD version adds enhanced CD audio to the original challenging stages.",
     "lutris": "https://lutris.net/games/lemmings/",
     "name": "Lemmings",
     "runtime": "native",
     "screenshots": [],
     "short": "Lemmings (DOS CD version with CD audio, via DOSBox-X)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1991
   },
   "lemmings-95": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "DMA Design"
+    ],
+    "genres": [
+      "Puzzle",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/lemmings-95.jpg",
-    "long": "",
+    "long": "Lemmings 95 is the Windows release of the classic puzzle game, tasking players with guiding herds of lemmings to safety. Players assign skills like digging, climbing and bridge-building to navigate each level's traps and obstacles within a limited budget of abilities. It packages the original Lemmings levels for Windows 95 systems.",
     "lutris": "https://lutris.net/games/lemmings-95/",
     "name": "Lemmings 95",
     "runtime": "native",
     "screenshots": [],
     "short": "Lemmings 95 (Windows 95 version via Wine)",
     "steam_appid": null,
-    "tags": [],
+    "tags": [
+      "Single-player"
+    ],
     "year": null
   },
   "lidar-dot-exe": {
@@ -5442,32 +6043,48 @@
     "year": 2025
   },
   "liminal-doom-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "dashlet"
+    ],
+    "genres": [
+      "Action",
+      "FPS"
+    ],
     "hero": "https://lutris.net/games/banner/liminal-doom-2.jpg",
-    "long": "",
+    "long": "Liminal Doom 2: Crossing The Threshold is a fan-made PWAD level set for Doom II using the MBF21 standard. It delivers new maps with custom layouts and encounters playable through the GZDoom source port. Players fight through demonic hordes using the classic Doom arsenal.",
     "lutris": "https://lutris.net/games/liminal-doom-2/",
     "name": "Liminal Doom 2: Crossing The Threshold",
     "runtime": "custom",
     "screenshots": [],
     "short": "Liminal Doom 2: Crossing The Threshold (dashlet 2024, MBF21 PWAD via GZDoom)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2024
   },
   "lone-survivor": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Superflat Games"
+    ],
+    "genres": [
+      "Adventure",
+      "Horror",
+      "Survival",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/lone-survivor.jpg",
-    "long": "",
+    "long": "Lone Survivor is a 2D psychological survival horror game following a masked protagonist navigating a city overrun by infected creatures. Players manage scarce food, ammunition and sanity while exploring side-scrolling environments and deciding when to fight or sneak past enemies. The Director's Cut adds new areas, items and endings to the original release.",
     "lutris": "https://lutris.net/games/lone-survivor/",
     "name": "Lone Survivor: The Director's Cut",
     "runtime": "proton",
     "screenshots": [],
     "short": "Lone Survivor: The Director's Cut (Superflat Games, GOG v1.0 build 21178, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2012
   },
   "loop-hero": {
     "developers": [
@@ -5656,18 +6273,26 @@
     "year": 2011
   },
   "manhunt": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Rockstar North"
+    ],
+    "genres": [
+      "Action",
+      "Stealth",
+      "Horror"
+    ],
     "hero": "https://lutris.net/games/banner/manhunt.jpg",
-    "long": "",
+    "long": "Manhunt is a stealth-based survival horror game in which death-row inmate James Earl Cash is forced to commit brutal executions for a sadistic director filming snuff videos. Players lurk in shadows, distract enemies and time silent kills of varying violence to progress through a decaying urban hell. It is known for its grim tone and tense hide-and-stalk gameplay.",
     "lutris": "https://lutris.net/games/manhunt/",
     "name": "Manhunt",
     "runtime": "proton",
     "screenshots": [],
     "short": "Manhunt (Rockstar North 2003 stealth-horror, archive.org preinstalled image, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2003
   },
   "manifold-garden": {
     "developers": [
@@ -5794,18 +6419,28 @@
     "year": 2009
   },
   "medal-of-honor-allied-assault": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "2015, Inc."
+    ],
+    "genres": [
+      "Action",
+      "FPS"
+    ],
     "hero": "https://lutris.net/games/banner/medal-of-honor-allied-assault.jpg",
-    "long": "",
+    "long": "Medal of Honor: Allied Assault is a World War II first-person shooter casting the player as a US Army Ranger across campaigns including the Normandy landings. Players complete scripted military missions involving infiltration, sabotage and large-scale firefights. It is celebrated for its cinematic D-Day beach assault and also offers competitive multiplayer modes.",
     "lutris": "https://lutris.net/games/medal-of-honor-allied-assault/",
     "name": "Medal of Honor: Allied Assault",
     "runtime": "native",
     "screenshots": [],
     "short": "Medal of Honor: Allied Assault (2015 Inc. / EA 2002, retail v1.00 data, via OpenMoHAA source port)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2002
   },
   "metal-gear-solid": {
     "developers": [
@@ -5859,18 +6494,26 @@
     "year": 2025
   },
   "metal-gear-solid-2-substance": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Konami"
+    ],
+    "genres": [
+      "Action",
+      "Stealth",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/metal-gear-solid-2-substance.jpg",
-    "long": "",
+    "long": "Metal Gear Solid 2: Substance is an expanded edition of Sons of Liberty, a stealth action game following agents Solid Snake and Raiden against a terrorist plot involving the Metal Gear weapon. Players sneak past or neutralize guards using gadgets, distractions and close-quarters combat in a heavily narrative-driven campaign. Substance adds hundreds of VR and alternative missions plus extra side stories.",
     "lutris": "https://lutris.net/games/metal-gear-solid-2-substance/",
     "name": "Metal Gear Solid 2: Substance",
     "runtime": "pcsx2",
     "screenshots": [],
     "short": "Metal Gear Solid 2: Substance (PS2 Europe, via PCSX2)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2002
   },
   "metal-slug--1": {
     "developers": [
@@ -6027,18 +6670,25 @@
     "year": 2026
   },
   "monkey-island-2-special-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "LucasArts"
+    ],
+    "genres": [
+      "Adventure",
+      "Point & Click"
+    ],
     "hero": "https://lutris.net/games/banner/monkey-island-2-special-edition.jpg",
-    "long": "",
+    "long": "Monkey Island 2: LeChuck's Revenge is a point-and-click adventure following wannabe pirate Guybrush Threepwood as he hunts for the legendary treasure of Big Whoop. Players explore Caribbean islands, gather items and solve inventory and dialogue puzzles while the ghost pirate LeChuck returns. This SE Talkie edition pairs the original VGA artwork with the Special Edition's full voice acting under ScummVM.",
     "lutris": "https://lutris.net/games/monkey-island-2-special-edition/",
     "name": "Monkey Island 2: LeChuck's Revenge",
     "runtime": "native",
     "screenshots": [],
     "short": "Monkey Island 2: LeChuck's Revenge (1991 LucasArts, SE Talkie fan-edition for ScummVM: original VGA + SE speech)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1991
   },
   "mouthwashing": {
     "developers": [
@@ -6126,18 +6776,26 @@
     "year": 2020
   },
   "myhouse-wad": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Veddge"
+    ],
+    "genres": [
+      "Horror",
+      "FPS",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/myhouse-wad.jpg",
-    "long": "",
+    "long": "MyHouse.wad is a 2023 horror modification for Doom II, built for the GZDoom source port. Disguised as an ordinary recreation of the author's childhood home, it gradually warps into a non-euclidean nightmare of shifting, impossible architecture. The mod became famous for its unsettling level design and hidden narrative layers.",
     "lutris": "https://lutris.net/games/myhouse-wad/",
     "name": "MyHouse.wad",
     "runtime": "custom",
     "screenshots": [],
     "short": "MyHouse.wad (Veddge 2023, non-euclidean horror mod; myhouse.pk3 + DOOM2.WAD via GZDoom)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2023
   },
   "myst": {
     "developers": [
@@ -6176,46 +6834,70 @@
     "year": 2011
   },
   "need-for-speed-carbon": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "EA Black Box"
+    ],
+    "genres": [
+      "Racing",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/need-for-speed-carbon.jpg",
-    "long": "",
+    "long": "Need for Speed: Carbon is a 2006 arcade racing game and sequel to Most Wanted. Players build a crew and race through the city of Palmont, including high-speed canyon duels against rival gang leaders. It features customizable cars, open-world street racing, and territory control gameplay.",
     "lutris": "https://lutris.net/games/need-for-speed-carbon/",
     "name": "Need for Speed: Carbon (2006)",
     "runtime": "proton",
     "screenshots": [],
     "short": "Need for Speed: Carbon (2006) (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2006
   },
   "need-for-speed-most-wanted": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "EA Black Box"
+    ],
+    "genres": [
+      "Racing",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/need-for-speed-most-wanted.jpg",
-    "long": "",
+    "long": "Need for Speed: Most Wanted (2005) is an open-world arcade racing game set in the city of Rockport. Players race illegally through the streets while evading an aggressive police force, climbing a Blacklist of rival racers to reach number one. It is known for its intense police pursuits and car customization.",
     "lutris": "https://lutris.net/games/need-for-speed-most-wanted/",
     "name": "Need for Speed: Most Wanted (2005)",
     "runtime": "proton",
     "screenshots": [],
     "short": "Need for Speed: Most Wanted (2005) (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2005
   },
   "need-for-speed-underground-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "EA Black Box"
+    ],
+    "genres": [
+      "Racing",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/need-for-speed-underground-2.jpg",
-    "long": "",
+    "long": "Need for Speed: Underground 2 (2004) is an arcade street-racing game centered on the import tuner scene. It introduced a free-roaming open city where players explore to find races, shops, and events. Deep visual and performance car customization is a core feature of the game.",
     "lutris": "https://lutris.net/games/need-for-speed-underground-2/",
     "name": "Need for Speed: Underground 2",
     "runtime": "proton",
     "screenshots": [],
     "short": "Need for Speed: Underground 2 (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2004
   },
   "nice-day-for-fishing": {
     "developers": [
@@ -6298,18 +6980,27 @@
     "year": 2014
   },
   "no-one-lives-forever": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Monolith Productions"
+    ],
+    "genres": [
+      "FPS",
+      "Stealth",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/no-one-lives-forever.jpg",
-    "long": "",
+    "long": "The Operative: No One Lives Forever is a 2000 first-person shooter with stealth elements set in a 1960s spy-fiction world. Players control secret agent Cate Archer, using gadgets, disguises, and weapons to thwart a criminal organization. It is celebrated for its witty writing, humor, and stylish Cold War espionage atmosphere.",
     "lutris": "https://lutris.net/games/no-one-lives-forever/",
     "name": "The Operative: No One Lives Forever",
     "runtime": "proton",
     "screenshots": [],
     "short": "The Operative: No One Lives Forever (Monolith 2000, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2000
   },
   "noita": {
     "developers": [
@@ -6542,17 +7233,24 @@
     "year": 2020
   },
   "outer-wilds-alpha": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Mobius Digital"
+    ],
+    "genres": [
+      "Adventure",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/outer-wilds-alpha.jpg",
-    "long": "",
+    "long": "Outer Wilds Alpha 1.2 is an early prototype build of the acclaimed space-exploration adventure. The player explores a small handcrafted solar system trapped in a time loop, uncovering the secrets of an ancient civilization. This alpha showcases the core open-world exploration and physics-driven planetary systems before the full release.",
     "lutris": "https://lutris.net/games/outer-wilds-alpha/",
     "name": "Outer Wilds Alpha 1.2",
     "runtime": "proton",
     "screenshots": [],
     "short": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
+    "tags": [
+      "Single-player"
+    ],
     "year": null
   },
   "overcooked-2": {
@@ -6673,31 +7371,48 @@
   },
   "paquerette-down-the-bunburrows": {
     "developers": [],
-    "genres": [],
+    "genres": [
+      "Puzzle",
+      "Indie",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/paquerette-down-the-bunburrows.jpg",
-    "long": "",
+    "long": "Paquerette Down the Bunburrows is a 2022 indie puzzle game about catching rabbits in a sprawling, interconnected warren. Players navigate grid-based burrows and use spatial reasoning to corner elusive bunnies. It is praised for its deep, gradually escalating puzzle mechanics and large, maze-like world.",
     "lutris": "https://lutris.net/games/paquerette-down-the-bunburrows/",
     "name": "Paquerette Down the Bunburrows v1.1.2",
     "runtime": "proton",
     "screenshots": [],
     "short": "Paquerette Down the Bunburrows v1.1.2 (GOG, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2022
   },
   "perfect-dark": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Rare"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/perfect-dark.jpg",
-    "long": "",
+    "long": "Perfect Dark is a 2000 first-person shooter for the Nintendo 64, developed by Rare as a spiritual successor to GoldenEye 007. Players control agent Joanna Dark in a near-future sci-fi conspiracy spanning stealth and action missions. It is renowned for its expansive split-screen multiplayer with bots, co-op, and counter-operative modes.",
     "lutris": "https://lutris.net/games/perfect-dark/",
     "name": "Perfect Dark",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Perfect Dark (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Shared/Split Screen",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2000
   },
   "pico-park": {
     "developers": [
@@ -6984,31 +7699,45 @@
   },
   "pokemmo": {
     "developers": [],
-    "genres": [],
+    "genres": [
+      "RPG",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/pokemmo.jpg",
-    "long": "",
+    "long": "PokeMMO is a fan-made massively multiplayer online client that turns classic Pokemon games into a shared online world. Players explore familiar regions together, trade, and battle other trainers in real time. It features competitive online PvP, a player-driven economy, and seasonal events.",
     "lutris": "https://lutris.net/games/pokemmo/",
     "name": "PokeMMO",
     "runtime": "native",
     "screenshots": [],
     "short": "PokeMMO (Java multiplayer Pokemon client; ROMs preconfigured)",
     "steam_appid": null,
-    "tags": [],
+    "tags": [
+      "Multi-player",
+      "Online PvP"
+    ],
     "year": null
   },
   "pokemon-ranger": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "HAL Laboratory"
+    ],
+    "genres": [
+      "RPG",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/pokemon-ranger.jpg",
-    "long": "",
+    "long": "Pokemon Ranger is a 2006 action-RPG spin-off for the Nintendo DS. Instead of capturing Pokemon in balls, players use the touch screen to draw loops around wild Pokemon with the Capture Styler to befriend them. Captured Pokemon temporarily aid the Ranger in solving environmental puzzles and missions.",
     "lutris": "https://lutris.net/games/pokemon-ranger/",
     "name": "Pok\u00e9mon Ranger",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Pok\u00e9mon Ranger (via RetroArch / melonDS)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2006
   },
   "pools": {
     "developers": [
@@ -7288,18 +8017,26 @@
     "year": 2013
   },
   "prototype": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Radical Entertainment"
+    ],
+    "genres": [
+      "Action",
+      "Hack and Slash",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/prototype.jpg",
-    "long": "",
+    "long": "Prototype is a 2009 open-world action game set in a viral-outbreak-stricken New York City. Players control Alex Mercer, a shapeshifter with superhuman abilities who can consume enemies to absorb their forms and memories. The game emphasizes free-roaming traversal and brutal, large-scale combat against military and infected forces.",
     "lutris": "https://lutris.net/games/prototype/",
     "name": "Prototype",
     "runtime": "proton",
     "screenshots": [],
     "short": "Prototype (Radical/Activision 2009, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2009
   },
   "proximate": {
     "developers": [
@@ -7369,18 +8106,28 @@
     "year": 2006
   },
   "quake-iii-arena": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "id Software"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/quake-iii-arena.jpg",
-    "long": "",
+    "long": "Quake III Arena is a 1999 multiplayer-focused first-person shooter built around fast, competitive arena combat. It strips away a traditional campaign in favor of deathmatch and tournament modes against human players or bots. The game is a cornerstone of competitive online FPS play, known for its movement mechanics and weapon balance.",
     "lutris": "https://lutris.net/games/quake-iii-arena/",
     "name": "Quake III Arena",
     "runtime": "native",
     "screenshots": [],
     "short": "Quake III Arena (id Software 1999, retail CD v1.11, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 1999
   },
   "rain-world": {
     "developers": [
@@ -7800,17 +8547,23 @@
   },
   "roketz--1": {
     "developers": [],
-    "genres": [],
+    "genres": [
+      "Action",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/roketz--1.jpg",
-    "long": "",
+    "long": "Roketz is a 1996 gravity-based cave-flying game in the tradition of Thrust and Gravity Force. Players pilot a rocket through tight, physics-driven caverns, managing momentum and fuel while fighting enemies. It includes a two-player split-screen versus mode for head-to-head dogfights.",
     "lutris": "https://lutris.net/games/roketz--1/",
     "name": "Roketz",
     "runtime": "custom",
     "screenshots": [],
     "short": "Roketz (1996, via DOSBox-X)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Shared/Split Screen PvP"
+    ],
+    "year": 1996
   },
   "rollercoaster-tycoon": {
     "developers": [
@@ -8067,32 +8820,52 @@
     "year": 2026
   },
   "serious-sam": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Croteam"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/serious-sam.jpg",
-    "long": "",
+    "long": "Serious Sam: The First Encounter is a 2001 first-person shooter known for its frantic, old-school action against massive hordes of enemies. Set across ancient Egyptian environments, the player battles overwhelming swarms in wide-open arenas with a powerful arsenal. It supports cooperative multiplayer over LAN and the internet.",
     "lutris": "https://lutris.net/games/serious-sam/",
     "name": "Serious Sam: The First Encounter",
     "runtime": "proton",
     "screenshots": [],
     "short": "Serious Sam: The First Encounter (Croteam 2001, retail v1.05, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online Co-op",
+      "LAN Co-op"
+    ],
+    "year": 2001
   },
   "serious-sam-the-second-encounter": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Croteam"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/serious-sam-the-second-encounter.jpg",
-    "long": "",
+    "long": "Serious Sam: The Second Encounter is a 2002 first-person shooter that continues the series' fast-paced, horde-driven combat. It adds new weapons, enemies, and environments spanning Mesoamerican, Mesopotamian, and medieval European settings. Like its predecessor, it supports cooperative multiplayer over LAN and online.",
     "lutris": "https://lutris.net/games/serious-sam-the-second-encounter/",
     "name": "Serious Sam: The Second Encounter",
     "runtime": "proton",
     "screenshots": [],
     "short": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online Co-op",
+      "LAN Co-op"
+    ],
+    "year": 2002
   },
   "shadow-man-remastered": {
     "developers": [
@@ -8130,46 +8903,69 @@
     "year": 2021
   },
   "shadow-of-the-colossus": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Team Ico"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/shadow-of-the-colossus.jpg",
-    "long": "",
+    "long": "Shadow of the Colossus is a 2005 action-adventure game for the PlayStation 2. The player journeys across a vast, desolate land to slay sixteen towering colossi in order to revive a lost loved one. Each colossus is a moving puzzle-boss that must be scaled and struck at its weak points, with minimal combat in between.",
     "lutris": "https://lutris.net/games/shadow-of-the-colossus/",
     "name": "Shadow of the Colossus",
     "runtime": "pcsx2",
     "screenshots": [],
     "short": "Shadow of the Colossus (via PCSX2)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2005
   },
   "shadowrun-dragonfall-directors-cut": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Harebrained Schemes"
+    ],
+    "genres": [
+      "RPG",
+      "Turn-Based Strategy",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/shadowrun-dragonfall-directors-cut.jpg",
-    "long": "",
+    "long": "Shadowrun: Dragonfall - Director's Cut is a 2014 tactical RPG set in the cyberpunk-fantasy Shadowrun universe. Players lead a team of shadowrunners through a story-driven campaign in the Berlin Flux State, mixing magic, technology, and turn-based combat. The Director's Cut adds new missions, characters, and improved gameplay over the original release.",
     "lutris": "https://lutris.net/games/shadowrun-dragonfall-directors-cut/",
     "name": "Shadowrun: Dragonfall \u2014 Director's Cut",
     "runtime": "native",
     "screenshots": [],
     "short": "Shadowrun: Dragonfall \u2014 Director's Cut (Harebrained Schemes 2014, native Linux, GOG v2.0.9)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2014
   },
   "shadowrun-hong-kong-extended-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Harebrained Schemes"
+    ],
+    "genres": [
+      "RPG",
+      "Turn-Based Strategy",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/shadowrun-hong-kong-extended-edition.jpg",
-    "long": "",
+    "long": "Shadowrun: Hong Kong - Extended Edition is a 2015 tactical RPG set in the dystopian cyberpunk-fantasy city of Hong Kong. Players build a runner team and progress through a narrative-heavy campaign featuring turn-based combat, hacking, and magic. The Extended Edition adds extra story content and quality-of-life improvements.",
     "lutris": "https://lutris.net/games/shadowrun-hong-kong-extended-edition/",
     "name": "Shadowrun: Hong Kong \u2014 Extended Edition",
     "runtime": "native",
     "screenshots": [],
     "short": "Shadowrun: Hong Kong \u2014 Extended Edition (Harebrained Schemes 2015, native Linux, GOG v2.8.0.11)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2015
   },
   "shadowrun-returns": {
     "developers": [
@@ -8346,18 +9142,28 @@
     "year": 2014
   },
   "sid-meiers-civilization-iv": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Firaxis Games"
+    ],
+    "genres": [
+      "Strategy",
+      "Turn-Based Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/sid-meiers-civilization-iv.jpg",
-    "long": "",
+    "long": "Sid Meier's Civilization IV is a 2005 turn-based 4X strategy game in which players build and guide a civilization from antiquity into the future. It introduced religion, great people, and a refined culture system to the long-running series. The Complete Edition bundles the base game with its expansions, supporting both single-player and multiplayer.",
     "lutris": "https://lutris.net/games/sid-meiers-civilization-iv/",
     "name": "Sid Meier's Civilization IV: The Complete Edition",
     "runtime": "proton",
     "screenshots": [],
     "short": "Sid Meier's Civilization IV: The Complete Edition (Firaxis 2005, GOG build 2.0.0.4, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP"
+    ],
+    "year": 2005
   },
   "sid-meiers-pirates": {
     "developers": [
@@ -8464,18 +9270,26 @@
     "year": 2024
   },
   "simcity-2000": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Maxis"
+    ],
+    "genres": [
+      "Simulation",
+      "City Builder",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/simcity-2000.jpg",
-    "long": "",
+    "long": "SimCity 2000 is a city-building simulation where players design, fund, and manage a growing metropolis. It introduced an isometric view, underground layers for water pipes and subways, and detailed zoning, utilities, and budget management. The Special Edition bundles the Urban Renewal Kit and additional scenarios.",
     "lutris": "https://lutris.net/games/simcity-2000/",
     "name": "SimCity 2000 Special Edition",
     "runtime": "custom",
     "screenshots": [],
     "short": "SimCity 2000 Special Edition (Maxis 1996 DOS, via DOSBox-X)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1993
   },
   "simon-the-sorcerer": {
     "developers": [
@@ -8510,18 +9324,26 @@
     "year": 2021
   },
   "sin": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Ritual Entertainment"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/sin.jpg",
-    "long": "",
+    "long": "SiN is a first-person shooter built on the Quake II engine in which players control security force commander John Blade battling the SinTEK corporation and its leader Elexis Sinclaire. It mixes action combat with branching missions and interactive environments. SiN Gold bundles the original game with the Wages of Sin expansion.",
     "lutris": "https://lutris.net/games/sin/",
     "name": "SiN Gold",
     "runtime": "proton",
     "screenshots": [],
     "short": "SiN Gold (Ritual Entertainment 1998, GOG v1.13b build 36951, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 1998
   },
   "slay-the-spire": {
     "developers": [
@@ -8650,18 +9472,26 @@
     "year": 2020
   },
   "spec-ops-the-line": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Yager Development"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/spec-ops-the-line.jpg",
-    "long": "",
+    "long": "Spec Ops: The Line is a third-person military shooter following Captain Martin Walker and a Delta Force squad sent into a sandstorm-buried Dubai. Known for its dark, psychological narrative, it subverts genre conventions while featuring cover-based combat and morally weighted choices. The game includes a separate team-based multiplayer mode.",
     "lutris": "https://lutris.net/games/spec-ops-the-line/",
     "name": "Spec Ops: The Line",
     "runtime": "proton",
     "screenshots": [],
     "short": "Spec Ops: The Line (2012 Yager, GOG, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2012
   },
   "spellforce-2-anniversary-edition": {
     "developers": [
@@ -8769,32 +9599,52 @@
     "year": 2023
   },
   "stalker-shadow-of-chernobyl": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "GSC Game World"
+    ],
+    "genres": [
+      "FPS",
+      "Survival",
+      "RPG",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/stalker-shadow-of-chernobyl.jpg",
-    "long": "",
+    "long": "S.T.A.L.K.E.R.: Shadow of Chernobyl is an open-world first-person shooter set in an alternate Chernobyl Exclusion Zone warped by a second nuclear disaster. Players take on the role of an amnesiac stalker exploring the Zone, fighting mutants and factions, scavenging artifacts, and managing survival amid radiation and anomalies. It blends FPS combat with RPG and survival mechanics in a nonlinear world.",
     "lutris": "https://lutris.net/games/stalker-shadow-of-chernobyl/",
     "name": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
     "runtime": "proton",
     "screenshots": [],
     "short": "S.T.A.L.K.E.R.: Shadow of Chernobyl (THC DVD English, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player"
+    ],
+    "year": 2007
   },
   "star-wars-battlefront-2": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Pandemic Studios"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/star-wars-battlefront-2.jpg",
-    "long": "",
+    "long": "Star Wars: Battlefront II is a large-scale shooter set across the Star Wars galaxy, letting players fight as clones, droids, rebels, and Imperials in infantry and vehicle combat. It adds space battles, playable Jedi heroes, and a story-driven galactic conquest campaign. The game supports split-screen and online multiplayer modes.",
     "lutris": "https://lutris.net/games/star-wars-battlefront-2/",
     "name": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
     "runtime": "proton",
     "screenshots": [],
     "short": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Shared/Split Screen",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2005
   },
   "star-wars-jedi-knight-ii-jedi-outcast": {
     "developers": [
@@ -8869,18 +9719,28 @@
     "year": 2009
   },
   "starcraft": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Blizzard Entertainment"
+    ],
+    "genres": [
+      "RTS",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/starcraft.jpg",
-    "long": "",
+    "long": "StarCraft is a science-fiction real-time strategy game featuring three asymmetric factions: the human Terrans, the insectoid Zerg, and the psionic Protoss. Players gather resources, build bases, and command armies across a sprawling story campaign and competitive multiplayer. The Brood War expansion adds new units and continues the storyline.",
     "lutris": "https://lutris.net/games/starcraft/",
     "name": "StarCraft + Brood War",
     "runtime": "proton",
     "screenshots": [],
     "short": "StarCraft + Brood War (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "Online PvP"
+    ],
+    "year": 1998
   },
   "stardew-valley": {
     "developers": [
@@ -9183,18 +10043,25 @@
     "year": 2012
   },
   "super-mario-64": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Nintendo"
+    ],
+    "genres": [
+      "Platformer",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/super-mario-64.jpg",
-    "long": "",
+    "long": "Super Mario 64 is a pioneering 3D platformer in which Mario explores Princess Peach's castle and dives into painting-portal worlds to collect Power Stars and rescue the princess from Bowser. It introduced free-roaming analog movement, an open level design, and a dynamic camera that defined the 3D platforming genre.",
     "lutris": "https://lutris.net/games/super-mario-64/",
     "name": "Super Mario 64",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Super Mario 64 (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1996
   },
   "super-meat-boy": {
     "developers": [
@@ -9235,32 +10102,52 @@
     "year": 2010
   },
   "super-metroid": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Nintendo R&D1",
+      "Intelligent Systems"
+    ],
+    "genres": [
+      "Metroidvania",
+      "Action",
+      "Adventure",
+      "Platformer"
+    ],
     "hero": "https://lutris.net/games/banner/super-metroid.jpg",
-    "long": "",
+    "long": "Super Metroid follows bounty hunter Samus Aran as she explores the labyrinthine planet Zebes to recover a stolen Metroid and battle Space Pirates. The game is a landmark of the genre, emphasizing atmospheric exploration, ability-gated backtracking, and item upgrades that open new areas. Its interconnected world design influenced countless later Metroidvania titles.",
     "lutris": "https://lutris.net/games/super-metroid/",
     "name": "Super Metroid",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Super Metroid (Nintendo R&D1, 1994 SNES, via RetroArch / bsnes)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1994
   },
   "super-smash-bros-melee": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "HAL Laboratory"
+    ],
+    "genres": [
+      "Fighting",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/super-smash-bros-melee.jpg",
-    "long": "",
+    "long": "Super Smash Bros. Melee is a crossover platform fighter for the Nintendo GameCube featuring characters from across Nintendo franchises. Players battle on themed stages, knocking opponents off the screen rather than depleting health bars. It is renowned for its fast, technical gameplay and remains a staple of competitive fighting-game tournaments.",
     "lutris": "https://lutris.net/games/super-smash-bros-melee/",
     "name": "Super Smash Bros. Melee",
     "runtime": "native",
     "screenshots": [],
     "short": "Super Smash Bros. Melee (via Dolphin)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Shared/Split Screen",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2001
   },
   "superhot": {
     "developers": [
@@ -9414,32 +10301,49 @@
     "year": 2022
   },
   "swat-4": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Irrational Games"
+    ],
+    "genres": [
+      "FPS",
+      "Action",
+      "Strategy"
+    ],
     "hero": "https://lutris.net/games/banner/swat-4.jpg",
-    "long": "",
+    "long": "SWAT 4 is a tactical first-person shooter in which players lead a five-member police special-weapons team through hostage and high-risk situations. Emphasizing planning, less-lethal options, and procedure over run-and-gun action, missions reward restraint and arresting suspects. The Gold Edition includes the Stetchkov Syndicate expansion and supports cooperative and competitive multiplayer.",
     "lutris": "https://lutris.net/games/swat-4/",
     "name": "SWAT 4: Gold Edition",
     "runtime": "proton",
     "screenshots": [],
     "short": "SWAT 4: Gold Edition (Irrational Games 2005, GOG, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online Co-op"
+    ],
+    "year": 2005
   },
   "syndicate": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Bullfrog Productions"
+    ],
+    "genres": [
+      "Strategy",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/syndicate.jpg",
-    "long": "",
+    "long": "Syndicate is a real-time tactical strategy game set in a dystopian cyberpunk future where players direct a squad of four cybernetic agents to seize control of cities for their corporate syndicate. Missions involve assassinations, persuasion, and combat, with research used to develop new weapons and cybernetic upgrades between operations.",
     "lutris": "https://lutris.net/games/syndicate/",
     "name": "Syndicate",
     "runtime": "native",
     "screenshots": [],
     "short": "Syndicate (via FreeSynd engine)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1993
   },
   "system-shock": {
     "developers": [
@@ -9754,18 +10658,26 @@
     "year": 2025
   },
   "the-floor-is-jelly": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Ian Snyder"
+    ],
+    "genres": [
+      "Platformer",
+      "Puzzle",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/the-floor-is-jelly.jpg",
-    "long": "",
+    "long": "The Floor is Jelly is a puzzle-platformer built around a world where every surface wobbles and ripples like jelly. Players use the elastic, bouncing terrain to navigate atmospheric levels and solve physics-based puzzles. Its distinctive deformable environments and minimalist art give it a dreamlike, experimental feel.",
     "lutris": "https://lutris.net/games/the-floor-is-jelly/",
     "name": "The Floor is Jelly",
     "runtime": "proton",
     "screenshots": [],
     "short": "The Floor is Jelly (Ian Snyder 2014, Adobe AIR / Windows via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2014
   },
   "the-jackbox-megapicker": {
     "developers": [
@@ -9812,74 +10724,115 @@
     "year": 2020
   },
   "the-legend-of-zelda-a-link-to-the-past": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Nintendo"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg",
-    "long": "",
+    "long": "The Legend of Zelda: A Link to the Past is a top-down action-adventure following Link as he travels between a Light World and a Dark World to rescue Princess Zelda and defeat the wizard Agahnim and Ganon. It features puzzle-filled dungeons, an arsenal of items and weapons, and a sprawling overworld. The game is widely regarded as a defining entry in the series.",
     "lutris": "https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/",
     "name": "The Legend of Zelda: A Link to the Past",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1991
   },
   "the-legend-of-zelda-majoras-mask": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Nintendo"
+    ],
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/the-legend-of-zelda-majoras-mask.jpg",
-    "long": "",
+    "long": "The Legend of Zelda: Majora's Mask is a 3D action-adventure in which Link must prevent the moon from crashing into the land of Termina within a repeating three-day cycle. Using the Ocarina to manipulate time and transformative masks to gain new abilities, players solve dungeons and aid townsfolk. Its dark tone and time-loop mechanics set it apart in the series.",
     "lutris": "https://lutris.net/games/the-legend-of-zelda-majoras-mask/",
     "name": "The Legend of Zelda: Majora's Mask",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "The Legend of Zelda: Majora's Mask (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2000
   },
   "the-legend-of-zelda-ocarina-of-time": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Nintendo"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "RPG"
+    ],
     "hero": "https://lutris.net/games/banner/the-legend-of-zelda-ocarina-of-time.jpg",
-    "long": "",
+    "long": "The Legend of Zelda: Ocarina of Time is a landmark 3D action-adventure following Link across time to stop Ganondorf from seizing the Triforce. It introduced Z-targeting combat, context-sensitive controls, and ocarina-based music puzzles that became series staples. Set in the kingdom of Hyrule, it is frequently cited as one of the most influential games ever made.",
     "lutris": "https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/",
     "name": "The Legend of Zelda: Ocarina of Time",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1998
   },
   "the-legend-of-zelda-oracle-of-ages": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Capcom",
+      "Flagship"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Puzzle"
+    ],
     "hero": "https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-ages.jpg",
-    "long": "",
+    "long": "The Legend of Zelda: Oracle of Ages is a top-down action-adventure for the Game Boy Color in which Link travels between past and present in the land of Labrynna to rescue the Oracle Nayru. The Ages title emphasizes time-traveling puzzles over the combat focus of its companion game. It can be linked with Oracle of Seasons via passwords for an extended connected story.",
     "lutris": "https://lutris.net/games/the-legend-of-zelda-oracle-of-ages/",
     "name": "The Legend of Zelda: Oracle of Ages",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "The Legend of Zelda: Oracle of Ages (via RetroArch / mGBA)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2001
   },
   "the-legend-of-zelda-oracle-of-seasons": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Capcom",
+      "Flagship"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Puzzle"
+    ],
     "hero": "https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-seasons.jpg",
-    "long": "",
+    "long": "The Legend of Zelda: Oracle of Seasons is a top-down action-adventure for the Game Boy Color in which Link uses the Rod of Seasons to change the seasons and traverse the land of Holodrum, rescuing the Oracle Din. The Seasons title leans toward action and combat compared to its puzzle-focused companion. It links with Oracle of Ages via passwords for a combined storyline.",
     "lutris": "https://lutris.net/games/the-legend-of-zelda-oracle-of-seasons/",
     "name": "The Legend of Zelda: Oracle of Seasons",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2001
   },
   "the-library-of-babel": {
     "developers": [
@@ -9953,46 +10906,75 @@
     "year": 2009
   },
   "the-settlers-ii-gold-edition": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Blue Byte"
+    ],
+    "genres": [
+      "Strategy",
+      "City Builder",
+      "Simulation"
+    ],
     "hero": "https://lutris.net/games/banner/the-settlers-ii-gold-edition.jpg",
-    "long": "",
+    "long": "The Settlers II is a real-time strategy and building game where players grow a settlement by managing intricate supply chains of resources and goods carried along road networks. Players expand territory, raise armies, and conquer rivals across campaign and free-play maps. This edition runs on the open-source Return to the Roots engine, which adds widescreen support and network multiplayer.",
     "lutris": "https://lutris.net/games/the-settlers-ii-gold-edition/",
     "name": "The Settlers II Gold",
     "runtime": "native",
     "screenshots": [],
     "short": "The Settlers II Gold (via Return to the Roots)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP",
+      "Online PvP"
+    ],
+    "year": 1996
   },
   "the-settlers-iii": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Blue Byte"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS",
+      "City Builder"
+    ],
     "hero": "https://lutris.net/games/banner/the-settlers-iii.jpg",
-    "long": "",
+    "long": "The Settlers III is a real-time strategy and economy game in which players build settlements and complex production chains for one of three peoples: Romans, Egyptians, or Asians. Unlike earlier entries, settlers travel without fixed road networks, and players manage resource gathering, expansion, and military conquest. The Ultimate Collection bundles the base game with its expansions.",
     "lutris": "https://lutris.net/games/the-settlers-iii/",
     "name": "The Settlers III",
     "runtime": "proton",
     "screenshots": [],
     "short": "The Settlers III (Blue Byte 1998, GOG Ultimate Collection v1.60 v2 English, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "LAN PvP"
+    ],
+    "year": 1998
   },
   "the-simpsons-hit-run": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Radical Entertainment"
+    ],
+    "genres": [
+      "Action",
+      "Adventure",
+      "Racing"
+    ],
     "hero": "https://lutris.net/games/banner/the-simpsons-hit-run.jpg",
-    "long": "",
+    "long": "The Simpsons: Hit & Run is an open-world action-driving game set in Springfield, parodying the Grand Theft Auto formula. Players control Homer, Bart, Lisa, Marge, and Apu across seven levels, completing missions on foot and behind the wheel. It was developed by Radical Entertainment and published by Vivendi Universal Games.",
     "lutris": "https://lutris.net/games/the-simpsons-hit-run/",
     "name": "The Simpsons: Hit & Run",
     "runtime": "proton",
     "screenshots": [],
     "short": "The Simpsons: Hit & Run (Vivendi/Radical 2003 PC port, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2003
   },
   "the-talos-principle": {
     "developers": [
@@ -10032,32 +11014,47 @@
     "year": 2014
   },
   "the-typing-of-the-dead": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Smilebit"
+    ],
+    "genres": [
+      "Action",
+      "Casual"
+    ],
     "hero": "https://lutris.net/games/banner/the-typing-of-the-dead.jpg",
-    "long": "",
+    "long": "The Typing of the Dead is a typing-trainer reimagining of the on-rails light-gun shooter The House of the Dead 2. Instead of aiming a gun, players defeat oncoming zombies by typing words and phrases that appear on screen. It was developed by Sega's Smilebit team and published by Sega.",
     "lutris": "https://lutris.net/games/the-typing-of-the-dead/",
     "name": "The Typing of the Dead",
     "runtime": "proton",
     "screenshots": [],
     "short": "The Typing of the Dead (2001 PC port, via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2001
   },
   "the-typing-of-the-dead-overkill": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Modern Dream"
+    ],
+    "genres": [
+      "Action",
+      "Casual"
+    ],
     "hero": "https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg",
-    "long": "",
+    "long": "The Typing of the Dead: Overkill is a typing-based rail shooter built on the grindhouse-styled The House of the Dead: Overkill. Players type the words displayed over enemies to kill them as the camera moves on rails through B-movie horror levels. It supports local two-player co-op and was published by Sega.",
     "lutris": "https://lutris.net/games/the-typing-of-the-dead-overkill/",
     "name": "The Typing of the Dead: Overkill",
     "runtime": "proton",
     "screenshots": [],
     "short": "The Typing of the Dead: Overkill (Steam, via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2013
   },
   "the-witness": {
     "developers": [
@@ -10095,18 +11092,26 @@
     "year": 2016
   },
   "theme-hospital": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Bullfrog Productions"
+    ],
+    "genres": [
+      "Simulation",
+      "Strategy",
+      "City Builder"
+    ],
     "hero": "https://lutris.net/games/banner/theme-hospital.jpg",
-    "long": "",
+    "long": "Theme Hospital is a business simulation game in which the player designs and manages a hospital, hiring staff, building treatment rooms, and curing patients of comical fictional ailments. It was developed by Bullfrog Productions and published by Electronic Arts. This packaging runs the original data through the open-source CorsixTH engine.",
     "lutris": "https://lutris.net/games/theme-hospital/",
     "name": "Theme Hospital",
     "runtime": "native",
     "screenshots": [],
     "short": "Theme Hospital (via CorsixTH engine)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1997
   },
   "thief-2": {
     "developers": [
@@ -10140,18 +11145,26 @@
     "year": 2012
   },
   "thief-gold": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Looking Glass Studios"
+    ],
+    "genres": [
+      "Stealth",
+      "Action",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/thief-gold.jpg",
-    "long": "",
+    "long": "Thief Gold is an expanded edition of Thief: The Dark Project, a first-person stealth game where master thief Garrett sneaks through a dark steampunk-medieval city avoiding guards rather than fighting them. Light, shadow, and sound are core mechanics. It was developed by Looking Glass Studios and published by Eidos Interactive; this build adds the community TFix patch on the NewDark engine.",
     "lutris": "https://lutris.net/games/thief-gold/",
     "name": "Thief Gold with TFix",
     "runtime": "proton",
     "screenshots": [],
     "short": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1999
   },
   "time-flies": {
     "developers": [
@@ -10288,46 +11301,72 @@
     "year": 2015
   },
   "total-chaos": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Wad Squad"
+    ],
+    "genres": [
+      "Horror",
+      "Survival",
+      "FPS",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/total-chaos.jpg",
-    "long": "",
+    "long": "Total Chaos is a standalone survival-horror total conversion built on the GZDoom engine, set on a desolate island where the player scavenges for resources and weapons while fending off mutated creatures. It blends atmospheric exploration and resource scarcity with Doom-derived combat. It was created by Wad Squad and released free in 2018.",
     "lutris": "https://lutris.net/games/total-chaos/",
     "name": "Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom",
     "runtime": "custom",
     "screenshots": [],
     "short": "Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2018
   },
   "total-overdose": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Deadline Games"
+    ],
+    "genres": [
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/total-overdose.jpg",
-    "long": "",
+    "long": "Total Overdose: A Gunslinger's Tale in Mexico is an over-the-top third-person action shooter set in a stylized Mexican border world. Players chain stunts, slow-motion dives, and combo kills as agent Ram Cruz to rack up score in an open environment. It was developed by Deadline Games and published by Eidos Interactive.",
     "lutris": "https://lutris.net/games/total-overdose/",
     "name": "Total Overdose: A Gunslinger's Tale in Mexico",
     "runtime": "proton",
     "screenshots": [],
     "short": "Total Overdose: A Gunslinger's Tale in Mexico (Deadline Games 2005, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2005
   },
   "towerfall-ascension": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Matt Makes Games"
+    ],
+    "genres": [
+      "Action",
+      "Indie",
+      "Platformer"
+    ],
     "hero": "https://lutris.net/games/banner/towerfall-ascension.jpg",
-    "long": "",
+    "long": "TowerFall Ascension is an archery combat platformer focused on local couch multiplayer, where up to four players battle in single-screen arenas using arrows and head-stomps. The Dark World expansion adds new versus content plus a cooperative survival quest mode against waves of enemies. It was created by Matt Thorson's Matt Makes Games.",
     "lutris": "https://lutris.net/games/towerfall-ascension/",
     "name": "TowerFall Ascension + Dark World",
     "runtime": "proton",
     "screenshots": [],
     "short": "TowerFall Ascension + Dark World (Matt Makes Games, GOG v2.5.0.6, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Shared/Split Screen",
+      "Shared/Split Screen PvP",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2014
   },
   "trackmania-nation": {
     "developers": [
@@ -10672,32 +11711,56 @@
     "year": 2020
   },
   "unreal-tournament": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Epic Games",
+      "Digital Extremes"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/unreal-tournament.jpg",
-    "long": "",
+    "long": "Unreal Tournament is a fast-paced arena first-person shooter centered on competitive deathmatch and team modes like Capture the Flag, Domination, and Assault. The single-player ladder pits the player against AI bots, while the multiplayer supports online and LAN play. It was developed by Epic Games and Digital Extremes and published by GT Interactive; this build uses the OldUnreal v469e native Linux patch.",
     "lutris": "https://lutris.net/games/unreal-tournament/",
     "name": "Unreal Tournament",
     "runtime": "native",
     "screenshots": [],
     "short": "Unreal Tournament (GOTY, 1999; OldUnreal v469e native Linux)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP",
+      "PvP"
+    ],
+    "year": 1999
   },
   "unreal-tournament-2004": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Epic Games",
+      "Digital Extremes"
+    ],
+    "genres": [
+      "FPS",
+      "Action"
+    ],
     "hero": "https://lutris.net/games/banner/unreal-tournament-2004.jpg",
-    "long": "",
+    "long": "Unreal Tournament 2004 is an arena first-person shooter expanding its predecessor with vehicle-based Onslaught and Assault modes alongside classic Deathmatch and Capture the Flag. It offers a bot-driven single-player ladder plus extensive online and LAN multiplayer. It was developed by Epic Games and Digital Extremes and published by Atari; this build uses the OldUnreal native Linux patch.",
     "lutris": "https://lutris.net/games/unreal-tournament-2004/",
     "name": "Unreal Tournament 2004",
     "runtime": "native",
     "screenshots": [],
     "short": "Unreal Tournament 2004 (OldUnreal native Linux)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP",
+      "PvP"
+    ],
+    "year": 2004
   },
   "untitled-goose-game": {
     "developers": [
@@ -10744,18 +11807,26 @@
     "year": 2020
   },
   "uplink": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Introversion Software"
+    ],
+    "genres": [
+      "Simulation",
+      "Strategy",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/uplink.jpg",
-    "long": "",
+    "long": "Uplink: Hacker Elite is a hacking simulation in which the player works as a freelance computer hacker, breaking into corporate systems, manipulating data, and covering their tracks before traces complete. Money earned buys better hardware and software to take on riskier jobs. It was developed and published by Introversion Software.",
     "lutris": "https://lutris.net/games/uplink/",
     "name": "Uplink: Hacker Elite v1.6",
     "runtime": "proton",
     "screenshots": [],
     "short": "Uplink: Hacker Elite v1.6 (via Proton and gamescope)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2001
   },
   "v-rising": {
     "developers": [
@@ -10852,32 +11923,50 @@
     "year": 2026
   },
   "vampire-survivors": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "poncle"
+    ],
+    "genres": [
+      "Roguelike",
+      "Action",
+      "Casual",
+      "Indie"
+    ],
     "hero": "https://lutris.net/games/banner/vampire-survivors.jpg",
-    "long": "",
+    "long": "Vampire Survivors is a minimalist roguelike action game where the player survives waves of monsters with auto-firing weapons, collecting gems to level up and combine items into powerful evolutions. Runs last a limited time as the screen fills with enemies and bullet-hell-like carnage. It was developed by poncle and supports local couch co-op.",
     "lutris": "https://lutris.net/games/vampire-survivors/",
     "name": "Vampire Survivors + 3 DLC",
     "runtime": "native",
     "screenshots": [],
     "short": "Vampire Survivors + 3 DLC (Emergency Meeting v1.11.108, native Linux Unity / IL2CPP, Goldberg Steam shim)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Shared/Split Screen Co-op"
+    ],
+    "year": 2022
   },
   "vampire-the-masquerade-bloodlines": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Troika Games"
+    ],
+    "genres": [
+      "RPG",
+      "Action",
+      "Horror"
+    ],
     "hero": "https://lutris.net/games/banner/vampire-the-masquerade-bloodlines.jpg",
-    "long": "",
+    "long": "Vampire: The Masquerade - Bloodlines is an action role-playing game set in the World of Darkness, where the player is a newly turned vampire navigating clan politics in modern Los Angeles. Choices, dialogue, and chosen clan disciplines shape combat and exploration across first- and third-person play. It was developed by Troika Games and published by Activision; this build adds the community Unofficial Patch.",
     "lutris": "https://lutris.net/games/vampire-the-masquerade-bloodlines/",
     "name": "Vampire: The Masquerade \u2014 Bloodlines",
     "runtime": "proton",
     "screenshots": [],
     "short": "Vampire: The Masquerade \u2014 Bloodlines (GOG + Unofficial Patch 11.5, via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 2004
   },
   "vectronom": {
     "developers": [
@@ -10924,18 +12013,29 @@
     "year": 2019
   },
   "vintage-story": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Anego Studios"
+    ],
+    "genres": [
+      "Survival",
+      "Simulation",
+      "Indie",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/vintage-story.jpg",
-    "long": "",
+    "long": "Vintage Story is a voxel-based survival and crafting sandbox emphasizing realistic systems like knapping, pottery, and seasonal farming in a procedurally generated world. It features deep progression from stone tools to mechanical contraptions, plus a lore-driven exploration layer. It was developed by Anego Studios and supports multiplayer servers.",
     "lutris": "https://lutris.net/games/vintage-story/",
     "name": "Vintage Story",
     "runtime": "custom",
     "screenshots": [],
     "short": "Vintage Story (native Linux, v1.22.0 with built-in libs)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online Co-op"
+    ],
+    "year": 2018
   },
   "void-stranger": {
     "developers": [
@@ -11008,18 +12108,29 @@
     "year": 2010
   },
   "warcraft-iii-the-frozen-throne": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Blizzard Entertainment"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/warcraft-iii-the-frozen-throne.jpg",
-    "long": "",
+    "long": "Warcraft III: The Frozen Throne is the expansion to Reign of Chaos, a real-time strategy game combining base building and army management with RPG-style hero units that gain levels and abilities. It continues the campaign across four playable factions and adds new units and a neutral hero roster. It was developed and published by Blizzard Entertainment and supports online and LAN multiplayer.",
     "lutris": "https://lutris.net/games/warcraft-iii-the-frozen-throne/",
     "name": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a",
     "runtime": "proton",
     "screenshots": [],
     "short": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player",
+      "Multi-player",
+      "Online PvP",
+      "LAN PvP",
+      "PvP"
+    ],
+    "year": 2003
   },
   "warhammer-40000-dawn-of-war": {
     "developers": [
@@ -11320,18 +12431,25 @@
     "year": 2016
   },
   "xenogears": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "Square"
+    ],
+    "genres": [
+      "RPG",
+      "Adventure"
+    ],
     "hero": "https://lutris.net/games/banner/xenogears.jpg",
-    "long": "",
+    "long": "Xenogears is a story-driven Japanese role-playing game following Fei Fong Wong across a sprawling sci-fi narrative of mecha, religion, and identity. Combat mixes a deathblow-combo system for on-foot characters with battles in giant robots called Gears. It was developed and published by Square for the PlayStation; this build runs via RetroArch with the SwanStation core.",
     "lutris": "https://lutris.net/games/xenogears/",
     "name": "Xenogears",
     "runtime": "retroarch",
     "screenshots": [],
     "short": "Xenogears (via RetroArch / SwanStation)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1998
   },
   "yume-nikki": {
     "developers": [
@@ -11368,17 +12486,24 @@
     "year": 2018
   },
   "z": {
-    "developers": [],
-    "genres": [],
+    "developers": [
+      "The Bitmap Brothers"
+    ],
+    "genres": [
+      "Strategy",
+      "RTS"
+    ],
     "hero": "https://lutris.net/games/banner/z.jpg",
-    "long": "",
+    "long": "Z is a humorous real-time strategy game where two robot armies fight for territory across grid-based maps, capturing flags and factories to expand production rather than harvesting resources. Its fast, territory-control pace and comedic robot cutscenes set it apart from contemporaries. It was developed by The Bitmap Brothers and published by Virgin Interactive; this build runs via DOSBox-X.",
     "lutris": "https://lutris.net/games/z/",
     "name": "Z",
     "runtime": "custom",
     "screenshots": [],
     "short": "Z (Bitmap Brothers 1996, via DOSBox-X)",
     "steam_appid": null,
-    "tags": [],
-    "year": null
+    "tags": [
+      "Single-player"
+    ],
+    "year": 1996
   }
 }

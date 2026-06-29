@@ -1,0 +1,7 @@
+{
+  "genres": ["FPS", "Action"],
+  "tags": ["Single-player", "Multi-player", "Online PvP", "LAN PvP", "PvP"],
+  "year": 1999,
+  "developers": ["Epic Games", "Digital Extremes"],
+  "long": "Unreal Tournament is a fast-paced arena first-person shooter centered on competitive deathmatch and team modes like Capture the Flag, Domination, and Assault. The single-player ladder pits the player against AI bots, while the multiplayer supports online and LAN play. It was developed by Epic Games and Digital Extremes and published by GT Interactive; this build uses the OldUnreal v469e native Linux patch."
+}

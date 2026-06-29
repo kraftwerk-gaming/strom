@@ -1,0 +1,7 @@
+{
+  "genres": ["Strategy", "RTS"],
+  "tags": ["Single-player", "Multi-player", "LAN PvP"],
+  "year": 1997,
+  "developers": ["Reality Pump Studios"],
+  "long": "Earth 2140 is a real-time strategy game set in a post-apocalyptic future where the Eurasian Dynasty and the United Civilized States wage war over the planet's dwindling resources. Players build bases, harvest materials and command land, air and naval units across two campaigns. This GOG reissue is an SDL2 source port run through Proton."
+}

@@ -1,0 +1,7 @@
+{
+  "genres": ["FPS", "Action"],
+  "tags": ["Single-player", "Multi-player", "LAN Co-op", "LAN PvP"],
+  "year": 1996,
+  "developers": ["TeamTNT", "id Software"],
+  "long": "Final Doom: TNT - Evilution is a 32-level commercial megawad built by the TeamTNT community group and published by id Software as one half of Final Doom. It sends the player through UAC bases and demonic landscapes with new level design and music. TNT.WAD is a standalone DOOM II replacement, run here through the modern GZDoom engine with support for classic cooperative and deathmatch play."
+}
