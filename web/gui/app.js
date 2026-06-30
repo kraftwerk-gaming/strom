@@ -74,6 +74,7 @@ const state = {
   query: "",
   f: { runtime: new Set(), genre: new Set(), feature: new Set(), source: new Set() },
   open: new Set(["Runtime", "Genre", "Features"]), // expanded facet groups
+  lightbox: null, // { list, index } when fullscreen image open
 };
 
 /* ---------- data loading ---------- */
@@ -371,30 +372,45 @@ function featureChips(e) {
   return wrap;
 }
 
-function openLightbox(src) {
-  el.lightboxImg.src = src;
+function openLightbox(list, index) {
+  state.lightbox = { list, index };
+  el.lightboxImg.src = list[index];
   el.lightbox.hidden = false;
+}
+
+function closeLightbox() {
+  state.lightbox = null;
+  el.lightbox.hidden = true;
+  el.lightboxImg.src = "";
+}
+
+function stepLightbox(delta) {
+  if (!state.lightbox) return;
+  const { list } = state.lightbox;
+  const index = (state.lightbox.index + delta + list.length) % list.length;
+  state.lightbox.index = index;
+  el.lightboxImg.src = list[index];
 }
 
 function makeShots(e) {
   if (!e.screenshots || e.screenshots.length === 0) return null;
   const wrap = document.createElement("div");
   wrap.className = "shots";
-  for (const src of e.screenshots) {
+  e.screenshots.forEach((src, i) => {
     const img = document.createElement("img");
     img.loading = "lazy";
     img.src = src;
     img.alt = `${e.name} screenshot`;
     img.tabIndex = 0;
-    img.addEventListener("click", () => openLightbox(src));
+    img.addEventListener("click", () => openLightbox(e.screenshots, i));
     img.addEventListener("keydown", (ev) => {
       if (ev.key === "Enter" || ev.key === " ") {
         ev.preventDefault();
-        openLightbox(src);
+        openLightbox(e.screenshots, i);
       }
     });
     wrap.appendChild(img);
-  }
+  });
   return wrap;
 }
 
@@ -511,16 +527,22 @@ function wireEvents() {
       el.overlayCopy.textContent = "Copy failed";
     }
   });
-  el.lightbox.addEventListener("click", () => {
-    el.lightbox.hidden = true;
-    el.lightboxImg.src = "";
-  });
+  el.lightbox.addEventListener("click", closeLightbox);
   document.addEventListener("keydown", (ev) => {
-    if (ev.key !== "Escape") return;
     if (!el.lightbox.hidden) {
-      el.lightbox.hidden = true;
-      el.lightboxImg.src = "";
-    } else if (!el.overlay.hidden) {
+      if (ev.key === "ArrowLeft") {
+        ev.preventDefault();
+        stepLightbox(-1);
+      } else if (ev.key === "ArrowRight") {
+        ev.preventDefault();
+        stepLightbox(1);
+      } else if (ev.key === "Escape") {
+        closeLightbox();
+      }
+      return;
+    }
+    if (ev.key !== "Escape") return;
+    if (!el.overlay.hidden) {
       closeOverlay();
     } else if (el.detail.dataset.open === "1") {
       location.hash = "";
