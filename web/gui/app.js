@@ -392,26 +392,87 @@ function stepLightbox(delta) {
   el.lightboxImg.src = list[index];
 }
 
-function makeShots(e) {
+function navButton(cls, glyph, label, onClick) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = `carousel-nav ${cls}`;
+  b.textContent = glyph;
+  b.setAttribute("aria-label", label);
+  b.addEventListener("click", onClick);
+  return b;
+}
+
+// Steam-style single-image carousel: one large stage with prev/next controls
+// and a thumbnail strip, so the gallery sits at the top of the detail page
+// without forcing a scroll. Index state lives in this closure; the lightbox
+// keeps its own copy so fullscreen viewing stays independent.
+function makeCarousel(e) {
   if (!e.screenshots || e.screenshots.length === 0) return null;
-  const wrap = document.createElement("div");
-  wrap.className = "shots";
-  e.screenshots.forEach((src, i) => {
-    const img = document.createElement("img");
-    img.loading = "lazy";
-    img.src = src;
-    img.alt = `${e.name} screenshot`;
-    img.tabIndex = 0;
-    img.addEventListener("click", () => openLightbox(e.screenshots, i));
-    img.addEventListener("keydown", (ev) => {
-      if (ev.key === "Enter" || ev.key === " ") {
+  const list = e.screenshots;
+  let index = 0;
+
+  const carousel = document.createElement("div");
+  carousel.className = "carousel";
+
+  const stage = document.createElement("div");
+  stage.className = "carousel-stage";
+
+  const main = document.createElement("img");
+  main.className = "carousel-main";
+  main.alt = `${e.name} screenshot`;
+  main.addEventListener("click", () => openLightbox(list, index));
+  stage.appendChild(main);
+
+  const thumbs = document.createElement("div");
+  thumbs.className = "carousel-thumbs";
+  const thumbImgs = [];
+
+  function show(i) {
+    index = (i + list.length) % list.length;
+    main.src = list[index];
+    if (counter) counter.textContent = `${index + 1} / ${list.length}`;
+    thumbImgs.forEach((t, j) => t.classList.toggle("active", j === index));
+    const active = thumbImgs[index];
+    if (active) active.scrollIntoView({ inline: "nearest", block: "nearest" });
+  }
+
+  let counter = null;
+  if (list.length > 1) {
+    counter = document.createElement("span");
+    counter.className = "carousel-counter";
+
+    stage.appendChild(navButton("prev", "‹", "Previous screenshot", () => show(index - 1)));
+    stage.appendChild(navButton("next", "›", "Next screenshot", () => show(index + 1)));
+    stage.appendChild(counter);
+
+    stage.tabIndex = 0;
+    stage.setAttribute("role", "group");
+    stage.setAttribute("aria-label", "Screenshot carousel, use arrow keys");
+    stage.addEventListener("keydown", (ev) => {
+      if (ev.key === "ArrowLeft") {
         ev.preventDefault();
-        openLightbox(e.screenshots, i);
+        show(index - 1);
+      } else if (ev.key === "ArrowRight") {
+        ev.preventDefault();
+        show(index + 1);
       }
     });
-    wrap.appendChild(img);
-  });
-  return wrap;
+
+    list.forEach((src, i) => {
+      const t = document.createElement("img");
+      t.loading = "lazy";
+      t.src = src;
+      t.alt = `${e.name} screenshot ${i + 1}`;
+      t.addEventListener("click", () => show(i));
+      thumbImgs.push(t);
+      thumbs.appendChild(t);
+    });
+  }
+
+  carousel.appendChild(stage);
+  if (list.length > 1) carousel.appendChild(thumbs);
+  show(0);
+  return carousel;
 }
 
 function renderDetail(slug) {
@@ -421,9 +482,8 @@ function renderDetail(slug) {
   el.detail.hidden = false;
   el.layout.hidden = true;
 
-  const hero = document.createElement("div");
-  hero.className = "detail-hero";
-  hero.style.backgroundImage = `url("${e.hero || LUTRIS_BANNER(slug)}")`;
+  const body = document.createElement("div");
+  body.className = "detail-body";
 
   const back = document.createElement("button");
   back.className = "detail-back";
@@ -432,41 +492,60 @@ function renderDetail(slug) {
   back.addEventListener("click", () => {
     location.hash = "";
   });
-  hero.appendChild(back);
-  el.detail.appendChild(hero);
-
-  const body = document.createElement("div");
-  body.className = "detail-body";
+  body.appendChild(back);
 
   const h1 = document.createElement("h1");
   h1.textContent = e.name;
   body.appendChild(h1);
   body.appendChild(metaRow(e));
 
+  // Steam-style split: media (carousel) leads on the left, the play button and
+  // quick facts sit in a sidebar on the right. The long description spans the
+  // full width underneath so screenshots never get pushed below the fold.
+  const grid = document.createElement("div");
+  grid.className = "detail-grid";
+
+  const media = document.createElement("div");
+  media.className = "detail-media";
+  const carousel = makeCarousel(e);
+  if (carousel) {
+    media.appendChild(carousel);
+  } else {
+    const banner = document.createElement("div");
+    banner.className = "detail-banner";
+    banner.style.backgroundImage = `url("${e.hero || LUTRIS_BANNER(slug)}")`;
+    media.appendChild(banner);
+  }
+  grid.appendChild(media);
+
+  const side = document.createElement("div");
+  side.className = "detail-side";
+
   const play = document.createElement("button");
   play.className = "play";
   play.type = "button";
   play.textContent = "Play";
   play.addEventListener("click", () => launch(slug, e.name));
-  body.appendChild(play);
+  side.appendChild(play);
 
   const chips = featureChips(e);
-  if (chips) body.appendChild(chips);
+  if (chips) side.appendChild(chips);
 
   if (e.short) {
     const p = document.createElement("p");
     p.className = "short";
     p.textContent = e.short;
-    body.appendChild(p);
+    side.appendChild(p);
   }
+  grid.appendChild(side);
+  body.appendChild(grid);
+
   if (e.long && e.long !== e.short) {
     const p = document.createElement("p");
     p.className = "long";
     p.textContent = e.long;
     body.appendChild(p);
   }
-  const shots = makeShots(e);
-  if (shots) body.appendChild(shots);
 
   el.detail.appendChild(body);
   back.focus();
