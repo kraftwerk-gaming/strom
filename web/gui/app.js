@@ -482,8 +482,11 @@ function renderDetail(slug) {
   el.detail.hidden = false;
   el.layout.hidden = true;
 
-  const body = document.createElement("div");
-  body.className = "detail-body";
+  // Ambient banner behind the page; the body overlaps its faded lower edge so
+  // the title sits over the artwork like the previous design.
+  const hero = document.createElement("div");
+  hero.className = "detail-hero";
+  hero.style.backgroundImage = `url("${e.hero || LUTRIS_BANNER(slug)}")`;
 
   const back = document.createElement("button");
   back.className = "detail-back";
@@ -492,7 +495,11 @@ function renderDetail(slug) {
   back.addEventListener("click", () => {
     location.hash = "";
   });
-  body.appendChild(back);
+  hero.appendChild(back);
+  el.detail.appendChild(hero);
+
+  const body = document.createElement("div");
+  body.className = "detail-body";
 
   const h1 = document.createElement("h1");
   h1.textContent = e.name;
