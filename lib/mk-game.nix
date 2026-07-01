@@ -443,8 +443,11 @@ let
               input_joypad_driver = "sdl2";
               pause_nonactive = "false";
               video_driver = "vulkan";
-              video_fullscreen = "false";
-              video_windowed_fullscreen = "false";
+              # Fullscreen INSIDE the nested gamescope: gamescope only
+              # upscales a fullscreen client to its output; windowed
+              # RetroArch renders small and centered with black borders.
+              video_fullscreen = "true";
+              video_windowed_fullscreen = "true";
             };
           };
         };
@@ -525,11 +528,15 @@ let
 
         (lib.mkIf (cfg.runtime == "retroarch") {
           retroarch.romPath = overlayExe;
-          # RetroArch's vulkan WSI connects to gamescope's wayland; gamescope
-          # only serves a usable wayland display to clients when --expose-wayland
-          # is set (without it the client gets "Failed to create wl_display" and
-          # renders black). Every wayland game under gamescope sets this.
-          gamescope.flags."--expose-wayland" = lib.mkDefault true;
+          # RetroArch runs on gamescope's nested Xwayland (see retroarch.nix):
+          # gamescope's --expose-wayland compositor lacks wp_viewporter and
+          # never upscales a wayland client's fullscreen surface, while the
+          # Xwayland path fit-scales fullscreen X11 windows to the output.
+          # The nested resolution is what the client fullscreens at; the
+          # 1280x720 default would be upscaled blurry, so render seat-sized
+          # and let gamescope scale DOWN into whatever tile it gets.
+          gamescope.nested-width = lib.mkDefault 2880;
+          gamescope.nested-height = lib.mkDefault 1920;
           gamescope.command = lib.getExe cfg.retroarch.outputs.wrapper;
           entrypoint =
             if cfg.enableGamescope then
