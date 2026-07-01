@@ -2084,6 +2084,14 @@
     "description": "SpellForce Platinum Edition (Phenomic / JoWooD 2003-2004: The Order of Dawn + Breath of Winter + Shadow of the Phoenix, via Proton)",
     "runtime": "proton"
   },
+  "spyro-the-dragon": {
+    "cids": [
+      "QmPFJ4r73mxWoBk2wtJWBgYbNJT8PeaCXMkruCaF7A6svY",
+      "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+    ],
+    "description": "Spyro the Dragon (PSX 1998 USA, via RetroArch / SwanStation)",
+    "runtime": "retroarch"
+  },
   "squirrel-stapler": {
     "cids": [
       "QmX8wwU4JhQRGVZ4WVWcJYn2xEjq3Hetod6jDcYKEaLqTX"
