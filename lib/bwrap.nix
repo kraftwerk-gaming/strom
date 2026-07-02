@@ -109,6 +109,11 @@ in
       type = types.attrsOf types.str;
       default = { };
     };
+    symlink = mkOption {
+      type = types.attrsOf types.str;
+      default = { };
+      description = "Symlinks created inside the sandbox: { linkPath = target; }.";
+    };
     tmpfs = mkOption {
       type = types.listOf types.str;
       default = [ ];
@@ -263,6 +268,7 @@ in
       ]
       ++ renderPairs "--ro-bind-try" config.ro-bind-try
       ++ renderPairs "--bind-try" config.bind-try
+      ++ renderPairs "--symlink" config.symlink
       ++ renderSingles "--proc" config.proc
       ++ renderPairs "--dev-bind" config.dev-bind
       # The read-write game overlay is mounted with patched fuse-overlayfs
@@ -359,6 +365,32 @@ in
           STROM_CONTROL_DIR=$(mktemp -d -t strom-ctl.XXXXXX)
           export STROM_CONTROL_DIR
           mkfifo -m 0600 "$STROM_CONTROL_DIR/shutdown.fifo"
+
+          # Pre-create the nested gamescope's private XDG_RUNTIME_DIR on the
+          # HOST and bind it into the otherwise-curated sandbox /run (the
+          # host /run/user/$UID is NOT visible inside): host tooling
+          # (screenshot sidecar consumers, gamescopectl) reaches the
+          # gamescope control socket through it, and this wrapper — which
+          # teardown never kills — reliably rms it on exit.
+          _strom_host_xrd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+          if [ -d "$_strom_host_xrd" ] && [ -w "$_strom_host_xrd" ]; then
+            STROM_GS_DIR=$(mktemp -d "$_strom_host_xrd/strom-gs-XXXXXX")
+          else
+            STROM_GS_DIR=$(mktemp -d -t strom-gs.XXXXXX)
+          fi
+          export STROM_GS_DIR
+          # Register the dir for reaping: the strom-run launch path execs
+          # the supervisor (this bash's EXIT trap never fires there) and
+          # strom-run rms every path listed in --gs-dirs on teardown.
+          printf '%s\n' "$STROM_GS_DIR" >> "$STROM_CONTROL_DIR/strom-gs-dirs"
+          # Host-seat sockets the sandbox gets, bound individually via
+          # bind-try (missing ones are skipped). A missing WAYLAND_DISPLAY
+          # yields a nonexistent path, never a directory.
+          STROM_BIND_WAYLAND="$_strom_host_xrd/''${WAYLAND_DISPLAY:-.wayland-unset}"
+          STROM_BIND_WAYLAND_LOCK="$STROM_BIND_WAYLAND.lock"
+          STROM_BIND_PIPEWIRE="$_strom_host_xrd/pipewire-0"
+          STROM_BIND_PULSE="$_strom_host_xrd/pulse"
+          export STROM_BIND_WAYLAND STROM_BIND_WAYLAND_LOCK STROM_BIND_PIPEWIRE STROM_BIND_PULSE
           # EXIT-trap rm of the FIFO dir is installed immediately so an
           # errexit abort during preHook still leaves /tmp tidy. The
           # signal-trap path (TERM/INT/HUP below) is a SEPARATE concern
@@ -387,7 +419,7 @@ in
             lib.optionalString (config.cleanupHook != "") ''
               ${config.cleanupHook}
             ''
-          }__strom_reap_gs_dirs; rm -f "$STROM_CONTROL_DIR/strom-gs-dirs" "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true; rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true' EXIT
+          }__strom_reap_gs_dirs; rm -rf "$STROM_GS_DIR" 2>/dev/null || true; rm -f "$STROM_CONTROL_DIR/strom-gs-dirs" "$STROM_CONTROL_DIR/shutdown.fifo" 2>/dev/null || true; rmdir "$STROM_CONTROL_DIR" 2>/dev/null || true' EXIT
 
           ${config.preHook}
           ${config.extraPreHook}

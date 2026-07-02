@@ -192,12 +192,24 @@ let
               # games need: /nix (store), /etc (resolv.conf, fonts, ssl,
               # machine-id) and /sys (DRM/Vulkan + wayland device probing —
               # without it radv can't enumerate and gamescope falls back to
-              # llvmpipe). /run + /tmp are bound RW below; /dev /proc via
+              # llvmpipe). /tmp is bound RW below; /dev /proc via
               # dev-bind/proc.
+              #
+              # /run is deliberately NOT bound wholesale: the host /run
+              # carries same-uid-reachable secrets and control sockets
+              # (sway IPC = arbitrary host exec, gpg-agent/ssh-agent,
+              # keyring/rbw agents, podman API, session dbus) that an
+              # untrusted game binary must never see. Only the pieces
+              # games need are allowlisted here; the nested gamescope's
+              # private XDG_RUNTIME_DIR is pre-created on the host by
+              # lib/bwrap.nix ($STROM_GS_DIR) and bound in so host
+              # tooling can still reach the gamescope control socket.
               ro-bind = {
                 "/nix" = "/nix";
                 "/etc" = "/etc";
                 "/sys" = "/sys";
+                # PATH inside the sandbox references it (host tools).
+                "/run/current-system" = "/run/current-system";
               };
               dev-bind."/dev" = "/dev";
               proc = [ "/proc" ];
@@ -208,14 +220,14 @@ let
               # /tmp must come before --tmpfs /tmp/.X11-unix.
               bind = {
                 "/tmp" = "/tmp";
-                "/run" = "/run";
-                # FHS /var/run -> /run. The bwrap root tmpfs has no /var, so
-                # libpulse's built-in fallback to /var/run/pulse/native (how
-                # clients find the system-wide pipewire-pulse socket when
-                # $XDG_RUNTIME_DIR/pulse has none) dead-ended and pulse
-                # clients (e.g. RetroArch audio) went silent.
-                "/var/run" = "/run";
+                "$STROM_GS_DIR" = "$STROM_GS_DIR";
               };
+              # FHS /var/run -> /run (the curated sandbox view, NOT host
+              # /run). libpulse's built-in fallback to /var/run/pulse/native
+              # is how clients find the system-wide pipewire-pulse socket
+              # when $XDG_RUNTIME_DIR/pulse has none; without it pulse
+              # clients (e.g. RetroArch audio) go silent.
+              symlink."/var/run" = "/run";
               # The host /tmp/.X11-unix is root-owned, so the sandbox
               # user can't write a new socket there. Tmpfs the dir,
               # then ro-bind-try numbered host sockets on top.
@@ -238,9 +250,23 @@ let
                 "$HOME/.cache/umu" = "$STROM_CACHEDIR/umu";
                 "$HOME/.cache/umu-protonfixes" = "$STROM_CACHEDIR/umu-protonfixes";
                 "$HOME/.cache/wine" = "$HOME/.cache/wine";
+                # Audio + display sockets, allowlisted individually. The
+                # $STROM_BIND_* paths are computed by lib/bwrap.nix from the
+                # host seat env (missing ones are skipped by bind-try).
+                "/run/pipewire" = "/run/pipewire";
+                "/run/pulse" = "/run/pulse";
+                "$STROM_BIND_WAYLAND" = "$STROM_BIND_WAYLAND";
+                "$STROM_BIND_WAYLAND_LOCK" = "$STROM_BIND_WAYLAND_LOCK";
+                "$STROM_BIND_PIPEWIRE" = "$STROM_BIND_PIPEWIRE";
+                "$STROM_BIND_PULSE" = "$STROM_BIND_PULSE";
               };
               ro-bind-try = lib.genAttrs (lib.genList (n: "/tmp/.X11-unix/X${toString n}") 10) (p: p) // {
                 "$HOME/.local/share/vulkan" = "$HOME/.local/share/vulkan";
+                # GPU userspace drivers; -32 only exists on multilib hosts.
+                "/run/opengl-driver" = "/run/opengl-driver";
+                "/run/opengl-driver-32" = "/run/opengl-driver-32";
+                # SDL enumerates input devices via /run/udev/data.
+                "/run/udev" = "/run/udev";
               };
 
               # /tmp/.strom-overlay (not /strom/overlay): /tmp is RW from

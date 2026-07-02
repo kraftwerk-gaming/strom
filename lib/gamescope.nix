@@ -154,20 +154,15 @@ in
         # another session's frames. Each gamescope becomes gamescope-0 in its
         # own dir. The host wayland + audio sockets are symlinked through;
         # /dev/dri and /run/pipewire are bound separately and unaffected.
-        # Cleaned up on exit: we set an EXIT trap (the screenshot sidecar
-        # chains it) and run gamescope WITHOUT exec so the trap can fire.
-        # On a sway window-close of a PROTON game the EXIT trap is NOT
-        # enough: gamescope exits, but before this bash returns to run the
-        # trap the proton-wrapper's FIFO shutdown fires and the host
-        # bwrap-wrapper SIGKILLs the bwrap PID, tearing the whole PID
-        # namespace (this bash included) down with an uncatchable SIGKILL —
-        # so the trap never runs and the strom-gs dir leaks. The dir lives
-        # on the host-shared /run bind, so we additionally record its path
-        # into the host-side control dir (bound at /tmp/.strom-control via
-        # STROM_CONTROL_FIFO); the host bwrap-wrapper — the one process the
-        # teardown never kills, since it does the killing — rms it from its
-        # own EXIT trap. The 1-day sweep only backstops the rare case where
-        # even that path is missed (e.g. a SIGKILL of the host wrapper).
+        #
+        # The dir is normally PRE-CREATED on the host by lib/bwrap.nix
+        # ($STROM_GS_DIR) and bound into the otherwise-curated sandbox
+        # /run: host tooling (screenshot consumers, gamescopectl) reaches
+        # the gamescope control socket through it, and the host wrapper —
+        # which teardown never kills — rms it on exit. The mktemp fallback
+        # below (self-created dir, EXIT-trap rm, path recorded into the
+        # control dir for the host-side reaper, 1-day sweep as backstop)
+        # only serves runs without the bwrap wrapper.
         _strom_priv=""
         _strom_xrd="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
         _strom_ln() {
@@ -175,7 +170,9 @@ in
             ln -sfn "$_strom_xrd/$1" "$_strom_priv/$1" 2>/dev/null || true
           fi
         }
-        if [ -d "$_strom_xrd" ] && [ -w "$_strom_xrd" ] \
+        if [ -n "''${STROM_GS_DIR:-}" ] && [ -d "$STROM_GS_DIR" ] && [ -w "$STROM_GS_DIR" ]; then
+          _strom_priv="$STROM_GS_DIR"
+        elif [ -d "$_strom_xrd" ] && [ -w "$_strom_xrd" ] \
           && _strom_priv="$(mktemp -d "$_strom_xrd/strom-gs-XXXXXX" 2>/dev/null)"; then
           trap 'rm -rf "$_strom_priv"' EXIT
           _strom_ctl="''${STROM_CONTROL_FIFO%/*}"
@@ -184,6 +181,8 @@ in
           fi
           find "$_strom_xrd" -maxdepth 1 -name 'strom-gs-*' -type d -mmin +1440 \
             -exec rm -rf {} + 2>/dev/null || true
+        fi
+        if [ -n "$_strom_priv" ]; then
           if [ -n "''${WAYLAND_DISPLAY:-}" ]; then
             _strom_ln "$WAYLAND_DISPLAY"
             _strom_ln "''${WAYLAND_DISPLAY}.lock"
