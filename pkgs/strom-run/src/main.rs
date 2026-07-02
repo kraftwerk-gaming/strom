@@ -53,8 +53,18 @@ use std::ptr;
 use std::thread::sleep;
 use std::time::{Duration, Instant};
 
+// stderr can be a pipe to an already-dead tee/pager (a tmux pane kill
+// takes the pipeline down first); elog! panics on EPIPE and would
+// abort teardown before it reaps the gs dirs. Log best-effort instead.
+macro_rules! elog {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+        let _ = writeln!(std::io::stderr(), $($arg)*);
+    }};
+}
+
 fn die(msg: &str) -> ! {
-    eprintln!("strom-run: {msg}");
+    elog!("strom-run: {msg}");
     exit(1);
 }
 
@@ -153,7 +163,7 @@ impl Cgroup {
                 Err(_) => return, // cgroup already gone
             }
             if start.elapsed() > timeout {
-                eprintln!("strom-run: cgroup still populated after {timeout:?}; proceeding");
+                elog!("strom-run: cgroup still populated after {timeout:?}; proceeding");
                 return;
             }
             sleep(Duration::from_millis(5));
@@ -297,7 +307,7 @@ fn teardown(cfg: &Config, cg: &Cgroup, child: c_int, reason: Reason) -> i32 {
 }
 
 fn teardown_logged(cfg: &Config, cg: &Cgroup, child: c_int, reason: Reason, why: &str) -> i32 {
-    eprintln!("strom-run: tearing down ({why})");
+    elog!("strom-run: tearing down ({why})");
     // 1. Atomic, membership-based SIGKILL of the whole tree. On a normal
     //    quit (ChildExit) the cgroup is already empty and this is a
     //    no-op; otherwise it reaps gamescope/proton/wine from outside the
@@ -315,9 +325,9 @@ fn teardown_logged(cfg: &Config, cg: &Cgroup, child: c_int, reason: Reason, why:
     }
     if let Reason::ChildExit = reason {
         if libc::WIFEXITED(status) {
-            eprintln!("strom-run: bwrap exited code {}", libc::WEXITSTATUS(status));
+            elog!("strom-run: bwrap exited code {}", libc::WEXITSTATUS(status));
         } else if libc::WIFSIGNALED(status) {
-            eprintln!(
+            elog!(
                 "strom-run: bwrap killed by signal {}",
                 libc::WTERMSIG(status)
             );
