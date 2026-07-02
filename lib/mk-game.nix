@@ -209,6 +209,12 @@ let
               bind = {
                 "/tmp" = "/tmp";
                 "/run" = "/run";
+                # FHS /var/run -> /run. The bwrap root tmpfs has no /var, so
+                # libpulse's built-in fallback to /var/run/pulse/native (how
+                # clients find the system-wide pipewire-pulse socket when
+                # $XDG_RUNTIME_DIR/pulse has none) dead-ended and pulse
+                # clients (e.g. RetroArch audio) went silent.
+                "/var/run" = "/run";
               };
               # The host /tmp/.X11-unix is root-owned, so the sandbox
               # user can't write a new socket there. Tmpfs the dir,

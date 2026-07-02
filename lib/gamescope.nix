@@ -188,9 +188,19 @@ in
             _strom_ln "$WAYLAND_DISPLAY"
             _strom_ln "''${WAYLAND_DISPLAY}.lock"
           fi
-          for _strom_s in pipewire-0 pipewire-0.lock pulse bus; do
+          for _strom_s in pipewire-0 pipewire-0.lock bus; do
             _strom_ln "$_strom_s"
           done
+          # pulse can NOT be symlinked through: libpulse opens
+          # $XDG_RUNTIME_DIR/pulse with O_NOFOLLOW and a symlink fails
+          # ELOOP ("Too many levels of symbolic links"); hardlinking the
+          # socket fails EXDEV across the bwrap bind. Instead give libpulse
+          # a real (empty) pulse dir for its secure-dir check and point it
+          # at the host socket explicitly.
+          if [ -S "$_strom_xrd/pulse/native" ]; then
+            mkdir -m 700 "$_strom_priv/pulse" 2>/dev/null || true
+            export PULSE_SERVER="''${PULSE_SERVER:-unix:$_strom_xrd/pulse/native}"
+          fi
           export XDG_RUNTIME_DIR="$_strom_priv"
         fi
         ${builtins.readFile ./screenshot-sidecar.sh}
