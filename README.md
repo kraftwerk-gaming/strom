@@ -286,6 +286,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/portal-2/"><img src="https://lutris.net/games/banner/portal-2.jpg" height="40" alt="portal-2"></a> | [Portal 2](https://lutris.net/games/portal-2/) | `proton` | `nix run .#portal-2` |
 | <a href="https://lutris.net/games/prey-2006/"><img src="https://lutris.net/games/banner/prey-2006.jpg" height="40" alt="prey-2006"></a> | [Prey](https://lutris.net/games/prey-2006/) | `proton` | `nix run .#prey-2006` |
 | <a href="https://lutris.net/games/prince-of-persia-the-sands-of-time/"><img src="https://lutris.net/games/banner/prince-of-persia-the-sands-of-time.jpg" height="40" alt="prince-of-persia-the-sands-of-time"></a> | [Prince of Persia: The Sands of Time](https://lutris.net/games/prince-of-persia-the-sands-of-time/) | `proton` | `nix run .#prince-of-persia-the-sands-of-time` |
+| <a href="https://lutris.net/games/prince-of-persia-the-two-thrones/"><img src="https://lutris.net/games/banner/prince-of-persia-the-two-thrones.jpg" height="40" alt="prince-of-persia-the-two-thrones"></a> | [Prince of Persia: The Two Thrones](https://lutris.net/games/prince-of-persia-the-two-thrones/) | `proton` | `nix run .#prince-of-persia-the-two-thrones` |
 | <a href="https://lutris.net/games/prince-of-persia-warrior-within/"><img src="https://lutris.net/games/banner/prince-of-persia-warrior-within.jpg" height="40" alt="prince-of-persia-warrior-within"></a> | [Prince of Persia: Warrior Within](https://lutris.net/games/prince-of-persia-warrior-within/) | `proton` | `nix run .#prince-of-persia-warrior-within` |
 | <a href="https://lutris.net/games/project-zomboid/"><img src="https://lutris.net/games/banner/project-zomboid.jpg" height="40" alt="project-zomboid"></a> | [Project Zomboid](https://lutris.net/games/project-zomboid/) | `custom` | `nix run .#project-zomboid` |
 | <a href="https://lutris.net/games/prototype/"><img src="https://lutris.net/games/banner/prototype.jpg" height="40" alt="prototype"></a> | [Prototype](https://lutris.net/games/prototype/) | `proton` | `nix run .#prototype` |
@@ -427,7 +428,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 | <a href="https://lutris.net/games/yume-nikki/"><img src="https://lutris.net/games/banner/yume-nikki.jpg" height="40" alt="yume-nikki"></a> | [Yume Nikki](https://lutris.net/games/yume-nikki/) | `native` | `nix run .#yume-nikki` |
 | <a href="https://lutris.net/games/z/"><img src="https://lutris.net/games/banner/z.jpg" height="40" alt="z"></a> | [Z](https://lutris.net/games/z/) | `custom` | `nix run .#z` |
 
-_386 games_
+_387 games_
 
 <!-- END GENERATED GAMES -->
 
