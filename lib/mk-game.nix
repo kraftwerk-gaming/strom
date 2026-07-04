@@ -501,6 +501,24 @@ let
         n2n = mkOption {
           type = wrapperType ./n2n.nix { };
         };
+
+        # Android APK target. Plain submodule (not wrapperType): an APK
+        # isn't a shell wrapper around an exe, so the wrapper module's
+        # package/exePath schema doesn't fit. The parent game config
+        # flows in via the `game` specialArg so per-game APK builders
+        # can read name/env/etc. without duplicated option declarations.
+        # Reached as `<game>.android.outputs.apk` (flake alias:
+        # `apks.<slug>`). See lib/android/default.nix.
+        android = mkOption {
+          type = types.submoduleWith {
+            specialArgs = {
+              game = cfg;
+              inherit pkgs;
+            };
+            modules = [ ./android ];
+          };
+          default = { };
+        };
       };
 
       config = lib.mkMerge [

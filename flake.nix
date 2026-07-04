@@ -154,5 +154,14 @@
       );
 
       packages = forAllSystems (system: self.legacyPackages.${system}.games);
+
+      # Android APK outputs. Thin alias: a game's `android` submodule
+      # exposes an `outputs.apk` derivation (per-game seam, see
+      # lib/android/default.nix); this remaps the path so
+      # `nix build .#apks.<slug>` works without typing out
+      # `.#modules.x86_64-linux.<slug>.android.outputs.apk`. Lazy per
+      # attribute: games without an APK definition only error when
+      # their attribute is actually evaluated.
+      apks = nixpkgs.lib.mapAttrs (_: m: m.android.outputs.apk) self.modules.x86_64-linux;
     };
 }
