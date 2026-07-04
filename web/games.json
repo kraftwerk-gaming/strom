@@ -1764,6 +1764,16 @@
     "description": "Prince of Persia: The Sands of Time (Ubisoft Montreal, 2003; GOG DRM-free, via Proton)",
     "runtime": "proton"
   },
+  "prince-of-persia-warrior-within": {
+    "cids": [
+      "QmZANN4qAVVzpis3dQnc6x4ci4Fs6pCXHRddjT3VGbamWb",
+      "QmPi2XYSUHGqFPMH2EvriwtdDXoKF9k2YB8vZo3gocMNxN",
+      "QmesDtByHsXKHsyVsy7D9AjLQEKT9c8wqZf8PcY1Ufued7",
+      "QmQh29TnXovnBqDYrQfeDvpqvSSBqZnTS5w6cWMJ1aZvLA"
+    ],
+    "description": "Prince of Persia: Warrior Within (Ubisoft Montreal, 2004; GOG DRM-free, via Proton)",
+    "runtime": "proton"
+  },
   "project-zomboid": {
     "cids": [
       "QmRcW42meitnUQ7xDXYBT6piM4YwqtJPN4Q9UF3P7PPRnH"
