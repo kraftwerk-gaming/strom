@@ -1,0 +1,33 @@
+{
+  "_appid": "Skip Steam: G.A.M.M.A. is a free modpack on standalone Anomaly, not a Steam product. Fuzzy matching would land on one of GSC's original S.T.A.L.K.E.R. releases, which is a different game and would misrepresent what this package ships.",
+  "appid": null,
+  "cids": [
+    "QmPf36pvP1sqsPmSKRCmUeEZDTrpMeXVyDEkKcxws3eqnE",
+    "QmRF8VBNzadUXePAN5D1Gw54NLdsg47LsVTK6prcRkLXde",
+    "QmTTLYgWiXET6hBb5htSG48w3SgtyZyNueDdQbYvpsB2uN",
+    "Qmccz5Y6hfqPqu6ewvQE2Scac3xxgdMK6nZez76UgnhAZX",
+    "QmVFiSosJG4HguGBGGXuG8rhxD9FbHsQmcoEbRELW5Yx1m",
+    "QmURxS9g68GhTXw3NJpBAdrTzL1KFWGCtok2qMqMntpNLw",
+    "QmdcjKFiokWpYeB4PC4uuzBbQG1Ab2DjbT4b2ks1KZ6cnH",
+    "QmfGfCrqLpi4DX17nyrBMbfS8G9CnfCfdZ5YZJDSsmW5XW",
+    "QmZhunL7eh8oy2oDYdNm5h9VhVoCMz3qni2C6JYxc99xCu"
+  ],
+  "description": "S.T.A.L.K.E.R. G.A.M.M.A. 9.4.0 (Grok's modpack on Anomaly, GOG free release, via Proton)",
+  "developers": [
+    "Grokitach"
+  ],
+  "genres": [
+    "FPS",
+    "Survival",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/stalker-anomaly-gamma.jpg",
+  "lutris": "https://lutris.net/games/stalker-anomaly-gamma/",
+  "name": "S.T.A.L.K.E.R. Anomaly G.A.M.M.A.",
+  "runtime": "proton",
+  "short": "Grok's Automated Modular Modpack for Anomaly: 400+ curated mods rebuilding the Zone as a long-progression survival grind around scavenging, cooking, crafting and weapon repair. Standalone, no original S.T.A.L.K.E.R. install needed.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2021
+}
