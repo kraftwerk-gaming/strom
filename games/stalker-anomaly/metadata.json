@@ -1,0 +1,29 @@
+{
+  "_appid": "Skip Steam: Anomaly is a free standalone total conversion, not a Steam product. Fuzzy matching would land on one of GSC's original S.T.A.L.K.E.R. releases, which is a different game and would misrepresent what this package ships.",
+  "appid": null,
+  "cids": [
+    "QmbpLg263Ptx7K1f99W2vM8GMekEHuqszqkefQ4U89s8Pr",
+    "QmYiaTUkE4cpkeXe75yQcXTuyHSGQHTyiuGqyoTsqNghKt",
+    "QmYEJdhR22Wyfx3i257KjkvxBcSH6RwJXVAFSDWQVLiwWu",
+    "QmWyF13MW2DBrbmo3hCqDj1L9GKuoWZu9qU6T99LYAawG3",
+    "QmPaseLkGYNgA6TQabe5131mZozZ3H6ExtnFt6357EnRqq"
+  ],
+  "description": "S.T.A.L.K.E.R. Anomaly 1.5.3 (standalone total conversion, GOG free release, via Proton)",
+  "developers": [
+    "Anomaly Development Team"
+  ],
+  "genres": [
+    "FPS",
+    "Survival",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/stalker-anomaly.jpg",
+  "lutris": "https://lutris.net/games/stalker-anomaly/",
+  "name": "S.T.A.L.K.E.R. Anomaly",
+  "runtime": "proton",
+  "short": "Free standalone total conversion on the 64-bit Monolith X-Ray engine: the whole Zone rebuilt as an open-ended survival sandbox, with Story, Warfare and Survival modes and no original S.T.A.L.K.E.R. install required.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2019
+}
