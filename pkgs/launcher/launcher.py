@@ -190,8 +190,21 @@ def main() -> int:
 
     pygame.init()
     pygame.joystick.init()
-    for i in range(pygame.joystick.get_count()):
-        pygame.joystick.Joystick(i).init()
+
+    # Opened pads keyed by instance id. SDL's hotplug/JOYDEVICEADDED is
+    # unreliable under a bare kiosk compositor and can miss pads that connect
+    # around startup, so the main loop also polls rescan_joysticks() below.
+    joysticks: dict = {}
+
+    def rescan_joysticks() -> None:
+        for i in range(pygame.joystick.get_count()):
+            js = pygame.joystick.Joystick(i)
+            iid = js.get_instance_id()
+            if iid not in joysticks:
+                js.init()
+                joysticks[iid] = js
+
+    rescan_joysticks()
 
     flags = pygame.FULLSCREEN | pygame.SCALED
     if os.environ.get("STROM_LAUNCHER_WINDOWED"):
@@ -245,6 +258,7 @@ def main() -> int:
     n = len(games)
     clock = pygame.time.Clock()
     t = 0.0
+    next_rescan = 0.0
 
     AXIS_DEAD = 0.6
     axis_latched = {0: 0, 1: 0}
@@ -300,7 +314,13 @@ def main() -> int:
                 elif ev.button == 1:
                     running = False
             elif ev.type == pygame.JOYDEVICEADDED:
-                pygame.joystick.Joystick(ev.device_index).init()
+                rescan_joysticks()
+
+        # SDL hotplug is unreliable under the kiosk compositor, so poll for
+        # newly connected pads about once a second.
+        if t >= next_rescan:
+            rescan_joysticks()
+            next_rescan = t + 1.0
 
         # ease
         scroll += (scroll_tgt - scroll) * EASE
