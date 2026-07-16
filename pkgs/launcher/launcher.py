@@ -9,6 +9,7 @@ at build time, fetches Lutris banner art on first run, and shells out to
 import json
 import math
 import os
+import signal
 import subprocess
 import sys
 import threading
@@ -157,6 +158,27 @@ def make_badge(font: pygame.font.Font, text: str, color: tuple) -> pygame.Surfac
     return s
 
 
+def _terminate(proc: "subprocess.Popen") -> None:
+    """Kill a game's whole process group (nix -> gamescope -> proton -> game),
+    escalating to SIGKILL if it does not exit promptly."""
+    if proc.poll() is not None:
+        return
+    try:
+        pgid = os.getpgid(proc.pid)
+    except ProcessLookupError:
+        return
+    try:
+        os.killpg(pgid, signal.SIGTERM)
+        proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(pgid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    except ProcessLookupError:
+        pass
+
+
 def launch_with_fade(screen: pygame.Surface, slug: str) -> None:
     sw, sh = screen.get_size()
     snap = screen.copy()
@@ -177,9 +199,33 @@ def launch_with_fade(screen: pygame.Surface, slug: str) -> None:
     cmd = ["nix", "run", f"{FLAKE_REF}#{slug}"]
     print(f"+ {' '.join(cmd)}", file=sys.stderr)
     try:
-        subprocess.run(cmd, check=False)
+        # start_new_session so the whole game tree gets its own process group
+        # and we can signal all of it, not just `nix run`.
+        proc = subprocess.Popen(cmd, start_new_session=True)
     except FileNotFoundError:
         print("nix not found in PATH", file=sys.stderr)
+        pygame.event.clear()
+        return
+
+    # While the game runs, hold Back + Start together on any pad to kill it and
+    # return to the grid. Joystick events still reach us here because the
+    # session sets SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS.
+    kill_combo = {6, 7}  # Back (View) + Start (Menu) on an Xbox pad
+    held: set[int] = set()
+    clock = pygame.time.Clock()
+    while proc.poll() is None:
+        for ev in pygame.event.get():
+            if ev.type == pygame.JOYBUTTONDOWN:
+                held.add(ev.button)
+                if kill_combo <= held:
+                    _terminate(proc)
+            elif ev.type == pygame.JOYBUTTONUP:
+                held.discard(ev.button)
+            elif ev.type == pygame.JOYDEVICEADDED:
+                pygame.joystick.Joystick(ev.device_index).init()
+        clock.tick(30)
+
+    _terminate(proc)
     pygame.event.clear()
 
 
