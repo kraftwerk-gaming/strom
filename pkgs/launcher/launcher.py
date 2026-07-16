@@ -11,6 +11,7 @@ import math
 import os
 import subprocess
 import sys
+import threading
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -70,12 +71,22 @@ def fetch_banner(slug: str) -> Path | None:
     dest = BANNER_CACHE / f"{slug}.jpg"
     if dest.exists():
         return dest
+    # Negative cache: a banner that upstream doesn't have (404) is marked so we
+    # don't pay a network round-trip for it on every launch. Transient failures
+    # are left unmarked so they retry next time.
+    miss = BANNER_CACHE / f"{slug}.miss"
+    if miss.exists():
+        return None
     url = f"https://lutris.net/games/banner/{slug}.jpg"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "strom-launcher/1"})
         with urllib.request.urlopen(req, timeout=5) as r:
             dest.write_bytes(r.read())
         return dest
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            miss.touch()
+        return None
     except (urllib.error.URLError, TimeoutError, OSError):
         return None
 
@@ -224,19 +235,39 @@ def main() -> int:
     shadow = make_shadow(TILE_W, TILE_H)
     title = title_font.render("STROM", True, ACCENT)
 
-    # warm cache
-    banners: dict[str, pygame.Surface] = {}
-    for g in games:
-        s = load_banner_surface(g["slug"])
-        if s:
-            banners[g["slug"]] = round_surface(s, 8)
-
-    # pre-scale popped versions of banners
+    # Banner art loads without blocking the grid: a background thread downloads
+    # every banner into the cache, and pump_banners() pulls finished ones into
+    # surfaces a few per frame from the main loop. Previously this warmed ~700
+    # banners synchronously before the event loop, delaying input for minutes.
     pop_w, pop_h = int(TILE_W * POP_SCALE), int(TILE_H * POP_SCALE)
-    banners_pop: dict[str, pygame.Surface] = {
-        k: pygame.transform.smoothscale(v, (pop_w, pop_h)) for k, v in banners.items()
-    }
     pop_shadow = make_shadow(pop_w, pop_h)
+    banners: dict[str, pygame.Surface] = {}
+    banners_pop: dict[str, pygame.Surface] = {}
+    banner_queue = [g["slug"] for g in games]
+    banner_done: dict[str, bool] = {}
+
+    def _prefetch_banners() -> None:
+        for g in games:
+            banner_done[g["slug"]] = fetch_banner(g["slug"]) is not None
+
+    threading.Thread(target=_prefetch_banners, daemon=True).start()
+
+    def pump_banners(budget: int = 6) -> None:
+        loaded = 0
+        while banner_queue and loaded < budget:
+            slug = banner_queue[0]
+            if slug not in banner_done:
+                break  # prefetch works in order; nothing later is ready yet
+            banner_queue.pop(0)
+            if banner_done[slug]:
+                surf = load_banner_surface(slug)
+                if surf:
+                    surf = round_surface(surf, 8)
+                    banners[slug] = surf
+                    banners_pop[slug] = pygame.transform.smoothscale(
+                        surf, (pop_w, pop_h)
+                    )
+            loaded += 1
 
     # pre-render badges
     badges: dict[str, pygame.Surface] = {}
@@ -321,6 +352,8 @@ def main() -> int:
         if t >= next_rescan:
             rescan_joysticks()
             next_rescan = t + 1.0
+
+        pump_banners()
 
         # ease
         scroll += (scroll_tgt - scroll) * EASE
