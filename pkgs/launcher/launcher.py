@@ -196,7 +196,13 @@ def launch_with_fade(screen: pygame.Surface, slug: str) -> None:
         pygame.time.wait(12)
 
     pygame.display.iconify()
-    cmd = ["nix", "run", f"{FLAKE_REF}#{slug}"]
+    # In a gamescope-session kiosk (STROM_NO_GAMESCOPE=1) run the game directly
+    # in the session compositor instead of nesting a per-game gamescope, which
+    # would double-nest and, on some GPUs, storm the swapchain.
+    ref = f"{FLAKE_REF}#{slug}"
+    if os.environ.get("STROM_NO_GAMESCOPE"):
+        ref += ".no-gamescope"
+    cmd = ["nix", "run", ref]
     print(f"+ {' '.join(cmd)}", file=sys.stderr)
     try:
         # start_new_session so the whole game tree gets its own process group
