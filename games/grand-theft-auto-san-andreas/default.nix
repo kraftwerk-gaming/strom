@@ -101,6 +101,20 @@ let
     hash = "sha256-YFBYNDcsh+kv2IS6AK1Njy40F7MRi7pPnfzYPa96G6I=";
     name = "improved-fast-loader-imfast.zip";
   };
+
+  # GInput (Silent/CookiePLMonster) v1.11: GTA SA's native pad support is
+  # DirectInput-only with a broken fixed mapping -- modern XInput pads get
+  # D-pad-only movement, the stick duplicates the D-pad, and most buttons
+  # (enter vehicle, etc.) go unmapped. GInput rewrites controls onto XInput
+  # so the pad maps like the console versions. Loaded as an ASI from the
+  # game root by the ThirteenAG vorbisFile shim (same path as imfast.asi).
+  # Blog-hosted (no GitHub release / tag); pinned by hash -- the payload is
+  # stable (1.11 is the last release, unchanged since 2016).
+  ginput = fetchurl {
+    url = "https://silent.rockstarvision.com/uploads/GInputSA.zip";
+    hash = "sha256-ttA+MyLGHto8WC3aBi81R90Gtzw/+CmO5Krw2BqewgE=";
+    name = "GInputSA-1.11.zip";
+  };
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "grand-theft-auto-san-andreas";
@@ -192,6 +206,13 @@ self.lib.mkGame { inherit lib pkgs; } {
     unzip -q -o ${improvedFastLoader} -d "$TMPDIR/imfast"
     cp -f "$TMPDIR/imfast/imfast.asi" "$out/imfast.asi"
     cp -f "$TMPDIR/imfast/imfast.ini" "$out/imfast.ini"
+
+    # GInput: swap SA's broken native DirectInput pad handling for XInput
+    # (correct console-style mapping incl. enter-vehicle, separate stick vs
+    # D-pad). GInputSA.asi loads from the game root via the vorbisFile ASI
+    # shim; the button-prompt .txd models merge into the game's models/ dir.
+    unzip -q -o ${ginput} GInputSA.asi GInputSA.ini -d "$out"
+    unzip -q -o ${ginput} 'models/*' -d "$out"
   '';
 
   runtime = "proton";
