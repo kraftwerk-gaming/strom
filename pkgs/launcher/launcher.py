@@ -2,13 +2,14 @@
 """Strom couch launcher.
 
 A fullscreen game grid driven by a gamepad. Reads a JSON manifest baked
-at build time, fetches Lutris banner art on first run, and shells out to
-`nix run` to start the selected game.
+at build time, fetches Lutris banner art on first run, shows nix's own
+build progress while a game builds, then runs it.
 """
 
 import json
 import math
 import os
+import re
 import signal
 import subprocess
 import sys
@@ -179,58 +180,272 @@ def _terminate(proc: "subprocess.Popen") -> None:
         pass
 
 
-def launch_with_fade(screen: pygame.Surface, slug: str) -> None:
+# --- launch progress -------------------------------------------------------
+#
+# `nix run` builds the game before running it, and the first launch of an
+# uncached game fetches/builds for minutes with nothing on screen. Rather than
+# invent our own progress, reuse nix's: `nix build --log-format internal-json`
+# emits the exact activity/result stream that drives nix's own progress bar
+# (start/stop activities, done/expected counts, build-log lines). Parse that
+# generically and draw it; then `nix run` (cached now) starts the game at once.
+
+KILL_COMBO = {6, 7}  # Back (View) + Start (Menu) on an Xbox pad
+
+_STORE_RE = re.compile(r"/nix/store/[a-z0-9]{32}-([^\s'\"]+)")
+
+# nix ActivityType / ResultType (src/libutil/logging.hh); only the ones we
+# surface, everything else is ignored.
+_ACT_COPY_PATH = 100
+_ACT_FILE_TRANSFER = 101
+_ACT_BUILD = 105
+_ACT_SUBSTITUTE = 108
+_ACT_BYTES = {_ACT_COPY_PATH, _ACT_FILE_TRANSFER}
+_ACT_HEADLINE = {_ACT_COPY_PATH, _ACT_FILE_TRANSFER, _ACT_BUILD, _ACT_SUBSTITUTE}
+_RES_BUILD_LOG = 101
+_RES_PROGRESS = 105
+_RES_POST_BUILD_LOG = 107
+
+
+def _terminate(proc: "subprocess.Popen") -> None:
+    """Kill a game's whole process group (nix -> gamescope -> proton -> game),
+    escalating to SIGKILL if it does not exit promptly."""
+    if proc.poll() is not None:
+        return
+    try:
+        pgid = os.getpgid(proc.pid)
+    except ProcessLookupError:
+        return
+    try:
+        os.killpg(pgid, signal.SIGTERM)
+        proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        try:
+            os.killpg(pgid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    except ProcessLookupError:
+        pass
+
+
+def _tidy(text: str) -> str:
+    """Strip /nix/store/<hash>- prefixes and quotes so nix's activity text fits
+    on one line and reads as a name."""
+    return _STORE_RE.sub(r"\1", text or "").strip().strip("'\"")
+
+
+def _read_nix(proc: "subprocess.Popen", state: dict, lock: threading.Lock) -> None:
+    """Consume nix's internal-json stream on stderr and publish the current
+    activity, aggregate byte progress and the last log line into `state`."""
+    acts: dict = {}  # activity id -> activity type
+    prog: dict = {}  # activity id -> (done, expected) bytes
+    for line in proc.stderr:
+        if not line.startswith("@nix "):
+            continue
+        try:
+            ev = json.loads(line[5:])
+        except json.JSONDecodeError:
+            continue
+        action = ev.get("action")
+        if action == "start":
+            typ = ev.get("type", 0)
+            acts[ev.get("id")] = typ
+            text = ev.get("text")
+            if typ in _ACT_HEADLINE and text:
+                with lock:
+                    state["headline"] = _tidy(text)
+        elif action == "stop":
+            aid = ev.get("id")
+            acts.pop(aid, None)
+            prog.pop(aid, None)
+        elif action == "result":
+            aid = ev.get("id")
+            rt = ev.get("type")
+            fields = ev.get("fields") or []
+            if rt in (_RES_BUILD_LOG, _RES_POST_BUILD_LOG) and fields:
+                with lock:
+                    state["detail"] = _tidy(str(fields[0]))
+            elif (
+                rt == _RES_PROGRESS and len(fields) >= 2 and acts.get(aid) in _ACT_BYTES
+            ):
+                prog[aid] = (fields[0] or 0, fields[1] or 0)
+                done = sum(d for d, _ in prog.values())
+                exp = sum(e for _, e in prog.values())
+                with lock:
+                    state["bytes"] = (done, exp)
+        elif action == "msg" and ev.get("level", 3) <= 1:
+            with lock:
+                state["error"] = _tidy(ev.get("msg", ""))
+    with lock:
+        state["rc"] = proc.wait()
+
+
+def _poll_kill(held: set, proc: "subprocess.Popen") -> bool:
+    """Pump pygame events into `held`; return True when the kill/cancel combo
+    (Back+Start, or Esc) is triggered. Keeps hotplugged pads initialised."""
+    for ev in pygame.event.get():
+        if ev.type == pygame.JOYBUTTONDOWN:
+            held.add(ev.button)
+        elif ev.type == pygame.JOYBUTTONUP:
+            held.discard(ev.button)
+        elif ev.type == pygame.JOYDEVICEADDED:
+            pygame.joystick.Joystick(ev.device_index).init()
+        elif ev.type == pygame.KEYDOWN and ev.key == pygame.K_ESCAPE:
+            return True
+    return KILL_COMBO <= held
+
+
+def _draw_progress(screen, fonts, bg, state, lock, t) -> None:
     sw, sh = screen.get_size()
+    with lock:
+        headline = state["headline"]
+        detail = state["detail"]
+        done, exp = state["bytes"]
+    big, mid, small = fonts
+
+    screen.blit(bg, (0, 0))
+    title = big.render("launching", True, ACCENT)
+    screen.blit(title, title.get_rect(center=(sw // 2, sh // 2 - 130)))
+    hl = mid.render(headline[:80], True, TEXT)
+    screen.blit(hl, hl.get_rect(center=(sw // 2, sh // 2 - 60)))
+
+    bw, bh = 900, 26
+    bx, by = (sw - bw) // 2, sh // 2 - 20
+    pygame.draw.rect(screen, (40, 42, 56), (bx, by, bw, bh), border_radius=13)
+    if exp > 0:
+        frac = max(0.0, min(1.0, done / exp))
+        pygame.draw.rect(
+            screen, ACCENT, (bx, by, max(bh, int(bw * frac)), bh), border_radius=13
+        )
+        mib = small.render(f"{done // 1048576} / {exp // 1048576} MiB", True, DIM)
+        screen.blit(mib, mib.get_rect(midtop=(sw // 2, by + bh + 10)))
+    else:
+        cw = 220
+        x = bx + int((0.5 - 0.5 * math.cos(t * 2.2)) * (bw - cw))
+        pygame.draw.rect(screen, ACCENT, (x, by, cw, bh), border_radius=13)
+
+    if detail:
+        dt = small.render(detail[:104], True, DIM)
+        screen.blit(dt, dt.get_rect(center=(sw // 2, by + bh + 46)))
+
+    hint = small.render("Back + Start   cancel", True, DIM)
+    screen.blit(hint, hint.get_rect(midbottom=(sw // 2, sh - 24)))
+    pygame.display.flip()
+
+
+def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
+    slug = game["slug"]
+    label = game.get("label", slug)
+    sw, sh = screen.get_size()
+
+    big = pygame.font.SysFont(None, 56, bold=True)
+    mid = pygame.font.SysFont(None, 34)
+    small = pygame.font.SysFont(None, 24)
+    fonts = (big, mid, small)
+    bg = make_gradient(sw, sh)
+
+    # fade the grid out under a "launching <label>" caption
     snap = screen.copy()
     overlay = pygame.Surface((sw, sh), pygame.SRCALPHA)
-    font = pygame.font.SysFont(None, 48)
-    msg = font.render(f"launching {slug}...", True, TEXT)
-
+    cap = big.render(f"launching {label}", True, TEXT)
     for i in range(18):
-        a = int((i / 17) * 220)
-        overlay.fill((0, 0, 0, a))
+        overlay.fill((0, 0, 0, int((i / 17) * 220)))
         screen.blit(snap, (0, 0))
         screen.blit(overlay, (0, 0))
-        screen.blit(msg, msg.get_rect(center=(sw // 2, sh // 2)))
+        screen.blit(cap, cap.get_rect(center=(sw // 2, sh // 2)))
         pygame.display.flip()
         pygame.time.wait(12)
 
-    pygame.display.iconify()
     # In a gamescope-session kiosk (STROM_NO_GAMESCOPE=1) run the game directly
-    # in the session compositor instead of nesting a per-game gamescope, which
-    # would double-nest and, on some GPUs, storm the swapchain.
+    # in the session compositor instead of nesting a per-game gamescope.
     ref = f"{FLAKE_REF}#{slug}"
     if os.environ.get("STROM_NO_GAMESCOPE"):
         ref += ".no-gamescope"
-    cmd = ["nix", "run", ref]
-    print(f"+ {' '.join(cmd)}", file=sys.stderr)
+
+    # Phase 1: build, showing nix's own progress. `nix run` alone would build
+    # too, but silently; building first lets us surface the download/build.
+    state = {
+        "headline": "preparing",
+        "detail": "",
+        "bytes": (0, 0),
+        "rc": None,
+        "error": "",
+    }
+    lock = threading.Lock()
+    build = ["nix", "build", ref, "--no-link", "-L", "--log-format", "internal-json"]
+    print(f"+ {' '.join(build)}", file=sys.stderr)
+    try:
+        proc = subprocess.Popen(
+            build,
+            start_new_session=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.PIPE,
+            text=True,
+            bufsize=1,
+        )
+    except FileNotFoundError:
+        print("nix not found in PATH", file=sys.stderr)
+        pygame.event.clear()
+        return
+    threading.Thread(target=_read_nix, args=(proc, state, lock), daemon=True).start()
+
+    held: set = set()
+    clock = pygame.time.Clock()
+    t = 0.0
+    while True:
+        with lock:
+            rc = state["rc"]
+        if rc is not None:
+            break
+        if _poll_kill(held, proc):
+            _terminate(proc)
+            pygame.event.clear()
+            return
+        _draw_progress(screen, fonts, bg, state, lock, t)
+        t += clock.tick(30) / 1000.0
+
+    if rc != 0:
+        with lock:
+            err = state["error"] or state["detail"] or "see journal"
+        screen.blit(bg, (0, 0))
+        t1 = big.render(f"failed to launch {label}", True, (240, 150, 150))
+        screen.blit(t1, t1.get_rect(center=(sw // 2, sh // 2 - 30)))
+        t2 = small.render(err[:104], True, DIM)
+        screen.blit(t2, t2.get_rect(center=(sw // 2, sh // 2 + 30)))
+        hint = small.render("any button to continue", True, DIM)
+        screen.blit(hint, hint.get_rect(midbottom=(sw // 2, sh - 24)))
+        pygame.display.flip()
+        held.clear()
+        waited = 0
+        while waited < 5000:
+            for ev in pygame.event.get():
+                if ev.type in (pygame.JOYBUTTONDOWN, pygame.KEYDOWN):
+                    waited = 5000
+            waited += clock.tick(30)
+        pygame.event.clear()
+        return
+
+    # Phase 2: run. Build is cached now, so `nix run` starts the game at once;
+    # its gamescope maps over us under sway. Hold Back+Start to kill it.
+    cap = big.render(f"starting {label}", True, TEXT)
+    screen.blit(bg, (0, 0))
+    screen.blit(cap, cap.get_rect(center=(sw // 2, sh // 2)))
+    pygame.display.flip()
+    run = ["nix", "run", ref]
+    print(f"+ {' '.join(run)}", file=sys.stderr)
     try:
         # start_new_session so the whole game tree gets its own process group
         # and we can signal all of it, not just `nix run`.
-        proc = subprocess.Popen(cmd, start_new_session=True)
+        proc = subprocess.Popen(run, start_new_session=True)
     except FileNotFoundError:
         print("nix not found in PATH", file=sys.stderr)
         pygame.event.clear()
         return
 
-    # While the game runs, hold Back + Start together on any pad to kill it and
-    # return to the grid. Joystick events still reach us here because the
-    # session sets SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS.
-    kill_combo = {6, 7}  # Back (View) + Start (Menu) on an Xbox pad
-    held: set[int] = set()
-    clock = pygame.time.Clock()
+    held.clear()
     while proc.poll() is None:
-        for ev in pygame.event.get():
-            if ev.type == pygame.JOYBUTTONDOWN:
-                held.add(ev.button)
-                if kill_combo <= held:
-                    _terminate(proc)
-            elif ev.type == pygame.JOYBUTTONUP:
-                held.discard(ev.button)
-            elif ev.type == pygame.JOYDEVICEADDED:
-                pygame.joystick.Joystick(ev.device_index).init()
+        if _poll_kill(held, proc):
+            _terminate(proc)
         clock.tick(30)
-
     _terminate(proc)
     pygame.event.clear()
 
@@ -374,7 +589,7 @@ def main() -> int:
                 elif ev.key in (pygame.K_UP, pygame.K_w):
                     move(-COLS)
                 elif ev.key in (pygame.K_RETURN, pygame.K_SPACE):
-                    launch_with_fade(screen, games[sel]["slug"])
+                    launch_with_fade(screen, games[sel])
             elif ev.type == pygame.JOYHATMOTION:
                 hx, hy = ev.value
                 if hx:
@@ -393,7 +608,7 @@ def main() -> int:
                         axis_latched[ev.axis] = 0
             elif ev.type == pygame.JOYBUTTONDOWN:
                 if ev.button == 0:
-                    launch_with_fade(screen, games[sel]["slug"])
+                    launch_with_fade(screen, games[sel])
                 elif ev.button == 1:
                     running = False
             elif ev.type == pygame.JOYDEVICEADDED:
