@@ -279,8 +279,8 @@ let
               # this same option (first = highest priority).
               overlay = {
                 lowers = [ "${cfg._gameData}" ];
-                upper = "$STROM_GAMEDIR";
-                work = "$STROM_CACHEDIR/overlay-work";
+                upper = "$STROM_GAMEDIR/.strom-overlay/upper";
+                work = "$STROM_GAMEDIR/.strom-overlay/work";
                 dest = "/tmp/.strom-overlay";
               };
 
@@ -290,7 +290,7 @@ let
                 STROM_CACHEDIR="''${HOME:-.}/.cache/strom/${cfg.name}"
                 STROM_OVERLAY=/tmp/.strom-overlay
                 export STROM_GAMEDIR STROM_COMPATDATA STROM_CACHEDIR STROM_OVERLAY
-                mkdir -p "$STROM_GAMEDIR" "$STROM_COMPATDATA" "$STROM_CACHEDIR" \
+                mkdir -p "$STROM_GAMEDIR" "$STROM_COMPATDATA" "$STROM_CACHEDIR" "$STROM_GAMEDIR/.strom-overlay/upper" \
                   ${lib.optionalString (cfg.runtime == "proton") ''
                     "$STROM_CACHEDIR/umu" "$STROM_CACHEDIR/umu-protonfixes" "$HOME/.cache/wine"
                   ''}
@@ -301,15 +301,22 @@ let
                 # comes up this launch (see lib/n2n-edge-launcher.sh).
                 rm -f "$STROM_GAMEDIR/.strom-n2n-ip"
 
-                # fuse-overlayfs needs an empty workdir on the same fs as
-                # upper. overlayfs creates the work/ subdir as mode 0000
-                # (owned by our uid but unreadable), so a plain `rm -rf`
-                # fails with EACCES on relaunch. chmod ourselves in first.
-                if [ -d "$STROM_CACHEDIR/overlay-work" ]; then
-                  chmod -R u+rwX "$STROM_CACHEDIR/overlay-work" 2>/dev/null || true
+                # fuse-overlayfs copy-up renames from workdir into upperdir,
+                # which returns EXDEV across a mount boundary. bwrap binds each
+                # STROM_* dir as its OWN mount, so work and upper MUST sit under
+                # ONE bind ($STROM_GAMEDIR) as siblings -- separate binds
+                # ($STROM_CACHEDIR vs $STROM_GAMEDIR) make every copy-up fail
+                # with "Invalid cross-device link", so the engine can never
+                # write a file next to its binary (black screen on save). The
+                # upper here backs the overlay mounted at /tmp/.strom-overlay.
+                # overlayfs creates the work/ subdir as mode 0000 (owned by our
+                # uid but unreadable), so a plain `rm -rf` fails with EACCES on
+                # relaunch. chmod ourselves in first.
+                if [ -d "$STROM_GAMEDIR/.strom-overlay/work" ]; then
+                  chmod -R u+rwX "$STROM_GAMEDIR/.strom-overlay/work" 2>/dev/null || true
                 fi
-                rm -rf "$STROM_CACHEDIR/overlay-work"
-                mkdir -p "$STROM_CACHEDIR/overlay-work"
+                rm -rf "$STROM_GAMEDIR/.strom-overlay/work"
+                mkdir -p "$STROM_GAMEDIR/.strom-overlay/work"
 
                 ${lib.optionalString (cfg.runtime == "proton") ''
                   exec 9>"$STROM_CACHEDIR/.lock"
@@ -381,7 +388,7 @@ let
                 export PATH="${pkgs.fuse3}/bin:''${PATH:-}"
                 export FUSERMOUNT_PROG="${fusermount3Bin}"
                 ${fuseOverlayfs}/bin/fuse-overlayfs \
-                  -o "lowerdir=${lib.concatStringsSep ":" cfg.bwrap.overlay.lowers},upperdir=$STROM_GAMEDIR,workdir=$STROM_CACHEDIR/overlay-work,squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
+                  -o "lowerdir=${lib.concatStringsSep ":" cfg.bwrap.overlay.lowers},upperdir=${cfg.bwrap.overlay.upper},workdir=${cfg.bwrap.overlay.work},squash_to_uid=$(id -u),squash_to_gid=$(id -g)" \
                   "$STROM_OVERLAY"
                 if ! ${pkgs.util-linux}/bin/mountpoint -q "$STROM_OVERLAY"; then
                   echo "${cfg.name}: in-ns overlay mount at $STROM_OVERLAY failed" >&2
