@@ -19,6 +19,7 @@
   libpulseaudio,
   alsa-lib,
   libxkbcommon,
+  systemdLibs,
 }:
 
 let
@@ -109,6 +110,16 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     SDL_VIDEODRIVER = "x11";
+
+    # FEZ bundles an ancient SDL2 (pre-2.0.9: no HIDAPI, hg-revision
+    # build) that dlopens libudev.so.1 to enumerate input devices. The
+    # libs below don't include udev, and MonoKickstart prepends the game
+    # dir to LD_LIBRARY_PATH, so without systemdLibs here SDL's udev load
+    # fails, its classic /dev/input fallback finds nothing, and the pad is
+    # invisible (SDL_NumJoysticks == 0). systemdLibs supplies
+    # libudev.so.1; /run/udev is already bound into the sandbox
+    # (lib/mk-game.nix), so auto-enumeration then works across reconnects
+    # without hardcoding a dynamic /dev/input/eventN.
     LD_LIBRARY_PATH = lib.makeLibraryPath [
       libGL
       libX11
@@ -122,7 +133,17 @@ self.lib.mkGame { inherit lib pkgs; } {
       libpulseaudio
       alsa-lib
       libxkbcommon
+      systemdLibs
     ];
+
+    # Even once enumerated, the bundled controller DB has no entry for the
+    # xpadneo Bluetooth Xbox pad (evdev id 045e:028e, bus 0005, ver 1130
+    # -> the old-SDL GUID below, computed without the crc16 that SDL
+    # >=2.0.12 adds), so FNA's GamePad API sees an unmapped joystick and
+    # reports no controller. Inject the mapping (verified against the
+    # game's own SDL: SDL_IsGameController -> 1). Layout is the standard
+    # Xbox 360 pad that xpadneo emulates by default.
+    SDL_GAMECONTROLLERCONFIG = "050000005e0400008e02000030110000,Xbox 360 Controller,a:b0,b:b1,x:b2,y:b3,back:b6,guide:b8,start:b7,leftstick:b9,rightstick:b10,leftshoulder:b4,rightshoulder:b5,dpup:h0.1,dpdown:h0.4,dpleft:h0.8,dpright:h0.2,leftx:a0,lefty:a1,rightx:a3,righty:a4,lefttrigger:a2,righttrigger:a5,platform:Linux,";
   };
 
   meta = {
