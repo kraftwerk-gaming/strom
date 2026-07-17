@@ -3,6 +3,7 @@
   lib,
   pkgs,
   fetchIpfs,
+  fetchurl,
   unzip,
 }:
 
@@ -18,6 +19,20 @@ let
     fallbackUrl = "https://archive.org/download/grand-theft-auto-vice-city-1.0/Grand%20Theft%20Auto%20Vice%20City%201.0.zip";
     hash = "sha256-9ICUp48nQJgOB2CpA2BzjhPa+aSQJsGAjNrASdfAS5Y=";
     name = "grand-theft-auto-vice-city.zip";
+  };
+
+  # GInput (Silent/CookiePLMonster) VC build 1.11a: VC's native pad support
+  # is DirectInput-only with a broken fixed mapping (same story as San
+  # Andreas -- modern XInput pads get D-pad-only movement, the stick
+  # duplicates the D-pad, and buttons like enter-vehicle go unmapped).
+  # GInput rewrites controls onto XInput so the pad maps like the console
+  # versions. Loaded as an ASI by the ThirteenAG d3d8 shim already present
+  # (the loader that pulls the Widescreen Fix .asi in). Blog-hosted (no
+  # GitHub release / tag); pinned by hash (1.11a is the last VC release).
+  ginput = fetchurl {
+    url = "https://silent.rockstarvision.com/uploads/GInputVC.zip";
+    hash = "sha256-ttM9sZwCT6At5Z9IGXu1S+fXMHAQQJCk2eSWBqRRtdM=";
+    name = "GInputVC-1.11a.zip";
   };
 in
 self.lib.mkGame { inherit lib pkgs; } {
@@ -41,6 +56,14 @@ self.lib.mkGame { inherit lib pkgs; } {
     cp -rf "$TMPDIR/outer/Widescreen Fix/GTAVC.WidescreenFix"/. "$TMPDIR/game"/
     cp -rf "$TMPDIR/outer/Widescreen Fix/GTAVC.WidescreenFrontend"/. "$TMPDIR/game"/
     cp -r "$TMPDIR/game"/. "$out"/
+
+    # GInput: swap VC's broken native DirectInput pad handling for XInput
+    # (correct console-style mapping incl. enter-vehicle, separate stick vs
+    # D-pad). The ThirteenAG d3d8 ASI loader here scans scripts/ (where the
+    # Widescreen Fix .asi lives), NOT the game root, so GInputVC.asi + its
+    # ini go in scripts/; the button-prompt .txd models merge into models/.
+    unzip -q -o ${ginput} GInputVC.asi GInputVC.ini -d "$out/scripts"
+    unzip -q -o ${ginput} 'models/*' -d "$out"
   '';
 
   runtime = "proton";
