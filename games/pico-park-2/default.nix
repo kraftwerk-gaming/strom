@@ -322,26 +322,45 @@ self.lib.mkGame { inherit lib pkgs; } {
     # steam_interfaces.txt, supported_languages.txt). Only patch the
     # fields the uploader baked-in or that risk hanging the game.
     #
-    # The repack already ships the SteamInput action-set bindings that
-    # gbe_fork's experimental ISteamInput006 implementation needs:
-    #   - steam_settings/controller/InGameControls.txt (the "InGameControls"
-    #     action set: Move=LJOY, Jump=A, LightAttack=X, HeavyAttack=Y,
-    #     check=B, Dash=RTRIGGER, LockOn=LTRIGGER, AllMap=BACK,
-    #     pause_menu=START, ChangeCharacter{Up,Down,Left,Right}=DPAD,
-    #     ResetCamera=RSTICK, ActivateSkillAndMagic=RBUMPER,
-    #     IdeaRelease=LBUMPER, plus Camera=RJOY)
-    #   - steam_settings/controller/MenuControls.txt (the "MenuControls"
-    #     action set: Menu{Up,Down,Left,Right}=DPAD+LJOY, SELECT=A,
-    #     Cancel=B, PauseMenu=START, Sort=BACK, ScrollUp/Down=RJOY,
-    #     plus MenuX/Y/RTrigger/LTrigger)
-    # These are the two action sets registered by SteamNative.dll's
-    # `SteamGetActionSetHandle` calls (visible in the IL2CPP metadata at
-    # pico_park_2_Data/il2cpp_data/Metadata/global-metadata.dat as the
-    # `m_ActionSetHandle` / `actionSetName` field references and matching
-    # filename pair under the existing controller/ dir). Without these
-    # files gbe_fork returns "not bound" for every action and the pad
-    # silently no-ops in-game even though XInput is enumerating it.
+    # SteamInput action-set bindings. gbe_fork's experimental
+    # ISteamInput006 maps the game's action handles to physical pad
+    # inputs by reading steam_settings/controller/<ActionSet>.txt. A
+    # gbe_fork *debug*-build STEAM_LOG trace of the real v1.04 binary
+    # shows Init() and GetConnectedControllers() already succeed (the
+    # pad enumerates as 1 controller, wine's XInput feeds it) and that
+    # the game requests exactly ONE action set, "GameControls", with
+    # digital actions Action_{A,B,X,Y,L,R,Start,Up,Down,Left,Right} and
+    # analog Action_Joystick. The repack, however, only ships
+    # InGameControls.txt / MenuControls.txt (action sets INGAMECONTROLS /
+    # MENUCONTROLS, unrelated action names Move/Jump/LightAttack/...) --
+    # leftovers from a DIFFERENT build. With no config matching
+    # "GameControls", every action resolved to "not bound" and the pad
+    # silently no-opped in-game despite XInput enumerating it (GetDigital-
+    # ActionData returned the uniform unbound "1 0"; after adding the file
+    # it returns per-action bindings and GetActionSetHandle returns 1).
+    # We write the matching GameControls.txt below; the stale files are
+    # harmless (the game never asks for their action sets) so they stay.
     settings="$plugins/steam_settings"
+
+    # The action set + action names the real v1.04 binary asks for (see
+    # comment above). Direct 1:1 pad mapping; Action_L/R are the shoulder
+    # bumpers, Action_Joystick is the left analog stick. Indented to match
+    # the buildScript base so Nix strips the leading space to column 0.
+    mkdir -p "$settings/controller"
+    cat > "$settings/controller/GameControls.txt" <<'GAMECONTROLS'
+    Action_A=A
+    Action_B=B
+    Action_X=X
+    Action_Y=Y
+    Action_L=LBUMPER
+    Action_R=RBUMPER
+    Action_Start=START
+    Action_Up=DUP
+    Action_Down=DDOWN
+    Action_Left=DLEFT
+    Action_Right=DRIGHT
+    Action_Joystick=LJOY=joystick_move
+    GAMECONTROLS
 
     # Sanitize the uploader's account name. gbe_fork accepts any
     # string here, but leaving Mr_GoldBerg-branded saves around is
