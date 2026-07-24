@@ -537,6 +537,16 @@ def main() -> int:
     dimmer.fill((0, 0, 0, 90))
     dimmer = round_surface(dimmer, 8)
 
+    # Pre-render per-game labels and the footer hint once. Re-rendering this
+    # text every frame was a large slice of the per-frame cost.
+    labels_dim = {g["slug"]: small.render(g["label"], True, DIM) for g in games}
+    labels_sel = {g["slug"]: font.render(g["label"], True, TEXT) for g in games}
+    hint = small.render(
+        "D-pad / arrows  move        A / Enter  launch        B / Esc  quit",
+        True,
+        DIM,
+    )
+
     sel = 0
     scroll = 0.0
     scroll_tgt = 0.0
@@ -557,12 +567,32 @@ def main() -> int:
     grid_w = COLS * TILE_W + (COLS - 1) * TILE_GAP
     ox = (sw - grid_w) // 2
 
+    def _settled() -> bool:
+        # True when no animation is in flight, so the loop can idle on events
+        # instead of redrawing the whole screen at 60fps.
+        if banner_queue:
+            return False
+        if abs(scroll_tgt - scroll) > 0.5:
+            return False
+        return all(abs(pop[i] - (1.0 if i == sel else 0.0)) <= 0.01 for i in range(n))
+
     running = True
     while running:
-        dt = clock.tick(60) / 1000.0
+        # Idle when nothing is animating: block on events (waking at least
+        # once a second for the pad rescan) instead of spinning a full-screen
+        # 60fps redraw, which otherwise pins a CPU core the whole time the
+        # launcher sits idle on the grid.
+        if _settled():
+            ev0 = pygame.event.wait(max(1, min(1000, int((next_rescan - t) * 1000))))
+            dt = clock.tick() / 1000.0
+            pending = [] if ev0.type == pygame.NOEVENT else [ev0]
+            pending += pygame.event.get()
+        else:
+            dt = clock.tick(60) / 1000.0
+            pending = pygame.event.get()
         t += dt
 
-        for ev in pygame.event.get():
+        for ev in pending:
             if ev.type == pygame.QUIT:
                 running = False
             elif ev.type == pygame.KEYDOWN:
@@ -648,7 +678,7 @@ def main() -> int:
             badge = badges[g["runtime"]]
             screen.blit(badge, (x + TILE_W - badge.get_width() - 8, y + 8))
 
-            label = small.render(g["label"], True, DIM)
+            label = labels_dim[g["slug"]]
             screen.blit(label, label.get_rect(midtop=(x + TILE_W // 2, y + TILE_H + 8)))
 
         # pass 2: selected tile on top, popped + glowing
@@ -691,16 +721,11 @@ def main() -> int:
         badge = badges[g["runtime"]]
         screen.blit(badge, (x + cw - badge.get_width() - 10, y + 10))
 
-        label = font.render(g["label"], True, TEXT)
+        label = labels_sel[g["slug"]]
         screen.blit(label, label.get_rect(midtop=(bx + TILE_W // 2, by + TILE_H + 10)))
 
         screen.blit(vignette, (0, 0))
 
-        hint = small.render(
-            "D-pad / arrows  move        A / Enter  launch        B / Esc  quit",
-            True,
-            DIM,
-        )
         screen.blit(hint, hint.get_rect(midbottom=(sw // 2, sh - 14)))
 
         pygame.display.flip()
