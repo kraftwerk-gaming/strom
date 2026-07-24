@@ -91,6 +91,20 @@ let
 
     dontStrip = true;
   };
+
+  # luftrausers scans /dev/input/event* directly (it uses no SDL, which would
+  # filter by udev's ID_INPUT_JOYSTICK) and treats any device with absolute
+  # axes as a joystick -- including the laptop touchpad, whose 0..max axes read
+  # as a stick jammed in a corner and hijack steering away from the real
+  # gamepad. This LD_PRELOAD shim makes the game's open() of an event node
+  # succeed only for genuine controllers (advertising BTN_GAMEPAD / BTN_JOYSTICK,
+  # exactly SDL's own test), so the touchpad and mouse are skipped.
+  evdevFilter =
+    pkgs.runCommandCC "luftrausers-evdev-filter" { buildInputs = [ pkgs.linuxHeaders ]; }
+      ''
+        mkdir -p "$out/lib"
+        cc -shared -fPIC -O2 -o "$out/lib/evdev-filter.so" ${./evdev-filter.c} -ldl
+      '';
 in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "luftrausers";
@@ -129,6 +143,9 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     SDL_VIDEODRIVER = "x11";
+    # Restrict the game's raw evdev joystick scan to real controllers only
+    # (see evdevFilter above) so the touchpad cannot hijack steering.
+    LD_PRELOAD = "${evdevFilter}/lib/evdev-filter.so";
   };
 
   gamescope = {
