@@ -159,27 +159,6 @@ def make_badge(font: pygame.font.Font, text: str, color: tuple) -> pygame.Surfac
     return s
 
 
-def _terminate(proc: "subprocess.Popen") -> None:
-    """Kill a game's whole process group (nix -> gamescope -> proton -> game),
-    escalating to SIGKILL if it does not exit promptly."""
-    if proc.poll() is not None:
-        return
-    try:
-        pgid = os.getpgid(proc.pid)
-    except ProcessLookupError:
-        return
-    try:
-        os.killpg(pgid, signal.SIGTERM)
-        proc.wait(timeout=5)
-    except subprocess.TimeoutExpired:
-        try:
-            os.killpg(pgid, signal.SIGKILL)
-        except ProcessLookupError:
-            pass
-    except ProcessLookupError:
-        pass
-
-
 # --- launch progress -------------------------------------------------------
 #
 # `nix run` builds the game before running it, and the first launch of an
@@ -279,16 +258,32 @@ def _read_nix(proc: "subprocess.Popen", state: dict, lock: threading.Lock) -> No
         state["rc"] = proc.wait()
 
 
-def _poll_kill(held: set, proc: "subprocess.Popen") -> bool:
+def _rescan_pads(pads: dict) -> None:
+    """Open any present-but-unopened joystick, keyed by instance id, holding a
+    reference in `pads` so SDL keeps it open. Callers poll this because SDL's
+    JOYDEVICEADDED hotplug is unreliable without udev under the kiosk."""
+    for i in range(pygame.joystick.get_count()):
+        js = pygame.joystick.Joystick(i)
+        iid = js.get_instance_id()
+        if iid not in pads:
+            js.init()
+            pads[iid] = js
+
+
+def _poll_kill(held: set, pads: dict, proc: "subprocess.Popen") -> bool:
     """Pump pygame events into `held`; return True when the kill/cancel combo
-    (Back+Start, or Esc) is triggered. Keeps hotplugged pads initialised."""
+    (Back+Start, or Esc) is triggered. Re-scans pads every call so a controller
+    that drops and reconnects mid-game still drives the combo, since SDL's
+    JOYDEVICEADDED hotplug is unreliable without udev here."""
+    _rescan_pads(pads)
     for ev in pygame.event.get():
         if ev.type == pygame.JOYBUTTONDOWN:
             held.add(ev.button)
         elif ev.type == pygame.JOYBUTTONUP:
             held.discard(ev.button)
-        elif ev.type == pygame.JOYDEVICEADDED:
-            pygame.joystick.Joystick(ev.device_index).init()
+        elif ev.type == pygame.JOYDEVICEREMOVED:
+            pads.pop(ev.instance_id, None)
+            held.clear()
         elif ev.type == pygame.KEYDOWN and ev.key == pygame.K_ESCAPE:
             return True
     return KILL_COMBO <= held
@@ -389,6 +384,7 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
     threading.Thread(target=_read_nix, args=(proc, state, lock), daemon=True).start()
 
     held: set = set()
+    pads: dict = {}
     clock = pygame.time.Clock()
     t = 0.0
     while True:
@@ -396,7 +392,7 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
             rc = state["rc"]
         if rc is not None:
             break
-        if _poll_kill(held, proc):
+        if _poll_kill(held, pads, proc):
             _terminate(proc)
             pygame.event.clear()
             return
@@ -443,7 +439,7 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
 
     held.clear()
     while proc.poll() is None:
-        if _poll_kill(held, proc):
+        if _poll_kill(held, pads, proc):
             _terminate(proc)
         clock.tick(30)
     _terminate(proc)
@@ -469,20 +465,12 @@ def main() -> int:
     pygame.init()
     pygame.joystick.init()
 
-    # Opened pads keyed by instance id. SDL's hotplug/JOYDEVICEADDED is
-    # unreliable under a bare kiosk compositor and can miss pads that connect
-    # around startup, so the main loop also polls rescan_joysticks() below.
+    # Opened pads keyed by instance id, holding a reference so SDL keeps each
+    # open. JOYDEVICEADDED hotplug is unreliable without udev under the kiosk
+    # compositor, so the loops poll _rescan_pads() to catch (re)connects.
     joysticks: dict = {}
 
-    def rescan_joysticks() -> None:
-        for i in range(pygame.joystick.get_count()):
-            js = pygame.joystick.Joystick(i)
-            iid = js.get_instance_id()
-            if iid not in joysticks:
-                js.init()
-                joysticks[iid] = js
-
-    rescan_joysticks()
+    _rescan_pads(joysticks)
 
     flags = pygame.FULLSCREEN | pygame.SCALED
     if os.environ.get("STROM_LAUNCHER_WINDOWED"):
@@ -612,12 +600,12 @@ def main() -> int:
                 elif ev.button == 1:
                     running = False
             elif ev.type == pygame.JOYDEVICEADDED:
-                rescan_joysticks()
+                _rescan_pads(joysticks)
 
         # SDL hotplug is unreliable under the kiosk compositor, so poll for
         # newly connected pads about once a second.
         if t >= next_rescan:
-            rescan_joysticks()
+            _rescan_pads(joysticks)
             next_rescan = t + 1.0
 
         pump_banners()
