@@ -151,15 +151,13 @@
       });
     }
 
-    // The game list is built at runtime from the Radicle repo via a seed's
-    // radicle-httpd JSON API. When served from a seed's /raw route (e.g.
-    // https://iris.radicle.xyz/raw/<rid>/head/web/index.html) it queries that
-    // same seed's API (same origin); opened as a local file it falls back to a
-    // public seed. Override with ?api=URL and ?rid=RID.
-    const DEFAULT_RID = "rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
-    const DEFAULT_API = location.protocol.startsWith("http")
-      ? location.origin + "/api/v1"
-      : "https://iris.radicle.xyz/api/v1";
+    // No seed hostname is baked in: served from a Radicle node's /raw route,
+    // this page reads its own <rid> from the URL and queries that same node's
+    // radicle-httpd API (same origin). Override with ?rid=RID and ?api=URL.
+    const DEFAULT_RID =
+      (location.pathname.match(/\/(rad:[^/]+)\//) || [])[1] ||
+      "rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
+    const DEFAULT_API = location.origin + "/api/v1";
     const ROUTING_ENDPOINTS = [
       "https://delegated-ipfs.dev/routing/v1/providers/",
       "https://cid.contact/routing/v1/providers/",

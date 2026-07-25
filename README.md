@@ -123,7 +123,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 
 ## Games
 
-Browse the catalog in the web GUI -- the live **[catalog browser](https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/gui/index.html)** served from a Radicle node, or `nix run .#gui` locally. IPFS asset availability has its own [status page](https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/index.html).
+Browse the catalog in the web GUI -- the live **[catalog browser](https://ash.radicle.garden/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/gui/index.html)** served from a Radicle node, or `nix run .#gui` locally. IPFS asset availability has its own [status page](https://ash.radicle.garden/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/index.html).
 
 ## IPFS
 

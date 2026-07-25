@@ -10,13 +10,13 @@
  * (pkgs/strom-launch -> nix run); the native launcher shows build progress. */
 
 const params = new URLSearchParams(location.search);
-const RID = params.get("rid") || "rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
-const API = (
-  params.get("api") ||
-  (location.protocol.startsWith("http")
-    ? location.origin + "/api/v1"
-    : "https://iris.radicle.xyz/api/v1")
-).replace(/\/+$/, "");
+// No seed hostname is baked in: read our own <rid> from the /raw/<rid>/ URL and
+// query whatever node served this page (same origin). ?rid / ?api override.
+const RID =
+  params.get("rid") ||
+  (location.pathname.match(/\/(rad:[^/]+)\//) || [])[1] ||
+  "rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
+const API = (params.get("api") || location.origin + "/api/v1").replace(/\/+$/, "");
 const LOAD_PARALLEL = 24;
 const NON_DISPLAY = new Set(["appid", "cids", "description", "runtime"]);
 const LUTRIS_BANNER = (slug) => `https://lutris.net/games/banner/${slug}.jpg`;
