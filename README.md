@@ -123,12 +123,12 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 
 ## Games
 
-The game list is no longer committed to this file. Browse the catalog in the
-Steam-style web GUI (`nix run .#gui`), or view IPFS availability on the
-standalone status page (`web/index.html`) - it builds the list at runtime from
-the public [Radicle](https://radicle.xyz/) repo via a seed's HTTP API, so it
-stays current with no committed game data. The games themselves live under
-[`games/`](games/), one directory per title.
+The game list is not committed to this file. Browse the catalog in the
+Steam-style web GUI (`nix run .#gui`), or open the live
+**[IPFS status page](https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/index.html)**,
+served straight from a Radicle node: it builds the game list at runtime from
+this repo over the node's HTTP API, so it stays current with no committed game
+data. The games themselves live under [`games/`](games/), one per directory.
 
 ## IPFS
 
