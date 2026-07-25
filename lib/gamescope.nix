@@ -190,6 +190,14 @@ in
           for _strom_s in pipewire-0 pipewire-0.lock bus; do
             _strom_ln "$_strom_s"
           done
+          # System-wide PipeWire (services.pipewire.systemWide): the core
+          # socket lives in /run/pipewire, not $XDG_RUNTIME_DIR, so the
+          # symlinks above find nothing. Point libpipewire (native clients
+          # and the ALSA pipewire plugin) at the system runtime dir, which
+          # mk-game.nix binds into the sandbox.
+          if [ ! -e "$_strom_priv/pipewire-0" ] && [ -S /run/pipewire/pipewire-0 ]; then
+            export PIPEWIRE_RUNTIME_DIR="''${PIPEWIRE_RUNTIME_DIR:-/run/pipewire}"
+          fi
           # pulse can NOT be symlinked through: libpulse opens
           # $XDG_RUNTIME_DIR/pulse with O_NOFOLLOW and a symlink fails
           # ELOOP ("Too many levels of symbolic links"); hardlinking the
@@ -199,6 +207,14 @@ in
           if [ -S "$_strom_xrd/pulse/native" ]; then
             mkdir -m 700 "$_strom_priv/pulse" 2>/dev/null || true
             export PULSE_SERVER="''${PULSE_SERVER:-unix:$_strom_xrd/pulse/native}"
+          fi
+          # System-wide pipewire-pulse listens on /run/pulse/native with no
+          # per-user $XDG_RUNTIME_DIR/pulse. libpulse's built-in
+          # /var/run/pulse/native fallback is unreliable for games bundling
+          # their own old libpulse/OpenAL (luftrausers falls through to OSS
+          # and dies), so point PULSE_SERVER at the system socket explicitly.
+          if [ -z "''${PULSE_SERVER:-}" ] && [ -S /run/pulse/native ]; then
+            export PULSE_SERVER="unix:/run/pulse/native"
           fi
           export XDG_RUNTIME_DIR="$_strom_priv"
         fi
