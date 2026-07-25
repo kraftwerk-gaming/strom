@@ -22,6 +22,8 @@ os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 import pygame  # noqa: E402
 
 MANIFEST = Path(os.environ["STROM_MANIFEST"])
+_CAT = os.environ.get("STROM_CATALOG")
+CATALOG = Path(_CAT) if _CAT else None
 FLAKE_REF = os.environ.get("STROM_FLAKE", "github:kraftwerk-gaming/strom")
 
 XDG_CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
@@ -53,15 +55,37 @@ EASE = 0.18  # 0..1 lerp factor per frame
 
 def load_manifest() -> list[dict]:
     data = json.loads(MANIFEST.read_text())
+    catalog: dict = {}
+    if CATALOG:
+        try:
+            catalog = json.loads(CATALOG.read_text())
+        except (OSError, ValueError):
+            catalog = {}
     games = []
     for slug, meta in sorted(data.items()):
-        desc = meta.get("description") or slug
-        if "(" in desc:
-            desc = desc.split("(", 1)[0].strip()
+        cat = catalog.get(slug, {})
+        # Prefer the curated display name; fall back to the nix description
+        # with its "(...)" packaging note stripped.
+        label = cat.get("name")
+        if not label:
+            label = meta.get("description") or slug
+            if "(" in label:
+                label = label.split("(", 1)[0].strip()
+        # Subtitle for the selected tile: genres, year, developers.
+        bits = []
+        genres = cat.get("genres") or []
+        if genres:
+            bits.append(", ".join(genres[:3]))
+        if cat.get("year"):
+            bits.append(str(cat["year"]))
+        devs = cat.get("developers") or []
+        if devs:
+            bits.append(", ".join(devs[:2]))
         games.append(
             {
                 "slug": slug,
-                "label": desc,
+                "label": label,
+                "subtitle": "   |   ".join(bits),
                 "runtime": meta.get("runtime", "?"),
             }
         )
@@ -541,6 +565,11 @@ def main() -> int:
     # text every frame was a large slice of the per-frame cost.
     labels_dim = {g["slug"]: small.render(g["label"], True, DIM) for g in games}
     labels_sel = {g["slug"]: font.render(g["label"], True, TEXT) for g in games}
+    subtitles = {
+        g["slug"]: small.render(g["subtitle"], True, DIM)
+        for g in games
+        if g["subtitle"]
+    }
     hint = small.render(
         "D-pad / arrows  move        A / Enter  launch        B / Esc  quit",
         True,
@@ -559,10 +588,42 @@ def main() -> int:
     AXIS_DEAD = 0.6
     axis_latched = {0: 0, 1: 0}
 
+    # Held-direction auto-repeat. Pads emit no key-repeat and the axis latch
+    # below fires once per crossing, so holding a direction only moved once.
+    # Track the held move delta and re-apply it on a timer (initial delay,
+    # then a faster interval) for keyboard, d-pad, and analog stick alike.
+    held_move = 0
+    repeat_at = 0.0
+    REPEAT_DELAY = 0.35
+    REPEAT_INTERVAL = 0.09
+    KEY_MOVE = {
+        pygame.K_RIGHT: 1,
+        pygame.K_d: 1,
+        pygame.K_LEFT: -1,
+        pygame.K_a: -1,
+        pygame.K_DOWN: COLS,
+        pygame.K_s: COLS,
+        pygame.K_UP: -COLS,
+        pygame.K_w: -COLS,
+    }
+
     def move(d: int) -> None:
         nonlocal sel, scroll_tgt
         sel = max(0, min(n - 1, sel + d))
         scroll_tgt = target_scroll(sel, scroll_tgt, sh)
+
+    def start_hold(d: int) -> None:
+        nonlocal held_move, repeat_at
+        if not d:
+            return
+        move(d)
+        held_move = d
+        repeat_at = t + REPEAT_DELAY
+
+    def stop_hold(d: int | None = None) -> None:
+        nonlocal held_move
+        if d is None or d == held_move:
+            held_move = 0
 
     grid_w = COLS * TILE_W + (COLS - 1) * TILE_GAP
     ox = (sw - grid_w) // 2
@@ -571,6 +632,8 @@ def main() -> int:
         # True when no animation is in flight, so the loop can idle on events
         # instead of redrawing the whole screen at 60fps.
         if banner_queue:
+            return False
+        if held_move:
             return False
         if abs(scroll_tgt - scroll) > 0.5:
             return False
@@ -598,39 +661,47 @@ def main() -> int:
             elif ev.type == pygame.KEYDOWN:
                 if ev.key == pygame.K_ESCAPE:
                     running = False
-                elif ev.key in (pygame.K_RIGHT, pygame.K_d):
-                    move(1)
-                elif ev.key in (pygame.K_LEFT, pygame.K_a):
-                    move(-1)
-                elif ev.key in (pygame.K_DOWN, pygame.K_s):
-                    move(COLS)
-                elif ev.key in (pygame.K_UP, pygame.K_w):
-                    move(-COLS)
+                elif ev.key in KEY_MOVE:
+                    start_hold(KEY_MOVE[ev.key])
                 elif ev.key in (pygame.K_RETURN, pygame.K_SPACE):
+                    stop_hold()
                     launch_with_fade(screen, games[sel])
+            elif ev.type == pygame.KEYUP:
+                if ev.key in KEY_MOVE:
+                    stop_hold(KEY_MOVE[ev.key])
             elif ev.type == pygame.JOYHATMOTION:
                 hx, hy = ev.value
                 if hx:
-                    move(hx)
-                if hy:
-                    move(-hy * COLS)
+                    start_hold(hx)
+                elif hy:
+                    start_hold(-hy * COLS)
+                else:
+                    stop_hold()
             elif ev.type == pygame.JOYAXISMOTION:
                 if ev.axis in (0, 1):
                     v = ev.value
                     prev = axis_latched[ev.axis]
                     if abs(v) > AXIS_DEAD and prev == 0:
                         step = 1 if v > 0 else -1
-                        move(step if ev.axis == 0 else step * COLS)
                         axis_latched[ev.axis] = step
-                    elif abs(v) < AXIS_DEAD * 0.5:
+                        start_hold(step if ev.axis == 0 else step * COLS)
+                    elif abs(v) < AXIS_DEAD * 0.5 and prev != 0:
                         axis_latched[ev.axis] = 0
+                        stop_hold(prev if ev.axis == 0 else prev * COLS)
             elif ev.type == pygame.JOYBUTTONDOWN:
                 if ev.button == 0:
+                    stop_hold()
                     launch_with_fade(screen, games[sel])
                 elif ev.button == 1:
                     running = False
             elif ev.type == pygame.JOYDEVICEADDED:
                 _rescan_pads(joysticks)
+
+        # Fire the held-direction repeat once the initial delay has passed,
+        # then every REPEAT_INTERVAL while the direction stays held.
+        if held_move and t >= repeat_at:
+            move(held_move)
+            repeat_at = t + REPEAT_INTERVAL
 
         # SDL hotplug is unreliable under the kiosk compositor, so poll for
         # newly connected pads about once a second.
@@ -723,6 +794,9 @@ def main() -> int:
 
         label = labels_sel[g["slug"]]
         screen.blit(label, label.get_rect(midtop=(bx + TILE_W // 2, by + TILE_H + 10)))
+        sub = subtitles.get(g["slug"])
+        if sub:
+            screen.blit(sub, sub.get_rect(midtop=(bx + TILE_W // 2, by + TILE_H + 44)))
 
         screen.blit(vignette, (0, 0))
 

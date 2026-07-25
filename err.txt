@@ -1,0 +1,93 @@
+adaptive_sync: Whether or not adaptive sync is enabled if available.
+adaptive_sync_ignore_overlay: Whether or not to ignore overlay planes for pushing commits with adaptive sync.
+adaptive_sync_overlay_cycles: Number of vblank cycles to ignore overlay repaints before forcing a commit with adaptive sync.
+backend_info: Dump debug info about the backend state
+backend_set_dirty: Dirty the backend state and re-poll
+backend_virtual_connector_strategy: 
+composite_debug: Debug composition flags
+composite_force: Force composition always, never use scanout
+cursor_composite: 0 = Never composite a cursor. 1 = Composite cursor when not nested. 2 = Always composite a cursor manually
+debug_force_repaint: Force a repaint
+debug_set_fps_limit: Set refresh cycle (debug)
+drm_allow_dynamic_modes_for_external_display: Allow dynamic mode/refresh rate switching for external displays.
+drm_debug_disable_blend_tf: Blending chicken bit. (Forces BLEND_TF to DEFAULT, does not affect other logic)
+drm_debug_disable_color_encoding: YUV Color Encoding chicken bit. (Forces COLOR_ENCODING to DEFAULT, does not affect other logic)
+drm_debug_disable_color_range: YUV Color Range chicken bit. (Forces COLOR_RANGE to DEFAULT, does not affect other logic)
+drm_debug_disable_ctm: CTM chicken bit. (Forces CTM off, does not affect other logic)
+drm_debug_disable_degamma_tf: Degamma chicken bit. (Forces DEGAMMA_TF to DEFAULT, does not affect other logic)
+drm_debug_disable_explicit_sync: Force disable explicit sync on the DRM backend.
+drm_debug_disable_in_fence_fd: Force disable IN_FENCE_FD being set to avoid over-synchronization on the DRM backend.
+drm_debug_disable_output_tf: Force default (identity) output TF, affects other logic. Not a property directly.
+drm_debug_disable_regamma_tf: Regamma chicken bit. (Forces REGAMMA_TF to DEFAULT, does not affect other logic)
+drm_debug_disable_shaper_and_3dlut: Shaper + 3DLUT chicken bit. (Force disable/DEFAULT, no logic change)
+drm_debug_syncobj_force_wait_on_commit: Force a wait on DRM sync objects before committing buffers
+drm_ignore_internal_connectors: Disable internal displays for good, for debugging.
+drm_single_plane_optimizations: Whether or not to enable optimizations for single plane usage.
+drm_sleep_external_screen: Force the external screen to be asleep
+drm_sleep_internal_screen: Force the internal screen to be asleep
+hdr_enabled: Whether or not HDR is enabled if it is available.
+help: List all Gamescope convars and commands
+log_BufferMemo: Max logging priority for the BufferMemo channel. Valid options are: [ silent, error, warning, debug, info ].
+log_InputStealer: Max logging priority for the InputStealer channel. Valid options are: [ silent, error, warning, debug, info ].
+log_binding: Max logging priority for the binding channel. Valid options are: [ silent, error, warning, debug, info ].
+log_console: Max logging priority for the console channel. Valid options are: [ silent, error, warning, debug, info ].
+log_drm: Max logging priority for the drm channel. Valid options are: [ silent, error, warning, debug, info ].
+log_edid: Max logging priority for the edid channel. Valid options are: [ silent, error, warning, debug, info ].
+log_gamescope_ei: Max logging priority for the gamescope_ei channel. Valid options are: [ silent, error, warning, debug, info ].
+log_gamescope_reshade: Max logging priority for the gamescope_reshade channel. Valid options are: [ silent, error, warning, debug, info ].
+log_ime: Max logging priority for the ime channel. Valid options are: [ silent, error, warning, debug, info ].
+log_launch: Max logging priority for the launch channel. Valid options are: [ silent, error, warning, debug, info ].
+log_liftoff: Max logging priority for the liftoff channel. Valid options are: [ silent, error, warning, debug, info ].
+log_openvr: Max logging priority for the openvr channel. Valid options are: [ silent, error, warning, debug, info ].
+log_pipewire: Max logging priority for the pipewire channel. Valid options are: [ silent, error, warning, debug, info ].
+log_process: Max logging priority for the process channel. Valid options are: [ silent, error, warning, debug, info ].
+log_script: Max logging priority for the script channel. Valid options are: [ silent, error, warning, debug, info ].
+log_scriptmgr: Max logging priority for the scriptmgr channel. Valid options are: [ silent, error, warning, debug, info ].
+log_timeline: Max logging priority for the timeline channel. Valid options are: [ silent, error, warning, debug, info ].
+log_vblank: Max logging priority for the vblank channel. Valid options are: [ silent, error, warning, debug, info ].
+log_vulkan: Max logging priority for the vulkan channel. Valid options are: [ silent, error, warning, debug, info ].
+log_waitable: Max logging priority for the waitable channel. Valid options are: [ silent, error, warning, debug, info ].
+log_wlserver: Max logging priority for the wlserver channel. Valid options are: [ silent, error, warning, debug, info ].
+log_xdg_backend: Max logging priority for the xdg_backend channel. Valid options are: [ silent, error, warning, debug, info ].
+log_xwm: Max logging priority for the xwm channel. Valid options are: [ silent, error, warning, debug, info ].
+mangoapp_use_output_timing: 
+mouse_relative_filter_appids: Comma separated appids to filter out using relative mouse mode for.
+overlay_unmultiplied_alpha: 
+paint_cursor_plane: 
+paint_debug_pause_base_plane: Pause updates to the base plane.
+paint_external_overlay_plane: 
+paint_mura_plane: 
+paint_override_redirect_plane: 
+paint_primary_plane: 
+paint_steam_overlay_plane: 
+screenshot: Take a screenshot to a given path.
+script_use_local_scripts: Whether or not to use the local scripts (../config) as opposed to the ones in /etc/gamescope.d
+script_use_user_scripts: Whether or not to use user config scripts ($XDG_CONFIG_DIR/gamescope) at all.
+set_look: Set a look for a specific EOTF. Eg. set_look mylook.cube (g22 only), set_look pq mylook.cube, set_look mylook_g22.cube mylook_pq.cube
+shutdown: Cleanly shutdown gamescope
+shutdown_on_primary_child_death: Should gamescope shutdown when the primary application launched in it was shut down?
+surface_update_force_only_current_surface: Force updates to apply only to the current surface, ignoring commits for other surfaces.
+tearing_enabled: Whether or not tearing is enabled.
+touch_click_mode: The default action to perform on touch.
+touch_external_display_trackpad: If we are using an external display, should we treat the internal display's touch as a trackpad insteaad?
+upscale_preemptive: Allow pre-emptive upscaling
+upscale_preemptive_debug_force_sync: Force synchronize pre-emptive upscaling
+vblank_debug: Enable vblank debug spew to stderr.
+version: Print current Gamescope version
+vr_always_warp_cursor: Whether or not we should always warp the cursor, even if it is invisible so we get hover events.
+vr_debug_force_opaque: Force textures to be treated as opaque.
+vr_nudge_to_visible_per_connector: 
+vr_poll_rate: Max time between input polls. In milliseconds.
+vr_show_forwarded_overlays: 
+vr_trackpad_click_max_delta: Max amount the cursor can move before not clicking.
+vr_trackpad_click_time: Time to consider a 'click' vs a 'drag' when using trackpad mode. In nanoseconds.
+vr_trackpad_hide_laser: Hide laser mouse when we are in trackpad mode.
+vr_trackpad_relative_mouse_mode: If we are in relative mouse mode, treat the screen like a big trackpad?
+vr_trackpad_sensitivity: Sensitivity for VR Trackpad Mode
+vr_transparent_backing: Should backing be transparent or not?
+vr_use_modifiers: Use DMA-BUF modifiers?
+vr_use_window_icons: Should we use window icons if they are available?
+wayland_hdr10_saturation_scale: Saturation scale for HDR10 content by gamut expansion. 1.0 - 1.2 is a good range to play with.
+wayland_mouse_relmotion_without_keyboard_focus: Should we only forward mouse relative motion to the app when we have keyboard focus?
+wayland_mouse_warp_without_keyboard_focus: Should we only forward mouse warps to the app when we have keyboard focus?
+wayland_use_modifiers: Use DMA-BUF modifiers?
