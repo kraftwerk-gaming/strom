@@ -35,19 +35,19 @@ bar:
 nix run github:kraftwerk-gaming/strom#gui
 ```
 
-This serves the static catalog on `127.0.0.1:8731` (override with
+This serves the GUI on `127.0.0.1:8731` (override with
 `STROM_GUI_PORT`) and opens it in your browser. Clicking **Play** navigates to
 `strom://<slug>`, which the XDG scheme handler (`strom-launch`) turns into
 `nix run`. Because the heavy IPFS asset download happens at the Nix layer, the
 real download/build progress bar is shown in a native launcher window (zenity,
 falling back to desktop notifications), not in the browser.
 
-The catalog is per-game metadata: each game may have a `steam.json` (Steam-
-enriched fields, written by `scripts/fetch-steam-metadata.py`) and/or a
-`metadata.json` (hand-maintained). The GUI and couch launcher assemble these
-into one catalog at build time via `scripts/assemble-catalog.py`; there is no
-committed `catalog.json`. Games without a Steam match fall back to their lutris
-banner so every game still gets a tile.
+Each game carries its own metadata: a `steam.json` (Steam-enriched fields,
+written by `scripts/fetch-steam-metadata.py`) and/or a `metadata.json`
+(hand-maintained). The GUI assembles the catalog in the browser by reading
+those per-game files -- from the local server under `nix run .#gui`, or from
+the public Radicle repo when served from a node -- so there is no
+`catalog.json`. Games without a Steam match fall back to their lutris banner.
 
 The grid is browsable Steam-style: a search box plus a filter sidebar with
 Runtime, Genre and Features (Single-player, Local multiplayer, Local co-op,
@@ -123,11 +123,7 @@ rad clone rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu
 
 ## Games
 
-The game list is not committed to this file. Browse the full catalog on the
-live **[game & IPFS status page](https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/index.html)**,
-served straight from a Radicle node: it builds the list at runtime from this
-repo, so it is always current. Locally, `nix run .#gui` opens the same catalog
-in a Steam-style browser.
+Browse the catalog in the web GUI -- the live **[catalog browser](https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/gui/index.html)** served from a Radicle node, or `nix run .#gui` locally. IPFS asset availability has its own [status page](https://iris.radicle.xyz/raw/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu/head/web/index.html).
 
 ## IPFS
 

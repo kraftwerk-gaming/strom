@@ -10,8 +10,8 @@ and writes the Steam-derived fields to ``games/<slug>/steam.json``.
 A game with no Steam match and no hand-authored curation gets fallback display
 fields merged into its ``metadata.json`` (name from the description, lutris
 banner) so it still renders a tile; curated metadata is never clobbered. The
-merged display catalog is assembled from these per-game files at build time by
-``scripts/assemble-catalog.py`` -- this script never writes catalog.json.
+merged display catalog is assembled from these per-game files by the launcher
+and web GUI at runtime; this script never writes a catalog file.
 
 Default runs are incremental: a game that already has a ``steam.json`` is left
 alone. Pass ``--refresh`` (or explicit slugs) to re-fetch, ``--offline`` to

@@ -22,8 +22,7 @@ os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 import pygame  # noqa: E402
 
 MANIFEST = Path(os.environ["STROM_MANIFEST"])
-_CAT = os.environ.get("STROM_CATALOG")
-CATALOG = Path(_CAT) if _CAT else None
+GAMES = Path(os.environ["STROM_GAMES"])
 FLAKE_REF = os.environ.get("STROM_FLAKE", "github:kraftwerk-gaming/strom")
 
 XDG_CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
@@ -101,17 +100,32 @@ def build_facets(games: list[dict]) -> list[tuple]:
     return facets
 
 
+NON_DISPLAY = {"appid", "cids", "description", "runtime"}
+
+
+def _read_json(path: Path) -> dict:
+    try:
+        return json.loads(path.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def _display_entry(slug: str) -> dict:
+    """Merge games/<slug>/steam.json + metadata.json (steam overlaid by
+    metadata's display fields), the same merge the web GUI does."""
+    entry = _read_json(GAMES / slug / "steam.json")
+    for k, v in _read_json(GAMES / slug / "metadata.json").items():
+        if k.startswith("_") or k in NON_DISPLAY:
+            continue
+        entry[k] = v
+    return entry
+
+
 def load_manifest() -> list[dict]:
     data = json.loads(MANIFEST.read_text())
-    catalog: dict = {}
-    if CATALOG:
-        try:
-            catalog = json.loads(CATALOG.read_text())
-        except (OSError, ValueError):
-            catalog = {}
     games = []
     for slug, meta in sorted(data.items()):
-        cat = catalog.get(slug, {})
+        cat = _display_entry(slug)
         # Prefer the curated display name; fall back to the nix description
         # with its "(...)" packaging note stripped.
         label = cat.get("name")

@@ -6,22 +6,19 @@
   xdg-utils,
 }:
 
-# `strom-gui` serves the static web catalog (web/gui + a catalog.json assembled
-# at build) over a localhost HTTP server and opens it in the
-# browser. It is deliberately a dumb static file server, not an application
-# daemon: launching a game is handed off to the `strom://` URI scheme (see
-# pkgs/strom-launch), so the GUI itself needs no privileges and no game closure.
+# `strom-gui` serves the Steam-like catalog SPA on a localhost HTTP server and
+# opens it. The browser assembles the catalog by reading each game's steam.json
+# + metadata.json from the games/ directory served here (the stock http.server
+# lists it), so there is no catalog.json. Launching a game is handed off to the
+# `strom://` URI scheme (pkgs/strom-launch), so the GUI needs no privileges.
 
 let
-  webSrc = ../../web;
-
-  # Assemble the served document root. catalog.json is built here from each
-  # game's games/<slug>/steam.json + metadata.json by scripts/assemble-catalog.py
-  # (the same merge the launcher uses), so it is not a committed file.
-  bundle = runCommand "strom-gui-web" { nativeBuildInputs = [ python3 ]; } ''
-    mkdir -p "$out/gui"
-    cp ${webSrc}/gui/index.html ${webSrc}/gui/app.js ${webSrc}/gui/style.css "$out/gui/"
-    python3 ${../../scripts/assemble-catalog.py} ${../../games} > "$out/catalog.json"
+  # Served document root: the SPA under /gui and the per-game files under
+  # /games. Symlinked (not copied) so the games/ source isn't duplicated.
+  root = runCommand "strom-gui-web" { } ''
+    mkdir -p "$out"
+    ln -s ${../../web/gui} "$out/gui"
+    ln -s ${../../games} "$out/games"
   '';
 in
 writeShellApplication {
@@ -31,15 +28,13 @@ writeShellApplication {
     xdg-utils
   ];
   text = ''
-    root=${bundle}
     port="''${STROM_GUI_PORT:-8731}"
     url="http://127.0.0.1:''${port}/gui/index.html"
 
-    python3 -m http.server "$port" --bind 127.0.0.1 --directory "$root" &
+    python3 -m http.server "$port" --bind 127.0.0.1 --directory ${root} &
     server=$!
     trap 'kill "$server" 2>/dev/null || true' EXIT
 
-    # Give the server a beat to bind before pointing the browser at it.
     sleep 0.5
     echo "strom-gui serving $url" >&2
     xdg-open "$url" >/dev/null 2>&1 || echo "open $url manually" >&2

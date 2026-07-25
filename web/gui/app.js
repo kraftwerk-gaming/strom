@@ -1,15 +1,24 @@
 "use strict";
 
-/* strom web GUI — Steam-like catalog browser.
+/* strom web GUI - Steam-like catalog browser.
  *
- * Loads web/catalog.json, assembled at build from each game's steam.json +
- * metadata.json by scripts/assemble-catalog.py (see pkgs/gui). Launching a
- * game hands off to the `strom://`
- * URI scheme, which the desktop's XDG handler (pkgs/strom-launch) turns into
- * `nix run` — a browser cannot spawn processes itself, so the real
- * download/build progress bar lives in that native launcher window. */
+ * Builds the catalog in the browser by reading each game's steam.json +
+ * metadata.json (the same per-game files the launcher reads); there is no
+ * catalog.json. When served from a Radicle seed's /raw route it reads them via
+ * that seed's radicle-httpd API; when served by `nix run .#gui` it reads them
+ * from the local server. Launching hands off to the `strom://` URI scheme
+ * (pkgs/strom-launch -> nix run); the native launcher shows build progress. */
 
-const CATALOG_URL = "../catalog.json";
+const params = new URLSearchParams(location.search);
+const RID = params.get("rid") || "rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
+const API = (
+  params.get("api") ||
+  (location.protocol.startsWith("http")
+    ? location.origin + "/api/v1"
+    : "https://iris.radicle.xyz/api/v1")
+).replace(/\/+$/, "");
+const LOAD_PARALLEL = 24;
+const NON_DISPLAY = new Set(["appid", "cids", "description", "runtime"]);
 const LUTRIS_BANNER = (slug) => `https://lutris.net/games/banner/${slug}.jpg`;
 
 // Chip order; unknown runtimes still work, appended after these.
@@ -77,10 +86,94 @@ const state = {
 
 /* ---------- data loading ---------- */
 
+// Merge one game's steam.json + metadata.json into a catalog entry: steam
+// overlaid by metadata's display fields, runtime from metadata. Matches what
+// the launcher does. Build keys (cids/description/runtime) and _comments are
+// not display fields.
+function mergeEntry(steam, md) {
+  const entry = { ...(steam || {}) };
+  for (const [k, v] of Object.entries(md || {})) {
+    if (k.startsWith("_") || NON_DISPLAY.has(k)) continue;
+    entry[k] = v;
+  }
+  entry.runtime = (md && md.runtime) || "unknown";
+  return entry;
+}
+
+async function pool(items, width, fn) {
+  let i = 0;
+  const w = async () => {
+    while (i < items.length) await fn(items[i++]);
+  };
+  await Promise.all(Array.from({ length: Math.min(width, items.length) }, w));
+}
+
+// Data source: the local `nix run .#gui` server (games/ served at the origin
+// root), or, when served from a Radicle seed, that seed's radicle-httpd API.
+async function pickSource() {
+  // Local `nix run .#gui`: the stock http.server lists the games/ directory;
+  // scrape the slug subdirs from its autoindex.
+  try {
+    const r = await fetch("/games/", { cache: "no-cache" });
+    if (r.ok) {
+      const html = await r.text();
+      const slugs = [...html.matchAll(/href="([^"/?]+)\/"/g)]
+        .map((m) => decodeURIComponent(m[1]))
+        .filter((s) => s !== "..");
+      if (slugs.length) {
+        return {
+          slugs,
+          readJSON: async (slug, file) => {
+            const res = await fetch(`/games/${slug}/${file}`, { cache: "no-cache" });
+            return res.ok ? res.json() : null;
+          },
+        };
+      }
+    }
+  } catch (_) {
+    /* not the local server; fall through to Radicle */
+  }
+  const info = await (await fetch(`${API}/repos/${RID}`, { cache: "no-cache" })).json();
+  const head = info.payloads["xyz.radicle.project"].meta.head;
+  const tree = await (
+    await fetch(`${API}/repos/${RID}/tree/${head}/games`, { cache: "no-cache" })
+  ).json();
+  const slugs = (tree.entries || [])
+    .filter((e) => e.kind === "tree")
+    .map((e) => e.name);
+  return {
+    slugs,
+    readJSON: async (slug, file) => {
+      const res = await fetch(
+        `${API}/repos/${RID}/blob/${head}/games/${slug}/${file}`,
+        { cache: "no-cache" },
+      );
+      if (!res.ok) return null;
+      try {
+        return JSON.parse((await res.json()).content);
+      } catch (_) {
+        return null;
+      }
+    },
+  };
+}
+
 async function loadCatalog() {
-  const r = await fetch(CATALOG_URL, { cache: "no-cache" });
-  if (!r.ok) throw new Error("could not load catalog");
-  return await r.json();
+  const src = await pickSource();
+  const catalog = {};
+  await pool(src.slugs, LOAD_PARALLEL, async (slug) => {
+    const [steam, md] = await Promise.all([
+      src.readJSON(slug, "steam.json"),
+      src.readJSON(slug, "metadata.json"),
+    ]);
+    const hasDisplay =
+      md && Object.keys(md).some((k) => !k.startsWith("_") && !NON_DISPLAY.has(k));
+    if (!steam && !hasDisplay) return; // build-key-only / no metadata: not a tile
+    const entry = mergeEntry(steam, md);
+    entry.name = entry.name || slug;
+    catalog[slug] = entry;
+  });
+  return catalog;
 }
 
 // Precompute, once at load: which feature buckets each game satisfies, and
@@ -604,6 +697,7 @@ function wireEvents() {
 }
 
 async function init() {
+  el.count.textContent = "loading catalog...";
   try {
     state.catalog = await loadCatalog();
   } catch (err) {

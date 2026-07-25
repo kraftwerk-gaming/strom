@@ -4,9 +4,9 @@
 `cids`, `description` and `runtime` are pure projections of a game's
 `default.nix` (flake eval via sync-metadata.nix). They are written into
 `games/<slug>/metadata.json`, merged over any hand-authored keys (which are
-left untouched), so the pure-Nix build (scripts/assemble-catalog.py) and the
-Steam fetch script can read them, and so the web IPFS checker (web/index.html)
-can pull them per-game from the public Radicle repo at runtime.
+left untouched), so the launcher and web GUI can read `runtime`, the Steam
+fetch script can read `description`, and the web IPFS checker (web/index.html)
+can pull them per-game from a Radicle node at runtime.
 
 Only per-game files are touched: there is no shared games list to regenerate,
 so concurrent game additions never conflict. Run after adding/removing a game.
