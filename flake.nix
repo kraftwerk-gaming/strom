@@ -34,11 +34,11 @@
             shellcheck.enable = true;
             ruff-format.enable = true;
 
-            readme-up-to-date = {
+            metadata-synced = {
               enable = true;
-              name = "README is up to date";
-              description = "Re-runs scripts/generate-readme.py and fails if README.md changed.";
-              entry = "scripts/check-readme-generated.sh";
+              name = "metadata build keys synced";
+              description = "Re-runs scripts/sync-metadata.py and fails if any games/<slug>/metadata.json build keys are stale.";
+              entry = "scripts/check-metadata-synced.sh";
               language = "system";
               pass_filenames = false;
             };

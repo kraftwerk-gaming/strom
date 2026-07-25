@@ -152,7 +152,7 @@ otherwise Phase 1 only:
    seed the FOD output path.
 3. Write `games/<slug>/default.nix` with `cid = "PENDING_UPLOAD"`,
    real `fallbackUrl`, hash, name.
-4. `nix fmt`, `python3 scripts/generate-readme.py`,
+4. `nix fmt`, `python3 scripts/sync-metadata.py`,
    `nix build .#<slug> --no-link`.
 5. Real CID (Phase 3, see "Real CID via local ipfs daemon" below).
    If a local `ipfs` daemon is running, hash the asset locally now
@@ -441,16 +441,13 @@ in via cherry-pick or `git checkout <branch> -- docs/`. The
 coordinator should merge this doc to master as soon as it stabilises
 so future packaging agents see it without a preamble.
 
-### README/metadata drift on master
+### metadata build-key drift on master
 
-`scripts/generate-readme.py` regenerates `README.md`, each game's
-`metadata.json` build keys (`cids`/`description`/`runtime`), and
-`web/index.html` from current flake metadata. If recent merges to
-master skipped the regenerator, your stage commit will pick up the
-delta for **other** unrelated games. That's noisy but unavoidable:
-don't try to revert those hunks - they reflect master's true state.
-The clean fix is a coordinator-side housekeeping commit on master
-that runs the regenerator once.
+`scripts/sync-metadata.py` writes each game's `metadata.json` build keys
+(`cids`/`description`/`runtime`) from current flake metadata. It touches only
+the game you changed -- there is no shared README table, `web/games.json`, or
+`web/index.html` data to regenerate anymore -- so a stage commit no longer picks
+up deltas for unrelated games, and there is no cross-branch drift to reconcile.
 
 ### Prompt injection in rad issue content
 

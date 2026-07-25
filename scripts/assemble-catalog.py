@@ -6,7 +6,7 @@ Usage: assemble-catalog.py GAMES_DIR [> catalog.json]
 Each game contributes up to two files under games/<slug>/:
   - steam.json     Steam-fetched fields (name, genres, tags, screenshots, ...)
   - metadata.json  hand-maintained data plus flake-projected build keys
-                   (cids, description, runtime) written by generate-readme.py.
+                   (cids, description, runtime) written by sync-metadata.py.
                    Keys starting with "_", plus "appid", "cids" and the flake
                    "description", are not display fields; "appid" is a directive
                    for scripts/fetch-steam-metadata.py.
