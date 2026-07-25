@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "TUNIC Team"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/header.jpg?t=1781190730",
+  "long": "Full Controller Support\nTUNIC on PC is best experienced with a gamepad or controller.\n\nAbout the Game\nExplore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure. Stranded in a ruined land, and armed with only your own curiosity, you will confront colossal beasts, collect strange and powerful items, and unravel long-lost secrets.\n\nBECOME A LEGEND\n Stories say that a great treasure is hidden somewhere in this land. Perhaps it lies beyond the golden door? Or somewhere deep beneath the earth? Some tales tell of a palace high above the clouds, and of ancient beings with incredible power. What will you find?\n\nREBUILD A SACRED BOOK\nDuring your travels, you\u2019ll reconstruct the game\u2019s Instruction Manual. Page by page, you\u2019ll reveal maps, tips, special techniques, and the deepest of secrets. If you find every last one, maybe something good will happen...\n\nBE COURAGEOUS, LITTLE ONE!\nDive into varied, technical combat. Dodge, block, parry, and strike! Learn how to conquer a wide cast of monsters, big and small \u2014 and discover useful new items to help you on your way.\nExplore a hostile and intricately-connected world of shady forests, sprawling ruins, and labyrinthine catacombs\n\nFight mighty bosses deep beneath the earth, high above the clouds, and in places stranger still\n\nCollect the missing manual pages, bursting with hints and original full-color illustrations\n\nDiscover hidden treasures to help you on your way\n\nUnearth secret relics, secret techniques, secret puzzles, and\u2026 listen, there\u2019s a lot of secrets!\n\nFeaturing sound design by Power Up Audio\n\nAnd an original soundtrack by Lifeformed (Terence Lee and Janice Kwan)\n\nKeep your wits about you and be brave, little fox!",
+  "lutris": "https://lutris.net/games/tunic/",
+  "name": "TUNIC",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_9c0184ba83022786f74f4a70ebae5c47d2a3c35c.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_5fc49d3c5fa34b0d0e6b6a5621f9062bec7ac4d7.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_04ac7db623d3e88751134eb87f5c465c392fa108.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_cce46eba03270e47fab2f955ec148c43f71fdb49.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_a19c43feb20d7c6aeda4e0bf6abb6e9ca10c3974.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_37434cb739e8b0690f939840bf6a0167141e2929.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_260662fe9276ed7ffdd95c07891fb4dc0e6a0b6b.1920x1080.jpg?t=1781190730",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553420/ss_1ff04f3863a782037ca39d5d416459fbaeefd3a4.1920x1080.jpg?t=1781190730"
+  ],
+  "short": "Explore a land filled with lost legends, ancient powers, and ferocious monsters in TUNIC, an isometric action game about a small fox on a big adventure.",
+  "steam_appid": 553420,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

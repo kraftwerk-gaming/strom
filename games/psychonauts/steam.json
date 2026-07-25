@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Double Fine Productions"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/header.jpg?t=1776379310",
+  "long": "A Psychic Odyssey Through the Minds of Misfits, Monsters, and Madmen.\nThis classic action/adventure platformer from acclaimed developers Double Fine Productions follows the story of a young psychic named Razputin. In his quest to join the Psychonauts--an elite group of international psychic secret agents--he breaks into their secret training facility: Whispering Rock Psychic Summer Camp. But this is no average psychic summer camp! A mysterious villain has kidnapped Raz\u2019s fellow campers and stolen their brains. Now he must use his psychic powers of Telekinesis, Levitation, and most of all his ability to project himself into the minds of others--to find the loose noodles and keep them from falling into the wrong hands. Fight mental demons! Uncover hidden memories! Sort emotional baggage! Explore the fantastic realm of the inner mind! Join the Psychonauts!",
+  "lutris": "https://lutris.net/games/psychonauts/",
+  "name": "Psychonauts",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_e7d658420d90fdcc0b4711527ec8d4c006664788.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_5beccac535ddee6bbd65791b040c7618c27c2fc3.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_38562cc9e710c7e2c6f69778708865e64345e865.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_2aabca4649fe4e650c3606b981bf824db79b4144.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_71b9c9a56ca7baadc4476a46f00d5988a0489707.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_2d4b2a5d5341f732fa1bbd5549b522cd88171e00.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_1e09c5b46b5a7d22e79a9d48e9060040a87b6da6.1920x1080.jpg?t=1776379310",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3830/ss_56ef2db801c66ca58a73ad887cfdb73da60b16c2.1920x1080.jpg?t=1776379310"
+  ],
+  "short": "A Psychic Odyssey Through the Minds of Misfits, Monsters, and Madmen. This classic action/adventure platformer from acclaimed developers Double Fine Productions follows the story of a young psychic named Razputin.",
+  "steam_appid": 3830,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2006
+}

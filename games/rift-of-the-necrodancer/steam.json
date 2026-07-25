@@ -1,0 +1,48 @@
+{
+  "developers": [
+    "Brace Yourself Games",
+    "Tic Toc Studios Inc."
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/e02aeb565b74b40ec1248f3f4981771c2a05d143/header_alt_assets_11.jpg?t=1782407436",
+  "long": "FREE SONGS\n\nThe Rift of the NecroDancer base game has over 30 songs, but whenever we drop a new music pack, we love teaming up with our partners to release a free track alongside it when possible. Over time, we\u2019ve accumulated quite the collection!\u00a0There's now almost 50 songs when you buy the game and download all the available free songs!\nSome of these tracks are already included in the main game (like the Crypt of the NecroDancer, Super Meat Boy, and Danny's Celeste Remix tracks), but make sure you check out all the free songs in the DLC list below!\n\nAbout the Game\n\nThe NecroDancer's back in an all-new rhythm game! Dragged into a strange new world, Cadence must engage in musical combat with monsters pouring through the Rift! Each monster has unique behaviors\u2014like bats that shift lanes when attacked\u2014and tougher foes take multiple hits to dispatch. Learn the pattern of each new fretful fiend to keep the music flowing!\n\nShowstopping Music: Brand new soundtrack with 40+ Rhythm Rift tracks by Danny Baranowsky, Jules Conroy, Alex Moukala, Josie Brechner, Sam Webster, and Nick Nausbaum with more on the way!\n\nDifficulty that Scales with You: Four intensity levels for each Rhythm Rift - EASY, MEDIUM, HARD, and IMPOSSIBLE.\n\nRace to the Top: Climb your way to the top of global leaderboards!\n\nCustom Music: Create your own custom beat maps with the actual developer tools our designers use!\n\nEndless Replayability: Once you\u2019ve conquered our hand-crafted levels, challenge your sight-reading with Remix Mode.\nRemix Mode throws a fresh beatmap your way every playthrough while retaining the original level's rhythmic design.\n\nRemix mode also makes DAILY CHALLENGES possible, by changing up the circumstances for each song. Play the same random seed as every other player that day and see how you rank on global leaderboards!\n\nGo head to head against five fearsome foes in rhythm-based boss battles!\n\nImmerse yourself in Cadence and friends\u2019 modern misadventures through five quirky, slice-of-life rhythm minigames. Take a boppin' yoga class, help a friend with a part-time job, and more!",
+  "lutris": "https://lutris.net/games/rift-of-the-necrodancer/",
+  "name": "Rift of the NecroDancer",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_39e8975cb843db3ba1e30264848c295cd51e4794.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_5af1a198bd6c2fab47ad8e080c1cfadf3139b96e.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_1e34d0331e3d1aa046fb2dd55d23c1abb0c75f37.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_148d388b1d467d273043afc8ee6700faad0b7dc8.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_29a846c64e7155cd3d46aa9fc271673251c3d36b.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_2dbc53c066a0dabf99f981cc0baff812bbe03323.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_76cd1811d933326fe41f124c7cdbfdf9dcf47da9.1920x1080.jpg?t=1782407436",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2073250/ss_8273cf165050c39af4375fcf5a7b1d159000e5f7.1920x1080.jpg?t=1782407436"
+  ],
+  "short": "The NecroDancer's back in an all-new rhythm game! Dragged into a strange new world, Cadence must engage in musical combat with monsters surging through the Rift! Face pulse-pounding Rhythm Rifts where every beat is a battle, all set to an original soundtrack by Danny Baranowsky &amp; friends.",
+  "steam_appid": 2073250,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Input API Support",
+    "Steam Cloud",
+    "Includes level editor",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

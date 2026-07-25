@@ -1,0 +1,21 @@
+{
+  "_comment": "Fan SE Talkie edition combining original VGA with Special Edition speech, via ScummVM.",
+  "developers": [
+    "LucasArts"
+  ],
+  "genres": [
+    "Adventure",
+    "Point & Click"
+  ],
+  "hero": "https://lutris.net/games/banner/monkey-island-2-special-edition.jpg",
+  "long": "Monkey Island 2: LeChuck's Revenge is a point-and-click adventure following wannabe pirate Guybrush Threepwood as he hunts for the legendary treasure of Big Whoop. Players explore Caribbean islands, gather items and solve inventory and dialogue puzzles while the ghost pirate LeChuck returns. This SE Talkie edition pairs the original VGA artwork with the Special Edition's full voice acting under ScummVM.",
+  "lutris": "https://lutris.net/games/monkey-island-2-special-edition/",
+  "name": "Monkey Island 2: LeChuck's Revenge",
+  "screenshots": [],
+  "short": "Monkey Island 2: LeChuck's Revenge (1991 LucasArts, SE Talkie fan-edition for ScummVM: original VGA + SE speech)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1991
+}

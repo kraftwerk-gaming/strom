@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Airdorf Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/b5d0111d78b7c3b304387de2c55dabff139c667f/header.jpg?t=1779953992",
+  "long": "On September 21, 1986, two priests arrived at the Martin Family home in rural Connecticut to investigate an apparent case of demonic possession. Only two people would leave\u00a0alive.\n\nFAITH is a pixel horror game inspired by classic 8-bit gaming and the \"Satanic Panic\" of the 1980s. Use your holy crucifix to perform exorcisms, fight back against possessed cultists and cleanse haunted objects. Discover a world of dread, isolation, and mystery as you explore desolate forests, abandoned churches, and the inner sanctums of a Satanic cult.\n\n\u271e EXPERIENCE ALL 3 CHAPTERS OF THE UNHOLY TRINITY \u271e\n\n FAITH - Haunted by nightmares and searching for answers, a young priest returns to the house where an exorcism went horribly wrong a year before.\n FAITH: Chapter II - After confronting unspeakable paranormal entities and narrowly escaping with his life, a young priest descends into a new nightmare.\n FAITH: Chapter III - Aided by a mysterious stranger, a young priest travels the dark countryside to stop a Satanic cult from summoning a horrifically powerful demon.\n\n\u271e HORROR THE OLD-SCHOOL WAY \u271e\n\n Wickedly chunky pixels\n\n Hand crafted rotoscope animations\n\n Haunting retro soundtrack\n\n Multiple / secret endings\n\n 1980s religious paranoia\n\n Demonic EVPs channeled through abandonware speech synthesizers",
+  "lutris": "https://lutris.net/games/faith-the-unholy-trinity/",
+  "name": "FAITH: The Unholy Trinity",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_d25b42b6acaa6064527a06cd791ff4625e0dbc50.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_fe4abf9b35f156e6895f8f6173e6276a5e52323a.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_9e0c02414d026b71f7f6ca0e9cd05c8b4c4617a7.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_d6941b1d1064fef47d77ec8bb6f6ac980a67ac0c.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_687ea93f927a9f414a56ae7e6d36af3fc27fc63c.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_df8588d43bbf056a804358467b1aebe5cdaf2d71.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_41c45fd333adfec1cf2c6ddb94b40d321111f579.1920x1080.jpg?t=1779953992",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1179080/ss_fa5b03284433e51e49bf094c684f8fc81b5f7339.1920x1080.jpg?t=1779953992"
+  ],
+  "short": "What you are about to do has not been approved by the Vatican. As a young priest, struggle against demons, cultists, and your own weakening faith in this pixel horror game inspired by the era of classic 8-bit gaming and the &quot;Satanic Panic&quot; of the 1980s.",
+  "steam_appid": 1179080,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

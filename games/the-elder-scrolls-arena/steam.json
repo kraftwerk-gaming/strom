@@ -1,0 +1,28 @@
+{
+  "developers": [
+    "Bethesda Softworks"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812290/header.jpg?t=1650992611",
+  "long": "The imperial battlemage Jagar Tharn betrays the Emperor Uriel Septim by imprisoning him in an alternate dimension, then assuming the Emperor\u2019s identity and place on the throne. A lone prisoner must travel to Tamriel\u2019s most famous and dangerous sites to collect the shattered Staff of Chaos, save the Emperor and free the Empire.",
+  "lutris": "https://lutris.net/games/the-elder-scrolls-arena/",
+  "name": "The Elder Scrolls: Arena",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812290/ss_919f8eec6fa9373426c423cc239aac5e82ac7a87.1920x1080.jpg?t=1650992611",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812290/ss_3426c2296258230868893c56ea63bffc889014d8.1920x1080.jpg?t=1650992611",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812290/ss_b58ff2583c955488f7de8e1511ae7caf8e250e45.1920x1080.jpg?t=1650992611",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812290/ss_fcd231c5b244e4a2d1f78b69d752f38f732aa4fa.1920x1080.jpg?t=1650992611",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812290/ss_44cca951447e6c52458b02bffcb6191caa2f7bea.1920x1080.jpg?t=1650992611"
+  ],
+  "short": "THE LEGEND BEGINS",
+  "steam_appid": 1812290,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

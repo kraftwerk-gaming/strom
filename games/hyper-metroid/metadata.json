@@ -1,0 +1,23 @@
+{
+  "_comment": "Fan-made ROM hack of Super Metroid.",
+  "developers": [
+    "RealRed"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Metroidvania",
+    "Platformer"
+  ],
+  "hero": "https://lutris.net/games/banner/hyper-metroid.jpg",
+  "long": "Hyper Metroid is a full-length ROM hack of Super Metroid that overhauls the world map, item progression and enemies into an entirely new adventure. Samus explores an interconnected alien planet, gaining upgrades that unlock previously inaccessible areas in classic Metroidvania fashion. It features redesigned graphics, new music and rebalanced boss encounters.",
+  "lutris": "https://lutris.net/games/hyper-metroid/",
+  "name": "Hyper Metroid",
+  "screenshots": [],
+  "short": "Hyper Metroid (RealRed 2015 SM ROM hack, via RetroArch / bsnes)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2015
+}

@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Irrational Games"
+  ],
+  "genres": [
+    "FPS",
+    "Action",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/swat-4.jpg",
+  "long": "SWAT 4 is a tactical first-person shooter in which players lead a five-member police special-weapons team through hostage and high-risk situations. Emphasizing planning, less-lethal options, and procedure over run-and-gun action, missions reward restraint and arresting suspects. The Gold Edition includes the Stetchkov Syndicate expansion and supports cooperative and competitive multiplayer.",
+  "lutris": "https://lutris.net/games/swat-4/",
+  "name": "SWAT 4: Gold Edition",
+  "screenshots": [],
+  "short": "SWAT 4: Gold Edition (Irrational Games 2005, GOG, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online Co-op"
+  ],
+  "year": 2005
+}

@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Ian Snyder"
+  ],
+  "genres": [
+    "Platformer",
+    "Puzzle",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/the-floor-is-jelly.jpg",
+  "long": "The Floor is Jelly is a puzzle-platformer built around a world where every surface wobbles and ripples like jelly. Players use the elastic, bouncing terrain to navigate atmospheric levels and solve physics-based puzzles. Its distinctive deformable environments and minimalist art give it a dreamlike, experimental feel.",
+  "lutris": "https://lutris.net/games/the-floor-is-jelly/",
+  "name": "The Floor is Jelly",
+  "screenshots": [],
+  "short": "The Floor is Jelly (Ian Snyder 2014, Adobe AIR / Windows via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2014
+}

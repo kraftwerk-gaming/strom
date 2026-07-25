@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "EA Los Angeles"
+  ],
+  "genres": [
+    "Action",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/header.jpg?t=1779987212",
+  "long": "Steam Workshop\nSteam workshop support for User Maps\n\nAbout the Game\nThe desperate leadership of a doomed Soviet Union travels back in time to change history and restore the glory of Mother Russia. The time travel mission goes awry, creating an alternate timeline where technology has followed an entirely different evolution, a new superpower has been thrust on to the world stage, and World War III is raging. The Empire of the Rising Sun has risen in the East, making World War III a three-way struggle between the Soviets, the Allies, and the Empire with armies fielding wacky and wonderful weapons and technologies like Tesla coils, heavily armed War Blimps, teleportation, armored bears, intelligent dolphins, floating island fortresses, and transforming tanks.\n\nStar-Studded Storytelling\u2013 Command & Conquer's trademark live-action videos return in HD, with over 60 minutes of footage featuring the largest cast in the history of the Command & Conquer franchise.\n\nCommand the Seas, Conquer the World\u2013 Experience Gameplay as for the first time in the series, waging war on the water will be every bit as important as dominating by land and air. Gain strategic advantages by controlling resources in the seas and mounting three-pronged attacks from all directions.\n\nReady your Man Cannons!\u2013 Armored War Bears, and Anime-inspired psychic school girls join your favorite Red Alert units like Sonic Dolphins, Tesla Troopers, Attack Dogs, and the ever popular Tanya.\n\nA New Threat From the East\u2013 The deadly Empire of the Rising Sun is a technological terror, with designs influenced by a mixture of anime, science-fiction, martial arts and robot culture. The Empire's futuristic units can transform into alternate forms, and they specialize in naval warfare.",
+  "lutris": "https://lutris.net/games/command-conquer-red-alert/",
+  "name": "Command & Conquer\u2122 Red Alert\u2122 3",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006501.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006502.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006503.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006504.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006505.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006506.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006507.1920x1080.jpg?t=1779987212",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17480/0000006508.1920x1080.jpg?t=1779987212"
+  ],
+  "short": "The desperate leadership of a doomed Soviet Union travels back in time to change history and restore the glory of Mother Russia.",
+  "steam_appid": 17480,
+  "tags": [
+    "Single-player",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Includes level editor",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

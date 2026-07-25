@@ -1,0 +1,25 @@
+{
+  "developers": [
+    "Headfirst Productions"
+  ],
+  "genres": [],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/header.jpg?t=1573831510",
+  "long": "Call of Cthulhu: Dark Corners of the Earth is a first-person horror game that combines intense action and adventure elements. You will draw upon your skills in exploration, investigation, and combat while faced with the seemingly impossible task of battling evil incarnate.Key features:\nDiverse array of levels from quaint towns to alien locations, including Deep One City\n\nDynamic Sanity system resulting in hallucinations, panic attacks, vertigo, paranoia, and more!\n\nIncredibly detailed real-time graphics with atmospheric lighting and dynamic shadows\n\nIntelligent gameplay involving puzzle solving as well as combat and exploration\n\n1920s weaponry and vehicles as well as evil artifacts and alien technology\n\nLovecraft's famous monsters and locations",
+  "lutris": "https://lutris.net/games/call-of-cthulhu-dark-corners-of-the-earth/",
+  "name": "Call of Cthulhu\u00ae: Dark Corners of the Earth",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/0000009021.1920x1080.jpg?t=1573831510",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/0000009022.1920x1080.jpg?t=1573831510",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/0000009023.1920x1080.jpg?t=1573831510",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/0000009024.1920x1080.jpg?t=1573831510",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/0000009025.1920x1080.jpg?t=1573831510",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22340/0000009026.1920x1080.jpg?t=1573831510"
+  ],
+  "short": "Call of Cthulhu: Dark Corners of the Earth is a first-person horror game that combines intense action and adventure elements.",
+  "steam_appid": 22340,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

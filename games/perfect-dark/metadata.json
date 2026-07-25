@@ -1,0 +1,24 @@
+{
+  "developers": [
+    "Rare"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/perfect-dark.jpg",
+  "long": "Perfect Dark is a 2000 first-person shooter for the Nintendo 64, developed by Rare as a spiritual successor to GoldenEye 007. Players control agent Joanna Dark in a near-future sci-fi conspiracy spanning stealth and action missions. It is renowned for its expansive split-screen multiplayer with bots, co-op, and counter-operative modes.",
+  "lutris": "https://lutris.net/games/perfect-dark/",
+  "name": "Perfect Dark",
+  "screenshots": [],
+  "short": "Perfect Dark (via RetroArch / mupen64plus-next)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "Shared/Split Screen Co-op"
+  ],
+  "year": 2000
+}

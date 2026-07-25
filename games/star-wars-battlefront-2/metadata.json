@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Pandemic Studios"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/star-wars-battlefront-2.jpg",
+  "long": "Star Wars: Battlefront II is a large-scale shooter set across the Star Wars galaxy, letting players fight as clones, droids, rebels, and Imperials in infantry and vehicle combat. It adds space battles, playable Jedi heroes, and a story-driven galactic conquest campaign. The game supports split-screen and online multiplayer modes.",
+  "lutris": "https://lutris.net/games/star-wars-battlefront-2/",
+  "name": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
+  "screenshots": [],
+  "short": "Star Wars: Battlefront II (2005) v1.1 Rerelease via Proton and gamescope",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen Co-op"
+  ],
+  "year": 2005
+}

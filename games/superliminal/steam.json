@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Pillow Castle"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/header.jpg?t=1755294276",
+  "long": "Superliminal is a first-person puzzle game based on forced perspective and optical illusions. Puzzles in this game give you a sense of the unexpected. Players need to change their perspective and think outside the box to wake up from the dream.\n\nWAKE UP\nAs you fall asleep with the TV on at 3AM, you remember catching a glimpse of the commercial for Dr. Pierce\u2019s Somnasculpt dream therapy program. By the time you open your eyes, you\u2019re already dreaming - beginning the first stages of this experimental program.\n\nPERCEPTION IS REALITY\nExplore a dream world where everything is exactly as it seems. Tread carefully as the world slowly unravels around you and subverts your expectations. What you see isn\u2019t always precisely what you get.MAN VS MACHINE\nIn this fully-voiced adventure, Dr Glenn Pierce is doing his questionable best to guide you home and out of the dreamscape. His artificial intelligence assistant, however, is having trouble understanding exactly how you\u2019re here at all, and has other plans for you.\n\nDEVELOPER COMMENTARY\nWe\u2019ve added an extensive developer commentary throughout the game, so you can learn the secrets and history behind the game\u2019s development.\n\nCHALLENGE MODE\nThe overwhelming response from the speedrunning community to Superliminal inspired us to add a new Challenge Mode, which will score you per-level on metrics such as time to finish, grabs, and jumps.EXPERIMENTAL WORKSHOP SUPPORT\nSuperliminal features Steam Workshop integration. Bring any 3D object into the game and play around with mind-bending perspective tricks.",
+  "lutris": "https://lutris.net/games/superliminal/",
+  "name": "Superliminal",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/ss_ec116fe04a78f76212934c3aa20bf8b38681683d.1920x1080.jpg?t=1755294276",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/ss_4a2b446656c93cd3575acc42650ffb79723b020d.1920x1080.jpg?t=1755294276",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/ss_55546194e5a1c244be30b31ebc75a311d1b52756.1920x1080.jpg?t=1755294276",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/ss_8f0ce3f7da9830c8398e13435599c69068877ce8.1920x1080.jpg?t=1755294276",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/ss_4662979fe52096848d83de9e7da01e164a8ca658.1920x1080.jpg?t=1755294276",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1049410/ss_ff02982d53521a255cdb49a893d80be7963c7019.1920x1080.jpg?t=1755294276"
+  ],
+  "short": "Perception is reality. In this mind-bending first-person puzzler, you escape a surreal dream world through solving impossible puzzles using the ambiguity of depth and perspective.",
+  "steam_appid": 1049410,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Captions available",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Includes level editor",
+    "Commentary available",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

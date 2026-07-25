@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "HopFrog"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/header.jpg?t=1773692958",
+  "long": "Create your own Mods\n\nAbout the Game\nForager is a 2D open world game inspired by exploration, farming and crafting games such as Stardew Valley, Terraria & Zelda.\n\n Gather, collect and manage resources.\n\n Craft useful items & structures.\n\n Build and grow a base out of nothing. Buy land to expand and explore.\n\n Level up and learn new skills, abilities, and blueprints.\n\n Solve puzzles, find secrets and raid dungeons!\n\n Achieve anything you want! The choice is yours, you set your own goals to work towards!\n\nStart small and improve your base, skills, equipment, network of friends (and enemies!) and build your future as you see fit! You can play Forager in a very varied array of playstyles...BECOME... A GATHERER\nBECOME... A FARMER\nBECOME... A MERCHANT\nBECOME... AN ADVENTURER\nBECOME... A BUILDER",
+  "lutris": "https://lutris.net/games/forager/",
+  "name": "Forager",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_288c1647ffd3639358505e4e0e5a74214a9a9a23.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_f16f8a367daf470f242543c80fd5dc0ec69104da.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_e2c17107d5896b8a5ecc01b26f5f4dc358e9edf6.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_c66e6e5abdadbf32899f54efdcf1104381fbc36a.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_d88521fbcbf66e7e8ca9b920c379ec5356c85d5d.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_e05ced0345672a214f8d48fa96b68f18cf3524fd.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_ecfc9e7ec0be9c6ebc64b85b7db31408b363c782.1920x1080.jpg?t=1773692958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/751780/ss_3d02565e1349a3231828ca6a941dec2dda3c087a.1920x1080.jpg?t=1773692958"
+  ],
+  "short": "The highly popular and quirky &quot;idle game that you want to actively keep playing&quot;. Explore, craft, gather &amp; manage resources, find secrets and build your base out of nothing! Buy land to explore and expand!",
+  "steam_appid": 751780,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

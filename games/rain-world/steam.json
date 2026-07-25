@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "Videocult"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/dc5bd100e86dbdb088e7ff17cdb601e7eb2e00bc/header.jpg?t=1781113199",
+  "long": "Updates\n\nUncover the most popular mods from the thriving modding community with Steam Workshop Support.\n\nToggle new features and comprehensive customization options in Remix to suit your individual needs.\n\nLearn new tips and tricks with updated tutorial messages to help players understand Rain World's intricate ecosystem.\n\nControl your unique campaign with accessibility, speedrun, and difficulty options sculpted to your particular taste and style.\n\nFeatures\n\nExplore a vast world of over 1600 rooms, spanning 12 diverse regions filled with ancient secrets and undiscovered dangers.\n\nIntense, primal predator encounters will challenge your reflexes. Limited resources and the constant, impending threat of rain will test your nerve.\n\nProcedural design and individualistic AI\u2014 every playthrough is a unique challenge!\n\nPlay as The Monk and The Hunter! 2 playable characters corresponding to easier and more aggressive playstyles.\n\nMultiplayer Arena for up to 4 players, featuring Competitive and Sandbox modes.\n\nBestiary featuring dangerous predators and delicious prey\n\nMore from Rain World\n\nAbout the Game\n\nYou are a slugcat. The world around you is full of danger, and you must face it \u2013 alone. Separated from your family in a devastating flood, you will need to find food and shelter between terrifying torrential downpours which threaten to drown all life. Climb through the ruins of an ancient civilization, evade the jaws of vicious predators, and discover new lands teeming with strange creatures and buried mysteries. Find your family before something makes a meal of you!\n\nInspired by the simplicity and aesthetics of 16-bit classics, this survival platformer requires clever decision-making, both to catch your own prey and to avoid the jaws of hungry predators. Each ravenous foe in your path will be cunning, vicious and always on the hunt \u2013 eager to sink their teeth into you, or even each other. As a small, soft slugcat you must rely on stealth and wit rather than force: learn the ecosystem and turn their strengths to your advantage. Maybe then you can survive\u2026 Rain World!",
+  "lutris": "https://lutris.net/games/rain-world/",
+  "name": "Rain World",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_cbd4e647d6b3bb3b311cb68fdf0cd8835d5919d7.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_628274c84b196e270733f540139062f2787c4423.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_d551eee41e60ba8f5f2005b3de41c5f2c27cb444.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_5c8c0413e98f3521e3df370d4ad7018b771ce353.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_becb0959f6479d07e05f2c14f48980a15b5e5192.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_519831951a674f56ca80fd7e14884a7291d71e50.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_4dd9382b280de17b21bdff758200c32250078d80.1920x1080.jpg?t=1781113199",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/312520/ss_732dcfeade41f17e5404bc528bd9f44b53a51d5f.1920x1080.jpg?t=1781113199"
+  ],
+  "short": "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary\u2014 other, bigger creatures have the same plan... and slugcats look delicious.",
+  "steam_appid": 312520,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

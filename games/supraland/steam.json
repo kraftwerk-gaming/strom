@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Supra Games"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/header.jpg?t=1748353298",
+  "long": "Supraland is a First-Person Metroidvania Puzzle game by David M\u00fcnnich from Germany. The main sources of inspiration are Zelda, Metroid and Portal.\nSupraland assumes that you are intelligent and lets you play independently. The story is minimal, gives you an overarching goal to pursue, and then sets you free. Despite child friendly visuals, the game targets experienced players. Playtime: ~12-25h\n\nYou explore a large interconnected world in which most ways are at first unpassable until you find new abilities to overcome those obstacles. A cornerstone of Supraland's design was to create abilities that are so versatile, they will keep on surprising you by how many different usages they have. If you combine your abilities, the possibilities become even bigger.\n\nMost of the game is about exploring the sandbox world to track down secrets. Often you will think you are about to get out of bounds and beat the level designer, but right there is a chest waiting for you with a very rewarding upgrade. Supraland respects your lifetime and doesn't bloat the playtime with unlimited no-brainer collectibles.\n\nThe deeper you get into the game the more you will be facing creative puzzles you've never seen anywhere before, encouraging you to stop and think about what abilities you have and how you can use them in yet another way. Puzzle types that I already knew from other games were immediately rejected in the design process. And it's important to me that once you understand the idea behind a puzzle, you can pretty much immediately solve it instead of having to go through a cumbersome, frustrating execution.\n\nThe fighting mechanics are inspired by old-school, fast-paced shooter games like Unreal, Doom and Quake, encouraging high-speed strafing and jumping while throwing shot after shot at hordes of charging enemies without ever having to worry about weapons reloading.\n\nIn the demo you can play the first big section of the game and decide if it's for you. The demo progress continues into the full version; you don't need to play anything twice!",
+  "lutris": "https://lutris.net/games/supraland/",
+  "name": "Supraland",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_8a01de634e5470eb32db61772870a91693f576e2.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_773d1c8cdec439cdb7b628f6b7fdca21a94b69fd.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_8754e6b61f0a914fb71e9388e46c81578a7aef06.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_c921aed1d4e6b2503a18ea3bf8e0497a0ec22b71.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_dc9ddf5fcda0c3b4e98541fc79e790c9701cee40.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_d3c98fd7f7f975544533c95f46d230493a3b60ba.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_ed174e05edfcdf307b349760969e0c00173cb02b.1920x1080.jpg?t=1748353298",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813630/ss_f1016d7fe7f9bf86dc0dc07621f50a035ccee74b.1920x1080.jpg?t=1748353298"
+  ],
+  "short": "Try the demo! A mix between Portal, Zelda and Metroid. Exploration, puzzles, terrible combat, secret upgrades and new abilities that help you reach new places. Playtime 12-25h.",
+  "steam_appid": 813630,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

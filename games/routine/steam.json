@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Lunar Software"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/ebdc630cc5e78005f5912721bca3a70bdc620a7e/header.jpg?t=1780562819",
+  "long": "Accolades\n\nAbout the Game\n\n\u2588 ROUTINE is a First Person Sci-Fi Horror title set on an abandoned lunar base designed around an 80s vision of the future.\nCurious exploration turns into a need for survival when a lunar base goes completely quiet. Searching for answers puts you face to face with an enemy who is certain the main threat is you. Discoveries lead to deeper unknowns and the only way to go is forward. \u258c\n\nNote: ROUTINE offers no waypoint markers, finding your way is part of the experience. Slow down, observe your surroundings, explore carefully, and review data to uncover the path forward.\n\n\u2588 EXPLORE: Roam through contrasting sectors of the lunar base, from deteriorating living quarters and tram stations to an abandoned mall. \u258c\n\u2588 OBSERVE: Investigate your surroundings and uncover crucial information to progress and piece together the events that unfolded before your arrival. \u258c\n\u2588 IMMERSE: Full body awareness, diegetic audio, and minimal UI help create a gripping and atmospheric experience. \u258c\n\u2588 OPERATE: Your Cosmonaut Assistance Tool (C.A.T.) is vital. Use it to access critical terminals, navigate the environment and identify clues. \u258c\n\u2588 SURVIVE: Run, hide, or attempt to defend yourself against unknown threats using the C.A.T. as a last resort. \u258c",
+  "lutris": "https://lutris.net/games/routine/",
+  "name": "ROUTINE",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/ffb9d3685274c1ffd8b612573d4d6b14598d2956/ss_ffb9d3685274c1ffd8b612573d4d6b14598d2956.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/296ce8bb07a2ce169bfffd9c85c3466d4289687e/ss_296ce8bb07a2ce169bfffd9c85c3466d4289687e.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/51c8ab7e264d83b6becdf44cd6e72efe9b3996a8/ss_51c8ab7e264d83b6becdf44cd6e72efe9b3996a8.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/84ba4a51caf5323ec9925767a2e78ab6775897ce/ss_84ba4a51caf5323ec9925767a2e78ab6775897ce.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/a127ad2a86a0972058f7345f8e9107543e814ac8/ss_a127ad2a86a0972058f7345f8e9107543e814ac8.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/41ad9c1dbbd030a661a2aaaf8aad5b4b35716eaf/ss_41ad9c1dbbd030a661a2aaaf8aad5b4b35716eaf.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/cc691ecd5cbf41458e874c60cf8ac5a60238a04f/ss_cc691ecd5cbf41458e874c60cf8ac5a60238a04f.1920x1080.jpg?t=1780562819",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606160/14ac8868ba50f5078f5cf3e7ba8df2fc0067e49d/ss_14ac8868ba50f5078f5cf3e7ba8df2fc0067e49d.1920x1080.jpg?t=1780562819"
+  ],
+  "short": "ROUTINE is a First Person Sci-Fi Horror set on an abandoned lunar base designed around an 80s vision of the future. Explore and investigate your surroundings as you survive against unknown threats.",
+  "steam_appid": 606160,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

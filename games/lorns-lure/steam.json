@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Rubeki Games"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/header.jpg?t=1773860117",
+  "long": "Lorn's Lure is an atmospheric narrative first-person platformer with novel climb-anything mechanics and modernized retro 3D graphics.\n\nLeaving his home colony while tracking a mysterious glitch, an android finds himself in the midst of a vast and dangerous structure, completely hidden from his people's knowledge. Unable to go back, you must keep going to find out where he is being led... And why he left in the first place.\n\nDark foreboding atmosphere\n\nRetro 90s PC graphics, with a modern flair.\n\nUncover mysterious lore as you travel into the depths.\n\nJump, climb, slide, and scan your way around difficult challenges, using simple mechanics.\n\nNo \"Parkour Ledges\". Climb almost any vertical wall face using your pickaxes!\n\nIt's a tough game, and sometimes frustrating.\n\nFast and slow paced. Take in the sights as you traverse, and sometimes play as fast as a speed runner!",
+  "lutris": "https://lutris.net/games/lorns-lure/",
+  "name": "Lorn's Lure",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_573f8541b29394fe9e451a7e84c4de1956699b8e.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_4b042ad73cf991fe540eb0f30441fa5717ffb165.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_7e8e4d4c3d91247e70c8fc2a5143b5628e614706.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_d8853e7e0090bf431bb492ae91711651ffadec1f.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_c601dab574c00010d389655a48dcce1517aa99d5.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_15facc2489ce52f868ab66941edbd7a778f457cd.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_e080dd3b2c9df96769b8c3b416602e3e45579ca7.1920x1080.jpg?t=1773860117",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1417930/ss_9cea681bdeb31dc7ac91cad6b74e475eb3912ea3.1920x1080.jpg?t=1773860117"
+  ],
+  "short": "An android is led through a vast structure by a glitch in his visual system. Lorn's Lure is an atmospheric narrative first-person platformer with novel climb-anything mechanics and modernized retro 3D graphics.",
+  "steam_appid": 1417930,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

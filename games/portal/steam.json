@@ -1,0 +1,48 @@
+{
+  "developers": [
+    "Valve"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/header.jpg?t=1745368554",
+  "long": "Portal\u2122 is a new single player game from Valve. Set in the mysterious Aperture Science Laboratories, Portal has been called one of the most innovative new games on the horizon and will offer gamers hours of unique gameplay.\n\r\n\t\t\t\t\tThe game is designed to change the way players approach, manipulate, and surmise the possibilities in a given environment; similar to how Half-Life\u00ae 2's Gravity Gun innovated new ways to leverage an object in any given situation.\n\r\n\t\t\t\t\tPlayers must solve physical puzzles and challenges by opening portals to maneuvering objects, and themselves, through space.",
+  "lutris": "https://lutris.net/games/portal/",
+  "name": "Portal",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002582.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002583.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002584.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002585.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002586.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002587.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/0000002588.1920x1080.jpg?t=1745368554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/400/ss_25aa95176ac6319fad955b31554451f3ea61f1e8.1920x1080.jpg?t=1745368554"
+  ],
+  "short": "Portal\u2122 is a new single player game from Valve. Set in the mysterious Aperture Science Laboratories, Portal has been called one of the most innovative new games on the horizon and will offer gamers hours of unique gameplay.",
+  "steam_appid": 400,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Captions available",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Steam Input API Support",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Includes level editor",
+    "Includes Source SDK",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2007
+}

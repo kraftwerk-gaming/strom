@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Bloober Team SA"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg?t=1744248682",
+  "long": "Deluxe Edition\n[Deluxe Edition - Contents]\n\u30fbSILENT HILL 2\n\u30fbDigital Artbook\n\u30fbDigital Soundtrack\n\u30fbPyramid Head Mask\uff08pizza box\uff09\n\nThe mask is a skin that applies to James (the main character) in the game.\n\nAbout the Game\nHaving received a letter from his deceased wife,\nJames heads to where they shared so many memories,\nin the hope of seeing her one more time: Silent Hill.\nThere, by the lake, he finds a woman eerily similar to her...\n\n\"My name\u2026 is Maria,\" the woman smiles. Her face, her voice... She's just like her.\n\nExperience a master-class in psychological horror\u2015lauded as the best in the series\u2015on the latest hardware with chilling visuals and visceral sounds.\n\nHigh-end Graphics and Sound\n\nWith ray tracing and other cutting-edge technical enhancements, the world of SILENT HILL and its unsettling ambiance is even realer than before.\nAnd with the inclusion of new, immersive soundscapes, you'll feel like you're standing in the thick of it.\n\nLarger Environments\n\nExplore locations and buildings that were once inaccessible, or are newly added in the remake.\nEnjoy the same acclaimed story, even while you experience the town of Silent Hill with fresh eyes across an expanded map.\n\nOver-the-shoulder Camera\n\nThe remake moves from the original's fixed-camera viewpoints to an over-the-shoulder perspective, putting you closer to what James sees, for a more thrilling, more immersive experience as you explore the town and come face-to-face with monsters.\n\nEvolved Combat Gameplay\n\nFamiliar weapons like the steel pipe and handgun make their return, but now with an updated combat system.\nAvoid attacks with carefully timed dodges, aim down sights, and more, making monster encounters more engaging and nerve-wracking than ever.",
+  "lutris": "https://lutris.net/games/silent-hill-2/",
+  "name": "SILENT HILL 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_1fdda21610fa23d0ce20b5c44fab8aebd509c5cb.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_b20363454a190d737e5ff8e6410d66f0034bd807.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_7ba4f2993853179e3049a7f56d7b690b892f33bf.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_002b780c7a34d50f186456adcc87dc6012741f97.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_b400fbaacc414f558551594c046ec2a941260ad7.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_313dec3dcd7aa9063de8ed68a9cc61901365deef.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_1a5e45381c91088531798b409888a147bc3b30c1.1920x1080.jpg?t=1744248682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/ss_d6d0a31e9b571efdd67d9a139af355756f021483.1920x1080.jpg?t=1744248682"
+  ],
+  "short": "Investigating a letter from his late wife, James returns to where they made so many memories - Silent Hill. What he finds is a ghost town, prowled by disturbing monsters and cloaked in deep fog. Confront the monsters, solve puzzles, and search for traces of your wife in this remake of SILENT HILL 2.",
+  "steam_appid": 2124490,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

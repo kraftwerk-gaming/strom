@@ -1,0 +1,21 @@
+{
+  "_comment": "Fan-made MBF21 PWAD megawad for Doom II, run via GZDoom.",
+  "developers": [
+    "dashlet"
+  ],
+  "genres": [
+    "Action",
+    "FPS"
+  ],
+  "hero": "https://lutris.net/games/banner/liminal-doom-2.jpg",
+  "long": "Liminal Doom 2: Crossing The Threshold is a fan-made PWAD level set for Doom II using the MBF21 standard. It delivers new maps with custom layouts and encounters playable through the GZDoom source port. Players fight through demonic hordes using the classic Doom arsenal.",
+  "lutris": "https://lutris.net/games/liminal-doom-2/",
+  "name": "Liminal Doom 2: Crossing The Threshold",
+  "screenshots": [],
+  "short": "Liminal Doom 2: Crossing The Threshold (dashlet 2024, MBF21 PWAD via GZDoom)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2024
+}

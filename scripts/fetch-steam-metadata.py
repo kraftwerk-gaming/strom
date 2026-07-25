@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
-"""Enrich the strom catalog with Steam store metadata.
+"""Fetch Steam store metadata into per-game games/<slug>/steam.json.
 
-Reads the generated slug list from ``web/games.json``, matches each game to a
-Steam appid (auto fuzzy-match by name, with manual fixups in
-``scripts/steam-overrides.json``), fetches the Steam ``appdetails`` API for
-screenshots / descriptions / genres / release year / developers, and writes
-``web/catalog.json`` consumed by the web GUI.
+Reads the slug list from ``web/games.json`` and, for each game, resolves a
+Steam appid (auto fuzzy-match by name, or a forced ``"appid"`` in the game's
+``games/<slug>/metadata.json``; ``"appid": null`` means "off Steam, never
+fetch"). Fetches the Steam ``appdetails`` API and writes the Steam-derived
+fields to ``games/<slug>/steam.json``.
 
-Games without a Steam match fall back to the lutris banner (the same URL the
-couch launcher and README use), so every game still renders a tile.
+Games with no Steam match get a one-time fallback ``metadata.json`` (name from
+the description, lutris banner) so they still render a tile; existing
+``metadata.json`` files are never clobbered. The merged display catalog is
+assembled from these per-game files at build time by
+``scripts/assemble-catalog.py`` -- this script never writes catalog.json.
 
-Raw API responses are cached under ``web/.steam-cache/`` (gitignored) so reruns
-are cheap and can run fully offline with ``--offline``.
+Default runs are incremental: a game that already has a ``steam.json`` is left
+alone. Pass ``--refresh`` (or explicit slugs) to re-fetch, ``--offline`` to
+never hit the network. Raw API responses are cached under ``web/.steam-cache/``
+(gitignored).
 """
 
 from __future__ import annotations
@@ -32,28 +37,7 @@ SCRIPT_DIR = Path(__file__).parent
 ROOT = SCRIPT_DIR.parent
 GAMES_DIR = ROOT / "games"
 GAMES_JSON = ROOT / "web" / "games.json"
-CATALOG_JSON = ROOT / "web" / "catalog.json"
-OVERRIDES_JSON = SCRIPT_DIR / "steam-overrides.json"
 CACHE_DIR = ROOT / "web" / ".steam-cache"
-
-# Fields a per-game games/<slug>/gui.json may set. Manual values override
-# whatever Steam (or the lutris fallback) produced; lists replace, they do not
-# merge. This is how non-Steam games get screenshots / genres / features, and
-# how a wrong Steam field can be corrected.
-MANUAL_FIELDS = frozenset(
-    {
-        "name",
-        "short",
-        "long",
-        "genres",
-        "tags",
-        "year",
-        "developers",
-        "hero",
-        "screenshots",
-        "lutris",
-    }
-)
 
 STORESEARCH_URL = "https://store.steampowered.com/api/storesearch/"
 APPDETAILS_URL = "https://store.steampowered.com/api/appdetails"
@@ -95,6 +79,14 @@ BAD_HIT = re.compile(
 
 def log(msg: str) -> None:
     print(msg, file=sys.stderr)
+
+
+_MISSING = object()  # metadata.json has no "appid" key (vs. an explicit null)
+
+
+def write_json(path: Path, obj: Any) -> None:
+    """Write pretty, sorted JSON matching the per-game file style."""
+    path.write_text(json.dumps(obj, indent=2, sort_keys=True) + "\n")
 
 
 def http_get(url: str, *, offline: bool) -> bytes | None:
@@ -171,17 +163,7 @@ def storesearch(term: str, offline: bool) -> list[dict[str, Any]]:
     return [it for it in items if it.get("type") == "app" and it.get("id")]
 
 
-def resolve_appid(
-    slug: str,
-    name: str,
-    overrides: dict[str, Any],
-    offline: bool,
-) -> int | None:
-    if slug in overrides:
-        # Explicit fixup wins, including an explicit null = "skip Steam".
-        value = overrides[slug]
-        return int(value) if isinstance(value, int) else None
-
+def resolve_appid(name: str, offline: bool) -> int | None:
     for variant in match_candidates(name):
         items = storesearch(variant, offline)
         if not items:
@@ -286,9 +268,9 @@ def build_entry(
     }
 
 
-def load_manual(slug: str) -> dict[str, Any]:
-    """Read optional manual metadata from games/<slug>/gui.json."""
-    path = GAMES_DIR / slug / "gui.json"
+def read_metadata(slug: str) -> dict[str, Any]:
+    """Read optional games/<slug>/metadata.json (manual metadata / overrides)."""
+    path = GAMES_DIR / slug / "metadata.json"
     if not path.exists():
         return {}
     try:
@@ -299,41 +281,62 @@ def load_manual(slug: str) -> dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
-def merge_manual(entry: dict[str, Any], manual: dict[str, Any], slug: str) -> bool:
-    """Overlay manual fields onto a catalog entry. Returns True if anything was
-    applied. Keys starting with ``_`` are treated as comments."""
-    applied = False
-    for key, value in manual.items():
-        if key.startswith("_"):
-            continue
-        if key not in MANUAL_FIELDS:
-            log(f"  ! {slug}/gui.json: unknown field {key!r}, skipping")
-            continue
-        entry[key] = value
-        applied = True
-    return applied
+def process(slug: str, games: dict[str, Any], *, offline: bool, refresh: bool) -> str:
+    """Reconcile one game's steam.json / metadata.json. Returns a status word."""
+    gdir = GAMES_DIR / slug
+    steam_path = gdir / "steam.json"
+    meta_path = gdir / "metadata.json"
+    directive = read_metadata(slug).get("appid", _MISSING)
 
+    if directive is None:
+        # Off-Steam pin ("appid": null): never fetch; drop any stale steam.json.
+        if steam_path.exists():
+            steam_path.unlink()
+        return "off-steam (pinned)"
 
-def write_catalog(catalog: dict[str, Any]) -> bool:
-    payload = json.dumps(catalog, indent=2, sort_keys=True) + "\n"
-    CATALOG_JSON.parent.mkdir(parents=True, exist_ok=True)
-    if CATALOG_JSON.exists() and CATALOG_JSON.read_text() == payload:
-        return False
-    CATALOG_JSON.write_text(payload)
-    return True
+    if steam_path.exists() and not refresh:
+        return "cached"  # committed Steam data wins; --refresh to re-fetch
+
+    if isinstance(directive, int):
+        appid: int | None = directive
+    elif meta_path.exists() and not refresh:
+        return "manual"  # curated off-Steam game, no appid directive
+    else:
+        appid = resolve_appid(
+            search_name(slug, games[slug].get("description")), offline
+        )
+
+    if appid is None:
+        if offline:
+            return "unresolved (offline)"
+        if not meta_path.exists():
+            entry = build_entry(slug, games, None, None)
+            entry.pop("runtime", None)
+            write_json(meta_path, entry)
+            return "fallback (new)"
+        return "manual"
+
+    details = fetch_appdetails(appid, offline)
+    if not details:
+        return "unresolved (offline)" if offline else f"appid {appid}: no details"
+    entry = build_entry(slug, games, appid, details)
+    entry.pop("runtime", None)
+    write_json(steam_path, entry)
+    return f"steam:{appid}"
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--offline", action="store_true", help="never hit the network")
     parser.add_argument(
-        "--offline",
+        "--refresh",
         action="store_true",
-        help="use only the local cache; never hit the network",
+        help="re-fetch even games that already have a steam.json",
     )
     parser.add_argument(
         "slugs",
         nargs="*",
-        help="limit enrichment to these slugs (default: all in games.json)",
+        help="limit to these slugs (implies --refresh for them)",
     )
     args = parser.parse_args()
 
@@ -342,37 +345,16 @@ def main() -> int:
         return 1
 
     games: dict[str, Any] = json.loads(GAMES_JSON.read_text())
-    overrides: dict[str, Any] = (
-        json.loads(OVERRIDES_JSON.read_text()) if OVERRIDES_JSON.exists() else {}
-    )
-    overrides = {k: v for k, v in overrides.items() if not k.startswith("_")}
-
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-    slugs = sorted(args.slugs or games)
-    catalog: dict[str, Any] = {}
-    matched = 0
-    for i, slug in enumerate(slugs, 1):
+    targets = args.slugs or sorted(games)
+    refresh = args.refresh or bool(args.slugs)
+    for i, slug in enumerate(targets, 1):
         if slug not in games:
             log(f"  ? unknown slug {slug!r}, skipping")
             continue
-        name = search_name(slug, games[slug].get("description"))
-        appid = resolve_appid(slug, name, overrides, args.offline)
-        details = fetch_appdetails(appid, args.offline) if appid else None
-        if details:
-            matched += 1
-        entry = build_entry(slug, games, appid, details)
-        source = f"steam:{appid}" if details else "fallback"
-        if merge_manual(entry, load_manual(slug), slug):
-            source += "+manual"
-        catalog[slug] = entry
-        log(f"[{i}/{len(slugs)}] {slug} -> {source}")
-
-    log(f"\nMatched {matched}/{len(slugs)} games to Steam.")
-    if write_catalog(catalog):
-        log(f"Updated {CATALOG_JSON}")
-    else:
-        log(f"No changes to {CATALOG_JSON}")
+        status = process(slug, games, offline=args.offline, refresh=refresh)
+        log(f"[{i}/{len(targets)}] {slug} -> {status}")
     return 0
 
 

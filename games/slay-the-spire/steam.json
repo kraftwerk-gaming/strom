@@ -1,0 +1,44 @@
+{
+  "developers": [
+    "Mega Crit"
+  ],
+  "genres": [
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1774015376",
+  "long": "We fused card games and roguelikes together to make the best single player deckbuilder we could. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and Slay the Spire!\n\nFeatures\nDynamic Deck Building: Choose your cards wisely! Discover hundreds of cards to add to your deck with each attempt at climbing the Spire. Select cards that work together to efficiently dispatch foes and reach the top.\n\nAn Ever-changing Spire: Whenever you embark on a journey up the Spire, the layout differs each time. Choose a risky or safe path, face different enemies, choose different cards, discover different relics, and even fight different bosses!\n\nPowerful Relics to Discover: Powerful items known as relics can be found throughout the Spire. The effects of these relics can greatly enhance your deck through powerful interactions. But beware, obtaining a relic may cost you more than just gold...\n\nSlay the Spire left Early Access and comes with:\nFour characters that each have their own unique set of cards.\n\n350+ fully implemented cards.\n\n200+ different items to be found.\n\n50+ unique combat encounters.\n\n50+ mysterious events that can help or harm you.\n\nDaily Climbs allow you to compare yourself with every other player in the world.\n\nCustom mode that allows mixing and matching various crazy run modifiers.",
+  "lutris": "https://lutris.net/games/slay-the-spire/",
+  "name": "Slay the Spire",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_c171816f7ecd35b5b46d2fa27532f4c5b8ca3cc5.1920x1080.jpg?t=1774015376",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_01aa3e7759e457bfbf2422f31c325d7b3ba8a6eb.1920x1080.jpg?t=1774015376",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_b757436d08ba08292796bfed9c60e7cc99d5f2c3.1920x1080.jpg?t=1774015376",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_1299d7fe55771cf564848c5046fbef7936178440.1920x1080.jpg?t=1774015376",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_8af73365121b1b1e2d8004fca2cbffb9b9f6d7a5.1920x1080.jpg?t=1774015376",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/ss_5b2b32f09da5a5bed99d5c5168b50fd681a4690c.1920x1080.jpg?t=1774015376"
+  ],
+  "short": "We fused card games and roguelikes together to make the best single player deckbuilder we could. Craft a unique deck, encounter bizarre creatures, discover relics of immense power, and Slay the Spire!",
+  "steam_appid": 646570,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Adjustable Text Size",
+    "Custom Volume Controls",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Touch Only Option",
+    "Steam Cloud",
+    "Stats",
+    "Steam Leaderboards",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

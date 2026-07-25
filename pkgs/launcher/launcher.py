@@ -55,7 +55,7 @@ EASE = 0.18  # 0..1 lerp factor per frame
 
 # Filter facets for the overview. `genres` come straight from the catalog;
 # feature facets map a chip label to the set of catalog `tags` that satisfy it.
-# `tags` are Steam categories (overridable per-game via gui.json `tags`), so
+# `tags` are Steam categories (overridable per-game via metadata.json `tags`), so
 # "gamepad support" is just another tag group -- no schema change needed.
 GAMEPAD_TAGS = frozenset(
     {

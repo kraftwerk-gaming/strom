@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Le Cartel Studio"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/header.jpg?t=1772546938",
+  "long": "Heave Ho is a riotous multiplayer party game for up to four players in couch co-op and versus play, or online with Steam Remote Play. Reach out, get a grip, and swing to victory \u2014 or meet your messy end!\n\nReach out\nCan your team of up to four players swing to victory? It\u2019s all or nothing \u2014 the slightest slip sends your fellow Heavers to their technicolor deaths in the void or on the spikes. It\u2019s a fast-track to ruined friendships.\n\nGet a grip\nIt\u2019s simple \u2014 grab pals and platforms with your hands, form a wobbly chain, and swing across increasingly devilish maps without letting go or missing your mark. I mean, how hard can it be?\n\nPimp your Swingers\nChoose your base character and customize them with a range of dashing accessories, none of which do anything to help you avoid the plummet of doom.\n\nHeave Versus Ho\nIf you can no longer handle your useless co-op teammates letting you down \u2014 literally \u2014 then take a swing at the 20 exclusive versus mode levels and teach them a lesson.\n\nCamel Farts\nDistractions come in all shapes and sizes, but this might be the first time impenetrable clouds of camel gas have conspired against you.",
+  "lutris": "https://lutris.net/games/heave-ho/",
+  "name": "Heave Ho",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_4519c3bd6a12d7314a5997879e6370bdf6bfc6e7.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_89b298efd65d4ec95b26e3dbb3a1501c020bebab.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_1275d128ef2743bf542229cab1a696d8520ea4f6.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_98e9c8ce1ddd58b6c1d31ed0fb57c02b5806bc18.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_319f6d64d5ddecb4733019c1b9096cd944591424.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_1044fa0aca514af9e0ba497fe2adbc34e69cfe91.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_dd912c804f328b3fe55b6efc874a8faf29950099.1920x1080.jpg?t=1772546938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/905340/ss_a9cb9348e7078458eeb2e6088fde185fc44b9387.1920x1080.jpg?t=1772546938"
+  ],
+  "short": "Heave Ho is a riotous multiplayer party game for up to four players in couch co-op and versus play, or online with Steam Remote Play. Reach out, get a grip, and swing to victory \u2014 or meet your messy end!",
+  "steam_appid": 905340,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

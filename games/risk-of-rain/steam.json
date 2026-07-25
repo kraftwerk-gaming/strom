@@ -1,0 +1,46 @@
+{
+  "developers": [
+    "Hopoo Games"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg?t=1782157681",
+  "long": "SURVIVE AN ALIEN PLANET\nOver a dozen handcrafted locales await, each packed with challenging monsters and enormous bosses that oppose your continued existence. Fight your way to the final boss and escape or continue your run indefinitely to see just how long you can survive. A unique scaling system means both you and your foes limitlessly increase in power over the course of a game.\n\nDISCOVER POWERFUL NEW ITEMS\nMore than 110 items keep each run fresh and full of new challenge. The more items you collect, the more their effects combine, the more surprising some of those combinations might be. The more items you encounter, the more lore (and strategy) you\u2019ll discover through the logs.\n\nUNLOCK NEW WAYS TO PLAY\nUnlock a crew of eleven playable survivors, each with their own unique combat style and alternate skills to master. Learn the secrets of the Artifacts to toggle gameplay modifiers like friendly fire, random survivor spawns, item selection and more. With randomized stages, enemies, and items, no run will ever be the same.\n\nPLAY SOLO OR CO-OP\nTackle the adventure solo or with up to three friends in online co-op, or compete in the rotating challenge of the Prismatic Trials. Brand new survivors like the Captain and MUL-T join classic survivors such as the Engineer, Huntress, and--of course--the Commando.",
+  "lutris": "https://lutris.net/games/risk-of-rain/",
+  "name": "Risk of Rain 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_2bb49071317f7b241a527cf6e7aabd2cb6af055b.1920x1080.jpg?t=1782157681",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_a3f57f281813cb51cb5d919701470acb962ff297.1920x1080.jpg?t=1782157681",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_328d6fcb223f848c2a1047bb86702c4175d92317.1920x1080.jpg?t=1782157681",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_dc777b5c583794c99440b196cd1d26884fb1720b.1920x1080.jpg?t=1782157681",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_0377ff24b4d60db6a38ddc0824b7f308890b9231.1920x1080.jpg?t=1782157681",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_85548e86c50ff654c6a49235ea686a956f8ee9ec.1920x1080.jpg?t=1782157681"
+  ],
+  "short": "Escape a chaotic alien planet by fighting through hordes of frenzied monsters \u2013 with your friends, or on your own. Combine loot in surprising ways and master each character until you become the havoc you feared upon your first crash landing.",
+  "steam_appid": 632360,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

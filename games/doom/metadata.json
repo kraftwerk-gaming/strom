@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "id Software"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/doom.jpg",
+  "long": "The Ultimate DOOM is the definitive re-release of the genre-defining first-person shooter, bundling the original three episodes with the fourth, Thy Flesh Consumed. Players blast through demon-infested Mars bases and hellish landscapes with an iconic arsenal at breakneck speed. Driven here by the GZDoom source port, it supports cooperative and deathmatch multiplayer over a network.",
+  "lutris": "https://lutris.net/games/doom/",
+  "name": "The Ultimate DOOM",
+  "screenshots": [],
+  "short": "The Ultimate DOOM (id Software 1995, DOOM.WAD via GZDoom)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP",
+    "LAN Co-op"
+  ],
+  "year": 1995
+}

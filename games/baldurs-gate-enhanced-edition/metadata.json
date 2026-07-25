@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "BioWare",
+    "Beamdog"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/baldurs-gate-enhanced-edition.jpg",
+  "long": "Baldur's Gate: Enhanced Edition is a remaster of BioWare's classic 1998 Dungeons & Dragons role-playing game built on the Infinity Engine. Players create a hero, recruit a party, and explore the Sword Coast in a sprawling story of murder and intrigue, using real-time-with-pause AD&D 2nd Edition combat. The Enhanced Edition adds new companions, updated visuals, and the Siege of Dragonspear expansion.",
+  "lutris": "https://lutris.net/games/baldurs-gate-enhanced-edition/",
+  "name": "Baldur's Gate: Enhanced Edition + 3 DLC",
+  "screenshots": [],
+  "short": "Baldur's Gate: Enhanced Edition + 3 DLC (native Linux, Beamdog GOG v2.6.6.0p, fixed libs)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online Co-op",
+    "LAN Co-op"
+  ],
+  "year": 1998
+}

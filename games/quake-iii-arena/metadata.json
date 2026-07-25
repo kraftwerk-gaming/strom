@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "id Software"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/quake-iii-arena.jpg",
+  "long": "Quake III Arena is a 1999 multiplayer-focused first-person shooter built around fast, competitive arena combat. It strips away a traditional campaign in favor of deathmatch and tournament modes against human players or bots. The game is a cornerstone of competitive online FPS play, known for its movement mechanics and weapon balance.",
+  "lutris": "https://lutris.net/games/quake-iii-arena/",
+  "name": "Quake III Arena",
+  "screenshots": [],
+  "short": "Quake III Arena (id Software 1999, retail CD v1.11, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online PvP",
+    "LAN PvP"
+  ],
+  "year": 1999
+}

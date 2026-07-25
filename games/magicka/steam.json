@@ -1,0 +1,41 @@
+{
+  "developers": [
+    "Arrowhead Game Studios"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/header.jpg?t=1726497076",
+  "long": "Magicka is a satirical action-adventure game set in a rich fantasy world based on Norse mythology. The player assumes the role of a wizard from a sacred order tasked with stopping an evil sorcerer who has thrown the world into turmoil, his foul creations besieging the forces of good.\n\t\t\t\t\t\tPlayers will be able to combine the elements to cast spells, wreaking havoc and devastation on the minions of darkness. They will also be able to team up with friends and fight their way through the campaign, or test their skills in the magickal arts through other challenging modes.\n\t\t\t\t\t\tIn Magicka, up to four players take on a grand adventure to save their world from certain doom using a fully dynamic spell system. The adventure mode takes the players across three different levels, ranging from the lush forests of mountain valleys to the frozen halls of the Mountain King where wits and creative thinking are the keys to victory.\n\t\t\t\t\t\tIn the unlockable hardcore challenge mode, players fight off waves of enemies to earn their place on local and online leaderboards.\n\t\t\t\t\t\tMain Features:\n\t\t\t\t\t\t Innovative and dynamic spell casting system\n\nUp to four-player co-op in all game modes, as well as a single-player option\n\nFight your way through 13 different campaign levels\n\nExplore an expansive realm of adventure to defeat the evil wizard\n\nFind and unlock challenges, items, and powerful Magicks\n\nExperience the parody and satire of a clich\u00e9d fantasy world",
+  "lutris": "https://lutris.net/games/magicka/",
+  "name": "Magicka",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_514e6d7484e979f1879b59b4a1443d52bfde7cb1.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_e1d4017ccb5a3387b76807298dad84c719614765.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_c407f4ff8ea7da6f93f6612378af1f2d48ae4c60.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_d13d03be8b4662642ca3d142c8beae9abb634015.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_32a25f88daddfef484f87186efcfd780bea2e61c.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_6c99a50085738e922f65737d1e3f5d74116bb611.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_726544c3b8e41bc7fa4765d43fd585b8bfa5253c.1920x1080.jpg?t=1726497076",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/42910/ss_bb9506d2d3e01a7173ddaa5b92dd9c62ae7528e2.1920x1080.jpg?t=1726497076"
+  ],
+  "short": "Magicka is a satirical action-adventure game set in a rich fantasy world based on Norse mythology. The player assumes the role of a wizard from a sacred order tasked with stopping an evil sorcerer who has thrown the world into turmoil, his foul creations besieging the forces of good.",
+  "steam_appid": 42910,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Leaderboards",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2011
+}

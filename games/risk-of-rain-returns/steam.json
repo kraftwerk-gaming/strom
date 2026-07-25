@@ -1,0 +1,48 @@
+{
+  "developers": [
+    "Hopoo Games"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/header.jpg?t=1782157557",
+  "long": "Carefully designed, beautifully remastered, and loaded with new ways to play\u2014Risk of Rain is back and better than ever! Dive into the iconic roguelike full of unique loot combinations, entirely new Survivors, overhauled multiplayer, and more!\n\nHone your skills and abilities, discover new Survivors, and dive into progressively stronger runs! Discover secrets of ancient design lying dormant beneath the surface of Petrichor V. Search under every log, stone, and Gup to find new ways to play!\n\nMany Survivors fled the mysterious attack on your ship. Slice, dice, and serve justice cold with the return of Chef, hold the front line and shield your team as Enforcer, or lay down a path of toxic sludge as everybody\u2019s favorite purple monster: Acrid! Forge new paths to explore with 15 unique Survivors, each with new abilities to master. Two entirely new Survivors are making their debut in Risk of Rain Returns.\n\nAlso introducing The Drifter! This resourceful brawler gathers scrap from conquered foes and can spawn items that temporarily empower teammates. She can also take them for herself and unleash an unbridled blaze of area-wide destruction. The Drifter is the perfect addition to any group of Survivors. Her ability to support the team while laying down her own brand of hurt will prove she\u2019s more than just a stowaway.\n\nDrop to the surface solo or with your crew! Choose Survivors that complement each other\u2019s strengths and weaknesses, or go wild and choose whoever has the largest guns (spoiler: it\u2019s Loader). With up to four-player online and couch co-op, you\u2019re not alone in this fight.\n\nRisk of Rain Returns features new and improved multiplayer services to ensure the only thing that gets between your crew\u2019s survival are the ever-growing hordes on Petrichor V.\n\nFight your way to the surface while uncovering precious cargo. These items serve as your redemption, helping you move faster, deal more damage, or jump a little higher. Still others empower you in more dramatic ways\u2014like the rare Ukulele, which empowers your attacks with electrifying music.\n\nIf explosions are what you\u2019re after, hunt down the Brilliant Behemoth and watch as even your most mundane attacks erupt in a barrage of beautiful blasts. The magic comes in the unpredictable combinations you create. Exploding chain lightning is only the beginning of your frenetic masterpiece!\n\nThe denizens of Petrichor V are as diverse as the many planets they once called home. As these monsters approached extinction on their own worlds, a mysterious force brought them to Petrichor V. The planet quickly grew to be a menagerie of the most dangerous monsters in the galaxy, and they\u2019re not thrilled by interlopers (aka YOU).\n\nVariety is the spice of destruction. Select from more than 10 Artifacts that each mutate your run! Perhaps you\u2019d like to start with a random equipment item that changes every time it\u2019s used, or maybe you\u2019d like to experience a rampant Imp invasion every 10 minutes. Play around with combinations of Artifacts and discover exciting new ways to play.",
+  "lutris": "https://lutris.net/games/risk-of-rain-returns/",
+  "name": "Risk of Rain Returns",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_d2d457ccd93e9c59b9fe5fe37bd2b85bfcf5f8e4.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_7db68cef7a37fd405697f1939e6fd90e7d4783d1.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_d93ca3de78363c7ab4546a4f12736b8cb3a4eb7f.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_9e340980c5a26713a14b895685224cf6a2f9ae0f.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_675af80ddb27a9e1737316ae69d80472707e0479.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_05e4494275e18190004d39994369c19925653141.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_5a0921ae19eee2adbe68e057428c905e3bed26cf.1920x1080.jpg?t=1782157557",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1337520/ss_85a04d0a2c099217facef89ec8200073832f7ff4.1920x1080.jpg?t=1782157557"
+  ],
+  "short": "Carefully designed, beautifully remastered, and loaded with new ways to play\u2014Risk of Rain is back and better than ever! Dive into the iconic roguelike full of unique loot combinations, enhanced with new Survivors, overhauled multiplayer, fan favorite content from Risk of Rain 2, and more!",
+  "steam_appid": 1337520,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "thatgamecompany"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/header.jpg?t=1729099361",
+  "long": "Explore the ancient, mysterious world of Journey as you soar above ruins and glide across sands to discover its secrets. Play alone or in the company of a fellow traveler and explore its vast world together. Featuring stunning visuals and a Grammy-nominated musical score, Journey delivers a breathtaking experience like no other.",
+  "lutris": "https://lutris.net/games/journey/",
+  "name": "Journey",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_d4c7bfb15df749b78b6957320a4a23d71d531858.1920x1080.jpg?t=1729099361",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_c7741b2d22bdd5e5765816c9ef1b1e675616ce81.1920x1080.jpg?t=1729099361",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_040366eaf8bdf1dfb5a16ba5e503742ce96f2f6d.1920x1080.jpg?t=1729099361",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_ed77e7844e32c4cb181ce585fa1a368285c66ec5.1920x1080.jpg?t=1729099361",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_90dde9d4701385c7c7ffe22569ed1855b118ea4c.1920x1080.jpg?t=1729099361",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_e6d90f4cc1ce3ea73f1952d6d6f9c7e6e8657e0d.1920x1080.jpg?t=1729099361",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/638230/ss_678009919bc0a5876ec7f4e60e8ec3070c090b58.1920x1080.jpg?t=1729099361"
+  ],
+  "short": "Explore the ancient, mysterious world of Journey as you soar above ruins and glide across sands to discover its secrets.",
+  "steam_appid": 638230,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

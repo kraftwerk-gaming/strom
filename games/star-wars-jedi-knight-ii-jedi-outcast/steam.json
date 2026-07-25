@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Raven Software"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/header.jpg?t=1741814017",
+  "long": "The Legacy of Star Wars Dark Forces\u2122 and Star Wars\u00ae Jedi Knight lives on in the intense first-person action of Jedi Outcast.\n\t\t\tAs Kyle Katarn, agent of the New Republic, use your Lightsaber and the full power of the Force to combat a new evil plaguing the galaxy.\n\nWield over 8 Force abilities including the Jedi Mind Trick, Force Lightning and Force Grip.\n\nChoose wisely from an arsenal of 13 weapons including disruptor rifle, thermal detonators, trip mines and Wookiee bowcaster.\n\nPlay on-line with 2-32 players or against a variety of AI Bots - and gain an additional 7 Force powers.\n\nTest your skills in 24 single-player missions and in 6 different types of multiplayer games including Jedi Master, Holocron, Capture the Ysalamiri, Duel, Deathmatch and Capture the Flag.\n\nInteract with legendary Star Wars characters such as Luke Skywalker and Lando Calrissian (featuring the voice of Billy Dee Williams as Lando.)\n\nDeveloped by critically acclaimed Raven Studios and powered by the Quake III Arena engine.",
+  "lutris": "https://lutris.net/games/star-wars-jedi-knight-ii-jedi-outcast/",
+  "name": "STAR WARS\u2122 Jedi Knight II - Jedi Outcast\u2122",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_2acbd4cd010406dbebee260e5fab727ca39321c6.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_f191185316714a36f3160e26fc012bb88f6a44e3.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_e8c2e29b61620b6fefa566fdde68e03bad51c9ff.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_7f02fd0575f5a35b3902634f8203fe89f6851213.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_01d483530584f7fc7e98d603161d3deda845944f.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_b376c5d3c84a6d7574845395a2db19cd3c18e53c.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_7e9f5fd0c3d1fadca97888ed5d6c256a2d5167e7.1920x1080.jpg?t=1741814017",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6030/ss_cf19103004001d4297a93855d50a6bf045ea1db4.1920x1080.jpg?t=1741814017"
+  ],
+  "short": "The Legacy of Star Wars Dark Forces\u2122 and Star Wars\u00ae Jedi Knight lives on in the intense first-person action of Jedi Outcast.",
+  "steam_appid": 6030,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

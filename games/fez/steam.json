@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Polytron Corporation"
+  ],
+  "genres": [
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/header.jpg?t=1572375251",
+  "long": "Gomez is a 2D creature living in a 2D world. Or is he? When the existence of a mysterious 3rd dimension is revealed to him, Gomez is sent out on a journey that will take him to the very end of time and space. Use your ability to navigate 3D structures from 4 distinct classic 2D perspectives. Explore a serene and beautiful open-ended world full of secrets, puzzles and hidden treasures. Unearth the mysteries of the past and discover the truth about reality and perception. Change your perspective and look at the world in a different way.",
+  "lutris": "https://lutris.net/games/fez/",
+  "name": "FEZ",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_f9ecd9ef063e380c38350bf97a234ac8fb20e738.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_38a73fa1ebe9fcf4f7c8ee3b80e5de067a6e8897.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_a187b036f7bf387b9d2137403d915320bef7c55b.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_b6f3865dd7d626e8b6ec5c2df3c7c5f1fc8ce12f.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_9636de102a517bc272e66acc525179cd34be9a1b.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_c433accea78008474b03f027bc4aacec765f968f.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_a05f4ff26d34ed2ab90bc9b70eb0f086b45e7131.1920x1080.jpg?t=1572375251",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224760/ss_96464069385461712c83aac4c63745c1cd15296f.1920x1080.jpg?t=1572375251"
+  ],
+  "short": "Gomez is a 2D creature living in a 2D world. Or is he? When the existence of a mysterious 3rd dimension is revealed to him, Gomez is sent out on a journey that will take him to the very end of time and space. Use your ability to navigate 3D structures from 4 distinct classic 2D perspectives.",
+  "steam_appid": 224760,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

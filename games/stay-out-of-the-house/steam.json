@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Puppet Combo"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/header.jpg?t=1689365167",
+  "long": "Stay out of the House is a realistic serial killer escape sim. You've been kidnapped and held captive in a cannibal butcher's house. And it's only a matter of time until you're dinner.\n\nEscape however you can. The house is a living sandbox with multiple possibilities - will you rescue the other victims or just save yourself? Will you hide in the shadows and slip away undetected or turn the tables, using the butcher's own traps against him? The choices are yours and the AI will react to them dynamically.\n\nThe smack of a hammer... your head lands hard on the dirty linoleum floor... a maniac drags you up the stairs and cages you like an animal! You have three days until the reckoning...\n\nWelcome to the home of THE BUTCHER. Welcome to YOUR new home. Why are you here? Why has this mad man chosen you, and what are his plans for you? How will you escape? Can you even escape? All of these questions have answers, but can you seek them out? Do you want to? If only you\u2019d heeded their warning to STAY OUT OF THE HOUSE.\n\nAvoid THE BUTCHER'S cruel hammer or wind up right back in your CAGE! And you only have so much time left to escape...\n\nStay quiet and stay out of sight. He can hear you, and he IS listening.\n\nAvoid his traps as you explore; he\u2019s not about to let his newest houseguest leave so soon.\n\nThere are plenty of unique tools and items around them house to aid in your escape. You\u2019ll need your wits to find the best path out.\n\nTemper his SICK LUST FOR BLOOD with your .38 caliber revolver (if you can find it!)\n\nSearch for clues as you explore if you truly want answers. Perhaps you\u2019ll find more than you bargained for\u2026",
+  "lutris": "https://lutris.net/games/stay-out-of-the-house/",
+  "name": "Stay Out of the House",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_6dcd9e0aca43591826e4353d1c850e8d16dca663.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_fbf655cac035f545503bccb29dba0e0f4aebb110.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_911dc1a7e6d4565c0d99a0a4902144f5527445c2.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_91ca96c76b92b140ada9551a5dfe79966f762e5a.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_4e2b1a1f1f0bcebcd9b94b7629530535ab002542.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_085a90b560bf6472ddbc074015fe3408e86e4ab2.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_66de6d1365b6574583f465c3f08676df404b4890.1920x1080.jpg?t=1689365167",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/896520/ss_01b9f041c0dea1bb2f7a9fcf3175747741565317.1920x1080.jpg?t=1689365167"
+  ],
+  "short": "Can you escape the home of a cannibal serial killer? It's only a matter of time until you're dinner!",
+  "steam_appid": 896520,
+  "tags": [
+    "Single-player",
+    "Partial Controller Support",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

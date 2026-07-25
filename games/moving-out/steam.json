@@ -1,0 +1,51 @@
+{
+  "developers": [
+    "SMG Studio",
+    "Devm Games"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/header.jpg?t=1781014487",
+  "long": "Moving Out is a ridiculous physics-based moving simulator that brings new meaning to \"couch co-op\"!\n\nAre you ready for an exciting career in furniture? As a newly certified Furniture Arrangement & Relocation Technician, you\u2019ll take on moving jobs all across the busy town of Packmore. Smooth Moves may not be the biggest moving company, but there\u2019s no task too dangerous or strange for this busy team of go-getters. Grow your business to brave new heights, recruit colourful customizable characters, and save your town from furniture peril!\n\nCo-op!\nEnjoy the story mode solo as an independent contractor or team up with some friends. Up to four players can cozy up on the couch to argue over the best way to move a couch. Test your skills AND your friendship!\n\nPhysics!\nAre pesky doors and windows standing in your furniture\u2019s way? Just blast through them with physics! Lift, toss and smash your way to the fastest times!\n\nAction!\nLearn the ropes in a series of increasingly precarious and fantastical moving jobs. How a bed gets from point A to point B is never a straight line, so throw out the training manual and get creative!\n\nAdventure!\nEvery moving company starts small, but as your reputation ranks up, so do your destinations. Move through sleepy suburbs, frenzied farms, haunted houses, virtual reality and lands beyond!\n\nCharacters!\nRecruit a unique cast of colorful characters, each packed with a passion for manual labor!\n\nAssist Mode!\nAre you a rookie? No problem! Adjust the game\u2019s difficulty so anyone can play!\n\nDon\u2019t wait! Grab your friends and become a certified moving master in Moving Out!",
+  "lutris": "https://lutris.net/games/moving-out/",
+  "name": "Moving Out",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_17984d719e442ba6863288e3c1ebedea216005b2.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_7ac336466088cdac14c27870dd770aa30ed11a08.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_af3a9c0c6cdd913fdf35bb163fc4b259aae006af.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_17897597ec533d34644e83b86095200aa60b5fd0.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_b03baab997cac6c0278b95401dea88753e5c9582.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_5814cc5bd01ff8462f6bfdf56d4a9fc449b762ca.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_db20004ece99f189b60ba91b2d4dbc6bcbd1aa40.1920x1080.jpg?t=1781014487",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/996770/ss_a11e5312bf750176f72219bbf39ca17b791ab452.1920x1080.jpg?t=1781014487"
+  ],
+  "short": "Moving Out is a ridiculous physics-based moving simulator that brings new meaning to &quot;couch co-op&quot;! Are you ready for an exciting career in furniture? As a newly certified Furniture Arrangement &amp; Relocation Technician, you\u2019ll take on moving jobs all across the busy town of Packmore.",
+  "steam_appid": 996770,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "Subtitle Options",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

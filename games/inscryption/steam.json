@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Daniel Mullins Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/header.jpg?t=1777572925",
+  "long": "From the creator of Pony Island and The Hex comes the latest mind-melting, self-destructing love letter to video games. Inscryption is an inky black card-based odyssey that blends the deckbuilding roguelike, escape-room style puzzles, and psychological horror into a blood-laced smoothie. Darker still are the secrets inscribed upon the cards...\n\nIn Inscryption you will...\n Acquire a deck of woodland creature cards by draft, surgery, and self mutilation\n\n Unlock the secrets lurking behind the walls of Leshy's cabin\n\n Embark on an unexpected and deeply disturbing odyssey",
+  "lutris": "https://lutris.net/games/inscryption/",
+  "name": "Inscryption",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_0191a69b0e94a9a7784f5b81e27f06379910645a.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_3b714682e9e0a214df1630a234e9f6764528eece.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_7bfe728822807d232398df1cb1a5d64addd3d8fb.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_79a146c36a3f0b728a8e0085327cec8c7fba82d6.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_738220c84b63522c4ca8c77fbff1ddb252ea0fe9.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_e3338b329e4d92b56121f2e849486ee805a56169.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_5fd7a0e8967cdd05264988c6b397e18f99e78eef.1920x1080.jpg?t=1777572925",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1092790/ss_1db397016a48d454a7f65b18b88b7775d202c853.1920x1080.jpg?t=1777572925"
+  ],
+  "short": "Inscryption is an inky black card-based odyssey that blends the deckbuilding roguelike, escape-room style puzzles, and psychological horror into a blood-laced smoothie. Darker still are the secrets inscrybed upon the cards...",
+  "steam_appid": 1092790,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2021
+}

@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Red Hook Studios"
+  ],
+  "genres": [
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/header.jpg?t=1769780578",
+  "long": "Supported Languages\nPlease note that the game currently supports the following languages only in-game: English, German, French, Russian, Polish, Czech, Spanish, Italian, Japanese, Korean, Simplified Chinese and Brazilian Portuguese.\n\nAbout the Game\nDarkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring.Reclaim Your Ancestor's Estate\nRecruit, train, and lead a team of flawed heroes through twisted forests, forgotten warrens, ruined crypts, and beyond. You'll battle not only unimaginable foes, but stress, famine, disease, and the ever-encroaching dark. Uncover strange mysteries, and pit the heroes against an array of fearsome monsters with an innovative strategic turn-based combat system.\n\nCore Features\nThe Affliction System \u2013 battle not only monsters, but stress! Contend with paranoia, masochism, fear, irrationality, and a host of gameplay-meaningful quirks!\nStriking hand-drawn gothic crowquill art style\nInnovative turn-based combat pits you against a host of diabolical monsters\nNarration system to celebrate your successes...and failures\n16 (and counting!) playable hero classes, including Plague Doctor, Hellion, and even the Leper!\nCamp to heal wounds or deliver inspiring speeches.\nRest your weary, shell-shocked characters in town at the Tavern or the Abbey to keep their stress in check.\nClassic CRPG and roguelike features, including character permadeath, procedural dungeons, and incredible replay\n\nCan you stem the tide of eldritch horrors erupting across your family\u2019s ancestral estate?\n\nDescend at your peril!Awards and Honors\n\nPG Gamer: Best RPG of 2016\nGame Informer - Best RPGs of 2016: 3 Awards\nIGN - Best of 2016: 2 Nominations\nIGF 2016 - 3 Nominations\nRock Paper Shotgun - 50 Best RPGs of All Time\nPAX 10 - 2015\nGame Debate Best Indie Game 2016\nSXSW Gamer's Choice Nominee 2015\nMMORPG - Best Indie RPG (Pax East 2014), Best RPG Nomination PAX Prime 2014\nIndie Megabooth Selection - PAX East 2014, PAX Prime 2015",
+  "lutris": "https://lutris.net/games/darkest-dungeon/",
+  "name": "Darkest Dungeon\u00ae",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_04572edc979601b038756f87861c6f8c6c337806.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_799c78932c87f2be0cbd45dd1b80ebd0a355e575.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_a967c2d7344433cdf72a53ef1922586b0d7cce69.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_c9d41e74d574f6fa9bf53c0cf74f8430c2072cc2.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_b78c562dc67379f42691dcc8522b40d5385bb32e.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_ac1f594bf8128e376ca95ff266d400d404b639bf.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_897ef292768a8e413ffe2dbf18614ec8e1fdbc64.1920x1080.jpg?t=1769780578",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262060/ss_7232ad33cf7e5e58613004fb888c18d3ab1fdd8d.1920x1080.jpg?t=1769780578"
+  ],
+  "short": "Darkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring. Recruit, train, and lead a team of flawed heroes against unimaginable horrors, stress, disease, and the ever-encroaching dark. Can you keep your heroes together when all hope is lost?",
+  "steam_appid": 262060,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2016
+}

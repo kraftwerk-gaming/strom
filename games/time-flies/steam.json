@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Playables"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/a00d8201122469f1a4e2ddc45b311d2e8822779c/header.jpg?t=1780910564",
+  "long": "In Time Flies, you\u2019re a fly - your life is short and your bucket list is long! Learn an instrument, read a book, become rich, get drunk, or make someone smile. And if you don\u2019t feel like pursuing your goals, you can just relax, clean your wings, and listen to music. Make the best of the time you have left, because we\u2019re all going to die.\nFeatures:\nExplore a painstakingly hand-drawn, densely detailed world\n\nDozens of unique and obscure goals to accomplish\n\nNumerous intriguing ways to die\n\nGrimly variable life expectancy based on player location\n\nDelightfully accurate fly physics\n\nThe most expansive game yet from the mind behind KIDS and Plug & Play",
+  "lutris": "https://lutris.net/games/time-flies/",
+  "name": "Time Flies",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/73cb777dca02a346cdf1fbb5528b0a13ce0f76b1/ss_73cb777dca02a346cdf1fbb5528b0a13ce0f76b1.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/a570802141e8195e83af7deb82d388b853238711/ss_a570802141e8195e83af7deb82d388b853238711.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/51c236eaab3a687577aaf249ac327b7705198070/ss_51c236eaab3a687577aaf249ac327b7705198070.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/2cf93792736b5028b1fea3c74ab643aa07f3967e/ss_2cf93792736b5028b1fea3c74ab643aa07f3967e.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/f9e49496f7077a2ddc4a50c8cee4002c5c8b961f/ss_f9e49496f7077a2ddc4a50c8cee4002c5c8b961f.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/1b93dfb07b60571ab6bf2cd1023a497da25e1f27/ss_1b93dfb07b60571ab6bf2cd1023a497da25e1f27.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/b513032b164f7247732749c9e95aaf73590598b2/ss_b513032b164f7247732749c9e95aaf73590598b2.1920x1080.jpg?t=1780910564",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2000120/78913369ad0afa38345eda5101b73c5cd0f78fe7/ss_78913369ad0afa38345eda5101b73c5cd0f78fe7.1920x1080.jpg?t=1780910564"
+  ],
+  "short": "Time Flies is a little adventure about our limited time in this world.",
+  "steam_appid": 2000120,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

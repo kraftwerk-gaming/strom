@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "Ubisoft Montreal"
+  ],
+  "genres": [
+    "Action",
+    "Free To Play"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/d8a94437103c0b244ad4a9dbb8cc2d912e3b36ce/header_alt_assets_24.jpg?t=1782483834",
+  "long": "Season 11 Year 2 Overview\n\nYear 11 Roadmap\n\nFree Access\n\nElite Edition\n\nUltimate Edition\n\nPC Specifications\n\nAbout the Game\nTom Clancy's Rainbow Six Siege is the undisputed reference in tactical team shooters, where elite strategy and execution triumph.\n\nEnjoy free access to Quick Match and Unranked game modes with a selection of operators.\nCertain features like Ranked playlists, Siege Cup, additional operators, and cosmetics require payment to unlock.\n\nHIGH STAKES 5v5 ATTACK VS. DEFENSE\nAlternate between attack and defense, adapting your approach to each operator and map. Feel the thrill and intensity of the action as you leverage next-level destruction and gadgetry to outsmart and outplay your opponents in every round.\n\nOn defense, transform your surroundings into fortified strongholds. Reinforce walls, set up barricades, and deploy traps to control enemy movement. Use surveillance tools to gather intel and anticipate their approach. Hold your ground, adapt to their tactics, and outplay the attackers at every turn.\n\nOn attack, gather intel on enemy positions and the bomb site using your observation drones. Coordinate with your team to breach reinforced defenses, bypass traps, and create unexpected openings. Take your enemies by surprise with vertical plays \u2013 striking from above, below, or making a daring entry through windows by rappel. Plan your assault, execute, and defuse every situation.\n\nTOOLS OF DESTRUCTION\n\nDestruction is more than chaos: it is a key tool for your success. Use the environment to your advantage \u2013 turn walls into windows of opportunity. Use state-of-the-art technology to track enemy movements, shatter walls to create new lines of sight, and manipulate your surroundings to secure the tactical advantage.\n\nFROM RECRUIT TO ELITE\nA solid onboarding journey for new players, including a new clearance level path that helps you learn the basics progressively and build the skills and confidence you need before jumping into tactical action.\n\nCONSTANTLY EVOLVING\nEvery season brings major updates, with new content and features for renewed tactics and gameplay.\n\nHIGHLY COMPETITIVE\nJoin a massive online community of over 80 million players. Watch top-tier pro teams battle for supremacy in the prestigious Rainbow Six Siege Esport Competition.\n\nAccess to the game is free; certain features, including competitive game modes, operators, and cosmetics require payment to unlock.",
+  "lutris": "https://lutris.net/games/rainbow-six/",
+  "name": "Tom Clancy's Rainbow Six Siege",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/ef9bc694ff724b3d64ac37968f35f9a6ec4c766a/ss_ef9bc694ff724b3d64ac37968f35f9a6ec4c766a.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/195233dcf0318762d848cceaf953318905da725e/ss_195233dcf0318762d848cceaf953318905da725e.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/66ed10cd105bff48135fa25aeaacf1201c46a552/ss_66ed10cd105bff48135fa25aeaacf1201c46a552.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/8363519296edec1c056176f25e20767da3e6e853/ss_8363519296edec1c056176f25e20767da3e6e853.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/5467c59d8651c801aab376432cb96f7a49803d7a/ss_5467c59d8651c801aab376432cb96f7a49803d7a.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/1ee529c1c835164b7a2949a8b52ce79016d45690/ss_1ee529c1c835164b7a2949a8b52ce79016d45690.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/2e76d6f8373d28a16d214d67565198fd2f729b69/ss_2e76d6f8373d28a16d214d67565198fd2f729b69.1920x1080.jpg?t=1782483834",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/a53bff65f0f16fb38967d850e9fd0b0f9f8fa8d3/ss_a53bff65f0f16fb38967d850e9fd0b0f9f8fa8d3.1920x1080.jpg?t=1782483834"
+  ],
+  "short": "Tom Clancy's Rainbow Six Siege is an elite, tactical team-based shooter where superior planning and execution triumph.",
+  "steam_appid": 359550,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Full controller support",
+    "Steam Trading Cards",
+    "In-App Purchases",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Remote Play on Phone",
+    "Remote Play on Tablet"
+  ],
+  "year": 2015
+}

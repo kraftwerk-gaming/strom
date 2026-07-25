@@ -1,0 +1,40 @@
+{
+  "developers": [
+    "Square Enix"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/header.jpg?t=1775725860",
+  "long": "The timeless RPG classic returns loaded with upgrades! Journey to the forgotten past, to the far future, and to the end of time. A big adventure to save the planet, now begins\u2026\n\nCHRONO TRIGGER is the timeless role-playing classic developed by the \u2018Dream Team\u2019 of DRAGON QUEST creator Yuji Horii, Dragon Ball creator Akira Toriyama, and the creators of FINAL FANTASY. As the story unfolds, embark on a journey to different eras: the present, the middle ages, the future, prehistory, and ancient times! Whether you're a first-time player or a longtime fan, this epic quest to save a planet's future promises hours of enthralling adventure!\n\nAs the definitive version of CHRONO TRIGGER, not only have the controls been updated, the graphics and sound have also been revamped to make your adventure even more fun and enjoyable to play. To complete your journey, also included is the mysterious \u2018Dimensional Vortex\u2019 dungeon and the forgotten \u2018Lost Sanctum\u2019 dungeon. Meet the challenges presented to you and long-lost secrets may be revealed...\n\nStory:\nA chance encounter amid the festivities of Guardia's Millennial Fair in Leene Square introduces our young hero, Crono, to a girl by the name of Marle. Deciding to explore the fair together, the two soon find themselves at an exhibition of the Telepod, the latest invention by Crono's longtime friend Lucca. Marle, fearless and brimming with curiosity, volunteers to assist in a demonstration. An unanticipated malfunction, however, sends her hurtling through a rift in the dimensions. Taking hold of the girl's pendant, Crono bravely follows in pursuit. But the world into which he emerges is the one of four centuries before. Journey to the forgotten past, the distant future, and even to the very End of Time. The epic quest to save a planet's future makes history once again.\n\nKEY FEATURES:\n\nActive Time Battle Version 2\nDuring battle, time will not stop, and you can enter commands when the character's gauge is full. The enemies' positions will change as time passes, so choose your actions based on any given situation.\n\n\u2018Tech\u2019 moves and combos\nDuring battle, you can unleash special \u2018Tech\u2019 moves, including abilities and/or magic and characters can combine these abilities to unleash all new combo attacks which are unique to them. There are over 50 different types of combos that you can execute between two and three characters!\n\nExperience the 'Dimensional Vortex' and the 'Lost Sanctum' dungeons\nThe Dimensional Vortex: a mysterious, ever-changing dungeon existing outside of space and time. What wonders await you at its center?\nThe Lost Sanctum: enigmatic gates in prehistoric and medieval times will lead you to these forgotten chambers. Meet the challenges presented to you and long-lost secrets may be revealed...\n\nGraphics and sound\nWhile keeping the atmosphere of the original, the graphics have been updated in higher resolution. As for the sound and music, under the supervision of composer Yasunori Mitsuda, all songs have been updated for an even more immersive gameplay experience.\n\nComfortable controls\nWhether you play with a gamepad or a keyboard, the controls have been updated for a more pleasant gameplay experience.\n\nAutosave\nIn addition to saving at a save point or choosing to quit from the menu, your progress is saved automatically while traversing the map.",
+  "lutris": "https://lutris.net/games/chrono-trigger/",
+  "name": "CHRONO TRIGGER\u00ae",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_b92c46019720da5518bf69492c1f646f9c67dc29.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_fe62096054041c5faf8f8d28b685bcc9bc5cdd77.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_0e2d9f93550aa58ec19e3163d120fa6fa4b88189.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_9f190f88109757e3212aa39ad6df16b57d6deb81.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_3f6ae8e53d1c0e779a863ef3a05c4f5cdafb95a8.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_ee66f177d4985e6ad41965090cb67c1586f31dda.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_2f06f5ac4b740f59c43ad0c9ce134d9a0a1d3762.1920x1080.jpg?t=1775725860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/ss_07d70e01002895a8fff9f7221ca0169f2cef343d.1920x1080.jpg?t=1775725860"
+  ],
+  "short": "The timeless RPG classic returns loaded with upgrades! Journey to the forgotten past, to the far future, and to the end of time. A big adventure to save the planet, now begins\u2026",
+  "steam_appid": 613830,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Custom Volume Controls",
+    "Keyboard Only Option",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "Touch Only Option",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2018
+}

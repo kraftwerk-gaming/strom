@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Maxis"
+  ],
+  "genres": [
+    "Simulation",
+    "City Builder",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/simcity-2000.jpg",
+  "long": "SimCity 2000 is a city-building simulation where players design, fund, and manage a growing metropolis. It introduced an isometric view, underground layers for water pipes and subways, and detailed zoning, utilities, and budget management. The Special Edition bundles the Urban Renewal Kit and additional scenarios.",
+  "lutris": "https://lutris.net/games/simcity-2000/",
+  "name": "SimCity 2000 Special Edition",
+  "screenshots": [],
+  "short": "SimCity 2000 Special Edition (Maxis 1996 DOS, via DOSBox-X)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1993
+}

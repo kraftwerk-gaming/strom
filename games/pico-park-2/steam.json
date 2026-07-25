@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "TECOPARK",
+    "Gemdrops, Inc."
+  ],
+  "genres": [
+    "Action",
+    "Casual"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2644470/header.jpg?t=1760143639",
+  "long": "* When playing with 2 players on a keyboard, use of the right Ctrl key may be required. If your keyboard does not have a right Ctrl key, please change the key settings via the KEY CONFIG screen in the SETTINGS menu.\n\nPICO PARK 2 is a 2D action-puzzle game where working together is key! We're now back with more levels than in the last game!\n\nAs with the previous iteration, this game can be played locally or online from two players all the way to eight. All levels can be played no matter how many players you have, so jump in with your friends and take 'em on!\n\nOnline play also features cross-platform support, allowing you to play with your friends no matter what platform you have! Also, up to 7 players can join online with a single PC.\n\nAdded alongside the WORLD, ENDLESS, and BATTLE modes is the slightly unfair, somewhat difficult DARK mode! Jump, plot, and plunge into the all-new PICO PARK 2!\n\n[TecoGamePad]\nYou can use your smartphone as a gamepad with the TecoGamePad. It can be downloaded from the App Store and Google Play.",
+  "lutris": "https://lutris.net/games/pico-park-2/",
+  "name": "PICO PARK 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2644470/ss_d25ef9f4153bbd0c2d936fe8eb9de3d2e48a6944.1920x1080.jpg?t=1760143639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2644470/ss_10728aee7041fe5b5996040be91b1f86ebdea231.1920x1080.jpg?t=1760143639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2644470/ss_6f90ecb51a4e152d8e0f350e98400c6ab526bc23.1920x1080.jpg?t=1760143639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2644470/ss_f387564a815150110661d34f214962955c5001be.1920x1080.jpg?t=1760143639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2644470/ss_cba4e50a6b542ab75234261697f800071cc162d1.1920x1080.jpg?t=1760143639"
+  ],
+  "short": "PICO PARK is back with all new levels! Play with 2-8 players locally or online in this co-op action-puzzle game!",
+  "steam_appid": 2644470,
+  "tags": [
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Input API Support",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

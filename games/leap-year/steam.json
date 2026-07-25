@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Daniel Linssen"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2951770/header.jpg?t=1740754366",
+  "long": "Leap Year is a clumsy platformer about knowledge and discovery.\n\nExplore a compact, hand drawn world filled with hidden paths. Understand the game\u2019s secrets to reach new areas and collect all the pages of your calendar.\n\nFeatures\nAbout 2 hours of playtime\n\n40+ rooms\n\n6 audio tracks\n\n12 Steam achievements\n\nDancing friends\n\nLeap Year was commissioned by Sokpop Collective, an indie game studio from the Netherlands who create playful, experimental games for $3 a month.",
+  "lutris": "https://lutris.net/games/leap-year/",
+  "name": "Leap Year",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2951770/ss_45fcca4d8a1ac146e5048696c364c255793044c7.1920x1080.jpg?t=1740754366",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2951770/ss_004376a9a9ccbefe5706780e764b752a298c45b5.1920x1080.jpg?t=1740754366",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2951770/ss_2bd188ad15d77be347dc41858d39b1331e8d638c.1920x1080.jpg?t=1740754366",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2951770/ss_1283cb9816ab8f9e0d7b66891e75ffd2c2759230.1920x1080.jpg?t=1740754366",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2951770/ss_a049e5c5cc3902de1a066942686dc3b1ed7d69ed.1920x1080.jpg?t=1740754366"
+  ],
+  "short": "Leap Year is a clumsy platformer about knowledge and discovery. Explore a compact, hand drawn world filled with hidden paths. Understand the game\u2019s secrets to reach new areas and collect all the pages of your calendar.",
+  "steam_appid": 2951770,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

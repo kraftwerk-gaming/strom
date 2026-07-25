@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Bethesda Game Studios"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/header.jpg?t=1760029380",
+  "long": "The Elder Scrolls III: Morrowind\u00ae Game of the Year Edition includes Morrowind plus all of the content from the Bloodmoon and Tribunal expansions. The original Mod Construction Set is not included in this package.\n\t\t\t\t\tAn epic, open-ended single-player RPG, Morrowind allows you to create and play any kind of character imaginable. You can choose to follow the main storyline and find the source of the evil blight that plagues the land, or set off on your own to explore strange locations and develop your character based on their actions throughout the game. Featuring stunning 3D graphics, open-ended gameplay, and an incredible level of detail and interactivity, Morrowind offers a gameplay experience like no other.\n\t\t\t\t\tIn Tribunal, you journey to the capital city of Morrowind, called Mournhold, to meet the other two god-kings of Morrowind, Almalexia and Sotha Sil. Your journey will lead you to the Clockwork City of Sotha Sil and massive, epic-sized dungeons, where strange and deadly creatures await you, including goblins, lich lords, and the mysterious Fabricants.\n\t\t\t\t\tBloodmoon takes you to the frozen Island of Solstheim where you'll experience snow, blizzards, and new creatures, including frost trolls, ice minions, and wolves... just to name a few. You'll have a choice of stories to follow and have the opportunity to defend the colony, take control over how the colony is built up, and eliminate the werewolves. Or, you can decide to join the werewolves and become one of them, opening up a whole new style of gameplay.\n\t\t\t\t\tKey features:\n\t\t\t\t\tPlayers can take their existing Morrowind characters and save games and continue their adventures in the Morrowind GotY edition\n\nAdds up to 80 hours of new gameplay and quests for current Morrowind players\n\nExplore the forests, caves, and snow-covered wastelands of the island of Solstheim\n\nDelve into new, epic-sized dungeons and visit the Capital City of Mournhold and the Clockwork City of Sotha Sil\n\nFight new creatures including bears and wolves, lich lords and goblins, ice minions and spriggans\n\nDirect the construction of a mining colony and face the threat of savage werewolves\n\nBecome a werewolf and indulge your thirst for the hunt\n\nNew armor and weapons including Nordic Mail and Ice blades",
+  "lutris": "https://lutris.net/games/the-elder-scrolls-iii-morrowind/",
+  "name": "The Elder Scrolls III: Morrowind\u00ae Game of the Year Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009069.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009070.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009071.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009072.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009073.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009074.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009075.1920x1080.jpg?t=1760029380",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22320/0000009076.1920x1080.jpg?t=1760029380"
+  ],
+  "short": "The Elder Scrolls III: Morrowind\u00ae Game of the Year Edition includes Morrowind plus all of the content from the Bloodmoon and Tribunal expansions. The original Mod Construction Set is not included in this package. An epic, open-ended single-player RPG, Morrowind allows you to create and play any kind of character imaginable.",
+  "steam_appid": 22320,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

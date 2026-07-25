@@ -1,0 +1,24 @@
+{
+  "developers": [
+    "RedWolf Design"
+  ],
+  "genres": [
+    "Strategy",
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/clonk-4.jpg",
+  "long": "Clonk 4 (Clonk Planet) is a 2D multiplayer action-strategy game where players command small humanoid creatures called Clonks to dig through landscapes, mine resources, build structures, and fight. It blends real-time tactics with physics-driven, fully diggable terrain. The game emphasizes network and local multiplayer with both cooperative and competitive scenarios.",
+  "lutris": "https://lutris.net/games/clonk-4/",
+  "name": "Clonk 4",
+  "screenshots": [],
+  "short": "Clonk 4 (1998 freeware release, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP",
+    "LAN Co-op"
+  ],
+  "year": 1998
+}

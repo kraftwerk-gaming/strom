@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Smilebit",
+    "BlitWorks"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/jet-set-radio.jpg",
+  "long": "Jet Set Radio is a cel-shaded action game where players control a gang of rollerblading youths who spray graffiti and grind across the streets of Tokyo-to. Players evade police and rival gangs while tagging territory in time-pressured stages set to an eclectic soundtrack. The 2012 PC port by BlitWorks brings the Dreamcast classic to modern hardware with high resolution support.",
+  "lutris": "https://lutris.net/games/jet-set-radio/",
+  "name": "Jet Set Radio",
+  "screenshots": [],
+  "short": "Jet Set Radio (Smilebit/SEGA 2000, Blitworks 2012 PC port, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2000
+}

@@ -1,0 +1,29 @@
+{
+  "developers": [
+    "Shiny Entertainment"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/header.jpg?t=1699313511",
+  "long": "ON A GOOD DAY, ONLY 2.5 MILLION PEOPLE WILL DIE.\n\n\t\t\t\t\tAs vast alien mining cities suck the power and minerals from every major metropolis on Earth simultaneously, time is of the essence as millions of civilians are expiring by the second.\n\n\t\t\t\t\tUsing your stealth parachute and the now infamous 'Zooming' head-mounted sniper-weapon, your task is to slip in undetected from the sky, seek out and remove the alien leader by any means.\n\n\t\t\t\t\tMDK gives you awesome super smooth 3D gameplay.\n\n\t\t\t\t\tPlus, with the most advanced weapons ever created in a video game, you can 'take' out an alien's eye from five miles away or just neatly carve your name in his forehead!",
+  "lutris": "https://lutris.net/games/mdk/",
+  "name": "MDK",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_666b0b98d6c192a301433e8884fead49cf322bce.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_657804c07ca3c6feed447ce2daa6e8197819ff67.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_2e6f3732734e8c1f1cea0d5678f6cfdcb02946ec.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_995824308da8faa619138083d2239b30d8b8aac9.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_aee58d07e58bf21e609e96397b431994fafa36ee.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_2a6ac86182f1467c3429d1b176179ef3adfcd6b2.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_4d9ffd0b2bd2930e6b4ba58701740305c825b791.1920x1080.jpg?t=1699313511",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38450/ss_fb0f82034de37d1cae79d921e056b47ee0f51532.1920x1080.jpg?t=1699313511"
+  ],
+  "short": "ON A GOOD DAY, ONLY 2.5 MILLION PEOPLE WILL DIE. As vast alien mining cities suck the power and minerals from every major metropolis on Earth simultaneously, time is of the essence as millions of civilians are expiring by the second.",
+  "steam_appid": 38450,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

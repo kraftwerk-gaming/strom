@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Konami"
+  ],
+  "genres": [
+    "Action",
+    "Stealth",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/metal-gear-solid-2-substance.jpg",
+  "long": "Metal Gear Solid 2: Substance is an expanded edition of Sons of Liberty, a stealth action game following agents Solid Snake and Raiden against a terrorist plot involving the Metal Gear weapon. Players sneak past or neutralize guards using gadgets, distractions and close-quarters combat in a heavily narrative-driven campaign. Substance adds hundreds of VR and alternative missions plus extra side stories.",
+  "lutris": "https://lutris.net/games/metal-gear-solid-2-substance/",
+  "name": "Metal Gear Solid 2: Substance",
+  "screenshots": [],
+  "short": "Metal Gear Solid 2: Substance (PS2 Europe, via PCSX2)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2002
+}

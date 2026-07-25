@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Lunch Money Games"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/3ebd05427181e24a1d791531d0572e596bf31e55/header.jpg?t=1781521773",
+  "long": "Scritchy Scratchy is a super-satisfying scratch card incremental game where luck is your weapon, and glittering riches are just a scratch away.\nDive into a growing collection of scratchers, each with its own quirks, surprises, and sometimes downsides. Rip through tickets, uncover rare symbols, tweak your own luck, and chase absurd payouts.\nUnlock Scratch Bot, your tireless mechanical friend who scratches and reveals the rewards for you. Turn your run into a full-blown jackpot engine as your balance shoots through the roof while you sit back and relax.\n\nAs you prosper, you\u2019ll unlock upgrades that twist luck in your favor:\n\u2022 Boosted odds and payouts\n\u2022 Faster and easier scratching\u00a0\n\u2022 New scratch card variants with unique rules\nBut power always comes with risk. Some cards tempt you with monstrous payouts at the cost of nasty penalties. Some offer steady income\u2026 others threaten your entire run. Will you play like a sensible adult or gamble like a degenerate in a neon casino?\n\nWhen you\u2019re ready for even more madness, Prestige to reset your run, gather Jack Points, and spend them on permanent upgrades that reshape your strategy. Build your own luck engine: Slow and steady, wildly explosive, or pure chaos.\nScritchy Scratchy is a dangerously satisfying progression casino, where every scratch is a little dopamine hit, and every run is one lucky break away from the big jackpot!",
+  "lutris": "https://lutris.net/games/scritchy-scratchy/",
+  "name": "Scritchy Scratchy",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/6b826ea82e005c963b863b3e66dc606a408dd3fe/ss_6b826ea82e005c963b863b3e66dc606a408dd3fe.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/cd075039fb1bd1a8559c551a38aa2aaa214cd19f/ss_cd075039fb1bd1a8559c551a38aa2aaa214cd19f.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/c1845ad95a573c39fc02ea28fe62019f9e52b118/ss_c1845ad95a573c39fc02ea28fe62019f9e52b118.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/b6a3bd19f8fae5f78f6e6bc0c4d225a1899824a9/ss_b6a3bd19f8fae5f78f6e6bc0c4d225a1899824a9.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/4f9ebd4ea687aba0fb1b17491069e5e3e15d87c9/ss_4f9ebd4ea687aba0fb1b17491069e5e3e15d87c9.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/bf025be01b601c77444df88ce9b97fb43eb08664/ss_bf025be01b601c77444df88ce9b97fb43eb08664.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/39c919f88d9d9100b471279b8811145cb0a6314c/ss_39c919f88d9d9100b471279b8811145cb0a6314c.1920x1080.jpg?t=1781521773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3948120/7d99e4256b4f7b819991ef9eb444886e3e8d8052/ss_7d99e4256b4f7b819991ef9eb444886e3e8d8052.1920x1080.jpg?t=1781521773"
+  ],
+  "short": "Scritchy Scratchy is a super-satisfying scratch card incremental game. Buy stacks of scratch-offs, unlock auto-scratching, and chase massive jackpots. Will you play it safe or go all-in?",
+  "steam_appid": 3948120,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Custom Volume Controls",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Touch Only Option",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

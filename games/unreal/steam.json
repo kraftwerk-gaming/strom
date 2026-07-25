@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "hako life",
+    "hako \u751f\u6d3b"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/header.jpg?t=1728639465",
+  "long": "After losing her memories, the girl could only remember one name\u2014\"Miss Sakura\".\nShe set out to find Miss Sakura, aided by a talking traffic light, and by the power to read the memories of the things she touched.\n\n\"Unreal Life\" is the story of her journey.\nCompare memories of the past with the present, solve mysteries, and follow the girl and the traffic light in this atmospheric puzzle adventure game.\n\nFollow the memories, follow the path, and what you will find is...",
+  "lutris": "https://lutris.net/games/unreal/",
+  "name": "UNREAL LIFE",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_ad336bbdb162f42b8c4858857a9532162f146eb7.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_1471c6e232bfd33193c5c61cbee4fb7a0a3f2d7c.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_008fa5dd9182aa655cff2e7827f5fe818db2dab5.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_097ae379230b8b959ae1cfadad30cc11296276f9.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_33c3fd62965bee1b9e4b43a87fc1cf43b8c330d6.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_b0d41eb968c0ca908bf9b8ab71f4fb52a2ce9548.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_98bb5fdca2ccee0d4ffad2a747891d21262f9087.1920x1080.jpg?t=1728639465",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1335560/ss_d9ddee9d0e3dcbbd236c576da333c81475bc5d4b.1920x1080.jpg?t=1728639465"
+  ],
+  "short": "And now, for today's story.",
+  "steam_appid": 1335560,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

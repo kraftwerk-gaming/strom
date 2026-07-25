@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "Blue Bottle Games"
+  ],
+  "genres": [
+    "Indie",
+    "RPG",
+    "Simulation",
+    "Early Access"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/bc761a94d5f461f002677a7de7e5bf249dd18872/header.jpg?t=1778001205",
+  "long": "Planned Features\n\nAbout the Game\n\nIn a solar system cut-off from a ravaged Earth, you play as a scavenger trying to make a living in the dredges of space. Wage-slave scrapper life isn\u2019t enough anymore, and at last you\u2019ve pulled together the funds (plus a hefty loan) to have a go at independence.\n\nBased in the same universe as Blue Bottle Game\u2019s last hit NEO Scavenger, learn to manage your dysfunctional crew and ship as you fend off bankruptcy...or worse.\n\nEvery choice you make will affect the outcome of the game. In character creation, you\u2019ll use a Career Kiosk to shape your character\u2019s background, income, and qualifications. Use it to customise your traits and skillset, which will be essential when managing your ship, its crew, and anyone sticking their noses in your business. You\u2019ll start out the game with enemies, ex-lovers, and acquaintances to seek out\u2026 or avoid. Just remember your early decisions will affect your options and outcomes in conversations down the line.\n\nBuild your dream ship from the ground up, using detailed, functional parts. Scavenge \u201cpre-loved\u201d parts in the boneyard to upgrade your ship - finding old or rare parts in the system is much cheaper than tracking down the original manufacturer. Who has time to scour the solar system? Hook up subsystems, add extra power and fuel, and be sure to replace parts which have worn out during your adventures. Parts are essential to your experience and will change how your ship feels to fly.\n\n\u201cI cannot change the laws of physics, Captain!\u201d In Ostranauts you will be piloting a ship under the laws of Newtonian flight, learning to fly using in-world manuals and sheets. It will be your job to manipulate control panels, flip switches, and to resist the urge to press the big shiny red button\u2026 Every craft has a different flight feel based on thrusters, hull mass, and how you\u2019ve customised the ship. Remember to use a light touch whilst docking, and try not find yourself in the outer rim with an empty fuel gauge.\n\nEven in the darkest corners of space, you are not alone. Each character you encounter runs an AI that is constantly making choices based on their current needs and past experiences. They have physiological and emotional needs, ranging from basic wants like food, oxygen and water all the way up to deeper needs like intimacy and security. As captain, keep an eye out at the space port, scout out a crew and build those relationships. Your background will shape out how you are able to interact with other characters and if they will join your ship - have you developed a silver tongue or does fear rule your ship?\n\nBased in the same universe as NEO Scavenger, Ostranauts will be rich with lore for those who wish to explore. After the collapse of civilization on Earth, colonies and factions formed - colonising other planets, moons and asteroids - with only those able to adapt to the harshness of space able to survive. As states and corporations spread their reach through the System, whispers of unexplained phenomena are creeping through back channels.\n\nBlue Bottle Games encourages players to join the Discord, share modding ideas, and to help grow the world of Ostranauts. Modders who want to make their experience more unique are able to edit a wide variety of game data - most of the game's data is in plain-text files for easy access. If you have an inquiry, send us a message in either the Blue Bottle or Kitfox Discord.",
+  "lutris": "https://lutris.net/games/ostranauts/",
+  "name": "Ostranauts",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/672a9ee213f2b169a6b1a515c5105c063ff69389/ss_672a9ee213f2b169a6b1a515c5105c063ff69389.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/0f01867e294066fd2d24891cb21a1b33149544db/ss_0f01867e294066fd2d24891cb21a1b33149544db.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/7c676a47cbbad47626aa3c1a996a797de5ba81a7/ss_7c676a47cbbad47626aa3c1a996a797de5ba81a7.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/df2010ace2ecac4b5587550353334afe412ac4a2/ss_df2010ace2ecac4b5587550353334afe412ac4a2.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/1abff93909c29ad60b9af35f40fe210bcc1071ec/ss_1abff93909c29ad60b9af35f40fe210bcc1071ec.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/ss_06123b46b57c9977849254fc86632b783fe0b12f.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/ss_a65e3314b79cbadce0c2a4137831df0775808a42.1920x1080.jpg?t=1778001205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1022980/ss_a561a7a507ac0a589607b7f9eb4da14eb92ae802.1920x1080.jpg?t=1778001205"
+  ],
+  "short": "Navigate your scrappy ship through the boneyard in search of valuable parts in abandoned vessels. Use salvage to upgrade your ship, or sell it for cash to pay down your mounting debt, or restock fuel, air, or food. Fly and role-play aboard your dream spaceship in this hardcore noir space-sim.",
+  "steam_appid": 1022980,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Introversion Software"
+  ],
+  "genres": [
+    "Simulation",
+    "Strategy",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/uplink.jpg",
+  "long": "Uplink: Hacker Elite is a hacking simulation in which the player works as a freelance computer hacker, breaking into corporate systems, manipulating data, and covering their tracks before traces complete. Money earned buys better hardware and software to take on riskier jobs. It was developed and published by Introversion Software.",
+  "lutris": "https://lutris.net/games/uplink/",
+  "name": "Uplink: Hacker Elite v1.6",
+  "screenshots": [],
+  "short": "Uplink: Hacker Elite v1.6 (via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2001
+}

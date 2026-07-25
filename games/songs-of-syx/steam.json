@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Gamatron AB"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Simulation",
+    "Strategy",
+    "Early Access"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/1139c83ae1b3886732d64d7933542a1b7e12db68/header_alt_assets_3.jpg?t=1781544780",
+  "long": "Songs of Syx is in Early Access. We recommend reading the EA clause carefully and playing the demo before purchasing.\n\nSongs of Syx is a low fantasy city-builder with vast real-time battles simulating tens of thousands of citizens and soldiers. Start off as an insignificant village and build, scheme, and fight your way towards a mighty city state and empire. The mechanics are deep and true to life, where small events can spiral into the collapse of kingdoms.\u00a0\n\nFull of different races, cultures, old and new gods and strange creatures - everything in Songs of Syx is connected. Night turns to day, climate and weather change, and migrations of animals and people flow. Droughts and pestilence, raiders, traders and bandits, and new discoveries will ensure kingdoms and empires come and go with or without your intervention. Everything you do generates new unique stories and worlds each time you play a new game.\n\nWin the hearts of your subjects or whip them into submission. Have their number swell your insignificant village into a metropolis of your design. Watch tens of thousands of individually simulated citizens and slaves interact: each with their own life, religion, fears and desires.\nBuild each house, street and plaza with utmost care in order to keep the needs of your citizens, your state and your army balanced.\nBut be careful not to overreach: everything you build requires upkeep and a slight disruption to your production, or a dip in your standing, could quickly spiral out of control. Your people will not hesitate to turn against an incompetent ruler.\n\nRecruit, train and equip citizens of your great city. Gather allies and vassals, conscript traveling mercenaries and local peasants to bolster your ranks with up to 50,000 individual units. Use tactics and skill to encircle your enemy in massive real-time battles, or let your reputation demoralize them before the fight.\nEach soldier is simulated and will require supplies produced by the industrial might of your great state. The outcome of battle will dictate the rise and fall of empires.\n\nBreak the backs of slaves as they make your beds and swab your floors. Just throw them a bone from time to time to keep them from rising up in revolt. Appoint nobles, or import them from other kingdoms and have them manage different aspects of your kingdom to boost your production and standing, but be careful with whom to trust, and reward them accordingly as some might get the idea to usurp you or join your enemies.\n\nAs your capital grows, it must be sustained by the villages, towns, lumber camps, castles and ports that constitute your kingdom. But you are not alone. Other kingdoms and despots are either eager to forge an alliance or expand their borders, so tend to your relations. To grow your might, you must engage in diplomacy, trade and war.\n\nThanks to the fulfilment of our first Kickstarter stretchgoal the game will have a fully fledged soundtrack made by @jasinkamusic. We already have some tracks done which neatly fit into the playable prototype.",
+  "lutris": "https://lutris.net/games/songs-of-syx/",
+  "name": "Songs of Syx",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/f2d8c5d47a23f8d54560d144fdad30677c602817/ss_f2d8c5d47a23f8d54560d144fdad30677c602817.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/9145cacf651f86761548f072216a7831c95177b8/ss_9145cacf651f86761548f072216a7831c95177b8.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/0a5bfa61b602b5dc075e084fd2821dcc8a6cd470/ss_0a5bfa61b602b5dc075e084fd2821dcc8a6cd470.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/c3e23b969c6b7f44a54e671fdd86b799eee1b7af/ss_c3e23b969c6b7f44a54e671fdd86b799eee1b7af.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/e0c7490ed1c944a83a7b47c67ea672ba517d6f33/ss_e0c7490ed1c944a83a7b47c67ea672ba517d6f33.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/b72ed0a143bf65bb6402169acd968e6324604732/ss_b72ed0a143bf65bb6402169acd968e6324604732.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/3d0969c88050c6c09590f2eee8e8d5995d992147/ss_3d0969c88050c6c09590f2eee8e8d5995d992147.1920x1080.jpg?t=1781544780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1162750/882d1808709c8be5fe1bf50ebe020fbba1ed4dd1/ss_882d1808709c8be5fe1bf50ebe020fbba1ed4dd1.1920x1080.jpg?t=1781544780"
+  ],
+  "short": "Songs of Syx is a fantasy city-builder with vast battles simulating thousands of citizens and soldiers. Start off as a small village and build, scheme, and fight your way towards a mighty empire. The mechanics are deep and true to life, where tiny events can spiral into the collapse of kingdoms.",
+  "steam_appid": 1162750,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Includes level editor",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

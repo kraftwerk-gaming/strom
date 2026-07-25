@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Billy Basso"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/header.jpg?t=1776365443",
+  "long": "Hatch from your flower and spelunk through the beautiful and sometimes haunting world of Animal Well, a pixelated wonder rendered in intricate audio and visual detail. Encounter lively creatures small and large, helpful and ominous as you discover unconventional upgrades and unravel the well\u2019s secrets. This is a truly unique experience that can make you laugh in fear, surprise, or delight.\n\n Dense atmospheric puzzle box world with tons of secrets\n\n Light candles for safety and gradually fill out your map\n\n Nonlinear -- explore and collect items in whatever order you choose\n\n Enemies, environment, and items interact in surprising and systemic ways\n\n All items have multiple uses\n\n Learn how innocuous details can become meaningful\n\n The main game is just the beginning. Players will be discovering hidden puzzles for years\n\n Assess for yourself what is safe and dangerous\n\n Focus on tension and suspense rather than action\n\n You are disempowered, but can make clever use of your environment and items",
+  "lutris": "https://lutris.net/games/animal-well/",
+  "name": "ANIMAL WELL",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_87a9f2941e114a2bb834db6350ccbedc1ade794d.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_ca955f6bb4f0c164dcffa59082ae985fb530582a.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_6c242925256158897426f3e90e7e8a8f8f0bbee9.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_f9f088275737d81e0eb998e0c076282c5c1955c3.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_e8450943c2393103ef5e51d9c968c3ae1a610a55.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_8773f0939bfd96fe25fbb7395bbae3d725044b12.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_347d933516de26f0abaed5b1ea09a04c0355319e.1920x1080.jpg?t=1776365443",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/ss_45cb26b3f9085f32577f97ad4b7ccdbf2b69a491.1920x1080.jpg?t=1776365443"
+  ],
+  "short": "Explore a dense, interconnected labyrinth, and unravel its many secrets. Collect items to manipulate your environment in surprising and meaningful ways. Encounter beautiful and unsettling creatures, as you attempt to survive what lurks in the dark. There is more than what you see.",
+  "steam_appid": 813230,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

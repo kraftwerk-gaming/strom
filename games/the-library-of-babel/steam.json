@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Tanuki Game Studio"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/header.jpg?t=1779883716",
+  "long": "Inspired by Jorge Luis Borges\u2019 short story of the same name, The Library of Babel welcomes you to a world 20,000 years after the extinction of humanity. The world is now run by advanced robots, who know very little about their mythical creators. All is well and orderly in a society run by robots, until the discovery of a library that contains everything that has, is, and will ever be written\u2014 the perfect harbinger of chaos.\n\nYou play as Ludovik, a Seeker, sent to investigate a murder case in Babylon. When a state of emergency is suddenly declared, Ludovik finds himself in increasingly dangerous territory as he follows the murderer\u2019s trail and unravels the mystery behind the Library\u2019s sudden lockdown.\n\nFeaturing a world full of vast jungles, abandoned temples, and plentiful cybernetic inhabitants to interact with, The Library of Babel promises both a thrilling adventure full of danger and intrigue, and a thoughtful, atmospheric tale of how we consider infinity.\n\nAn overgrown yet futuristic world with beautifully hand-drawn 2D environments\n\nDeadly obstacles and even deadlier enemies to avoid, as Ludovik prefers agility and stealth over violence\n\nDialogue and Inventory management systems reminiscent of the Graphic Adventure games of the 90\u2019s\n\nA moody, philosophical science fiction story inspired by The Library of Babel and Apocalypse Now",
+  "lutris": "https://lutris.net/games/the-library-of-babel/",
+  "name": "The Library of Babel",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_77035eb583a09b8b9467af8b212fe09d89121241.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_4769e519edb9c40e0407416284cd76ada1447bef.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_d42439edda6c4bbf18553794ac4498be667f761f.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_08abdf1f82bf9a8a438fbbd2640072f15c272d41.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_14ccf6d6cc5df1c1adc9e66443eab03266b67221.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_f55717d226b2ec2783cebc56cdda13ef961e295c.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_5ceae42543ebfe62b5a5d6026f4f98aeaed5d2b8.1920x1080.jpg?t=1779883716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1822030/ss_c2014cbb02ea3bb4a581975c000d8ee9cf46660f.1920x1080.jpg?t=1779883716"
+  ],
+  "short": "Join Ludovik in a 2D Stealth Platformer and Graphic Adventure, as he explores the jungles of a futuristic Babylon to discover the secret behind the Library of Babel\u2019s sudden lockdown and the mysteries behind their mythical creators.",
+  "steam_appid": 1822030,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

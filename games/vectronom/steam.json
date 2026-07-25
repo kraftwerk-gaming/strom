@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "Ludopium",
+    "ARTE France"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/header.jpg?t=1727788538",
+  "long": "A CAPTIVATING ATMOSPHERE\nWelcome to the psychedelic world of Vectronom: experience waves of color and a pulsing geometric path that changes with the beat! All set to a hypnotic electronic soundtrack. There\u2019s only one thing to do: turn up the volume and go with the flow.\n\nSOLVE PUZZLES AT THE SPEED OF SOUND\nFind your path through an ever-changing world, keeping the rhythm with every move you make. Think it sounds easy? The highly intuitive and addictive gameplay will keep you moving through daunting challenges... But how long will you last when the challenges get trickier and trickier? Better play to find out!\n\nPLAY ON YOUR OWN OR WITH FRIENDS\nSet off on a solo campaign with just your headphones for company, or invite a few friends to join the party! \u266a UNTZ! UNTZ! UNTZ! \u266a\n\nBUILD YOUR OWN RHYTHMIC RIDDLES\nCreate your own levels share them and play the creations of others. Vectronom features a fully-fledged level editor which will allow you to build mind bending musical puzzles.\n\nFEATURES\nA challenging solo campaign that will completely entrance you\n\nA drop-in, drop-out multiplayer mode that will hypnotize your friends\n\nColorful and atmospheric levels with a powerful electronic soundtrack\n\nBONUS: the game is compatible with digital dance mats and MIDI instruments, so it won\u2019t just be your fingertips showing off their best moves!",
+  "lutris": "https://lutris.net/games/vectronom/",
+  "name": "Vectronom",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_323e9d60d73665ddc285955d89720c984d6426e1.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_c4377f592749fb3c99f2723c3d64fc2aa4ea4bda.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_fc6fd688ebf47af2d11a88fefc100af4c39c70d4.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_654a35c0839b38009bdb1df562860962e04ee805.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_465dd12250562b1ef477005fd09125ee5733e67e.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_52b49c4be11346d9dc7fe751690192579ea117e1.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_009d6f49397272b747667aaec8d453204fd0b2a4.1920x1080.jpg?t=1727788538",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/925460/ss_6d70a59fb34c2ec1696f8b819a29f1dffb50c6a5.1920x1080.jpg?t=1727788538"
+  ],
+  "short": "Welcome to the psychedelic world of Vectronom: experience waves of color and a pulsing geometric path that changes with the beat! All set to a hypnotic electronic soundtrack. There\u2019s only one thing to do: turn up the volume and go with the flow.",
+  "steam_appid": 925460,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

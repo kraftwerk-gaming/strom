@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Chronic Logic"
+  ],
+  "genres": [
+    "Puzzle",
+    "Simulation",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/bridge-builder-2.jpg",
+  "long": "Bridge Builder 2, also known as Bridge Construction Set, is a physics-based bridge-engineering puzzle game. Players design and build bridges within a budget, then test whether their structures can bear the weight of crossing trains and vehicles. It is a sequel to Chronic Logic's Pontifex/Bridge Builder line.",
+  "lutris": "https://lutris.net/games/bridge-builder-2/",
+  "name": "Bridge Builder 2 / Bridge Construction Set",
+  "screenshots": [],
+  "short": "Bridge Builder 2 / Bridge Construction Set (Chronic Logic 2004, German Halycon release, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2004
+}

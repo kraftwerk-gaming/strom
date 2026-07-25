@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "DMA Design"
+  ],
+  "genres": [
+    "Puzzle",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/lemmings.jpg",
+  "long": "Lemmings is a puzzle game in which players guide a steady stream of mindless lemming creatures safely to an exit. By assigning skills such as digging, building and blocking to individual lemmings, players carve safe paths through hazardous levels. The CD version adds enhanced CD audio to the original challenging stages.",
+  "lutris": "https://lutris.net/games/lemmings/",
+  "name": "Lemmings",
+  "screenshots": [],
+  "short": "Lemmings (DOS CD version with CD audio, via DOSBox-X)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1991
+}

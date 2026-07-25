@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Bird Bath Games"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/header.jpg?t=1780993111",
+  "long": "Mow-down at the hoedown!\n\nPack your bags and move to the idyllic countryside. Pay no heed to the nuclear fallout \u2013 it adds a lovely glow to your complexion! Upsides \u2013 everyone wants a piece of you! Downsides \u2013 everyone wants a piece of you...\n\nGrab your blunderbuss and get ready for twin-stick, bullet-hell, roguelite, corn-chuckin' action game that will last until the cows come home! As any self-respecting farmer would: Farm. Marry. Kill.\n\nSow and harvest as many fast-growing crops as you can before the day is done to earn a huge profit. Purchase weapons and items in town at the end of each day. Celebrate the end of each season with special shops and rewards.\n\nPermanently Upgrade your farming and fighting abilities. Earn a payout each run that can be used on permanent improvements and unlocks.\n\nProgress through the years with ramping difficulty and even greater rewards!\n\nBefriend an entourage of pig pals, chicken chums, and cow colleagues to automate farming tasks. Woo and marry a kindred spirit from the local town to fight and farm alongside you.\n\nUnlock new characters, spouses, difficulties, and permanent upgrades. Most importantly, you can unlock many cats to permanently roam your homestead (yes, you can pet them).\n\nDefend your crops from unforgiving nightly attackers looking to rampage your hard-earned harvest.\n\nFight challenging bosses each season until you reach the final season - the Nuclear Winter.\n\nExplore the far reaches of the biomes to find useful relics of farms long past. Powerful loot increases your farming abilities and helps you fight enemies.",
+  "lutris": "https://lutris.net/games/atomicrops/",
+  "name": "Atomicrops",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_b9bf4a07df58091bf4c35b139ef335e55c3c5318.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_81ebbc32fc548e293e641248068dc6fa27dd45b5.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_55172cccee2bade42bbb4a17ba51f1bfd5151736.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_9510907c7aadabcef6c128fcf6cde3b2f357d1b3.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_bfed76fe096d6f8aac07bc4e573557991639d4b1.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_ba103d11291d2fd380c283e6c54f47baf4477379.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_59b78f8fc1cf15df975cd7d1f9a6c06786369507.1920x1080.jpg?t=1780993111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/757320/ss_cb54cdb9ded92ec088e7ac77698fbe56b3fdee19.1920x1080.jpg?t=1780993111"
+  ],
+  "short": "A twin-stick, bullet-hell, roguelite where you must cultivate and defend the last farm in a post-apocalyptic wasteland. Farm mutated crops, upgrade your weapons, marry townsfolk, and kill every mutant creature that tries to invade your homestead! Yee-haw!",
+  "steam_appid": 757320,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

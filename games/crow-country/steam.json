@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "SFB Games"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/header.jpg?t=1781799922",
+  "long": "A survival horror game, where you\u2019ll test yourself against puzzles and riddles as you investigate the eerie tranquility of the abandoned theme park. Don\u2019t be deceived by the whimsical surroundings, something is awfully wrong in Crow Country.\n\nAs you unlock new areas, backtrack and discover more, you gradually piece together why Edward really shut down his park and where he mysteriously disappeared to. You\u2019ve heard some pretty disturbing rumors, but they couldn\u2019t possibly be true\u2026..right?\n\nFor visitors to the park who are more interested in spotting crows and taking in the sights, Exploration Mode allows you to journey on without the fear of being attacked by the mysterious monsters roaming Crow Country. If you knew what those monsters really are\u2026..\n\nJust how far would someone go to follow their ambition? Are some sins too wicked for redemption?\n\nA tale of reckless hubris and human greed, and now at the center of it all... you.\n\nWho are you really, Mara Forest?",
+  "lutris": "https://lutris.net/games/crow-country/",
+  "name": "Crow Country",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_70a23ec71b5d6775264d14c0560fd59b05d073e4.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_2ea75bced43507f9f35c833ed308fbd51cb426fb.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_68a24dd60730d5112cd7a7f1c68b77ed464d7729.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_64602ca091b765de074fc5106db2daca034a1d00.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_1c6d4ffb6329a19701038fa87706c7266e7d3cfa.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_b7c8066257201011d2e283c8796d386436007e3b.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_aaf2548f5710e00df2a3dcc695fc60d74b2f2150.1920x1080.jpg?t=1781799922",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1996010/ss_d7eb2835f4f73ff18c465009d8600516787e07ad.1920x1080.jpg?t=1781799922"
+  ],
+  "short": "The year is 1990. It\u2019s been two years since the mysterious disappearance of Edward Crow and the abrupt closure of his theme park, Crow Country. But your arrival has broken the silence, Mara Forest. If you want answers, you\u2019ll have to venture deep into the darkness of Crow Country to find them\u2026",
+  "steam_appid": 1996010,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Gamepad Recommended",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

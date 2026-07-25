@@ -1,0 +1,49 @@
+{
+  "developers": [
+    "Clever Endeavour Games"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/header.jpg?t=1765298731",
+  "long": "Wishlist Ultimate Sheep Raccoon!\nOur upcoming bike-racing party game, releasing Winter 2025!\n\nAbout the Game\nEver wish you were a wall-jumping, arrow-dodging, trap-setting horse, besting your animal pals in a race through a peril-laden obstacle course that you all built together?\n\nWish Granted!\n\nUltimate Chicken Horse is a party platformer where you and your friends build the level as you play, placing deadly traps before trying to reach the end of the level. If you can make it but your friends can't, you score points! Play online or locally with your animal buddies and experiment with a wide variety of platforms in all sorts of strange locations to find new ways to mess with your friends.Key Features\nOnline, cross-platform, and local play for up to 4 players\n\nUnique game flow, from strategic block placement to twitch control platforming\n\n21 levels with different features\n\nBuild and share custom levels\n\nCompete for global best times on Challenge levels across all platforms\n\nHuge library of blocks to create an infinite variety of levels\n\nCustomizable rule sets and game modes\n\nShared controller mode to play multiplayer with one controller or keyboard\n\nPlay as a chicken, horse, sheep, raccoon and other wonderful animals\n\nFun, cartoony art style\n\nSweet funky soundtrack\n Please note: this is primarily a multiplayer game. Challenge levels can be created and played alone, but unlocking characters and levels requires playing one of the main game modes (like Party Mode) which are only multiplayer.",
+  "lutris": "https://lutris.net/games/ultimate-chicken-horse/",
+  "name": "Ultimate Chicken Horse",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_37241b90656a823b63934ee996bb81efd9fc8468.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_808712896e499b291b913abf5cf30c736f0d6ea0.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_eebaadf226741a95895e07edebab32b9416aa20b.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_c69d36aea0cc8e9a6168734104efdd34ef14ebd4.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_686fa20defe8aef5068db8237c5c25b1ce5258f9.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_61edb3f0e1956596523b5870279233246730f091.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_0446c14aabed53206fbe493e5650d30ea73ae563.1920x1080.jpg?t=1765298731",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/386940/ss_7e7ebc6e52e020afab1e692d7355cc1402e9eb7b.1920x1080.jpg?t=1765298731"
+  ],
+  "short": "Ultimate Chicken Horse is a party platformer game where you build the level as you play, placing traps and hazards to screw your friends over, but trying not to screw yourself.",
+  "steam_appid": 386940,
+  "tags": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2016
+}

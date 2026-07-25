@@ -1,0 +1,46 @@
+{
+  "developers": [
+    "Team Cherry"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/7983574d464e6559ac7e24275727f73a8bcca1f3/header.jpg?t=1776125736",
+  "long": "Become the Princess Knight\nAs the lethal hunter Hornet, adventure through a kingdom ruled by silk and song! Captured and taken to this unfamiliar world, prepare to battle mighty foes and solve ancient mysteries as you ascend on a deadly pilgrimage to the kingdom\u2019s peak.\n\nHollow Knight: Silksong is the epic sequel to Hollow Knight, the award winning action-adventure. Journey to all-new lands, discover new powers, battle vast hordes of bugs and beasts and uncover secrets tied to your nature and your past.\n\nGame Features\nDiscover the fallen insect kingdom of Pharloom! Explore mossy grottos, gilded cities and misted moors as you ascend to the shining citadel at the top of the world.\n\nEngage in lethal acrobatic action! Wield a huge suite of deadly moves as you dance between foes in swift, beautiful combat.\n\nCraft powerful tools! Master an ever-expanding arsenal of weapons, traps, and mechanisms to vanquish your enemies and explore new heights.\n\nSolve shocking quests! Hunt down rare beasts and solve ancient mysteries to grant the wishes of the downtrodden and restore the kingdom\u2019s hope.\n\nFace over 200 ferocious foes! Beasts and hunters, monsters and knights. Defeat them all with bravery and skill!\n\nVanquish over 40 legendary bosses! Battle fabled heroes and fallen kings in epic combat to decide the kingdom's fate.\n\nChallenge Steel Soul mode! Once you conquer the kingdom, test your skills in a new mode that presents a more formidable challenge.\n\nExperience a stunning orchestral score! Hollow Knight\u2019s award-winning composer, Christopher Larkin, brings melancholy melodies, symphonic strings and heart-thumping, soul strumming boss themes to the adventure.",
+  "lutris": "https://lutris.net/games/hollow-knight-silksong/",
+  "name": "Hollow Knight: Silksong",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/26950369fe4b03c2268620eb9815c8a246aa0b06/ss_26950369fe4b03c2268620eb9815c8a246aa0b06.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/09ccaa6c16f158f9df8298feb5d196098506a028/ss_09ccaa6c16f158f9df8298feb5d196098506a028.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/d1a893ec6357b347a55ed929833ba793b57a79d2/ss_d1a893ec6357b347a55ed929833ba793b57a79d2.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/856e33e755a0b9a785c645d116036516ea08812b/ss_856e33e755a0b9a785c645d116036516ea08812b.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/8e09f2b2eedd3fa9b4479dd5c26d8bdf60562478/ss_8e09f2b2eedd3fa9b4479dd5c26d8bdf60562478.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/d907d0cc2b10b5ea4788b8d502cc27787d520c1d/ss_d907d0cc2b10b5ea4788b8d502cc27787d520c1d.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/1b93e8131cb6f4bd9e3791a606d0da8f9ee78276/ss_1b93e8131cb6f4bd9e3791a606d0da8f9ee78276.1920x1080.jpg?t=1776125736",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/d20b045b8bdaea6ace2ca4170875772b439c2c2e/ss_d20b045b8bdaea6ace2ca4170875772b439c2c2e.1920x1080.jpg?t=1776125736"
+  ],
+  "short": "Discover a vast, haunted kingdom in Hollow Knight: Silksong! Explore, fight and survive as you ascend to the peak of a land ruled by silk and song.",
+  "steam_appid": 1030300,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Gamepad Recommended",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

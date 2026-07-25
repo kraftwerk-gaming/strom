@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Number None"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/header.jpg?t=1734027955",
+  "long": "This is the original version of Braid from 2009, which may not work well on newer systems. For an updated version of the game with nicer graphics, more levels and a large amount of developer commentary, see Braid, Anniversary Edition.\n\nBraid is a puzzle-platformer, drawn in a painterly style, where you can manipulate the flow of time in strange and unusual ways. From a house in the city, journey to a series of worlds and solve puzzles to rescue an abducted princess. In each world, you have a different power to affect the way time behaves, and it is time's strangeness that creates the puzzles. The time behaviors include: the ability to rewind, objects that are immune to being rewound, time that is tied to space, parallel realities, time dilation, and perhaps more.\n\t\t\t\t\tBraid treats your time and attention as precious; there is no filler in this game. Every puzzle shows you something new and interesting about the game world.\n\t\t\t\t\tKey features:\n\nNewly added Steam Cloud support\nSave your in-progress game to the cloud, then play where you left off from on any Steam connected computer.\n\nForgiving yet challenging gameplay:\nBraid is a 2-D platform game where you can never die and never lose. Despite this, Braid is challenging \u2014 but the challenge is about solving puzzles, rather than forcing you to replay tricky jumps.\n\nRich puzzle environment:\nTravel through a series of worlds searching for puzzle pieces, then solving puzzles by manipulating time: rewinding, creating parallel universes, setting up pockets of dilated time. The gameplay feels fresh and new; the puzzles are meant to inspire new ways of thinking.\n\nAesthetic design:\nA painterly art style and lush, organic soundtrack complement the unique gameplay.\n\nNonlinear story:\nA nonlinear fiction links the various worlds and provides real-world metaphors for your time manipulations; in turn, your time manipulations are projections of the real-world themes into playful \"what-if\" universes where consequences can be explored.\n\nNonlinear gameplay:\nThe game doesn't force you to solve puzzles in order to proceed. If you can't figure something out, just play onward and return to that puzzle later.",
+  "lutris": "https://lutris.net/games/braid/",
+  "name": "Braid",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007887.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007889.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007885.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007890.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007892.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007894.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007895.1920x1080.jpg?t=1734027955",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/26800/0000007897.1920x1080.jpg?t=1734027955"
+  ],
+  "short": "This is the original version of Braid from 2009, which may not work well on newer systems. For an updated version of the game with nicer graphics, more levels and a large amount of developer commentary, see Braid, Anniversary Edition.",
+  "steam_appid": 26800,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

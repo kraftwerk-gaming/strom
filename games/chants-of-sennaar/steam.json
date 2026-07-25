@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Rundisc"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/header.jpg?t=1774006124",
+  "long": "Winner of Best Indie Game at the 2024 New York Game Awards and nominated multiple times at other ceremonies including The Game Awards and the BAFTA, Chants of Sennaar is a critically-acclaimed puzzle and adventure game developed by Rundisc.\n\nDivided since the dawn of time, the Peoples of the Tower no longer speak to each other, isolated by fear or mistrust. It is said that one day, a Traveler will find the wisdom to break down the walls and restore the balance. Travel the endless steps of a prodigious labyrinth, uncover the truth and unveil the mysteries of this fascinating universe where ancient languages are both the lock and the key.\n\nInspired by the myth of Babel, discover an enigmatic and vast tower. As the Traveler, delve into a world full of mysteries, where Peoples have grown distant, unable to communicate with each other anymore. Begin your adventure in a prodigious tower inhabited by five distinct Peoples, observe, listen, and strive to mend the bonds of distrust.\n\nWith a smart gameplay system, explore and solve various puzzles to uncover the mysteries of five different interconnected languages. Always guided by your trusty notebook, note each symbol, keep track of your surroundings, engage in conversations with people and unravel the meaning of every glyph. Each step will pave your way to the top of the Tower as each word will restore the link between People.\n\nDive into an enthralling and colorful world full of secrets. Tumble headlong into a beautiful world inspired by impactful European comics authors where every floor of the Tower possesses its own visual identity, supported by distinctive technological levels, architecture and culture. Embark on a poetic and enchanting journey driven by a soul-stirring, lyrical soundtrack, made by Thomas Brunet.",
+  "lutris": "https://lutris.net/games/chants-of-sennaar/",
+  "name": "Chants of Sennaar",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_0461966d2cf288b631165c5e1e00399483bb52c7.1920x1080.jpg?t=1774006124",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_0c7b55a542bab74ccb3bbab18346c0f68296ebf4.1920x1080.jpg?t=1774006124",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_adcaa7de0b90bc02a927ec7119f889a0834e8484.1920x1080.jpg?t=1774006124",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_d194cfba045634d86c99aec5ed7ecbf7270cb8a2.1920x1080.jpg?t=1774006124",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_8315f825c350f04faba1cba86835d8fbb445191d.1920x1080.jpg?t=1774006124",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_d3bbb61945d1fdbb2cc54bd09e80d691bd0c8afc.1920x1080.jpg?t=1774006124",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1931770/ss_fedaaa90f91644a69a9ff8dfbc7739c18d7cca8a.1920x1080.jpg?t=1774006124"
+  ],
+  "short": "In this award-winning puzzle adventure game, play as the Traveler on a quest to reunite the Peoples of the Tower. Observe, listen, and decipher ancient languages in a fascinating universe inspired by the Myth of Babel.",
+  "steam_appid": 1931770,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Mouse Only Option",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Touch Only Option",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

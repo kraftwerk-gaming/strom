@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Stygian Software"
+  ],
+  "genres": [
+    "Indie",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/eb39cbd546717c8035eb214a4286bffa0ecaaa55/header.jpg?t=1766066755",
+  "long": "Underrail is an old-school turn-based isometric indie role-playing game that focuses on exploration and combat.\nThe game is set in a distant future, when life on the Earth\u2019s surface has long since been made impossible and the remnants of humanity now dwell in the Underrail, a vast system of metro station-states that, it seems, are the last bastions of a fading race.\n The player takes control of one of the denizens of such a station-state whose life is about to become all that much more interesting and dangerous, as our protagonist is caught amidst the conflicting factions of the Underrail as they violently struggle to survive in the harsh underground environment.\nCOMBAT\nThe game's turn-based combat features many different weapon types - pistols, rifles, crossbows, energy weapons, sledgehammers, knives and more, each with their own advantages and drawbacks.\n\nPSIONICS\nThe player is also able to learn powerful psionic abilities from one of the three psionic schools:\nMetathermics - Burn your enemies alive or freeze them to death.\n\nPsychokinesis - Use the power of telekinesis for offensive or defensive purposes or electrocute your foes.\n\nThought Control - Assault the minds of your enemies by overloading them, instilling  overwhelming fear, creating deadly hallucinations and more.\n\nSUBTERFUGE\nFor those looking to avoid direct confrontation, the game offers a set of subterfuge skills. Move around the world in stealth like a shadow, lockpicking doors and hacking computers. If people have something you want, you can often just pickpocket them. But if it does come to blows, you can use devious\u00a0traps to stack the odds in your favour.\n\nCRAFTING\nUnderrail features an elaborate item crafting system. A vast majority of the armor, weapons and some other items encountered in the game can be crafted, and some are exclusively acquired through it. Crafted equipment tends to be superior to that which is scavenged or purchased in terms of raw numbers, provided you are investing in your crafting skills.",
+  "lutris": "https://lutris.net/games/underrail/",
+  "name": "UnderRail",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/09bd29c005732e96088b2049464fbcb3d035a1af/ss_09bd29c005732e96088b2049464fbcb3d035a1af.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/ba4ba5883fd807577b4ca87d97310abdca604a27/ss_ba4ba5883fd807577b4ca87d97310abdca604a27.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/55e83539bafef5cd5814aaba316007282ef07739/ss_55e83539bafef5cd5814aaba316007282ef07739.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/cf07436ff105774d8ac5fe93a69c75e4cfd47742/ss_cf07436ff105774d8ac5fe93a69c75e4cfd47742.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/fce4cb70eef98c970999c7ef41089d32e75b6fc3/ss_fce4cb70eef98c970999c7ef41089d32e75b6fc3.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/ss_b29a23e4ee21d3399e0cda33a127ae288a20574c.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/ss_1b7ef46a9148d7c4903c43e5ba5340eef747c557.1920x1080.jpg?t=1766066755",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250520/ss_ca8a3aee407a30179469b09081781edb96520e01.1920x1080.jpg?t=1766066755"
+  ],
+  "short": "UnderRail is an old-school turn-based isometric role-playing game that features a large open post-apocalyptic world, deep and challenging combat and an intricate storyline.",
+  "steam_appid": 250520,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

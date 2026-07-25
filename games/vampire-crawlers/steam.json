@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "poncle",
+    "Nosebleed Interactive"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/5590e42cab09dacabee973dd2c3e27ef12ed4950/header.jpg?t=1776925935",
+  "long": "From the BAFTA winning creators of Vampire Survivors comes a brand new adventure. Explore maps, level up powers, and obliterate monsters in this turn-based, card-driven BLOBBER with roguelite elements.\nA Brand New Experience!\n\nVampire Crawlers turns the snowballing thrill of the original hit into a tactical deckbuilder where you build busted decks, explore familiar dungeons from a new perspective, and unleash world-ending combos.\nCreate Devastating Combos!\n\nPlay cards in ascending mana order to land devastating combos, where each step multiplies the next card's effect. Use Wilds to extend the stack to 10, 20, or even 30 cards. You choose the pace: take your time to be perfectly tactical, or play turns as fast as humanly possible for absolute snowballing carnage. Accumulate experience to level up and gain new cards.\nAn Entire Dungeon to Explore!\n\nHeadbutt chests for power-ups and gems to augment your cards. Chase legendary weapon evolutions and summon iconic survivors to trigger cascades of effects that break the game. Dive into dungeons packed with functioning walls, unique treasures, and bizarre interactions. Find the shovel to dig to the next floor and prepare to Master the Turboturn\u2122!",
+  "lutris": "https://lutris.net/games/vampire-crawlers/",
+  "name": "Vampire Crawlers: The Turbo Wildcard from Vampire Survivors",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/b1dc50ea55ff96ba2ff0d83578c6002206612479/ss_b1dc50ea55ff96ba2ff0d83578c6002206612479.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/6719e1650c723f947db3e6bc0ae7574423589807/ss_6719e1650c723f947db3e6bc0ae7574423589807.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/b13c774f5b111e8be93312d1f98fa11ed7e3a981/ss_b13c774f5b111e8be93312d1f98fa11ed7e3a981.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/10b3a5d9c7f4a4a58c37a730b6d3992f7f806d42/ss_10b3a5d9c7f4a4a58c37a730b6d3992f7f806d42.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/e7344f7a845d930240c9878d4aaa79dd36092298/ss_e7344f7a845d930240c9878d4aaa79dd36092298.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/bc5f3cc013039fad50386ca46520cda9e75d15e7/ss_bc5f3cc013039fad50386ca46520cda9e75d15e7.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/2cebe23f9d4169afa40e877f7dba12d5b811a4cf/ss_2cebe23f9d4169afa40e877f7dba12d5b811a4cf.1920x1080.jpg?t=1776925935",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3265700/a59d07db33cceeb68d9f7fbbe2748326203e71e3/ss_a59d07db33cceeb68d9f7fbbe2748326203e71e3.1920x1080.jpg?t=1776925935"
+  ],
+  "short": "From the creators of Vampire Survivors comes a turbo-charged, turn-based roguelite deckbuilder! Deal world-ending combos, blitz through infested dungeons, and master the Turboturn to obliterate hordes of familiar foes with a chaotic hand of cards.",
+  "steam_appid": 3265700,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

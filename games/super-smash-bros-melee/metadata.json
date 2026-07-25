@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "HAL Laboratory"
+  ],
+  "genres": [
+    "Fighting",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/super-smash-bros-melee.jpg",
+  "long": "Super Smash Bros. Melee is a crossover platform fighter for the Nintendo GameCube featuring characters from across Nintendo franchises. Players battle on themed stages, knocking opponents off the screen rather than depleting health bars. It is renowned for its fast, technical gameplay and remains a staple of competitive fighting-game tournaments.",
+  "lutris": "https://lutris.net/games/super-smash-bros-melee/",
+  "name": "Super Smash Bros. Melee",
+  "screenshots": [],
+  "short": "Super Smash Bros. Melee (via Dolphin)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "Shared/Split Screen Co-op"
+  ],
+  "year": 2001
+}

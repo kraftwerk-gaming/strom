@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Green Wizard"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/92169b31b645d10982a3bf281f94a4183f2cb12b/header.jpg?t=1780064020",
+  "long": "Dwarf Eats Mountain is a strategic incremental game about devouring mountains for gold. Hire dwarves, deploy war machines, and collect powerful artifacts to build absurd synergies and grow faster each run.\n\nHurting the mountain physically (and emotionally) is only half the battle\u2014you still have to safely haul the gold home. That perilous job falls to the Runners, who weave through falling rocks, risking their beards to feed the Great Maw!\n\nBut beware\u2014the Great Mother won\u2019t give up her treasure easily. The more damage your greedy dwarves deal to the mountain, the more calamities it unleashes upon the wobbling beards below!\nBalance mining with hauling your gold home\u2014before the sky falls on your head.\n\nMaster the dwarven ways of treasure extraction!\nThis game is about making numbers go up, but the way you do that is open to your interpretation and ingenuity. At your fingertips:\nMany buildings and dwarves, each with various strengths and weaknesses, such as dynamite throwers, ballistas, flamers, laser cannons, spelunkers, runesmiths, brewmasters, bulldozers, gyrocopters and more!\n\nAcquire countless upgrades and cast active rituals to buff your dwarves and their machines\n\nCollect 120+ ancient artifacts and display them in your gallery, each with build-shaping effects\n\nUnlock 96+ prestige upgrades to replay, accelerate progress, and discover new synergies\n\nSpend rare resources like mithril and mountain souls on tough choices\n\nUncover what the gods have hidden beneath the world spire\u2014and what happened to those who dug too deep",
+  "lutris": "https://lutris.net/games/dwarf-eats-mountain/",
+  "name": "Dwarf Eats Mountain",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/9d61d30ca42f0a2f0285015b844574c8fd49ea63/ss_9d61d30ca42f0a2f0285015b844574c8fd49ea63.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/b9be9fad4c142fb30691f76fbd024307a5c1b04d/ss_b9be9fad4c142fb30691f76fbd024307a5c1b04d.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/5b5c4668c4abf53e88613e7cc3716c94e2ce4da6/ss_5b5c4668c4abf53e88613e7cc3716c94e2ce4da6.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/a10f2c0b3257c2f878544ecf1c42380c3362a641/ss_a10f2c0b3257c2f878544ecf1c42380c3362a641.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/0d45f895d188d0d6d8f10f06fda9617fe302a964/ss_0d45f895d188d0d6d8f10f06fda9617fe302a964.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/df0af136efcd7b51e9f2c5bf790fa826c9c6deed/ss_df0af136efcd7b51e9f2c5bf790fa826c9c6deed.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/bf55e031766c89b6774baf4124431302d1aa958c/ss_bf55e031766c89b6774baf4124431302d1aa958c.1920x1080.jpg?t=1780064020",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4078200/adbdc1c358614dea3c27d3d0344d2bce34a81b0e/ss_adbdc1c358614dea3c27d3d0344d2bce34a81b0e.1920x1080.jpg?t=1780064020"
+  ],
+  "short": "Dwarves hunger for gold, and no mountain shall\u00a0stand\u00a0in their way! Mine\u00a0riches, unearth\u00a0artifacts, and\u00a0upgrade your dwarves\u00a0to\u00a0devour ever-bigger\u00a0peaks in this whimsical\u00a0incremental\u00a0game.",
+  "steam_appid": 4078200,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "Save Anytime",
+    "Steam Cloud",
+    "Stats",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

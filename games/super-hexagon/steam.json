@@ -1,0 +1,29 @@
+{
+  "developers": [
+    "Terry Cavanagh"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/header.jpg?t=1653925774",
+  "long": "Super Hexagon is a minimal action game by Terry Cavanagh, with music by Chipzel.Important facts about Hexagons:\nHexagons are third order permutohedrons: The vertices of a hexagon can be formed by permuting the coordinates of the vector (1, 2, 3).\n\nThe north pole of the planet Saturn has a hexagonal storm cloud pattern with 8,600 mile long sides, larger than the diameter of Earth.\n\nThough hexagon may appear to be a difficult word to rhyme, there are actually dozens of words that rhyme with it. For example: Autobahn, decagon, decathlon, electron, Kyrgzstan, Lebanon, leprechaun and marathon.",
+  "lutris": "https://lutris.net/games/super-hexagon/",
+  "name": "Super Hexagon",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/ss_534dfe48501ce998f65340db88698fca6aef82c1.1920x1080.jpg?t=1653925774",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/ss_43318bdded67af4734c2ecd2c03a47a6927db0eb.1920x1080.jpg?t=1653925774",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/ss_2dc106733cc5a529021d7f186eabd54f3a40665c.1920x1080.jpg?t=1653925774",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/ss_6752535a43fb9633cebebf1dbf837b428931d30b.1920x1080.jpg?t=1653925774",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/ss_b378a6617a78bad95a7be7277dd97c00347f8ed0.1920x1080.jpg?t=1653925774",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/221640/ss_e11b90627d70d0b02ae7b9a67bcd8e2ba96ba69a.1920x1080.jpg?t=1653925774"
+  ],
+  "short": "Super Hexagon is a minimal action game by Terry Cavanagh, with music by Chipzel.",
+  "steam_appid": 221640,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "Family Sharing"
+  ],
+  "year": 2012
+}

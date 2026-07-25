@@ -1,0 +1,41 @@
+{
+  "developers": [
+    "Chris Nordgren",
+    "Jordi Roca"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/header.jpg?t=1767123384",
+  "long": "Welcome to the world of Everhood\nWhere up is down\nAnd left is right\nWhere time has stopped\nAnd strange characters R O A M\n\nHere you control a wooden doll whose arm has been stolen by a blue gnome\u2026\n\nFeatures\nGroove to music based battles\n\nEmbark on a 5-6 hour journey with many twists and turns\n\nExpect the unexpected\n\nCustom Battle Editor Support\n\nEnter a wild world with visceral visuals accompanied with magical music\n\nConquer a great challenge that awaits the bold...\n\nWARNING: The game contains imagery that may be harmful to players with photosensitive epilepsy, those can be disabled in the Accessibility Menu included in the game.",
+  "lutris": "https://lutris.net/games/everhood/",
+  "name": "Everhood",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_2ccaf409fb4cf7252bfa3a8bab01bce7ad006a57.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_2320c97ecf245a4cf73b7d44b72cfa2e18d2a883.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_966b12d4227e9976f11ffe74bfcd42368129805e.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_f809bba93b1dc91ff39a091ed78d02102303623a.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_0fa3ebe1b71885badb67f8a561487a4854624f41.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_3253f52be56264bce2fc3ee9a558a5afe6637260.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_8e8bc9ef75d508ca635bae3c84a42035c0aba6de.1920x1080.jpg?t=1767123384",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229380/ss_6f8d8fb811c24a756239906376b2b952de9554ab.1920x1080.jpg?t=1767123384"
+  ],
+  "short": "An UNCONVENTIONAL ADVENTURE RPG that takes place in an inexpressible world filled with amusing musical battles and strange delightful encounters. To put it simply: You are in for a ride.\ud83c\udf44",
+  "steam_appid": 1229380,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2021
+}

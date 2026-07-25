@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Supra Games"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/header.jpg?t=1725024288",
+  "long": "Supraland Six Inches Under is a First-Person-Metroidvania. That means, you're in a gated world and the more abilities you gather, the more parts of the world you can access.\n- You don't need to have played other Supraland games before you play this\n- The gameplay consists of roughly 55% exploration, 40% solving puzzles and 5% combat.\n- The adventure will take between 8-20 hours.\n- Has absolutely zero skilltrees\n- Hundreds of gags\n- 2 funny gags\n\nCompared to the first Supraland game:\n- Half of the player abilities are the same, the other half is new\n- The puzzles are simpler in the main path; hard puzzles are mostly optional\n- There is less combat and all enemy types are new\n- Much more optional content, a lot of it only accessible after the credits\n- Almost all music was tailor made for the game while the first Supraland was using inexpensive, licensed music\n- The credits roll a few hours earlier than in the first game but there is much more significant endgame content\n\nThe story behind the game\n\"Six Inches Under\" was a little sideproject that was established to introduce new dev team members to our tools and workflow. Essentially it's our preparation for the sequel to Supraland.\nWhile David M\u00fcnnich made the first Supraland game pretty much alone, he had a smaller role in this one. The core team for this one had 6 people.\nPretty much everyone on team built 1 or 2 regions of the game world and in that sense it is very experimental.\n\nIt was supposed to be a little DLC for Supraland , but it got a bit out of hand and got more and more ambitous. Instead of 3 months it took us 27 months to make this (Supraland 1 was in development for 16 months).\nIt can be considered \"Supraland 1.5\" because there are still a lot things from the first game, but at the same time it's a new world with a bunch of new mechanics.\n\nCombat:\nIf you're a fan of the first Supraland you might be interested in the approach to combat in this new game. After having learned a lot of lessons, the core concept was changed a lot and can still be considered experimental. We will surely learn some more lessons from this one for the next game.\nThe enemies are now much more separated from puzzles and won't get in your way there. The all new enemy types behave much more different from each other and there is no more one-fits-all solution to them. Hope you like it!",
+  "lutris": "https://lutris.net/games/supraland-six-inches-under/",
+  "name": "Supraland Six Inches Under",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/ss_f358dc1a938d2aebaa56702d3320cc2378f93189.1920x1080.jpg?t=1725024288",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/ss_c33aef415b817a45a3cb6733e0e7f33e4d86a10c.1920x1080.jpg?t=1725024288",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/ss_b919327496f8bf0272098c2206e1f54bcf0c7767.1920x1080.jpg?t=1725024288",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/ss_e12606a60071b003afc953e41ace5f8aec83d5f2.1920x1080.jpg?t=1725024288",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/ss_094ee7ad6747f7c10431cb8db7494f9e090b17e5.1920x1080.jpg?t=1725024288",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522870/ss_766e10f86c2a52377f4e595f02ac90dbb3de6b91.1920x1080.jpg?t=1725024288"
+  ],
+  "short": "A mix between Portal, Zelda and Metroid. Exploration, puzzles, combat! A first-person-metroidvania taking place six inches under Supraland.",
+  "steam_appid": 1522870,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Double Fine Productions",
+    "Shiny Shoe"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/header.jpg?t=1731602112",
+  "long": "The Making of Grim Fandango Remastered\nThe makers of Grim Fandango discuss the development of the beloved adventure game and how Double Fine Productions plans to release the original classic to a contemporary audience. Watch The Making of Grim Fandango Here!\n\nAbout the Game\nSomething's rotten in the land of the dead, and you're being played for a sucker. Meet Manny Calavera, travel agent at the Department of Death. He sells luxury packages to souls on their four-year journey to eternal rest. But there's trouble in paradise. Help Manny untangle himself from a conspiracy that threatens his very salvation.\n\nOne of the most acclaimed adventure games of all time is now back, better than ever. Grim Fandango's epic story of four years in the life (or death) of Manny Calavera, travel agent to the dead, has been remastered to look, sound, and control even better than when it won GameSpot's Game of the Year award upon its original launch. Grim Fandango still stands as a classic of the genre, with unforgettable characters and unique combination of film noir and Mexican folklore.\n\nRemastered version includes\n\nRepainted, hi-res character textures\n\nNew, dynamic lighting\n\nClassic score re-recorded with a full live orchestra\n\nOver 2 hours of exclusive developer commentary\n\nConcept art browser",
+  "lutris": "https://lutris.net/games/grim-fandango-remastered/",
+  "name": "Grim Fandango Remastered",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/ss_e57e9c5775d7f3b6748dea9388df83a0201155c8.1920x1080.jpg?t=1731602112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/ss_94c4a6ae4fcd2a1d44b767821b6378d7ad2e0516.1920x1080.jpg?t=1731602112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/ss_26a12b801d833e3f5b930568775568523c5090b3.1920x1080.jpg?t=1731602112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/ss_49c7070357c2d8e6017c1a891b5d9a9d6dcd54f7.1920x1080.jpg?t=1731602112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/ss_e797da61a22d5394b9edc9c523401765944001a2.1920x1080.jpg?t=1731602112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316790/ss_83b204e1d085f2b0eb6b1b36674c26caf47e39c0.1920x1080.jpg?t=1731602112"
+  ],
+  "short": "One of the most acclaimed adventure games of all time is now back, better than ever. Grim Fandango Remastered has the all the beautiful art and engaging story fans remember, but has also been remastered to look, sound, and control even better than the award-winning original release.",
+  "steam_appid": 316790,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Commentary available",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

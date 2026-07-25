@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Levi Buck"
+  ],
+  "genres": [
+    "Indie",
+    "Racing",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/header.jpg?t=1667043534",
+  "long": "Workshop\nAfter you've finished both game modes, you can now browse and subscribe to levels made by other players like you! Get creative in Sandbox mode and share your level with the community!\n\nAbout the Game\n\nBridge Builder Racer is the ultimate test for both your engineering and driving skills. You'll have to build your bridge using the most cost effective route, and then drive your car over the bridge to go from point A to B. Each level has a total of 3 stars to be earned. Spending less money gives you a higher star rating. Can you beat all levels with 3 stars?\n\nBuild your bridge\nThe first stage of each level is to build your bridge.\n\nRace your bridge\nAfter building the bridge, you'll manually control the car to go over your newly created bridge.\n\nChallenge your friends\nWith the implementation of Steam Leadersboards, you can challenge your friends and see who's the best at both building, and driving!\n\nSteam workshop\nCreate, share and play maps created by the community!\n\nKey Features\n Over 60 challenging levels\n\n Beautiful low-poly landscapes\n\n Realistic car physics (kinda)\n\n 2 game modes\n\n Intuitive controls\n\n Steam Leaderboards\n\n Steam Achievements\n\n Steam Workshop and map editor",
+  "lutris": "https://lutris.net/games/bridge-builder/",
+  "name": "Bridge Builder Racer",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_07dd435eb909bc0ccbe5afb46d8b5832ebc757dc.1920x1080.jpg?t=1667043534",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_2f72e9b3de0a0d4fd4b606e158fa6e0c9b90909d.1920x1080.jpg?t=1667043534",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_6e47278573dd956777588d951188af054068e68d.1920x1080.jpg?t=1667043534",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_ba794df75acceeaa1ee0e3ff21c03ee7c50f8232.1920x1080.jpg?t=1667043534",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_b5e7928adcd570bf63805d12f616fb1f3bfb34e0.1920x1080.jpg?t=1667043534",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_cc8c69496fa4be30aa4dfb6edb2af8573bdb00ef.1920x1080.jpg?t=1667043534",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1084970/ss_bcc9723d09028da371377bfbcd4af1d0487fafd3.1920x1080.jpg?t=1667043534"
+  ],
+  "short": "Bridge Builder Racer is the ultimate test for both your engineering and driving skills. You'll have to build your bridge without any limitations other than your creativity, using the most cost effective route, and then drive your car over the bridge to go from point A to B.",
+  "steam_appid": 1084970,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

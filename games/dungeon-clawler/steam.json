@@ -1,0 +1,48 @@
+{
+  "developers": [
+    "Stray Fawn Studio"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "RPG",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/header.jpg?t=1781105451",
+  "long": "Dungeon Clawler mixes deck building with a dash of rogue-like mechanics and most importantly: a claw machine.\n\nFind new items and add them to your claw machine to create game-changing builds. Earn gold coins to upgrade or modify your items and unlock new unknown synergies. You will need to use every trick up your sleeve to reach the evil dungeon lord\u2019s lair at the heart of the dungeon and reclaim your lost paw.\n\nThe ultimate claw machine roguelike experience.\n\nUnique characters each with their different strengths and weaknesses.\n\nMultiple difficulty levels and unlockable lucky paws to customize your run.\n\nBreak the game \u2013 go crazy with different claw and item synergies.\n\nVenture into mystery locations and discover treasures as well as strange and dangerous obstacles.\n\nSpend your hard earned coins in the dungeon's pachinko machines.\n\nMeet different characters who might help you on your journey.",
+  "lutris": "https://lutris.net/games/dungeon-clawler/",
+  "name": "Dungeon Clawler",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/098eddcb263122a34ceaca545ec759eea88db721/ss_098eddcb263122a34ceaca545ec759eea88db721.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/f375813a71c7a5e441e6368d158dd216715ff655/ss_f375813a71c7a5e441e6368d158dd216715ff655.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/3ddcde0f8cf4d682f4db7b99e6ca002a4ca2f64d/ss_3ddcde0f8cf4d682f4db7b99e6ca002a4ca2f64d.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/58f134b885933d3282a1448bd6504c0bd4534ba6/ss_58f134b885933d3282a1448bd6504c0bd4534ba6.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/58973e8b6ade8e000718a8fa9a1b9c4733cc68f1/ss_58973e8b6ade8e000718a8fa9a1b9c4733cc68f1.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/cc4a09606301ddcb445eb34322b04e3c43b84547/ss_cc4a09606301ddcb445eb34322b04e3c43b84547.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/b7b44608d70c82b9f641b2f0dcc720edb575a796/ss_b7b44608d70c82b9f641b2f0dcc720edb575a796.1920x1080.jpg?t=1781105451",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2356780/cc433598afa06aed4789b99f855172c0bea336b9/ss_cc433598afa06aed4789b99f855172c0bea336b9.1920x1080.jpg?t=1781105451"
+  ],
+  "short": "Dungeon Clawler is a Roguelike Claw Machine Deckbuilder. Build your deck, grab weapons and items from the claw machine to battle enemies, discover powerful perks that create game-changing synergies and unleash crazy combos as you fight your way through the dungeon!",
+  "steam_appid": 2356780,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

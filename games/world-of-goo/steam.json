@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "2D BOY"
+  ],
+  "genres": [
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/header.jpg?t=1764881559",
+  "long": "World of Goo is a multiple award winning physics based puzzle / construction game made entirely by two guys. Drag and drop living, squirming, talking, globs of goo to build structures, bridges, cannonballs, zeppelins, and giant tongues. The millions of Goo Balls that live in the beautiful World of Goo are curious to explore - but they don't know that they are in a game, or that they are extremely delicious.\n\t\t\t\t\tMysterious Levels - Each level is strange and dangerously beautiful, introducing new puzzles, areas, and the creatures that live in them.\n\nWorld of Goo Balls - Along the way, undiscovered new species of Goo Ball, each with unique abilities, come together to ooze through reluctant tales of discovery, love, conspiracy, beauty, electric power, and the third dimension.\n\nThe Sign Painter - Someone is watching you.\n\nWorld of Goo Corporation - Congratulations! World of Goo Corporation is the Global Leader in Goo and Goo Related Product, including World of Goo Corporation Trademark Brand Soft Drink Beverage and World of Goo Corporation Trademark Brand Facial Exfoliating Lotion. Succulent!\n\nMassive Online Competition - Human players around the world compete in a living leaderboard to build the tallest towers of goo in World of Goo Corporation's mysterious sandbox. World of Goo Corporation is contractually obligated to state that everyone is a winner and is enthusiastic to celebrate everyone's tower building opportunities equally.\n\nCongratulations, and good luck!",
+  "lutris": "https://lutris.net/games/world-of-goo/",
+  "name": "World of Goo",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005585.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005589.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005588.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005584.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005583.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005591.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005587.1920x1080.jpg?t=1764881559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/22000/0000005590.1920x1080.jpg?t=1764881559"
+  ],
+  "short": "World of Goo is a multiple award winning physics based puzzle / construction game made entirely by two guys.",
+  "steam_appid": 22000,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2008
+}

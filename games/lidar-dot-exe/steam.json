@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "KenForest"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/7d4e7919a4a513a92c9804030497b3a634a49a0f/header.jpg?t=1764148328",
+  "long": "LiDAR Exploration Program is an atmospheric adventure game with light horror elements, where you can't see the world around you. Use the lidar scanner to colorize everything around you. The game contains several levels to explore, in each of which you have to scan unknown objects.\n\nEXPLORE AND SCAN\nYou find yourself in complete darkness, in which you can't see anything, but thanks to the scanner you can find your way.\nSCAN UNKNOWN OBJECTS\nYou will have to look for objects, some of them will be ordinary, and some will seem very strange and creepy. Using the scanner you will be able to explore them.\nUSE MAP\nYou can use a map that shows the environment from above. With its help you can find the very objects that need to be scanned.\n8 LEVELS AVAILABLE\nYou have to explore 8 different locations in each of which you have to look for objects. You can explore the forest, cave, abandoned city and other locations.\n\nFEATURES\nQuite simple and addictive gameplay, just walk and scan\n\nEach level has its own color palette, some objects have different colors\n\n8 levels available for exploration\n\nCustomization of patterns for the scanner\n\nABOUT\nThe game was inspired by Scanner sombre and the G'mod Lidar addon. The game was originally created as a prototype called \"Lidar.exe\".",
+  "lutris": "https://lutris.net/games/lidar-dot-exe/",
+  "name": "LiDAR Exploration Program",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/631202d3608fe1492f413c3bf5142f72c57e4e2a/ss_631202d3608fe1492f413c3bf5142f72c57e4e2a.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/00d8488bcec6846b3353d9ac337ba41101430469/ss_00d8488bcec6846b3353d9ac337ba41101430469.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/f92e0d960a23e7fd5246beef097da312e0dd8d83/ss_f92e0d960a23e7fd5246beef097da312e0dd8d83.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/3cf2b97e3019be7e9a34282943fef2e11671a18d/ss_3cf2b97e3019be7e9a34282943fef2e11671a18d.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/ss_dbb80ec35f40e88b890469d0bd9e92de5f12597c.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/eb9c325d74a63ad71c6aaebebebe2eb70bade7f8/ss_eb9c325d74a63ad71c6aaebebebe2eb70bade7f8.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/0f5d556ae02ff35df749648eceff897c0b749ab8/ss_0f5d556ae02ff35df749648eceff897c0b749ab8.1920x1080.jpg?t=1764148328",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1882190/caecec694efea87d24abc125d66590a9c36da700/ss_caecec694efea87d24abc125d66590a9c36da700.1920x1080.jpg?t=1764148328"
+  ],
+  "short": "LiDAR Exploration Program is a relaxing atmospheric game with light horror elements, where you explore in complete darkness using a scanner to reveal the world around you.",
+  "steam_appid": 1882190,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

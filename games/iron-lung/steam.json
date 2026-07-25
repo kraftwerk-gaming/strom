@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "David Szymanski"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/header.jpg?t=1770061280",
+  "long": "Iron Lung is a short dread-driven submarine horror game from the developer of DUSK, The Moon Sliver, and Squirrel Stapler.FEATURES\n Experimental minimalist gameplay, where your senses are limited and anything could be lurking around you\n\n Glimpse your surroundings through the lens of a grainy still camera and navigate using an incomplete satellite map and proximity sensors\n\n Horror based around building dread and paranoia\n\n Original soundtrack inspired by the work of Aubrey Hodges (Doom 64)\n\n A short experience intended to be finished in under an hour\n\nTHE GAMEPLAY\nSet entirely within a claustrophobic one-man submarine nicknamed the \"Iron Lung,\" you must blindly navigate an ocean of blood to take photographs of key locations, and hope whatever lives below doesn't find you.\n\nThere is only a single porthole on the sub, and it needs to be closed due to depth pressure, so you have to navigate purely via an incomplete map, proximity sensors, sound, and a primitive external camera which can be used to take the pictures you need to complete your mission, or to get a grainy low resolution visual of what's happening outside.\n\nSuccess will require resourcefulness and patience.\n\nTHE STORY\n Decades ago, every known star and habitable planet mysteriously vanished, along with whatever and whoever happened to be on them, leaving behind an empty universe of asteroids and lifeless moons where the only remnants of humanity are those who were on space stations or starships at the time.  With supplies gradually dwindling and infrastructure falling into disrepair, the survivors have spent the subsequent years frantically searching for any trace of remaining natural resources.  Up until now they have been unsuccessful...\n\nThen, a mysterious anomaly known as a Blood Ocean (which is exactly what it sounds like) was discovered on an otherwise barren moon.  It's not the first Blood Ocean found since the vanishing, but initial scans show a collection of potentially useful anomalous locations in a deep undersea (underblood?) trench that require further investigation.\n\nAnd you're the unlucky sap who gets to investigate, in an aging submarine cobbled together from rusty space station parts.\n\nFind your way to the marked locations, photograph whatever you find there, and try to finish before the sub collapses around you... or you're discovered by whatever lurks in the blood...",
+  "lutris": "https://lutris.net/games/iron-lung/",
+  "name": "Iron Lung",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/ss_8f6028d45627c23f4818e881860aec6ef029fbbf.1920x1080.jpg?t=1770061280",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/ss_1c62a35a9022be7973eacaa117f6c5b4a37d71d1.1920x1080.jpg?t=1770061280",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/ss_88dfadc6433914520fa9b48c91260bd5a1251c27.1920x1080.jpg?t=1770061280",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/ss_2356416dc8749fb2ec956e83b7b714dab974b69a.1920x1080.jpg?t=1770061280",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/ss_e17953b908d595b7e9009f426442a5ce21b4130b.1920x1080.jpg?t=1770061280",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1846170/ss_d05f13e01909ca215c998fb346b4caba55eef40c.1920x1080.jpg?t=1770061280"
+  ],
+  "short": "A short horror game where you pilot a tiny submarine through an ocean of blood on an alien moon.",
+  "steam_appid": 1846170,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

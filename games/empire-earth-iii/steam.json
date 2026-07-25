@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Mad Doc Software",
+    "Xtended Realities"
+  ],
+  "genres": [
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/c4bc60fa2318cc0faf7c77a7346893e7e09231c9/header.jpg?t=1782392773",
+  "long": "In Empire Earth III you create history.\nNew to the series, the World Domination mode offers a campaign that not only spans time, but also the entire globe.\nEarth is divided into provinces that you can conquer in any order, as you forge your path to total supremacy. Take your empire from fledgling kingdom to dominant superpower as you battle over a realistically rendered planet Earth.\nWorld Domination is at Your Fingertips\nEmpire Earth III takes the legendary real-time strategy franchise to new heights. Build your empire from one of three distinct factions or create a custom faction of your choosing. Lead your people to supremacy in technology, politics and economy, from the dawn of ancient times through to the distant future. Your quest for total dominance is finally at hand.\nKey Features\nPick from three customisable factions \u2013 or create your own \u2013 each with its own unique tech tree, units, structures and gameplay style. Choose from the technically-minded West, the quick-witted Middle East, or the sheer numbers and speed of the Far East.\n\nWorld Domination mode: Choose your starting location and era across a lifelike, persistent globe.  Fight across 60 skirmish maps in your quest to conquer the entire Earth.\n\nCreate and customize your own battlefields with the Map Editor.\n\n(Multiplayer notice: Because the official multiplayer servers have been taken offline, playing over the Internet is no longer possible).",
+  "lutris": "https://lutris.net/games/empire-earth-iii/",
+  "name": "Empire Earth III",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_97e88c752923ff3370116eb98e6a73d0acf30eb0.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_37922e8f5c8e2a668ade85dd2673dbe22d12c280.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_7eab57a29647e8fb13ad552f94cdad46c436f01c.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_d890e462d30f087eff84291521d56da8db86ae85.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_e3534088b4190b09c87b0f689d8ce63fbfa3e356.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_b52e5624a55c884fdb50d19777e86ece1fd7a935.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_fdb006a52329c1eb37b31d14a71885c217c4fc0f.1920x1080.jpg?t=1782392773",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254800/ss_9e7d63811cde8a27ab9865dbfc3c1d9cff401272.1920x1080.jpg?t=1782392773"
+  ],
+  "short": "In Empire Earth III it\u2019s you who creates history. Build your empire from three distinct factions or create a custom faction of your choosing. Lead your people to supremacy in technology, politics and economy, from ancient times to the future. Your quest for world domination is finally at hand.",
+  "steam_appid": 254800,
+  "tags": [
+    "Single-player",
+    "Steam Trading Cards",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

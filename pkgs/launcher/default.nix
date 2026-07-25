@@ -2,6 +2,7 @@
   lib,
   writeShellScriptBin,
   writeText,
+  runCommand,
   python3,
   nix,
   gameMeta,
@@ -15,21 +16,22 @@
 
 let
   manifest = writeText "strom-manifest.json" (builtins.toJSON gameMeta);
-  # Curated per-game metadata for the grid (display name, genres, year,
-  # developers). This is the same aggregate the web GUI reads: Steam/Lutris
-  # data with each game's games/<slug>/gui.json merged over it. Read at
-  # startup to label tiles and render the selected-game subtitle. Optional:
-  # a checkout without the generated catalog still builds and just falls
-  # back to the nix description labels.
-  catalog = ../../web/catalog.json;
-  hasCatalog = builtins.pathExists catalog;
+
+  # Merged display catalog, assembled at build time from each game's
+  # games/<slug>/steam.json (Steam-fetched) + metadata.json (hand-maintained)
+  # by scripts/assemble-catalog.py -- the same aggregate the web GUI builds.
+  # Read at startup to label tiles and render the selected-game subtitle. A
+  # game with neither file just falls back to its nix description label.
+  catalog = runCommand "strom-catalog.json" { nativeBuildInputs = [ python3 ]; } ''
+    python3 ${../../scripts/assemble-catalog.py} ${../../games} ${../../web/games.json} > "$out"
+  '';
 
   py = python3.withPackages (ps: [ ps.pygame ]);
 in
 writeShellScriptBin "strom-launcher" ''
   export PATH=${lib.makeBinPath [ nix ]}:$PATH
   export STROM_MANIFEST=${manifest}
-  ${lib.optionalString hasCatalog "export STROM_CATALOG=${catalog}"}
+  export STROM_CATALOG=${catalog}
   : "''${STROM_FLAKE:=github:kraftwerk-gaming/strom}"
   export STROM_FLAKE
   exec ${py.interpreter} ${./launcher.py} "$@"

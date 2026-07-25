@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Double Fine Productions",
+    "Shiny Shoe"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/header.jpg?t=1731602439",
+  "long": "Dr. Fred\u2019s mutated purple tentacle is about to take over the world, and only you can stop him!\n\r\n\n\r\nOriginally released by LucasArts in 1993 as a sequel to Ron Gilbert\u2019s ground breaking Maniac Mansion, Day of the Tentacle is a mind-bending, time travel, cartoon puzzle adventure game in which three unlikely friends work together to prevent an evil mutated purple tentacle from taking over the world!\n\r\n\n\r\nNow, over twenty years later, Day of the Tentacle is back in a remastered edition that features all new hand-drawn, high resolution artwork, with remastered audio, music and sound effects (which the original 90s marketing blurb described as \u2018zany!\u2019).\n\r\n\n\r\nPlayers are able to switch back and forth between classic and remastered modes, and mix and match audio, graphics and user interface to their heart\u2019s desire. We\u2019ve also included a concept art browser, and recorded a commentary track with the game\u2019s original creators Tim Schafer, Dave Grossman, Larry Ahern, Peter Chan, Peter McConnell and Clint Bajakian.\n\r\n\n\r\nDay of the Tentacle was Tim Schafer\u2019s first game as co-project lead, and a much beloved cult classic! This special edition has been lovingly restored and remade with the care and attention that can only come from involving the game's original creators.",
+  "lutris": "https://lutris.net/games/day-of-the-tentacle/",
+  "name": "Day of the Tentacle Remastered",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_eec1dc6305f774af4eb030437e4d37c31318f0be.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_a78f06d396dfac8ef41e9de104cb21a3f36898c4.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_e9bcf655501ae3afb9fea17bf29b78e304c481cb.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_a9f405ea5c4404e1063dec5b21a9bc9eb45d0353.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_52479e8f9a73aab9b4a90de8ee7811a8c4fa2ced.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_01a1fc5e27e502b5efdc325be4b77b05af8f6c1a.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_c367f5e1414d6366feceade6bd9618c667162529.1920x1080.jpg?t=1731602439",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/388210/ss_9eefffbc6bf66978cb5b8570665b09774d4f604a.1920x1080.jpg?t=1731602439"
+  ],
+  "short": "Originally released by LucasArts in 1993 as a sequel to Ron Gilbert\u2019s ground breaking Maniac Mansion, Day of the Tentacle is back in a remastered edition that features all new hand-drawn, high resolution artwork, with remastered audio, music and sound effects.",
+  "steam_appid": 388210,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2016
+}

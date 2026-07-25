@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Modern Dream"
+  ],
+  "genres": [
+    "Action",
+    "Casual"
+  ],
+  "hero": "https://lutris.net/games/banner/the-typing-of-the-dead-overkill.jpg",
+  "long": "The Typing of the Dead: Overkill is a typing-based rail shooter built on the grindhouse-styled The House of the Dead: Overkill. Players type the words displayed over enemies to kill them as the camera moves on rails through B-movie horror levels. It supports local two-player co-op and was published by Sega.",
+  "lutris": "https://lutris.net/games/the-typing-of-the-dead-overkill/",
+  "name": "The Typing of the Dead: Overkill",
+  "screenshots": [],
+  "short": "The Typing of the Dead: Overkill (Steam, via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Shared/Split Screen Co-op"
+  ],
+  "year": 2013
+}

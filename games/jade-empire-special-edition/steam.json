@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "BioWare"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/header.jpg?t=1777494940",
+  "long": "Step into the role of an aspiring martial-arts master and follow the path of the open palm or the closed fist.  In this multi-award-winning action-RPG, your choices and actions will determine the fate of the entire Jade Empire.  Will you prevent the destruction of this beautiful land, or will you crush it beneath your heel?  Are you a warrior who uses his strength and fighting mastery to bring peace, or will you instead use your power to bring pain and ruin?\n\t\t\t\t\tThe choice is yours.\n\n\t\t\t\t\tThe Original Award Winning Jade Empire\n\t\t\t\t\tAn incredible, engaging story that makes you the noble hero or the treacherous villain!\n\nA wealth of fascinating characters to interact with.\n\nBeautiful, mysterious lands to explore, discover, and save...or conquer.\n\nA rich blend of role-playing and exciting real-time combat.\n\nNew monsters and enemies.\n\nNew fighting styles.\n\nCustomizable, intuitive controls including support for game-pads and keyboard/mouse.\n\nIncreased graphics resolutions and new visual effects.\n\nImproved combat AI and difficulty levels.\n\nNew world map interface.",
+  "lutris": "https://lutris.net/games/jade-empire-special-edition/",
+  "name": "Jade Empire\u2122: Special Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001310.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001311.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001312.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001313.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001314.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001315.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001316.1920x1080.jpg?t=1777494940",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7110/0000001317.1920x1080.jpg?t=1777494940"
+  ],
+  "short": "Step into the role of an aspiring martial-arts master and follow the path of the open palm or the closed fist.",
+  "steam_appid": 7110,
+  "tags": [
+    "Single-player",
+    "Partial Controller Support",
+    "Family Sharing"
+  ],
+  "year": 2007
+}

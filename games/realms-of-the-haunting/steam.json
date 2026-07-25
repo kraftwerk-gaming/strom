@@ -1,0 +1,29 @@
+{
+  "developers": [
+    "Gremlin Interactive"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/header.jpg?t=1530529926",
+  "long": "Forged in the Beginning and protected by the Seven Seals, there lies a place where thought and creation intertwine. The center for all realms of existence, it is the balancing force between good and evil, man and spirit. A focal point for all energies, and the one element that has kept the consuming nature of darkness at bay... Until now.Features:\nMany unique and bizarre universes to explore. From a modern age, mysterious mansion to a medieval, surreal world full of monsters\n\nExcellent blend of first-person shooter and point-and-click adventure\n\nFull-motion video cut-scenes with live actors bring the game's well-written story alive",
+  "lutris": "https://lutris.net/games/realms-of-the-haunting/",
+  "name": "Realms of the Haunting",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_04770e67b2e8594dbf997c001fb0bf8b85b11d92.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_7be19db4f6a513ae8c3d0badff79d0c8b0bcfdcf.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_81018a8aaee50a6e60bc8fa4c0479d9d05c6b04a.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_08f678e01ff75332ac86e67e79cf6b7d0b84b993.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_c4b8f3dc3a07aa6c6e412e59e2fb701f9cab105f.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_299e663c07468c2e2bdc1a32234ded0bb7a9c97f.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_ced03f10191e320b0660b51f53c2d502d2ceec2b.1920x1080.jpg?t=1530529926",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292390/ss_f8f269c3e73ce177b8ba92e9cdc025d702c8fdec.1920x1080.jpg?t=1530529926"
+  ],
+  "short": "Forged in the Beginning and protected by the Seven Seals, there lies a place where thought and creation intertwine. The center for all realms of existence, it is the balancing force between good and evil, man and spirit. A focal point for all energies, and the one element that has kept the consuming nature of darkness at bay... Until now.",
+  "steam_appid": 292390,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

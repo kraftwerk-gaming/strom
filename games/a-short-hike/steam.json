@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "adamgryu"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/header.jpg?t=1777758958",
+  "long": "Hike, climb, and soar through the peaceful mountainside landscapes of Hawk Peak Provincial Park. Follow the marked trails or explore the backcountry as you make your way to the summit. Along the way, meet other hikers, discover hidden treasures, and take in the world around you.\n\nKey Features\nExplore the island any way you like. Choose your own path to follow and see where it leads you. You never know what you might stumble into!\n\nHike at your own pace \u2014 there\u2019s no need to rush to the summit! Take your time fishing along the river banks or swimming by the lakeshore.\n\nCollect hidden treasures to reach new heights. Try taking a dive off the mountain peaks to soar above the forests.\n\nChat with the other hikers you meet along your route. You might be able to help each other out!\n\nListen to a lush original soundtrack by Mark Sparling that progresses dynamically as you explore the wilderness.",
+  "lutris": "https://lutris.net/games/a-short-hike/",
+  "name": "A Short Hike",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_f2123fea859e299736a3e99d130238c784d53e75.1920x1080.jpg?t=1777758958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_0e864bf975bb71f238de6861fc8fd3d6ed6e4ce8.1920x1080.jpg?t=1777758958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_a22817e259c4220cad0c25db315f417b6d3641b8.1920x1080.jpg?t=1777758958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_c9c8a8e6062511c5ae9259c68c66754cd09ae971.1920x1080.jpg?t=1777758958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_4c7c9650606ac7b451f8d2e5b71b503649e43edc.1920x1080.jpg?t=1777758958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_783252636e3a44ff5ba636d817c462358933ba89.1920x1080.jpg?t=1777758958",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1055540/ss_56e51b6bc4604ca1231d5a8d534ac9b67449d353.1920x1080.jpg?t=1777758958"
+  ],
+  "short": "Hike, climb, and soar through the peaceful mountainside landscapes of Hawk Peak Provincial Park as you make your way to the summit.",
+  "steam_appid": 1055540,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Phenomic"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/header.jpg?t=1618008861",
+  "long": "Included in the Platinum Edition are three titles:SpellForce: The Order of Dawn\nIn a world beyond imagination...\n\nIn their immeasurable greed and constant thirst for power, the thirteen most powerful Mages of all time doomed the land, hurling it into an endless spiral of chaos and despair. Entire countries were wiped out in the blink of an eye when the devastating power of the Elements was unleashed - Elements summoned by dark rituals. Continents shattered like glass, the pieces strewn about like leaves in the wind. Huge armies, bound by the the power of ancient runes, brought war and destruction to the lands that survived the initial onslaught. All that was left were a few islands, connected by magic portals.\n\nNow, only a few years after the end of the Convocation, evil is back - stronger and more powerful than ever before - to finish what was started. Yet there is still hope. The prophecies tell of a human. A human damned to immortality, bound forever by the power of the blood runes\u2026\n\nSoon, the time will come when the power of one may change the destiny of many. For better or for worse...SpellForce: Shadow of the Phoenix\nBy means of an enslaved god's life essence a dark necromancer is trying to reanimate the powerful circle mages and make them his unholy servants. Only the power of the Phoenix Stone will be able to prevent the returning of the Circle.\n\nThus the rune is summoned again to finally put an end to his former slave-masters.\n\nBut to free the special power of the Phoenix Stone, the blade of the Shadow Sword is required which is held by the rune warrior of Urgath. The two avatars need to combine their powers and work together to overcome this final enemy.SpellForce: Breath of Winter\nA Prince of Darkness, a Fial Darg, was set free through the Convocation and took over the reign over the Fire Empire. His whish is to bring the Renegades, the Gods of darkness, back to Eo.\n\nFor the Ritual, to make that happen, he needs the blood of a first-born Elve. But there is only one more left, Cenwen, the Elve Queen, who lives under the ice where she sings for the mighty dragon Aryn\u2026\n\nInnovative game design: The unique mixture of RTS and RPG elements offers a brand new game experience.\n\nHigh degree of identification with the hero-avatar, whose skills and strengths can be improved by the player.\n\nClick'n'Fight: This revolutionary control system guarantees instant action, the best possible overview and completely new tactical possibilities in battle.\n\n6 races - Humans, Dwarves, Elves, Dark Elves, Orcs and Trolls - that can be used simultaneously (!) to build settlements and fight battles and more than 30 different enemy races, from cowardly goblins to powerful demons, Fire Angels, Werewolfs and giant Ice Dragons.\n\nA multitude of spells, divided into different categories of magic (white, black, elemental, etc.)  and enchanted items\n\nAwe-inspiring 3D-graphics with zoom levels from isometric to 1st-Person-views\n\nFree game in SpellForce \u2013 The Breath of Winter: The Avatar can develop and upgrade his skills with every map he plays. This mode enables the player to try out other Avatars abilities without playing the main campaign again.",
+  "lutris": "https://lutris.net/games/spellforce-platinum/",
+  "name": "SpellForce - Platinum Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_baddb7f7ecd8c65406e7abd40419a380dfb8b8d3.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_963cee10495d110c395ff8adee9241033d3f2e3b.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_61872f9cc4b9f51580ee2cdfae4439e07c49890b.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_8e668cf237e38c58f4e59d2fcbd90969b93369e5.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_39bfc9d683fb38ab3fab590d90ab4193fa8ae677.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_d6fd2bad3f2ba6c30adf7f480975754f0bc5a87a.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_605c181d097504648660d2c9c41b75c0bb0ca8ba.1920x1080.jpg?t=1618008861",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39540/ss_1d56fe5825c83b81186af97509732bcb2fc49e9e.1920x1080.jpg?t=1618008861"
+  ],
+  "short": "Included in the Platinum Edition are three titles:SpellForce: The Order of DawnIn a world beyond imagination...In their immeasurable greed and constant thirst for power, the thirteen most powerful Mages of all time doomed the land, hurling it into an endless spiral of chaos and despair.",
+  "steam_appid": 39540,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Leikir Studio"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/header.jpg?t=1763548713",
+  "long": "Metal Slug Tactics brings the explosive charm and nostalgic fun of the cult METAL SLUG series to the tactical scene! Get ready for an intense ride through the best of both worlds: classic arcade action and roguelite tactical thrills. Jump into the combat zone and revive your METAL SLUG nostalgia in a whole new way!\n\nTACTICAL RPG WITH ROGUELIKE ELEMENTS\n\nMetal Slug Tactics offers a fresh perspective on the iconic battles of the METAL SLUG series. Lead your squad to victory through strategic guile and superior firepower in a perfect blend of classic action and tactical depth. Unleash powerful special attacks and shape the outcome of each encounter!\n\nAccumulate experience after each battle to unlock new weapons or bonus perks to upgrade your team's firepower and tactical skills.\n\nAssemble your team and rewrite the rules in this modern tribute to a cult classic!\n\nGET YOUR GEAR, SOLDIERS! MISSION START!\n\nChoose between iconic brothers-in-arms from across the METAL SLUG series and create the perfect team to stop Morden's devious plans.\n\nDetermine the best weapon loadouts and mods to maximize combo efficiency on the battlefield.\n\nLaunch simultaneous attacks with the \"SYNC\" mechanic to deal massive damage to the enemy! And if your team is in trouble, you can always call in some reinforcements and watch the big guns at work: heavy artillery, airstrikes, the glorious METAL SLUG itself - you name it, you get it!\n\nFIGHT YOUR WAY TO VICTORY\n\nEmbark on an exalting campaign through beautiful, hand-crafted maps to end the war and defeat the infamous Rebel Army once and for all! You're going to face many challenges, so brace yourself for countless deaths, but don\u2019t give up and push through.\n\nWhether you're a skilled veteran or a new recruit, play and replay your favorite missions, learn precious strategic insight from each adventure and hone your skills with each hard-fought victory.\n\nGain experience, level up your operatives, adapt to your enemies, and remember: every defeat is a lesson, yet triumph awaits those who refuse to surrender!\n\nDonald Morden is back! After years of hiding in a country opposed to the World Government, the devious General patiently staged a coup. Now, he is finally ready to take revenge upon the World with the army he has secretly gathered throughout the years.\n\nThe Peregrine Falcons Squad will have to do everything in their power to make it through the enemy lines and take down General Morden before the war escalates into catastrophe!\n\n\u25cf Discover the first tactical RPG in the METAL SLUG franchise\n\u25cf Experience a huge replayability with its die-and-retry roguelite progression\n\u25cf Enjoy amazing pixel art graphics, a heartfelt tribute to the series\n\u25cf Battle Morden\u2019s Army in 110 hand-crafted maps and 20 different mission types\n\u25cf Bring the perfect setup for every mission with 36 different weapons and 176 weapon mods\n\u25cf Choose between 9 iconic characters from the series and create the perfect team\n\u25cf Experiment with 36 loadouts and combos to outsmart your enemies\n\u25cf Challenge iconic bosses from the METAL SLUG universe\n\u25cf Headbang all the way with an amazing soundtrack by Tee Lopes",
+  "lutris": "https://lutris.net/games/metal-slug-tactics/",
+  "name": "Metal Slug Tactics",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_cd8c2ee59083568f7c3ece55334fa0a48360fb35.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_8831a90d23b6d1c7bf782db2520a687d9c1646ad.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_f0d2af4840d254b6b7520f539ee6db382c841ec5.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_98d2f118fc73603e0339adbeb3f8050d4da7e68b.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_93bbd1c6eb0ea9f3dcafd47507d0226b32a3a02d.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_81ccb4192564bce54f7b0c0ca3b9446288b023dc.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_23d2460b717d7d3f94746331ae43058eb6842c6f.1920x1080.jpg?t=1763548713",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1590760/ss_7351ea9ebc788e724a4b013438c6c1eff9193870.1920x1080.jpg?t=1763548713"
+  ],
+  "short": "METAL SLUG makes an explosive return! Dive into this dynamic tactical RPG with a roguelite thrill and experience the iconic run'n'gun action of the original series, redefined. Grab your weapons, assemble your squad and conquer the battlefield to defeat the infamous Rebel Army.",
+  "steam_appid": 1590760,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Dennaton Games"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/header.jpg?t=1782406411",
+  "long": "Hotline Miami 2: Wrong Number is the brutal conclusion to the Hotline Miami saga, set against a backdrop of escalating violence and retribution over spilled blood in the original game. Follow the paths of several distinct factions \u2013 each with their own questionable methods and uncertain motivations \u2013 as unforeseen consequences intersect and reality once again slips back into a brilliant haze of neon and bloodshed.\n\nBlistering combat against punishing opposition will require intense focus as new variables, weapons, and methods of execution are introduced throughout the struggle. Let the striking colors of an unmistakable visual style wash over as you meticulously cut down those that would stand between you and the ultimate meaning behind the massacre. This is the finale, this is the unquestionable end.\n\nRelentless Hostilities: Adjust combat techniques as the narrative shifts between factions and brings unique variations to a familiar approach along with new weapons, movements, and melee attacks.\n\nEnthralling Soundtrack: Over forty pounding tracks from dozens of artists punctuate the savage conflict and bring the larger scale of your actions into focus. New artists join returning favorites like M|O|O|N, Perturbator, Jasper Byrne, Scattle, and El Huervo for an incredible audio massacre.\n\nCustom Level Editor: Design custom levels using characters, enemies, weapons and music tracks from the game and share your creations with others online via Steam Workshop. [COMING SOON]Hotline Miami 2: Wrong Number Digital Special Edition\n\nThe Hotline Miami 2: Wrong Number Digital Special Edition includes the Hotline Miami 2 Wrong Number Remix EP featuring six remixed tracks from M|O|O|N, Scattle, and Carpenter Brut.\n\n***Please note that the Hotline Miami 2: Wrong Number Digital Special Edition does not include the full soundtrack. The full soundtrack is a separate purchase and includes all 49 tracks with the proceeds going to the artists themselves.***\n\nHotline Miami 2: Wrong Number Payday 2 Packs\n\nThe Hotline Miami 2: Wrong Number Digital Special Edition also includes free access to the Payday 2 \"Jacket Character Pack\" that includes the character items and weapons below.\n\nAll owners of Hotline Miami 2: Wrong Number on Steam - standard or Special Edition - will receive an exclusive mask pack in Payday 2.",
+  "lutris": "https://lutris.net/games/hotline-miami-2-wrong-number/",
+  "name": "Hotline Miami 2: Wrong Number",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_b2a76d2c605c7e54bf3e2ba43f835698d0bd6441.1920x1080.jpg?t=1782406411",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_7d408d8713d6bf44bca41098f3ac4b41cc7ea024.1920x1080.jpg?t=1782406411",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_f32629d89b262b2913134483042a6ca78e2dbe83.1920x1080.jpg?t=1782406411",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_2b7b82c0b00ec5b8db41eef69af943304141392a.1920x1080.jpg?t=1782406411",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_d17f2f2e7b8cb2b58142e4eb58204a34b54073ee.1920x1080.jpg?t=1782406411",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_e1ce66a8d740e120b27c9bca2b6f92c32f4db5ab.1920x1080.jpg?t=1782406411",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274170/ss_6cfa2463e35970d7f58835ed2c699a7df836bf5b.1920x1080.jpg?t=1782406411"
+  ],
+  "short": "Hotline Miami 2: Wrong Number is the brutal conclusion to the Hotline Miami saga, set against a backdrop of escalating violence and retribution over spilled blood in the original game.",
+  "steam_appid": 274170,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Includes level editor",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

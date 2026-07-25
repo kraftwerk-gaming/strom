@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "EA Black Box"
+  ],
+  "genres": [
+    "Racing",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/need-for-speed-most-wanted.jpg",
+  "long": "Need for Speed: Most Wanted (2005) is an open-world arcade racing game set in the city of Rockport. Players race illegally through the streets while evading an aggressive police force, climbing a Blacklist of rival racers to reach number one. It is known for its intense police pursuits and car customization.",
+  "lutris": "https://lutris.net/games/need-for-speed-most-wanted/",
+  "name": "Need for Speed: Most Wanted (2005)",
+  "screenshots": [],
+  "short": "Need for Speed: Most Wanted (2005) (via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player"
+  ],
+  "year": 2005
+}

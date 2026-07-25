@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "System Erasure"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/header.jpg?t=1735612860",
+  "long": "Void Stranger is a 2D sokoban-style puzzle game where every step counts.\n\nDescend into the forgotten labyrinth teeming with fiendish foes and traps that defy reason. A swift defeat lurks at every corner for those who neither study their surroundings nor think their moves through with care.\nTrust you wits and slowly, surely, you will conquer the mysteries before you.\n\nYou do remember why you are here, right?\nOr have you lost something?\nSomething very important to you.Includes:\n2D pixel art visuals with an appropriate soundtrack\n\nPlethora of seemingly impossible puzzles\n\nA story seeping through the seams of the Void\n\nSeveral stages of frustration\n\nA long road to follow\nTips:\nThe game autosaves between each room, so take it easy\n\nIf a puzzle seems impossible, get some rest\n\nIf that doesn't help, try asking someone for help\n\nGood luck!",
+  "lutris": "https://lutris.net/games/void-stranger/",
+  "name": "Void Stranger",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_37d4a95f2a5d589b2750ce263914127aec6e4fe1.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_80361dbd008ed66fe9a11b28685634ffd3a7cb11.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_bd19c58f4835464a7cc8f5549dfbda902a04736a.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_98f8e914c123f6a6e9884f902b8d854c7603aff3.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_bf8f3cb3d171cd5fbd4a0bfc8e2be914af820dde.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_c0d9e4e20d589ecf23107e6d31c984c775870099.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_2fd065d3574df7c45f3e3556dd3d896dd77afa07.1920x1080.jpg?t=1735612860",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2121980/ss_663f5c473ed8f7337674f22735d94098c14c633c.1920x1080.jpg?t=1735612860"
+  ],
+  "short": "Place your faith and embrace the Void.",
+  "steam_appid": 2121980,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Looking Glass Studios"
+  ],
+  "genres": [
+    "Action",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/header.jpg?t=1764279348",
+  "long": "The ultimate thief is back! Tread softly as you make your way through 15 new complex, non-linear levels full of loot to steal and guards to outsmart.  Improved enemy AI, new  gadgets and a riveting story will draw you into the world of Thief II: The Metal Age, a place of powerful new technologies, fanatical religions and corruption.\nKey Features:\nThrilling, stealth-based FPS gameplay\n\nComplex, non-linear levels allow you to choose a different path every time\n\nAdvanced enemy AI and sophisticated new master thief tools to outwit them\n\nGripping narrative with intriguing subplots through 15 huge missions\n\n Awards\nHall of fame entry in Gamespy\n\nGreatest Games of All Time entry in Gamespot\n\n3rd annual Academy of Interactive Arts and Sciences Awards (2000) - Outstanding Achievement in Character or Story Development",
+  "lutris": "https://lutris.net/games/thief-2/",
+  "name": "Thief II: The Metal Age",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_608e81ac8dd873a1cad55be56e673f3e2c248c66.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_02236bb00e1e169fc20e8a008c4cdf7abca9d372.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_32fc7d627eba5a94a6fea51cec9747ffd91c0e0c.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_67ca62848b7b1314b0dabf6094b4260ac80c1a2e.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_4219bed424d29c7b335c26dd666391d8434a727a.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_2d7ee2753dae7afe07a47fdaea44fef18a2044ec.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_8a92b8c910f72de404c80ea0e5f2f58c9dc43853.1920x1080.jpg?t=1764279348",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/ss_ea82e6fe74b5065363e414b46ffc7a34345de7a0.1920x1080.jpg?t=1764279348"
+  ],
+  "short": "The ultimate thief is back! Tread softly as you make your way through 15 new complex, non-linear levels full of loot to steal and guards to outsmart. Improved enemy AI, new gadgets and a riveting story will draw you into the world of Thief II: The Metal Age, a place of powerful new technologies, fanatical religions and corruption.",
+  "steam_appid": 211740,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2012
+}

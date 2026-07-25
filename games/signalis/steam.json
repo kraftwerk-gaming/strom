@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "rose-engine"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/header.jpg?t=1773697315",
+  "long": "Searching for dreams inside of a nightmare\n\nAwaken from slumber and explore a surreal retrotech world as Elster, a technician Replika searching for her lost partner and her lost dreams. Discover terrifying secrets, challenging puzzles, and nightmarish creatures in a tense and melancholic experience of cosmic dread and classic psychological survival horror.\n\nSIGNALIS is set in a dystopian future where humanity has colonized the solar system, and the totalitarian regime of Eusan maintains an iron grip through aggressive surveillance and propaganda. Humanoid androids known as Replikas live among the populace, acting as workers, civil servants, and Protektors alongside the citizens they are designed to resemble.\n\nThe story of SIGNALIS begins as a Replika named Elster awakens from cryostasis in a wrecked vessel. Now stranded on a cold planet, she sets out on a journey into depths unknown.\n\nExperience fear and apprehension as you encounter strange horrors, carefully manage scarce resources, and seek solutions to challenging riddles.\n\nExplore the dim corners of a derelict spaceship, delve into the mysterious fate of the inhabitants of a doomed facility, and seek what lies beneath.\n\nDiscover an atmospheric science-fiction tale of identity, memory, and the terror of the unknown and unknowable, inspired by classic cosmic horror and the works of Stanley Kubrick, Hideaki Anno, and David Lynch.\n\nWander a brutalist nightmare driven by fluid 3D character animations, dynamic lights and shadows, and complex transparency effects, complemented by cinematic sci-fi anime storytelling.",
+  "lutris": "https://lutris.net/games/signalis/",
+  "name": "SIGNALIS",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_a2603694154878b8260c1dd498a06168cad012a4.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_9d602346170b19121e4baec94f5fab54cc43637c.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_dc87789ecfa2f83dd58ac778866fbf7fdc1ec99a.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_bb676746c44db01c2bd7ca78616032984f958106.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_4ec0c13288054a99bc3987680a914ccda834e7f6.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_f7eb1a1944c4c9d3142bedb800ad3a43a6f82a60.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_947db45ff0fb6da0e2d9031f0f71a32b740ed612.1920x1080.jpg?t=1773697315",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1262350/ss_dcf8d44a07289d9b8ca9d1e9b9ae2a002dd76f6e.1920x1080.jpg?t=1773697315"
+  ],
+  "short": "A classic survival horror experience set in a dystopian future where humanity has uncovered a dark secret. Unravel a cosmic mystery, escape terrifying creatures, and scavenge an off-world government facility as Elster, a technician Replika searching for her lost dreams.",
+  "steam_appid": 1262350,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

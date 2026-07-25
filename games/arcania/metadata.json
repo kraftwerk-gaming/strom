@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Spellbound Entertainment"
+  ],
+  "genres": [
+    "RPG",
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/arcania.jpg",
+  "long": "ArcaniA: Gothic 4 is an action role-playing game set in the Gothic universe on the island of Argaan. The player controls a young hero seeking revenge, exploring an open fantasy world, fighting enemies in real time, and developing combat and magic skills. The Complete Tale edition folds in the Fall of Setarrif add-on.",
+  "lutris": "https://lutris.net/games/arcania/",
+  "name": "ArcaniA: Gothic 4 -- The Complete Tale",
+  "screenshots": [],
+  "short": "ArcaniA: Gothic 4 -- The Complete Tale (Spellbound 2010, GOG v2.0.0.2, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2010
+}

@@ -1,0 +1,29 @@
+{
+  "developers": [
+    "Lanzinger Studio"
+  ],
+  "genres": [
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/header.jpg?t=1591721077",
+  "long": "Gubble is an action-puzzle maze game featuring Gubble D Gleep, an alien stranded on a planet filled with strange 3D puzzles. On most of the 150 levels Gubble needs to remove all the screws, nails, bolts and other fasteners to escape to the next level. Each fastener requires the use of the correct tool, all the while avoiding a slew of weird enemies. Gubble features non-violent, unique gameplay combining real-time movement and puzzle solving. The soundtrack was composed and performed by Seppo (Zep) Hurme.\n\nGubble was originally published as a PC game in 1996, then remastered in 2007 featuring HD graphics and additional difficulty settings. The updated release in 2020 brings Gubble to Steam.",
+  "lutris": "https://lutris.net/games/gubble/",
+  "name": "Gubble",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_6eade379d6c754420c3f6626a92b13c8d9463b8c.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_b77b118eb0e73a258bc1bf61e63566a3ee84afc2.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_7aca2e83f1d8014ed892a6c93b32a82185270d3e.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_6d9ae3f85741ca72dab537dd55028386bc79dbe6.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_2cc4fe0a47b1be8e488389463afc887c992a3fd2.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_c9d01e6f319e61ec738e3a1d8a31a437eee045e0.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_ff883716d630c15d6cd725963be344e6bb1062ff.1920x1080.jpg?t=1591721077",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1090920/ss_451afac8db687488528ac59b8868e01ce968e209.1920x1080.jpg?t=1591721077"
+  ],
+  "short": "Gubble is a 3D action puzzle maze game featuring Gubbe D Gleep as he escapes each level by removing all of the screws, nuts and bolts.",
+  "steam_appid": 1090920,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

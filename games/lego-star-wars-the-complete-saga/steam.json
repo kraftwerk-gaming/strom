@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Traveller's Tales"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/header.jpg?t=1604517910",
+  "long": "Kick Some Brick in I through VI\n\t\t\t\t\tPlay through all six Star Wars movies in one videogame! Adding new characters, new levels, new features and for the first time ever, the chance to build and battle your way through a fun Star Wars galaxy on your PC!\n\t\t\t\t\tNew Gameplay Features with enhanced Force Powers, new power-ups and new Challenge Modes.\n\nSolve Puzzles through the use of creative thinking, teamwork and unique building situations.\n\nOver 120 playable characters, and new characters like Watto, Zam Wessell, Boss Nass and more!\n\nUpgraded Character Customizer allowing millions of possibilities. With character parts from all 6 movies, create cross-Trilogy mash-up characters like Han Windu and Lando Amidala.\n\nRedesigned levels like the \"Mos Espa Podrace\" and \"Gunship Cavalry\" to take advantage of the the open vehicle gameplay of LEGO Star Wars II.\n\nBonus levels and missions allow you to take 10 additional Bounty Hunter missions from Jabba the Hutt in the prequel trilogy.\n\nTwo Player Local Co-Op lets friends and families play together.",
+  "lutris": "https://lutris.net/games/lego-star-wars-the-complete-saga/",
+  "name": "LEGO\u00ae Star Wars\u2122 - The Complete Saga",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_1e91605a63b3d38ea9abe6a930be751420b91eb9.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_13732fbdccb28f1af1c3e6f4843fd88528594e2f.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_f5939ab2405ebf57fd1fb6d78e6f92ac9645962e.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_4ff3b180278f062d6515bd0c104e280ab7af6d80.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_8aab9be120dcd1ef6f376fd4fb9b4c8b81cd0f7f.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_b7f9097d5f323dbcc1bd4aca60543933ac30eae9.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_d437487fb7716955411d74b79527cd4856abf2bd.1920x1080.jpg?t=1604517910",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32440/ss_dfc912a5e21c0ec5458e0cf5fc946757de0ec6f1.1920x1080.jpg?t=1604517910"
+  ],
+  "short": "Kick Some Brick in I through VI! Play through all six Star Wars movies in one videogame! Adding new characters, new levels, new features and for the first time ever, the chance to build and battle your way through a fun Star Wars galaxy on your PC!",
+  "steam_appid": 32440,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Full controller support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Placeholder Gameworks"
+  ],
+  "genres": [
+    "Adventure",
+    "Casual",
+    "Indie",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/header.jpg?t=1776015823",
+  "long": "Wishlist our other games!\n\nAbout the Game\nIn this small Indie, short narrative-based game, you take the role of the Grim Reaper... on an office job. Your job is to decide which people are going to live or die. Your choices will affect the world around you. Keep the chaos away or foil plots to destroy the world and rise through the ranks of Reapers all the way up to MIDDLE-MANAGEMENT, wow!\n\nDeath and Taxes is a game in the vein of narrative-based indie titles, such as \"Papers, Please\", \"Reigns\", \"Beholder\" and \"Animal Inspector\", to name a few. The consequences of your choices are yours to bear, while the mystery of your incarnation awaits revelation!\n\nHave a.. totally normal.. office job\n\nTalk to your boss\n\nGet monies\n\nBuy stuff from Mortimer\u2019s Plunder Emporium(?)\n\nDecorate your desk\n\nDo some paperwork\n\nPet the cat??\n\nStare in the mirror and talk to yourself\n\nDon\u2019t let the existential dread set in\n\nDONT LET IT SET IN (ONLY THE FATE OF HUMANKIND IS IN YOUR HANDS, IT'S 100% OK)\n\nListen to that one really catchy tune in the elevator\n\nFeatures:\n\nMeaningful choices\n\nBranching storyline with multiple [SECRET] endings\n\nMake-Your-Own-Grim-Reaper!\n\nFully voiced NPCs\n\nOriginal Soundtrack\n\nOriginal artwork featuring watercolour graphics\n\nDialogue options\n\nUpgrade shop\n\nTwitch integration!",
+  "lutris": "https://lutris.net/games/death-and-taxes/",
+  "name": "Death and Taxes",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_0ec1aad19f8f3bd4a66bc6de3c07cb50e8dcbfbc.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_1aa0e49c43ea837caa84e80e7f31d246de64fa3e.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_9948ae31eb0926dfe1004e1224de6ba4bda727f6.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_a5ac4083874bd3e31a39632b387f64d8c39ecfb1.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_2cc3339bf8073f3f10805f271c34d6dd3f12c3db.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_7998794ddc3d52f29935a445730452125762442a.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_30f5ff350e1e448a6ff0563ec8d071cf090a98b5.1920x1080.jpg?t=1776015823",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1166290/ss_e90eaa355b4dcb4f7e3380457abe503a332a0932.1920x1080.jpg?t=1776015823"
+  ],
+  "short": "In this 2D, short narrative-based game, you assume the role of the Grim Reaper... on an office job. Your job is to decide which people are going to live or die. The consequences of your choices are yours to bear, while the mystery of your incarnation awaits revelation!",
+  "steam_appid": 1166290,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

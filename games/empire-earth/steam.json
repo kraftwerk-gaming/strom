@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Stainless Steel Studios",
+    "Mad Doc Software",
+    "Xtended Realities"
+  ],
+  "genres": [
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/cc08df5709552d7f99ba7401571bdce5b5be1bbb/header.jpg?t=1782392618",
+  "long": "With dozens of hours of gameplay set across a rich tapestry of time, Empire Earth: Gold Edition offers real-time strategy for the ages. Choose any point in time - from the discovery of fire to the laser battles of the far-flung future - and command your civilization with one goal: make Earth your Empire.\n\nAn Epic Conquest Spanning 5000 Years\nAdvance a fledgling civilization through the course of history, as you build an empire capable of dominating the Earth. From humble beginnings you must carefully use natural resources if you want to prosper. As you progress through time you\u2019ll uncover new technologies, buildings and weapons - but be warned, advancement doesn\u2019t necessarily mean success! Your civilization might flourish in one epoch only to become history in the next.\n\nEmpire Earth: Gold Edition includes\n\nThe original Empire Earth\n\nThe official The Art of Conquest expansion pack\n\n(Multiplayer notice: Because the official multiplayer servers have been taken offline, playing over the Internet is no longer possible.)\nKey Features\n4 single-player campaigns set across 29 different scenarios in the original Empire Earth.\n\n3 further campaigns and 18 scenarios in The Art of Conquest expansion.\n\n15 different epochs to advance through, from the Prehistoric to the Space Age.\n\nMore than 200 different units to develop and take into battle on land, sea and air.\n\nEditor tools to create and customize your own empires, scenarios and campaigns.\n\n2 modes to suit your style \u2013 Standard mode offers a more strategic empire-building game, while Tournament mode offers faster-paced RTS action.",
+  "lutris": "https://lutris.net/games/empire-earth/",
+  "name": "Empire Earth: Gold Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_e1e78f403517e7fd7873d7b22d40d60e661a711c.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_5cb9421b1487eda156efc08d93ceb726aaaad2f4.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_916d8e65a2bd6324ba8e82a4de57b0ec56ddbe72.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_aadedcee5cc09a80a32cd212c5d6fb32592e0cc8.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_737d64ac416517f0ebe2c0a1693266679ccd812d.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_8eb71dad125cd51ada96542b7fda9de4e6bc633f.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_85dd8f278d4feb15ed03ce56afa6c2e41f630c0d.1920x1080.jpg?t=1782392618",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254760/ss_5a09b6cec8ffd47e922b91f2edf08aef0157051f.1920x1080.jpg?t=1782392618"
+  ],
+  "short": "With dozens of hours of gameplay set across a rich tapestry of time, Empire Earth: Gold Edition offers real-time strategy for the ages. Choose any point in time - from the discovery of fire to the laser battles of the future - and command your civilization with one goal: make Earth your Empire.",
+  "steam_appid": 254760,
+  "tags": [
+    "Single-player",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

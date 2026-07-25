@@ -1,0 +1,29 @@
+{
+  "developers": [
+    "Nadeo"
+  ],
+  "genres": [
+    "Racing"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/header.jpg?t=1548090419",
+  "long": "A free game in the truest sense of the word, TrackMania Nations Forever lets you drive at mind-blowing speeds on fun and spectacular tracks in solo and multiplayer modes.\n\nTrackMania Nations Forever offers a new \"Forever\" version of the Stadium environment, a solid solo mode and 65 brand new, progressively challenging tracks. TrackMania Nations Forever will unite an even larger number of players than the original Nations thanks to its engaging multiplayer modes, innovative online functions and revolutionary interactivity between players.\n\nFor TrackMania Nations Forever, Nadeo studio chose to take advantage of the PC's capacities as a gaming, creative and communications platform in order to allow a greater number of players to share a unique gaming experience:\n\nFeatures:\nA completely free game.\n\nA captivating solo mode with 65 brand new tracks.\n\nJoin millions of players online and compete on thousands of tracks on the TrackMania servers.\n\nOne complete TrackMania environment: Stadium \"Forever\".\n\nAn in-game editor to create your own tracks, video studio to realize your own movies and a paint shop to customize your vehicles.\n\nOfficial ladders for solo and multiplayer.\n\nCompatible with TrackMania United Forever (profile and multiplayer servers).",
+  "lutris": "https://lutris.net/games/trackmania-nation/",
+  "name": "TrackMania Nations Forever",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/0000004005.1920x1080.jpg?t=1548090419",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/0000004006.1920x1080.jpg?t=1548090419",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/0000004007.1920x1080.jpg?t=1548090419",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/0000004008.1920x1080.jpg?t=1548090419",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/0000004009.1920x1080.jpg?t=1548090419",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/11020/0000004010.1920x1080.jpg?t=1548090419"
+  ],
+  "short": "A free game in the truest sense of the word, TrackMania Nations Forever lets you drive at mind-blowing speeds on fun and spectacular tracks in solo and multiplayer modes.TrackMania Nations Forever offers a new &quot;Forever&quot; version of the Stadium environment, a solid solo mode and 65 brand new, progressively challenging tracks.",
+  "steam_appid": 11020,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Includes level editor",
+    "Family Sharing"
+  ],
+  "year": 2008
+}

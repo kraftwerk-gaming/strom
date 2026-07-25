@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "Paul Hart",
+    "Lee Williams",
+    "Akupara Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ee4f8622877cb04edd961064db9f85630ef37ec0/header.jpg?t=1769536985",
+  "long": "Feature List\n\u2022  Say Anything You Want: Interact with the world and conquer quests by typing or speaking any word you can think of - each encounter has multiple solutions to discover!\n\n\u2022  A Weird, Wild World:  Travel through mysterious underground kingdoms and meet talking doors, flirtatious toads, sarcastic ghouls, and more.\n\n\u2022  Use Your Words:  Dungeon battles are fueled by words - decipher forgotten spells, then type their names in battle to unleash the might of your undead heroes.\n\n\u2022  Endlessly Evolving Gameplay: You'll constantly encounter new gameplay mechanics - from creature collecting, to card combat, to bard rap-battles & more.\n\nAbout the Game\nSAY ANYTHING in Cryptmaster - the bizarre dungeon-crawling adventure where words control everything.\n\nIn the ancient past, four brave heroes banded together to destroy a terrible evil, giving their lives to save countless others. But now their eternal rest has been disturbed by the Cryptmaster, a capricious necromancer in whose thrall they must ascend through the buried strata of the city above them - the gloomy Bonehouses, mysterious Sunken Sea and freakish Downwood.\n\nWith the enigmatic Soulstone in hand, the four adventurers must recover their memories, solve whimsical puzzles and defeat outlandish enemies. From fishing and card games to bardic rap battles, finding the right word is the key to success. Who knows, maybe you'll even remember a little more than you bargained for...",
+  "lutris": "https://lutris.net/games/cryptmaster/",
+  "name": "Cryptmaster",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_89523b1b24301aaf8a886f2fa57db399f4b98c12.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_01b173293f80b7eab18f5254eed3e7d7a54a8f52.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_61c499d619b40d63e70eebf1a9eb25245c8fdc1b.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_70aff26595463a6b7f5039e0fc6d53ce2dafc685.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/639461a24fb085e425bba0349ad1fa829a6ad930/ss_639461a24fb085e425bba0349ad1fa829a6ad930.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_ad2153f58a12f63d7e1a05cf8c895e97a7c73b96.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_d245a96be9c0bfcb4cc80b809ea7aab96c0e2752.1920x1080.jpg?t=1769536985",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1885110/ss_22c9e087ff9d98fd5367d3f16510979b783628e8.1920x1080.jpg?t=1769536985"
+  ],
+  "short": "SAY ANYTHING in this bizarre dungeon adventure where words control everything. Fill in the blanks with text or voice to uncover lost abilities, embark on strange quests, and solve mindbending riddles. Can you conquer the crypt and uncover the mystery at the heart of CRYPTMASTER?",
+  "steam_appid": 1885110,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Captions available",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "Subtitle Options",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

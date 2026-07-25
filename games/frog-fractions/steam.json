@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "Twinbeard, Inc."
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Casual",
+    "Free To Play",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194840/header.jpg?t=1643783840",
+  "long": "The classic web game, reborn! Enjoy this remaster in glorious 4k resolution!\n\nIn Frog Fractions, the player controls a frog sitting on a lily pad. The frog must use its tongue to attack oncoming insects and protect its fruit, in the vein of Missile Command. Between waves of bug attacks, the player can purchase upgrades such as lock-on targeting, a cybernetic brain, and a flying dragon.\n\nPurchase the hat DLC for the ultimate experience, and you can eat bugs while wearing a hat! Hat not recommended for first-time players!",
+  "lutris": "https://lutris.net/games/frog-fractions/",
+  "name": "Frog Fractions: Game of the Decade Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194840/ss_9d9ba2611251f26729124bac3dd673fc90cff112.1920x1080.jpg?t=1643783840",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194840/ss_e5cd6d4bd0dac8d97dc8135746fb6d862cd20b59.1920x1080.jpg?t=1643783840",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194840/ss_32eb66cdcd3378ca614bc69783ac3893a3978380.1920x1080.jpg?t=1643783840",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194840/ss_c5408c95f2e3d9793a006f44a4df2ff3f8a00d4d.1920x1080.jpg?t=1643783840",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194840/ss_3e09b0830e030ed32241c70a69134c8a9e130b86.1920x1080.jpg?t=1643783840"
+  ],
+  "short": "The classic web game, reborn! Enjoy this remaster in glorious 4k resolution! Follow this frog on its arcade action adventure through swarm of bugs and beyond! Purchase the hat DLC for the ultimate experience, if you want to eat bugs while wearing a hat!",
+  "steam_appid": 1194840,
+  "tags": [
+    "Single-player",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

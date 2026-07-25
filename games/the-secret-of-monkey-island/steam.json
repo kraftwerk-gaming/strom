@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "LucasArts"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/header.jpg?t=1741729431",
+  "long": "Return to Monkey Island\n\nAbout the Game\nBack by popular demand, The Secret of Monkey Island\u2122: Special Edition faithfully re-imagines the internationally-acclaimed classic game (originally released in 1990) for original and new audiences alike. The development team at LucasArts is bringing the game into the modern era with an all new re-imagined contemporary art style, a re-mastered musical score, full voiceover, and an in-depth hint system to help players through the game\u2019s side-splitting puzzles. Purists will also delight in the ability to seamlessly switch between the updated hand-drawn re-imagining and the original classic version.\n\t\t\tThe game's twisty plot leads our naive hero on a hilarious, swash-buckling search for the fabled secret of Monkey Island. Tales of pirate wealth lure him to the port of M\u00eal\u00e9e with high hopes, no money, and insatiable curiosity. If clever enough, he will win the confidence of M\u00eal\u00e9e's pirates and find himself blown by the winds of fate toward the terrifying and legendary Monkey Island -- an adventure that would chill the bones of even the most bloodthirsty buccaneer.\n\nRelive the swashbuckling humorous misadventures of the wannabe pirate Guybrush Threepwood\n\t\t\tGo on a daring adventure in your attempt to become the most infamous pirate in the Caribbean\n\nWin the heart of the beautiful governor, Elaine Marley\n\nAlong the way, confront the evil ghost pirate, LeChuck\n\nPlay it again for the first time\n\t\t\tAll new re-imagined contemporary art style, hand-drawn to feature animation quality\n\nRe-mastered music score presented in full orchestrated detail\n\nComplete voice over using the original Monkey Island\u2122 franchise cast brings the story and characters of the original adventures to life like never before\n\nScene-for-scene hot swap allows for seamless transition between special edition and classic modes anywhere and at any time\n\nIncludes all new features\n\t\t\tAll new intuitive game interface and controls provide a more interactive gameplay experience\n\nIn-game puzzle hint system keeps the puzzles fresh and fun",
+  "lutris": "https://lutris.net/games/the-secret-of-monkey-island/",
+  "name": "The Secret of Monkey Island: Special Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_ce07cc2b68cc3c8b02c8222d078afa975c084a39.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_1b7837925734f3240cc4570f465d3a31749eabe8.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_ef1df454ee0b4b9386d2ae538b83f2c8cba60fe0.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_9a3c2087fcfd385041f7274c466a239466599880.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_a5f57b3fc46503f4b261a995c667b28afb007519.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_21225fc30c754ab1fbf14a1b4c03268331bf6784.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_469e2ea77efb4f87e7f9bbc58f58adf9570e5274.1920x1080.jpg?t=1741729431",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32360/ss_f839348709223f69a1685756fe73cbf78c86acc8.1920x1080.jpg?t=1741729431"
+  ],
+  "short": "Back by popular demand, The Secret of Monkey Island\u2122: Special Edition faithfully re-imagines the internationally-acclaimed classic game (originally released in 1990) for original and new audiences alike.",
+  "steam_appid": 32360,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

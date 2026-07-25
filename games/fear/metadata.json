@@ -1,0 +1,24 @@
+{
+  "developers": [
+    "Monolith Productions",
+    "TimeGate Studios"
+  ],
+  "genres": [
+    "FPS",
+    "Horror",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/fear.jpg",
+  "long": "F.E.A.R. (First Encounter Assault Recon) is a horror first-person shooter that combines cinematic slow-motion gunfights and aggressive enemy AI with a supernatural storyline centered on the ghostly Alma Wade. The Platinum Collection bundles Monolith's 2005 original with the TimeGate expansions Extraction Point and Perseus Mandate. Runs through Proton from the GOG release.",
+  "lutris": "https://lutris.net/games/fear/",
+  "name": "F.E.A.R. Platinum Collection",
+  "screenshots": [],
+  "short": "F.E.A.R. Platinum Collection (Monolith 2005 + TimeGate 2006/2007, GOG v2.1.0.7, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online PvP"
+  ],
+  "year": 2005
+}

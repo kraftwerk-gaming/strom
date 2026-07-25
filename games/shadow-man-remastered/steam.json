@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Nightdive Studios",
+    "Acclaim Studios Teesside"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/header.jpg?t=1774275437",
+  "long": "Shadow Man: Remastered is a complete overhaul of the classic game with restored, previously cut content!\n\n3 New Levels:\n\n\"Summer Camp, Florida\" (Day and Night)\n\n\"Salvage Yard, Mojave Desert\" (Day and Night)\n\n\"Asylum Station 2 - Experimentation Rooms\"\n\nNew Audio (from the original games composer, Tim Haywood):\n\nRemastered music and SFX\n\nNew music and SFX for the restored levels\n\nRestored cut/unused voice dialog in levels\n\nArt Updates:\n\nSwitch between the original textures and the new high resolution textures\n\nHD Textures for all levels and objects\n\nNvidia Intro Cutscene Textures\n\nHD HUD and inventory icons plus a new icon for the Shadow Gun\n\nRestored unused animations\n\nRestored several cut and censored models from the original levels\n\nN64 Gad Icons\n\nGameplay Improvements:\n\nNew weapon wheel to select weapons faster as time is slowed down\n\nImproved controls\n\nImproved destructible objects using Bullet Physics\n\nAuto targeting\n\nTweaked/improved AI\n\nLevels rearranged as originally intended\n\nA ton of fixes across the entire game to each level from object to geometry fixes\n\nFixes to the localization for English, French, German, Spanish, and Italian\n\nOver 30 achievements\n\nNew Weapons:\n\nA second Violator (Consistent with the N64 version)\n\nSawed-off Shotgun (replaces the second regular shotgun)\n\nNew model and many sound variations for the Shadow Gun\n\nNew Enemies:\n\nYort\n\nYort Floater\n\nThe Seraph Queen\n\nSeraph\n\nDead Worm\n\nUnused zombie restored in Station 2\n\nOne arm Tenement Zombie.\n\nRendering Improvements:\n\nSupport for 4k resolution with 240hz refresh rate\n\nDynamic Per Pixel Lighting\n\nClustered Forward Shadow Mapping\n\nOrder-independent transparency\n\nNew Post Processing Effects:\n\nAmbient Occlusion\n\nAntialiasing\n\nAnisotropic Filtering\n\nMotion Blur\n\nFilm Grain\n\nDepth of Field\n\nSecrets:\n\nAll the secrets from the N64/Dreamcast/PC included in this remaster\n\nPlus many more to be discovered!",
+  "lutris": "https://lutris.net/games/shadow-man-remastered/",
+  "name": "Shadow Man Remastered",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_ee9465e31d44e9a4c34257fdf9b08e7ab8502d1d.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_62f387b58479aba1e1846b437cc3e9c2339fe449.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_0a4b3053ca383893607e4389898a00e65db94b2d.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_be7e88eddd74dee2aa37706b696b106cecff5142.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_8f6e282b08c3389bf9c43177ece9ef9fac5efa4a.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_fc03cea2829f3a09d5c9fa0c53c3e92f333e864c.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_cb42c42b2c55567495dc793eb626c17b96890ffd.1920x1080.jpg?t=1774275437",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1413870/ss_1c949218aba3350999c8cf62d40d8599453cd9d4.1920x1080.jpg?t=1774275437"
+  ],
+  "short": "He is coming, stalking criminals in the spirit world and the real world. A possessed man is coming, a voodoo mask in his chest and lines of power in his back. Shadow Man is coming, trailing evil from Liveside to Deadside. To stop an apocalypse. To save your soul.",
+  "steam_appid": 1413870,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2021
+}

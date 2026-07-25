@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Dotemu"
+  ],
+  "genres": [
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/header.jpg?t=1699009789",
+  "long": "Important note: Heroes III \u2013 HD Edition content is based on the original 1999 game: The Restoration of Erathia.\n\nDo you remember all those sleepless nights spent fighting Black Dragons and Archangels, Demons and Necromancers? Were you a true fan of Heroes\u00ae of Might & Magic\u00ae III? We have great news for you!\n\nThe most popular Heroes\u00ae title of all time is back in HD! Fifteen years later, rediscover the epic tale of Queen Catherine Ironfist, as she re-embarks on her critically acclaimed quest to unite her ravaged homeland and re-conquer the kingdom of Erathia.\n\nForge the destinies of mighty and magical heroes, leading fantastic and ferocious creatures in a game that still stands today as the landmark opus of the Might & Magic: Heroes\u2019 franchise.\n\nHeroes\u00ae of Might & Magic\u00ae III is a turn-based strategy game, originally released in February 1999.\n\nKey Features\n\n\u2022\tA new HD experience: re-live the Heroes\u00ae III in HD, a true craftsmanship which offers players updated graphics, with wide screen compatibility.\n\n\u2022\tEnjoy the critically acclaimed Heroes\u00ae III gameplay, with 7 exciting campaign scenarios, around 50 skirmish maps, a local multiplayer mode and a map editor.\n\n\u2022\tA new online multiplayer lobby: Now Steamworks compatible, Heroes\u00ae III offers an online multiplayer lobby, where you can share your experience with the Heroes III community.",
+  "lutris": "https://lutris.net/games/heroes-of-might-and-magic-2-gold/",
+  "name": "Heroes\u00ae of Might & Magic\u00ae III - HD Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_89f4967a8e42185534d99ebad949b57894bb70fd.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_06b7cd77b34ac524c79ba5633de6b279eb434b9d.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_12d48a38009033b68dce541a8a41438590b3d354.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_d2717ddb45b659475a035862804e4de6a2ddc528.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_5deb93632ba780f2e722e7582208da04f4e982bf.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_67b14509cc09710140114a51c0b4c78f98da2da5.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_548367faf1cfa549c88585cb9b01f13b05b05ab7.1920x1080.jpg?t=1699009789",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/297000/ss_f96fc496be4bb5b47a7afc5a715a682d7f0c59af.1920x1080.jpg?t=1699009789"
+  ],
+  "short": "The most popular Heroes\u00ae title of all time is back in HD! Fifteen years later, rediscover the epic tale of Queen Catherine Ironfist, as she re-embarks on her critically acclaimed quest to unite her ravaged homeland and re-conquer the kingdom of Erathia.",
+  "steam_appid": 297000,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Steam Achievements",
+    "Includes level editor",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

@@ -1,0 +1,17 @@
+{
+  "developers": [],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/game-of-robot.jpg",
+  "long": "The Game of Robot is an obscure 1988 MS-DOS action game. It runs here through the DOSBox-X emulator.",
+  "lutris": "https://lutris.net/games/game-of-robot/",
+  "name": "The Game of Robot",
+  "screenshots": [],
+  "short": "The Game of Robot (1988, via DOSBox-X)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1988
+}

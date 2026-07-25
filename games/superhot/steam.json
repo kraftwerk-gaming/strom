@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "SUPERHOT Team"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/header.jpg?t=1726509130",
+  "long": "Blurring the lines between cautious strategy and unbridled mayhem, SUPERHOT is the smash-hit FPS in which time moves only when you move.\n\nNo regenerating health bars. No conveniently placed ammo drops. It's you, alone, outnumbered and outgunned. Snatch weapons from fallen enemies to shoot, slice and dodge through a truly cinematic hurricane of slow-motion bullets\n\nDo you crave meaning? Acceptance? Decrypt a deep and multi-layered narrative. Find the answers you seek. Mind is software. Let the System set you free.\n\nSUPERHOT Features:\n\nInnovation - a truly original hybrid puzzle-shooter title like no other. Time only moves when you do. No need to hurry, take your time.\n\nStory & Lore - in a way you have never experienced before.\n\nMany Extras \u2013 delve deeper into SUPERHOT with mini-games, challenges, ASCII art, and [redacted].\n\nChallenge Mode \u2013 replay SUPERHOT with no restarts, speed runs, and more.\n\nEndless Mode \u2013 how long can you last against unyielding waves of enemies?\n\nWith its unique, stylized graphics SUPERHOT adds something new and disruptive to the FPS genre. SUPERHOT\u2019s polished, minimalist visual language helps you focus on what's most important \u2013 the fluid gameplay and the cinematic beauty of the fight.\n\nThirty months in the making. Thousands of hours put into development and design. From its humble origins in the 7 Day FPS game jam, through a hugely successful Kickstarter campaign to a plethora of awards and nominations from industry experts, SUPERHOT is a labor of love by its independent, dedicated team and thousands of backers from all around the globe.",
+  "lutris": "https://lutris.net/games/superhot/",
+  "name": "SUPERHOT",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_ae4a994de7b15e3cec3e56ae714cf7a44c7188cf.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_1e3ef7d9d9654c6189e6680502a0ce3068d1aef7.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_fbd718c60719f045e4e4ee1d23d159ecabb3a171.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_7d2f3db42595a665912155fa44a9b65f807fd483.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_82e641a68d684effec7b1c9ad5d17a70f9cb82ea.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_98b769b11caf672fda92891b325c9a3525bff2d7.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_f027e1abfd94f4f84f9a0c7520a8238a5533b59b.1920x1080.jpg?t=1726509130",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/322500/ss_298fcbe1a5464113bfcd77c521b5318a76a31b40.1920x1080.jpg?t=1726509130"
+  ],
+  "short": "SUPERHOT is the smash-hit FPS where time moves only when you move. No regenerating health bars. No conveniently placed ammo drops. It's you, alone, outnumbered and outgunned. Snatch weapons from fallen enemies to shoot, slice and dodge through a truly cinematic hurricane of slow-motion bullets.",
+  "steam_appid": 322500,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2016
+}

@@ -1,0 +1,22 @@
+{
+  "appid": null,
+  "developers": [
+    "Lilith Walther"
+  ],
+  "genres": [
+    "Action",
+    "RPG",
+    "Horror"
+  ],
+  "hero": "https://lutris.net/games/banner/bloodborne-psx.jpg",
+  "long": "Bloodborne PSX is a free fan-made demake that reimagines the opening hours of FromSoftware's Bloodborne in the low-poly visual style of a first-generation PlayStation game. Built in Unreal Engine 4, it recreates the gothic city of Yharnam and its challenging melee-and-firearm combat against grotesque enemies. It was created by Lilith Walther as a non-commercial tribute.",
+  "lutris": "https://lutris.net/games/bloodborne-psx/",
+  "name": "Bloodborne PSX",
+  "screenshots": [],
+  "short": "Bloodborne PSX (Lilith Walther's PSX-styled fan demake v1.05, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2022
+}

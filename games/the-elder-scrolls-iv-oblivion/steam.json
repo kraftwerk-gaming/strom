@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Bethesda Game Studios",
+    "Virtuos"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/a7cee9165bb1bfc092c390c5cff215ce0e381dfc/header.jpg?t=1761681073",
+  "long": "Digital Deluxe Edition\n\nThe Elder Scrolls IV: Oblivion Remastered Deluxe Edition includes:\n- Digital base game\n- New quests for unique digital Akatosh and Mehrunes Dagon Armors, Weapons, and Horse Armor Sets\n- Digital Artbook and Soundtrack App\n- Shivering Isles and Knights of the Nine story expansions\n- Additional downloadable content: Fighter\u2019s Stronghold, Spell Tomes, Vile Lair, Mehrune\u2019s Razor, The Thieves Den, Wizard\u2019s Tower, The Orrery, and Horse Armor Pack\n\nAbout the Game\nThe Elder Scrolls IV: Oblivion\u2122 Remastered modernizes the 2006 Game of the Year with all new stunning visuals and refined gameplay. Explore the vast landscape of Cyrodiil like never before and stop the forces of Oblivion from overtaking the land in one of the greatest RPGs ever from the award-winning Bethesda Game Studios.\n\nRediscover Cyrodiil\nJourney through the rich world of Tamriel and battle across the planes of Oblivion where handcrafted details have been meticulously recreated to ensure each moment of exploration is awe-inspiring.\n\nNavigate Your Own Story\nFrom the noble warrior to the sinister assassin, wizened sorcerer, or scrappy blacksmith, forge your path and play the way you want.\n\nExperience an Epic Adventure\nStep inside a universe bursting with captivating stories and encounter an unforgettable cast of characters. Master swordcraft and wield powerful magic as you fight to save Tamriel from the Daedric invasion.\n\nThe Complete Story\nExperience everything Oblivion has to offer with previously released story expansions Shivering Isles, Knights of the Nine, and additional downloadable content included in The Elder Scrolls IV: Oblivion Remastered.",
+  "lutris": "https://lutris.net/games/the-elder-scrolls-iv-oblivion/",
+  "name": "The Elder Scrolls IV: Oblivion Remastered",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/3cfe517f1464aa4d77df744c1e3d96e506da378d/ss_3cfe517f1464aa4d77df744c1e3d96e506da378d.1920x1080.jpg?t=1761681073",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/27619a5ffb8d3b41d807a0387dc0a3d3616d4b48/ss_27619a5ffb8d3b41d807a0387dc0a3d3616d4b48.1920x1080.jpg?t=1761681073",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/5d342842ed33010aac7dfa9e04b350a3a8911ef3/ss_5d342842ed33010aac7dfa9e04b350a3a8911ef3.1920x1080.jpg?t=1761681073",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/c715d8ef2d024bd4ec0d75a7721f71ddeab9a00e/ss_c715d8ef2d024bd4ec0d75a7721f71ddeab9a00e.1920x1080.jpg?t=1761681073",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/5b7d3079d983cd40a8f0b676b164e6c0fbf3edd2/ss_5b7d3079d983cd40a8f0b676b164e6c0fbf3edd2.1920x1080.jpg?t=1761681073",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2623190/84171997a07f3429636b518ae4246a7ab5e07d6e/ss_84171997a07f3429636b518ae4246a7ab5e07d6e.1920x1080.jpg?t=1761681073"
+  ],
+  "short": "Explore Cyrodiil like never before with stunning new visuals and refined gameplay in The Elder Scrolls IV: Oblivion\u2122 Remastered.",
+  "steam_appid": 2623190,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Custom Volume Controls",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Stereo Sound",
+    "Surround Sound",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

@@ -1,0 +1,53 @@
+{
+  "developers": [
+    "Stunlock Studios"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Massively Multiplayer"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/be49834ab147ad22ba17005fb847c93917d18b97/header.jpg?t=1781187014",
+  "long": "UPDATE 1.1: INVADERS OF OAKVEIL IS AVAILABLE NOW!\n\nExperience a Vampire Survival Action RPG adventure like no other.\n\nAwaken as a weakened Vampire after centuries of slumber. Hunt for blood to regain your strength while hiding from the scorching sun to survive. Build a mighty castle worthy of your name and convert humans into loyal thralls to serve your growing empire. Pillage villages, raid bandit camps, and challenge supernatural beings, drinking their blood to steal their power. Make allies or enemies online or play solo locally and wage war in a world of conflict.\nSeize your destiny, defy Dracula, and rise as the ultimate predator to rule the night!\n\nNow with native gamepad support and a reimagined interface, prepare for action-packed, hands-on gameplay!\n\nA Gothic Open-World\n\nExplore a vast world teeming with mythical horrors and danger. Travel through lush forests, open countryside, and dark caverns to discover valuable resources, meeting friends and foes alike along the way. Traverse the world with vampire comrades or hunt solo as you ravage villages, fend off holy soldiers, and challenge supernatural bosses.\n\nFear the light - Rule the night\n\nStick to the shadows during the daytime, or the burning sunlight will turn you to ashes. Roam the night and prey on your victims in the darkness. As a vampire, you must quench your thirst for blood while planning your strategies around the rising and setting sun.\n\nRaise your Castle\n\nGather resources and discover ancient techniques to uncover forgotten knowledge. Use your newly acquired insight to build a castle to store your loot and grow your army of darkness. Personalize your domain, exhibit your vampiric style, and make sure to craft coffins for servants and friends. Strengthen your castle to protect your treasure hoard from vampire rivals.\n\nCompete or Cooperate\n\nTravel alone or explore the world with friends. Fighting side by side with other Vampires will give you an advantage in the fight to conquer the greatest threats of Vardoran. Raid other players\u2019 castles, play the diplomat in the game of blood, power, and betrayal, or craft an indomitable retinue of insidious allies. Compete or cooperate - the choice is yours.\n\nMaster your Vampire\n\nLearn and master an arsenal of deadly weapons and unholy abilities. In V Rising, you aim skillshots and dodge projectiles using\u200b precise\u200b\u200b \u200bWASD controls \u200band cursor-based\u200b \u200baiming - no click to move. Tailor your vampire to fit your play style by combining weapons with a variety of spells earned through vanquishing powerful foes. Find and master your personal, perfect blend of sword and sorcery to become the ultimate nocturnal predator!",
+  "lutris": "https://lutris.net/games/v-rising/",
+  "name": "V Rising",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/ss_19d6b903fd65c410af902a8c5f62c820cfe09292.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/ss_4a88ba3b0353f3d43f045e5230c9d600e19daae8.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/ss_262496a8c3ed1335d63398fe06f8dd4d43d311cf.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/3101acbd497584ac6f8ecb91c05cbb66378d62a1/ss_3101acbd497584ac6f8ecb91c05cbb66378d62a1.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/ss_712d9885b750317ab0be515158e51c03cf5944b6.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/ss_e3ea47bf147b505e628dda2d607cf81eb9d56b3b.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/227d19e9aedac1933bffcdb373ccdbd9250a6bdc/ss_227d19e9aedac1933bffcdb373ccdbd9250a6bdc.1920x1080.jpg?t=1781187014",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1604030/ss_0cb89e15fc22c9c5a60b1d914919194f93369924.1920x1080.jpg?t=1781187014"
+  ],
+  "short": "Awaken as a Vampire. Hunt for blood in nearby settlements to regain your strength and evade the scorching sun to survive. Raise your castle and thrive in an ever-changing, open world full of mystery. Gain allies online and conquer the land of the living.",
+  "steam_appid": 1604030,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "LAN PvP",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Steam Achievements",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Matthew Brown"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/header.jpg?t=1667308643",
+  "long": "Hexcells is an ambient logic puzzle game for PC, Mac and Linux.",
+  "lutris": "https://lutris.net/games/hexcells/",
+  "name": "Hexcells",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/ss_8df5e32325fb8abc43206d8704431538c3038904.1920x1080.jpg?t=1667308643",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/ss_153fa1f867d777c4948a5ca65613f3942c06069e.1920x1080.jpg?t=1667308643",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/ss_b011707202d23cf553d6f1aa6c68cc1c93115151.1920x1080.jpg?t=1667308643",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/ss_ee02d1791608bdecfa2d03a0c6f3e998e8026e15.1920x1080.jpg?t=1667308643",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/ss_291eb0102f6611a7da85133b8ff73588e8f46b85.1920x1080.jpg?t=1667308643",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/265890/ss_a36968bc1c60f944874d637dfd670e3975c610ea.1920x1080.jpg?t=1667308643"
+  ],
+  "short": "Hexcells is an ambient logic puzzle game for PC, Mac and Linux.",
+  "steam_appid": 265890,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

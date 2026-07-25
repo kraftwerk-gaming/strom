@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Blackbird Interactive"
+  ],
+  "genres": [
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/header.jpg?t=1779314331",
+  "long": "Welcome to LYNX, the solar system\u2019s leader in spaceship salvaging!\n\nWe offer you the privilege of helping turn humanity\u2019s past into its future by salvaging ships in zero-g. Each one is a puzzle, and how you solve it is up to you! Carve your way in, salvage everything, and maximize your profit.\n\nOur cutting-edge LYNX tech helps you do the job. Slice metal with the laser cutter and use the grapple tool to move salvage with ease. Earn upgrades, such as demo charges, sensors, and safety gear.\n\nCareful where you point those tools! Hazards include explosive decompression, fuel, electricity, and radiation. Your life is protected by our EverWork\u2122 technology, but our profits aren\u2019t.\n\nYour LYNX adventure starts now! Account balance owing is:\n1,252,594,441.92 Credits\nStart paying that debt! Good luck, shipbreaker!\n\nExperience daily life as a blue-collar spaceship salvager\n\nCut and destroy at will in a next-gen physics sim\n\nSalvage through a compelling campaign, relax in freeplay, or compete in timed challenges\n\nExplore a variety of ship types with unlimited variations\n\nUpgrade tools and gear to take on bigger and harder ships",
+  "lutris": "https://lutris.net/games/hardspace-shipbreaker/",
+  "name": "Hardspace: Shipbreaker",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_aa434acace88144c378655f93e31545196b3b050.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_354c8b1c330b453224661fd541adb5975ef54a2c.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_21ab7c534689de8750d2a99ea33af94c78a5452a.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_a6631597bfb9b9d2d3a0aa6353d45fae05e2caec.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_6944ae278284cede63618749c490b54aff4315cf.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_801e017b7b53ee3928935490ff57e2d26520b5ff.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_fa509470db7e964a23e821edcb9047352c009ccf.1920x1080.jpg?t=1779314331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1161580/ss_9676c446bbf372bccb8eae77da137b22e49247a6.1920x1080.jpg?t=1779314331"
+  ],
+  "short": "Equipped with cutting-edge salvaging tech, carve &amp; slice spaceships to recover valuable materials. Upgrade your gear to take on more lucrative contracts and pay your billion credits debt to LYNX Corp!",
+  "steam_appid": 1161580,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

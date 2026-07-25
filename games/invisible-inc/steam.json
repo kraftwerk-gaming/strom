@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "Klei Entertainment"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/header.jpg?t=1781206938",
+  "long": "Take control of Invisible's agents in the field and infiltrate the world's most dangerous corporations. Stealth, precision, and teamwork are essential in high-stakes, high-profit missions, where every move may cost an agent their life.\n\nKlei Entertainment, the independent studio behind the hit games Mark of the Ninja and Don't Starve, presents: Invisible, Inc.Key Features\nCharacter selection: Start with any of the 10 unlockable agents in the game, plus 6 agent variants, and 6 starting programs to crack corporate security.\n\nDeep customization of builds: each play through is different as you create your own strategy using agents, items, augments and programs, and adapt to your surroundings.\n\nRandomly generated world: locations, threats, and loot are randomly generated so each playthrough is vastly different and you\u2019ll never get complacent.\n\nChoose your own game mode: with 5 different game modes and extensive custom generation options, each player can play the way they prefer.\n\nFully animated cutscenes and voice over: with hundreds of lines of voice over, great animation, and fully animated cutscenes, we didn\u2019t spare any expense to make an immersive experience.",
+  "lutris": "https://lutris.net/games/invisible-inc/",
+  "name": "Invisible, Inc.",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/ss_065423f51f4f35e9867ac6cec9598d32baf7c37b.1920x1080.jpg?t=1781206938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/ss_33c9bdeb0dcbc64c6699e4375e591f7ab3c94ce3.1920x1080.jpg?t=1781206938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/ss_5bc3599a1531d384933c93e2cc8f5df464ce9bec.1920x1080.jpg?t=1781206938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/ss_e4dfbe4874614270e46e99dd9a6a5c0286b2a529.1920x1080.jpg?t=1781206938",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/ss_5636f54c7056e59b0edc3ab3863b629177f9225b.1920x1080.jpg?t=1781206938"
+  ],
+  "short": "Take control of Invisible's agents in the field and infiltrate the world's most dangerous corporations. Stealth, precision, and teamwork are essential in high-stakes, high-profit missions, where every move may cost an agent their life.",
+  "steam_appid": 243970,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

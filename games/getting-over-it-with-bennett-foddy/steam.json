@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Bennett Foddy"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240720/header.jpg?t=1666987027",
+  "long": "A game I made\nFor a certain kind of person\n\nTo hurt them.\n\nGetting Over It with Bennett Foddy is a punishing climbing game, a homage to Jazzuo's 2002 B-Game classic 'Sexy Hiking'. You move the hammer with the mouse, and that's all there is. With practice, you'll be able to jump, swing, climb and fly. Great mysteries and a wonderful reward await the master hikers who reach the top of the mountain.\n\nTo quote Jazzuo himself: \"The hiking action is very similar to way you would do it in real life, remember that and you will do well\".\n\nClimb up an enormous mountain with nothing but a hammer and a pot.\n\nListen as I make philosophical observations about the problem at hand.\n\nBetween 2 and \u221e hours of agonizing gameplay, depending. The median time to finish for my playtesters was 5 hours, but the mean was closer to \u221e.\n\nLose all your progress, over and over.\n\nFeel new types of frustration you didn't know you were capable of.\n\nMagical reward awaits hikers who reach the top.\n\nEpilepsy warning: contains some surprising elements.",
+  "lutris": "https://lutris.net/games/getting-over-it-with-bennett-foddy/",
+  "name": "Getting Over It with Bennett Foddy",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240720/ss_413828bfd197dae1e356f6b43c4c38a9d3466591.1920x1080.jpg?t=1666987027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240720/ss_b0efcf546b861e6fbb6f6a703c2374536af761f5.1920x1080.jpg?t=1666987027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240720/ss_ba1b345f67daf713bd94934e0d837eb7f3625e4e.1920x1080.jpg?t=1666987027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240720/ss_7b0cb6b5294d7deffa3afafe6d00aa8e5c958e47.1920x1080.jpg?t=1666987027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240720/ss_80cc75048208a65db694a42ba65b67c3df0c3d57.1920x1080.jpg?t=1666987027"
+  ],
+  "short": "A game I made for a certain kind of person. To hurt them.",
+  "steam_appid": 240720,
+  "tags": [
+    "Single-player",
+    "Partial Controller Support",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

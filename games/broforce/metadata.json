@@ -1,0 +1,24 @@
+{
+  "developers": [
+    "Free Lives"
+  ],
+  "genres": [
+    "Action",
+    "Platformer",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/broforce.jpg",
+  "long": "Broforce is a fast-paced run-and-gun platformer where players control parody action-movie heroes liberating the world from terrorists. Levels feature fully destructible environments and over-the-top explosions. It supports local and online cooperative play for up to four players, plus competitive deathmatch modes.",
+  "lutris": "https://lutris.net/games/broforce/",
+  "name": "Broforce / Broforce Forever",
+  "screenshots": [],
+  "short": "Broforce / Broforce Forever (native Linux, GOG build 71321)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "PvP"
+  ],
+  "year": 2015
+}

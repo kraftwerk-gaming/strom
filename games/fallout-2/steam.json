@@ -1,0 +1,28 @@
+{
+  "developers": [
+    "Black Isle Studios"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/header.jpg?t=1572025546",
+  "long": "Fallout\u00ae 2  is the sequel to the critically acclaimed game that took RPG'ing out of the dungeons and into a dynamic, apocalyptic retro-future.\n\r\n\t\t\t\t\tIt's been 80 long years since your ancestors trod across the wastelands. As you search for the Garden of Eden Creation Kit to save your primitive village, your path is strewn with crippling radiation, megalomaniac mutants, and a relentless stream of lies, deceit and treachery. You begin to wonder if anyone really stands to gain anything from this brave new world.\n\r\n\t\t\t\t\tMastering your character's skills and traits for survival, Fallout\u00ae 2 will challenge you to endure in a post-nuclear world whose future withers with every passing moment...",
+  "lutris": "https://lutris.net/games/fallout-2/",
+  "name": "Fallout 2: A Post Nuclear Role Playing Game",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/ss_b47cd0e44a218e7461a93fd0cc9fdaf8288ed188.1920x1080.jpg?t=1572025546",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/ss_84fe8b4a65ca8ba733c5009cf783b29e40379fef.1920x1080.jpg?t=1572025546",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/ss_ea88210af50c888380a9c76adcf0999b48fe0ed7.1920x1080.jpg?t=1572025546",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/ss_0258a48bd38a15667c4871fcaba914153bb84084.1920x1080.jpg?t=1572025546",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/ss_3f91a8940ad9f3db99e604dbbb2f36dc189395fa.1920x1080.jpg?t=1572025546",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/ss_84fbaa75ea4111b9341d47444c450ce1eefea4b1.1920x1080.jpg?t=1572025546"
+  ],
+  "short": "Fallout\u00ae 2 is the sequel to the critically acclaimed game that took RPG'ing out of the dungeons and into a dynamic, apocalyptic retro-future. It's been 80 long years since your ancestors trod across the wastelands.",
+  "steam_appid": 38410,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

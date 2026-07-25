@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Realmforge Studios"
+  ],
+  "genres": [
+    "RPG",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/header.jpg?t=1730285111",
+  "long": "The Dungeon Lord is back \u2013 and this time he\u2019s serious! In Dungeons 2, fulfil the Dungeon Lord\u2019s insatiable quest for vengeance by recruiting fearsome new monsters from all corners of the underworld in order to undertake his evil bidding. Taking over the underworld isn\u2019t enough though \u2013 this time The Dungeon Lord will extend his dominion over the puny humans and attempt to conquer the overworld too!\n\nTake control of the mighty Dungeon Lord and craft a network of unique and terrifying dungeons, recruit an army of fearsome creatures and command two new factions. Prepare to defend your Kingdom against those pesky heroes, go above ground to wage war on their human cities and use the \u2018Hand of Terror\u2019 to take direct control over your minions, issue commands, and even dish out a swift slap to keep them in line.\n\nThe extensive campaign story mode is packed with even more of the dark humour which made the original Dungeons a hit and is peppered with numerous references to various fantasy books, movies and TV shows. Additionally, you can test your strength in four different game modes in multiplayer for up to four players with other Dungeon Lords over LAN or online.\n\nFeaturing a thrilling single player campaign with 2 playable factions, 26 unique creatures, multiple types of heroes and game modes, Dungeons 2 is the Dungeon Manager simulation game, you've been waiting for.\n\nDungeons 2 offers unique gameplay: In the underworld, Dungeon manager simulation, and in the overworld, tactical real-time strategy.\n\nThanks to the \u2018Hand of Terror\u2019 you can always keep control of your subordinates and give targeted commands.\n\nLeave the darkness of the underworld, and venture to the overworld and leave the beautiful cities of the humans in ruins.\n\nFour competitive multiplayer modes for up to four players via LAN and Internet.",
+  "lutris": "https://lutris.net/games/dungeons-2/",
+  "name": "Dungeons 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_4245ce256639e49b74ede42a48d17eed684b04cf.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_44b9e5c28a12674b69cc5a6d1e5c924c8429a9b9.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_3fe0d1654f97370495abafd44570e6ede30c74c0.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_96915898933a359de8e141f578cb83a8847bbefa.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_8b554084f38dff127ce0278e5ea84241c2348cc5.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_108cb4091cce6e69f71d8e06e94c52a18e06ca42.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_5631ef3a1b029f2897b4cd9334fe3dcd844cc869.1920x1080.jpg?t=1730285111",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/262280/ss_1d3d376bf0a09c5c28403b8f3635bcc983f69ccf.1920x1080.jpg?t=1730285111"
+  ],
+  "short": "The Dungeon Lord is back \u2013 and this time he\u2019s serious! In Dungeons 2, fulfil the Dungeon Lord\u2019s insatiable quest for vengeance by recruiting fearsome new monsters from all corners of the underworld in order to undertake his evil bidding.",
+  "steam_appid": 262280,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

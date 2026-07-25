@@ -1,0 +1,40 @@
+{
+  "developers": [
+    "World's Edge",
+    "Tantalus Media",
+    "Forgotten Empires"
+  ],
+  "genres": [
+    "Strategy",
+    "Free To Play"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/header.jpg?t=1756156214",
+  "long": "Knights of the Mediterranean DLC Available Now!\n\nAbout the Game\nAge of Empires III: Definitive Edition offers players a trial of this historical single & multiplayer RTS experience.  Enjoy diverse civilizations, co-op historical battles, stunning 4K Ultra HD graphics and modernized gameplay.  For more ongoing fun, content unlocks will rotate monthly, which includes rotating civilizations, Hero Cosmetics   and events - so come play often!  Jump into the robust community \u2013 and invite a friend to play today!\n*Note:  To unlock all features of the game please see the \u201cBase Game\u201d product.\n\nAge of Empires III: Definitive Edition completes the celebration of one of the most beloved real-time strategy franchises in definitive form with enhanced features and modernized gameplay.\n\nCommand mighty civilizations from across Europe and the Americas or jump to the battlefields of Asia in stunning 4K Ultra HD graphics and with a fully remastered soundtrack.\n\nThe trial version provides access to a rotating roster of the full game's 16 civilizations to play freely in both single player and multiplayer games, a first look at the 'Blood' Story Mode campaign, the Algiers Historical Battle, along with the tutorial and The Art of War challenge missions to learn and master the game.\n\nJump online to play with your friends or to battle your way through a select group of random maps in skirmish games against the AI.  Whichever way you choose to play, you will enjoy the stunning graphics, the fully remastered soundtrack, and modernized RTS gameplay in this third installment of the award-winning Age of Empires franchise.",
+  "lutris": "https://lutris.net/games/age-of-empires-iii/",
+  "name": "Age of Empires III: Definitive Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_7246a2f2634367969ebec81a3ee020ac9425777d.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_bf963585dbc7615cdf49b446c59457445c2dafb1.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_29faebc7bbecb4034cd6d6b64dce5f5f3c19544c.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_e08b8f287410be7206fe6a0dd4c9958ceaca14fc.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_98c666d645616daca7819d77f98b6b15d4362aac.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_83925b5147d9b56ac029a98363898476a40ed26f.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_82f2697689b675fc900f282d6ce8ec3e6c33dad5.1920x1080.jpg?t=1756156214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/933110/ss_6bd7e9bf6c276b94f8be6b37f926d4c33f779d93.1920x1080.jpg?t=1756156214"
+  ],
+  "short": "Age of Empires III: Definitive Edition offers players a trial of this historical single &amp; multiplayer RTS experience. *Note: To unlock all features of the game please see the \u201cBase Game\u201d product.",
+  "steam_appid": 933110,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "LAN PvP",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

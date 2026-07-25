@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "DreamWorks Interactive"
+  ],
+  "genres": [
+    "FPS",
+    "Horror",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/clive-barkers-undying.jpg",
+  "long": "Clive Barker's Undying is a first-person horror shooter set in 1920s Ireland, where paranormal investigator Patrick Galloway battles a curse afflicting the Covenant family estate. The player wields conventional weapons in one hand and magic spells in the other, including an ability to perceive the spirit world. The atmospheric story was created in collaboration with horror author Clive Barker.",
+  "lutris": "https://lutris.net/games/clive-barkers-undying/",
+  "name": "Clive Barker's Undying",
+  "screenshots": [],
+  "short": "Clive Barker's Undying (DreamWorks Interactive / EA 2001, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2001
+}

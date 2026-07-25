@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "FusionPlay"
+  ],
+  "genres": [
+    "Adventure",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/9a50edca79c5d001466cc0b6a347ac5d4f911937/header_alt_assets_3.jpg?t=1779434468",
+  "long": "An epic tale of fantasy,  adventure and\u2026 fishing?\nWhen the heroes of Azerim mysteriously vanish, an evil force threatens to take over the lands! Baelin the fisherman NPC must rise up to defend the town of Honeywood the only way he knows how! However, something's different... Baelin's no longer an NPC but... an Adventurer! Can you handle your new found responsibility?! Battle fish with precision timing and magic spells, upgrade your abilities, defeat evil and rebuild Honeywood.\nMorning! Nice day for fishing ain\u2019t it!\u00a0\n\nEngage in fearless fishing battles to fulfil quests, increase your strength and unlock spells to use against your aquatic adversaries. Equip the right bait for your catch, and time your attacks perfectly to ensure flawless victory. Be wary of the boss fish looming in the deep, who will truly test your skills.\n\nExplore the enchanting lands of Azerim above land and beneath the waves. Adventure through Honeywood forest to the Azerim coast where you'll encounter new quests, people to save and new fish to catch. Navigate the pull of the underwater currents to move your hook into hard to reach caves and upgrade your fishing line to delve deeper into the abyss.\u00a0\n\nEvery Adventurer deserves the ultimate tools for their quest. Although Baelin may be a humble fisherman, as an Adventurer his rod is his weapon, his boat is his steed and his hat is his armour, so make sure you've equipped the right one for the job! Effortlessly dredge hidden treasures from the deep with the magnet hook, or break through cavern walls with the powerful drill to unlock new pathways. Enhance your fishing rod to increase your strength and upgrade your lines to go further into the depths to target the formidable and challenging fish that swim in the shadows.\u00a0\n\nWhile on your adventures, you\u2019ll find valuable resources to dredge from shipwrecks that have succumbed to the sea, which can be used to rebuild the destroyed village. Enlist help from the Woodcutter to bring Honeywood back to its former glory. Each building upgrade unlocks more equipment and quests from the merchants.\n\nProve yourself worthy to the mighty fishing God by offering completed collections from each region at his statue, and receive your blessings of upgraded skills.\u00a0\n\nOfficially licensed by: Viva La Dirt League",
+  "lutris": "https://lutris.net/games/nice-day-for-fishing/",
+  "name": "Nice Day for Fishing",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/627fa53b19a16f30911defe04d23e64501a036bc/ss_627fa53b19a16f30911defe04d23e64501a036bc.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/77aab4344c89989d1139f308ce71941483f69127/ss_77aab4344c89989d1139f308ce71941483f69127.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/7bf79b3ad9ec47c4d954384667582e5886603c89/ss_7bf79b3ad9ec47c4d954384667582e5886603c89.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/9f5d3dec7c1361d3583ffbb85ca48eec6fdf84a0/ss_9f5d3dec7c1361d3583ffbb85ca48eec6fdf84a0.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/0ff9c478342e4a25b531e9e45607567f31a6c3a0/ss_0ff9c478342e4a25b531e9e45607567f31a6c3a0.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/e311a20738affe4fd2c40c658db332cb50756dac/ss_e311a20738affe4fd2c40c658db332cb50756dac.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/db6cec736d39c872b8558777d5bf96aa78a31dcd/ss_db6cec736d39c872b8558777d5bf96aa78a31dcd.1920x1080.jpg?t=1779434468",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2393160/51629d6dab6d4d777c7d0524999b2c52e9bd21ed/ss_51629d6dab6d4d777c7d0524999b2c52e9bd21ed.1920x1080.jpg?t=1779434468"
+  ],
+  "short": "The world needs you Adventurer! Embark on an RPG pixel adventure where you\u2019ll play as Baelin the humble fisherman, who must rise-up to become the hero of Honeywood. Battle fish with precision timing and magic spells, upgrade your abilities, defeat evil and rebuild Honeywood.",
+  "steam_appid": 2393160,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

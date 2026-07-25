@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Mike Klubnika"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/header.jpg?t=1781870706",
+  "long": "Shoot Your Friends\nTake a seat at the new 4-way multiplayer table. Bargain. Beg. Betray. Become the ultimate victor. Walk away rich.\n\n12-Gauge Action\n Play Russian roulette with a 12-gauge. Cause shotguns just feel better.\n\nLiterally Mindblowing Gameplay\n 15 to 20-minute intense playtime. Enter the arena, go three rounds against The Dealer, and walk away with the prize. Or don't.\n\nImmersive Atmosphere\n Welcome to the underground nightclub, where metal railings pulse to the beats of forgotten drum machines.\n\nMeet Your Match\n Face off against The Dealer, playing the odds same as you. No tricks. Can you beat him at his own game?\n\nDouble or Nothing\n Press your luck in the new Double or Nothing mode. How long can you last?\n\nNew Items\n New items for the Steam release. Just cause we love you.\n\nSeven tracks. No misses. Are you ready?\n The Steam edition of Buckshot Roulette also includes the full soundtrack, created by Mike Klubnika.",
+  "lutris": "https://lutris.net/games/buckshot-roulette/",
+  "name": "Buckshot Roulette",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_c9c2df013e1c2d1b97f2c5cce57c22c24efd5178.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_aa132ad8e9bfc79d9ff5bd60e89e7f2d69af1d84.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_3ef4fc68827fa9ba6a713f314925c6d5d7a05d16.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_3644e6813bba9e87add09ad5e7b150bb9283a850.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_a1b2abfd4ca49b2d5982dbc5a5a9f2af905897fd.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_d2a1e047a3e3834ca6a7583241c360afc67d0680.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_787ccbb3af136c3fc60b3997d80f9fefe27a0bc2.1920x1080.jpg?t=1781870706",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2835570/ss_002b57a42931b77edc27c37cb4764e40bb481681.1920x1080.jpg?t=1781870706"
+  ],
+  "short": "Play Russian roulette with a 12-gauge shotgun. Four enter. One leaves. Roll the dice with your life. Good luck!",
+  "steam_appid": 2835570,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Partial Controller Support",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

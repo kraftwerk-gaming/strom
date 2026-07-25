@@ -1,0 +1,24 @@
+{
+  "developers": [
+    "Blizzard North"
+  ],
+  "genres": [
+    "RPG",
+    "Action",
+    "Hack and Slash"
+  ],
+  "hero": "https://lutris.net/games/banner/diablo-ii-lord-of-destruction.jpg",
+  "long": "Diablo II is an isometric action RPG and hack-and-slash dungeon crawler in which players battle through randomized levels, collecting loot and developing a character across skill trees. The Lord of Destruction expansion adds two new character classes, a fifth act, and expanded itemization. This build supports local and LAN multiplayer for cooperative play and player-versus-player duels.",
+  "lutris": "https://lutris.net/games/diablo-ii-lord-of-destruction/",
+  "name": "Diablo II + Lord of Destruction",
+  "screenshots": [],
+  "short": "Diablo II + Lord of Destruction (CJ_Strife portable, via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP",
+    "LAN Co-op"
+  ],
+  "year": 2001
+}

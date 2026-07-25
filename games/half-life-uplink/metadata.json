@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Valve"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/half-life-uplink.jpg",
+  "long": "Half-Life: Uplink is a standalone single-player demo released by Valve in 1999, featuring an exclusive chapter not found in the full game in which Gordon Freeman fights through the Black Mesa facility to reach a communications relay. It showcases the original GoldSrc engine's scripted set-pieces and combat. This package runs the genuine Uplink gamedir on the WON Half-Life engine through Proton.",
+  "lutris": "https://lutris.net/games/half-life-uplink/",
+  "name": "Half-Life: Uplink",
+  "screenshots": [],
+  "short": "Half-Life: Uplink (Valve 1999 free demo campaign, via WON Half-Life + Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1999
+}

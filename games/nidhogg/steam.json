@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "Messhof"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Sports"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/header.jpg?t=1744306112",
+  "long": "Nidhogg is the epic award-winning fencing tug-of-war, full of graceful acrobatics and clumsy stabs. IRL yelling and excitement may occur, in this ultimate two-player showdown of fast-paced fencing and melee attacks.\n\nBeware, advantages in Nidhogg are often fleeting, as new opponents continually spawn in your way.  Use a variety of fencing maneuvers while armed -- lunges, parries, and even dirty tricks like throwing your sword.  If swordless, press forward with punches, sweep kicks, dive kicks, rolls, and wall jumps.\n\nThe combat arena stretches in both directions, although besting an opponent only gains you ground. Matches aren\u2019t won or lost with a single kill, but with a series of kills granting you right-of-way to run/fight/flee to your own goal-zone.\n\nEach arena holds different strategic formations and chokepoints to use to your advantage.  Until you reach your goal-zone, anything is possible. Only one thing is certain in Nidhogg\u2026 the only way to win is to outwit your opponent. En Garde!",
+  "lutris": "https://lutris.net/games/nidhogg/",
+  "name": "Nidhogg",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_79813555407a2c56918973929eb8c4124361a477.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_9630929ed94e706d8a5037f5412ae67245cc52f2.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_bc948804c395603d73579b69193d9bb2dfc4bde6.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_764bdc489bc9ed7f23512dc3525a23b780766af7.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_3c3598c94dd14500a757358ba53267371c82b859.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_1520bc90d80393648b22b33aa8950344f5f7e14d.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_933bd68da292eac7330b3b581b75539a0fe25018.1920x1080.jpg?t=1744306112",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/94400/ss_fc6fa6944deb83f0dcf85fd32b9c45a55cc7d923.1920x1080.jpg?t=1744306112"
+  ],
+  "short": "Nidhogg is the epic award-winning game of fencing tug-of-war complete with flying giant worms.",
+  "steam_appid": 94400,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Stats",
+    "Steam Leaderboards",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

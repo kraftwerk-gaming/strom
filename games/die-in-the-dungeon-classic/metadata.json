@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Alarts"
+  ],
+  "genres": [
+    "Roguelike",
+    "Strategy",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/die-in-the-dungeon-classic.jpg",
+  "long": "Die in the Dungeon: CLASSIC is a dice-based roguelike dungeon crawler originally created for the Brackeys Game Jam. Players place and combine dice on a board to attack, defend, and trigger effects as they descend through procedurally arranged encounters. The free prototype emphasizes deck-building-style synergy with dice instead of cards.",
+  "lutris": "https://lutris.net/games/die-in-the-dungeon-classic/",
+  "name": "Die in the Dungeon: CLASSIC",
+  "screenshots": [],
+  "short": "Die in the Dungeon: CLASSIC (Alarts/ATICO 2021, native Linux, itch.io v1.6.2f)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2021
+}

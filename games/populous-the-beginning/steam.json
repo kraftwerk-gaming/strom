@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Bullfrog Productions"
+  ],
+  "genres": [
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/header.jpg?t=1777486214",
+  "long": "Shaman, the path is laid before you. Your destiny is to become a god! But it will not be easy. Not for you, and not for your followers. To become a deity, you must conquer all 25 planets of the system and defeat every other tribe and their shamans. The ultimate struggle will be a difficult one, as you build mystical cities, unleash devastating spells, harness volcanoes and tornadoes, and shape the face of the planet at your will. Remember, your apotheosis awaits!\n\r\n\n\r\nIn the third part of the Populous series, you control your shaman and the tribe of her followers in a difficult quest to conquer all 25 planets of a star system and ascend to godhood. For the first time in the series, the world is presented in true 3D, which at the time amazed both the players and the gaming press. The level of control you exert over your followers also takes you to a new level: you can order individuals or groups to perform certain tasks like gathering resources, constructing buildings, or attacking your enemies.\n\r\n\n\r\nPopulous: The Beginning takes a slightly different approach from the previous installments of the series but this is not, by any means, a bad thing as it kept the series fresh and innovative. It was a bold move for Bullfrog but the proof exists in the fact that, after all these years Populous 3 is still a great strategy god-game.",
+  "lutris": "https://lutris.net/games/populous-the-beginning/",
+  "name": "Populous\u2122: The Beginning",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_b39b5e2c683f3692c486d3882692d2df5aee19b6.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_b9262f241a7da2498221303cca094ff7d2dae827.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_5dba901b9544838d52ccdaa76007ce81df662e0d.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_03759f9e0a85ba23a4c4b7bbefff48ebf2999ea1.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_3eb8e9ca6f6adff95a63a36748a0e0a9014e3cd7.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_983eadf54191445324d1000d7e392faa8a8cd867.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_a96a1ea8ab16bff2150ab4f6d5dbba80bd3d6141.1920x1080.jpg?t=1777486214",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616430/ss_fe148bf2b2c3e092cf88c0f1ced738255adb73b4.1920x1080.jpg?t=1777486214"
+  ],
+  "short": "In the third part of the Populous series, you control your shaman and the tribe of her followers in a difficult quest to conquer all 25 planets of a star system and ascend to godhood.",
+  "steam_appid": 2616430,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "LAN PvP",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

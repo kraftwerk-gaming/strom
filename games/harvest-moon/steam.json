@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Appci Inc.",
+    "Natsume Inc."
+  ],
+  "genres": [
+    "Adventure",
+    "RPG",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/header.jpg?t=1729787716",
+  "long": "Explore the Amazing World of Anthos!\n\r\n\n\r\nThe land of Anthos was a peaceful and harmonious land watched over by the Harvest Goddess and the Harvest Sprites, who protected the inhabitants of Anthos from natural disasters such as storms, earthquakes, and the like.\n\r\n\n\r\nHowever, one day many years ago, Anthos experienced a severe volcanic eruption that threatened life on Anthos itself, and the Harvest Goddess and Harvest Sprites had to use all of their remaining power to keep the people and animals of Anthos safe. This left the different villages across the land blocked off from each other. Some unfortunate souls even got trapped outside their villages, and were unable to return...\n\r\n\n\r\nBelieving that the separated villages and people would one day be reconnected, the Harvest Goddess sent out a bottle with a letter and a magic key, then fell into a deep sleep...\n\r\n\n\r\nNow, 10 years later, you have found the SOS the Harvest Goddess sent to the world in the form of a message in a bottle! With the help of your wacky inventor friend Doc Jr. and many others, it\u2019ll be up to you to revive the Harvest Goddess and the Harvest Sprites, as well as reconnect all of the villages of Anthos with each other!\n\r\n\n\r\n \u2022 Farm all around Anthos using Doc\u2019s new and improved Expando-Farm! Easily move from place to place and farm everywhere from snowy mountains to beautiful beaches!\n\r\n \u2022 Keep and raise different kinds of cows, chickens, and sheep in your barn! Find even more exotic animals to keep out in the wild of Anthos!\n\r\n \u2022 Participate in a variety of contests and festivals!\n\r\n \u2022 Woo 5 different bachelors and 5 different bachelorettes! Mary whoever your heart desires!\n\r\n \u2022 Keep unique pets like wolves and exotic animals such as Bengal tigers!\n\r\n \u2022 Collect seeds from Harvest Wisps hidden all over Anthos! Some of the rare ones only come out at certain times, so keep an eye out for them!\n\r\n \u2022 Explore the wide world of Anthos on foot or on mount! Unique and unusual mounts are available as well!\n\r\n \u2022 Mine deep for ore and other materials in several different mines! Watch out for falling rocks!\n\r\n \u2022 Fast travel around the world using the Harvest Goddess\u2019s Warp Statues!\n\r\n \u2022 Take pictures, selfies, and more!",
+  "lutris": "https://lutris.net/games/harvest-moon/",
+  "name": "Harvest Moon: The Winds of Anthos",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_4cda4021a4d7d4cc571c201406d4f1e5d823dab3.1920x1080.jpg?t=1729787716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_c05942013172ab6f4490942f8c8514ced067a8ca.1920x1080.jpg?t=1729787716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_b31e788604004a59371c06b5d7286c5ab9cc0d22.1920x1080.jpg?t=1729787716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_850d89f8be44d54bbebc113c394e77eff681e21d.1920x1080.jpg?t=1729787716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_3ac29bf130be2ebf001be1cb4ebfda9e4ccaa108.1920x1080.jpg?t=1729787716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_5b759b8f98701e16bfa09d816d980f1ec35a153b.1920x1080.jpg?t=1729787716",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2140650/ss_310057e541c180f0ed8da8ce89b57f4f7c0a9460.1920x1080.jpg?t=1729787716"
+  ],
+  "short": "Explore the wide world of Anthos with the help of your wacky inventor friend Doc Jr. and many others! It\u2019ll be up to you to revive the Harvest Goddess and the Harvest Sprites, as well as reconnect all of the villages of Anthos with each other! Farm all around Anthos using the improved Expando-Farm!",
+  "steam_appid": 2140650,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Gamepad Recommended",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

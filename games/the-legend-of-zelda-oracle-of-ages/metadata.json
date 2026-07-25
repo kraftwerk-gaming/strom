@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Capcom",
+    "Flagship"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Puzzle"
+  ],
+  "hero": "https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-ages.jpg",
+  "long": "The Legend of Zelda: Oracle of Ages is a top-down action-adventure for the Game Boy Color in which Link travels between past and present in the land of Labrynna to rescue the Oracle Nayru. The Ages title emphasizes time-traveling puzzles over the combat focus of its companion game. It can be linked with Oracle of Seasons via passwords for an extended connected story.",
+  "lutris": "https://lutris.net/games/the-legend-of-zelda-oracle-of-ages/",
+  "name": "The Legend of Zelda: Oracle of Ages",
+  "screenshots": [],
+  "short": "The Legend of Zelda: Oracle of Ages (via RetroArch / mGBA)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2001
+}

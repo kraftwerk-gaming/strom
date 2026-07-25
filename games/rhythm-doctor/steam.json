@@ -1,0 +1,46 @@
+{
+  "developers": [
+    "7th Beat Games"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie",
+    "Strategy",
+    "Free To Play"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/header.jpg?t=1781661374",
+  "long": "Save lives with your spacebar!\n\nRhythm Doctor is a rhythm game in a world where defibrillating patients' hearts in sync with their heartbeats has healing properties. Slam your spacebar in perfect time on the 7th beat, and they might just come out okay. But beware - every patient has unique illnesses based on complex music theory: polyrhythms, hemiolas, irregular time signatures...if you don't know what they mean, don't worry. Rhythm Doctor is designed to make you learn music and rhythm theory without even realising it!\n\n20+ handmade levels, each with their own story.\n\nEvery level introduces a different concept of rhythm theory in an accessible way\n\nA large cast of doctors and patients feature in an overarching, character-centric storyline\n\nPlay the story solo or grab a friend for drop-in drop-out local multiplayer throughout the whole campaign!\n\nRobust level editor to make, share, and play community levels! Use your own music, place notes snapped to the beat, and use 50+ different visual effects and backgrounds\n\nChallenging \"Night Shift\" versions of each level for the brave\n\n(Note: 2P mode only works locally. Online 2P via Remote Play is enabled for this game, but it does not work that well right now due to varying latency)\n\nRhythm Doctor features flashing lights and colors. Please use caution if you have experience with epilepsy or any of its symptoms.",
+  "lutris": "https://lutris.net/games/rhythm-doctor/",
+  "name": "Rhythm Doctor",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_e361a4f2de7594952b61522bb21a66713fe3f808.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_a8427224faf8062ed4eea2d3af9637934914a85c.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_0ad870eb7a1cc4315b17c2aaa2e54c0b5f220684.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_cb3a0ab6aaaf1bfb929e32bd8df05a3ffd7140e3.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_303950f5da20e6f81c8aa6b709e7f1f6e75851e2.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_69d7b976a41c43d5bf77693cef3c5a95d1374e6f.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_0d964f93645da2c5f51cacc3fd954301e5a792aa.1920x1080.jpg?t=1781661374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/774181/ss_cb7d76930005066d5200cc79523a011c793cbc35.1920x1080.jpg?t=1781661374"
+  ],
+  "short": "Save patients with your rhythm mastery! Rhythm Doctor is a rhythm game where you heal patients by defibrillating in time to their heartbeats. Learn each patient's unique heartbeat and defeat boss viruses trying to sabotage your rhythm, all set to heart-pumping, soul-soothing music.",
+  "steam_appid": 774181,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Workshop",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Narrated Game Menus",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

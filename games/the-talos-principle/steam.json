@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Croteam"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/header.jpg?t=1744327639",
+  "long": "As if awakening from a deep sleep, you find yourself in a strange, contradictory world of ancient ruins and advanced technology. Tasked by your creator with solving a series of increasingly complex puzzles, you must decide whether to have faith or to ask the difficult questions: Who are you? What is your purpose? And what are you going to do about it?Features:\nOvercome more than 120 immersive puzzles in a stunning world.\n\nDivert drones, manipulate laser beams and even replicate time to prove your worth - or to find a way out.\n\nExplore a story about humanity, technology and civilization. Uncover clues, devise theories, and make up your own mind.\n\nChoose your own path through the game's non-linear world, solving puzzles your way.\n\nBut remember: choices have consequences and somebody's always watching you.",
+  "lutris": "https://lutris.net/games/the-talos-principle/",
+  "name": "The Talos Principle",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/ss_8061dc63743404a7829eabdd47590421652c318d.1920x1080.jpg?t=1744327639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/ss_56f8a07f7c2ac684cfec3b17bc0668c24b905b4b.1920x1080.jpg?t=1744327639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/ss_3f16d21674b27dad893ccb27b581670b5bb8043a.1920x1080.jpg?t=1744327639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/ss_bf869965e8e972acb4dfe3f8d4bf7baa2c2cdf29.1920x1080.jpg?t=1744327639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/ss_ded5cd1a34df5b4d9015f71caf35db247b2579c4.1920x1080.jpg?t=1744327639",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257510/ss_b42acabe63d45a11580a2949e34f305e1bd10fc7.1920x1080.jpg?t=1744327639"
+  ],
+  "short": "The Talos Principle is a first-person puzzle game in the tradition of philosophical science fiction. Made by Croteam and written by Tom Jubert (FTL, The Swapper) and Jonas Kyratzes (The Sea Will Claim Everything).",
+  "steam_appid": 257510,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

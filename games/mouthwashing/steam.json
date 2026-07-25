@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "Wrong Organ"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/header.jpg?t=1781686645",
+  "long": "Mouthwashing is a first-person horror game following the dying crew of a shipwrecked space freighter.\n\nWho could have known what good ol\u2019 Captain Curly was capable of? Guess he thought his crew dying alongside him was only right. But some men can\u2019t even kill themselves properly. Maimed, limbless and unable to speak, but alive, Curly is now at the mercy of the crew he has doomed to a slow death.\n\nDescend into Madness\n Follow the lives of the crew as they weather starvation, isolation, and each other. People were never your strong suit anyway.\n\nZero Chance of Rescue\nThe ship will run out of power within six months. Food rations long before that.\n\nImmersive Storytelling\n Pay attention to your surroundings.\n\nPsychological Scares\n Your eyes are lying.\n\nUnforgiving Narrative\n Hope to die, or for goodness sake, pray that everyone else did.",
+  "lutris": "https://lutris.net/games/mouthwashing/",
+  "name": "Mouthwashing",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_d582f6e384652c1a05fb6e928ab6557b0abba1b3.1920x1080.jpg?t=1781686645",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_ec922c5769acb9986aa009e41b71ecdcd51e484f.1920x1080.jpg?t=1781686645",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_bf9f8aeca93daffa7a4493d9af8ffc4524cada74.1920x1080.jpg?t=1781686645",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_fc1d15989f3d8ef8c6493881bb68dd284defa0cb.1920x1080.jpg?t=1781686645",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_a81b2d5c2c76ef972898d2c62b98f7d191f9c64a.1920x1080.jpg?t=1781686645",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_f707dcc6da5c778d9730949037b06089ba92efa4.1920x1080.jpg?t=1781686645",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2475490/ss_b2763de3055881847e5741fd10ddab2305033f6a.1920x1080.jpg?t=1781686645"
+  ],
+  "short": "The five crew members of the Tulpar are stranded in the empty reaches of space, shrouded in perpetual sunset. God is not watching.",
+  "steam_appid": 2475490,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

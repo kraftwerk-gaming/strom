@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Reality Pump Studios"
+  ],
+  "genres": [
+    "Strategy",
+    "RTS"
+  ],
+  "hero": "https://lutris.net/games/banner/earth-2150.jpg",
+  "long": "Earth 2150: Escape from the Blue Planet is a fully 3D real-time strategy game continuing the war between the Eurasian Dynasty, the United Civilized States and the Lunar Corporation as they race to evacuate a doomed Earth. It features dynamic terrain deformation, day/night cycles and persistent unit and research progress carried between missions. Runs through Proton; note that the campaign FMV cutscenes do not render under this setup.",
+  "lutris": "https://lutris.net/games/earth-2150/",
+  "name": "Earth 2150: Escape from the Blue Planet",
+  "screenshots": [],
+  "short": "Earth 2150: Escape from the Blue Planet (Reality Pump 2000, GOG, via Proton -- campaign FMV cutscenes don't render, see note above)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online PvP",
+    "LAN PvP"
+  ],
+  "year": 2000
+}

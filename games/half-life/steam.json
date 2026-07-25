@@ -1,0 +1,48 @@
+{
+  "developers": [
+    "Valve"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/header.jpg?t=1745368462",
+  "long": "Named Game of the Year by over 50 publications, Valve's debut title blends action and adventure with award-winning technology to create a frighteningly realistic world where players must think to survive. Also includes an exciting multiplayer mode that allows you to play against friends and enemies around the world.",
+  "lutris": "https://lutris.net/games/half-life/",
+  "name": "Half-Life",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002354.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002343.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002342.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002344.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002345.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002352.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002347.1920x1080.jpg?t=1745368462",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70/0000002348.1920x1080.jpg?t=1745368462"
+  ],
+  "short": "Named Game of the Year by over 50 publications, Valve's debut title blends action and adventure with award-winning technology to create a frighteningly realistic world where players must think to survive. Also includes an exciting multiplayer mode that allows you to play against friends and enemies around the world.",
+  "steam_appid": 70,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Full controller support",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Valve Anti-Cheat enabled",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 1998
+}

@@ -1,0 +1,51 @@
+{
+  "developers": [
+    "Indoor Astronaut"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/header.jpg?t=1773842519",
+  "long": "Unrailed! is a chaotic online and couch co-op multiplayer railroad construction game where you work together with your friends as a team to build a train track across endless procedurally generated worlds. Master encounters with its inhabitants, upgrade your train and keep it from derailing!BUILD A TRACK FURTHER THAN EVER BEFORE\n\nGather resources and craft tracks to extend your railroad to prevent your train from reaching the end. But watch out - there is only one tool of each type. Co-operation and co-ordination of your team is essential to survive this increasingly challenging journey!\n\nPLOUGH YOUR WAY THROUGH THE WORLD\n\nEvery world is unique! You and your team will have to master ever new challenges to stay on track!\n\nATTACH NEW WAGONS TO MASTER THE UNKNOWN\n\nUpgrade your train to be prepared for whatever is about to come. Get an atomic engine, upgrade your crafting wagon, attach a supercharger or choose from a vast range of other options.\n\nPLAY WITH OR AGAINST YOUR FRIENDS\n\nPlay cooperatively with up to four players in a single team or challenge the co-op skills of your friends in a two versus two game.OVERVIEW\n\nAn intense and chaotic railroad construction experience\n\nOnline and local couch co-op multiplayer (also mixing both possible)\n\nProcedurally generated worlds with 4 different difficulty levels\n\nDynamic weather system & day and night cycle\n\nGame modes: Endless, Quick, Sandbox (up to 4 players) and Versus (2 vs 2 players)\n\nDistinct biomes (5+)\n\nA bunch of upgradable wagons (10+) to modify your train in Endless mode\n\nUnlockable characters\n\nA replay system\n\nOnline highscores with replays\n\nSimple controls & split keyboard and split controller mode\n\nBlocky to the core",
+  "lutris": "https://lutris.net/games/unrailed/",
+  "name": "Unrailed!",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/ss_718c17d9145a8f11eb99de457d513fc79bd82979.1920x1080.jpg?t=1773842519",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/ss_60264335a97af2987159e787635f39cb9f19f648.1920x1080.jpg?t=1773842519",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/ss_8496602ef1f242770f079665740f542aaa4eb638.1920x1080.jpg?t=1773842519",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/ss_71511b260173d62f1fbc43b56b97611335f08c60.1920x1080.jpg?t=1773842519",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/ss_674eeece8947149f96dadf6624aea741b4ac5264.1920x1080.jpg?t=1773842519",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1016920/ss_49f86ac69250a4392a9085b5acbb95899a690341.1920x1080.jpg?t=1773842519"
+  ],
+  "short": "Unrailed! is a co-op multiplayer game where you have to work together with your friends to build a train track across endless procedurally generated worlds. Master random encounters with its inhabitants, upgrade your train and keep it from derailing!",
+  "steam_appid": 1016920,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Leaderboards",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

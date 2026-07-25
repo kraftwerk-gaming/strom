@@ -1,0 +1,50 @@
+{
+  "developers": [
+    "Arnaud De Bock",
+    "R\u00e9mi Forcadell",
+    "Alan Zucconi",
+    "Calum Bowen",
+    "Sectordub"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/header.jpg?t=1781274905",
+  "long": "Pikuniku is an absurdly wonderful puzzle-exploration game that takes place in a strange but playful world where not everything is as happy as it seems. Help peculiar characters overcome struggles, uncover a deep state conspiracy, and start a fun little revolution in this delightful dystopian adventure!\n\nA Vibrant Adventure for All: Explore a colorful world at your own pace, help quirky characters with their unusual requests, and solve clever puzzles that will challenge players of all levels with a 4 - 5 hour campaign.\u200b\n\nCharming Cast: Meet a cast of memorable characters on your journey, each with their own problems and eccentricities to accommodate along the way.\n\nCooperative Mode: Join up with family and friends for local multiplayer fun in custom cooperative levels and challenges.",
+  "lutris": "https://lutris.net/games/pikuniku/",
+  "name": "Pikuniku",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_debaf976a994b833851ec930c52a369322f781ca.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_ab661c07bd8b30ee0823207a7d3d59bc39007984.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_6362be2b14b0a72851a48fb8b63af9b012117281.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_aa460408fa70dfc22b08b3803887a80f1a43a667.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_b105a34429016940376584f40ecd3266f01d6607.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_a0ef0c303fc3d1aa5f87c779a364190f73b7d66f.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_78be166af52efd2dc54f0ac7bd195ce13209dfdc.1920x1080.jpg?t=1781274905",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/572890/ss_c9ae838d8e8b2041ec425ad459401f544515aed2.1920x1080.jpg?t=1781274905"
+  ],
+  "short": "Pikuniku is an absurdly wonderful puzzle-exploration game that takes place in a strange but playful world where not everything is as happy as it seems. Help peculiar characters overcome struggles, uncover a deep state conspiracy, and start a little revolution in this delightful dystopian adventure!",
+  "steam_appid": 572890,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Stats",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2019
+}

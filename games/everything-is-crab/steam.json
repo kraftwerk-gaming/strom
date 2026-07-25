@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "Odd Dreams Digital"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/a5fb804268a798d5026a9a9d4c946cccc23b7420/header.jpg?t=1782406610",
+  "long": "Just Updated\n\nRoadmap\n\nAbout the Game\n\nSet in a\u00a0living ecosystem, 'Everything is Crab' is a cute, challenging, highly replayable action roguelite. Make animal inspired evolutionary choices to concoct your own unique creature every run, both mechanically and visually.\n\nIt's Spore meets Modern Roguelites\n\nAs everybody knows, eventually, every organism ends up evolving into a crab. Right?\nWell, except for you. Choose your own evolutionary path and strategy to thrive and defeat convergent evolution. Take that, science!\n\nOver 125 abilities combine to create a plethora of different builds and playstyles: Become a wily trickster, a ferocious predator, a gregarious leader, a nimble nomad, or take on any number of other survival strategies.\nLegs! Claws! Pincers! Wings! More Legs! Fur! Tail! Scales!\u00a0Tentacles! I SAID MORE LEGS!!!\nBuild your formidable, visually awkward chimera or get Darwin'd in the process.\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0\n\n125+ evolution based abilities\nEndless possibilities and visual combinations\n\nStrategy-defining evolutions\n\nMany viable survival strategies and playstyles\n\n\u00a0 \u00a0 \u00a0 \u00a0 \u00a0\u00a0\u00a0 \u00a0 \u00a0 \u00a0 \u00a0\u00a0\n\nA living, thriving ecosystem\nMany different critters with their own goals and strategies, each of them with several stages of evolution\n\nFour distinct biomes with different rules, climate events, points of interest, flora and fauna\n\nNight and day cycle\u00a0 \u00a0 \u00a0 \u00a0 \u00a0\u00a0\n\nA variety of bosses that may (or may not) appear with each run\n\nHuge meta-progression layer\nDifficulties system (if you dare!)\n\nGenetics (starting Characters), which can be combined to create endless starting character combinations\n\nChallenge Scenarios to push your adaptation skills to the limit\n\nMore evolutions\n\nEndless runs\nProve your survival skills to unlock Endless runs, ditch the timer, and outlast the apocalypse!\u00a0\n\nTrack your findings, meta-progression and achievements in the Codex\u00a0\n\nHave a Crabby day!",
+  "lutris": "https://lutris.net/games/everything-is-crab/",
+  "name": "Everything is Crab: The Animal Evolution Roguelite",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/5fa05d45518afef63df640c1f997564a3f2bda6a/ss_5fa05d45518afef63df640c1f997564a3f2bda6a.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/791a102dc795eefc9c91177e7933d0d6894a2156/ss_791a102dc795eefc9c91177e7933d0d6894a2156.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/811fbfef368f7fe889f80e8bd935c0ea0e4a5ad1/ss_811fbfef368f7fe889f80e8bd935c0ea0e4a5ad1.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/360c29e6d9fea0db3ee9265d68e5102e9673af15/ss_360c29e6d9fea0db3ee9265d68e5102e9673af15.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/a4b71b9d31972a5356359473a10090d7427b204f/ss_a4b71b9d31972a5356359473a10090d7427b204f.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/7fe84c9f24a0a4908ecc37116c77ff921064034c/ss_7fe84c9f24a0a4908ecc37116c77ff921064034c.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/1bd6ffe0fb3b7a9777eda496df06a3d62a307469/ss_1bd6ffe0fb3b7a9777eda496df06a3d62a307469.1920x1080.jpg?t=1782406610",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/213b615ef0509abb4bd5d26c0b6946ee50cbd958/ss_213b615ef0509abb4bd5d26c0b6946ee50cbd958.1920x1080.jpg?t=1782406610"
+  ],
+  "short": "The Animal Evolution Roguelite. Hunt, Flee, Scavenge and Thrive in a living ecosystem. Choose from 125+ Evolutions and Specialisations for unique creature combinations in every run. Adapt to survive the natural curve in order to beat carcinisation... or get Darwin'd trying!",
+  "steam_appid": 3526710,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

@@ -1,0 +1,29 @@
+{
+  "developers": [
+    "Dotemu"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/header.jpg?t=1753576725",
+  "long": "After a car accident, you wake up in a gloomy asylum with your head wrapped in bandages. Many questions remain, but the most important one to solve is: what are you doing here?\n\nSanitarium features a plot intricate set in an intense dark world where a very thin line separates senses from madness. There are many riddles to solve throughout this immersive and captivating adventure that will make your head spin with terror.\n\nEven now, Sanitarium is a masterwork suitable for point-and-click beginners, confirmed or riddle-solving experts who enjoy.",
+  "lutris": "https://lutris.net/games/sanitarium/",
+  "name": "Sanitarium",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/ss_1b0e957fd0c46bb39c1f49b205226baf7fd2aad6.1920x1080.jpg?t=1753576725",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/ss_79733d9bc866c94dcdeef20ed45edb07fd0a030a.1920x1080.jpg?t=1753576725",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/ss_796bb9a170fae4506611693f0da1cacd786fa455.1920x1080.jpg?t=1753576725",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/ss_04082a1830dd5984287650e78fcb0cc1de4f03bb.1920x1080.jpg?t=1753576725",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/ss_756128c0be511d818d78b0287a83cda32498588b.1920x1080.jpg?t=1753576725",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/284050/ss_756128c0be511d818d78b0287a83cda32498588b.1920x1080.jpg?t=1753576725"
+  ],
+  "short": "Originally released in 1998 on PC, and awarded as the Adventure Game of the Year, The timeless horror point-and-click, Sanitarium, is returning to frighten the bravest adventure game fans.",
+  "steam_appid": 284050,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

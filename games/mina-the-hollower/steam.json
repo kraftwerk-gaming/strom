@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Yacht Club Games"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/368fcff2cd8f5ef01c5a89060a49f9a333076a87/header.jpg?t=1780605554",
+  "long": "Descend into a frightful world of action-adventure in Mina the Hollower. Take control of Mina, a renowned Hollower hurtled into a desperate mission to rescue a cursed island. Burrow beneath hazards and monsters, whip foes into oblivion, and gear up with an arsenal of sidearms and trinkets.\nExplore a vast world filled with pixel-perfect graphics, masterful gameplay, beastly bosses, and infectious music. Encounter a cast of bizarre characters, search out secrets in an array of exotic locales, and illuminate the omnipresent darkness in Mina the Hollower, a brand new game from the developers who brought you Shovel Knight!\nFeatures\nHauntingly authentic 8-bit visuals in the style of Game Boy Color, refined for the modern era.\n\nModern touches abound: detailed animation, widescreen visuals, and rock-solid controls!\n\nLeap, dodge, and burrow through the ground to battle monsters or navigate the world.\n\nLash at foes with your trusty whip, Nightstar- or choose from an arsenal of weapons, each with a totally different move set.\n\nDiscover and utilize a reliquary's worth of unusual Sidearms to gain the advantage in combat.\n\nCollect and equip Trinkets to acquire a variety of exotic effects. Level Mina up to suit your unique playstyle.\n\nElectrifying soundtrack by chiptune virtuoso, Jake Kaufman.\n\nDescend into the depths of madness with a bone-chilling, yet heartwarming tale inspired by Victorian Gothic horror.\n\nExplore a huge, dark world brimming with secrets, challenging battles, and interconnected level design.",
+  "lutris": "https://lutris.net/games/mina-the-hollower/",
+  "name": "Mina the Hollower",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/636e604435af8a62f88589f15c8ef24f38000e51/ss_636e604435af8a62f88589f15c8ef24f38000e51.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/2eb987d2d3d02f525c51d03493664ca77d90fd45/ss_2eb987d2d3d02f525c51d03493664ca77d90fd45.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/b6545db6c83bf061a4b5bcb11ebb5188b1378321/ss_b6545db6c83bf061a4b5bcb11ebb5188b1378321.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/be908f3334a85c7f7d05611f12f7bc489ca4746e/ss_be908f3334a85c7f7d05611f12f7bc489ca4746e.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/cb4abb5e4a73ce4902a00cb7392ab49e8dc24f0a/ss_cb4abb5e4a73ce4902a00cb7392ab49e8dc24f0a.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/eb0a4d7ea98aac6fd3876184258e9e0ddff72d0d/ss_eb0a4d7ea98aac6fd3876184258e9e0ddff72d0d.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/eda883a01a6f0b41f57ec403f1f07bcd7ad710cc/ss_eda883a01a6f0b41f57ec403f1f07bcd7ad710cc.1920x1080.jpg?t=1780605554",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1875580/b962d62c164cede17cf177ec30fed519908691de/ss_b962d62c164cede17cf177ec30fed519908691de.1920x1080.jpg?t=1780605554"
+  ],
+  "short": "Take control of Mina, a renowned Hollower hurtled into a desperate mission to rescue a cursed island. Whip foes, burrow through the ground, and explore a pixel-perfect world in Mina the Hollower, a brand new game from the developers who brought you Shovel Knight!",
+  "steam_appid": 1875580,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Custom Volume Controls",
+    "Keyboard Only Option",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

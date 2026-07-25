@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Alexander Bruce"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/header.jpg?t=1525832559",
+  "long": "Antichamber is a mind-bending psychological exploration game where nothing can be taken for granted. Discover an Escher-like world where hallways wrap around upon each other, spaces reconfigure themselves, and accomplishing the impossible may just be the only way forward.\n\nSeveral years in the making, Antichamber received over 25 awards and honors throughout its development, in major competitions including the Independent Games Festival, the PAX10, IndieCade and Make Something Unreal. Antichamber was also supported by the Indie Fund.Key Features\n A deeply psychological experience that will make you question everything you know about how a game works.\n\n Mind-bending challenges that will subvert your expectations at every twist and turn.\n\n An enormous, seamless non-Euclidean world to explore.\n\n Lifelike soundscapes developed by Robin Arnott and an ambient soundtrack composed by Siddhartha Barnhoorn.\n\n A gun that can create, destroy and manipulate matter, allowing you to discover new ways to overcome your surroundings.",
+  "lutris": "https://lutris.net/games/antichamber/",
+  "name": "Antichamber",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_c02435ac01bff1e3af6c69e9ddeb77f6bf40caf2.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_8604088893b9d0ea42d41c741619e740e92fcee0.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_fe2278241777765a73f5cc1567c17307d92ec6bb.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_62a1e3085fee312cf6c1025ec89018fa98821d99.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_1bf5f04ea4ffb1aaf3e77bef5e31793486f789ae.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_aa83543c053ccc413d8b7b5389bffb845ae84068.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_167e0de7713d2d1d8ee613ef078af986fb3212ef.1920x1080.jpg?t=1525832559",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219890/ss_459f60bad31ce52596e9a7c01e39bbfd9ee7daa6.1920x1080.jpg?t=1525832559"
+  ],
+  "short": "Antichamber is a mind-bending psychological exploration game where nothing can be taken for granted. Discover an Escher-like world where hallways wrap around upon each other, spaces reconfigure themselves, and accomplishing the impossible may just be the only way forward.",
+  "steam_appid": 219890,
+  "tags": [
+    "Single-player",
+    "Steam Trading Cards",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

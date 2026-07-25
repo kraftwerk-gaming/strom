@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Team Cherry"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/3c3489495136b26b34f8a9543c7f5645b99d388c/header.jpg?t=1776125684",
+  "long": "Hollow Knight Expands with Free Content\nGodmaster - Take your place amongst the Gods. New Characters and Quest. New Boss Fights. Available Now!\nLifeblood - A Kingdom Upgraded! New Boss. Upgraded Bosses. Tweaks and Refinements across the whole game.\nThe Grimm Troupe - Light the Nightmare Lantern. Summon the Troupe. New Major Quest. New Boss Fights. New Charms. New Enemies. New Friends.\nHidden Dreams - Mighty new foes emerge! New Boss fights. New Upgrades. New Music.\nBrave the Depths of a Forgotten Kingdom\nBeneath the fading town of Dirtmouth sleeps an ancient, ruined kingdom. Many are drawn below the surface, searching for riches, or glory, or answers to old secrets.\nHollow Knight is a classically styled 2D action adventure across a vast interconnected world. Explore twisting caverns, ancient cities and deadly wastes; battle tainted creatures and befriend bizarre bugs; and solve ancient mysteries at the kingdom's heart.\n\nGame Features\nClassic side-scrolling action, with all the modern trimmings.\n\nTightly tuned 2D controls. Dodge, dash and slash your way through even the most deadly adversaries.\n\nExplore a vast interconnected world of forgotten highways, overgrown wilds and ruined cities.\n\nForge your own path! The world of Hallownest is expansive and open. Choose which paths you take, which enemies you face and find your own way forward.\n\nEvolve with powerful new skills and abilities! Gain spells, strength and speed. Leap to new heights on ethereal wings. Dash forward in a blazing flash. Blast foes with fiery Soul!\n\nEquip Charms! Ancient relics that offer bizarre new powers and abilities. Choose your favourites and make your journey unique!\n\nAn enormous cast of cute and creepy characters all brought to life with traditional 2D frame-by-frame animation.\n\nOver 130 enemies! 30 epic bosses! Face ferocious beasts and vanquish ancient knights on your quest through the kingdom. Track down every last twisted foe and add them to your Hunter's Journal!\n\nLeap into minds with the Dream Nail. Uncover a whole other side to the characters you meet and the enemies you face.\n\nBeautiful painted landscapes, with extravagant parallax, give a unique sense of depth to a side-on world.\n\nChart your journey with extensive mapping tools. Buy compasses, quills, maps and pins to enhance your understanding of Hollow Knight\u2019s many twisting landscapes.\n\nA haunting, intimate score accompanies the player on their journey, composed by Christopher Larkin. The score echoes the majesty and sadness of a civilisation brought to ruin.\n\nComplete Hollow Knight to unlock Steel Soul Mode, the ultimate challenge!\n\nAn Evocative Hand-Crafted World\nThe world of Hollow Knight is brought to life in vivid, moody detail, its caverns alive with bizarre and terrifying creatures, each animated by hand in a traditional 2D style.\nEvery new area you\u2019ll discover is beautifully unique and strange, teeming with new creatures and characters. Take in the sights and uncover new wonders hidden off of the beaten path.\nIf you like classic gameplay, cute but creepy characters, epic adventure and beautiful, gothic worlds, then Hollow Knight awaits!",
+  "lutris": "https://lutris.net/games/hollow-knight/",
+  "name": "Hollow Knight",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5384f9f8b96a0b9934b2bc35a4058376211636d2.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_d5b6edd94e77ba6db31c44d8a3c09d807ab27751.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_a81e4231cc8d55f58b51a4a938898af46503cae5.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_62e10cf506d461e11e050457b08aa0e2a1c078d0.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_bd76bd88bc5334ee56ae3d5f0d8dec4455e8e3b8.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_33a645903d6dd9beec39f272a3daf57174a6cc26.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_47f3523dbea462aff2ca4bc9f605faaf80a792b2.1920x1080.jpg?t=1776125684",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_92c7e8f34c00bdb455070ecdd5b746f0d2f6d808.1920x1080.jpg?t=1776125684"
+  ],
+  "short": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
+  "steam_appid": 367520,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

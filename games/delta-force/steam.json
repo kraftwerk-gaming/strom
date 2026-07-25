@@ -1,0 +1,27 @@
+{
+  "developers": [
+    "NovaLogic"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32640/header.jpg?t=1733246344",
+  "long": "Engage the enemy across vast outdoor environments and expansive indoor environments as you take control of the US Army's elite anti-terrorist unit. Delta Force Land Warrior\u2122 introduces new weapons and characters for both single player and intense online multiplayer via NovaWorld.\n\t\t\t\t\tSelect from a team of diverse characters, each with their own special abilities. (Sniper, Demolitions, Close Quarters Battle, Aquatics and Heavey Gunner)\n\nAdvanced new rifles, systems, machine guns and grenade launcher\n\nDeveloped from the same engine used to train the US ARMY elite Land Warrior Soldiers\n\nWage war on the massive battlefields of NovaWorld with up to 50 players simultaneously\n\nRank Yourself against your enemies and allies on NovaWorld",
+  "lutris": "https://lutris.net/games/delta-force/",
+  "name": "Delta Force Land Warrior",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32640/0000008825.1920x1080.jpg?t=1733246344",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32640/0000008826.1920x1080.jpg?t=1733246344",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32640/0000008827.1920x1080.jpg?t=1733246344",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32640/0000008828.1920x1080.jpg?t=1733246344",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/32640/0000008829.1920x1080.jpg?t=1733246344"
+  ],
+  "short": "Engage the enemy across vast outdoor environments and expansive indoor environments as you take control of the US Army's elite anti-terrorist unit. Delta Force Land Warrior\u2122 introduces new weapons and characters for both single player and intense online multiplayer via NovaWorld.",
+  "steam_appid": 32640,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "LocalThunk"
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/7a85430784e4d613cdb0547414d8cf16ffa45747/header.jpg?t=1781540048",
+  "long": "Balatro is a poker-inspired roguelike deck builder all about creating powerful synergies and winning big.\n\nCombine valid poker hands with unique Joker cards in order to create varied synergies and builds. Earn enough chips to beat devious blinds, all while uncovering hidden bonus hands and decks as you progress. You\u2019re going to need every edge you can get in order to reach the boss blind, beat the final ante and secure victory.\n\nThe definitive poker roguelike experience.\n\nEndless possibilities - every pick-up, discard and joker can dramatically alter the course of your run.\n\nIn-depth campaign mode complete with 8 difficulties, as well as challenge and seeded runs.\n\nDeftly deploy an array of potent tools: different Decks, Jokers, Tarot cards, Planet cards, Spectral cards, and Vouchers. Use these versatile instruments to ignite a combo frenzy and turbocharge your poker hands, crafting electrifying, adrenaline-fueled synergies.\n\n150 Jokers, each with their own unique abilities\n\n15 Decks with distinct modifiers to choose from for each run\n\n5 potential variants of each Joker which add further abilities\n\n22 Tarot cards variants that can enhance your regular playing cards\n\n11 Planet cards that help level up your possible poker hands\n\n32 Voucher cards to help provide permanent buffs for your current run\n\nImmerse yourself in Balatro\u2019s distinctive psychedelic world. Let the synthwave soundtrack wash over you -  wind down, escape the daily grind and prepare to enter the ultimate roguelike flow state.\n\nImprove your collection and discover new cards and secrets with every single run.\n\nMake use of the in-depth stats screen to study your best hands, most used Jokers, and more!\n\nImmerse yourself in the CRT fuzz and enjoy detailed, hand-crafted pixel art.",
+  "lutris": "https://lutris.net/games/balatro/",
+  "name": "Balatro",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/96208723dbedef49d71bf1b0a74aee1689018c50/ss_96208723dbedef49d71bf1b0a74aee1689018c50.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_4862112e5030f74a5818cd4c31347d699ac5adf3.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_3be65a7dd3be072d567e11883d208861a7e959fa.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_e32ac94d7d1d6be7dd015d78f2b52aeb4cc282ed.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_b8455573ec1fd2c9412f22bd8df05f2d8027a95b.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_075cb45cbfa97d8139fb11f21667d6e35f908640.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_ae055e0e583ac65000920ce33511df73f40814f4.1920x1080.jpg?t=1781540048",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/ss_204350350761316ad3aa8b0184689f3f93e01f7b.1920x1080.jpg?t=1781540048"
+  ],
+  "short": "The poker roguelike. Balatro is a hypnotically satisfying deckbuilder where you play illegal poker hands, discover game-changing jokers, and trigger adrenaline-pumping, outrageous combos.",
+  "steam_appid": 2379780,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Touch Only Option",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

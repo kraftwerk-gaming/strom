@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Cain Maddox"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/header.jpg?t=1760306484",
+  "long": "the optimist says it\u2019s half human\n\nthe pessimist says it\u2019s half monster\n\nand the project manager says, \u201cwhen can we ship it?\u201d\n\nPROXIMATE is a dread-driven narrative game where you investigate a deep sea laboratory and piece together the events that lead to the research team\u2019s demise.\n You'll be required to wear an image recognition visor that only tells you the bare minimum information you need to succeed \u2014 and sometimes less. Use text information, proximity data and audio clues to form a mental map of your surroundings and pray that your technology won't fail you when you need it most.\n\nFEATURES\nThere is no monster.\n\nAssignment timeboxed to 90 minutes. If you\u2019re here longer than that, we might have to dock your pay.\n\nYour visor says that the red stain on the wall is ketchup. It was coded by some very smart people, so you should definitely trust it.\n\nCollect chat logs from the research team, but don't read into them too much. We're not paying you to figure out some kind of sinister mystery here.\n\nI mean, we haven\u2019t seen the monster. So it\u2019s probably not there.\n\nReceive helpful calls from your manager, voiced by Luke Austin, who's here to make your job easier. Probably.\n\nConnect with a cast of queer characters, who we definitely cared about and will miss dearly. Oh hey, have you signed that waiver yet?\n\nIf you hear it, turn away.\n\nTHE STORY\nAfter labor rights movements sweep large parts of India and Southeast Asia, companies around the world lose their supply of cheap exploitable workers. Melbourne-based tech startup Neuras decides to attempt the impossible: installing AI drives into the freshly dead to create a cheap and endless supply of workers.\nAfter a year of disappointing results, the Neuras lab suddenly cuts all contact with their investors. You, a contractor for the country's largest investment firm, have been tasked with investigating the lab and recovering the firm's rightful IP. But it's the firm's other investment project -- the SONA visor -- that might end up being your bigger problem.\nThat, and the breathing you keep hearing behind the door.",
+  "lutris": "https://lutris.net/games/proximate/",
+  "name": "PROXIMATE",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/ss_7bfc2bfe1002b0248447da2ffc0cc490a19e11e2.1920x1080.jpg?t=1760306484",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/ss_e7439cd1161ce3bf80d27ca38b824e5b929a1ef5.1920x1080.jpg?t=1760306484",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/ss_049121b2f960c502b77d998d27ac23deaf0e6d8f.1920x1080.jpg?t=1760306484",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/ss_75bc73785d8673499b9b6aeff56ad9f6d0a20359.1920x1080.jpg?t=1760306484",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/ss_bb7e923ba74f7788f622ebf82c78e97d5d62fc38.1920x1080.jpg?t=1760306484",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2957800/ss_4d575da19539f39f940d817a1fcc57d98d603f28.1920x1080.jpg?t=1760306484"
+  ],
+  "short": "Congratulations, contractor! You've been approved to trial our cutting-edge AI visor. Use it to explore the Neuras lab and recover the staff's research. Your visor is safe, reliable, and up to 99% accurate. Just don't ask why the &quot;ketchup&quot; in the corner makes such a horrible crunching sound.",
+  "steam_appid": 2957800,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "Gamepad Recommended",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

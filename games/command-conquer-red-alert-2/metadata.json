@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Westwood Studios"
+  ],
+  "genres": [
+    "RTS",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/command-conquer-red-alert-2.jpg",
+  "long": "Command & Conquer: Red Alert 2 is a real-time strategy game set in an alternate-history Cold War, where the Soviet Union invades the United States and the Allies fight back with experimental technology. It is known for its campy full-motion-video cutscenes and asymmetric Allied and Soviet factions. This build bundles the Yuri's Revenge expansion, which adds a third faction, and supports skirmish and LAN multiplayer.",
+  "lutris": "https://lutris.net/games/command-conquer-red-alert-2/",
+  "name": "Command & Conquer: Red Alert 2 + Yuri's Revenge",
+  "screenshots": [],
+  "short": "Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP"
+  ],
+  "year": 2000
+}

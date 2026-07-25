@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Radical Fish Games"
+  ],
+  "genres": [
+    "RPG",
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/crosscode.jpg",
+  "long": "CrossCode is a retro-inspired action RPG set inside a fictional massively multiplayer online game, following the mute player-character Lea as she recovers her memories. It combines fast 2D combat and ball-throwing puzzle mechanics with a deep story and exploration across a sci-fi fantasy world. This build includes the game's three additional DLC content packs.",
+  "lutris": "https://lutris.net/games/crosscode/",
+  "name": "CrossCode + 3 DLC",
+  "screenshots": [],
+  "short": "CrossCode + 3 DLC (v1.4.2-3, native Linux NW.js, GOG)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2018
+}

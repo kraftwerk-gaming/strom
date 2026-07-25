@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Harvester Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/header.jpg?t=1762784299",
+  "long": "The Cat Lady follows Susan Ashworth, a lonely 40-year old on the verge of suicide. She has no family, no friends and no hope for a better future. One day she discovers that five strangers will come along and change everything...\n\nBy author Remigiusz Michalski (Harvester Games) this suspenseful psychological horror game features stylized artwork, a simple keyboard control method and English voice acting, plus a compelling, atmospheric 70 minute soundtrack by micAmic (now included free with every copy in Library > Music) and featured artists Warmer, 5iah and Tears Of Mars.\n\nThe Cat Lady contains strong adult themes and is recommended only for players over 18.\n\nEnjoy even more games in this series with Downfall and Lorelai, available now on Steam!",
+  "lutris": "https://lutris.net/games/the-cat-lady/",
+  "name": "The Cat Lady",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_9a4b240f41e51aad3da594ff636eba83e0ed198d.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_40d487d2ca45fb50fdcb4215053bdd19f9edf795.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_a961029c4764d0ba8f146c7243f7a3cefe17d107.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_faa5842b4296df9cfc2103e62d4ca1b196abb138.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_6518a7d7310aad5d6f8a17c2c5d2fb718b444167.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_f44f3ebef195a899f1bed8e6c29d5903a848a924.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_1fddeff570cc3f97aaa3c12421ea0ead5b642f65.1920x1080.jpg?t=1762784299",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/253110/ss_4bc23e8a42c763047b1b7cfc2516de25f150f27d.1920x1080.jpg?t=1762784299"
+  ],
+  "short": "The Cat Lady follows Susan Ashworth, a lonely 40-year old on the verge of suicide. She has no family, no friends and no hope for a better future. One day she discovers that five strangers will come along and change everything...",
+  "steam_appid": 253110,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

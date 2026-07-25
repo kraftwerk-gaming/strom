@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Rockstar North"
+  ],
+  "genres": [
+    "Action",
+    "Stealth",
+    "Horror"
+  ],
+  "hero": "https://lutris.net/games/banner/manhunt.jpg",
+  "long": "Manhunt is a stealth-based survival horror game in which death-row inmate James Earl Cash is forced to commit brutal executions for a sadistic director filming snuff videos. Players lurk in shadows, distract enemies and time silent kills of varying violence to progress through a decaying urban hell. It is known for its grim tone and tense hide-and-stalk gameplay.",
+  "lutris": "https://lutris.net/games/manhunt/",
+  "name": "Manhunt",
+  "screenshots": [],
+  "short": "Manhunt (Rockstar North 2003 stealth-horror, archive.org preinstalled image, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2003
+}

@@ -1,0 +1,52 @@
+{
+  "developers": [
+    "Bippinbits"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/334439c379674a719de3f12028f76977aeb176c6/header.jpg?t=1782455701",
+  "long": "Check out a friend's mining survivor game!\n\nAbout the Game\n\nDefend against waves of alien monsters in this unique roguelike action mining game. Use the time between attacks to dig beneath the surface in search of valuable resources and relics \u2013 deliver them back to your dome to unlock powerful upgrades and useful new gadgets.\u00a0\u00a0\n\u00a0\nBut it won\u2019t be long until the relentless monsters return - do you risk delving deeper into the mine? Or return to base and prepare for imminent attack? The choice is yours, but make it quickly!\u00a0\u00a0\n\nUse your drill and keeper equipment to quickly dig out tunnels and explore the depths beneath your dome. Each run has its own unique, procedurally generated map filled with resources and caves to discover, along with additional gadgets to obtain. \u200b\u00a0\n\nProtect your dome by operating its powerful weaponry to defend against waves of monster attacks. Upgrade, repair and repel a variety of enemy types that approach across air and ground, each with their own unique attack methods and movement patterns.\n\nSpend resources to unlock useful upgrades. Improve dome defences, enhance the impact of your drill, or increase movement speed \u2013 choose carefully and strategize to increase odds of survival.\u00a0\n\nCustomise your setup and find a playstyle that works for you by choosing from two unique keeper types, four different domes, and four primary gadgets. Pick a run modifier, adjust difficulty settings and discover dozens of secondary gadgets while you dig through the earth.\u00a0\n\u00a0\n\nExplore the world of Dome Keeper with friends! Defend your dome together in four player co-op, or go versus in a battle to survive the longest or deliver the most resources.",
+  "lutris": "https://lutris.net/games/dome-keeper/",
+  "name": "Dome Keeper",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_f2a52537a6dc3458eadd0cfc40b3916b4eb70bae.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_b3718daa8a5e9bc8deddf5057a4723f36d73c83f.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_cc245dc6bc04cce2d3f2b3bd757eb32e84a894f0.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_d3d7194b248504bf0c1698752d2f6335900e777e.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_7e8e99ca62ac48386cfa23b846c413ce311ce6c3.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_15b56378019c177ec3fd26f11b2631e81c5db2de.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_30d6cd01d0b7147021bc08dfc445753a7cc4f606.1920x1080.jpg?t=1782455701",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1637320/ss_8406a10007a2c6aeca051b8abd5ec451586c0c63.1920x1080.jpg?t=1782455701"
+  ],
+  "short": "Defend against waves of alien monsters in this unique roguelike action miner. Dig for resources, collect useful gadgets, and upgrade equipment to increase odds of survival \u2013 just hurry back before your dome is destroyed!",
+  "steam_appid": 1637320,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "LAN PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

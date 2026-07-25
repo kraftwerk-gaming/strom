@@ -1,0 +1,60 @@
+{
+  "developers": [
+    "Valve"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/header.jpg?t=1745363004",
+  "long": "Portal 2 draws from the award-winning formula of innovative gameplay, story, and music that earned the original Portal over 70 industry accolades and created a cult following.\n\n\t\t\t\t\t\t\t\t\t\tThe single-player portion of Portal 2 introduces a cast of dynamic new characters, a host of fresh puzzle elements, and a much larger set of devious test chambers. Players will explore never-before-seen areas of the Aperture Science Labs and be reunited with GLaDOS, the occasionally murderous computer companion who guided them through the original game.\n\n\t\t\t\t\t\t\t\t\t\tThe game\u2019s two-player cooperative mode features its own entirely separate campaign with a unique story, test chambers, and two new player characters. This new mode forces players to reconsider everything they thought they knew about portals. Success will require them to not just act cooperatively, but to think cooperatively.\n\n\t\t\t\t\t\t\t\t\t\tProduct Features\n\t\t\t\t\t\t\t\t\t\tExtensive single player: Featuring next generation gameplay and a wildly-engrossing story.\n\nComplete two-person co-op: Multiplayer game featuring its own dedicated story, characters, and gameplay.\n\nAdvanced physics: Allows for the creation of a whole new range of interesting challenges, producing a much larger but not harder game.\n\nOriginal music.\n\nMassive sequel: The original Portal was named 2007's Game of the Year by over 30 publications worldwide.\n\nEditing Tools: Portal 2 editing tools will be included.",
+  "lutris": "https://lutris.net/games/portal-2/",
+  "name": "Portal 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_f3f6787d74739d3b2ec8a484b5c994b3d31ef325.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_6a4f5afdaa98402de9cf0b59fed27bab3256a6f4.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_0cdd90fafc160b52d08b303d205f9fd4e83cf164.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_ec35a739b4b33270eb170d9e561c5b016cba50a6.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_3d13161104a04603a0524536770c5f74626db4c0.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_8a772608d29ffd56ac013d2ac7c4388b96e87a21.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_358127df30a766a1516ad139083c2bcec3fe0975.1920x1080.jpg?t=1745363004",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_410c7955c3cc8ca4a5e3c81daa214f534c9aabc8.1920x1080.jpg?t=1745363004"
+  ],
+  "short": "The &quot;Perpetual Testing Initiative&quot; has been expanded to allow you to design co-op puzzles for you and your friends!",
+  "steam_appid": 620,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Captions available",
+    "Steam Workshop",
+    "Steam Workshop",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Steam Input API Support",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Stats",
+    "Includes level editor",
+    "Commentary available",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2011
+}

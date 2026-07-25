@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Nitrome",
+    "Yacht Club Games"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/header.jpg?t=1780266621",
+  "long": "When Drill Knight and his dastardly digging crew blast apart Shovel Knight\u2019s peaceful campsite and steal his loot, he grabs his trusty Shovel Blade and starts tunneling after them!\n\nMeet new friends and foes, visit strange lands, and outfit yourself in your quest to keep the entire land from collapsing underfoot! Jump, slash, and dig your way down an ever-changing chasm of mystery in Shovel Knight Dig, an all-new Shovel Knight adventure!\n\nFeatures:\n\nAn all-new presentation featuring a new Shovel Knight story! When Drill Knight and his dastardly digging crew blast apart Shovel Knight\u2019s peaceful campsite and steal his loot, he grabs his trusty Shovel Blade and starts tunneling after them!\n\nThe first Shovel Knight adventure in glorious high color pixel graphics and sound. Fluid animation, scaling, rotation, and parallax create the most convincing Shovel Knight world yet!\n\nEvery adventure is different! Shovel Knight Dig levels have been meticulously crafted, then stitched together using proprietary generation techniques for infinite replayability.\n\nJump, slash, and dig your way in an all-new direction \u2013 down! Rely on your trusty Shovel Drop, then dig through huge swaths of dirt with all-new Speed Shovel mechanics.\n\nGrow in power and wealth as you descend into the depths of the earth. Emerge with untold riches to outfit Shovel Knight further, unlocking permanent items and upgrades to your Shoveling equipment.\n\nNew Knights, new characters, and new enemies abound, but fear not! Shovel Knight Dig features Shovel Knight\u2019s signature storytelling, humor, and maybe even some familiar faces\n\nAnother pulse-pounding soundtrack in a new style by astonishing virtuoso Jake Kaufman!\n\nThe first collaboration between Yacht Club Games and Nitrome, pixel masters!",
+  "lutris": "https://lutris.net/games/shovel-knight-dig/",
+  "name": "Shovel Knight Dig",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/ss_f9694db5ad806c200cde703c77fa876b17b0dff9.1920x1080.jpg?t=1780266621",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/ss_c4fae8576c083c1e00e139875929ede2ae98ac2b.1920x1080.jpg?t=1780266621",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/ss_f0a4ca72208c3b84a2e2a8b21a81b0e9edb00cda.1920x1080.jpg?t=1780266621",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/ss_300bdb1e1c422c78024a53bcf94e967b2dbbb60a.1920x1080.jpg?t=1780266621",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/ss_416290bf0b57a6cfbde3defb869316a4d892039b.1920x1080.jpg?t=1780266621",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1416050/ss_78965563886c93967368bd77527aa655a84272e4.1920x1080.jpg?t=1780266621"
+  ],
+  "short": "Meet new friends and foes, visit strange lands, and outfit yourself in your quest to keep the entire land from collapsing underfoot! Jump, slash, and dig your way down an ever-changing chasm of mystery in Shovel Knight Dig, an all-new Shovel Knight adventure!",
+  "steam_appid": 1416050,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

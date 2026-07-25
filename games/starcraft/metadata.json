@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Blizzard Entertainment"
+  ],
+  "genres": [
+    "RTS",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/starcraft.jpg",
+  "long": "StarCraft is a science-fiction real-time strategy game featuring three asymmetric factions: the human Terrans, the insectoid Zerg, and the psionic Protoss. Players gather resources, build bases, and command armies across a sprawling story campaign and competitive multiplayer. The Brood War expansion adds new units and continues the storyline.",
+  "lutris": "https://lutris.net/games/starcraft/",
+  "name": "StarCraft + Brood War",
+  "screenshots": [],
+  "short": "StarCraft + Brood War (via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP",
+    "Online PvP"
+  ],
+  "year": 1998
+}

@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Rockstar New England"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/header.jpg?t=1741118085",
+  "long": "Bully: Scholarship Edition takes place at the fictional New England boarding school, Bullworth Academy, and tells the story of mischievous 15-year-old Jimmy Hopkins as he goes through the hilarity and awkwardness of adolescence. Beat the jocks at dodge ball, play pranks on the preppies, save the nerds, kiss the girl and ultimately navigate the social hierarchy in the worst school around.\n\nIncludes the complete soundtrack, featuring 26 original tracks.\nAfter purchase and download you can locate the soundtrack in your Steam folder here:\n[Steam\\steamapps\\common\\bully scholarship edition\\Bully Original Soundtrack].\nThe Steam folder is typically found under C:\\Program Files\\Steam",
+  "lutris": "https://lutris.net/games/bully-scholarship-edition/",
+  "name": "Bully: Scholarship Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006051.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006052.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006066.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006055.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006056.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006067.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006058.1920x1080.jpg?t=1741118085",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12200/0000006059.1920x1080.jpg?t=1741118085"
+  ],
+  "short": "Bully tells the story of mischievous 15-year-old Jimmy Hopkins as he goes through the hilarity and awkwardness of adolescence. Beat the jocks at dodge ball, play pranks on the preppies, save the nerds, kiss the girl and navigate the social hierarchy in the worst school around.",
+  "steam_appid": 12200,
+  "tags": [
+    "Single-player",
+    "Partial Controller Support",
+    "Family Sharing"
+  ],
+  "year": 2010
+}

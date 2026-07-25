@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Blue Byte"
+  ],
+  "genres": [
+    "Strategy",
+    "RTS",
+    "City Builder"
+  ],
+  "hero": "https://lutris.net/games/banner/the-settlers-iii.jpg",
+  "long": "The Settlers III is a real-time strategy and economy game in which players build settlements and complex production chains for one of three peoples: Romans, Egyptians, or Asians. Unlike earlier entries, settlers travel without fixed road networks, and players manage resource gathering, expansion, and military conquest. The Ultimate Collection bundles the base game with its expansions.",
+  "lutris": "https://lutris.net/games/the-settlers-iii/",
+  "name": "The Settlers III",
+  "screenshots": [],
+  "short": "The Settlers III (Blue Byte 1998, GOG Ultimate Collection v1.60 v2 English, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP"
+  ],
+  "year": 1998
+}

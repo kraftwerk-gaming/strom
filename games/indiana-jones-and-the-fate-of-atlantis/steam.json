@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "LucasArts"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/header.jpg?t=1571778027",
+  "long": "The Man With The Hat Is Back In His Greatest Adventure Yet!\n\t\t\t1939 - The eve of World War II. Nazi agents are about to get their hands on a weapon more dangerous than the atom bomb. Only Indy can stop them before they unleash the deadly secret that sank Atlantis.\n\t\t\tPoint 'n\u2019 click your way through fistfights, puzzles, balloon rides, car chases and Indy one-liners.\n\nExplore over 200 spectacular locations.\n\nHear LucasArts' exclusive iMUSE create a musical score that follows your every move.\n\nPlay and replay - three unique challenging paths to vanquish the Reich.",
+  "lutris": "https://lutris.net/games/indiana-jones-and-the-fate-of-atlantis/",
+  "name": "Indiana Jones\u00ae and the Fate of Atlantis\u2122",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_e166f6588ee19887c64b2851e836ec90c68a27d8.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_51de1dd27ef9703e7eec3596457eaa0d40e02674.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_5410d5b952ec12642e0e2999afbd8d72dd8c19f5.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_03cb0ea1abc29c2a4d9480e824408ee9d1509209.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_1efdc683240bfff2f7293388dad94fc47c233d35.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_6a6cf4f7a02d84712d7c47ead0df151b7ef57c58.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_65fde69c86946c7d6f5a9a2adc37061a91f9654c.1920x1080.jpg?t=1571778027",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6010/ss_b95041d8ea9535ea4d07a2a9752a5881f693221f.1920x1080.jpg?t=1571778027"
+  ],
+  "short": "The Man With The Hat Is Back In His Greatest Adventure Yet! 1939 - The eve of World War II. Nazi agents are about to get their hands on a weapon more dangerous than the atom bomb. Only Indy can stop them before they unleash the deadly secret that sank Atlantis.",
+  "steam_appid": 6010,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

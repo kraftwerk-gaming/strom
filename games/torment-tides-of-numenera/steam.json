@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "inXile Entertainment"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/header.jpg?t=1776379983",
+  "long": "Accolades\n\nLegacy Edition\n\nThe Torment: Tides of Numenera Legacy Edition contains 6 digital extras. Build your legacy and immerse yourself into the Ninth World.\n\nDigital Soundtrack - The Original Soundtrack for Torment: Tides of Numenera. Composed by Mark Morgan and featuring 50 tracks.\n\n Digital World Map - A high-resolution version of Torment's world map.\n\n \"From the Depths\" Digital Novellas (2x) - \"From the Depths: Gold\" and \"From the Depths: Blue\", two digital novellas fleshing out the game's world and backstory (70 and 140 pages each).\n\n Forum Avatars - A selection of forum avatars based on the in-game party portraits.\n\n Ringtones - A selection of Torment-themed ringtones and notification sounds.\nOnce installed, Legacy Edition extras can be found inside your Torment installation folder.\n\nImmortal Edition\n\nThe Torment: Tides of Numenera Immortal Edition Upgrade contains 12 digital extras. Become an immortal castoff and immerse yourself more deeply into the Ninth World.\nDigital Soundtrack - The Original Soundtrack for Torment: Tides of Numenera. Composed by Mark Morgan and featuring 50 tracks.\n\n Digital World Map - A high-resolution version of Torment's world map.\n\n Digital Concept Art - A selection of high-resolution concept pieces and wallpaper.\n\n \"From the Depths\" Digital Novellas (5x) - The full \"From the Depths\" Tidal novella series. Each novella is themed around a different Tide and fleshes out the game's world and backstory (between 60-140 pages each).\n\n Digital Strategy Guide - A 143-page companion guidebook containing walkthroughs of quests, location overviews, ability lists, and more.\n\n Digital Concept Art Book - A lovingly crafted 90-page digital art book showing off a selection of the game's concept and promotional artwork.\n\n Forum Avatars - A selection of forum avatars based on the in-game party portraits.\n\n Ringtones - A selection of Torment-themed ringtones and notification sounds.\nOnce installed, Immortal Edition extras can be found inside your Torment installation folder.\n\nNote: Includes all items in the Legacy Edition.\n\nAbout the Game\nYou are born falling from orbit, a new mind in a body once occupied by the Changing God, a being who has cheated death for millennia. If you survive, your journey through the Ninth World will only get stranger\u2026 and deadlier.\n\nWith a host of strange companions \u2013 whose motives and goals may help or harm you \u2013 you must escape an ancient, unstoppable creature called the Sorrow and answer the question that defines your existence: What does one life matter?\n\nTorment: Tides of Numenera is the thematic successor to Planescape: Torment, one of the most critically acclaimed and beloved role-playing games of all time. Torment: Tides of Numenera is a single-player, isometric, narrative-driven role-playing game set in Monte Cook\u2019s Numenera universe, and brought to you by the creative team behind Planescape: Torment and the award-winning Wasteland 2.\n\nFeatures: A Deep, Thematically Satisfying Story. The philosophical underpinnings of Torment drive the game, both mechanically and narratively. Your words, choices, and actions are your primary weapons.\n\nA World Unlike Any Other. Journey across the Ninth World, a fantastic, original setting, with awe-inspiring visuals, offbeat and unpredictable items to use in and out of battle, and stunning feats of magic. Powered by technology used in the award-winning Pillars of Eternity by Obsidian Entertainment, the Numenera setting by Monte Cook provides endless wonders and impossibly imaginative locations for you to explore.\n\nA Rich, Personal Narrative. Thoughtful and character-driven, the story is epic in feel but deeply personal in substance, with nontraditional characters and companions whose motivations and desires shape their actions throughout the game.\n\nReactivity, Replayability, and the Tides. Your choices matter, and morality in the Ninth World is not a simple matter of \u201cright\u201d and \u201cwrong\u201d. You will decide the fates of those around you, and characters will react to your decisions and reputation. The result is a deeply replayable experience that arises naturally from your actions throughout the game.\n\nA New Take on Combat. With the Crisis system, combat is more than just bashing your enemies. Plan your way through hand-crafted set-pieces which combine battles with environmental puzzles, social interaction, stealth, and more.",
+  "lutris": "https://lutris.net/games/torment-tides-of-numenera/",
+  "name": "Torment: Tides of Numenera",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_f614348e8e62c41db78e6226d4ed08aa81cac4c7.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_2667078538bf24027438fd4224f80998e117707b.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_0135575a16e7790214ece41e1a0b3e27b43335de.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_24661930d838fb558ff0965606b67ac2718c43ec.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_96e338f9a8fef45c38db4c9e7518734eb46951f1.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_06d358aee7af1a1a0d39525ec1d006b3f58e52d6.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_a94f3131e1411cb825221376c818b74fa41b92d8.1920x1080.jpg?t=1776379983",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/272270/ss_1420ca78a535795c2e854148e6072877cc4b601d.1920x1080.jpg?t=1776379983"
+  ],
+  "short": "Torment: Tides of Numenera is the thematic successor to Planescape: Torment, one of the most critically acclaimed role-playing games of all time. Immerse yourself in a single-player, isometric, story-driven RPG set in Monte Cook\u2019s Numenera universe. What does one life matter? Find your answer.",
+  "steam_appid": 272270,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

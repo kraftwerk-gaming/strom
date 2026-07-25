@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "David Szymanski"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/header.jpg?t=1750084113",
+  "long": "Originally created as part of The Dread X Collection II, Squirrel Stapler is a short (less than an hour long) horror hunting simulator that satirizes low budget edutainment games with pitch black humor and panic-inducing absurdist horror.\n\nA lonely man living in a remote cabin wakes up one day and realizes his beloved--a dismembered corpse nailed to the cabin wall--has been made ugly and rotten by the flies that swarm her.  He wishes she were beautiful, like the squirrels of the wood.  And so he sets out to hunt the squirrels of the wood, so that he might staple them to her and make her beautiful again.\n\nBut that is easier said than done.  A sinister presence lurks in the deep forest, and it has only one rule: \"Thou shalt not staple squirrels!\"IN SQUIRREL STAPLER YOU CAN...\n Hunt squirrels!  Move quietly, hide in bushes, stay low, and pick the right time to pull the trigger!\n\n Lure even bigger squirrels with a squirrel call!\n\n Be wary of larger creatures and vengeful ghosts!  You aren't the only alpha predator in the forest!\n\n Freely explore a large nonlinear map littered with educational squirrel facts and more!\n\n Meet god!\nNEW FEATURES AND FIXES\n The forest is more alive than ever with more to see, do, and hear\n\n Unlockable GIANT SQUIRRELS mode\n\n Full quality of life pass on the game balance, UI, and tutorials\n\n Expanded options menu\n\n Full controller support\n\n Many bug fixes\n\n New goodies in the goodies folder\n\n Achievements",
+  "lutris": "https://lutris.net/games/squirrel-stapler/",
+  "name": "Squirrel Stapler",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_4b4fe5b7d632a6c32e5a73ae401b6f6d07cb55b9.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_379bdb3a115df3d06d5fafcb86369f568b4f45b9.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_ae7715a61c0e837f4c50600b9f5665952d6fee8b.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_cdbb32a9d1eae082479bc9c8a719dccf51181906.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_268a1868391b6c93d57debca42f6c3720c22d110.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_2374ab7bbcc1f92c88590b45d9761452e7a8cc39.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_5ab4b72a6d336431a058d3d450078b4bdbbfecf4.1920x1080.jpg?t=1750084113",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2535830/ss_f31af976e3726e91c7d60ec6c1233c2c21b52895.1920x1080.jpg?t=1750084113"
+  ],
+  "short": "Hunt squirrels, staple them to a corpse, and meet god.",
+  "steam_appid": 2535830,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

@@ -1,0 +1,40 @@
+{
+  "developers": [
+    "Black Salt Games"
+  ],
+  "genres": [
+    "Adventure",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/header.jpg?t=1780479732",
+  "long": "OUT NOW: THE IRON RIG DLC\n\nThe Iron Rig is the second official expansion for DREDGE - a cosmic horror fishing adventure with a sinister undercurrent. This content adds a new constructable destination with its own story, items and adversities that can be experienced at any stage in your playthrough\n\nAbout the Game\nCaptain your fishing trawler to explore a collection of remote isles, and their surrounding depths, to see what lies below. Sell your catch to the locals and complete quests to learn more about each area\u2019s troubled past. Outfit your boat with better equipment to trawl deep-sea trenches and navigate to far-off lands, but keep an eye on the time. You might not like what finds you in the dark...\n\nExplore the Islands & Discover their Secrets\nStarting from your new home in the remote archipelago, \u2018The Marrows\u2019, take to the water and scour the depths for curious collectables and over 125 deep sea denizens. Explore each area while completing quests and visiting neighbouring island regions \u2013 each with their own unique opportunities, inhabitants, and secrets.\n\nDredge the Depths\nSomeone wants you to dig up the past, but can you trust them and will it ever be enough?\n\nBeware the Fog\nDanger is everywhere, so watch for sharp rocks and shallow reefs, though the biggest threats of all lurk within the fog that cloaks the night-time seas...\n\nGame Features:\nUnravel a Mystery: Captain your fishing trawler across a collection of remote islands, each with its own inhabitants to meet, wildlife to discover, and stories to unearth.\n\nDredge the Depths: Scour the sea for hidden treasures and complete quests to gain access to strange new abilities\n\nStudy Your Craft: Research special equipment and upgrade your boat\u2019s capabilities to gain access to rare fish and valuable deep-sea curios.\n\nFish to Survive: Sell your discoveries to the locals to learn more about each area, and upgrade your boat to reach even more secluded locations.\n\nFight the Unfathomable: Strengthen your mind and use your abilities to survive trips out on the water after dark.",
+  "lutris": "https://lutris.net/games/dredge/",
+  "name": "DREDGE",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_70f88014423ed93eaa111c0d0daca2c500f76908.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_d4d4b14c5cd071307e27b4e9737f23f28b096248.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_9529104cde1af2ffbb715cab42bbb3012fb9b7d8.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_b60f2ff50997c5da29fcd783770053263aac26c0.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_e964290b6a6a6941e299ba5be00fd3d98aec6d06.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_87d0d9ba6e7851a07778ac696d56af8e0ab71a21.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_fb81a15978913f50e17d8f59346ae7688b405ab2.1920x1080.jpg?t=1780479732",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/ss_d98d0c25d9cdb72f4d8e78818a49a34ace974d47.1920x1080.jpg?t=1780479732"
+  ],
+  "short": "DREDGE is a single-player fishing adventure with a sinister undercurrent. Sell your catch, upgrade your boat, and dredge the depths for long-buried secrets. Explore a mysterious archipelago and discover why some things are best left forgotten.",
+  "steam_appid": 1562430,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

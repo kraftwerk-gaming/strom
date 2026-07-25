@@ -1,0 +1,24 @@
+{
+  "developers": [
+    "Anego Studios"
+  ],
+  "genres": [
+    "Survival",
+    "Simulation",
+    "Indie",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/vintage-story.jpg",
+  "long": "Vintage Story is a voxel-based survival and crafting sandbox emphasizing realistic systems like knapping, pottery, and seasonal farming in a procedurally generated world. It features deep progression from stone tools to mechanical contraptions, plus a lore-driven exploration layer. It was developed by Anego Studios and supports multiplayer servers.",
+  "lutris": "https://lutris.net/games/vintage-story/",
+  "name": "Vintage Story",
+  "screenshots": [],
+  "short": "Vintage Story (native Linux, v1.22.0 with built-in libs)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online Co-op"
+  ],
+  "year": 2018
+}

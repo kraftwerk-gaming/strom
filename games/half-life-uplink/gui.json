@@ -1,7 +1,0 @@
-{
-  "genres": ["FPS", "Action"],
-  "tags": ["Single-player"],
-  "year": 1999,
-  "developers": ["Valve"],
-  "long": "Half-Life: Uplink is a standalone single-player demo released by Valve in 1999, featuring an exclusive chapter not found in the full game in which Gordon Freeman fights through the Black Mesa facility to reach a communications relay. It showcases the original GoldSrc engine's scripted set-pieces and combat. This package runs the genuine Uplink gamedir on the WON Half-Life engine through Proton."
-}

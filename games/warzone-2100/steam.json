@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Pumpkin Studios",
+    "Underdone Gaming",
+    "Warzone 2100 Project"
+  ],
+  "genres": [
+    "Free To Play",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/header.jpg?t=1584419815",
+  "long": "In the late 21st century, the world's civilizations are wiped out by a series of nuclear strikes, seemingly caused by a massive malfunction of the new NASDA (North American Strategic Defense Agency) strategic defense system.\nWhile most of the survivors form scavenger bands to survive, you are a member of a group named \"The Project\", that is more organised and seeks to rebuild civilization using pre-war technology.\n\nCompared to other real-time strategy games, Warzone 2100 has a greater focus on artillery, radar, and counter-battery technologies, more frequent in-game cinematic updates as game play progresses, a massive research tree, as well as a vehicle design system.\n\nFeatures\n* Fully open source\n* Single player campaign with full FMV support\n* Single player skirmish modes\n* An extensive tech tree with over 400 different technologies\n* A vehicle design system\n\nNotes:\nTo play multiplayer online port 2100 needs to be fowarded.\nPlease refer to your local router setting on how to do this.\n\nSource code is available from GitHub from this location:",
+  "lutris": "https://lutris.net/games/warzone-2100/",
+  "name": "Warzone 2100",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_e5c0abc792108d211343efeddf02f2488b7f1301.1920x1080.jpg?t=1584419815",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_48dab20fde9bba877beafcde62730dd03cfa8867.1920x1080.jpg?t=1584419815",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_1592e25b90bfb4a184f922a622d1b3011c6f4216.1920x1080.jpg?t=1584419815",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_40e1b58b5852e7b0031cc8ac85b91caf30f927fe.1920x1080.jpg?t=1584419815",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_54722bec7cdf17c4ebaa8f2e0c5a650a94db267b.1920x1080.jpg?t=1584419815",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_7644c02572ace77acc2ce83f5b8f5597b8647e74.1920x1080.jpg?t=1584419815",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1241950/ss_8e376df90274b73e0bcd5f4ee2d562a4e476cb78.1920x1080.jpg?t=1584419815"
+  ],
+  "short": "In the late 21st century, the world's civilizations are wiped out by a series of nuclear strikes, seemingly caused by a massive malfunction of the new NASDA (North American Strategic Defense Agency) strategic defense system.",
+  "steam_appid": 1241950,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "LAN PvP",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

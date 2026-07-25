@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "RedCandleGames"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/header.jpg?t=1778126197",
+  "long": "Greenwood high school, located in a remote mountainous area, two students found themselves trapped and vulnerable. The place they once knew has changed in unsettling ways, haunted by evil creatures. To escape, they must explore the mysterious campus filled with ominous objects and puzzles. How will they survive in this ever threatening environment? Could they return to safety in one piece?\n\nSet in a fictitious world in the 1960s Taiwan under martial law, Detention, the story-driven atmospheric horror incorporated East Asian elements rarely used in games. Taoism, Buddhism, Chinese mythology, the game draws on local Taiwanese cultural references to tell an unique and terrifying story.\n\nIn this 2D atmospheric horror side-scroller, players navigate the main characters in a classic point and click fashion to explore a high school where evil encroaches. While hiding from the rampaging monsters, you are to find items to interact with in the otherworldly rooms. And as more mysteries unveiled, the dark past of a cursed school will finally surface.\n\n    2D atmospheric horror with spine-chilling atmosphere.\n\nImmersive gameplay and puzzle solving experience\n\nUnique Taiwanese/Eastern cultural references.\n\nOriginal sound tracks, fusing Electronic, Lo-Fi, and Rock with traditional Asian instruments.\n\nUnique and appealing  graphics.\n\nMultiple language support. (Including English, Chinese and Japanese)\n\nMac, Windows and Linux support",
+  "lutris": "https://lutris.net/games/detention/",
+  "name": "Detention",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_12b49760815166f6b3bf96ed7addcf3db582a26b.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_91cea56fcacd8c16c631f60eff7ae971fa39f710.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_2de6ae33d45fa0eb745034400286dc3163b63270.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_6ade8401589ceb7fc4f101c919b3e05c629c1537.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_d3c47718570d3d0df1ffc9ba5e1343e853fe661f.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_9a916420323e90c6469385c88b6cfd9f7fa8e16b.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_9f34c27b5127961d58cb2204e353a3b0a7e3ca2b.1920x1080.jpg?t=1778126197",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/555220/ss_4a973d58c74b234fbaf97ac46a638b4342450802.1920x1080.jpg?t=1778126197"
+  ],
+  "short": "Detention is an atmospheric horror game set in 1960s Taiwan under martial law. Incorporated religious elements based in Taiwanese/Chinese culture and mythology, the game provided players with unique graphics and gaming experience.",
+  "steam_appid": 555220,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

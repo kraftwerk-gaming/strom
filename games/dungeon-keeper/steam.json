@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Bullfrog Productions"
+  ],
+  "genres": [
+    "Action",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/header.jpg?t=1777495095",
+  "long": "Discover your dark side as you build an evil underground kingdom and defend it against the forces of good. Carve out a living, breathing world and attract a host of devilish creatures to swell the ranks of your dark hordes. Form an alliance with the Horned Reaper to expand your empire and invade the realms above. In this dungeon-building, treasure-defending, hero-destroying adventure, it feels good to be bad \u2014 and the badder, the better!\n\nKey features:\n\nGet your hands on even more evil tools. Use everything at your disposal \u2014 torture devices included \u2014 to create the deadliest dungeon imaginable. Set traps, send dastardly demons to do your bidding, and unleash the powers of the underworld with a brand-new magic system.\n\nRule your way. Keep your minions well-supplied with bustling infrastructure and good pay, or scare them into miserable servitude. There\u2019s no extra credit for good behavior.\n\nBring your friends to their knees. Play with up to 4 frenemies, and prove who\u2019s the most ruthless dungeon keeper in all land.",
+  "lutris": "https://lutris.net/games/dungeon-keeper/",
+  "name": "Dungeon Keeper\u2122 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_40434bc45da136b67ea5c837902289e95c47a8a8.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_7fa73be515395ad31ac0db3cad7f1fc3d041c521.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_41d25972c9decdde25a67ceca9d4db2ce8794999.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_9a8b546637419207c2399b30b1c8b88e1fad5874.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_79297a197de615e032ee27ac3e77d580b0192fd6.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_e1c6cfad79f7bf940e5c43d7fc2454624c8384a5.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_8b4f578c5526a7818e4648448de50cf709f6e400.1920x1080.jpg?t=1777495095",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2616460/ss_5f4925e53a6e2e9edb4567a5d5c36830cd2f3b27.1920x1080.jpg?t=1777495095"
+  ],
+  "short": "Bad guys have all the fun. Discover your dark side as you build an evil underground kingdom and defend it against the forces of good.",
+  "steam_appid": 2616460,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

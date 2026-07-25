@@ -1,8 +1,0 @@
-{
-  "_comment": "Manual web-GUI metadata for a game that is not on Steam (or whose Steam data is wrong). Merged over the lutris fallback by scripts/fetch-steam-metadata.py. See AGENTS.md > Web GUI catalog metadata for the field reference and the recognized `tags` strings that drive the Features filter.",
-  "genres": ["Action", "FPS"],
-  "tags": ["Multi-player", "Online Co-op", "LAN Co-op"],
-  "year": 2005,
-  "developers": ["Digital Illusions CE"],
-  "long": "Large-scale modern-combat warfare across land, sea and air. Battlefield 2 pits two teams over sprawling maps with jets, helicopters, tanks and transports, a commander layer with UAV/artillery support, and squad-based play. This Complete Collection bundles the Special Forces, Euro Force and Armored Fury expansions."
-}

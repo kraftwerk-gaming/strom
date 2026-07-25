@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Piranha Bytes"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/header.jpg?t=1776958649",
+  "long": "Gothic II: Gold Edition brings together the excitement of Gothic II and the add-on Night of the Raven to your fingertips!\n\n\t\t\t\t\t\t\t\tYou have torn down the magical barrier and released the prisoners of the Mine Valley. Now the former criminals of the forests and mountains are causing trouble around the capital of Khorinis. The town militia is powerless due to their low amount of force\u2013outside of the town, everyone is helpless against the attacks of the bandits.\n\n\t\t\t\t\t\t\t\tOver 100 thrilling missions on the different settings\n\nA detailed, lively game environment with over 500 individual characters (each with their own daily routine)\n\nThe player determines the course of the story himself\n\nFight with more than 200 different weapons and magical spells\n\nOver 12 hours of complete, English voice output\n\nIncludes the Night of the Raven add-on",
+  "lutris": "https://lutris.net/games/gothic-ii/",
+  "name": "Gothic II: Gold Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_116b0eda250828b0a5a928a9ddb3a9a4af2f3b8b.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_743f468a70a6b6488461957a0a56f8c286294cf2.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_55f27e1a4ce94dda0fec932d4f3a2e38ab300459.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_b06b8fae5c1852dd9cb7ec0ed9cac48bdc1240c5.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_b821f9350c774f265a1644bdfa9df60774cd5a81.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_db6c25d5191d1aee292e318ab849d1aa337346df.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_34b06edc9ecc90de02247ebadf92355f62ec9d08.1920x1080.jpg?t=1776958649",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39510/ss_b8f57864c5523a11a530ad6953145e2b565d4110.1920x1080.jpg?t=1776958649"
+  ],
+  "short": "Gothic II: Gold Edition brings together the excitement of Gothic II and the add-on Night of the Raven to your fingertips!",
+  "steam_appid": 39510,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2010
+}

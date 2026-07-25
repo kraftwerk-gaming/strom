@@ -1,0 +1,25 @@
+{
+  "developers": [
+    "Epic Games",
+    "Digital Extremes"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/unreal-tournament.jpg",
+  "long": "Unreal Tournament is a fast-paced arena first-person shooter centered on competitive deathmatch and team modes like Capture the Flag, Domination, and Assault. The single-player ladder pits the player against AI bots, while the multiplayer supports online and LAN play. It was developed by Epic Games and Digital Extremes and published by GT Interactive; this build uses the OldUnreal v469e native Linux patch.",
+  "lutris": "https://lutris.net/games/unreal-tournament/",
+  "name": "Unreal Tournament",
+  "screenshots": [],
+  "short": "Unreal Tournament (GOTY, 1999; OldUnreal v469e native Linux)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online PvP",
+    "LAN PvP",
+    "PvP"
+  ],
+  "year": 1999
+}

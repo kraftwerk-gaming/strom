@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Phenomic",
+    "THQ Nordic"
+  ],
+  "genres": [
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/header.jpg?t=1561968743",
+  "long": "SpellForce 2 - Anniversary Edition presents the award-winning SpellForce saga hits: \"SpellForce 2 \u2013 Shadow Wars\" and the add-on \"SpellForce 2 \u2013 Dragon Storm\" for a spectacular game experience!\n\nExperience the age of heroes: roleplaying action & realtime strategy in a perfect mix of genres.\n\nMysterious powers arise from darkness and shadow. They are threatening Eo, the world of SpellForce, already devastated by wars and sundered by intrigues. A hero, born of the legendary  Shaikan and linked by a life bond with an ancient dragon now holds the fate of the world in his hands! Unite powerful heroes and armies under your banners, as only with joined forces you can combat this threatening doom! The burden of ancient blood is heavy, and it is yours to carry\u2026\n\nFight epic campaigns with your heroes, with over 90 hours of playing time.\n\nIndividual development of the avatar and heroes with an extensive skill tree!\n\nControl various game factions with three races each in a life-like fantasy world.\n\nCommand infantry, mounted and flying units, and unleash the enormous titans!\n\nExperience spectacular mass battles in breath-taking 3D graphics!\nAnniversary Edition Features:\nRe-implemented multiplayer and NAT traversal for a smooth online experience\n\nMany Bugfixes\n\nAdditions and Fixes for the Free Game Mode\n\nWidescreen Support\n\nFull compatibility with modern operating systems\nMajor Engine & Technical Re-Design/Re-Work:\nGrass rendering improved\n\nView distance improvements\n\nImproved trees (trunk/branch)\n\nImproved leaf rendering (add leaf subsurface scattering)\n\nImproved lighting (per pixel, basic Bidirectional reflectance distribution function specular, rim light, view dependent ambient, etc)\n\nImproved shadows (soft shadows, percentage-closer filtering)\n\nShader Model 3.0 usage only",
+  "lutris": "https://lutris.net/games/spellforce-2-anniversary-edition/",
+  "name": "SpellForce 2 - Anniversary Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_8e77f77a95a9263c78ce74fd10e4ef63d7b7f1b0.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_8b360227a63b4bcb34be4fab420a86844e479680.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_1864e22554eb1813883f8c3bb5c295195bc8ac9f.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_ee798cda5e17fe84861a7f88a274f0b130bf2212.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_135fb71449f5c5665b77ef3d18f231e9d83cb2de.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_24242d5023dcaa9e4e436fa7e3eef7957737cd59.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_b76a16927387ab9d94ede5f3463c41e13f90cd96.1920x1080.jpg?t=1561968743",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39550/ss_abbcbfbbff86030fe8cb70c634dbae471c69e324.1920x1080.jpg?t=1561968743"
+  ],
+  "short": "SpellForce 2 - Anniversary Edition presents the award-winning SpellForce saga hits: &quot;SpellForce 2 \u2013 Shadow Wars&quot; and the add-on &quot;SpellForce 2 \u2013 Dragon Storm&quot; for a spectacular game experience!",
+  "steam_appid": 39550,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Steam Cloud",
+    "Includes level editor",
+    "Family Sharing"
+  ],
+  "year": null
+}

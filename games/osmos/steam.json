@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Hemisphere Games"
+  ],
+  "genres": [
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/header.jpg?t=1602721579",
+  "long": "Enter the ambient world of Osmos: elegant, physics-based gameplay, dreamlike visuals, and a minimalist, electronic soundtrack.\n\t\t\t\t\tYour objective is to grow by absorbing other motes. Propel yourself by ejecting matter behind you. But be wise: ejecting matter also shrinks you. Relax - good things come to those who wait.\n\t\t\t\t\tIndependent Games Festival finalist in three categories: Seumas McNally Grand Prize, Excellence in Design and Technical Excellence\n\nProgress from serenely ambient levels into varied and more challenging worlds. (47 levels, plus bonus content)\n\nConfront attractors, repulsors and intelligent motes with similar abilities and goals as you\n\nSelected as one of the 2009 PAX 10\n\nProcedural content: play random versions of any level\n\nSublime electronic soundtrack by Loscil, Gas/High Skies, Julien Neto, Biosphere, and more\n\nDynamic time-warping: slow down the flow of time to outmaneuver agile opponents; speed it up to raise the challenge",
+  "lutris": "https://lutris.net/games/osmos/",
+  "name": "Osmos",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_968857e4d5c04ea3bc5a2170aaff09bfde95274a.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_9ad03d47325c11b428aaeaea690cd3d519dae12f.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_0ae14467f5962873f0e56aefe57d4e728fae7830.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_f77d63ac0caa0f9a9705dfa50c62c0190bf0b4c2.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_85e9f0e5094089263e830f02463acba1a8a6c048.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_0a0fa76a05d8cbac1acd626ce926a34de8db0ea7.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_1576e7681667beba3e31fa6611885f303b26e6a8.1920x1080.jpg?t=1602721579",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/29180/ss_6c7390c468c71dbf89050fdd3770fcf759eb256d.1920x1080.jpg?t=1602721579"
+  ],
+  "short": "Enter the ambient world of Osmos: elegant, physics-based gameplay, dreamlike visuals, and a minimalist, electronic soundtrack. Your objective is to grow by absorbing other motes. Propel yourself by ejecting matter behind you. But be wise: ejecting matter also shrinks you. Relax - good things come to those who wait.",
+  "steam_appid": 29180,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

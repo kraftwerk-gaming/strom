@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Nightdive Studios"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/header.jpg?t=1769786947",
+  "long": "System Shock is the fully fledged remake of the ground breaking original from 1994, combining cult gameplay with all-new HD visuals, updated controls, an overhauled interface and all-new sounds & music; it even has the original voice actor of SHODAN, one of gaming\u2019s most iconic villains. Witness the rebirth of one of the greatest and most influential games ever created.\n\nSHE IS SELF-AWARE AND AWARE OF YOU\n\nMeet SHODAN. The psychotic AI has taken control of Citadel Station and turned the crew into an army of cyborgs and mutants; She now plans to do the same to Earth. You must explore and battle your way through the depths of a space station gone to hell. Stop SHODAN and avert humanity\u2019s destruction.HER TERMINATION IS OUR SALVATION\n\nFEATURES\n\n- Fight to death in the depths of space\n- Face off against the forces of a rogue AI gone mad\n- Improve your skills and adapt to take on your foes\n- Discover a non-linear story unfolding at your own pace\n- Jack into cyberspace to hack the system and open other routes\n- Innovative art style combines retro future design with modern technology\n\nBecome fully immersed: shoot, brawl, crawl, climb, leap and think your way through Citadel Station.",
+  "lutris": "https://lutris.net/games/system-shock/",
+  "name": "System Shock",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_f4a9713413a54cd9ffea88c84c3197d87012b0eb.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_d8f11b2d84bb30139af1ebbb239e0bc84863a36d.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_cc77d3592195c09de0585a5149ed1021304c2989.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_fde31c4a5b63a1776e240640aa22f536e6a5b579.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_0f97ec2bb4222f1ef4f496a03d06fc8251a447c3.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_d98c59565ec54ca500990cb846f569a570914908.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_bd90403cc6d59f91457ad77f9374173fe3cabce5.1920x1080.jpg?t=1769786947",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/ss_11e02c61a9029c5a51a65d6667a5e4124b903b30.1920x1080.jpg?t=1769786947"
+  ],
+  "short": "A first-person fight to the death in the depths of space!",
+  "steam_appid": 482400,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

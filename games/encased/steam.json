@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Dark Crystal Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/header.jpg?t=1669389314",
+  "long": "A tactical sci-fi RPG set in a dystopian environment allowing you to fight enemies, explore the hostile wasteland, level up your character and join one of the factions \u2013 made up of survivors - in the shattered world and cut off from the rest of society.\n\nEnrolling in one of the five wings of the CRONUS Corporation - each with its own features, mechanics and game options - and embark on a one way trip inside the Dome in the quest for unique artifacts as you avoid radiation, anomalies and a whole host of creatures out to do you harm.\n\nYou may start as an ordinary company employee but you will eventually become the driving force behind the narrative that takes place before, during, and after the disaster known as \u2018The Incident\u2019.\n\nCrafting, combat, negotiation; you\u2019re going to need all your wits about you if you want to survive.\n\nOnce you\u2019re familiar with the basics, you are thrust into an open world filled with riches and danger. The old ways are gone \u2013 ground into dust by the powerful Maelstrom \u2013 and rising from the ashes are six powerful factions, vying for control over the ravaged landscape under the Dome. Will they be allies or enemies? That choice \u2013 and the future of the Dome \u2013 is in your hands.\n\nNot everyone under the Dome is your friend; quite the reverse in fact. If you\u2019re a smart likeable character (with a high charisma rating) you might be able to talk your way out of things. But more likely it\u2019s time for a bit of ultra-violence. And that means weapons; lots of weapons. And there\u2019s no shortage of choice: from high tech beam weapons through to a solid right hook, there\u2019s loads of way to bring down a hostile group of foes. Of course, you can be a pacifist and use non-lethal force but that\u2019s a story for another day\u2026\n\nThe hostile and unforgiving world can be a lonely place; so why not team up with some like-minded individuals and face the challenges together. From hardened criminals built like mountains or scientists with a shady past, there\u2019s a host of different potential companions to journey with, each replete with their own unique personality and skills.\n\nOr you can just go \u201cLone Wolf\u201d and face everything alone; it\u2019s not an easy road but you can play this way too if you so wish.\n\nEncased is full of choices: from what sort of character you will be, what wing you will join and how honourable a person you are. What equipment do you take? How will you fight? Do you craft better weapons or armour?\n\nAnd it doesn\u2019t stop there. You will hold lives in the balance and will have to choose who survives and who perishes.\n\nAnd every decision you make will impact the story and your gaming experience. Well, no one said surviving Armageddon was going to be easy\u2026",
+  "lutris": "https://lutris.net/games/encased/",
+  "name": "Encased: A Sci-Fi Post-Apocalyptic RPG",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_ac366931abebebeae20d6c6dd72e7cdf0ac6902b.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_94545be88af0f820a5657773312fa1dc8111538e.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_99f7e3f9e4fbc1ead66e199c008cc20aa3e5be1b.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_a95b3395988f3bb52de67a15d0693624c4f96ecf.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_f612933c8f1f4cd63895d0fb5df6f4c0bc996f12.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_875f1e56aecf9a3352b9710561384162c55279b2.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_de9ce32839362669c8aa5fe461f9cc30c84f00a7.1920x1080.jpg?t=1669389314",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/921800/ss_0d4b7fec81d5f57c961fa3f79650746e3ee2fcaa.1920x1080.jpg?t=1669389314"
+  ],
+  "short": "A tactical sci-fi RPG set in an alternative 1970's, where an enormous and inexplicable artifact \u2013the Dome\u2013 is discovered in a remote desert. Fight enemies, explore the anomalous wasteland, level up your character, join one of the forces in the ruined world.",
+  "steam_appid": 921800,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2021
+}

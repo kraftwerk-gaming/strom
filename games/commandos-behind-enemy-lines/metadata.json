@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Pyro Studios"
+  ],
+  "genres": [
+    "Strategy",
+    "Stealth"
+  ],
+  "hero": "https://lutris.net/games/banner/commandos-behind-enemy-lines.jpg",
+  "long": "Commandos: Behind Enemy Lines is a real-time tactics game set in World War II, where the player directs a small squad of elite Allied commandos through carefully designed missions behind Axis lines. Each commando has unique specialist skills, and success demands stealth, planning, and precise coordination rather than brute force. It is a single-player title built around isometric puzzle-like scenarios.",
+  "lutris": "https://lutris.net/games/commandos-behind-enemy-lines/",
+  "name": "Commandos: Behind Enemy Lines",
+  "screenshots": [],
+  "short": "Commandos: Behind Enemy Lines (1998 Eidos / Pyro Studios, English Win95, via Proton + Kruulos Ultimate Fix)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}

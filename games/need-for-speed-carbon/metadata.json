@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "EA Black Box"
+  ],
+  "genres": [
+    "Racing",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/need-for-speed-carbon.jpg",
+  "long": "Need for Speed: Carbon is a 2006 arcade racing game and sequel to Most Wanted. Players build a crew and race through the city of Palmont, including high-speed canyon duels against rival gang leaders. It features customizable cars, open-world street racing, and territory control gameplay.",
+  "lutris": "https://lutris.net/games/need-for-speed-carbon/",
+  "name": "Need for Speed: Carbon (2006)",
+  "screenshots": [],
+  "short": "Need for Speed: Carbon (2006) (via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player"
+  ],
+  "year": 2006
+}

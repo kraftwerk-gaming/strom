@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "Tensori"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/header.jpg?t=1768842904",
+  "long": "One could say POOLS is like an art gallery where you look around and listen to the sounds. Very few things to accomplish or solve, practically a few mazes. Sometimes POOLS can challenge your navigation skills. But mostly you're just... there.\n\nNote: There are no monsters chasing you or jumping suddenly towards you, but the game can feel oppressive. POOLS plays on fears of getting lost, the dark, and tight spaces.\n\nThe game has no user-interface and no dialogue. No background music. Instead, the game uses sounds to make you feel like you're really there. The sounds and echo change depending on the room you're in. Walking in water is slower. All of these things makes the game feel more real and creates a tense atmosphere.\n\nThere's no typical story, no characters to meet, and you won't find any notes in game. But as you explore and advance further, you start to notice that the game's world changes around you. Rooms look and feel different. Each chapter has something unique. Constantly you're exploring new places, each with its own kind of mystery.\n\nBase game has six unique chapters, each taking 10 to 30 minutes to play.\n\nPOOLS is inspired by a internet phenomenons \"Liminal spaces\", \"Found footage\" and \"Backrooms\" - specifically \"Backrooms Pools\" or \"Poolrooms\".\n\nOne of the original artists behind the Poolrooms concept is Jared Pike.\n\nOther inspirations include:\n\nMatt Studios: Poolrooms videos from 2022\n\nMortain Colors\n\nAnemoiapolis: Chapter 1 by Andrew Quist\n\nKane Pixels: The Backrooms (Found Footage)",
+  "lutris": "https://lutris.net/games/pools/",
+  "name": "POOLS",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_faeeaeddf3b6aa4dce9e351a74d9033128206671.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_3ad834a1f3b0d5db35daeeedbf9e99c6a47d1091.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_cec5378d7ba525e54214a4c1c78f0cc84287ca9f.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_0b8acbe1423e83e236db5bf3a5787fa9e5886725.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_6364966617184ea4439687a2c3384745fb83f3ae.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_cd0d56bad44fe7b98ea957af37d09e2866c529b0.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_8814b20aa1a3853d40bcffd205dad7103c31f637.1920x1080.jpg?t=1768842904",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2663530/ss_b1d6a882d27b6675623149d78715a602815c5df4.1920x1080.jpg?t=1768842904"
+  ],
+  "short": "Walking simulator. Explore, admire and listen. Uncanny. Relaxing. Unnerving. Eerie. Immersive. No monsters chasing you or jumping at your screen, but can feel oppressive at times by invoking fears of getting lost, the dark, tight spaces and liminal space architecture. Inspired by backrooms.",
+  "steam_appid": 2663530,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Tracked Controller Support",
+    "VR Supported",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

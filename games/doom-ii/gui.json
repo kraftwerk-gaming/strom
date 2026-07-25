@@ -1,7 +1,0 @@
-{
-  "genres": ["FPS", "Action"],
-  "tags": ["Single-player", "Multi-player", "LAN Co-op", "LAN PvP"],
-  "year": 1994,
-  "developers": ["id Software"],
-  "long": "DOOM II: Hell on Earth is id Software's sequel to the genre-defining first-person shooter, pitting the lone marine against demonic hordes across 32 levels set on a ravaged Earth. It introduced the double-barreled super shotgun and new enemy types like the Arch-vile and Mancubus. This package runs the commercial DOOM2.WAD through the modern open-source GZDoom engine, which adds OpenGL/Vulkan rendering and supports classic cooperative and deathmatch network play."
-}

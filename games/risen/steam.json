@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Piranha Bytes",
+    "THQ Nordic"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/header.jpg?t=1674662941",
+  "long": "The island Faranga needs a new hero, you!\n\nDelve into a gritty, raw and atmospheric fantasy world in which every action has a consequence. In the epic world of Risen, filled with mysterious earthquakes, fearsome monsters and unimaginable treasures, forge your path with the sword, learn the art of staff fighting or become a powerful mage.\n\nCountless side quests and creatures to discover.\n\nOver 60 hours of Immersive open world gameplay.\n\nAlter the destiny of the island by the actions you take.",
+  "lutris": "https://lutris.net/games/risen/",
+  "name": "Risen",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_9d8d438861fff98497b69f36aa5f8498689f5fdf.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_61d8dff6910567b4395f605b219438870350f516.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_a5d6ad79c5e2bb723c62c2804470880e12212ed7.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_cff3a9ae9bb59c1f66499e7d3bdda0789a9ce405.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_7180e7d8df4a4ba543db523f4ad5179bb52b58f5.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_7dced26b0648e918ad8a47521df9dc1bb50abaea.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_4f334c7771cb18eab115c84d9c2efeed2b2dcf26.1920x1080.jpg?t=1674662941",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40300/ss_f7fe8eda4ea4fbebcfa7297658002e7a4bc53e44.1920x1080.jpg?t=1674662941"
+  ],
+  "short": "Delve into a gritty, raw and atmospheric fantasy world in which every action has a consequence. In the epic world of Risen, filled with mysterious earthquakes, fearsome monsters and unimaginable treasures, forge your path with the sword, learn the art of staff fighting or become a powerful mage.",
+  "steam_appid": 40300,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

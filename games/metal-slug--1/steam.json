@@ -1,0 +1,41 @@
+{
+  "developers": [
+    "Dotemu"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/header.jpg?t=1727156570",
+  "long": "\u201cMETAL SLUG \u201d, the very first title in SNK\u2019s legendary 2D run & gun action shooting game series where it all began, returns on the Steam gaming platform!\n\n MAIN FEATURES\n\u30fbARCADE MODE (MAIN MISSION):\nPlay the original arcade version of \u201cMETAL SLUG \u201d with its charismatic protagonist soldiers Marco & Tarma, maneuver the almighty \u201cMETAL SLUG \u201d tank, and fight your way through the 6 missions of the game to thwart Gen. Morden's evil ambitions!\n\n\u30fbMISSION MODE (STAGE SELECT):\nPlay and enjoy your favorite stages at will! Train alone or with a brother-in-arms on the missions you have unlocked so far!\n\n\u30fbONLINE MISSION (ONLINE MULTIPLAYER):\nConnect to Steam and clear missions with a brother-in-arms far away via the Online Co-Op Play feature.\nEngage with a fellow countryman or foreign ally and let the mission begin!\n\n\u30fbSETTINGS:\nConfigure control, language, video display, and sound volume settings for the best \u201cMETAL SLUG \u201d experience on PC.\n\n\u30fbLEADERBOARDS:\nCheck your current rank & score in \u201cMETAL SLUG\u201d at any time, and challenge other players to be the best \u201cMETAL SLUG \u201d soldier in the world!\n\n** WILL NOT RUN ON Windows XP **",
+  "lutris": "https://lutris.net/games/metal-slug--1/",
+  "name": "METAL SLUG",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_dd0fe9bc581a20886b4888cb5670cc4c1419fa7e.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_8d5f335421d5cc1406a7162dea62d54b78ff3a1c.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_2608834e1b86c7ada0996a1326cf60fe39634e52.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_7fe11119a47c3683df9f866974da5f20ee146658.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_4034154ab7d1a5d15379ebd7092206204d9ae6c7.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_ba27107e08584452f0ee3b52acfc15e82619e68f.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_8ec072aba55f3b7eb233289605e2342ee4f90170.1920x1080.jpg?t=1727156570",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/366250/ss_a2ea29fd771f9ebf935ddd66e1cf40cd8eae0404.1920x1080.jpg?t=1727156570"
+  ],
+  "short": "\u201cMETAL SLUG \u201d, the very first title in SNK\u2019s legendary 2D run &amp; gun action shooting game series where all began, returns to the missions on the Steam gaming platform!",
+  "steam_appid": 366250,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Leaderboards",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

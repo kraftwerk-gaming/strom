@@ -1,0 +1,44 @@
+{
+  "developers": [
+    "Alkimia Interactive"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/6bc8c205a107e552f14631524f25cdf88743515a/header.jpg?t=1782739446",
+  "long": "The Legend is Back\nReturn to the Valley of the Mines in this faithful remake of the genre-defining open world RPG. Explore a hand-crafted, organic open world that reacts dynamically to your actions. Whether you're a seasoned Gothic veteran or this is your first time being thrown into the colony, you're in for a true RPG experience with unrestricted exploration like no other.\n\nWelcome to the Colony\nThe Kingdom of Myrtana has been invaded by a relentless horde of orcs. Desperate for powerful weapons to repel them, King Rhobar II orders the mining of vast quantities of magical ore, setting every available prisoner to work in the Khorinis mines. To ensure no one escapes, the King commands his most skilled mages to erect a magical barrier. But something goes terribly wrong, and the magic spirals out of control, trapping everyone inside. The prisoners rebel, transforming the mine into a lawless territory ruled by the Colony\u2019s most brutal inmates.\nNow, the King must negotiate with these new rulers, as tensions rise among the mine's factions. Amidst the chaos, the arrival of an unknown prisoner will change everything \u2026\n\nA True RPG-Experience\nGothic 1 Remake remains faithful to the original experience, rebuilding the game from the ground up while preserving its distinctive sense of unrestricted exploration and satisfying progression. The dark and gritty world of the Colony is richly detailed and immersive, with NPCs and wildlife following realistic daily routines independent from the player.\nWhile the core pillars of the game remain intact, the remake enhances the experience with expanded and more detailed questlines, additional NPC routines and reactions, new traversal abilities, and a fully modernized combat system.\n\nFeatures\nFaithful Remake: Experience the original 2001 RPG classic fully rebuilt using current gen technology, preserving its iconic atmosphere while enhancing the gameplay for a fluid and dynamic experience.\n\nExpansive Gameplay: Immerse yourself in over 50 hours of gameplay, exploring the vast and dangerous world of the Colony. Discover secrets old and new, challenging combat encounters, and unique NPCs each with their own story to tell\n\nDynamic Living World: Explore a vibrant world where inhabitants go about their daily lives\u2014working, sleeping, eating, and fighting to survive, adding depth and realism to this immersive world.\n\nBranching Story: Chose which of the three factions to align with, influencing how your abilities and playstyle develop and how this true adventure unfolds.\n\nEnhanced Combat System: Master a modernized combat system that updates the core mechanics of the original, offering a more fluid and dynamic experience while staying true to its deliberate and tactical roots.\n\nPlay as the Nameless Hero:  Navigate the fate of a lifelong convict who must survive in a treacherous world filled with wild animals, ancient magic, and dangerous foes.",
+  "lutris": "https://lutris.net/games/gothic/",
+  "name": "Gothic 1 Remake",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/09d4206dedf6fa71a14a375325482c43ef03f201/ss_09d4206dedf6fa71a14a375325482c43ef03f201.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/1c3b2b3524c6323b0cada742b988c7e0d3b25185/ss_1c3b2b3524c6323b0cada742b988c7e0d3b25185.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/1e289f3bceac481f6771ba09060f6c4d0f67ba76/ss_1e289f3bceac481f6771ba09060f6c4d0f67ba76.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/ss_072cf9be6024e1c9dd113828977749ba5a5ee861.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/a2ca0d486ef05bf20a357e2ed46ad0f012bea669/ss_a2ca0d486ef05bf20a357e2ed46ad0f012bea669.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/ss_92fc7406839d5c3d534ab28350f8019d7a724089.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/ss_fe1a5eb19fbba9095756ce40d3007251880b4f9b.1920x1080.jpg?t=1782739446",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1297900/ss_384b0956bec4a37b38ac77b31e6e75a017930d69.1920x1080.jpg?t=1782739446"
+  ],
+  "short": "The Legend is Back - Return to the Valley of the Mines in this faithful remake of the genre-defining classic RPG. Explore a hand-crafted, organic open world that reacts dynamically to your actions in a gritty, unrestricted experience like no other.",
+  "steam_appid": 1297900,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

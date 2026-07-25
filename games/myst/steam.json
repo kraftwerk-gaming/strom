@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Cyan Worlds, Inc."
+  ],
+  "genres": [
+    "Adventure",
+    "Casual"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/f1ebdada543d4327e06e721905ded5f9b5a75c65/header.jpg?t=1773701726",
+  "long": "Few are chosen. Fewer succeed.\nYou stumble upon a battered old book and find yourself transported to the island of Myst. As you explore the surreal landscape, you quickly learn that something has gone wrong.\u00a0\n\nTerribly wrong.\n\nAn ancient betrayal must be unveiled. Secret books concealed on the island of Myst lead the way to incredible worlds born of a master storyteller\u2019s imagination. Yet one by one, they\u2019re being destroyed through the treachery of his sons.\nBut which one?\n\nOnly your wits and imagination will serve to untangle the web of lies and deceit that shrouds the worlds of Myst.\n-\nMyst: Masterpiece Edition, released in 2000, is as close to the original 1993 experience as you can get without a CD-ROM drive. Featuring the original point-and-click gameplay style, but upgraded with 24-bit color, a remastered score, and enhanced sound effects.\nBegin your journey through one of the best-selling video games of all time with Myst: Masterpiece Edition.",
+  "lutris": "https://lutris.net/games/myst/",
+  "name": "Myst: Masterpiece Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/a1a1236417d422db9ab6b38ab5bd79a310214728/ss_a1a1236417d422db9ab6b38ab5bd79a310214728.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/25a808ad4fb62d4722cfe49943aa897350c20da7/ss_25a808ad4fb62d4722cfe49943aa897350c20da7.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/b51d70a8d972580f458e69a4ed12ffe5e1c29b0f/ss_b51d70a8d972580f458e69a4ed12ffe5e1c29b0f.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/86c1449ab3d47bbc69f11ecada9fd4d90315dcd9/ss_86c1449ab3d47bbc69f11ecada9fd4d90315dcd9.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/6eacba0548b9445d5736cc74f0f08aef3ae541d6/ss_6eacba0548b9445d5736cc74f0f08aef3ae541d6.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/a5455d1ca5fa4a898277e76344f1abd905ca70c0/ss_a5455d1ca5fa4a898277e76344f1abd905ca70c0.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/a062de7cc3c2fe66732b546b7823a14bf1b9083e/ss_a062de7cc3c2fe66732b546b7823a14bf1b9083e.1920x1080.jpg?t=1773701726",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/63660/812967654569cc9c69fd6f631f3a5b6637650f8d/ss_812967654569cc9c69fd6f631f3a5b6637650f8d.1920x1080.jpg?t=1773701726"
+  ],
+  "short": "The classic Myst experience with point and click controls, released as a remaster to the original in 2000. Enter a world where nothing is as it seems... and adventure knows no bounds!",
+  "steam_appid": 63660,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Family Sharing"
+  ],
+  "year": 2011
+}

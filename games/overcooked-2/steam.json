@@ -1,0 +1,48 @@
+{
+  "developers": [
+    "Ghost Town Games Ltd.",
+    "Team17"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/header.jpg?t=1780480581",
+  "long": "Overcooked! Version Comparison\n\nAbout the Game\nOvercooked returns with a brand-new helping of chaotic cooking action! Journey back to the Onion Kingdom and assemble your team of chefs in classic couch co-op or online play for up to four players. Hold onto your aprons \u2026 it\u2019s time to save the world (again!)\n\nOut of the frying pan, into the fire\u2026\n\nYou\u2019ve saved the world from the Ever Peckish. Now a new threat has arisen and it\u2019s time to get back in the kitchen to stave off the hunger of The Unbread!\n\nONLINE/LOCAL MULTIPLAYER MADNESS\n You\u2019ll knead to work together (or against each other) to get the highest score in chaotic local and online multiplayer.\n\nFEAST YOUR EYES ON THIS\n Journey across a brand new overworld map by land, sea and air. Get cooking in new themes ranging from sushi restaurants, magic schools, mines and even alien planets!\n\nWHET YOUR APPETITE!\n Travel the land cooking up a range of new recipes that are sure to cater to any tastes, including sushi, cakes, burgers and pizzas.\n\nROMAINE CALM!\n Travel through teleporters, across moving platforms and save time by throwing ingredients across dynamic kitchens that shift and evolve. Some kitchens even whisk your chefs away to new locations.",
+  "lutris": "https://lutris.net/games/overcooked-2/",
+  "name": "Overcooked! 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_2f84a12e1fe82cca37848bf29d4b8b16e83db03b.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_7f290dccbdc3c0eb9ded951717bceba5d7455764.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_652d62549a8a5fdf4f0061e20b16a3cd9a19dc45.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_773917e64738bc879685cff49b8ac6eb4f15ab93.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_3728a182f291231c4713860611dd9292b8b4fd05.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_1ed2b6e65220555ab81f376b7a65424083c4cbb0.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_34974a4c2047b287a1f55802fde061fd7ee1a026.1920x1080.jpg?t=1780480581",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/728880/ss_2bd9b26dae1ea739ec36e6032d3aa86de7ce2590.1920x1080.jpg?t=1780480581"
+  ],
+  "short": "Overcooked returns with a brand-new helping of chaotic cooking action! Journey back to the Onion Kingdom and assemble your team of chefs in classic couch co-op or online play for up to four players. Hold onto your aprons\u2026 it\u2019s time to save the world again!",
+  "steam_appid": 728880,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2018
+}

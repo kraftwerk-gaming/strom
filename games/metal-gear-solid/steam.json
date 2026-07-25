@@ -1,0 +1,50 @@
+{
+  "developers": [
+    "KONAMI"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/05c97cbcd0cfc27c8ed6c7fc6d81e0995aa2a7d4/header.jpg?t=1762249119",
+  "long": "Digital Deluxe Edition\nThe Digital Deluxe Edition includes both the game and the Sneaking DLC Pack at a reduced price.\n\nIncludes:\n\u25cfMETAL GEAR SOLID \u0394: SNAKE EATER\n\u25cfSneaking DLC Pack\n\u30fbUniform: Battle Dress (PW ver.)\u200b\n\u30fbUniform: Sneaking Suit (PW ver.)\u200b\n\u30fbUniform: Crocodile Suit\u200b\n\u30fbUniform: Naked (Woodland)\u200b\n\u30fbUniform: Naked (Ammunition Belt)\n\u30fbUniform: Gold\n\u30fbFace: Glasses\n\u30fbFace: Sunglasses\n\u30fbEquipment: Kerotan Mask\n\u30fbEquipment: GA-KO Mask\n\nAbout the Game\nThe Beginning of it All.\n\nA remake of the 2004 game METAL GEAR SOLID 3: SNAKE EATER, with the same gripping story and engrossing world, now with all new graphics and 3D audio that enhance the jungle atmosphere. Get ready for the ultimate survival stealth action experience.\n\nThe Cold War Crisis that started it all\nIn the middle of the Cold War, Naked Snake, the man who would later be known as Big Boss, infiltrates the Soviet Union to escort a defecting scientist, Sokolov. However, the mission ends in failure when Snake's mentor\u2014The Boss, a soldier known as the mother of special forces\u2014betrays him, and Sokolov is captured by Colonel Volgin of the GRU.\n\nOne week later, Snake returns to Soviet territory to rescue Sokolov and eliminate The Boss\u2014a mission that will mark the start of a new legend, against the backdrop of the ever-changing march of history.\n\nEverything you love, and more\nThe story, characters, voice acting, gameplay, and music that made the original a sensation return, remade for modern consoles. This evolutionary leap breathes new life into every cutscene, and rebuilds every corner of the world.\n\nGorgeously rendered graphics\nWith Unreal Engine 5, expansive stages are rendered with cutting-edge technology. Incredible new graphics bring the wild growth of the jungles, forests, and swamps to life in exquisite detail. Characters are rendered in such fine detail that facial wrinkles, pores, and even separate eye and iris movements are visible, allowing for rich and emotive facial animations.\n\nAuthentic to life portrayals\nThe battle damage system has been upgraded, with the wear and tear of Snake's clothes, as well as bruises and bullet wounds on his body, reflected in real time. Injuries will leave their mark on Snake's body permanently, telling a story of each player's unique journey through the game.\n\nDeeply immersive experiences\nPlayers can elect for a newly added, more modern control style. These intuitive controls let you focus entirely on the game, and the immersive thrills of the survival stealth experience. You can also choose to play with a classic control style that more closely recreates the feel of the original game.\nAdditional Game Modes\n\n\u30fbSNAKE VS MONKEY\nIn this mode, you'll play as Snake, and round up all the escaped apes running amok in each stage!\n\n\u30fbFOX HUNT\nAn all-new online multiplayer mode, set in the same world as the main story. This new mode makes use of stealth and survival elements to deliver exciting hide-and-seek-style back-and-forth gameplay.\n\n\u30fbSecret Theater\nFind 8mm film canisters, secretly carried by enemy soldiers, to unlock these humorous takes on certain scenes. You can find scenes from the original Secret Theater, as well as newly created videos.\n*Secret Theater will be unlocked after finishing the game.\n*Film canisters carried by soldiers can be collected during initial playthrough.\n\n\u30fbGUY SAVAGE \u0394\nThe \"Guy Savage\" nightmare game returns in a fully reimagined version that captures the essence of the original while providing a fresh new look from PlatinumGames. Trigger the nightmare sequence during gameplay or clear the entire story mode to unlock it as a bonus mode.\n*GUY SAVAGE \u0394 will be unlocked after finishing the game.",
+  "lutris": "https://lutris.net/games/metal-gear-solid/",
+  "name": "METAL GEAR SOLID \u0394: SNAKE EATER",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_b63fda5d26ec95f8e12d78f5d23cb19484c73bf5.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_d8384cbc19684210c75fefd77bc2481d25db3f21.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_98ada80d8590577bb93becae3ab1dcca0ecd0256.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_1167e5910619da40634727f1c4791c6f7fc41b97.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_78e200fb5fac4872fb3ff3a8e704f127d4e88511.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_067293ab0472c8701d8eda13e1a870484aedb7e4.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ae16c93d885c988e2533b1b8893807824e08befd/ss_ae16c93d885c988e2533b1b8893807824e08befd.1920x1080.jpg?t=1762249119",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/ss_314db4d0d0ed652b5f080fc4cfd441e7bccbfaa4.1920x1080.jpg?t=1762249119"
+  ],
+  "short": "A remake of the 2004 game METAL GEAR SOLID 3: SNAKE EATER, with the same gripping story and engrossing world, now with all new graphics and 3D audio that enhance the jungle atmosphere. Get ready for the ultimate survival stealth action experience.",
+  "steam_appid": 2417610,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Gamepad Recommended",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Steam Cloud",
+    "HDR available",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

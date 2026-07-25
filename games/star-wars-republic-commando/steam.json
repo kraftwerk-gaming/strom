@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "LucasArts"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/header.jpg?t=1741729103",
+  "long": "Chaos has erupted throughout the galaxy. As leader of an elite squad of Republic Commandos, your mission is to infiltrate, dominate, and ultimately, annihilate the enemy. Your squad will follow your orders and your lead, working together as a team - instinctively, intelligently, instantly. You are their leader. They are your weapon.\n\t\t\tInnovative Squad Control System - With intuitive and smart squad commands, the simple touch of one button easily controls your squad to perform complex commands and strategic maneuvers.\n\nMultiple Gaming Mode  - Choose the single-player option and command a squad of four that you can dispatch at will. Or, choose the multiplayer option and play with up to sixteen players online in different multi-player modes.\n\nPrelude to Episode III - Encounter new vehicles, locations and enemies from the upcoming film.",
+  "lutris": "https://lutris.net/games/star-wars-republic-commando/",
+  "name": "STAR WARS\u2122 Republic Commando\u2122",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_cb2abfb83f3eb056465986b742d73c0f06a8346c.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_5784a5d951d56f0387085e33a28571889bb5f5d5.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_d6ad70ebd469a7cc112fb287fe67dd854f35e7ad.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_4001c19b5087e4a534993d329579bceb06e23b93.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_9ea29c449fb070643688760aef4f5627f3161fe4.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_937893546208b9f2946e1c4b22d883b5f78b5d60.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_3f067d58ea30392197f433ed7b16b3e687cb8a68.1920x1080.jpg?t=1741729103",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/6000/ss_7c16576d21e1b9638b8773f00cc8f60a8c517656.1920x1080.jpg?t=1741729103"
+  ],
+  "short": "You are the leader of an elite squad of Republic Commandos, your mission is to infiltrate, dominate, and ultimately, annihilate the enemy. Your squad will follow your orders and your lead, working together as a team - instinctively, intelligently, instantly. You are their leader. They are your weapon.",
+  "steam_appid": 6000,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

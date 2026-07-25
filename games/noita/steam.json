@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Nolla Games"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "RPG",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/header.jpg?t=1675987871",
+  "long": "Noita is a magical action roguelite set in a world where every pixel is physically simulated. Fight, explore, melt, burn, freeze and evaporate your way through the procedurally generated world using spells you've created yourself. Explore a variety of environments ranging from coal mines to freezing wastelands while delving deeper in search for unknown mysteries.\n\nPixel-based physics: Every pixel in the world is simulated. Burn, explode or melt anything. Swim in the blood of your foes! Enter a simulated world that is more interactive than anything you've seen before.\n\nYour own magic: Combine spells to create your own magic as you delve deeper into the caverns. Use magic to crush your enemies and manipulate the world around you.\n\nProcedurally generated world: Explore a unique world every time you play. Discover new environments as you adventure deeper.\n\nAction roguelite: Death is permanent and always a looming threat. When you die, don\u2019t despair, use what you\u2019ve learned to get further on your next adventure.\n\nNoita is being developed by Nolla Games, a company set up by 3 indie developers, all of whom have worked on their own projects in the past.\n\nThe three gents in question are:\n\nPetri Purho\nPetri is best known as the creator of Crayon Physics Deluxe. In his youth he also made a lot tiny freeware games. He has also made a bunch of board games, but he hasn't told about it to anyone. So please keep it a secret.\n\nOlli Harjola\nOlli is known for the award-winning, mind-bending sci-fi puzzler The Swapper. Besides indie games, he also dabbles in music, live visuals and making programming languages.\n\nArvi Teikari\nArvi is also known as Hempuli. Over the years he has released a lot of tiny experimental games, so many in fact that he is unaware of all of them. One of the games he remembers making is Baba Is You.",
+  "lutris": "https://lutris.net/games/noita/",
+  "name": "Noita",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_626b401fd6d78ab335ecb8ff1e4b0a8ce7d25f66.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_96308c4c5951740a0e46e0aa66e67bd04e99286a.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_c02b4406a18dc2e3fe213a6c1948d975ba191985.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_c9c81f5abbc75b9e5408c23d44bfab14e6759cb7.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_c65fea857e3a2168c0c103952f0955094aacf329.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_56b342c3dbddae9409f6af8582cfa804de3e1229.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_a2797d36d19106bde83824e84dfb6694aeed6bba.1920x1080.jpg?t=1675987871",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/881100/ss_d980d141e724c23f4d937790e0f924f05f268edf.1920x1080.jpg?t=1675987871"
+  ],
+  "short": "Noita is a magical action roguelite set in a world where every pixel is physically simulated. Fight, explore, melt, burn, freeze and evaporate your way through the procedurally generated world using spells you've created yourself.",
+  "steam_appid": 881100,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Workshop",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

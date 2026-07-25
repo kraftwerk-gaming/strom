@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Harebrained Schemes"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/header.jpg?t=1709809316",
+  "long": "MAN MEETS MAGIC & MACHINE. The year is 2054. Magic has returned to the world, awakening powerful creatures of myth and legend. Technology merges with flesh and consciousness. Elves, trolls, orks and dwarves walk among us, while ruthless corporations bleed the world dry. You are a shadowrunner - a mercenary living on the fringes of society, in the shadows of massive corporate arcologies, surviving day-by-day on skill and instinct alone. When the powerful or the desperate need a job done, you get it done... by any means necessary.\n\nIn the urban sprawl of the Seattle metroplex, the search for a mysterious killer sets you on a trail that leads from the darkest slums to the city\u2019s most powerful megacorps. You will need to tread carefully, enlist the aid of other runners, and master powerful forces of technology and magic in order to emerge from the shadows of Seattle unscathed.\n\nThe unique cyberpunk-meets-fantasy world of Shadowrun has gained a huge cult following since its creation nearly 25 years ago. Now, creator Jordan Weisman returns to the world of Shadowrun, modernizing this classic game setting as a single player, turn-based tactical RPG.Key Features\n\tGripping Tactical Combat: When you\u2019re running the shadows, every turn matters. Choose your actions wisely - move to better cover, charge into melee, or lob a fireball into a crowd of enemies. With the variety of weapons and spells at your disposal, every turn is filled with meaningful choices. A successful run requires commanding a team of runners with the right balance of combat, tech, and magical abilities.\n\n\tSkill-Based Character Progression: Choose a starting character archetype and build from there! Street Samurai and Physical Adepts use advanced combat skills to dominate the battlefield, Shamans and Mages summon powerful allies and cast deadly spells, while Riggers and Deckers provide critical technological support, projecting their consciousness directly into drones and computer systems. Shadowrun Returns\u2019 classless skill system allows you to grow your character in any direction you choose. Want to start summoning spirits as an ork Shaman and evolve into a cybered-up weapon specialist? Do it!\n\n\tEngaging 2D/3D Art Style: Shadowrun Returns mixes dynamic 3D characters and lighting with a vibrant, hand-painted environment. Illustrated character portraits bring every conversation to life. Explore a world filled with detail, from the slums of the Redmond Barrens to the extravagant offices of powerful corporations.",
+  "lutris": "https://lutris.net/games/shadowrun-returns/",
+  "name": "Shadowrun Returns",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_a7bb7a251ab6a35bb18e74c4b1e175f07c6f97d9.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_91385eda4a92bd45a0f0b48d05ddc5983bddacfa.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_0642edd501936048a5baaedfa0ccd47972507b94.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_c6a698ad09946f080c78cbe8ae276b7a059f9318.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_20b847a3d5abde9aacf0284ba45e7a1abff37c4d.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_3a410a248c7f5dca5125f144b218b1a853b798ba.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_65de366aa19c23eaf377f9d921d427381faf662f.1920x1080.jpg?t=1709809316",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/234650/ss_7b685c1225cd46212abe1575a4058a23896cf761.1920x1080.jpg?t=1709809316"
+  ],
+  "short": "The unique cyberpunk-meets-fantasy world of Shadowrun has gained a huge cult following since its creation nearly 25 years ago. Now, creator Jordan Weisman returns to the world of Shadowrun, modernizing this classic game setting as a single player, turn-based tactical RPG.",
+  "steam_appid": 234650,
+  "tags": [
+    "Single-player",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

@@ -1,0 +1,53 @@
+{
+  "developers": [
+    "Wube Software LTD."
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/header.jpg?t=1763986204",
+  "long": "Factorio is a game in which you build and maintain factories. You will be mining resources, researching technologies, building infrastructure, automating production and fighting enemies. In the beginning you will find yourself chopping trees, mining ores and crafting mechanical arms and transport belts by hand, but in short time you can become an industrial powerhouse, with huge solar fields, oil refining and cracking, manufacture and deployment of construction and logistic robots, all for your resource needs. However this heavy exploitation of the planet's resources does not sit nicely with the locals, so you will have to be prepared to defend yourself and your machine empire.\n\nJoin forces with other players in cooperative Multiplayer, create huge factories, collaborate and delegate tasks between you and your friends. Add mods to increase your enjoyment, from small tweak and helper mods to complete game overhauls, Factorio's ground-up Modding support has allowed content creators from around the world to design interesting and innovative features. While the core gameplay is in the form of the freeplay scenario, there are a range of interesting challenges in the form of Scenarios. If you don't find any maps or scenarios you enjoy, you can create your own with the in-game Map Editor, place down entities, enemies, and terrain in any way you like, and even add your own custom script to make for interesting gameplay.\n\nDiscount Disclaimer: We don't have any plans to take part in a sale or to reduce the price for the foreseeable future.What people say about Factorio\n\nNo other game in the history of gaming handles the logistics side of management simulator so perfectly. - Reddit\n\nI see conveyor belts when I close my eyes. I may have been binging Factorio lately. - Notch, Mojang\n\nFactorio is a super duper awesome game where we use conveyor belts to shoot aliens. - Zisteau, Youtube",
+  "lutris": "https://lutris.net/games/factorio/",
+  "name": "Factorio",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_36e4d8e5540805f5ed492d24d784ed9ba661752b.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_171f398a8e347fad650a9c1b6c3b77c612781510.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_0bf814493f247b6baa093511b46c352cf9e98435.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_2533e54b0bd90a29adbedb60108ed277536ad445.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_192864c00fc38b5ef97b97ca7fa655a9aed7c0da.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_e301bde0fc0e996ba93e92639cd49dd90ae47b36.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_57665be6cc629906ae7004799e90699c69c07c97.1920x1080.jpg?t=1763986204",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/ss_9dba6c91d45eededca01f9f61bf1435be2dfbf0d.1920x1080.jpg?t=1763986204"
+  ],
+  "short": "Factorio is a game about building and creating automated factories to produce items of increasing complexity, within an infinite 2D world. Use your imagination to design your factory, combine simple elements into ingenious structures, and finally protect it from the creatures who don't really like you.",
+  "steam_appid": 427520,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "LAN Co-op",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Subtitle Options",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

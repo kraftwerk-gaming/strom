@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Reality Pump Studios"
+  ],
+  "genres": [
+    "Strategy",
+    "RTS"
+  ],
+  "hero": "https://lutris.net/games/banner/earth-2140.jpg",
+  "long": "Earth 2140 is a real-time strategy game set in a post-apocalyptic future where the Eurasian Dynasty and the United Civilized States wage war over the planet's dwindling resources. Players build bases, harvest materials and command land, air and naval units across two campaigns. This GOG reissue is an SDL2 source port run through Proton.",
+  "lutris": "https://lutris.net/games/earth-2140/",
+  "name": "Earth 2140 (Reality Pump / TopWare 1997, GOG Trilogy) via Proton",
+  "screenshots": [],
+  "short": "Earth 2140 (Reality Pump / TopWare 1997, GOG Trilogy) via Proton",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP"
+  ],
+  "year": 1997
+}

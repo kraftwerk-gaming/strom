@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Bethesda Softworks"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/header.jpg?t=1656353357",
+  "long": "The ancient golem Numidium, a powerful weapon once used by the great Tiber Septim to unify Tamriel, has been found in Iliac Bay. In the power struggle that follows, the King of Daggerfall is murdered and his spirit haunts the kingdom. The Emperor Uriel Septim VII sends his champion to the province of High Rock to put the king\u2019s spirit to rest and ensure that the golem does not fall into the wrong hands.",
+  "lutris": "https://lutris.net/games/the-elder-scrolls-ii-daggerfall/",
+  "name": "The Elder Scrolls II: Daggerfall",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/ss_d45b571d69235c9fca2f2f5630de37bd1bf916dd.1920x1080.jpg?t=1656353357",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/ss_063d3bbd2bc66f115e63858d62730ae28a793860.1920x1080.jpg?t=1656353357",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/ss_f208b79e9d83f3fccd1f4040156d84cf87604c2d.1920x1080.jpg?t=1656353357",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/ss_6272473ab91d9064374f5a4a5f046f06508f6efc.1920x1080.jpg?t=1656353357",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/ss_add5e5f32679b691118815fdf80c6edf8d1cfabc.1920x1080.jpg?t=1656353357",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1812390/ss_062ece147ba8f5bde4255c26f921f51470b70166.1920x1080.jpg?t=1656353357"
+  ],
+  "short": "THE GREAT MACHINE AWAKENS",
+  "steam_appid": 1812390,
+  "tags": [
+    "Single-player",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

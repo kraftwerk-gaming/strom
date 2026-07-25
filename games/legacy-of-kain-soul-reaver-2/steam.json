@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "Crystal Dynamics"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/header.jpg?t=1769789957",
+  "long": "In this sequel to the critically acclaimed Legacy of Kain: Soul Reaver, reassume the role of Raziel, and travel back through the currents of time into various eras of Nosgoth's past in your relentless pursuit of Kain. Encounter new enemies as you unearth the mysteries of Nosgoth's ancient races, and expose the schemes behind the corruption of the Pillars, and the vampire genocide.\nAcquire new and improved Soul Reaver weapon enhancements, physical abilities, and relics to interact with the environment and unlock the dark secrets of Nosgoth\n\nDevour the souls of new enemies including vampire hunters, Sarafan warrior-priests, spectral spirits, and extra-dimensional demons\n\nImmerse yourself in a gothic realm of highly detailed architecture and environments supported with an intriguing storyline, compelling voice-over, and no in-game loading times\n\nShift real-time between the spectral and material realms to access previously unattainable places",
+  "lutris": "https://lutris.net/games/legacy-of-kain-soul-reaver-2/",
+  "name": "Legacy of Kain: Soul Reaver 2 (2001)",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_11564c0be00ef69ed65a05b73b2b396361626178.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_67ba7228cbb6c9bebe60d466150f0f1e6632d090.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_e06ac5bf1d79d0df4c04580efd412f962c238ff7.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_c857ee03ebd1288df9be22762431afc2203ae420.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_c263198a9ea39fb9ec3cd94ed6e249e96c107adf.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_2ebdacb617e61e8991faa9d3ba4c4c4140c81865.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_f7b9527816d2a78da56478115b8758f7a6c9d76f.1920x1080.jpg?t=1769789957",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/224940/ss_bc387d6f6f5be9f3aa9ab1c7e58d00381fa8c4b6.1920x1080.jpg?t=1769789957"
+  ],
+  "short": "In this sequel to the critically acclaimed Legacy of Kain: Soul Reaver, reassume the role of Raziel, and travel back through the currents of time into various eras of Nosgoth's past in your relentless pursuit of Kain.",
+  "steam_appid": 224940,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2012
+}

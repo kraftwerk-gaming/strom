@@ -1,0 +1,43 @@
+{
+  "developers": [
+    "Jackbox Games, Inc."
+  ],
+  "genres": [
+    "Casual",
+    "Indie",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/header.jpg?t=1728584652",
+  "long": "Five new incredible party games to bring the fun!\n\n1.\tThe say-anything threequel Quiplash 3 (3-8 players). Get big laughs answering the quirkiest prompts.\n\n2.\tThe collaborative chaos game The Devils and the Details (3-8 players). Can you survive the daily torture of human life?\n\n3.\tThe drawing fighting game Champ\u2019d Up (3-8 players) . Can you take down the heavy favorite?\n\n4.\tThe on-the-spot speech game Talking Points (3-8 players). Just keep talking whether it makes sense or not.\n\n5.\tThe pop culture guessing game Blather 'Round (2-6 players). It\u2019s a good fun time experience.\n\nPlay using phones, tablets or computers. No extra controllers needed!\n\nNOTE: The Jackbox Party Pack 7 is in English only.\nNOTE: The game is local multiplayer but can be enjoyed over streams with remote players.\n\nHow to Play Remotely\nPlayers use any web-enabled device (like a smartphone or tablet) to join the game and play along. When playing with remote players, you can use a video conferencing tool like Zoom, Steam Broadcast, Google Hangouts, Discord, and more to connect with others! Just share your screen while on a call and make sure you look for prompts to share audio.",
+  "lutris": "https://lutris.net/games/the-jackbox-megapicker/",
+  "name": "The Jackbox Party Pack 7",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_c89e2f32d8ff2a702c75fdc0a6f1fb214ede975e.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_c508b8c68753ba872d64181c75c5c103838ceab6.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_fcf663fd157d91452b068b271807f5d4ea635ee9.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_8f5269b241de21b66fda22c17a169d035fb62243.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_3ea8a804414d68cc9f0fc2ee3776151dbee7aa0d.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_fd1e3f38e07e5c2e396ce3d4cb3206100df3540d.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_84636a59e736daa031092a751fdab8ddd2627f17.1920x1080.jpg?t=1728584652",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1211630/ss_ba2c3abc12ef299d102c7d5b54250895aab1a31a.1920x1080.jpg?t=1728584652"
+  ],
+  "short": "Five new games: the hit threequel Quiplash 3, the collaborative chaos of The Devils and the Details, the fierce drawing game Champ\u2019d Up, the speech game Talking Points and the guessing game Blather 'Round. Use phones or tablets as controllers and play with up to 8 players, and an audience of 10,000!",
+  "steam_appid": 1211630,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

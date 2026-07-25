@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Lazy Bear Games"
+  ],
+  "genres": [
+    "Simulation",
+    "RPG",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/graveyard-keeper.jpg",
+  "long": "Graveyard Keeper is a darkly comic medieval cemetery-management simulation in which the player inherits a graveyard and must tend graves, gather resources, craft, cook and build a business while cutting morally dubious corners. It mixes survival and RPG progression with a branching story and a satirical tone. This package bundles three DLC and runs as a native Linux build from GOG.",
+  "lutris": "https://lutris.net/games/graveyard-keeper/",
+  "name": "Graveyard Keeper +3 DLC",
+  "screenshots": [],
+  "short": "Graveyard Keeper +3 DLC (native Linux, GOG v1.405 build 55214)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2018
+}

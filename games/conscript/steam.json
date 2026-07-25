@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "Jordan Mochi",
+    "Catchweight Studio"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/9158f03f8044125171f8e8c415a2e2e915f7e49b/header.jpg?t=1764865767",
+  "long": "Reviews Plaque\n\nTrench Raider Pack\nBattle through the trenches with 3 additional uniforms to choose from in the Trench Raider Pack, containing:\n\u2022 Elite Trench Raider\n\u2022 Pilot\n\u2022 English Tommy\n\nAbout the Game\n\nCONSCRIPT is a top-down survival horror experience inspired by genre classics\u2014blending strategic resource management, methodical combat, and suffocating atmosphere into a grim, historically grounded nightmare.\n\nThe Battle of Verdun, 1916. World War I\u2019s bloodiest conflict rages as the German Army drives deep into France.\n\nYour younger brother has vanished amid the chaos.\n\nDive into the madness of war. Engage in brutal combat against hostile troops, manage scarce supplies, and solve complex environmental puzzles as you explore collapsed trench lines, infiltrate occupied forts, and cross no man's land in a desperate search for your lost kin.\n\nCan you find the flesh and blood you\u2019ve lost\u2014and ensure a home goes unbroken?\n\nTrue Classic Survival Horror\nLimited ammunition. Fragile health. Relentless tension. Every encounter demands resolve.\n\nTailor the Terror\nPlay with modern comforts such as checkpoints, unlimited saving, and an expanded inventory\u2014or commit to the strict limitations of classic survival horror.\n\nA Historically Grounded Nightmare\nSurvive the Battle of Verdun through evocative pixel art and oppressive soundscapes that capture the brutality of one of history\u2019s darkest battles.\n\nWar-Torn Labyrinths\nExplore intertwining trenches, towns, forts, and battlefields that demand careful route planning, inventory management, and puzzle-solving.\n\nIntense, Visceral Combat\nEngage enemy combatants with authentic WWI melee weapons and firearms in desperate, claustrophobic encounters.\n\nReturn for Another Tour\nHighly replay value with a full range of difficulties, multiple endings, unlockable costumes, rankings, and bonus weapons.",
+  "lutris": "https://lutris.net/games/conscript/",
+  "name": "CONSCRIPT: Director\u2019s Cut",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/2baa2a30913a7bf61d26a5b64b7f8daf49f4ba47/ss_2baa2a30913a7bf61d26a5b64b7f8daf49f4ba47.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/bc2bc71a607016919ffd7ed56fe8a8dac3413ef7/ss_bc2bc71a607016919ffd7ed56fe8a8dac3413ef7.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/b80dfeb8a0fdc4b17d6953a564ce1b017b6bbde4/ss_b80dfeb8a0fdc4b17d6953a564ce1b017b6bbde4.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/0c235d2f662219f16a5dddc37330b48edaa67878/ss_0c235d2f662219f16a5dddc37330b48edaa67878.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/a7efeea0576db5e5ca1250858a58e1fb730376c5/ss_a7efeea0576db5e5ca1250858a58e1fb730376c5.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/a69a80417f617639bebd0f9c10a5a9d5cb8c10a9/ss_a69a80417f617639bebd0f9c10a5a9d5cb8c10a9.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/5fd9222de79b67ae417d3f42589913f7aebd6029/ss_5fd9222de79b67ae417d3f42589913f7aebd6029.1920x1080.jpg?t=1764865767",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1286990/dc6e4359028c0a7365c5b974fa1a4e1be5cb7b2c/ss_dc6e4359028c0a7365c5b974fa1a4e1be5cb7b2c.1920x1080.jpg?t=1764865767"
+  ],
+  "short": "During the First World War, a lone French soldier must navigate twisted trenches, scavenge for limited supplies and solve complex puzzles\u2014all whilst fighting for survival in the midst of mankind\u2019s most brutal and horrifying conflict. CONSCRIPT is a new historical take on classic survival horror.",
+  "steam_appid": 1286990,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Color Alternatives",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2024
+}

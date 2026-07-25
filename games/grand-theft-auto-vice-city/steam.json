@@ -1,0 +1,27 @@
+{
+  "developers": [
+    "Rockstar Games"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/header.jpg?t=1781138647",
+  "long": "Experience the genre-defining classic, updated for a new generation with across-the-board enhancements including brilliant new lighting and environmental upgrades, with high-resolution textures, increased draw distance, Grand Theft Auto V-style controls and targeting, and much more.\n\r\n\n\r\nWelcome to the 1980s. From the decade of big hair and pastel suits comes the story of one man's rise to the top of the criminal pile. Grand Theft Auto returns with Tommy Vercetti\u2019s tale of betrayal and revenge in a neon-soaked tropical town full of excess and brimming with possibilities.\n\r\n\n\r\nDeveloped by Rockstar Games, adapted by Grove Street Games.",
+  "lutris": "https://lutris.net/games/grand-theft-auto-vice-city/",
+  "name": "Grand Theft Auto: Vice City \u2013 The Definitive Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_778d72865d6f09ba99b43f10c2b29e0537781a85.1920x1080.jpg?t=1781138647",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_df005e43791b1be1d3949b1e4ef3cafb29b6850a.1920x1080.jpg?t=1781138647",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_1159c693feda20830480e5d2ee578d72ad4beee9.1920x1080.jpg?t=1781138647",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_7c88685239031c35df4b6cde7f7163ba0e9ba41b.1920x1080.jpg?t=1781138647",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1546990/ss_1dd957711cfdf03d40ea715a1fa191a976424ec7.1920x1080.jpg?t=1781138647"
+  ],
+  "short": "Welcome to the 1980s. From the decade of big hair and pastel suits comes the story of one man's rise to the top of the criminal pile. Grand Theft Auto returns with Tommy Vercetti\u2019s tale of betrayal and revenge in a neon-soaked tropical town full of excess and brimming with possibilities.",
+  "steam_appid": 1546990,
+  "tags": [
+    "Single-player",
+    "Full controller support"
+  ],
+  "year": 2023
+}

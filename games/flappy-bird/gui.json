@@ -1,6 +1,0 @@
-{
-  "genres": ["Casual", "Indie"],
-  "tags": ["Single-player"],
-  "developers": ["NiroUwU"],
-  "long": "Flappy Bird is a minimalist arcade game in which the player taps to keep a bird aloft, threading it through an endless series of pipe gaps for as high a score as possible. The original 2013 mobile hit by .Gears had no PC release. This package ships \"Floppy Bird\", a faithful open-source clone by NiroUwU built on the LOVE (Love2D) engine and run natively on Linux."
-}

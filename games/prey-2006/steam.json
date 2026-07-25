@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Arkane Studios"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/header.jpg?t=1750785331",
+  "long": "Digital Deluxe Edition\n\nPrey Digital Deluxe includes Prey, Prey: Mooncrash, and Prey: Typhon Hunter- the brand new multiplayer update.\n\nAbout the Game\nStory\n\nIn Prey, you awaken aboard Talos I, a space station orbiting the moon in the year 2032. You are the key subject of an experiment meant to alter humanity forever \u2013 but things have gone terribly wrong. The space station has been overrun by hostile aliens and you are now being hunted. As you dig into the dark secrets of Talos I and your own past, you must survive using the tools found on the station -- your wits, weapons, and mind-bending abilities. The fate of the Talos I and everyone aboard is in your hands.Features\nSci-fi Thriller\nNothing is as it seems aboard Talos I. As Morgan Yu, set out to unravel the clues you've left behind for yourself, and discover the truth about your past. What role will you play in TranStar\u2019s plans, and the mysterious threat ravaging the station?\n\nSingular Setting\nOrbiting the Moon, the Talos I space station symbolizes the height of private space enterprise. Explore a lavish craft designed to reflect corporate luxury of the 1960s, and navigate interconnected, non-linear pathways built to hide countless secrets.\n\nUnimaginable Threat\nThe shadowy extraterrestrial presence infesting Talos I is a living ecology bent on annihilating its prey. It\u2019s up to you, one of the last remaining survivors aboard the station, to end the deadly attack of these haunting predators.\n\nPlay Your Way\nGain alien abilities to develop a distinct combination of powers and upgrade your unique skills. Craft increasingly useful items with the blueprints, gadgets and tools on board the station to overcome dangerous obstacles in your way. Survive unprecedented threats with your wits and ability to improvise.",
+  "lutris": "https://lutris.net/games/prey-2006/",
+  "name": "Prey",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_06b6c27c834b5639c54d470b3b5c711cf72a94af.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_ff6b4efb3add6ea9a1d67f5c6c0fae6661ed9fd8.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_976f1d181de3dc8bc86c78fe900c98be457d0942.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_788d370761d6b3c488f4314ea2752170621573c6.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_570af3ccb6cea896e3fb063d19ff87ce652c040b.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_8fcc1a7b13352ad4d0b13d6b32bcd77929f0bc2b.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_8f6126fa31c3cb52a77de2ff028413854e6189f6.1920x1080.jpg?t=1750785331",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/480490/ss_e79a3faffdc0c289c6e1efc87ce3a94212b93e33.1920x1080.jpg?t=1750785331"
+  ],
+  "short": "In Prey, you awaken aboard Talos I, a space station orbiting the moon in the year 2032. You are the key subject of an experiment meant to alter humanity forever \u2013 but things have gone terribly wrong. The space station has been overrun by hostile aliens and you are now being hunted.",
+  "steam_appid": 480490,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Color Alternatives",
+    "Save Anytime",
+    "Stereo Sound",
+    "Surround Sound",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Lucas Pope"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/header.jpg?t=1678266428",
+  "long": "The Short Film\n\nWatch the official short film based on the game.\nBy KINODOM PRODUCTIONS. Starring Igor Savochkin.\n\nAbout the Game\nCongratulations.\nThe October labor lottery is complete. Your name was pulled.\nFor immediate placement, report to the Ministry of Admission at Grestin Border Checkpoint.\nAn apartment will be provided for you and your family in East Grestin. Expect a Class-8 dwelling.\nGlory to Arstotzka\n\nThe communist state of Arstotzka has just ended a 6-year war with neighboring Kolechia and reclaimed its rightful half of the border town, Grestin.\n\nYour job as immigration inspector is to control the flow of people entering the Arstotzkan side of Grestin from Kolechia. Among the throngs of immigrants and visitors looking for work are hidden smugglers, spies, and terrorists.\n\nUsing only the documents provided by travelers and the Ministry of Admission's primitive inspect, search, and fingerprint systems you must decide who can enter Arstotzka and who will be turned away or arrested.",
+  "lutris": "https://lutris.net/games/papers-please/",
+  "name": "Papers, Please",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_4cd77e3ef5b147b011a5cf8f96b8bcbcd79b3e15.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_a1d08145ac2d3e85e8db440ccfeb7f7ad3c8247a.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_4b50458fbc4afe2917803b59a35afb3e5d61c960.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_958285f31774906eb4def9d98a83e7926ceb3be2.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_d24155eecb65aaff7367b791bc7d4910fe59b303.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_6c095a8ff86f9ebf8f796d23b1186c176fd21991.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_4a533fbcd53d15778d477d8417fb28f814e27210.1920x1080.jpg?t=1678266428",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/ss_cbff6dd781b30221f0a2308abf7f5bc16a63e3aa.1920x1080.jpg?t=1678266428"
+  ],
+  "short": "Congratulations. The October labor lottery is complete. Your name was pulled. For immediate placement, report to the Ministry of Admission at Grestin Border Checkpoint. An apartment will be provided for you and your family in East Grestin. Expect a Class-8 dwelling.",
+  "steam_appid": 239030,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Stats",
+    "Steam Leaderboards",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

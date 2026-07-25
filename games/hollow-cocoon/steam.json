@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "NAYUTA STUDIO"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/header.jpg?t=1730875830",
+  "long": "\u25a0What Kind of Game is Hollow Cocoon?\nIt is a first-person horror adventure game set in 1980s Japan.\n\nStep into the shoes of Minato Jinba, a college student returning to his mother's hometown after receiving news that his grandmother is in critical condition. Hide yourself from the monster and gather vital evidence to unravel the bone-chilling truth lurking beneath the surface!\u25a0The Story\n--198X\n\nMinato Jinba, a university student, lives away from his parents in a boarding house in the city.\nOne night, Minato receives distressing news from his father, Eiji. Minato's maternal grandmother, Kinu Miyama, is in critical condition.\nHe embarks on a journey to Ichinose, a village deep in the mountains, where his mother was born.\n\nMinato had not seen his grandmother for over a decade and harbors a deep resentment towards her.\nShe had refused to even attend her own daughter's funeral, further intensifying Minato's disdain.\n\nAs the bus rumbles across the country road, Minato recalls his only conversation with his grandmother.\n\n\"-- The thing with silkworms, you know; even if they could leave their cocoons, they have no mouths to eat, and their wings do not fly.\nThey simply lay their eggs and perish.\"\n\n\"People are the reason they suffer this fate.\"\n\nThe sky reddens in the twilight, and the mountains cast an ominous shadow.\nMinato finds himself in this house\nThere, he finds himself in a terrifying situation with a shocking truth.\u25a0Features\n-Multiple Endings\n  Experience a captivating story with four unique endings.\n  Your choices will lead the story down different branching paths.\n\n-Difficulty Selection\n  Choose from three difficulty options.\n  Whether you want to just enjoy the story or seek a challenging experience, the game can accommodate your needs.\n  *You can switch to a lower difficulty during gameplay (Note: The difficulty cannot be raised).\n\n-Auto-Saving\n  Both auto-save and manual save options are available.\n  Even if you get a game over, you can immediately restart from the last checkpoint.\n\n-Motion Sickness Reduction\n  To alleviate motion sickness, various features are available, including adjustable viewing angles, a central dot display, and the option to disable camera shaking.\n  Multiple functions are provided to minimize motion sickness caused by visuals.\u25a0Uploading and livestreaming Guidelines\nPlease adhere to the following guidelines when posting or livestreaming game footage:\n\n-Do not post or livestream content that is offensive or severely undermines the value of the game or its world.\n-Include the game's name in the title of the video or livestream.\n-Include the store page URL in the summary or description section of the video or livestream.\n-Monetization is only allowed when using the monetization functions (*1) provided by video sharing sites such as YouTube. Posting or streaming the game for commercial purposes that does not fall under the above is prohibited. (*2)\n-We request you refrain from uploading unedited gameplay footage. Please add or edit the video in some shape or form.\n-NAYUTA STUDIO will not be held responsible for any damages incurred by the publisher or any third party resulting from the posting or livestreaming of videos.\n-Please note that these guidelines are subject to change without prior notice.\n\n*1: Creator functions on video sharing platforms that allow for revenue.\n*2: Examples include screening in stores or using the content in paid events.",
+  "lutris": "https://lutris.net/games/hollow-cocoon/",
+  "name": "Hollow Cocoon",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_e1ec5f7542bf2ba1b8898028c0e5dfd5129fbe92.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_bd0de7a041066b0cf3eb89b95df60884eba7e1ef.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_bc1a89a517cdba5d6f55b92c51fa8e2692b79cd4.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_b6bf3bfc4d74ee641328468bc570f7baba46967a.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_8d2691010c163d2542a7474a9fae16b5011ba68d.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_9e3ab87d81cb9bffd43d38e28203ff128b0d286b.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_f8eb8cd4e2686a1c25b30602ecf6c959cc8e3438.1920x1080.jpg?t=1730875830",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2414630/ss_26f0edc50072a9b46baa8a105a9e857504628d8d.1920x1080.jpg?t=1730875830"
+  ],
+  "short": "&quot;Trapped in a cocoon, the silkworm weaves her final dream.&quot; Hollow Cocoon is a first-person horror adventure game set in 1980s Japan. Immerse yourself in meticulously recreated environments as you venture into the depths of unspeakable horrors that await you.",
+  "steam_appid": 2414630,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

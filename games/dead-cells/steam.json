@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Motion Twin"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg?t=1779086887",
+  "long": "Dead Cells is a roguelite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you\u2019re able to fight your way past its keepers in 2D souls-lite combat. No checkpoints. Kill, die, learn, repeat.\n\nDead Cells puts you in control of a failed alchemic experiment trying to figure out what's happening on a sprawling, ever-changing and seemingly cursed Island. Immortal but crippled, your last resort is to take over bodies in order to move, explore\u2026 and fight.\n\nWhile you may well be immortal, the corpses you possess are not. Each time your host is destroyed, you will be sent back to the dungeon to find yourself a new one and start again...\n\nExperience a Roguevania, mixing an interconnected world, branching paths and unlockable skills with the constant adrenaline-pumping threat of permadeath.  No checkpoints. You either vanquish the final boss in one go or you try again. However, you keep some of your progress for successive runs new paths you\u2019ve unlocked, access to new levels, mutations, abilities and weapons.\n\nTough but fair combat, responsive controls, challenging foes, and of course, the emergency panic roll to get you out of trouble make for a visceral and cathartic action game.",
+  "lutris": "https://lutris.net/games/dead-cells/",
+  "name": "Dead Cells",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_ac28000ade40cc2fe5c128f32ac98ba33c008a7a.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_7bde51ea6c8f6289e85ea1d8c1c941e1f8bfee91.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_e87e72a247918d8493892e035d5e1b4b84470d2f.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_a099416b9f3e09d47c42f87667e6ad6f394ba652.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_a8b0439ad7750cab1bdec86ecef0daa280e9f93f.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_21c61aca6a66745a2abb3f72b93553398fc7fe32.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_ffef382d2a1ace63b82184caf3f6c5b293c66483.1920x1080.jpg?t=1779086887",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/588650/ss_b7cf2ca21fe3648c53f808b80393cc727815dcc5.1920x1080.jpg?t=1779086887"
+  ],
+  "short": "Dead Cells is a roguelite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you\u2019re able to fight your way past its keepers in 2D souls-lite combat. No checkpoints. Kill, die, learn, repeat.",
+  "steam_appid": 588650,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Steam Cloud",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2018
+}

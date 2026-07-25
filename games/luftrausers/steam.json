@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "Vlambeer"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie",
+    "Simulation"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233150/header.jpg?t=1769028660",
+  "long": "The skies will be set aflame and the seas will overflow with wreckage in Vlambeer\u2019s stylish arcade shooter LUFTRAUSERS! Select from over 125 combinations of weapons, bodies, and propulsion systems and take to the skies to battle enemy fighter planes, battleships, submarines, and rival aces for glory, honor, and high scores. Bravely volunteer for one of over 100 daring missions to unlock new Rauser combinations and vibrant color variations and become the most legendary Rauser pilot of all time!\n\nBold Aerial Combat \u2013 White-knuckle battles against a crimson and cream sky harken back to the pure arcade shooters of the past with tight gameplay, ridiculous combos, and challenges that can only be mastered by the most elite rauser pilots in the world.\n\nCustomizable Rausers \u2013 Unlock unique weapons, plane bodies, and propulsion systems to radically alter your fighter in over 125 deadly combinations. Each daring configuration not only radically alters how your rauser handles and attacks but also rearranges the dynamic soundtrack crafted by KOZILEK.\n\nDaring Missions \u2013 Make your fellow airmen proud as you tackle over 100 challenging missions from your commanding officers and face off against rival aces in a dogfight to the death.\n\nGlorious Achievements - You know, a little something to brag about on shore leave.",
+  "lutris": "https://lutris.net/games/luftrausers/",
+  "name": "LUFTRAUSERS",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233150/ss_dfe76a4a50baf7ba288c682addcb39ebd6bdd2e0.1920x1080.jpg?t=1769028660",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233150/ss_87cd52175ff68a09fa3a75809e0d1f80fbe125e4.1920x1080.jpg?t=1769028660",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233150/ss_f2ba1806c2bf8c114321d1c97e077b0cb28fe25b.1920x1080.jpg?t=1769028660",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233150/ss_dd818d588b55380ad236ae06f5391be4f1cecb62.1920x1080.jpg?t=1769028660",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/233150/ss_42950043b6bd6d7fbeb562a26e6bd4ad91d31683.1920x1080.jpg?t=1769028660"
+  ],
+  "short": "The skies are aflame and the seas will overflow with wreckage in Vlambeer\u2019s stylish arcade shooter LUFTRAUSERS! Take to the skies in customized fighter planes to battle battleships, submarines, and rival aces for glory, honor, and high scores.",
+  "steam_appid": 233150,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

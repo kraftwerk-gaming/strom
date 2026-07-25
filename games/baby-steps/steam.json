@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Gabe Cuzzillo",
+    "Maxi Boch",
+    "Bennett Foddy"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/8d57ee5f68ecf97305c2f7847b25f1fbe1c680c2/header.jpg?t=1761065780",
+  "long": "Play as Nate, an unemployed failson with nothing going for him, until one day he discovers a power he never knew he had\u2026 putting one foot in front of the other.\n\nExplore a world shrouded in mist, one step at a time. Hike the serene mountains by placing each footstep yourself, in original physics-based gameplay from the minds behind Ape Out and Getting Over It. Take in the sights, fall in love with the local fauna, and try to find meaning in a wasted life.\n\nGet ready to fall for Nate, in Baby Steps, a literal walking simulator.\n\n\ud83d\udc5f Fully-simulated physics based walking.\n\n\u26f0\ufe0f A lengthy trek up a mountain-sized mountain that you can explore at your own pace, or slower.\n\n\ud83d\ude2b Fully dynamic onesie soilage system.\n\n\ud83c\udfb6A world that seems to come alive with a dynamic soundtrack built up out of 420 beats and vibes.\n\n\ud83e\udd20 Non-collectible hats.",
+  "lutris": "https://lutris.net/games/baby-steps/",
+  "name": "Baby Steps",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_abc270e4088e834206d0d325d6088954d9c83c5f.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_1057427db403c2256ae1dbd5a279c70003291f19.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_d392f956f86ef6e77a1b9b11d475943c735652c4.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_3b86a04ce7bc9a98d094b05d815d1cae3262a936.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_4f10d0539b2388ab5444164a14debfa49ae38243.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_13eb6551bf4cd71e4a63ffeb36a308395765454b.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_06bb90b4c832908c25f94da4c881351037a9fa51.1920x1080.jpg?t=1761065780",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1281040/ss_1e34e8a5237d66b978f5389924cfdfecdde60df0.1920x1080.jpg?t=1761065780"
+  ],
+  "short": "Play as Nate, an unemployed failson with nothing going for him, until one day he discovers a power he never knew he had\u2026 putting one foot in front of the other.",
+  "steam_appid": 1281040,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Gamepad Recommended",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

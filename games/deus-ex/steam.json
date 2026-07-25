@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "Eidos Montreal",
+    "Feral Interactive (Linux/Mac)"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/39cf848b5d93541865bdf81e1f415cc615de5d80/header.jpg?t=1780670420",
+  "long": "The year is 2029, and mechanically augmented humans have now been deemed outcasts, living a life of complete and total segregation from the rest of society.\u00a0Crime and acts of terror serve as a thin veil to cover up an overarching conspiracy aimed at controlling the future of mankind.\nNow an experienced covert operative, Adam Jensen is forced to operate in a world that has grown to despise his kind. Armed with a new arsenal of state-of-the-art weapons and augmentations, he must choose the right approach, along with who to trust, in order to unravel a vast worldwide conspiracy.\nHUMAN 2.0\n\nChoose from an array of cutting edge weapons and augmentations, customizing them to fit your playstyle.\n\nWORLDWIDE CONSPIRACY\n\nExplore diverse locations and discover a near future setting where humanity's fate hangs in the balance.\n\nMEANINGFUL CHOICES AND CONSEQUENCES\n\nExperience the world of Deus Ex, where the decisions you make and the actions you take play a crucial role in determining the game\u2019s outcome.\nFREE BONUS CONTENT\nBuy Deus Ex: Mankind Divided now and receive the following bonus content FREE:\n\u201cDesperate Measures\u201d extra in-game mission\n\nCovert Agent Pack (Intruder Gear, Enforcer Gear and Classic Gear + 1 Praxis Kit + 1000 Credits)",
+  "lutris": "https://lutris.net/games/deus-ex/",
+  "name": "Deus Ex: Mankind Divided",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ee0e35d76c5d18ca6234916fb186485f19366ae8/ss_ee0e35d76c5d18ca6234916fb186485f19366ae8.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ss_a1d8ac385b53fd01dbac136c0c41caca6a922622.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/7cbfe954178a362e9c1dccc321a05a881bad95cc/ss_7cbfe954178a362e9c1dccc321a05a881bad95cc.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ss_93783a7e416be1adfffec1f62e9274d1f4dd29c0.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ss_53bfe3cb932ec21fca54611e7f063f105aa72c9a.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ss_aa991e371e2c8dd1b4bbe62274de1ec880fbd95a.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ss_646e9ffaf54bd6fa2d5d56b0a466cfe5a2c3c2cf.1920x1080.jpg?t=1780670420",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/337000/ss_099e9055654bfd464bf63a0cc2a1646740956e64.1920x1080.jpg?t=1780670420"
+  ],
+  "short": "You play as Adam Jensen, an experienced covert operative operating in a world that despises his kind: augmented humans. Choose from an arsenal of state-of-the-art weapons and augmentations to build your playstyle, and decide who you'll trust, to unravel a vast worldwide conspiracy.",
+  "steam_appid": 337000,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Stereo Sound",
+    "Subtitle Options",
+    "Surround Sound",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2016
+}

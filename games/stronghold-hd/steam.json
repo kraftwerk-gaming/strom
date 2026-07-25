@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Firefly Studios"
+  ],
+  "genres": [
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/header.jpg?t=1758726188",
+  "long": "The original castle sim, Stronghold HD allows you to design, build and destroy historical castles. Engage in medieval warfare against the AI in one of two single player campaigns or online with up to 8 players.\n\nWith 21 missions to test your mettle and four renegade lords to defeat, it is up to you to reunite medieval England and take back your lands from the treacherous Rat, Pig, Snake and Wolf. Missions range from breaking sieges and capturing enemy castles to raising gold and holding off enemy attacks. Also featured is a full economic campaign, tasking players to gather resources and build weapons within the time limit.\n\nWield greater control over your army than ever before with new high resolution graphics! The new HD battlefield view allows you to zoom out and play in real-time, with the whole map on one screen. Advance on the castle gates while flanking the enemy from behind, feign retreat and lead your foe into a deadly trap or just sit back and watch the destruction unfold.\n\nDesign and build your very own castle, complete with a working economy and brutal killing zones.\n\nBattle through 21 story-based missions as you drive back the villainous Wolf and reclaim medieval England.\n\nBuild your dream castle in the combat-free economic campaign or besiege historical castles in Siege That!.\n\nView the entire battlefield on a single screen with support for new HD resolutions.\n\nTake your castle wherever you go with Steam Cloud support for saved games.\n\nPlay the original game on Windows XP, Vista, 7, 8 and 10 with added compatibility.",
+  "lutris": "https://lutris.net/games/stronghold-hd/",
+  "name": "Stronghold HD (2012)",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_b2375345619a33f1441506d5c242ee8aa198e599.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_690e18e84a3721adc828d15a553a166c11d4ccb4.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_eaf05d61e7a7ad00738eec362f2d3d8809281a68.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_f7f715af170f7c14c739802bf8cea62f84ad34a2.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_5d89ee045640a546b5e43005df172bb7ff7943e1.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_c7f5228a26976deef6fc4645ab1044134b0a1580.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_95d5b9e11167a49612cacebe704cdb5ef747e2d3.1920x1080.jpg?t=1758726188",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40950/ss_83badf86ed9e82ed99ce0d9b0724f2a2b9e5abd1.1920x1080.jpg?t=1758726188"
+  ],
+  "short": "The original castle sim, Stronghold HD allows you to design, build and destroy historical castles. Engage in medieval warfare against the AI in one of two single player campaigns or online with up to 8 players.",
+  "steam_appid": 40950,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Includes level editor",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

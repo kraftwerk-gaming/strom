@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "MONKEYCRAFT Co. Ltd."
+  ],
+  "genres": [
+    "Action",
+    "Casual"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848350/header.jpg?t=1708327061",
+  "long": "Coming soon!\n\nAbout the Game\nThe stop-at-nothing pushing prince is back and ready to reroll! When the King of All Cosmos accidentally destroys all the stars in the sky, he orders you, his pint-sized princely son, to put the twinkle back in the heavens above. Join the King and Prince of Cosmos on their wacky adventure to restore the stars \u2013 now in full HD!\n\nThe beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!",
+  "lutris": "https://lutris.net/games/katamari-damacy-reroll/",
+  "name": "Katamari Damacy REROLL",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848350/ss_6f8332bf0c21f7d5072e56655c3f77147c4832e7.1920x1080.jpg?t=1708327061",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848350/ss_e22f23b4803750626ce00263685c0df0be9899c1.1920x1080.jpg?t=1708327061",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848350/ss_0d13b02abae0005aaaab60e61413eb39ca7c04af.1920x1080.jpg?t=1708327061",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848350/ss_4859e3e437da49cf9d8026a192890f17e775138a.1920x1080.jpg?t=1708327061",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848350/ss_687cdd4fa9937e118746c27a919842a508a24d49.1920x1080.jpg?t=1708327061"
+  ],
+  "short": "The beloved roll-em-up game returns with fully updated graphics, completely recreated cutscenes and in full HD!",
+  "steam_appid": 848350,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2018
+}

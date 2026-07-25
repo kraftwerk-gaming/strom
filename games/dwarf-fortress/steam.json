@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "Bay 12 Games"
+  ],
+  "genres": [
+    "Indie",
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/34e18f5695fffd64458b78110930abc5258ccd14/header.jpg?t=1779740424",
+  "long": "Prepare for the deepest, most intricate simulation of a world that has ever been created.\n\n Not just generated geometry -- a whole simulated world. Generated rise and fall of civilizations, personalities, creatures, cultures, etc. Infinite hours of gameplay.\n\n Now with beautiful pixel graphics!\n\n Learn the basics with in-game tutorials\n\n A lifetime \u201cliving\u201d project - created/updated since 2003, with no end in sight\n\n Generate your unique world and manage a bustling colony of dwarves, even as they probably mine towards their eventual demise.\n\n A new endless hobby, just for you!\n\nThe legendary Dwarf Fortress is now on Steam! Build a fortress and try to help your dwarves survive, despite threats of starvation, dragons, and madness.\n\nIn this complex construction/management/roguelike simulation, every generated world brings a unique challenge, whether it\u2019s dwarves with their own simulated personalities or aquifers. Observe what makes your civilization fall into eventual decline, and learn for next time\u2026 until something else inevitably goes wrong.\n\nThe combat model includes skills, body parts, material properties, aimed attacks, wrestling, pain, nausea, various poison effects, and much more.\n\nIt\u2019s difficult to convey the depth of the generation. Hundreds of animals and monsters, many of which are randomly created for each world, as well as generated poetry, musical forms, instruments, and dances for your dwarves to practice and perform. A dynamic weather model tracks wind, humidity, and air masses to create fronts, clouds, storms, and blizzards. Over two hundred rock and mineral types can appear, in their proper geological environments.\n\nRemember: Losing is fun!\n\nThis is still good old Dwarf Fortress, but with graphics support and music provided. A few bells and whistles won\u2019t change its essence.\n\nClassic Dwarf Fortress mod-artist Jacob \"Ironhand\" Bowman collaborated with artists Carolyn Jong and Neoriceisgood to create an all-new sprite pack for the game, which they continue to add to regularly.\n\nDwarf Fortress also has hours of music in a two-volume soundtrack by Dabu and Simon Swerwer, including tracks in the Dwarvish language!\n\nIt's never been easier to start playing! We've improved the new player experience with the addition of tutorials to guide you through building your first fort and keeping your dwarves happy.\n\nCommand your dwarves as they search for wealth in their generated mountain. Your dwarves will need a steady supply of food and beer, but they\u2019ll also need your guidance in surviving attacks from hostile civilizations, the wilderness, or even the dead.\n\n Craft treasures and furnitures from various materials\n\n Establish a barony and support the increasingly demanding nobility\n\n Read your dwarves\u2019 thoughts to keep them happy\n\n Build floodgates to divert water for farming, and/or prevent magma mishaps\n\n Build structures and watch your dwarves discover and build their culture, like taverns, libraries, temples, honey, wax, pottery, animal training, bookbinding, and more.\n\nGo anywhere! Explore any civilization, earn a reputation, and recruit followers to join you\n\nExperience your fortress and the simulation in a new, more embodied way\n\nExplore mythical dungeons to find magical items, artifacts, and fill your quest journal\n\nHints of mythology and magic as a start of future simulation enrichment to come\n\nAn additional hour of music from Dabu and Simon Swerwer, presented as a second volume of the original soundtrack\n\nThe original inspiration for RimWorld, Prison Architect, Minecraft and more.\n\nOne of the first video games acquired by the Museum of Modern Art in New York\n\nUpdated for over 16 years by two brothers, Tarn \u201cToady One\u201d and Zach \u201cThreetoe\u201d Adams, and with the support of Kitfox Games since 2020.",
+  "lutris": "https://lutris.net/games/dwarf-fortress/",
+  "name": "Dwarf Fortress",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/72780d67585fda02ff95373c9cfc0a7b35193341/ss_72780d67585fda02ff95373c9cfc0a7b35193341.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/539fd25e713be0c3f995b71256971d774934c41c/ss_539fd25e713be0c3f995b71256971d774934c41c.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/ss_a1478493de292f1c57a9522d00ee5b692ce0e4c7.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/ss_f8aa4e5f896a8ecb7abf3a8c7c4ae176ba40f3ae.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/ss_98914e3d8d8cc28ddd94052fedef226ed1bba172.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/ss_58fc8ef09ebe6c5ad61dcb2529804a9e6c15dde9.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/ss_b4d36125ae2ba366148041eab562416c79334b5a.1920x1080.jpg?t=1779740424",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/975370/ss_c40053b7751d694f2b5e364a68f58d29f35bfc81.1920x1080.jpg?t=1779740424"
+  ],
+  "short": "Build a fortress and try to help your dwarves survive against a deeply generated world. Keep your dwarves happy, grow their community and beware of digging too deeply. The deepest, most intricate simulation of a world that's ever been created.",
+  "steam_appid": 975370,
+  "tags": [
+    "Single-player",
+    "Steam Workshop",
+    "Family Sharing"
+  ],
+  "year": 2022
+}

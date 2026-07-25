@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Radical Entertainment"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Racing"
+  ],
+  "hero": "https://lutris.net/games/banner/the-simpsons-hit-run.jpg",
+  "long": "The Simpsons: Hit & Run is an open-world action-driving game set in Springfield, parodying the Grand Theft Auto formula. Players control Homer, Bart, Lisa, Marge, and Apu across seven levels, completing missions on foot and behind the wheel. It was developed by Radical Entertainment and published by Vivendi Universal Games.",
+  "lutris": "https://lutris.net/games/the-simpsons-hit-run/",
+  "name": "The Simpsons: Hit & Run",
+  "screenshots": [],
+  "short": "The Simpsons: Hit & Run (Vivendi/Radical 2003 PC port, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2003
+}

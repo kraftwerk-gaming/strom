@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Camelot Software Planning"
+  ],
+  "genres": [
+    "RPG",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/golden-sun.jpg",
+  "long": "Golden Sun is a Game Boy Advance role-playing game following the young Adept Isaac on a quest to stop the dangerous power of Alchemy from being unleashed upon the world. It is known for its elemental \"Psynergy\" abilities used in and out of battle, and for collectible Djinn that customize characters and summon powerful creatures. This package runs the GBA ROM through RetroArch using the mGBA core.",
+  "lutris": "https://lutris.net/games/golden-sun/",
+  "name": "Golden Sun",
+  "screenshots": [],
+  "short": "Golden Sun (Camelot/Nintendo, 2001 GBA, via RetroArch / mGBA)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2001
+}

@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Ensemble Studios"
+  ],
+  "genres": [
+    "Strategy",
+    "RTS"
+  ],
+  "hero": "https://lutris.net/games/banner/age-of-empires-ii-the-conquerors.jpg",
+  "long": "Age of Empires II: The Conquerors is the expansion to The Age of Kings, adding five new civilizations, new campaigns, and additional units and technologies. It is a historical real-time strategy game in which players gather resources, build towns, and command armies across the ages. The combined Age of Kings + Conquerors release became the definitive classic edition of the game.",
+  "lutris": "https://lutris.net/games/age-of-empires-ii-the-conquerors/",
+  "name": "Age of Empires II: The Conquerors",
+  "screenshots": [],
+  "short": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP",
+    "Online PvP"
+  ],
+  "year": 2000
+}

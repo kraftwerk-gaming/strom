@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Panik Arcade"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie",
+    "Simulation",
+    "Sports",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/8ba81356b84aa937573fa29fdd708dbd96b01537/header.jpg?t=1780064423",
+  "long": "CloverPit is the demonic lovechild of Balatro and Buckshot Roulette, a rogue-lite that traps players in a hell of their own creation. Locked in a rusty cell with a slot machine and an ATM, you must pay off your debt at the end of each round, or fall to ruin \u2013 literally!\n\nManipulate the slot machine to earn extra coins. Turn the odds in your favor with various prizes and charms that trigger big big combos, snowballing into a dazzling lucky run. Bend the rules, break the game, and pay off your captor long enough to earn a shot at freedom.\n\nFeatures:\n\u00a0A gripping rogue-lite where every round could be your last!\n\u00a0Meta-progression, seeded runs, unlockable run modifiers and power-ups!\n\u00a0Push your score to new heights in Endless Mode!\n\u00a0A hellish escape room atmosphere!\n\u00a0150 + items and synergies to boost your luck!\n\u00a0A sinister tale of addiction and escape!\n\nP.S. IS THIS GAMBLING?\n\nHell no! CloverPit is a rogue-lite horror game, and not a slot machine simulator. Our slot machine is designed to be broken and ultimately overcome, and will never ask you for real money!",
+  "lutris": "https://lutris.net/games/cloverpit/",
+  "name": "CloverPit",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/10162d11d37ae75c0e6b1fcd5d7fc3806dceace6/ss_10162d11d37ae75c0e6b1fcd5d7fc3806dceace6.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/ac11eb89224c5cdd3648e1483643f9c87ef5908b/ss_ac11eb89224c5cdd3648e1483643f9c87ef5908b.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/62b70fe41d72d73722b1869549f553e05c4a440c/ss_62b70fe41d72d73722b1869549f553e05c4a440c.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/8a3aadca1381ed31ff5781bf101bffc2fc0730e4/ss_8a3aadca1381ed31ff5781bf101bffc2fc0730e4.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/07a0c14d12a5fdc2cc2b8005c12525e0c6b9b0c0/ss_07a0c14d12a5fdc2cc2b8005c12525e0c6b9b0c0.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/dc21c545892b5c1ab9eaf8b11e2355f5f092cd2f/ss_dc21c545892b5c1ab9eaf8b11e2355f5f092cd2f.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/3d174c23e10f22272404d4a4cf03e5a8ae8b5dc6/ss_3d174c23e10f22272404d4a4cf03e5a8ae8b5dc6.1920x1080.jpg?t=1780064423",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3314790/e02e10e6d2a87ea36e9243b232b96f54f95efbda/ss_e02e10e6d2a87ea36e9243b232b96f54f95efbda.1920x1080.jpg?t=1780064423"
+  ],
+  "short": "A rogue-lite slot machine nightmare. Gamble for your life in a never-ending debt simulator!",
+  "steam_appid": 3314790,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

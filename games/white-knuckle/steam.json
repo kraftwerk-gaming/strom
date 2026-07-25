@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "Dark Machine Games"
+  ],
+  "genres": [
+    "Early Access"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/header.jpg?t=1782400682",
+  "long": "White Knuckle is a first person roguelite speed-climbing game.\n\nUse momentum-based movement mechanics with precision, deploy a variety of tools and resources, and ascend as fast as you can.\u00a0\n\nJust don't lose your grip, there\u2019s eternity below you.\n\nManage your inventory or become encumbered and fall to your death. Failure to grab what you need from your bag in time can spell disaster.\n\nThrough run-based meta-progression, you\u2019ll discover and unlock varied augmentations.\u00a0\n\nBolster your will to ascend.\n\nYou're not alone down here. Strange life flourishes far underground, and darker things haunt these halls. Something oozes from the depths\u2013 following you, growing angrier\u2026 and it won't let up.\n\nTravel through different regions with unique threats and gameplay challenges during your attempted escape of the underground megastructure.\u00a0\n\nThe deep dry storage of the Silos, the putrid sewers of the Pipeworks, the haunted piers of Habitation. Each area will require adaptation to new obstacles and denizens.",
+  "lutris": "https://lutris.net/games/white-knuckle/",
+  "name": "White Knuckle",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/5eddf782b0fc49e4b4bd7b5232845822a9483b43/ss_5eddf782b0fc49e4b4bd7b5232845822a9483b43.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/e28625634af5e353191aba4efcc3c3783ae560a8/ss_e28625634af5e353191aba4efcc3c3783ae560a8.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/b0cec802555eda147d2ddc8e3be6ac035d3407d3/ss_b0cec802555eda147d2ddc8e3be6ac035d3407d3.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/ss_e2ee07cb66c9d4b3177070fa39f624decc7fb53e.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/0bd1ca5949fe257894889073abfd706d58c8fc37/ss_0bd1ca5949fe257894889073abfd706d58c8fc37.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/ef882810836c4b337b063fb59e65c019baa0ff4f/ss_ef882810836c4b337b063fb59e65c019baa0ff4f.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/ss_25dfed3dba5cbda4823d2714251cca262f945c84.1920x1080.jpg?t=1782400682",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3195790/ba234e42679859c74990d882ff7ec52b33f4e0a5/ss_ba234e42679859c74990d882ff7ec52b33f4e0a5.1920x1080.jpg?t=1782400682"
+  ],
+  "short": "White Knuckle is a first-person roguelite speed-climbing game. Ascend through the guts of SUB-STRUCTURE 17 using precision movement mechanics. Sharp reflexes and resource management will bring you out from under ten thousand meters of concrete and decay.",
+  "steam_appid": 3195790,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

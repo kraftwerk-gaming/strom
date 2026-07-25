@@ -1,0 +1,35 @@
+{
+  "developers": [
+    "William Chyr Studio"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/header.jpg?t=1603220474",
+  "long": "Join Our Discord\n\nAbout the Game\n\nManifold Garden is a game that reimagines physics and space.\n\nRediscover gravity and explore a beautiful Escher-esque world of impossible architecture. Geometry repeats infinitely in every direction, and falling down leads you back to where you started. Manipulate gravity to change your perspective and see the world in new ways. Master the rules of the universe and restore a barren world with vegetation and life.\n\n    An expansive and visually striking world filled with mind-bending puzzles.\n\n    Manipulate gravity to gain new perspectives and walk on any visible surface.\n\n    Explore expansive architectural structures that repeat infinitely.\n\n    Capture striking and beautiful images with Photo Mode.\n\nManifold Garden has been nominated for several awards, including \u201cBest Debut\u201d from the Game Developers Choice Awards and BAFTA Game Awards. It was selected as one of the New Yorker\u2019s best games of 2019.",
+  "lutris": "https://lutris.net/games/manifold-garden/",
+  "name": "Manifold Garden",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_1b3cb13f0969b365821a884f0be6c8f616061385.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_7751cdc646a4a596d3e568fc6cce5fda1334f152.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_44e2f962e262a5773c6ffe2ba69dc96843171b47.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_3e156148e13921611c3715a57dc6e3d72355fc2a.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_e54d5a60472bfbc7c1f008f73fdae6731298cec2.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_2bbb566ef595c703701ce93c3b82345a762156de.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_e5a860f327b17815b6f937640ecdab102e420206.1920x1080.jpg?t=1603220474",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/473950/ss_a5bca65bfc680c2a2482bfeaf23e41333a135967.1920x1080.jpg?t=1603220474"
+  ],
+  "short": "Rediscover gravity and explore an Escher-esque world of impossible architecture. Witness infinity in first-person and master its rules to solve physics-defying puzzles. Cultivate a garden to open new paths forward, where an eternal expanse awaits.",
+  "steam_appid": 473950,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

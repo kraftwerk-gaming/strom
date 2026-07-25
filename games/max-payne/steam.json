@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Rockstar Studios"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/header.jpg?t=1718391374",
+  "long": "For Max Payne, the tragedies that took his loved ones years ago are wounds that refuse to heal.\n\r\n\n\r\nNo longer a cop, close to washed up and addicted to pain killers, Max takes a job in S\u00e3o Paulo, Brazil, protecting the family of wealthy real estate mogul Rodrigo Branco, in an effort to finally escape his troubled past. But as events spiral out of his control, Max Payne finds himself alone on the streets of an unfamiliar city, desperately searching for the truth and fighting for a way out.\n\r\n\n\r\nCombining cutting edge shooting mechanics with a dark and twisted story, Max Payne 3 is a seamless, highly detailed, cinematic experience from Rockstar Games.\n\r\n\n\r\nThis complete edition of Max Payne 3 includes the complete original game and all previously released downloadable content including Deathmatch Made In Heaven, Painful Memories Pack, Hostage Negotiation Pack, Local Justice Pack, Silent Killer Loadout Pack, Cemetery Map, Special Edition Pack, Deadly Force Burst, Pill Bottle Item, and the Classic Max Payne 1 Character.",
+  "lutris": "https://lutris.net/games/max-payne/",
+  "name": "Max Payne 3",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_84fc2ba217ce04ec4b782f9f5ccc09d20980f220.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_b442d79fbc45be2cb773d3de6f7b40fa5f126588.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_4ae054ce0dd3563aea20d8f76630ea4caff878d2.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_6e329c5ed6d471c55ef7e04c9aac309005bfa734.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_649a56eff153bd1ffe46795f5f20775b3625f96f.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_4fc1bd43a6a2d09617706b8dd85900edf293a711.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_6a62487932b5cba0f0190a4dc552b3cb38e19028.1920x1080.jpg?t=1718391374",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/204100/ss_351fd2a6f0d8766772c37d8a0edd6b33719dd17d.1920x1080.jpg?t=1718391374"
+  ],
+  "short": "No longer a New York City cop, Max Payne moves to S\u00e3o Paulo to protect a wealthy family in an effort to finally escape his troubled past. This complete edition of Max Payne 3 includes the complete original game and all previously released downloadable content.",
+  "steam_appid": 204100,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Steam Achievements",
+    "Partial Controller Support"
+  ],
+  "year": 2012
+}

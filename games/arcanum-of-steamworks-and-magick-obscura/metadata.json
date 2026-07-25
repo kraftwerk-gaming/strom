@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Troika Games"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/arcanum-of-steamworks-and-magick-obscura.jpg",
+  "long": "Arcanum: Of Steamworks and Magick Obscura is a deep isometric role-playing game set in a world where steampunk technology and traditional magic coexist and conflict. Players create a character, choose between tech and magick paths, and shape a branching story through dialogue, combat, and character builds. It is renowned for its open-ended freedom and was developed by Troika Games.",
+  "lutris": "https://lutris.net/games/arcanum-of-steamworks-and-magick-obscura/",
+  "name": "Arcanum: Of Steamworks and Magick Obscura",
+  "screenshots": [],
+  "short": "Arcanum: Of Steamworks and Magick Obscura (Troika 2001, GOG v1.0.7.4 hotfix build 24155, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player"
+  ],
+  "year": 2001
+}

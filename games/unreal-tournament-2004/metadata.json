@@ -1,0 +1,25 @@
+{
+  "developers": [
+    "Epic Games",
+    "Digital Extremes"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/unreal-tournament-2004.jpg",
+  "long": "Unreal Tournament 2004 is an arena first-person shooter expanding its predecessor with vehicle-based Onslaught and Assault modes alongside classic Deathmatch and Capture the Flag. It offers a bot-driven single-player ladder plus extensive online and LAN multiplayer. It was developed by Epic Games and Digital Extremes and published by Atari; this build uses the OldUnreal native Linux patch.",
+  "lutris": "https://lutris.net/games/unreal-tournament-2004/",
+  "name": "Unreal Tournament 2004",
+  "screenshots": [],
+  "short": "Unreal Tournament 2004 (OldUnreal native Linux)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online PvP",
+    "LAN PvP",
+    "PvP"
+  ],
+  "year": 2004
+}

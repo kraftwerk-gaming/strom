@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Veddge"
+  ],
+  "genres": [
+    "Horror",
+    "FPS",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/myhouse-wad.jpg",
+  "long": "MyHouse.wad is a 2023 horror modification for Doom II, built for the GZDoom source port. Disguised as an ordinary recreation of the author's childhood home, it gradually warps into a non-euclidean nightmare of shifting, impossible architecture. The mod became famous for its unsettling level design and hidden narrative layers.",
+  "lutris": "https://lutris.net/games/myhouse-wad/",
+  "name": "MyHouse.wad",
+  "screenshots": [],
+  "short": "MyHouse.wad (Veddge 2023, non-euclidean horror mod; myhouse.pk3 + DOOM2.WAD via GZDoom)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2023
+}

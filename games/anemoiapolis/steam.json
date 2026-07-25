@@ -1,0 +1,32 @@
+{
+  "developers": [
+    "Andrew Quist"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/header.jpg?t=1692473356",
+  "long": "You have fallen into a surreal and haunted underground neighborhood. Discover its origins and escape with your life - and sanity - intact.WANDER A VAST NETWORK OF MUNDANE HORRORS\n\nAnemoiapolis finds horror in the familiar -- places so ordinary that film and TV usually avoid them. Experience the comfort of existential dread.RUN, SWIM, JUMP, SLIDE, AND CLIMB TO FREEDOM\n\nWith nobody around to let you out, you'll have to forge your own path to the exit.UTILIZE YOUR SURROUNDINGS\n\nPush obstacles and smash windows -- whatever it takes to get to the next room.SHORT CIRCUIT EVERYTHING\n\nPut your puzzle skills to the test. Break into electrical panels to access new areas.NAVIGATE DYNAMIC ENVIRONMENTS\n\nDon't count on that door being there the next time you swing around. Things aren't always as they appear.EXPLORE PROCEDURAL LABYRINTHS\n\nThis game is designed from the ground-up to make you lost and confused. If you feel like you're going in circles, then you're on the right track.ABOUT\n\nAnemoiapolis is developed by Andrew Quist, a solo developer who takes heavy inspiration from his Michigan hometown. Encouraged by forum posts in late 2020 about \"liminal spaces\" and \"the backrooms\", Anemoiapolis is a personal retelling of those concepts.\n\nSoundtrack by JORDANN and 4REST",
+  "lutris": "https://lutris.net/games/anemoiapolis/",
+  "name": "Anemoiapolis: Chapter 1",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_cae42fc148512c57cdd2d9614f6b7dcfab948471.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_c1fd04b76654b2b49ecc253f714554783f32fdab.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_7f9a6719b25a423ff4948a05fab3fe663827f034.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_3405f2e9cb0e9789a0ec7fe6fa0a6409da1870d6.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_f4b867b46abbc7c71a4dc9ad94d9e8615d40b707.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_9569423fb87e821cb758780d1401c3f09bdbc168.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_c9ea7cd09acee6cd3c742f8f6b2512404442c927.1920x1080.jpg?t=1692473356",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1522960/ss_2b60c564929dc1c189bb9663c9b1f96ab6f0d44c.1920x1080.jpg?t=1692473356"
+  ],
+  "short": "The most relaxing horror game you'll ever play. Anemoiapolis exists in the uncanny valley of American architecture -- endless carpeted floors and lonely malls. Escape for your life, and enjoy the scenery.",
+  "steam_appid": 1522960,
+  "tags": [
+    "Single-player",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2023
+}

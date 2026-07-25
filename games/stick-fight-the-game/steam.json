@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Landfall West"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/674940/header.jpg?t=1730715399",
+  "long": "Stick Fight is a physics-based couch/online fighting game where you battle it out as the iconic stick figures from the golden age of the internet. Fight it out against your friends or find random sticks from around the world!\n\n2 to 4 PLAYERS in either Local or Online Multiplayer (NO SINGLE PLAYER MODE)\n\nPhysics-Based Combat System\n\n100 Highly Interactive Levels\n\nLevel editor\n\nOver 100,000 community made levels\n\nLots of weapons!\n\nProcedural Animations using the system from Totally Accurate Battle Simulator",
+  "lutris": "https://lutris.net/games/stick-fight-the-game/",
+  "name": "Stick Fight: The Game",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/674940/ss_890d28277bc419dad54157059735513ccc1cfaa7.1920x1080.jpg?t=1730715399",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/674940/ss_6f4e51e6b1390acc89741b7d2d6e6dc50dbacf76.1920x1080.jpg?t=1730715399",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/674940/ss_22d090efb57d6f42187c7f8eb193713112237b8e.1920x1080.jpg?t=1730715399",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/674940/ss_80e2f0797564ab5949f0c13df9a57988dc81c8cf.1920x1080.jpg?t=1730715399",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/674940/ss_63efc0b9a959afbbe4f450982fdd25e871669198.1920x1080.jpg?t=1730715399"
+  ],
+  "short": "Stick Fight is a physics-based couch/online fighting game where you battle it out as the iconic stick figures from the golden age of the internet.",
+  "steam_appid": 674940,
+  "tags": [
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Shared/Split Screen PvP",
+    "Shared/Split Screen",
+    "Partial Controller Support",
+    "Remote Play on Phone",
+    "Remote Play on Tablet",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

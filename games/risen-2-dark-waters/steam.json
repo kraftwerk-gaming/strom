@@ -1,0 +1,33 @@
+{
+  "developers": [
+    "Piranha Bytes"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/header.jpg?t=1601972779",
+  "long": "Set several years after the end of Risen, raging titans have devastated the world and pushed humanity to the brink of existence. Subsequently, monstrous creatures have risen from the watery depths of the sea and their attacks have brought all seafaring to a grinding halt. The hero, now a member of the Inquisition, is sent out to find out how to stop the chaos caused by these creatures from the deep. His quest begins with rumors that the pirates who frequent the southern islands are the only ones who know a way to get rid of the creatures once and for all and end their reign of terror.\n\r\n\n\r\nWith an all-new pirate-based theme, Risen 2: Dark Waters aims to combine the most loved classic RPG gameplay mechanics of the original Risen with a fresh theme and setting on a huge variety of themed island locales. A third-person role-playing game set in a dark and gritty universe, Risen 2: Dark Waters maintains the most immersive features of the original Risen, with multiple approaches to every challenge allowing players to shape the game world based on their own decisions. These choices will serve to unlock new paths, features and additional skills for the character. Together with a highly interactive environment and a full day/night-cycle affecting countless aspects of the game world, Risen 2 will be set in the most immersive RPG game world so far.",
+  "lutris": "https://lutris.net/games/risen-2-dark-waters/",
+  "name": "Risen 2: Dark Waters",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_50ebe6c6daab90355facad98e278f2889b64ebb9.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_1b159ef53e7fbd5d26b082e6b7d3342616dc8fdb.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_75ebbd6125941ca2a8fc70e06b9b63ca219395b5.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_0203528ce8de3b23bc3635945c0508037f9a1e68.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_faaa86425da8aa4a345f6964082ea9686a54e0f8.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_2896bc8460dc54402c66108cd27862b776798d5e.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_c15836f60b1a1df414be38345d546d76b0d68610.1920x1080.jpg?t=1601972779",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/40390/ss_d9fb3cd1bbf5e3d3b5c15a1b9f917f4f09d6256e.1920x1080.jpg?t=1601972779"
+  ],
+  "short": "Set several years after the end of Risen, raging titans have devastated the world and pushed humanity to the brink of existence. Subsequently, monstrous creatures have risen from the watery depths of the sea and their attacks have brought all seafaring to a grinding halt.",
+  "steam_appid": 40390,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Partial Controller Support",
+    "Stats",
+    "Family Sharing"
+  ],
+  "year": 2012
+}

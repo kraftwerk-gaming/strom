@@ -1,0 +1,37 @@
+{
+  "developers": [
+    "Arsi \"Hakita\" Patala"
+  ],
+  "genres": [
+    "Action",
+    "Indie",
+    "Early Access"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/header.jpg?t=1779956369",
+  "long": "ULTRAKILL is a fast-paced ultraviolent old school FPS that fuses together classic shooters like Quake, modern shooters like Doom (2016) and character action games like Devil May Cry.\n\nMankind has gone extinct and the only beings left on earth are machines fueled by blood.\nBut now that blood is starting to run out on the surface...\nMachines are racing to the depths of Hell in search of more.\n\nUse your many movement abilities to stay mobile and avoid the relentless attacks of the dead, demons and other machines.\n\nDestroy them with an arsenal of incredibly powerful weapons, each with multiple available variations.\n\nSoak yourself in their blood to regain health and keep fighting.\n\nKill fast and with SSStyle to rack up combos and gain points that can be used on weapon variations between missions.\n\nMaster the many levels to achieve high ranks and take on unique optional challenges.\n\nExplore the varied and unique campaign environments inspired by Dante's Inferno to find plentiful hidden secrets",
+  "lutris": "https://lutris.net/games/ultrakill/",
+  "name": "ULTRAKILL",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_8c743b6de2d6124bd583d8764f28cafe2b7ecb3f.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_7460a480b1deb03f64cbfff0173445fb50d0c514.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_c579ccd183640ee8f50ea1a86b27d1f2948b642c.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_1e04753b0f61d8a31242a73e82c00b80b56cc705.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_1a9ff658fe692a7868ec61dfa9e7c152981b79bd.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_7a5692d56ec4115252980fed4ad5536d1e401e04.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_bc7a00fadbcde4a6c6dcb95d8e464ad5ffc06e3c.1920x1080.jpg?t=1779956369",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/ss_d058f8dc239f2d0f9c10b2abfbcf89e414981539.1920x1080.jpg?t=1779956369"
+  ],
+  "short": "ULTRAKILL is a fast-paced ultra-violent retro FPS that combines the skill-based style scoring of character action games with the unadulterated carnage inspired by the best shooters of the '90s. Rip apart your foes with varied destructive weaponry and shower in their blood to regain your health.",
+  "steam_appid": 1229490,
+  "tags": [
+    "Single-player",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

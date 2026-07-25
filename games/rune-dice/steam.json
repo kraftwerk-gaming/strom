@@ -1,0 +1,41 @@
+{
+  "developers": [
+    "Smart Raven Studio"
+  ],
+  "genres": [
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/2cc0e31c523733d3805ce1733215f82f0b4a05b8/header.jpg?t=1779267089",
+  "long": "Launch dice across enchanted battlefields where realistic physics meets ancient magic. Matching dice fuse into a more powerful one that seeks its equals, triggering devastating chain combos.\nPlan each throw carefully - every dice placement can trigger massive combos that wipe out entire enemy waves or set up tactical future plays. Master both precise aiming and strategic prediction to unleash the full power of mystical dice fusion.\n\nPick from 8 unique classes, each with special dice and magical abilities. Every class offers multiple heroes with different starting combinations, ensuring each adventure feels completely different.\u00a0With endless replayability for each unique hero classes. Level up, complete quests, and unlock rewards.\nSpread deadly poison through enemy ranks as a Rogue, unleash lightning storms as a Mage, or absorb massive damage as a heavily armoured Warrior. Each class opens up entirely new tactical approaches and synergies.\n\nEvery location culminates in challenging battles against bosses, each with unique abilities that will test your strategy.\nSome bosses summon additional minions, others manipulate the dice field, and the most dangerous can completely change combat rules. Adapt your dice collection and tactics to overcome each distinct threat.\n\nCraft a powerful combination of dice, relics, and runes that work together to define your playstyle.\nCollect magical dice through combat victories and shop purchases, discover game-changing relics that provide permanent enhancements, and gather tactical runes for battlefield manipulation. Visit ancient altars where you can risk your dice for upgrades, or play it safe and build your arsenal gradually. The synergy between your dice attacks, relic bonuses, and rune abilities creates devastating combinations and endless strategic possibilities.\n\n Physics-based dice throwing with magical merge mechanics\n\n 8 hero classes with multiple characters each\n\n Epic boss and mini-boss encounters with unique abilities\n\n Diverse dice with special powers and abilities\n\n Powerful relics and consumable runes for synergies\n\n Procedural map generation with multiple encounter types\n\n Progression system with unlocks and achievements",
+  "lutris": "https://lutris.net/games/rune-dice/",
+  "name": "Rune Dice",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/f77d1520278d6f6b6db054c98a6e20d92d35b6ac/ss_f77d1520278d6f6b6db054c98a6e20d92d35b6ac.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/a4389460aa3a8ece97b460bbda3bc0115db0e1a5/ss_a4389460aa3a8ece97b460bbda3bc0115db0e1a5.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/445ef597667c8deef4318a13ac49f79e28ae7f8a/ss_445ef597667c8deef4318a13ac49f79e28ae7f8a.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/2043fbcc86e4b4120fcbff4641194ee13ce64a97/ss_2043fbcc86e4b4120fcbff4641194ee13ce64a97.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/c3f3e4a326d3d8b16bab882c050128d2c58e6b17/ss_c3f3e4a326d3d8b16bab882c050128d2c58e6b17.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/2256e550514f22570a5f4892fd17eae85e8a6f8f/ss_2256e550514f22570a5f4892fd17eae85e8a6f8f.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/c14c0f348debd5b50b05709b6e36ee8e7ae0257b/ss_c14c0f348debd5b50b05709b6e36ee8e7ae0257b.1920x1080.jpg?t=1779267089",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3542380/961140068dc205b838cdae32a1d328ac148c4069/ss_961140068dc205b838cdae32a1d328ac148c4069.1920x1080.jpg?t=1779267089"
+  ],
+  "short": "Tactical deckbuilding in bite-sized sessions. Launch dice to create magical chain reactions. Choose from distinct hero classes with unique abilities. Build synergies between dice, relics, and runes to defeat challenging bosses.",
+  "steam_appid": 3542380,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Keyboard Only Option",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2026
+}

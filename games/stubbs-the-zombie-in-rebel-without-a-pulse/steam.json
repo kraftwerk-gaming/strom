@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Aspyr"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/header.jpg?t=1680629661",
+  "long": "Be the Zombie. Kick A** and Take Brains\nIt\u2019s 1959 and the city of Punchbowl, PA, is a beacon of progress and ideal living. Show the living that law and order are no match for a dead man on a mission. Your boyfriend\u2019s back Maggie, and Punchbowl is gonna be in trouble!\nEat Brains\n Chomp on the living and replenish your bodily arsenal of: zombie sputum, gut grenades, and the stunning unholy flatulence\nPossess Punchbowl\u2019s Population\n Clamp your severed hand to a barbershop quartet singer\u2019s head and raygun away\nBuild Your Zombie Horde\n Convert your enemies into undead allies & lead a zombie assault on the living\nBring Civilization to its Knees\n Show the retro-futuristic city of Punchbowl, PA that they can\u2019t escape the past\nStubbs and Chill\n Invite a friend to play as Grubbs for classic couch cooperative hijinks. (Friend not included)",
+  "lutris": "https://lutris.net/games/stubbs-the-zombie-in-rebel-without-a-pulse/",
+  "name": "Stubbs the Zombie in Rebel Without a Pulse",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_abe1f0eb433b4e91e797af792f9c826f8337f1cf.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_bedd32d9fca5a2fbbbe247cdf72c6e4fb67be284.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_c08edcc18cb15c4bad5e3b8be84620dd5b916997.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_98852b421cfb3dda171cedde389c379749ab254f.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_de227a16a4ead9c49f7c0066d3758ef19bb50533.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_b2020ac29010c483dabd54d04212177e5d9cecc5.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_c2836ff6db1111ee4ef65647961c8829847f7107.1920x1080.jpg?t=1680629661",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/7800/ss_a74d1c86eb7bedf050ae1c512a86aeec798c4741.1920x1080.jpg?t=1680629661"
+  ],
+  "short": "Be the Zombie. Kick A** and Take Brains.",
+  "steam_appid": 7800,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2021
+}

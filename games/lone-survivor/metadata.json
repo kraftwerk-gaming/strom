@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Superflat Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Horror",
+    "Survival",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/lone-survivor.jpg",
+  "long": "Lone Survivor is a 2D psychological survival horror game following a masked protagonist navigating a city overrun by infected creatures. Players manage scarce food, ammunition and sanity while exploring side-scrolling environments and deciding when to fight or sneak past enemies. The Director's Cut adds new areas, items and endings to the original release.",
+  "lutris": "https://lutris.net/games/lone-survivor/",
+  "name": "Lone Survivor: The Director's Cut",
+  "screenshots": [],
+  "short": "Lone Survivor: The Director's Cut (Superflat Games, GOG v1.0 build 21178, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2012
+}

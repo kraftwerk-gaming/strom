@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Max Design"
+  ],
+  "genres": [
+    "Strategy",
+    "Simulation",
+    "City Builder"
+  ],
+  "hero": "https://lutris.net/games/banner/anno-1503.jpg",
+  "long": "Anno 1503 A.D. is a city-building and economic strategy game set in a colonial Age of Discovery. Players settle uninhabited islands, develop trade and supply chains, manage diplomacy, and wage war on land and sea. It is the second entry in the Anno series, published by Sunflowers.",
+  "lutris": "https://lutris.net/games/anno-1503/",
+  "name": "Anno 1503 A.D.",
+  "screenshots": [],
+  "short": "Anno 1503 A.D. (via Proton and gamescope)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2002
+}

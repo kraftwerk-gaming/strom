@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "poncle"
+  ],
+  "genres": [
+    "Roguelike",
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/vampire-survivors.jpg",
+  "long": "Vampire Survivors is a minimalist roguelike action game where the player survives waves of monsters with auto-firing weapons, collecting gems to level up and combine items into powerful evolutions. Runs last a limited time as the screen fills with enemies and bullet-hell-like carnage. It was developed by poncle and supports local couch co-op.",
+  "lutris": "https://lutris.net/games/vampire-survivors/",
+  "name": "Vampire Survivors + 3 DLC",
+  "screenshots": [],
+  "short": "Vampire Survivors + 3 DLC (Emergency Meeting v1.11.108, native Linux Unity / IL2CPP, Goldberg Steam shim)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Shared/Split Screen Co-op"
+  ],
+  "year": 2022
+}

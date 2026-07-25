@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Wad Squad"
+  ],
+  "genres": [
+    "Horror",
+    "Survival",
+    "FPS",
+    "Indie"
+  ],
+  "hero": "https://lutris.net/games/banner/total-chaos.jpg",
+  "long": "Total Chaos is a standalone survival-horror total conversion built on the GZDoom engine, set on a desolate island where the player scavenges for resources and weapons while fending off mutated creatures. It blends atmospheric exploration and resource scarcity with Doom-derived combat. It was created by Wad Squad and released free in 2018.",
+  "lutris": "https://lutris.net/games/total-chaos/",
+  "name": "Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom",
+  "screenshots": [],
+  "short": "Total Chaos (Wad Squad 2018) -- standalone survival-horror total conversion via GZDoom",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2018
+}

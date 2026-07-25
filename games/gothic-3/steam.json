@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Piranha Bytes"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/header.jpg?t=1776958818",
+  "long": "A nameless hero becomes a legend!\n\n\t\t\t\t\tMyrtana, a world in upheaval: overrun by orcs from the dark lands in the north, King Rhobar is defending Vengard, the former stronghold of the humans, with his last troop of followers. Chaos reigns without: rebels are offering resistance, and the Hashishin of the south are openly collaborating with the orcs.\n\n\t\t\t\t\tRumours that the nameless hero of Khorinis is on his way to the mainland spawn both hope and worry. Whose side will he take? Who will feel his wrath, who enjoy his favor? Only one thing is sure: his deeds are going to change Myrtana forever...\n\n\t\t\t\t\tLiberation or annihilitaion \u2013 the fate of the world of Gothic lies in your hands! Create your own individual gaming experience through different solution paths.\n\n\t\t\t\t\tDynamic, action-packed combat system: choose between Fast Attacks, deadly whirlwind close combat, or shooting from a distance.\n\t\t\t\t\tImmerse yourself in the most colorful and authentic fantasy world of all time \u2013 Myrtana awaits you!\n\n\t\t\t\t\tSpecially designed easy combat system\n\nClear main goals-story driven yet dictated by player's choice\n\nHuge free-roaming world - virtually no boundaries\n\nAdvanced human behavior AI for hundreds of individual characters with full audio dialogues\n\nCountless side quests for the player to choose from\n\nOver 50 different monsters and animals and dozens of human enemies\n\nOver 50 different powerful spells and over a hundred different weapons\n\nUnique class-free character development",
+  "lutris": "https://lutris.net/games/gothic-3/",
+  "name": "Gothic\u00ae 3",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/ss_ef2661104fb7f466caf7de4e1e7b097ac5c9c614.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/ss_ee040a06f4156dc52d8b1e324c94fa382a0ba5fd.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/ss_c7340cf62a5124aad51c9ccd6a0416e750ee2f43.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/ss_388ecadfb9cfe88036d500c56a5e149b38490e4a.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/ss_9cff3acdf1a869d56bed9b7e8bfe17c2ab5cc1d9.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/0000004033.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/0000004034.1920x1080.jpg?t=1776958818",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39500/0000004035.1920x1080.jpg?t=1776958818"
+  ],
+  "short": "A nameless hero becomes a legend! Myrtana, a world in upheaval: overrun by orcs from the dark lands in the north, King Rhobar is defending Vengard, the former stronghold of the humans, with his last troop of followers.",
+  "steam_appid": 39500,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2009
+}

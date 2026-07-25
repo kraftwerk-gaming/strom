@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Bullfrog Productions"
+  ],
+  "genres": [
+    "Strategy",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/syndicate.jpg",
+  "long": "Syndicate is a real-time tactical strategy game set in a dystopian cyberpunk future where players direct a squad of four cybernetic agents to seize control of cities for their corporate syndicate. Missions involve assassinations, persuasion, and combat, with research used to develop new weapons and cybernetic upgrades between operations.",
+  "lutris": "https://lutris.net/games/syndicate/",
+  "name": "Syndicate",
+  "screenshots": [],
+  "short": "Syndicate (via FreeSynd engine)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1993
+}

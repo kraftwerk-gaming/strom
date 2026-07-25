@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "Croteam"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/serious-sam-the-second-encounter.jpg",
+  "long": "Serious Sam: The Second Encounter is a 2002 first-person shooter that continues the series' fast-paced, horde-driven combat. It adds new weapons, enemies, and environments spanning Mesoamerican, Mesopotamian, and medieval European settings. Like its predecessor, it supports cooperative multiplayer over LAN and online.",
+  "lutris": "https://lutris.net/games/serious-sam-the-second-encounter/",
+  "name": "Serious Sam: The Second Encounter",
+  "screenshots": [],
+  "short": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online Co-op",
+    "LAN Co-op"
+  ],
+  "year": 2002
+}

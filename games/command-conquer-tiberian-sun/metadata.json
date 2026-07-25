@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Westwood Studios"
+  ],
+  "genres": [
+    "RTS",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/command-conquer-tiberian-sun.jpg",
+  "long": "Command & Conquer: Tiberian Sun continues the GDI versus Nod conflict decades after the original, on an Earth increasingly mutated by spreading Tiberium. It introduced a new engine with deformable terrain, lighting effects, and a tech tree of futuristic units. This build bundles the Firestorm expansion and supports skirmish and LAN multiplayer.",
+  "lutris": "https://lutris.net/games/command-conquer-tiberian-sun/",
+  "name": "Command & Conquer: Tiberian Sun + Firestorm",
+  "screenshots": [],
+  "short": "Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP"
+  ],
+  "year": 1999
+}

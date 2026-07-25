@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "AMPLITUDE Studios"
+  ],
+  "genres": [
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/header.jpg?t=1780670351",
+  "long": "Special Edition\n\nENDLESS Legend\u2122  includes all the Emperor Edition bonuses (minus Dungeon of the ENDLESS\u2122 - Deep Freeze):\n\n-\tMinor faction \u201cIce Wargs\u201d\n-\tHero \u201cNamkang\u201d\n-\tUnique trait for custom factions \u201cA song of only ice\u201d\n-\tOfficial Digital Soundtrack by Arnaud Roy (FlybyNo) in mp3 format\n-\tUnique badge for your Amplifiers account\n-\tAdds 200 points to the value of your votes on Amplifiers\n\n EXCLUSIVE REWARDS\n\nJoin the AMPLIFIERS community now, and receive the ENDLESS Legend\u2122 badge (unlocks points, dozens of avatars and titles to customize your AMPLIFIERS profile)\n\nFollow the development of the game and get to know the talent behind the scenes.\n\nMake your voice count by giving feedback on the game, submitting ideas, and voting for Art and gameplay elements.\n\nParticipate in contests and design content that will be created by the studio and added to the game!\n\nAbout the Game\nCreate your own Legend\nAnother sunrise, another day of toil. Food must be grown, industries built, science and magic advanced, and wealth collected. Urgency drives these simple efforts, however, for your planet holds a history of unexplained apocalypse, and the winter you just survived was the worst on record. A fact that has also been true for the previous five.\n\nAs you discover the lost secrets of your world and the mysteries of the legends and ruins that exist as much in reality as in rumor, you will come to see that you are not alone. Other peoples also struggle to survive, to grow, and perhaps even to conquer.\n\nYou have a city, a loyal populace, and a few troops; your power and magic should be sufficient to keep them alive. But beyond that, nothing is certain\u2026 Where will you go, what will you find, and how will you react? Will your trail be one of roses, or of blood?\n\nExplore fantastic lands.\nLead one of eight civilizations each with a unique gameplay style and storyline.\n\nSurvive through cold dark seasons that drive Auriga to its end. Will it also be yours?\n\nExperience an endless replayability with randomly generated worlds and quests.\n\nSet the size, shape, topography and more... to create your own world to discover.\n\nExpand beyond the unknown.\nConquer, build and develop villages into feared fortresses or wonderful cities.\n\nAssimilate powerful minor factions and use their special traits and units wisely.\n\nHire, equip and train your heroes to become army leaders or city governors.\n\nRaise your civilization by finding mysterious artefacts and forgotten technologies.\n\nExploit every opportunity.\nEvolve your civilization through the discovery of new advanced technologies.\n\nCollect Dust, luxuries and strategic resources tradable on the marketplace.\n\nKeep one step ahead of other civilizations through trade and subtle diplomacy.\n\nChoose from different victory conditions and adapt your strategy on the fly.\n\nExterminate fools who defy you.\nExperience an innovative dynamic simultaneous turn-based battle system.\n\nUse unit equipment, abilities and the terrain to overcome your opponents.\n\nZoom out of a battle and rule the other aspects of your empire seamlessly.\n\nDefine your custom civilizations and confront those created by your friends.",
+  "lutris": "https://lutris.net/games/endless-legend/",
+  "name": "ENDLESS Legend\u2122",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_ec8df411b2dd4000c57936e640a9d3d9b9c91c57.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_e8225a106e257d3996049fe0009c88ae9bda652b.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_de34fe8d562d348ec75476764034e884732262d0.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_bfbd8c33435de3ee8444a6e2e04d15a3534bf45e.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_4f7d69982faa5f8e6d0dbe3169f0f600b68d4bf0.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_b95e6eb04b7bf6580991f7a0a6c969e1dd0b0a05.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_17e540400c4fc14aba8591a43bc08882dd6f63d5.1920x1080.jpg?t=1780670351",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/289130/ss_e912ecd8915cd1dcaeac704e9c97073be51b9560.1920x1080.jpg?t=1780670351"
+  ],
+  "short": "ENDLESS Legend\u2122 is a 4X turn-based fantasy strategy game by the creators of ENDLESS Space\u2122 and Dungeon of the ENDLESS\u2122. Control every aspect of your civilization as you struggle to save your homeworld Auriga. Create your own Legend!",
+  "steam_appid": 289130,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Cross-Platform Multiplayer",
+    "Steam Achievements",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

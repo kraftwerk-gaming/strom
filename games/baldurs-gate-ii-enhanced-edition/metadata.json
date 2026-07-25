@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "BioWare",
+    "Beamdog"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/baldurs-gate-ii-enhanced-edition.jpg",
+  "long": "Baldur's Gate II: Enhanced Edition is a remaster of BioWare's acclaimed 2000 Dungeons & Dragons role-playing game on the Infinity Engine. Players continue the saga of the Bhaalspawn through the city of Athkatla and beyond, with deep party-based real-time-with-pause AD&D combat and rich companion stories. This edition bundles the Throne of Bhaal expansion plus new content from Beamdog.",
+  "lutris": "https://lutris.net/games/baldurs-gate-ii-enhanced-edition/",
+  "name": "Baldur's Gate II: Enhanced Edition + DLC",
+  "screenshots": [],
+  "short": "Baldur's Gate II: Enhanced Edition + DLC (native Linux, Beamdog GOG v2.6.6.0p)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online Co-op",
+    "LAN Co-op"
+  ],
+  "year": 2000
+}

@@ -1,0 +1,31 @@
+{
+  "developers": [
+    "Daniel Linssen"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3458170/header.jpg?t=1740748377",
+  "long": "Leap Year: March continues the adventure for players who have beaten Leap Year and want an even greater challenge.\u00a0\n\nUse the same tools you learned in Leap Year to explore another hand drawn world that\u2019s both larger and much more complex. Master your understanding of Leap Year\u2019s secrets to complete another month of your calendar.\u00a0\n\nFeatures\nAbout 4 more hours of playtime\n\n50+ challenging new rooms\n\n7 new Steam achievements\n\nA new way to die",
+  "lutris": "https://lutris.net/games/leap-year-march/",
+  "name": "Leap Year: March",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3458170/ss_13b70ad44b991409a214ece98dddfd54b8f43713.1920x1080.jpg?t=1740748377",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3458170/ss_ad951465a285da8c282051caa872349ad02a7d1e.1920x1080.jpg?t=1740748377",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3458170/ss_8ca275b0716202573bd698ac792e31adbe34f03a.1920x1080.jpg?t=1740748377",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3458170/ss_608a79f094d4745d500ab2d78063ef304a29dfb9.1920x1080.jpg?t=1740748377",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3458170/ss_91e338174abf7a1b9bf2b74e9cee1fd293c4e3ff.1920x1080.jpg?t=1740748377"
+  ],
+  "short": "Leap Year: March continues the adventure for players who have beaten Leap Year and want an even greater challenge. Use the same tools you learned in Leap Year to explore another hand drawn world that\u2019s both larger and much more complex.",
+  "steam_appid": 3458170,
+  "tags": [
+    "Single-player",
+    "Downloadable Content",
+    "Steam Achievements",
+    "Full controller support",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

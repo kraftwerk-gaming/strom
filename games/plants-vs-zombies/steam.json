@@ -1,0 +1,41 @@
+{
+  "developers": [
+    "PopCap Games",
+    "The Lost Pixels"
+  ],
+  "genres": [
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/2a3015b525e5d4da6d2c1a517d0a8c1504b1eee8/header.jpg?t=1763401327",
+  "long": "What\u2019s new vs. the 2009 GOTY edition?\n\nAbout the Game\n\nThe classic Plants vs. Zombies returns in glorious HD! DANG! After years in Crazy Dave\u2019s attic, the original battle between Plants and Zombies is back \u2014 bigger, brighter, and crazier than ever before! Experience the game that started it all, now remastered with upscaled HD graphics and packed with new secrets to uncover.\n\nRevisit the epic backyard standoffs you remember, this time with new levels, fresh twists, and 15 years of never-before-seen franchise history at your fingertips. Relive the glory days of peashooters, sunflowers, and brain-hungry chaos! Rejoin the ultimate garden defense and experience the backyard brawl that started a phenomenon \u2014 now back for a new era!",
+  "lutris": "https://lutris.net/games/plants-vs-zombies/",
+  "name": "Plants vs. Zombies\u2122: Replanted",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/c91b72b9b68246a609e8e8eae208cff42d24ebaa/ss_c91b72b9b68246a609e8e8eae208cff42d24ebaa.1920x1080.jpg?t=1763401327",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/01cb3a736faab7db3b0049c4f44f219c149be678/ss_01cb3a736faab7db3b0049c4f44f219c149be678.1920x1080.jpg?t=1763401327",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/a93fc3c20ad60320734eadb2b5821d7e0429587f/ss_a93fc3c20ad60320734eadb2b5821d7e0429587f.1920x1080.jpg?t=1763401327",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/4b1c782b3dd53bf98b06001a1027a0468049854c/ss_4b1c782b3dd53bf98b06001a1027a0468049854c.1920x1080.jpg?t=1763401327",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3654560/37f055a991ab29b79a99ede0d4f46155e5e1dd3e/ss_37f055a991ab29b79a99ede0d4f46155e5e1dd3e.1920x1080.jpg?t=1763401327"
+  ],
+  "short": "The classic Plants vs. Zombies returns in glorious HD! The original battle between Plants and Zombies is back \u2014 bigger, brighter, and crazier than ever before! Experience the game that started it all, now remastered with stunning HD graphics and packed with new secrets and content to uncover.",
+  "steam_appid": 3654560,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2025
+}

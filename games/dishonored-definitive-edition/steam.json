@@ -1,0 +1,38 @@
+{
+  "developers": [
+    "Arkane Studios"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/header.jpg?t=1750785977",
+  "long": "Dishonored is an immersive first-person action game that casts you as a supernatural assassin driven by revenge.  With Dishonored\u2019s flexible combat system, creatively eliminate your targets as you combine the supernatural abilities, weapons and unusual gadgets at your disposal. Pursue your enemies under the cover of darkness or ruthlessly attack them head on with weapons drawn. The outcome of each mission plays out based on the choices you make.Story:\nDishonored is set in Dunwall, an industrial whaling city where strange steampunk- inspired technology and otherworldly forces coexist in the shadows. You are the once-trusted bodyguard of the beloved Empress. Framed for her murder, you become an infamous assassin, known only by the disturbing mask that has become your calling card. In a time of uncertainty, when the city is besieged by plague and ruled by a corrupt government armed with industrial technologies, dark forces conspire to bestow upon you abilities beyond those of any common man \u2013 but at what cost? The truth behind your betrayal is as murky as the waters surrounding the city, and the life you once had is gone forever.Key features:\nImprovise and Innovate\n\nApproach each assassination with your own style of play. Use shadow and sound to your advantage to make your way silently through levels unseen by foes, or attack enemies head-on as they respond to your aggression. The flexible combat system allows you to creatively combine your abilities, supernatural powers and gadgets as you make your way through the levels and dispatch your targets. Improvise and innovate to define your play style.\n\nAction with Meaning\n\nThe world of Dishonored reacts to how you play. Move like a ghost and resist corruption, or show no mercy and leave a path of destruction in your wake. Decide your approach for each mission, and the outcomes will change as a result.\n\nSupernatural Abilities\n\nTeleport for stealth approaches, possess any living creature, or stop time itself to orchestrate unearthly executions! Combining your suite of supernatural abilities and weapons opens up even more ways to overcome obstacles and eliminate targets.  The game\u2019s upgrade system allows for the mastery of deadly new abilities and devious gadgets.\n\nA City Unlike Any Other\n\nEnter an original world envisioned by Half-Life 2 art director Viktor Antonov. Arkane and Bethesda bring you a steampunk city  where industry and the supernatural collide, creating an atmosphere thick with intrigue.  The world is yours to discover.",
+  "lutris": "https://lutris.net/games/dishonored-definitive-edition/",
+  "name": "Dishonored",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/ss_409bb8591d4c8278815510d9be737b57dfc57e06.1920x1080.jpg?t=1750785977",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/ss_32d76a6ff4b216410b90ff2cdb7107a28a1baed2.1920x1080.jpg?t=1750785977",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/ss_fd7613fa1b8f19674cc0b4cd53db39c9618641fd.1920x1080.jpg?t=1750785977",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/ss_8d26f4f83fb598eed36bdb0c6ecb41962a64ccf7.1920x1080.jpg?t=1750785977",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/ss_e6f960fda9132baa23aca305359064dbc1b6f507.1920x1080.jpg?t=1750785977",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/205100/ss_30e0328295a5d208283e69eb382fac2fa94809a8.1920x1080.jpg?t=1750785977"
+  ],
+  "short": "Dishonored is an immersive first-person action game that casts you as a supernatural assassin driven by revenge. With Dishonored\u2019s flexible combat system, creatively eliminate your targets as you combine the supernatural abilities, weapons and unusual gadgets at your disposal.",
+  "steam_appid": 205100,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Color Alternatives",
+    "Adjustable Difficulty",
+    "Playable without Timed Input",
+    "Stereo Sound",
+    "Surround Sound",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play on Tablet",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2012
+}

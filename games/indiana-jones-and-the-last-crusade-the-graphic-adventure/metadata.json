@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Lucasfilm Games"
+  ],
+  "genres": [
+    "Adventure",
+    "Point & Click"
+  ],
+  "hero": "https://lutris.net/games/banner/indiana-jones-and-the-last-crusade-the-graphic-adventure.jpg",
+  "long": "Indiana Jones and the Last Crusade: The Graphic Adventure is a point-and-click adventure based on the film, built on the SCUMM engine. Players guide Indy through puzzles and dialogue as he searches for the Holy Grail, with multiple solution paths and an IQ scoring system that rewards exploration. It blends item-based puzzle solving with fist-fight sequences.",
+  "lutris": "https://lutris.net/games/indiana-jones-and-the-last-crusade-the-graphic-adventure/",
+  "name": "Indiana Jones and the Last Crusade: The Graphic Adventure",
+  "screenshots": [],
+  "short": "Indiana Jones and the Last Crusade: The Graphic Adventure (1989 Lucasfilm SCUMM floppy, via ScummVM)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1989
+}

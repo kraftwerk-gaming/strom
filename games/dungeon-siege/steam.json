@@ -1,0 +1,27 @@
+{
+  "developers": [
+    "Gas Powered Games"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39190/header.jpg?t=1779884929",
+  "long": "Dungeon Siege\u00ae combines the immersive elements of a role-playing game with over-the-top intensity and non-stop action. Dungeon Siege plunges you into a continuous 3D fantasy world where you face off against an army of evil that has been unleashed.\n\r\n\t\t\t\t\t\t You begin as a humble farmer, and as you travel through the world and gain new skills, you can gather a party of up to eight characters to aid you. Dungeon Siege impels the player into one over-the-top battle after the other as the storyline unfolds and a larger plot begins to reveal itself.\n\r\n\t\t\t\t\t\t A world of adventure where you can explore sprawling landscapes in a seamlessly unfolding story awaits...",
+  "lutris": "https://lutris.net/games/dungeon-siege/",
+  "name": "Dungeon Siege",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39190/ss_dd8bd5ff0ba3c33cfa9f0a74e5a3d0531ba64338.1920x1080.jpg?t=1779884929",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39190/ss_3642cb7bd50fd9d4f5aed1e7ca9e0e1c607c2195.1920x1080.jpg?t=1779884929",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39190/ss_0211851b61994e08f197e59bca4e86137fadda44.1920x1080.jpg?t=1779884929",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39190/ss_eeec846a382308de971ba7f6778ef3856dad7087.1920x1080.jpg?t=1779884929",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39190/ss_1e5ec96cc9a619971aaede8ea471d325397cc3b1.1920x1080.jpg?t=1779884929"
+  ],
+  "short": "Dungeon Siege\u00ae combines the immersive elements of a role-playing game with over-the-top intensity and non-stop action. Dungeon Siege plunges you into a continuous 3D fantasy world where you face off against an army of evil that has been unleashed.",
+  "steam_appid": 39190,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2011
+}

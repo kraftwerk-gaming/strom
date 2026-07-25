@@ -1,0 +1,52 @@
+{
+  "developers": [
+    "Cranky Watermelon"
+  ],
+  "genres": [
+    "Action",
+    "Casual",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/header.jpg?t=1774862745",
+  "long": "Roast and toast your friends in lightning-fast rounds of cute physics combat for up to 6 players. Perfect for parties!\n\nDiscover a ridiculous range of power-ups like explosive boomerangs, disguises and telekinesis. Then stack your power-ups together to form outrageous combinations!\n\nIt only takes one stick and three buttons to pulverize your pals. Anyone can play immediately, but hardcore players will love mastering the advanced techniques of this lost martial art. Deflect attacks, recall dropped boomerangs, and curve your throws around corners to become a powerful boomerang assassin.\n\nJourney to an edible world as you do battle in over 30 Kung Fu arenas, each filled with unique tools and traps. Jump over moving platforms and sneak through lush foliage. Trigger sliding walls to squish your foes. Dive between giant rolling pins and delight the Toaster King.\n\nJoin forces with your friends to take on the ingenious AI opponents. Or squabble over the precious Golden Boomerang in a frantic alternative game mode.\n\nPlay with only the power-ups you love. Turn off shields. Turn on friendly fire. You change the rules to suit your tastes!\n\nBoomerang Fu is best enjoyed with controllers. We support a variety of controllers including Xbox, PlayStation, Switch and many more.\n\nRemote Play Together over Steam. Please note: video quality and input lag will vary based on the speed of your internet connection and hardware.",
+  "lutris": "https://lutris.net/games/boomerang-fu/",
+  "name": "Boomerang Fu",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_ff8629d683e8b5b584430f7cdae568bfebb74f84.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_98df23bc221ec49594871d7ee3c02b8288e70508.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_13efe9d3857f289c19f3530672b291c78a3fe5f2.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_fb142724f81d0fd093c275776b12c2a89ac7ffbd.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_b30f135956af843407c2142df4aaa563c708b97b.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_8eafc76f2c6e5f676ee12e235b590a0ddd2530bc.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_9909655db476268566444953b235e1afed6fa1c7.1920x1080.jpg?t=1774862745",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/965680/ss_12fa9bbb2f20e69b9ad20a9a9208be568f7ecd7e.1920x1080.jpg?t=1774862745"
+  ],
+  "short": "Slice and dice your friends with boomerangs in this frantic physics party game. Join a crew of your favorite foods as you grill, chill and spill your enemies. Discover ridiculous power-ups and stack them together in deadly combinations.",
+  "steam_appid": 965680,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Shared/Split Screen PvP",
+    "Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Steam Achievements",
+    "Full controller support",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Adjustable Difficulty",
+    "Gamepad Recommended",
+    "Keyboard Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "DualShock Controller Support",
+    "Stereo Sound",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2020
+}

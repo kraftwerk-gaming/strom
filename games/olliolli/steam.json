@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Roll7",
+    "General Arcade"
+  ],
+  "genres": [
+    "Indie",
+    "Sports"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/header.jpg?t=1659054646",
+  "long": "OlliOlli mixes addictive one-life gameplay with over 120 tricks and grinds across 50 deviously crafted levels, 250 Challenges, Spots Mode and Daily Grind. Not enough for you? Complete all challenges to unlock the super skillful RAD Mode! Rack up the biggest and coolest combos along the way then time your landing to perfection to rule the leader-boards. Just don\u2019t slam on your face*. Compete across the world in all modes to get the highest scores on every Level and Spot. Daily Grind gives you 24 hours to challenge the world at a randomly selected Spot. You can practice as many times as you like, but you only get one chance to set your score.\n\n* You will slam on your face.\n\nQuad Modal: Four Game Modes - Career, Spots, Daily Grind and RAD mode - will have you grinding for months to come\n\nPress to Land: Perfect landing and grind mechanic that rewards you for timing tricks to perfection, lock this down and mainline your brain into skateboarding's rhythm.\n\nShowboating: Battle online for the number one spot on every mode, squeeze in that one extra trick for world dominance.\n\nRide the World: Five different stages, each with their own unique levels and obstacles, grind over JCBs in the junkyard and heelflip over Dinosaurs in Neon!\n\nPrecision Fingering: Over 120 tricks and grinds, from boardslides to nosegrinds and kickflips to impossibles - your digits will never get bored!\n\nHorizontally Challenged: An astounding 250 unique and cunning challenges, honing your skills, pushing you harder and harder - will you step up?\n\nSilverware: Capture various gold, silver, and bronze to put on your digital mantlepiece for ultimate bragging rights.\n\nMuzak: Sick hand-picked soundtrack including the Qemists, Dorian Concept and Flako. Who'd have thought jazz and skateboarding would go so damn well together?",
+  "lutris": "https://lutris.net/games/olliolli/",
+  "name": "OlliOlli",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_606a59ffd73d56bd97e7f071645a5e1dccf39999.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_000443696286c88df353aca8c336abd7cbb08ff8.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_48d695af70ce9bd18ba6c5ab7594fbf5d2848931.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_a06407d8312088592275861501b0cde5c83ee0d5.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_df96ce4786f4c8f780df7908ec6798c08e6ff4f1.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_fac86bfc28384b91d68bef43d3d9def6fd9ccef9.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_70072f5f71223d3b3be3912b9e73c56a1dfc6607.1920x1080.jpg?t=1659054646",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/274250/ss_ba2148e0947e0d2abd26eefa0080b24bf4d0c0f8.1920x1080.jpg?t=1659054646"
+  ],
+  "short": "OlliOlli mixes addictive one-life gameplay with over 120 tricks and grinds across 50 deviously crafted levels, 250 Challenges, Spots Mode and Daily Grind.",
+  "steam_appid": 274250,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Stats",
+    "Steam Leaderboards",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

@@ -1,0 +1,45 @@
+{
+  "developers": [
+    "The Indie Stone"
+  ],
+  "genres": [
+    "Indie",
+    "RPG",
+    "Simulation",
+    "Early Access"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/header.jpg?t=1777298596",
+  "long": "Project Zomboid is an open-ended zombie-infested sandbox. It asks one simple question \u2013 how will you die?\u00a0\n\nIn the towns of Muldraugh and West Point, survivors must loot houses, build defences and do their utmost to delay their inevitable death day by day. No help is coming \u2013 their continued survival relies on their own cunning, luck and ability to evade a relentless horde.Current Features\n\nHardcore Sandbox Zombie Survival Game with a focus on realistic survival.\n\nOnline multiplayer survival with persistent player run servers.\n\nLocal 4 player split-screen co-op\n\nHundreds of zombies with swarm mechanics and in-depth visual and hearing systems.\n\nFull line of sight system and real-time lighting, sound and visibility mechanics. Hide in the shadows, keep quiet and keep the lights off at night, or at least hang sheets over the windows.\n\nVast and growing map (loosely based on a real world location) for you to explore, loot and set up your fortress. Check out Blindcoder\u2019s map project:\n\n Vehicles with full physics and deep and realistic gameplay mechanics.\n\nUse tools and items to craft weapons, barricade and cook. You can even build zombie proof forts by chopping trees, sawing wood and scavenging supplies.\n\nDeal with depression, boredom, hunger, thirst and illness while trying to survive.\n\nDay turns to night. The electricity falters. Hordes migrate. Winter draws in. Nature gradually starts to take over.\n\nFarming, fishing, carpentry, cooking, trapping, character customization, skills and perks that develop based on what you do in-game.\n\nProper zombies that don\u2019t run. (Unless you tell them to in the sandbox menu).\n\nA ton of amazing atmospheric music tracks by the prodigy that is Zach Beever.\n\nImaginative Challenge scenarios and instant action \u2018Last Stand\u2019 mode, on top of regular Sandbox and Survival\u00a0\n\nFull, open and powerful Lua modding support.\n\nXbox Controller Gamepad support on Windows. (Other gamepads can be set up manually.)\n\nWe\u2019re a small team at the moment, but we\u2019re also committed to providing the following:planned Features:\n\nThe return of our PZ Stories mode that also serves as first ever tutorial actively trying to kill you at every turn. Kate and Baldspot return!\n\nIn-depth and varied NPC encounters driven in a persistent world, powered by a metagame system that turns each play-through into your very own zombie survival movie with emergent narrative gameplay.\n\nConstant expansion of the countryside and cities around Muldraugh and West Point\n\nFull wilderness survival systems, animals and hunting for food.\n\nMore items, crafting recipes, weapons and gameplay systems.\n\nSteam Workshop and Achievements support\n\nFor more details on the game follow us on @theindiestone or visit",
+  "lutris": "https://lutris.net/games/project-zomboid/",
+  "name": "Project Zomboid",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_d4a0f78dc94273c7f0eedc186569efc091387066.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_eca8be032b3f5508bf5bea74cfbc823a4df047ce.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_7300ecc70342b6fcbdf39b6f9ff4c408066f8fc2.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_eb1862af5109e4658e2538d897cbd16b87ad1818.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_3b21d79855804e2a73468328a8fd18df0d238a2a.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_0dc0cb896202ecfa344a0af981b695f2349317e1.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_bb426e3c51a76f0605cef625094a9fbc7efad73a.1920x1080.jpg?t=1777298596",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/108600/ss_507e952789822b69868d768e1e4476946f37b1fb.1920x1080.jpg?t=1777298596"
+  ],
+  "short": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die? All it takes is a bite..",
+  "steam_appid": 108600,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "Co-op",
+    "Online Co-op",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen",
+    "Cross-Platform Multiplayer",
+    "Steam Trading Cards",
+    "Steam Workshop",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Remote Play Together",
+    "Family Sharing"
+  ],
+  "year": 2013
+}

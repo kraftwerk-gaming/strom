@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "LucasArts"
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/header.jpg?t=1683094733",
+  "long": "Return to Monkey Island\n\nAbout the Game\nI've sailed the seas from Trinidad to Tortuga and I've never seen anything like it! The engagement ring I gave Elaine has a terrible pirate curse on it. LeChuck is behind it, I'm sure. I should have known that nothing good could come out of that evil zombie's treasures. And if that's not bad enough, the clairvoyant I met in the mangrove swamp told me that if I am to break the curse and save Elaine, I will have to die!\nExcerpted from \"\"The Memoirs of Guybrush Threepwood: The Monkey Island Years\"\"\n\n- Third in the legendary Monkey Island series of graphic adventures\n- Film quality animation, voice, sound and music--the undead come to life before your very eyes!\n- Incredible high-resolution (640 x 480) graphics!\n- A barrel of gameplay--estimated 30-plus hours!\n- Two difficulty settings: regular and Mega-Monkey (now with more puzzley goodness)!\n- New and improved insults suitable for swordfights and other fun occasions!",
+  "lutris": "https://lutris.net/games/the-curse-of-monkey-island/",
+  "name": "The Curse of Monkey Island",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_1b6676555bea593e7cfb9a2ac9d45fa8bd549eef.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_7ad88d2ebc4cf782588384d7e33c6bd30fac88a5.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_919f791ec4acd24b1c9626f1a6ebeca197239bb3.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_193b3477f6b790477dcb57a4e19f261b6998fe27.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_73dd9f1332d7057faf46bd65031708376b37162f.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_02af23a7713b839313b7a0caad559218f652ccf1.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_57ff743ef78910b9452a2dda3f49617f6f5b6742.1920x1080.jpg?t=1683094733",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730820/ss_d9f16e8bc4aa837a0906fdd3ef87fe53abd7c061.1920x1080.jpg?t=1683094733"
+  ],
+  "short": "The only pirate adventure that asks the question: What's sharper, your sword or your wit?",
+  "steam_appid": 730820,
+  "tags": [
+    "Single-player",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2018
+}

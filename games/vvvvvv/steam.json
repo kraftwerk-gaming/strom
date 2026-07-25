@@ -1,0 +1,36 @@
+{
+  "developers": [
+    "Terry Cavanagh"
+  ],
+  "genres": [
+    "Action",
+    "Indie"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/header.jpg?t=1751298999",
+  "long": "Help! Everyone has been teleported away randomly! As the heroic Captain Viridian, it's up to you to find your friends, bring them back to safety, and save the universe!\n\n\t\t\t\t\tVVVVVV is a platform game all about exploring one simple mechanical idea - what if you reversed gravity instead of jumping?\n\n\t\t\t\t\tThe game is designed not to artificially gate your progress. In VVVVVV there are no locks, no power-ups, no switches, nothing to stop you progressing except the challenges themselves.\n\t\t\t\t\tKey features:\n\t\t\t\t\tElegant, minimalistic level design.\n\nChallenging, fast and fun gameplay.\n\nFrequent checkpoints mean you never have to replay challenges you've already beaten.\n\nOver half an hour of chiptune music by composer Magnus P\u00e5lsson.\n\nSpecial game modes, including time trials and a no death mode.\n\nA powerful and easy to use level editor for creating your own dimensions to explore.",
+  "lutris": "https://lutris.net/games/vvvvvv/",
+  "name": "VVVVVV",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_4ba9fa1829414a6739bee4d7008f8e68bb03e0a8.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_a7dc7971405b1fa3c5640da773fc595a2b5944cd.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_1140656e1a643311e076553cd488a666ab5372b7.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_b8c0b727035975dd98fb9f61dc444dced9841a00.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_23cf3ae8053ae2622f380ae902915ccfe3871ced.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_41e8b749b3a1200eefe002edd5f743b0a6aacbfc.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_6405295ccc4fe7f7e584488c9fcfd6801d575968.1920x1080.jpg?t=1751298999",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/70300/ss_3018b946a8a5df32f162e31f78db5863d743154b.1920x1080.jpg?t=1751298999"
+  ],
+  "short": "VVVVVV is a platform game all about exploring one simple mechanical idea - what if you reversed gravity instead of jumping?",
+  "steam_appid": 70300,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Includes level editor",
+    "Remote Play on TV",
+    "Family Sharing"
+  ],
+  "year": 2010
+}

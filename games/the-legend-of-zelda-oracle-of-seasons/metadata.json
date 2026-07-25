@@ -1,0 +1,22 @@
+{
+  "developers": [
+    "Capcom",
+    "Flagship"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Puzzle"
+  ],
+  "hero": "https://lutris.net/games/banner/the-legend-of-zelda-oracle-of-seasons.jpg",
+  "long": "The Legend of Zelda: Oracle of Seasons is a top-down action-adventure for the Game Boy Color in which Link uses the Rod of Seasons to change the seasons and traverse the land of Holodrum, rescuing the Oracle Din. The Seasons title leans toward action and combat compared to its puzzle-focused companion. It links with Oracle of Ages via passwords for a combined storyline.",
+  "lutris": "https://lutris.net/games/the-legend-of-zelda-oracle-of-seasons/",
+  "name": "The Legend of Zelda: Oracle of Seasons",
+  "screenshots": [],
+  "short": "The Legend of Zelda: Oracle of Seasons (via RetroArch / mGBA)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2001
+}

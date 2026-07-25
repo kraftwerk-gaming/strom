@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Bullfrog Productions"
+  ],
+  "genres": [
+    "Simulation",
+    "Strategy",
+    "City Builder"
+  ],
+  "hero": "https://lutris.net/games/banner/theme-hospital.jpg",
+  "long": "Theme Hospital is a business simulation game in which the player designs and manages a hospital, hiring staff, building treatment rooms, and curing patients of comical fictional ailments. It was developed by Bullfrog Productions and published by Electronic Arts. This packaging runs the original data through the open-source CorsixTH engine.",
+  "lutris": "https://lutris.net/games/theme-hospital/",
+  "name": "Theme Hospital",
+  "screenshots": [],
+  "short": "Theme Hospital (via CorsixTH engine)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1997
+}

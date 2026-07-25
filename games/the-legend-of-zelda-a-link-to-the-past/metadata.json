@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Nintendo"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/the-legend-of-zelda-a-link-to-the-past.jpg",
+  "long": "The Legend of Zelda: A Link to the Past is a top-down action-adventure following Link as he travels between a Light World and a Dark World to rescue Princess Zelda and defeat the wizard Agahnim and Ganon. It features puzzle-filled dungeons, an arsenal of items and weapons, and a sprawling overworld. The game is widely regarded as a defining entry in the series.",
+  "lutris": "https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/",
+  "name": "The Legend of Zelda: A Link to the Past",
+  "screenshots": [],
+  "short": "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1991
+}

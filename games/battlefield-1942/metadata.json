@@ -1,0 +1,23 @@
+{
+  "developers": [
+    "DICE"
+  ],
+  "genres": [
+    "FPS",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/battlefield-1942.jpg",
+  "long": "Battlefield 1942 is a first-person shooter set in World War II, built around large-scale combined-arms battles across land, sea, and air. Players fight on foot or pilot tanks, planes, ships, and other vehicles to capture control points on sprawling historical maps. The Complete Collection bundles the base game with the Road to Rome and Secret Weapons of WWII expansions.",
+  "lutris": "https://lutris.net/games/battlefield-1942/",
+  "name": "Battlefield 1942 Complete Collection",
+  "screenshots": [],
+  "short": "Battlefield 1942 Complete Collection (DICE 2002, community HD repack, via Proton)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Online PvP",
+    "LAN PvP"
+  ],
+  "year": 2002
+}

@@ -1,0 +1,28 @@
+{
+  "developers": [
+    "People Can Fly"
+  ],
+  "genres": [
+    "Action"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/header.jpg?t=1709653382",
+  "long": "Painkiller Black Edition includes Painkiller and the expansion pack Battle Out of Hell, featuring 10 additional single-player levels and many new villans.\n\nGothic Story, Frantic Gameplay. Painkiller is a first-person horror shooter, designed to satisfy a gamer's hunger for intense, fast-paced action. It's an adrenaline addict's nightmare, where hellish monsters swarm in seemingly endless mobs.\n\nGraphically, Painkiller is unmatched. The proprietary PAIN Engine puts out an unbelievably high polygon count, while adding increased texture quality and the latest lighting and shadowing techniques, including soft shadows, DOT3 bump mapping, water reflections, glass simulation, volumetric light and fog, and more. Plug in the Havok 2.0 physics engine, and you get a realistic environment in a totally fantastical setting.\n\nStranded in a place between Heaven and Hell, your time of judgment is at hand. The Underworld is on the verge of unholy war, and you are but a pawn in the infernal battle. As you fight for your purification, the truths behind the deceptions are revealed.FEATURES\n\nCombo weapons: All weapons come in pairs, with a primary and secondary fire.\n\nMorphing: Your unholy pact gives you the power to morph into a powerful possessed creature with every 66 souls collected.\n\nLasting replay value: Painkiller features a standard single player campaign, with additional modes to encourage replay.\n\nPhysics Engine: Painkiller employs the Havok 2.0 physics engine, allowing for inverse kinematics (\"rag-doll physics\") and deformable, interactive environments.\n\nOver 30 levels of fierce action, dozens of different enemies in completely unique and varied environments.\n\nHigh adrenalin gameplay: non-stop action, hundreds of enemies to be decimated and gigantic bosses.\n\n14 incredible weapons, including the famous stake-gun, and the mythical Painkiller.",
+  "lutris": "https://lutris.net/games/painkiller/",
+  "name": "Painkiller: Black Edition",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_dc65efcda47f96287014f1ddb2725bc8feeaded1.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_e50e5d50bb4a8019cbe53ee36748dc800a34e850.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_93a68474e3e9910d654972275546599013eba79f.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_f1e164e2a9b7d7eab566a883a3eda82500671684.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_a7aadf5c7c445f3994df2ab920a67fee5c01e200.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_561b92fca3c495a07ddfe09958e47e56157378fa.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_c257fbdd63c43b7bb36fdab0d1e3058c0a7a9559.1920x1080.jpg?t=1709653382",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39530/ss_26f3e5b71ee0a72009e053c5f2aa2dc8fb08b0f3.1920x1080.jpg?t=1709653382"
+  ],
+  "short": "Painkiller Black Edition includes the expansion pack Battle Out of Hell, featuring 10 additional single-player levels and many new villains.",
+  "steam_appid": 39530,
+  "tags": [
+    "Family Sharing"
+  ],
+  "year": 2007
+}

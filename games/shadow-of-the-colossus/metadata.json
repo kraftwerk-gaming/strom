@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Team Ico"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/shadow-of-the-colossus.jpg",
+  "long": "Shadow of the Colossus is a 2005 action-adventure game for the PlayStation 2. The player journeys across a vast, desolate land to slay sixteen towering colossi in order to revive a lost loved one. Each colossus is a moving puzzle-boss that must be scaled and struck at its weak points, with minimal combat in between.",
+  "lutris": "https://lutris.net/games/shadow-of-the-colossus/",
+  "name": "Shadow of the Colossus",
+  "screenshots": [],
+  "short": "Shadow of the Colossus (via PCSX2)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2005
+}

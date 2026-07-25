@@ -1,0 +1,21 @@
+{
+  "developers": [
+    "Nintendo"
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/the-legend-of-zelda-ocarina-of-time.jpg",
+  "long": "The Legend of Zelda: Ocarina of Time is a landmark 3D action-adventure following Link across time to stop Ganondorf from seizing the Triforce. It introduced Z-targeting combat, context-sensitive controls, and ocarina-based music puzzles that became series staples. Set in the kingdom of Hyrule, it is frequently cited as one of the most influential games ever made.",
+  "lutris": "https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/",
+  "name": "The Legend of Zelda: Ocarina of Time",
+  "screenshots": [],
+  "short": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}

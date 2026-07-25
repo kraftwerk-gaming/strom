@@ -1,0 +1,20 @@
+{
+  "developers": [
+    "Nintendo"
+  ],
+  "genres": [
+    "Platformer",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/super-mario-64.jpg",
+  "long": "Super Mario 64 is a pioneering 3D platformer in which Mario explores Princess Peach's castle and dives into painting-portal worlds to collect Power Stars and rescue the princess from Bowser. It introduced free-roaming analog movement, an open level design, and a dynamic camera that defined the 3D platforming genre.",
+  "lutris": "https://lutris.net/games/super-mario-64/",
+  "name": "Super Mario 64",
+  "screenshots": [],
+  "short": "Super Mario 64 (via RetroArch / mupen64plus-next)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1996
+}

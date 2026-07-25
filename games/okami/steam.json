@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "CAPCOM Co., Ltd."
+  ],
+  "genres": [
+    "Adventure"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/587620/header.jpg?t=1733787035",
+  "long": "Experience the critically acclaimed masterpiece with its renowned Sumi-e ink art style in breathtaking high resolution. Take on the role of Amaterasu, the Japanese sun goddess who inhabits the form of a legendary white wolf, on a quest to defeat Orochi, an eight-headed demon and tyrannical monster responsible for turning the world of Nippon into a ruined wasteland.\n\r\n\n\r\nPlayers will be able to choose between modern widescreen format or the original release\u2019s 4:3 ratio. Interactive loading game screens from the original game are also included.",
+  "lutris": "https://lutris.net/games/okami/",
+  "name": "Okami HD",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/587620/ss_3da8f9bf08227a90ecf03819f391a49ba18d521a.1920x1080.jpg?t=1733787035",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/587620/ss_21797469f5b8a59e5013944931b111b39af37401.1920x1080.jpg?t=1733787035",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/587620/ss_71f6af1f989df2aa6bc4e07a9ae407609c264b2e.1920x1080.jpg?t=1733787035",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/587620/ss_cd53a4f4e19997789b43d4ffbfae495a338da93e.1920x1080.jpg?t=1733787035",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/587620/ss_710d81600bb11d79bb0f9335a408f5c242183ec2.1920x1080.jpg?t=1733787035"
+  ],
+  "short": "Experience the critically acclaimed masterpiece with its renowned Sumi-e ink art style in breathtaking high resolution.",
+  "steam_appid": 587620,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Full controller support",
+    "Steam Trading Cards",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2017
+}

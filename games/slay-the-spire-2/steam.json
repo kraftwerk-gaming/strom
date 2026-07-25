@@ -1,0 +1,42 @@
+{
+  "developers": [
+    "Mega Crit"
+  ],
+  "genres": [
+    "Indie",
+    "Strategy",
+    "Early Access"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/b0958d387dc366211e0f353443710cfcf9fdb020/header.jpg?t=1776735385",
+  "long": "THE SPIRE AWAKENS\nThe ultimate roguelike deckbuilder returns!\n\nFor 1,000 years, the Spire lay dormant, its secrets buried and its horrors forgotten. Now, it has reopened, hungrier and more dangerous than ever, devouring all who dare to ascend.\n\nNew perils demand sharper strategies, relentless cunning, and unwavering resolve. Outwit the Spire\u2019s brutal trials and uncover the truths hidden at its peak.\n\nWill you attempt the climb alone or enlist the aid of your fellow adventurers?\n\nAN EVER-CHANGING SPIRE\nStep into the newly evolved Spire, a twisted labyrinth teeming with strange and deadly foes. Adapt to an arsenal of brand new cards, relics, and potions, each offering game-changing possibilities\u2014or dangerous consequences.\n\nClimb the Spire with a new and returning cast of characters, each with their own cards, motives, and secrets.\n\nNo two climbs are ever the same. Unpredictable challenges and evolving strategies await those brave\u2014or foolish\u2014enough to ascend.\n\nCLIMB ALONE OR WITH ALLIES\nBrave the ascent on your own, or play with up to 4 players and face the Spire together in the all new co-op mode. Discover multiplayer-specific cards, powerful team synergies, and carry your friends (or get carried) to victory!\n\nA NEW AND RETURNING CAST OF CHARACTERS\nEmbark on your quest to Slay the Spire as one of five different characters, some of whom will be familiar to seasoned Slayers and two of whom who are brand new. Discover each character\u2019s unique playstyle, full potential, and secret backstory as you conquer all who stand in their way.\nUNCOVER THE SPIRE\u2019S LORE\nThe history of the Spire and its inhabitants, be they friend or foe, can now be discovered in entirely new ways. Unlock fragments of its mysterious timeline and encounter the most ancient of its residents through your myriad attempts.\n\nMORE TO COME IN EARLY ACCESS\nThe Spire truly is ever-changing\u2026 in more ways than one. More content\u2014including cards, events, environments, enemies, and more\u2014will be added and balanced throughout Early Access. Join the journey early to be a part of the Spire\u2019s next evolution.\n\nWhy release in Early Access, you ask? Slay the Spire's success comes from our community! It sounds corny, but the extra mile many of you went to report issues, translate content/announcements, create long video essays, make excellent (lol) tier lists, and draw goofy or gorgeous fan art is the reason we're doing it all again. We love our job!",
+  "lutris": "https://lutris.net/games/slay-the-spire-2/",
+  "name": "Slay the Spire 2",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/1a373a95229aab0cfd97f553ecbe86092364bb9c/ss_1a373a95229aab0cfd97f553ecbe86092364bb9c.1920x1080.jpg?t=1776735385",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/f3af7cb9693b9c4b6a7555227db3fef943db3992/ss_f3af7cb9693b9c4b6a7555227db3fef943db3992.1920x1080.jpg?t=1776735385",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/c3db69efd984ef012ae85c5b426663720152f0a4/ss_c3db69efd984ef012ae85c5b426663720152f0a4.1920x1080.jpg?t=1776735385",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0fdb2940c0d367a40b2be6433daf12e3634089cf/ss_0fdb2940c0d367a40b2be6433daf12e3634089cf.1920x1080.jpg?t=1776735385",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/18e8bda7bc4cdb37b90e0e2ce546967cbec87076/ss_18e8bda7bc4cdb37b90e0e2ce546967cbec87076.1920x1080.jpg?t=1776735385",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2868840/0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b/ss_0aa6bff0eff26e37ccfdb07ad6cab52f8ab1ed4b.1920x1080.jpg?t=1776735385"
+  ],
+  "short": "The iconic roguelike deckbuilder returns. Craft a unique deck, encounter bizarre creatures, and discover relics of immense power in Slay the Spire 2!",
+  "steam_appid": 2868840,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Co-op",
+    "Online Co-op",
+    "Full controller support",
+    "Custom Volume Controls",
+    "Mouse Only Option",
+    "Playable without Timed Input",
+    "DualShock Controller Support",
+    "Save Anytime",
+    "Steam Input API Support",
+    "Steam Cloud",
+    "Stats",
+    "Steam Leaderboards",
+    "Family Sharing"
+  ],
+  "year": 2026
+}
