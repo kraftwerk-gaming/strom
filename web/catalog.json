@@ -7415,37 +7415,18 @@
     "year": 2000
   },
   "pico-park": {
-    "developers": [
-      "TECOPARK"
-    ],
-    "genres": [
-      "Action",
-      "Casual",
-      "Indie"
-    ],
-    "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1509960/header.jpg?t=1740033204",
-    "long": "* If you are connecting more than 5 Xbox controllers, please enable \"Xbox Extended Feature Support\" in Controller Settings.PICO PARK is a cooperative local/online multiplay action puzzle game for 2-8 players.\n\nThe rule is quite simple: \"Get all the keys and get to the goal and clear\", but all 48 levels have special gimmicks designed specifically for multiplayer. At most levels, different gimmicks will appear as you move forward, and you will need to consult with your peers and think about new ways to cooperate.\n\nThis version is essentially a port of the one we released on the Nintendo Switch in 2019.\nHowever, it's not just a port, it now supports online play.\n\nThe 2016 version of this link has been renamed  \"PICO PARK:Classic Edition\"\n\n[Flexible Level]\nEach level of PICO PARK can be cleared when players get the key,unlock the door and all players reach it.But, every level requires cooperation to complete..\n\n[Battle Mode]\nCo-op play is the main work of this game, but let's compete with friends in BATTLE MODE once co-op play is completed.\n\n[Endless Mode]\nEven if you complete all 48 stages, you can play ENDLESS mode to aim at high score by collaborating with friends. By collaborating with friends, your score will grow faster.\n\n[Online Play Mode]\nYou can play together online with people who are far away from you.\nHowever, this is a game where communication is very important, so we recommend using Discord or Zoom to play while talking.\n\n[TecoGamePad]\nYou can use your smartphone as a gamepad with the TecoGamePad. It can be downloaded from the App Store and Google Play.\n\nLet's have fun playing PICO PARK with your friends!",
+    "developers": [],
+    "genres": [],
+    "hero": "https://lutris.net/games/banner/pico-park.jpg",
+    "long": "",
     "lutris": "https://lutris.net/games/pico-park/",
-    "name": "PICO PARK",
+    "name": "PICO PARK: Classic Edition",
     "runtime": "proton",
-    "screenshots": [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1509960/ss_d54c6fd82d8c804939d136356eda364295a788cd.1920x1080.jpg?t=1740033204",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1509960/ss_f356434b667dd6f5ff948a87d4d8486d29e31b36.1920x1080.jpg?t=1740033204",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1509960/ss_4c0452c49441d29f962b9b5f15299edff26a5d0a.1920x1080.jpg?t=1740033204",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1509960/ss_a2075d021825129e4b297d217f517cc8ea410d45.1920x1080.jpg?t=1740033204",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1509960/ss_829139a0569f3a9f02786c7729800d9e4354814a.1920x1080.jpg?t=1740033204"
-    ],
-    "short": "PICO PARK is a cooperative local/online multiplay action puzzle game for 2-8 players.",
-    "steam_appid": 1509960,
-    "tags": [
-      "Multi-player",
-      "Co-op",
-      "Online Co-op",
-      "Shared/Split Screen Co-op",
-      "Shared/Split Screen",
-      "Family Sharing"
-    ],
-    "year": 2021
+    "screenshots": [],
+    "short": "Pico Park (TECOPARK 2016 build, SteamStub-stripped, via Proton)",
+    "steam_appid": null,
+    "tags": [],
+    "year": null
   },
   "pico-park-2": {
     "developers": [
@@ -12133,148 +12114,60 @@
     "year": 2003
   },
   "warhammer-40000-dawn-of-war": {
-    "developers": [
-      "KING Art"
-    ],
-    "genres": [
-      "Action",
-      "Strategy"
-    ],
-    "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/f50a309da98ef75cbdae400a7d492e36314ce415/header.jpg?t=1779973757",
-    "long": "Commander Edition\n\nRoadmap\n\nAbout the Game",
+    "developers": [],
+    "genres": [],
+    "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war.jpg",
+    "long": "",
     "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war/",
-    "name": "Warhammer 40,000: Dawn of War IV",
+    "name": "Warhammer 40,000: Dawn of War",
     "runtime": "proton",
-    "screenshots": [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/69e9ed77c7eec352943f5cbeb8edfa356b2d4360/ss_69e9ed77c7eec352943f5cbeb8edfa356b2d4360.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/1003cf1d0ee5266c64c23f93f758da75c16a2c5e/ss_1003cf1d0ee5266c64c23f93f758da75c16a2c5e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/3f8940fa9e7edfa285370469e6c9d4945462d08d/ss_3f8940fa9e7edfa285370469e6c9d4945462d08d.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/d0fbe56734c78947588de71a0bb04483a22116f9/ss_d0fbe56734c78947588de71a0bb04483a22116f9.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/42f548e45936c3c6792a4e2b7516dc49c2f5ad2e/ss_42f548e45936c3c6792a4e2b7516dc49c2f5ad2e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/582d1864cace4d69134c62a8ee882bef9ed023e6/ss_582d1864cace4d69134c62a8ee882bef9ed023e6.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/da2d198eab79da4fb57d7b94b20f33031b0b39b0/ss_da2d198eab79da4fb57d7b94b20f33031b0b39b0.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/2684bbe81aa7721ceac074bf070186150885dabc/ss_2684bbe81aa7721ceac074bf070186150885dabc.1920x1080.jpg?t=1779973757"
-    ],
-    "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
-    "steam_appid": 2272360,
-    "tags": [
-      "Single-player",
-      "Multi-player",
-      "PvP",
-      "Online PvP",
-      "Co-op",
-      "Online Co-op",
-      "Family Sharing"
-    ],
-    "year": 2026
+    "screenshots": [],
+    "short": "Warhammer 40,000: Dawn of War (Relic, 2004, GOG Game of the Year edition, via Proton)",
+    "steam_appid": null,
+    "tags": [],
+    "year": null
   },
   "warhammer-40000-dawn-of-war-dark-crusade": {
-    "developers": [
-      "KING Art"
-    ],
-    "genres": [
-      "Action",
-      "Strategy"
-    ],
-    "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/f50a309da98ef75cbdae400a7d492e36314ce415/header.jpg?t=1779973757",
-    "long": "Commander Edition\n\nRoadmap\n\nAbout the Game",
+    "developers": [],
+    "genres": [],
+    "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war-dark-crusade.jpg",
+    "long": "",
     "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war-dark-crusade/",
-    "name": "Warhammer 40,000: Dawn of War IV",
+    "name": "Warhammer 40,000: Dawn of War - Dark Crusade",
     "runtime": "proton",
-    "screenshots": [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/69e9ed77c7eec352943f5cbeb8edfa356b2d4360/ss_69e9ed77c7eec352943f5cbeb8edfa356b2d4360.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/1003cf1d0ee5266c64c23f93f758da75c16a2c5e/ss_1003cf1d0ee5266c64c23f93f758da75c16a2c5e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/3f8940fa9e7edfa285370469e6c9d4945462d08d/ss_3f8940fa9e7edfa285370469e6c9d4945462d08d.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/d0fbe56734c78947588de71a0bb04483a22116f9/ss_d0fbe56734c78947588de71a0bb04483a22116f9.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/42f548e45936c3c6792a4e2b7516dc49c2f5ad2e/ss_42f548e45936c3c6792a4e2b7516dc49c2f5ad2e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/582d1864cace4d69134c62a8ee882bef9ed023e6/ss_582d1864cace4d69134c62a8ee882bef9ed023e6.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/da2d198eab79da4fb57d7b94b20f33031b0b39b0/ss_da2d198eab79da4fb57d7b94b20f33031b0b39b0.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/2684bbe81aa7721ceac074bf070186150885dabc/ss_2684bbe81aa7721ceac074bf070186150885dabc.1920x1080.jpg?t=1779973757"
-    ],
-    "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
-    "steam_appid": 2272360,
-    "tags": [
-      "Single-player",
-      "Multi-player",
-      "PvP",
-      "Online PvP",
-      "Co-op",
-      "Online Co-op",
-      "Family Sharing"
-    ],
-    "year": 2026
+    "screenshots": [],
+    "short": "Warhammer 40,000: Dawn of War - Dark Crusade (Relic, 2006, GOG standalone, via Proton)",
+    "steam_appid": null,
+    "tags": [],
+    "year": null
   },
   "warhammer-40000-dawn-of-war-soulstorm": {
-    "developers": [
-      "KING Art"
-    ],
-    "genres": [
-      "Action",
-      "Strategy"
-    ],
-    "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/f50a309da98ef75cbdae400a7d492e36314ce415/header.jpg?t=1779973757",
-    "long": "Commander Edition\n\nRoadmap\n\nAbout the Game",
+    "developers": [],
+    "genres": [],
+    "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war-soulstorm.jpg",
+    "long": "",
     "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war-soulstorm/",
-    "name": "Warhammer 40,000: Dawn of War IV",
+    "name": "Warhammer 40,000: Dawn of War - Soulstorm",
     "runtime": "proton",
-    "screenshots": [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/69e9ed77c7eec352943f5cbeb8edfa356b2d4360/ss_69e9ed77c7eec352943f5cbeb8edfa356b2d4360.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/1003cf1d0ee5266c64c23f93f758da75c16a2c5e/ss_1003cf1d0ee5266c64c23f93f758da75c16a2c5e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/3f8940fa9e7edfa285370469e6c9d4945462d08d/ss_3f8940fa9e7edfa285370469e6c9d4945462d08d.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/d0fbe56734c78947588de71a0bb04483a22116f9/ss_d0fbe56734c78947588de71a0bb04483a22116f9.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/42f548e45936c3c6792a4e2b7516dc49c2f5ad2e/ss_42f548e45936c3c6792a4e2b7516dc49c2f5ad2e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/582d1864cace4d69134c62a8ee882bef9ed023e6/ss_582d1864cace4d69134c62a8ee882bef9ed023e6.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/da2d198eab79da4fb57d7b94b20f33031b0b39b0/ss_da2d198eab79da4fb57d7b94b20f33031b0b39b0.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/2684bbe81aa7721ceac074bf070186150885dabc/ss_2684bbe81aa7721ceac074bf070186150885dabc.1920x1080.jpg?t=1779973757"
-    ],
-    "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
-    "steam_appid": 2272360,
-    "tags": [
-      "Single-player",
-      "Multi-player",
-      "PvP",
-      "Online PvP",
-      "Co-op",
-      "Online Co-op",
-      "Family Sharing"
-    ],
-    "year": 2026
+    "screenshots": [],
+    "short": "Warhammer 40,000: Dawn of War - Soulstorm (Relic, 2008, GOG standalone, via Proton)",
+    "steam_appid": null,
+    "tags": [],
+    "year": null
   },
   "warhammer-40000-dawn-of-war-winter-assault": {
-    "developers": [
-      "KING Art"
-    ],
-    "genres": [
-      "Action",
-      "Strategy"
-    ],
-    "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/f50a309da98ef75cbdae400a7d492e36314ce415/header.jpg?t=1779973757",
-    "long": "Commander Edition\n\nRoadmap\n\nAbout the Game",
+    "developers": [],
+    "genres": [],
+    "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war-winter-assault.jpg",
+    "long": "",
     "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war-winter-assault/",
-    "name": "Warhammer 40,000: Dawn of War IV",
+    "name": "Warhammer 40,000: Dawn of War - Winter Assault",
     "runtime": "proton",
-    "screenshots": [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/69e9ed77c7eec352943f5cbeb8edfa356b2d4360/ss_69e9ed77c7eec352943f5cbeb8edfa356b2d4360.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/1003cf1d0ee5266c64c23f93f758da75c16a2c5e/ss_1003cf1d0ee5266c64c23f93f758da75c16a2c5e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/3f8940fa9e7edfa285370469e6c9d4945462d08d/ss_3f8940fa9e7edfa285370469e6c9d4945462d08d.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/d0fbe56734c78947588de71a0bb04483a22116f9/ss_d0fbe56734c78947588de71a0bb04483a22116f9.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/42f548e45936c3c6792a4e2b7516dc49c2f5ad2e/ss_42f548e45936c3c6792a4e2b7516dc49c2f5ad2e.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/582d1864cace4d69134c62a8ee882bef9ed023e6/ss_582d1864cace4d69134c62a8ee882bef9ed023e6.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/da2d198eab79da4fb57d7b94b20f33031b0b39b0/ss_da2d198eab79da4fb57d7b94b20f33031b0b39b0.1920x1080.jpg?t=1779973757",
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2272360/2684bbe81aa7721ceac074bf070186150885dabc/ss_2684bbe81aa7721ceac074bf070186150885dabc.1920x1080.jpg?t=1779973757"
-    ],
-    "short": "Return to the RTS series\u2019 roots with deeply satisfying strategy gameplay. Take command of four unique Warhammer 40,000 factions, including the Adeptus Mechanicus in their series debut! Fight through 70+ epic campaign missions, as well as the replayable Last Stand, Skirmish and multiplayer modes.",
-    "steam_appid": 2272360,
-    "tags": [
-      "Single-player",
-      "Multi-player",
-      "PvP",
-      "Online PvP",
-      "Co-op",
-      "Online Co-op",
-      "Family Sharing"
-    ],
-    "year": 2026
+    "screenshots": [],
+    "short": "Warhammer 40,000: Dawn of War - Winter Assault (Relic, 2005, GOG, via Proton)",
+    "steam_appid": null,
+    "tags": [],
+    "year": null
   },
   "warzone-2100": {
     "developers": [

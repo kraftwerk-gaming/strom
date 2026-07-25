@@ -1,0 +1,4 @@
+{
+  "_comment": "The 2016 TECOPARK original, later re-released free on Steam as 'PICO PARK: Classic Edition' (appid 1745480). steam-overrides.json sets this slug to null so it is not auto-matched to the 2021 paid PICO PARK (appid 1509960, packaged as pico-park-2021); this name keeps the two tiles distinct. See AGENTS.md > Web GUI catalog metadata.",
+  "name": "PICO PARK: Classic Edition"
+}
