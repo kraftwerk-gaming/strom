@@ -47,6 +47,7 @@ let
       xorg.libXdmcp
       xorg.libxcb
       zlib
+      openal
     ];
 
     buildPhase = ''
@@ -62,6 +63,14 @@ let
       mkdir -p "$out"
       cp -r Luftrausers/Linux/. "$out"/
       chmod +x "$out/x86-64/luftrausers"
+      # The bundled 2014 openal-soft can't initialize its pulse/alsa
+      # backends against modern PipeWire -- it falls through to OSS
+      # (/dev/dsp), which does not exist, so the game is silent. Drop it
+      # so autoPatchelf repoints the binary and libsfml-audio.so.2 at
+      # nixpkgs' openal-soft (libopenal.so.1 is a stable, drop-in ABI),
+      # whose pulse backend connects through the PULSE_SERVER the gamescope
+      # wrapper points at the system pipewire-pulse socket.
+      rm -f "$out/x86-64/libopenal.so.1"
       # Drop the 32-bit build; we ship x86_64 only.
       rm -rf "$out/i686"
       # The launch.sh tries to gksudo / apt-get install dependencies on
