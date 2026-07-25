@@ -1995,13 +1995,6 @@
     "description": "Shadowrun Returns (Harebrained Schemes 2013, native Linux, GOG v2.0.0.7)",
     "runtime": "native"
   },
-  "shovel-knight": {
-    "cids": [
-      "QmbeTW7wah4vhqL6pQdJfAgwKMh1uyzmWxbDLGwnJSy41n"
-    ],
-    "description": "Shovel Knight: Treasure Trove (Yacht Club Games, native Linux GOG v4.1b)",
-    "runtime": "custom"
-  },
   "shovel-knight-dig": {
     "cids": [
       "QmW5sbvthozq9QHC6ZvN1SJmKoLFm2wh6XNt1h1vEowMMf"
