@@ -2,8 +2,8 @@
 """Strom couch launcher.
 
 A fullscreen game grid driven by a gamepad. Reads a JSON manifest baked
-at build time, fetches Lutris banner art on first run, shows nix's own
-build progress while a game builds, then runs it.
+at build time, fetches Lutris banner art and Steam screenshots on first
+run, shows nix's own build progress while a game builds, then runs it.
 """
 
 import json
@@ -27,6 +27,7 @@ FLAKE_REF = os.environ.get("STROM_FLAKE", "github:kraftwerk-gaming/strom")
 
 XDG_CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
 BANNER_CACHE = XDG_CACHE / "strom" / "banners"
+SHOT_CACHE = XDG_CACHE / "strom" / "shots"
 
 TILE_W, TILE_H = 460, 215
 TILE_GAP = 36
@@ -50,6 +51,11 @@ RUNTIME_COLORS = {
 
 POP_SCALE = 1.08
 EASE = 0.18  # 0..1 lerp factor per frame
+
+SHOT_DWELL = 0.5  # seconds a tile stays selected before its slideshow starts
+SHOT_HOLD = 3.2  # seconds each screenshot is shown
+SHOT_FADE = 0.5  # screenshot cross-fade duration
+MAX_SHOTS = 6  # screenshots fetched per game
 
 
 # Filter facets for the overview. `genres` come straight from the catalog;
@@ -151,6 +157,7 @@ def load_manifest() -> list[dict]:
                 "runtime": meta.get("runtime", "?"),
                 "genres": list(genres),
                 "tags": set(cat.get("tags") or []),
+                "screenshots": list(cat.get("screenshots") or []),
             }
         )
     return games
@@ -190,6 +197,49 @@ def load_banner_surface(slug: str) -> pygame.Surface | None:
         return pygame.transform.smoothscale(img, (TILE_W, TILE_H))
     except pygame.error:
         return None
+
+
+def fetch_shot(slug: str, idx: int, url: str) -> Path | None:
+    """Download one screenshot into the per-slug cache. 404s are negative-cached
+    like banners so a missing shot isn't re-fetched on every selection."""
+    d = SHOT_CACHE / slug
+    dest = d / f"{idx}.jpg"
+    if dest.exists():
+        return dest
+    miss = d / f"{idx}.miss"
+    if miss.exists():
+        return None
+    if not url:
+        return None
+    d.mkdir(parents=True, exist_ok=True)
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "strom-launcher/1"})
+        with urllib.request.urlopen(req, timeout=8) as r:
+            dest.write_bytes(r.read())
+        return dest
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            miss.touch()
+        return None
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+        return None
+
+
+def load_shot_surface(path: Path, w: int, h: int) -> pygame.Surface | None:
+    """Load a screenshot scaled to cover a w*h tile (crop to fill, no
+    distortion), with the same rounded corners as a banner."""
+    try:
+        img = pygame.image.load(str(path)).convert()
+    except (pygame.error, OSError):
+        return None
+    iw, ih = img.get_size()
+    if iw <= 0 or ih <= 0:
+        return None
+    scale = max(w / iw, h / ih)
+    nw, nh = max(w, round(iw * scale)), max(h, round(ih * scale))
+    img = pygame.transform.smoothscale(img, (nw, nh))
+    crop = img.subsurface(((nw - w) // 2, (nh - h) // 2, w, h)).copy()
+    return round_surface(crop, 8)
 
 
 def make_gradient(w: int, h: int) -> pygame.Surface:
@@ -616,6 +666,53 @@ def main() -> int:
                     )
             loaded += 1
 
+    # Screenshots load lazily for the *selected* game only -- prefetching every
+    # game's shots would be thousands of images. A worker downloads the current
+    # selection's screenshots; the main loop surfaces finished files and
+    # cross-fades between them as a slideshow on the popped tile.
+    shot_urls = {g["slug"]: g["screenshots"] for g in games}
+    shot_files: dict[str, list] = {}  # slug -> downloaded jpg paths
+    shot_surfs: dict[str, list] = {}  # slug -> scaled surfaces (None = failed)
+    shot_done: set[str] = set()  # slug -> every shot downloaded
+    shot_lock = threading.Lock()
+    shot_want: list = [None]  # slug the worker should fetch next
+    shot_wake = threading.Event()
+
+    def _shot_worker() -> None:
+        while True:
+            with shot_lock:
+                slug = shot_want[0]
+            if not slug or slug in shot_done or not shot_urls.get(slug):
+                shot_wake.wait(timeout=0.2)
+                shot_wake.clear()
+                continue
+            got: list = []
+            aborted = False
+            for idx, url in enumerate(shot_urls[slug][:MAX_SHOTS]):
+                with shot_lock:
+                    if shot_want[0] != slug:
+                        aborted = True
+                        break
+                p = fetch_shot(slug, idx, url)
+                if p:
+                    got.append(p)
+                    with shot_lock:
+                        shot_files[slug] = list(got)
+            if not aborted:
+                with shot_lock:
+                    shot_done.add(slug)
+
+    threading.Thread(target=_shot_worker, daemon=True).start()
+
+    def pump_shots(slug: str, budget: int = 2) -> None:
+        with shot_lock:
+            files = list(shot_files.get(slug, []))
+        surfs = shot_surfs.setdefault(slug, [])
+        loaded = 0
+        while len(surfs) < len(files) and loaded < budget:
+            surfs.append(load_shot_surface(files[len(surfs)], pop_w, pop_h))
+            loaded += 1
+
     # pre-render badges
     badges: dict[str, pygame.Surface] = {}
     for g in games:
@@ -653,6 +750,16 @@ def main() -> int:
     clock = pygame.time.Clock()
     t = 0.0
     next_rescan = 0.0
+
+    # Selected-tile screenshot slideshow. Reset whenever the selection changes.
+    ss_slug = None  # slug the slideshow currently tracks
+    sel_since = 0.0  # t when the current tile became selected
+    ss_active = False  # past the dwell and showing screenshots
+    ss_idx = 0
+    ss_from = None  # surface being faded out (banner or previous shot)
+    ss_fade = 1.0  # 0..1 fade progress toward the current shot
+    ss_next = 0.0  # t of the next slideshow advance
+    surfs_sel: list = []  # loaded shot surfaces for the selection this frame
 
     AXIS_DEAD = 0.6
     axis_latched = {0: 0, 1: 0}
@@ -720,6 +827,12 @@ def main() -> int:
             return False
         if abs(scroll_tgt - scroll) > 0.5:
             return False
+        if ss_active and ss_fade < 1.0:
+            return False
+        with shot_lock:
+            nfiles = len(shot_files.get(ss_slug, [])) if ss_slug else 0
+        if ss_slug and len(shot_surfs.get(ss_slug, [])) < nfiles:
+            return False
         return all(abs(pop[i] - (1.0 if i == sel else 0.0)) <= 0.01 for i in range(n))
 
     running = True
@@ -729,7 +842,12 @@ def main() -> int:
         # 60fps redraw, which otherwise pins a CPU core the whole time the
         # launcher sits idle on the grid.
         if _settled():
-            ev0 = pygame.event.wait(max(1, min(1000, int((next_rescan - t) * 1000))))
+            wake_ms = int((next_rescan - t) * 1000)
+            if ss_slug and ss_slug not in shot_done:
+                wake_ms = min(wake_ms, 200)  # surface newly downloaded shots soon
+            if ss_active and len(surfs_sel) > 1:
+                wake_ms = min(wake_ms, int((ss_next - t) * 1000))
+            ev0 = pygame.event.wait(max(1, min(1000, wake_ms)))
             dt = clock.tick() / 1000.0
             pending = [] if ev0.type == pygame.NOEVENT else [ev0]
             pending += pygame.event.get()
@@ -802,6 +920,42 @@ def main() -> int:
 
         pump_banners()
 
+        # Track the selection for the screenshot slideshow. On a change, reset
+        # the slideshow and tell the worker which game's shots to fetch.
+        sel_slug = view[sel]["slug"] if n else None
+        if sel_slug != ss_slug:
+            ss_slug = sel_slug
+            sel_since = t
+            ss_active = False
+            ss_idx = 0
+            ss_from = None
+            ss_fade = 1.0
+            with shot_lock:
+                shot_want[0] = sel_slug
+            shot_wake.set()
+
+        if sel_slug:
+            pump_shots(sel_slug)
+        surfs_sel = [s for s in shot_surfs.get(sel_slug, []) if s] if sel_slug else []
+
+        # Drive the slideshow once the tile has settled and its shots exist.
+        if surfs_sel and pop[sel] > 0.98 and (t - sel_since) >= SHOT_DWELL:
+            if not ss_active:
+                ss_active = True
+                ss_idx = 0
+                ss_from = banners_pop.get(sel_slug)
+                ss_fade = 0.0
+                ss_next = t + SHOT_HOLD
+            elif t >= ss_next and len(surfs_sel) > 1:
+                ss_from = surfs_sel[ss_idx % len(surfs_sel)]
+                ss_idx = (ss_idx + 1) % len(surfs_sel)
+                ss_fade = 0.0
+                ss_next = t + SHOT_HOLD
+            if ss_fade < 1.0:
+                ss_fade = min(1.0, ss_fade + dt / SHOT_FADE)
+        else:
+            ss_active = False
+
         # ease
         scroll += (scroll_tgt - scroll) * EASE
         for i in range(n):
@@ -869,19 +1023,29 @@ def main() -> int:
 
         screen.blit(pop_shadow, (x - 14 + 6, y - 14 + 12))
 
-        banner = banners.get(g["slug"])
-        if banner:
-            if p > 0.98:
-                surf = banners_pop[g["slug"]]
-            elif p < 0.02:
-                surf = banner
+        if ss_active and surfs_sel:
+            cur = surfs_sel[ss_idx % len(surfs_sel)]
+            if ss_from is not None and ss_fade < 1.0:
+                screen.blit(ss_from, (x, y))
+                fade_img = cur.copy()
+                fade_img.set_alpha(int(255 * ss_fade))
+                screen.blit(fade_img, (x, y))
             else:
-                surf = pygame.transform.smoothscale(banner, (cw, ch))
-            screen.blit(surf, (x, y))
+                screen.blit(cur, (x, y))
         else:
-            pygame.draw.rect(screen, (60, 64, 84), (x, y, cw, ch), border_radius=8)
-            ph = font.render(g["slug"], True, TEXT)
-            screen.blit(ph, ph.get_rect(center=(x + cw // 2, y + ch // 2)))
+            banner = banners.get(g["slug"])
+            if banner:
+                if p > 0.98:
+                    surf = banners_pop[g["slug"]]
+                elif p < 0.02:
+                    surf = banner
+                else:
+                    surf = pygame.transform.smoothscale(banner, (cw, ch))
+                screen.blit(surf, (x, y))
+            else:
+                pygame.draw.rect(screen, (60, 64, 84), (x, y, cw, ch), border_radius=8)
+                ph = font.render(g["slug"], True, TEXT)
+                screen.blit(ph, ph.get_rect(center=(x + cw // 2, y + ch // 2)))
 
         badge = badges[g["runtime"]]
         screen.blit(badge, (x + cw - badge.get_width() - 10, y + 10))
