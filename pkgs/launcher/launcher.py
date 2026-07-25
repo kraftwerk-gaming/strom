@@ -53,6 +53,54 @@ POP_SCALE = 1.08
 EASE = 0.18  # 0..1 lerp factor per frame
 
 
+# Filter facets for the overview. `genres` come straight from the catalog;
+# feature facets map a chip label to the set of catalog `tags` that satisfy it.
+# `tags` are Steam categories (overridable per-game via gui.json `tags`), so
+# "gamepad support" is just another tag group -- no schema change needed.
+GAMEPAD_TAGS = frozenset(
+    {
+        "Full controller support",
+        "Partial Controller Support",
+        "Gamepad Recommended",
+        "Steam Input API Support",
+    }
+)
+FEATURE_FACETS = [
+    ("Gamepad", GAMEPAD_TAGS),
+    ("Single-player", frozenset({"Single-player"})),
+    ("Multiplayer", frozenset({"Multi-player"})),
+    (
+        "Co-op",
+        frozenset({"Online Co-op", "Shared/Split Screen Co-op", "LAN Co-op", "Co-op"}),
+    ),
+    ("Local Co-op", frozenset({"Shared/Split Screen Co-op", "LAN Co-op"})),
+    ("PvP", frozenset({"PvP", "Online PvP", "Shared/Split Screen PvP", "LAN PvP"})),
+    (
+        "Split Screen",
+        frozenset(
+            {
+                "Shared/Split Screen",
+                "Shared/Split Screen Co-op",
+                "Shared/Split Screen PvP",
+            }
+        ),
+    ),
+    ("Remote Play Together", frozenset({"Remote Play Together"})),
+]
+
+
+def build_facets(games: list[dict]) -> list[tuple]:
+    """Ordered (label, predicate) facets present in the loaded games: All,
+    then each genre alphabetically, then the feature groups with >=1 match."""
+    facets: list[tuple] = [("All", lambda g: True)]
+    for genre in sorted({gn for g in games for gn in g["genres"]}):
+        facets.append((genre, lambda g, gn=genre: gn in g["genres"]))
+    for label, tagset in FEATURE_FACETS:
+        if any(g["tags"] & tagset for g in games):
+            facets.append((label, lambda g, ts=tagset: bool(g["tags"] & ts)))
+    return facets
+
+
 def load_manifest() -> list[dict]:
     data = json.loads(MANIFEST.read_text())
     catalog: dict = {}
@@ -87,6 +135,8 @@ def load_manifest() -> list[dict]:
                 "label": label,
                 "subtitle": "   |   ".join(bits),
                 "runtime": meta.get("runtime", "?"),
+                "genres": list(genres),
+                "tags": set(cat.get("tags") or []),
             }
         )
     return games
@@ -486,6 +536,10 @@ def main() -> int:
         print("manifest empty", file=sys.stderr)
         return 1
 
+    facets = build_facets(games)
+    facet_idx = 0
+    view = list(games)
+
     pygame.init()
     pygame.joystick.init()
 
@@ -571,7 +625,8 @@ def main() -> int:
         if g["subtitle"]
     }
     hint = small.render(
-        "D-pad / arrows  move        A / Enter  launch        B / Esc  quit",
+        "D-pad / arrows  move      A / Enter  launch      "
+        "LB / RB  filter      B / Esc  quit",
         True,
         DIM,
     )
@@ -580,7 +635,7 @@ def main() -> int:
     scroll = 0.0
     scroll_tgt = 0.0
     pop = [0.0] * len(games)  # 0..1 lerp per tile
-    n = len(games)
+    n = len(view)
     clock = pygame.time.Clock()
     t = 0.0
     next_rescan = 0.0
@@ -625,6 +680,20 @@ def main() -> int:
         if d is None or d == held_move:
             held_move = 0
 
+    def set_facet(i: int) -> None:
+        nonlocal facet_idx, view, n, sel, scroll, scroll_tgt
+        facet_idx = i % len(facets)
+        pred = facets[facet_idx][1]
+        view = [g for g in games if pred(g)]
+        n = len(view)
+        sel = 0
+        scroll = scroll_tgt = 0.0
+        for k in range(len(pop)):
+            pop[k] = 0.0
+
+    def cycle_facet(step: int) -> None:
+        set_facet(facet_idx + step)
+
     grid_w = COLS * TILE_W + (COLS - 1) * TILE_GAP
     ox = (sw - grid_w) // 2
 
@@ -663,9 +732,13 @@ def main() -> int:
                     running = False
                 elif ev.key in KEY_MOVE:
                     start_hold(KEY_MOVE[ev.key])
+                elif ev.key == pygame.K_q:
+                    cycle_facet(-1)
+                elif ev.key == pygame.K_e:
+                    cycle_facet(1)
                 elif ev.key in (pygame.K_RETURN, pygame.K_SPACE):
                     stop_hold()
-                    launch_with_fade(screen, games[sel])
+                    launch_with_fade(screen, view[sel])
             elif ev.type == pygame.KEYUP:
                 if ev.key in KEY_MOVE:
                     stop_hold(KEY_MOVE[ev.key])
@@ -691,9 +764,13 @@ def main() -> int:
             elif ev.type == pygame.JOYBUTTONDOWN:
                 if ev.button == 0:
                     stop_hold()
-                    launch_with_fade(screen, games[sel])
+                    launch_with_fade(screen, view[sel])
                 elif ev.button == 1:
                     running = False
+                elif ev.button == 4:
+                    cycle_facet(-1)
+                elif ev.button == 5:
+                    cycle_facet(1)
             elif ev.type == pygame.JOYDEVICEADDED:
                 _rescan_pads(joysticks)
 
@@ -720,12 +797,15 @@ def main() -> int:
         # draw
         screen.blit(bg, (0, 0))
         screen.blit(title, (40, 28))
+        fac = facets[facet_idx][0]
+        fac_txt = font.render(f"< {fac} >   ({n})", True, ACCENT if facet_idx else DIM)
+        screen.blit(fac_txt, (sw - 40 - fac_txt.get_width(), 40))
 
         oy = 80 - scroll
         pulse = 0.5 + 0.5 * math.sin(t * 3.2)
 
         # pass 1: non-selected tiles
-        for i, g in enumerate(games):
+        for i, g in enumerate(view):
             col, row = i % COLS, i // COLS
             x = ox + col * (TILE_W + TILE_GAP)
             y = oy + row * (TILE_H + TILE_GAP + 50)
@@ -754,7 +834,7 @@ def main() -> int:
 
         # pass 2: selected tile on top, popped + glowing
         i = sel
-        g = games[i]
+        g = view[sel]
         col, row = i % COLS, i // COLS
         bx = ox + col * (TILE_W + TILE_GAP)
         by = oy + row * (TILE_H + TILE_GAP + 50)
