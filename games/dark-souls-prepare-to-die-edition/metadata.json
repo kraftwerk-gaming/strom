@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "Qme47DJC984rC7qCzMdQmoMYkcowVrdzfQhBDpQyq13FdF"
+  ],
+  "description": "Dark Souls: Prepare to Die Edition (single-player, DSCM stripped, via Proton)",
   "developers": [
     "FromSoftware"
   ],
@@ -10,6 +14,7 @@
   "long": "Dark Souls: Prepare to Die Edition is an action RPG renowned for its punishing difficulty, deliberate combat, and interconnected dark-fantasy world of Lordran. Players manage stamina, learn enemy patterns, and recover lost souls after each death while uncovering cryptic environmental storytelling. This build runs the single-player experience with the multiplayer netcode stripped out.",
   "lutris": "https://lutris.net/games/dark-souls-prepare-to-die-edition/",
   "name": "Dark Souls: Prepare to Die Edition",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Dark Souls: Prepare to Die Edition (single-player, DSCM stripped, via Proton)",
   "steam_appid": null,

@@ -1,6 +1,10 @@
 {
   "_comment": "Manual web-GUI metadata for a game that is not on Steam (or whose Steam data is wrong). Merged over the lutris fallback by scripts/fetch-steam-metadata.py. See AGENTS.md > Web GUI catalog metadata for the field reference and the recognized `tags` strings that drive the Features filter.",
   "appid": 24860,
+  "cids": [
+    "QmcaQ1SRUNpGvd7tAo1hLNbSZFPsJYK1nhf7KbhY28Ztpx"
+  ],
+  "description": "Battlefield 2 Complete Collection (DICE/EA 2005, v1.50 preinstalled repack, via Proton)",
   "developers": [
     "Digital Illusions CE"
   ],
@@ -12,6 +16,7 @@
   "long": "Large-scale modern-combat warfare across land, sea and air. Battlefield 2 pits two teams over sprawling maps with jets, helicopters, tanks and transports, a commander layer with UAV/artillery support, and squad-based play. This Complete Collection bundles the Special Forces, Euro Force and Armored Fury expansions.",
   "lutris": "https://lutris.net/games/battlefield-2/",
   "name": "Battlefield 2 Complete Collection",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Battlefield 2 Complete Collection (DICE/EA 2005, v1.50 preinstalled repack, via Proton)",
   "steam_appid": null,

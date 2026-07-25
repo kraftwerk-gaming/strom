@@ -1,4 +1,9 @@
 {
   "_comment": "Force this Steam appid; auto-search matches the wrong app.",
-  "appid": 7670
+  "appid": 7670,
+  "cids": [
+    "QmV5fHnd19vCdrwEKB99BnV5t8pTAZoJrkAxRwarsDcNFp"
+  ],
+  "description": "BioShock (2007 Irrational, Vengeance Engine, via Proton)",
+  "runtime": "proton"
 }

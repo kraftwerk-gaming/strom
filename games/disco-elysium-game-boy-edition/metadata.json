@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "Qme3jE9E7fCJTFiZrcBeWQ7swsQrzZucLxKoE1KdvbrmPX"
+  ],
+  "description": "Disco Elysium: Game Boy Edition (fan demake, via RetroArch / mGBA)",
   "developers": [
     "Optriromontain"
   ],
@@ -11,6 +15,7 @@
   "long": "Disco Elysium: Game Boy Edition is an unofficial fan demake of ZA/UM's acclaimed detective RPG, reimagined as a Game Boy Color cartridge. It compresses the original's dialogue-driven investigation and skill-check systems into a retro 8-bit presentation. The ROM is played through a Game Boy emulator.",
   "lutris": "https://lutris.net/games/disco-elysium-game-boy-edition/",
   "name": "Disco Elysium: Game Boy Edition",
+  "runtime": "retroarch",
   "screenshots": [],
   "short": "Disco Elysium: Game Boy Edition (fan demake, via RetroArch / mGBA)",
   "steam_appid": null,

@@ -138,7 +138,7 @@ let
       config = {
         name = lib.mkForce "half-life-uplink";
 
-        # Record uplink.zip's CID for games.json / pin-tracking. It's fetched
+        # Record uplink.zip's CID for metadata.json / pin-tracking. It's fetched
         # by modData, not the inherited game `src` (= base Half-Life.zip), so
         # list it explicitly or its pin would go untracked.
         ipfsSources = [ src ];

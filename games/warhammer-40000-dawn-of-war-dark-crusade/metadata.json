@@ -1,11 +1,16 @@
 {
   "appid": null,
+  "cids": [
+    "QmQpodxcCWcFQMUjMbvc1YwuzzETD41ktcJB2J3ra46CzG"
+  ],
+  "description": "Warhammer 40,000: Dawn of War - Dark Crusade (Relic, 2006, GOG standalone, via Proton)",
   "developers": [],
   "genres": [],
   "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war-dark-crusade.jpg",
   "long": "",
   "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war-dark-crusade/",
   "name": "Warhammer 40,000: Dawn of War - Dark Crusade",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Warhammer 40,000: Dawn of War - Dark Crusade (Relic, 2006, GOG standalone, via Proton)",
   "steam_appid": null,

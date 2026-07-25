@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmY6JgHkrRdbUu3eFLynuUKqfnrPZ6FgFxCzvMWAgpLKYE"
+  ],
+  "description": "Driver: San Francisco (Ubisoft Reflections 2011, single-player via Proton)",
   "developers": [
     "Ubisoft Reflections"
   ],
@@ -11,6 +15,7 @@
   "long": "Driver: San Francisco is an open-world action driving game in which detective John Tanner pursues his nemesis Charles Jericho across the city. Its signature \"Shift\" mechanic lets the player instantly teleport between any vehicle on the road. This package runs the single-player campaign through Proton with the Ubisoft DRM stubbed out, so online and friends features are unavailable.",
   "lutris": "https://lutris.net/games/driver-san-francisco/",
   "name": "Driver: San Francisco",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Driver: San Francisco (Ubisoft Reflections 2011, single-player via Proton)",
   "steam_appid": null,

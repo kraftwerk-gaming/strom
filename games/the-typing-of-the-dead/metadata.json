@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmeXCgXCm2ogepvGD7iCe48yNTpp5dwLB77CrjjVyeR4R7"
+  ],
+  "description": "The Typing of the Dead (2001 PC port, via Proton and gamescope)",
   "developers": [
     "Smilebit"
   ],
@@ -10,6 +14,7 @@
   "long": "The Typing of the Dead is a typing-trainer reimagining of the on-rails light-gun shooter The House of the Dead 2. Instead of aiming a gun, players defeat oncoming zombies by typing words and phrases that appear on screen. It was developed by Sega's Smilebit team and published by Sega.",
   "lutris": "https://lutris.net/games/the-typing-of-the-dead/",
   "name": "The Typing of the Dead",
+  "runtime": "proton",
   "screenshots": [],
   "short": "The Typing of the Dead (2001 PC port, via Proton and gamescope)",
   "steam_appid": null,

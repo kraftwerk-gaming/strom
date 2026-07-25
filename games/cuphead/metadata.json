@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmNjJThUd5NxEAY7LSYXjDjLZjwdZdUa6hDhGLFds8Zxm9"
+  ],
+  "description": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
   "developers": [
     "Studio MDHR"
   ],
@@ -11,6 +15,7 @@
   "long": "Cuphead is a run-and-gun action game famous for its hand-drawn, 1930s rubber-hose cartoon art style and jazz soundtrack. Players battle through a series of challenging, pattern-heavy boss fights and run-and-gun levels to repay a debt to the Devil. It can be played solo or in local two-player cooperative mode.",
   "lutris": "https://lutris.net/games/cuphead/",
   "name": "Cuphead Legacy",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Cuphead Legacy (Studio MDHR, GOG 2017-09-29 v15295, via Proton)",
   "steam_appid": null,

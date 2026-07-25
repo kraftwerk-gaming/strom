@@ -1,5 +1,9 @@
 {
   "_comment": "Windows 95 release of Lemmings (Lemmings Paintball era port).",
+  "cids": [
+    "QmUumu4xqgz8xSkqKMtxSXDqGc3fKhztSJWGXeyZJR93hq"
+  ],
+  "description": "Lemmings 95 (Windows 95 version via Wine)",
   "developers": [
     "DMA Design"
   ],
@@ -11,6 +15,7 @@
   "long": "Lemmings 95 is the Windows release of the classic puzzle game, tasking players with guiding herds of lemmings to safety. Players assign skills like digging, climbing and bridge-building to navigate each level's traps and obstacles within a limited budget of abilities. It packages the original Lemmings levels for Windows 95 systems.",
   "lutris": "https://lutris.net/games/lemmings-95/",
   "name": "Lemmings 95",
+  "runtime": "native",
   "screenshots": [],
   "short": "Lemmings 95 (Windows 95 version via Wine)",
   "steam_appid": null,

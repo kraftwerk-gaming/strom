@@ -441,10 +441,11 @@ in via cherry-pick or `git checkout <branch> -- docs/`. The
 coordinator should merge this doc to master as soon as it stabilises
 so future packaging agents see it without a preamble.
 
-### README/games.json drift on master
+### README/metadata drift on master
 
-`scripts/generate-readme.py` regenerates `README.md` and
-`web/games.json` from current flake metadata. If recent merges to
+`scripts/generate-readme.py` regenerates `README.md`, each game's
+`metadata.json` build keys (`cids`/`description`/`runtime`), and
+`web/index.html` from current flake metadata. If recent merges to
 master skipped the regenerator, your stage commit will pick up the
 delta for **other** unrelated games. That's noisy but unavoidable:
 don't try to revert those hunks - they reflect master's true state.

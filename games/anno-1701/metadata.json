@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmajdrBZvqXLktKec6nrrVM7dPEufiXYToaUf6AUdzYoDG"
+  ],
+  "description": "Anno 1701 + Sunken Treasure (Gold/AD, via Proton)",
   "developers": [
     "Related Designs"
   ],
@@ -11,6 +15,7 @@
   "long": "Anno 1701 is a city-building and economic strategy game set in the 18th century colonial era. Players colonize islands, develop economies and citizen populations, conduct diplomacy and trade, and engage in naval and land warfare. This release includes the Sunken Treasure (Gold/AD) expansion content.",
   "lutris": "https://lutris.net/games/anno-1701/",
   "name": "Anno 1701 + Sunken Treasure",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Anno 1701 + Sunken Treasure (Gold/AD, via Proton)",
   "steam_appid": null,

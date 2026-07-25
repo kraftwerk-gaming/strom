@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmVEZYkuHDHZkYhpUkhefe9WdWYmyFBpM5oF2fSbYrwXXT"
+  ],
+  "description": "Final Doom: The Plutonia Experiment (Casali/id 1996, PLUTONIA.WAD via GZDoom)",
   "developers": [
     "id Software"
   ],
@@ -10,6 +14,7 @@
   "long": "Final Doom: The Plutonia Experiment is a 32-level commercial megawad created by Dario and Milo Casali and released by id Software as one half of Final Doom. It is notorious for its punishing difficulty, throwing dense monster encounters and tight traps at the player. PLUTONIA.WAD is a standalone DOOM II replacement, driven here by the modern GZDoom engine with support for classic cooperative and deathmatch play.",
   "lutris": "https://lutris.net/games/final-doom-plutonia/",
   "name": "Final Doom: The Plutonia Experiment",
+  "runtime": "custom",
   "screenshots": [],
   "short": "Final Doom: The Plutonia Experiment (Casali/id 1996, PLUTONIA.WAD via GZDoom)",
   "steam_appid": null,

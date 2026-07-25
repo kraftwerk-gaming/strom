@@ -1,4 +1,13 @@
 {
+  "cids": [
+    "QmP6QZebT27cydKwg2fs6qBJw52qnk7TYniKoNbzVEfBFo",
+    "QmavUhtUyGRnT4vNRPGCuMuZxvAusA4ZcqJfG7ATy5pS4i",
+    "QmcJuHrudsqmmexuCmt7259zZvGNPjP9smEiJwjq19rNqm",
+    "QmVviHYSUADxgNNmkF1XqKxw8kAmxNBFnmHo6BE4AaA51R",
+    "QmStjHkYeC1NomWEVknoSzvBKdAL1TqqeaaGa4XK1sgAU6",
+    "QmWDWwXu6iQrPpMAfcpGeeb7hc93D2QVhW6cAMjNbSyMC2"
+  ],
+  "description": "PokeMMO (Java multiplayer Pokemon client; ROMs preconfigured)",
   "developers": [],
   "genres": [
     "RPG",
@@ -8,6 +17,7 @@
   "long": "PokeMMO is a fan-made massively multiplayer online client that turns classic Pokemon games into a shared online world. Players explore familiar regions together, trade, and battle other trainers in real time. It features competitive online PvP, a player-driven economy, and seasonal events.",
   "lutris": "https://lutris.net/games/pokemmo/",
   "name": "PokeMMO",
+  "runtime": "native",
   "screenshots": [],
   "short": "PokeMMO (Java multiplayer Pokemon client; ROMs preconfigured)",
   "steam_appid": null,

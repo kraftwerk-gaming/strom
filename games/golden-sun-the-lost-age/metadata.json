@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmWMtnoKV4BviYwgLJWJ2TGWz7fj3r3X5cGK6i1ymo6KFU"
+  ],
+  "description": "Golden Sun: The Lost Age (Camelot/Nintendo, 2003 GBA, via RetroArch / mGBA)",
   "developers": [
     "Camelot Software Planning"
   ],
@@ -10,6 +14,7 @@
   "long": "Golden Sun: The Lost Age is the Game Boy Advance sequel that continues the first game's story from the perspective of the rival party led by Felix, expanding the world and the consequences of unleashing Alchemy. It refines the elemental Psynergy and Djinn systems and lets players import data from the original game. This package runs the GBA ROM through RetroArch using the mGBA core.",
   "lutris": "https://lutris.net/games/golden-sun-the-lost-age/",
   "name": "Golden Sun: The Lost Age",
+  "runtime": "retroarch",
   "screenshots": [],
   "short": "Golden Sun: The Lost Age (Camelot/Nintendo, 2003 GBA, via RetroArch / mGBA)",
   "steam_appid": null,

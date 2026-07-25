@@ -6,8 +6,8 @@
   xdg-utils,
 }:
 
-# `strom-gui` serves the static web catalog (web/gui + games.json + a
-# catalog.json assembled at build) over a localhost HTTP server and opens it in the
+# `strom-gui` serves the static web catalog (web/gui + a catalog.json assembled
+# at build) over a localhost HTTP server and opens it in the
 # browser. It is deliberately a dumb static file server, not an application
 # daemon: launching a game is handed off to the `strom://` URI scheme (see
 # pkgs/strom-launch), so the GUI itself needs no privileges and no game closure.
@@ -17,13 +17,11 @@ let
 
   # Assemble the served document root. catalog.json is built here from each
   # game's games/<slug>/steam.json + metadata.json by scripts/assemble-catalog.py
-  # (the same merge the launcher uses), so it is not a committed file. games.json
-  # is always copied as a fallback the SPA also understands.
+  # (the same merge the launcher uses), so it is not a committed file.
   bundle = runCommand "strom-gui-web" { nativeBuildInputs = [ python3 ]; } ''
     mkdir -p "$out/gui"
     cp ${webSrc}/gui/index.html ${webSrc}/gui/app.js ${webSrc}/gui/style.css "$out/gui/"
-    cp ${webSrc}/games.json "$out/games.json"
-    python3 ${../../scripts/assemble-catalog.py} ${../../games} ${webSrc}/games.json > "$out/catalog.json"
+    python3 ${../../scripts/assemble-catalog.py} ${../../games} > "$out/catalog.json"
   '';
 in
 writeShellApplication {

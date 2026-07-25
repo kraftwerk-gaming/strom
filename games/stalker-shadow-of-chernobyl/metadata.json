@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
+  ],
+  "description": "S.T.A.L.K.E.R.: Shadow of Chernobyl (THC DVD English, via Proton)",
   "developers": [
     "GSC Game World"
   ],
@@ -12,6 +16,7 @@
   "long": "S.T.A.L.K.E.R.: Shadow of Chernobyl is an open-world first-person shooter set in an alternate Chernobyl Exclusion Zone warped by a second nuclear disaster. Players take on the role of an amnesiac stalker exploring the Zone, fighting mutants and factions, scavenging artifacts, and managing survival amid radiation and anomalies. It blends FPS combat with RPG and survival mechanics in a nonlinear world.",
   "lutris": "https://lutris.net/games/stalker-shadow-of-chernobyl/",
   "name": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+  "runtime": "proton",
   "screenshots": [],
   "short": "S.T.A.L.K.E.R.: Shadow of Chernobyl (THC DVD English, via Proton)",
   "steam_appid": null,

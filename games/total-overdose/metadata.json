@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmcZppB5Y4djdJkTDMoKpS5rWkpFhvEpSZC4aQS8VH8Z9W"
+  ],
+  "description": "Total Overdose: A Gunslinger's Tale in Mexico (Deadline Games 2005, via Proton)",
   "developers": [
     "Deadline Games"
   ],
@@ -9,6 +13,7 @@
   "long": "Total Overdose: A Gunslinger's Tale in Mexico is an over-the-top third-person action shooter set in a stylized Mexican border world. Players chain stunts, slow-motion dives, and combo kills as agent Ram Cruz to rack up score in an open environment. It was developed by Deadline Games and published by Eidos Interactive.",
   "lutris": "https://lutris.net/games/total-overdose/",
   "name": "Total Overdose: A Gunslinger's Tale in Mexico",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Total Overdose: A Gunslinger's Tale in Mexico (Deadline Games 2005, via Proton)",
   "steam_appid": null,

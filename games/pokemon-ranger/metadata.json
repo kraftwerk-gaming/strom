@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmZHUyEk66jfC4EA9oxPwQqqU2HH5kbyqvDeGEjtsd6h5f"
+  ],
+  "description": "Pok\u00e9mon Ranger (via RetroArch / melonDS)",
   "developers": [
     "HAL Laboratory"
   ],
@@ -11,6 +15,7 @@
   "long": "Pokemon Ranger is a 2006 action-RPG spin-off for the Nintendo DS. Instead of capturing Pokemon in balls, players use the touch screen to draw loops around wild Pokemon with the Capture Styler to befriend them. Captured Pokemon temporarily aid the Ranger in solving environmental puzzles and missions.",
   "lutris": "https://lutris.net/games/pokemon-ranger/",
   "name": "Pok\u00e9mon Ranger",
+  "runtime": "retroarch",
   "screenshots": [],
   "short": "Pok\u00e9mon Ranger (via RetroArch / melonDS)",
   "steam_appid": null,

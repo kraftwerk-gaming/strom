@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmTFNcg4GcaXtrC4cNYQy98A9oFNyzZZ9PQ25Hiz6fTV6i"
+  ],
+  "description": "Bridge It Plus v1.32 (Chronic Logic, EN full, via Proton)",
   "developers": [
     "Chronic Logic"
   ],
@@ -11,6 +15,7 @@
   "long": "Bridge It is a physics-based bridge-building puzzle game in which players construct bridges from limited materials and a fixed budget. Each level is solved by engineering a structure strong enough to let trains pass without collapsing. The Plus edition adds extra levels and content over the base release.",
   "lutris": "https://lutris.net/games/bridge-it/",
   "name": "Bridge It Plus v1.32",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Bridge It Plus v1.32 (Chronic Logic, EN full, via Proton)",
   "steam_appid": null,

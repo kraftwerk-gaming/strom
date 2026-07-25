@@ -2,16 +2,14 @@
 
 /* strom web GUI — Steam-like catalog browser.
  *
- * Loads web/catalog.json (assembled at build from per-game steam.json +
- * metadata.json by scripts/assemble-catalog.py). If that is missing it degrades to the
- * always-present web/games.json, deriving a name + lutris banner per slug so
- * the catalog still renders. Launching a game hands off to the `strom://`
+ * Loads web/catalog.json, assembled at build from each game's steam.json +
+ * metadata.json by scripts/assemble-catalog.py (see pkgs/gui). Launching a
+ * game hands off to the `strom://`
  * URI scheme, which the desktop's XDG handler (pkgs/strom-launch) turns into
  * `nix run` — a browser cannot spawn processes itself, so the real
  * download/build progress bar lives in that native launcher window. */
 
 const CATALOG_URL = "../catalog.json";
-const GAMES_URL = "../games.json";
 const LUTRIS_BANNER = (slug) => `https://lutris.net/games/banner/${slug}.jpg`;
 
 // Chip order; unknown runtimes still work, appended after these.
@@ -79,42 +77,10 @@ const state = {
 
 /* ---------- data loading ---------- */
 
-function deriveName(slug, description) {
-  let name = description || slug.replace(/-/g, " ");
-  name = name.replace(/\s*\([^()]*\)\s*$/, "").trim();
-  return name || slug;
-}
-
-function fromGamesJson(games) {
-  const out = {};
-  for (const [slug, m] of Object.entries(games)) {
-    out[slug] = {
-      name: deriveName(slug, m.description),
-      runtime: m.runtime || "unknown",
-      short: m.description || "",
-      long: "",
-      genres: [],
-      tags: [],
-      year: null,
-      developers: [],
-      hero: LUTRIS_BANNER(slug),
-      screenshots: [],
-      lutris: `https://lutris.net/games/${slug}/`,
-    };
-  }
-  return out;
-}
-
 async function loadCatalog() {
-  try {
-    const r = await fetch(CATALOG_URL, { cache: "no-cache" });
-    if (r.ok) return await r.json();
-  } catch (_) {
-    /* fall through to games.json */
-  }
-  const r = await fetch(GAMES_URL, { cache: "no-cache" });
-  if (!r.ok) throw new Error("could not load catalog or games.json");
-  return fromGamesJson(await r.json());
+  const r = await fetch(CATALOG_URL, { cache: "no-cache" });
+  if (!r.ok) throw new Error("could not load catalog");
+  return await r.json();
 }
 
 // Precompute, once at load: which feature buckets each game satisfies, and

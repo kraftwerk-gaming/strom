@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmSPPz3Nm75XfhNcQKPUugdhJ7eADRGBetDMP4W96Wmg56"
+  ],
+  "description": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
   "developers": [
     "Blizzard Entertainment"
   ],
@@ -10,6 +14,7 @@
   "long": "Warcraft III: The Frozen Throne is the expansion to Reign of Chaos, a real-time strategy game combining base building and army management with RPG-style hero units that gain levels and abilities. It continues the campaign across four playable factions and adds new units and a neutral hero roster. It was developed and published by Blizzard Entertainment and supports online and LAN multiplayer.",
   "lutris": "https://lutris.net/games/warcraft-iii-the-frozen-throne/",
   "name": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Warcraft III: Reign of Chaos + The Frozen Throne v1.26a (via Proton)",
   "steam_appid": null,

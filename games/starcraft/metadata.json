@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmcqdWwb33rKcfFzoZyTJQpL62ADcTHr8W2APG4Q6MFERx"
+  ],
+  "description": "StarCraft + Brood War (via Proton and gamescope)",
   "developers": [
     "Blizzard Entertainment"
   ],
@@ -10,6 +14,7 @@
   "long": "StarCraft is a science-fiction real-time strategy game featuring three asymmetric factions: the human Terrans, the insectoid Zerg, and the psionic Protoss. Players gather resources, build bases, and command armies across a sprawling story campaign and competitive multiplayer. The Brood War expansion adds new units and continues the storyline.",
   "lutris": "https://lutris.net/games/starcraft/",
   "name": "StarCraft + Brood War",
+  "runtime": "proton",
   "screenshots": [],
   "short": "StarCraft + Brood War (via Proton and gamescope)",
   "steam_appid": null,

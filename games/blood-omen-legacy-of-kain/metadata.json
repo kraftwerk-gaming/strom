@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmUB18G41smnpTJUE3sb3YjZstM1kxB9BU2V8X3ChtDNKk"
+  ],
+  "description": "Blood Omen: Legacy of Kain (Silicon Knights / Crystal Dynamics 1996, GOG, via Proton)",
   "developers": [
     "Silicon Knights"
   ],
@@ -11,6 +15,7 @@
   "long": "Blood Omen: Legacy of Kain is a top-down action-adventure RPG that launched the Legacy of Kain series. The player controls the vampire Kain on a dark quest for revenge across the gothic world of Nosgoth, using swords, spells, and shapeshifting abilities. It is known for its mature storytelling and atmospheric narration.",
   "lutris": "https://lutris.net/games/blood-omen-legacy-of-kain/",
   "name": "Blood Omen: Legacy of Kain",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Blood Omen: Legacy of Kain (Silicon Knights / Crystal Dynamics 1996, GOG, via Proton)",
   "steam_appid": null,

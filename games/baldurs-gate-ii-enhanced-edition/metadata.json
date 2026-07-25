@@ -1,4 +1,9 @@
 {
+  "cids": [
+    "QmY2spdmrnYVRyzezepfxtMjd5kdJe6fNv6EGE5eQpT2xc",
+    "QmZ4jgzHSoB9uLEoFkKuktoAQfEY9B6kqVtGJWPvuAw3dB"
+  ],
+  "description": "Baldur's Gate II: Enhanced Edition + DLC (native Linux, Beamdog GOG v2.6.6.0p)",
   "developers": [
     "BioWare",
     "Beamdog"
@@ -10,6 +15,7 @@
   "long": "Baldur's Gate II: Enhanced Edition is a remaster of BioWare's acclaimed 2000 Dungeons & Dragons role-playing game on the Infinity Engine. Players continue the saga of the Bhaalspawn through the city of Athkatla and beyond, with deep party-based real-time-with-pause AD&D combat and rich companion stories. This edition bundles the Throne of Bhaal expansion plus new content from Beamdog.",
   "lutris": "https://lutris.net/games/baldurs-gate-ii-enhanced-edition/",
   "name": "Baldur's Gate II: Enhanced Edition + DLC",
+  "runtime": "native",
   "screenshots": [],
   "short": "Baldur's Gate II: Enhanced Edition + DLC (native Linux, Beamdog GOG v2.6.6.0p)",
   "steam_appid": null,

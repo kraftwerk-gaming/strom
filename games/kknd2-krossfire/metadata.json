@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmYsaybnh1rqpPwiCo6Aa349TZCGuGqUcuiE4uuHCDA5Rg"
+  ],
+  "description": "KKND2: Krossfire (Beam Software 1998, GOG, via Proton)",
   "developers": [
     "Beam Software"
   ],
@@ -10,6 +14,7 @@
   "long": "KKND2: Krossfire is the sequel to Krush Kill 'n Destroy, a post-apocalyptic real-time strategy game adding a third faction, the underground Series 9 robots, alongside the Survivors and Evolved. Players gather resources, construct bases and wage war across single-player campaigns and multiplayer skirmishes. It moved to a fully sprite-based engine with refined unit control.",
   "lutris": "https://lutris.net/games/kknd2-krossfire/",
   "name": "KKND2: Krossfire",
+  "runtime": "proton",
   "screenshots": [],
   "short": "KKND2: Krossfire (Beam Software 1998, GOG, via Proton)",
   "steam_appid": null,

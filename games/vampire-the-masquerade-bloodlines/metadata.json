@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmZeWvEYsmPkqRVs2aX6vEB8jdQB2982aB1Ej7rb5DBFAR"
+  ],
+  "description": "Vampire: The Masquerade \u2014 Bloodlines (GOG + Unofficial Patch 11.5, via Proton)",
   "developers": [
     "Troika Games"
   ],
@@ -11,6 +15,7 @@
   "long": "Vampire: The Masquerade - Bloodlines is an action role-playing game set in the World of Darkness, where the player is a newly turned vampire navigating clan politics in modern Los Angeles. Choices, dialogue, and chosen clan disciplines shape combat and exploration across first- and third-person play. It was developed by Troika Games and published by Activision; this build adds the community Unofficial Patch.",
   "lutris": "https://lutris.net/games/vampire-the-masquerade-bloodlines/",
   "name": "Vampire: The Masquerade \u2014 Bloodlines",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Vampire: The Masquerade \u2014 Bloodlines (GOG + Unofficial Patch 11.5, via Proton)",
   "steam_appid": null,

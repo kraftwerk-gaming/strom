@@ -1,5 +1,9 @@
 {
   "appid": null,
+  "cids": [
+    "QmTZdKgZN2S1SqyYp9iiReNq7kDW8V21Q79uJbVVs8yb7h"
+  ],
+  "description": "Anatomy (Kitty Horrorshow 2016, native Linux build)",
   "developers": [
     "Kitty Horrorshow"
   ],
@@ -12,6 +16,7 @@
   "long": "Anatomy is a short first-person psychological horror game set inside a dark, empty house. The player explores room by room, collecting cassette tapes that deliver an unsettling lecture comparing the house to a living body. Built in Unity, it is known for its oppressive atmosphere and metafictional scares.",
   "lutris": "https://lutris.net/games/anatomy/",
   "name": "Anatomy",
+  "runtime": "native",
   "screenshots": [],
   "short": "Anatomy (Kitty Horrorshow 2016, native Linux build)",
   "steam_appid": null,

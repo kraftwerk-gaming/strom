@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt"
+  ],
+  "description": "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)",
   "developers": [
     "Nintendo"
   ],
@@ -11,6 +15,7 @@
   "long": "The Legend of Zelda: A Link to the Past is a top-down action-adventure following Link as he travels between a Light World and a Dark World to rescue Princess Zelda and defeat the wizard Agahnim and Ganon. It features puzzle-filled dungeons, an arsenal of items and weapons, and a sprawling overworld. The game is widely regarded as a defining entry in the series.",
   "lutris": "https://lutris.net/games/the-legend-of-zelda-a-link-to-the-past/",
   "name": "The Legend of Zelda: A Link to the Past",
+  "runtime": "retroarch",
   "screenshots": [],
   "short": "The Legend of Zelda: A Link to the Past (via RetroArch / bsnes)",
   "steam_appid": null,

@@ -1,11 +1,16 @@
 {
   "appid": null,
+  "cids": [
+    "Qmd4Nrec6TXLY1VDA3T46zWU9RrHMZSrKfb7C4V5XCLW2d"
+  ],
+  "description": "Warhammer 40,000: Dawn of War - Winter Assault (Relic, 2005, GOG, via Proton)",
   "developers": [],
   "genres": [],
   "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war-winter-assault.jpg",
   "long": "",
   "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war-winter-assault/",
   "name": "Warhammer 40,000: Dawn of War - Winter Assault",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Warhammer 40,000: Dawn of War - Winter Assault (Relic, 2005, GOG, via Proton)",
   "steam_appid": null,

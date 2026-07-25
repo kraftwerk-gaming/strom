@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmPbeK1K79B4HpbfJ2GqHebFxWvhyaUf5U5GqYnn95aHPn"
+  ],
+  "description": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
   "developers": [
     "Nintendo"
   ],
@@ -11,6 +15,7 @@
   "long": "The Legend of Zelda: Ocarina of Time is a landmark 3D action-adventure following Link across time to stop Ganondorf from seizing the Triforce. It introduced Z-targeting combat, context-sensitive controls, and ocarina-based music puzzles that became series staples. Set in the kingdom of Hyrule, it is frequently cited as one of the most influential games ever made.",
   "lutris": "https://lutris.net/games/the-legend-of-zelda-ocarina-of-time/",
   "name": "The Legend of Zelda: Ocarina of Time",
+  "runtime": "retroarch",
   "screenshots": [],
   "short": "The Legend of Zelda: Ocarina of Time (via RetroArch / mupen64plus-next)",
   "steam_appid": null,

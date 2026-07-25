@@ -1,11 +1,16 @@
 {
   "appid": null,
+  "cids": [
+    "QmPQB7v72d8pgKy8rX6TYD9EheuC9DbRKnSQQAS3upzTTG"
+  ],
+  "description": "Warhammer 40,000: Dawn of War - Soulstorm (Relic, 2008, GOG standalone, via Proton)",
   "developers": [],
   "genres": [],
   "hero": "https://lutris.net/games/banner/warhammer-40000-dawn-of-war-soulstorm.jpg",
   "long": "",
   "lutris": "https://lutris.net/games/warhammer-40000-dawn-of-war-soulstorm/",
   "name": "Warhammer 40,000: Dawn of War - Soulstorm",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Warhammer 40,000: Dawn of War - Soulstorm (Relic, 2008, GOG standalone, via Proton)",
   "steam_appid": null,

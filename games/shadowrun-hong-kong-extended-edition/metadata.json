@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmZx67dsoursuByjTNYt8jPHqrSJzWpJfecr4fQMePDDCg"
+  ],
+  "description": "Shadowrun: Hong Kong \u2014 Extended Edition (Harebrained Schemes 2015, native Linux, GOG v2.8.0.11)",
   "developers": [
     "Harebrained Schemes"
   ],
@@ -11,6 +15,7 @@
   "long": "Shadowrun: Hong Kong - Extended Edition is a 2015 tactical RPG set in the dystopian cyberpunk-fantasy city of Hong Kong. Players build a runner team and progress through a narrative-heavy campaign featuring turn-based combat, hacking, and magic. The Extended Edition adds extra story content and quality-of-life improvements.",
   "lutris": "https://lutris.net/games/shadowrun-hong-kong-extended-edition/",
   "name": "Shadowrun: Hong Kong \u2014 Extended Edition",
+  "runtime": "native",
   "screenshots": [],
   "short": "Shadowrun: Hong Kong \u2014 Extended Edition (Harebrained Schemes 2015, native Linux, GOG v2.8.0.11)",
   "steam_appid": null,

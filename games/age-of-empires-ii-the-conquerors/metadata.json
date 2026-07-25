@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "Qmaty9puM8eHXB1qmdHYF7G9dBJNVr6ezV99w5iuNADPxY"
+  ],
+  "description": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
   "developers": [
     "Ensemble Studios"
   ],
@@ -10,6 +14,7 @@
   "long": "Age of Empires II: The Conquerors is the expansion to The Age of Kings, adding five new civilizations, new campaigns, and additional units and technologies. It is a historical real-time strategy game in which players gather resources, build towns, and command armies across the ages. The combined Age of Kings + Conquerors release became the definitive classic edition of the game.",
   "lutris": "https://lutris.net/games/age-of-empires-ii-the-conquerors/",
   "name": "Age of Empires II: The Conquerors",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Age of Empires II: The Conquerors (Classic, via Proton and gamescope)",
   "steam_appid": null,

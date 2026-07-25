@@ -1,4 +1,6 @@
 {
+  "cids": [],
+  "description": "Beyond All Reason (free RTS on the Recoil/Spring engine; engine+assets pre-fetched at build time)",
   "developers": [
     "Beyond All Reason team"
   ],
@@ -10,6 +12,7 @@
   "long": "Beyond All Reason is a free, open-source real-time strategy game built on the Recoil/Spring engine, inspired by Total Annihilation and Supreme Commander. Players command armies of robotic units, harvest metal and energy, and fight massive battles featuring large unit counts and an economy-driven tech tree. It supports skirmishes against AI as well as large multiplayer and cooperative matches.",
   "lutris": "https://lutris.net/games/beyond-all-reason/",
   "name": "Beyond All Reason",
+  "runtime": "custom",
   "screenshots": [],
   "short": "Beyond All Reason (free RTS on the Recoil/Spring engine; engine+assets pre-fetched at build time)",
   "steam_appid": null,

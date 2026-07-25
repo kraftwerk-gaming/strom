@@ -1,4 +1,9 @@
 {
+  "cids": [
+    "Qme5gCJd65fFqtYwq1tA1k7igvsNyZJMQQLfkNdys2ZkQK",
+    "QmQQnubn2XRTGZtyjbv2NrdZVsNZ9NPfevwKDvwsDZw7Ls"
+  ],
+  "description": "Sid Meier's Civilization IV: The Complete Edition (Firaxis 2005, GOG build 2.0.0.4, via Proton)",
   "developers": [
     "Firaxis Games"
   ],
@@ -10,6 +15,7 @@
   "long": "Sid Meier's Civilization IV is a 2005 turn-based 4X strategy game in which players build and guide a civilization from antiquity into the future. It introduced religion, great people, and a refined culture system to the long-running series. The Complete Edition bundles the base game with its expansions, supporting both single-player and multiplayer.",
   "lutris": "https://lutris.net/games/sid-meiers-civilization-iv/",
   "name": "Sid Meier's Civilization IV: The Complete Edition",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Sid Meier's Civilization IV: The Complete Edition (Firaxis 2005, GOG build 2.0.0.4, via Proton)",
   "steam_appid": null,

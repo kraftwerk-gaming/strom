@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmU331ijQLC4A1ziNs5wXY1aZWYPqGXCxoD55vVamitQvW"
+  ],
+  "description": "Lands of Lore: The Throne of Chaos (1993 Westwood CD, via DOSBox-X)",
   "developers": [
     "Westwood Studios"
   ],
@@ -9,6 +13,7 @@
   "long": "Lands of Lore: The Throne of Chaos is a first-person grid-based role-playing game in the tradition of Eye of the Beholder. Players lead a party against the shape-shifting witch Scotia, exploring dungeons, solving puzzles and battling monsters in real time. It features digitized character portraits and a voice cameo by Patrick Stewart as King Richard.",
   "lutris": "https://lutris.net/games/lands-of-lore-the-throne-of-chaos/",
   "name": "Lands of Lore: The Throne of Chaos",
+  "runtime": "custom",
   "screenshots": [],
   "short": "Lands of Lore: The Throne of Chaos (1993 Westwood CD, via DOSBox-X)",
   "steam_appid": null,

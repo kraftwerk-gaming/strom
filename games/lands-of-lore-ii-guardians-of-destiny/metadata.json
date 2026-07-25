@@ -1,4 +1,11 @@
 {
+  "cids": [
+    "QmPjapo3soDkDW3a3pSdV7g66ozEktqMDiBDRMQz4vNd3h",
+    "QmUq4yKd5gqRpvD1Y5p3nLQteWAJH8ZvQgALJW3exYh4JD",
+    "QmRWs2djkheWQ5KFEhbfQ66pXA6BiYqaKgRgjayeLriUvG",
+    "QmYkiMpHporgDAQqMy7UesXdmyAsu43Je5xh11ZniYahvr"
+  ],
+  "description": "Lands of Lore II: Guardians of Destiny (Westwood 1997, via Proton)",
   "developers": [
     "Westwood Studios"
   ],
@@ -10,6 +17,7 @@
   "long": "Lands of Lore II: Guardians of Destiny is a first-person action role-playing game and sequel to The Throne of Chaos. Players control Luther, son of the sorceress Scotia, who is cursed with shape-shifting transformations he must master to break. The game mixes real-time melee and spellcasting combat with adventure-style puzzle solving across a 3D world with prerendered scenes.",
   "lutris": "https://lutris.net/games/lands-of-lore-ii-guardians-of-destiny/",
   "name": "Lands of Lore II: Guardians of Destiny",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Lands of Lore II: Guardians of Destiny (Westwood 1997, via Proton)",
   "steam_appid": null,

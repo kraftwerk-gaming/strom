@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmNNopwiiZ9daLJQ7Z2fT6emAxKeVnFwkWiYWAp4oHC1KH"
+  ],
+  "description": "The Operative: No One Lives Forever (Monolith 2000, via Proton)",
   "developers": [
     "Monolith Productions"
   ],
@@ -11,6 +15,7 @@
   "long": "The Operative: No One Lives Forever is a 2000 first-person shooter with stealth elements set in a 1960s spy-fiction world. Players control secret agent Cate Archer, using gadgets, disguises, and weapons to thwart a criminal organization. It is celebrated for its witty writing, humor, and stylish Cold War espionage atmosphere.",
   "lutris": "https://lutris.net/games/no-one-lives-forever/",
   "name": "The Operative: No One Lives Forever",
+  "runtime": "proton",
   "screenshots": [],
   "short": "The Operative: No One Lives Forever (Monolith 2000, via Proton)",
   "steam_appid": null,

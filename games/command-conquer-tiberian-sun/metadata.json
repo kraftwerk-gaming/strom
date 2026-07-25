@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmagHQjFDHYaRQ23jQXUWkeWSn4uB1BenjkG8ann8myxUk"
+  ],
+  "description": "Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)",
   "developers": [
     "Westwood Studios"
   ],
@@ -10,6 +14,7 @@
   "long": "Command & Conquer: Tiberian Sun continues the GDI versus Nod conflict decades after the original, on an Earth increasingly mutated by spreading Tiberium. It introduced a new engine with deformable terrain, lighting effects, and a tech tree of futuristic units. This build bundles the Firestorm expansion and supports skirmish and LAN multiplayer.",
   "lutris": "https://lutris.net/games/command-conquer-tiberian-sun/",
   "name": "Command & Conquer: Tiberian Sun + Firestorm",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Command & Conquer: Tiberian Sun + Firestorm (via Proton with cnc-ddraw)",
   "steam_appid": null,

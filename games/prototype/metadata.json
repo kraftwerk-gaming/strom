@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmWRHVtwqmkafD5bzf7Nxprp7DsJuEeYfkxRr6ZqC7AQQa"
+  ],
+  "description": "Prototype (Radical/Activision 2009, via Proton)",
   "developers": [
     "Radical Entertainment"
   ],
@@ -11,6 +15,7 @@
   "long": "Prototype is a 2009 open-world action game set in a viral-outbreak-stricken New York City. Players control Alex Mercer, a shapeshifter with superhuman abilities who can consume enemies to absorb their forms and memories. The game emphasizes free-roaming traversal and brutal, large-scale combat against military and infected forces.",
   "lutris": "https://lutris.net/games/prototype/",
   "name": "Prototype",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Prototype (Radical/Activision 2009, via Proton)",
   "steam_appid": null,

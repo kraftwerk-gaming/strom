@@ -23,7 +23,7 @@ let
   # Read at startup to label tiles and render the selected-game subtitle. A
   # game with neither file just falls back to its nix description label.
   catalog = runCommand "strom-catalog.json" { nativeBuildInputs = [ python3 ]; } ''
-    python3 ${../../scripts/assemble-catalog.py} ${../../games} ${../../web/games.json} > "$out"
+    python3 ${../../scripts/assemble-catalog.py} ${../../games} > "$out"
   '';
 
   py = python3.withPackages (ps: [ ps.pygame ]);

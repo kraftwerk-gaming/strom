@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmQs4toBKxcEJagPfxKP8uvAtadT85EKQqbxPEknbMRoGV"
+  ],
+  "description": "Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)",
   "developers": [
     "Massive Development"
   ],
@@ -11,6 +15,7 @@
   "long": "Archimedean Dynasty (German: Schleichfahrt) is an underwater submarine combat simulation set in a future where humanity lives in the deep ocean. The player is a mercenary submarine pilot taking on missions through a story-driven campaign, fighting enemy subs and upgrading equipment. It launched the Aquanox series and was developed by Massive Development.",
   "lutris": "https://lutris.net/games/archimedean-dynasty/",
   "name": "Archimedean Dynasty / Schleichfahrt",
+  "runtime": "custom",
   "screenshots": [],
   "short": "Archimedean Dynasty / Schleichfahrt (via DOSBox-X with Voodoo/Glide)",
   "steam_appid": null,

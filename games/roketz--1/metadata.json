@@ -1,5 +1,9 @@
 {
   "_comment": "Developer unknown; two-player split-screen PvP per gameplay recollection.",
+  "cids": [
+    "QmZ1nZ8Hkm81P48ABcfGBot8rSkb2c4K2badYPBrMsT2zp"
+  ],
+  "description": "Roketz (1996, via DOSBox-X)",
   "developers": [],
   "genres": [
     "Action",
@@ -9,6 +13,7 @@
   "long": "Roketz is a 1996 gravity-based cave-flying game in the tradition of Thrust and Gravity Force. Players pilot a rocket through tight, physics-driven caverns, managing momentum and fuel while fighting enemies. It includes a two-player split-screen versus mode for head-to-head dogfights.",
   "lutris": "https://lutris.net/games/roketz--1/",
   "name": "Roketz",
+  "runtime": "custom",
   "screenshots": [],
   "short": "Roketz (1996, via DOSBox-X)",
   "steam_appid": null,

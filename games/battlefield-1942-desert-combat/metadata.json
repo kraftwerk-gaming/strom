@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmSnWcj6uRHNp1Mi7Xanhthx1AnBtzSu8Q2eRgGehYH2HT"
+  ],
+  "description": "Battlefield 1942: Desert Combat (Trauma Studios mod v0.8 final, bundled with BF1942 base, via Proton)",
   "developers": [
     "Trauma Studios"
   ],
@@ -10,6 +14,7 @@
   "long": "Desert Combat is a popular total-conversion mod for Battlefield 1942 that moves the action from World War II to modern desert warfare inspired by the Gulf War. It replaces the WWII arsenal with contemporary jets, helicopters, tanks, and infantry weapons across large multiplayer maps. The mod's success led to Trauma Studios being acquired by DICE.",
   "lutris": "https://lutris.net/games/battlefield-1942-desert-combat/",
   "name": "Battlefield 1942: Desert Combat",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Battlefield 1942: Desert Combat (Trauma Studios mod v0.8 final, bundled with BF1942 base, via Proton)",
   "steam_appid": null,

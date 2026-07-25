@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmQ5Q51cBoG66qiMkQq25vR8YCQJxovHU45JqeQaxwfPAd"
+  ],
+  "description": "Z (Bitmap Brothers 1996, via DOSBox-X)",
   "developers": [
     "The Bitmap Brothers"
   ],
@@ -10,6 +14,7 @@
   "long": "Z is a humorous real-time strategy game where two robot armies fight for territory across grid-based maps, capturing flags and factories to expand production rather than harvesting resources. Its fast, territory-control pace and comedic robot cutscenes set it apart from contemporaries. It was developed by The Bitmap Brothers and published by Virgin Interactive; this build runs via DOSBox-X.",
   "lutris": "https://lutris.net/games/z/",
   "name": "Z",
+  "runtime": "custom",
   "screenshots": [],
   "short": "Z (Bitmap Brothers 1996, via DOSBox-X)",
   "steam_appid": null,

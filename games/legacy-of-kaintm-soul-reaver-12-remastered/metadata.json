@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmfJRiEGTapvtvps35o46DrJ6zpVSDFfFJgauzQ9cvWGNv"
+  ],
+  "description": "Legacy of Kain Soul Reaver 1+2 Remastered (Crystal Dynamics / Aspyr 2024, GOG v1.01, via Proton)",
   "developers": [
     "Crystal Dynamics",
     "Aspyr"
@@ -11,6 +15,7 @@
   "long": "Legacy of Kain Soul Reaver 1+2 Remastered bundles the two classic action-adventure games following the vampire-turned-wraith Raziel. Players explore the gothic world of Nosgoth, shifting between the spectral and material planes to solve environmental puzzles and battle enemies. The 2024 remaster adds modernized visuals, updated controls and quality-of-life improvements while preserving the original gameplay.",
   "lutris": "https://lutris.net/games/legacy-of-kaintm-soul-reaver-12-remastered/",
   "name": "Legacy of Kain Soul Reaver 1+2 Remastered",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Legacy of Kain Soul Reaver 1+2 Remastered (Crystal Dynamics / Aspyr 2024, GOG v1.01, via Proton)",
   "steam_appid": null,

@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmNoB7Qgf3yR9vjin1bVCUkdajG8nTsdd8mF2SamXXT6vM"
+  ],
+  "description": "The Settlers II Gold (via Return to the Roots)",
   "developers": [
     "Blue Byte"
   ],
@@ -11,6 +15,7 @@
   "long": "The Settlers II is a real-time strategy and building game where players grow a settlement by managing intricate supply chains of resources and goods carried along road networks. Players expand territory, raise armies, and conquer rivals across campaign and free-play maps. This edition runs on the open-source Return to the Roots engine, which adds widescreen support and network multiplayer.",
   "lutris": "https://lutris.net/games/the-settlers-ii-gold-edition/",
   "name": "The Settlers II Gold",
+  "runtime": "native",
   "screenshots": [],
   "short": "The Settlers II Gold (via Return to the Roots)",
   "steam_appid": null,

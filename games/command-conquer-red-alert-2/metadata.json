@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmeuAn5K7qBARybPwJhKLyF7ziGEbNgcAVkJ6vKMopKj1F"
+  ],
+  "description": "Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)",
   "developers": [
     "Westwood Studios"
   ],
@@ -10,6 +14,7 @@
   "long": "Command & Conquer: Red Alert 2 is a real-time strategy game set in an alternate-history Cold War, where the Soviet Union invades the United States and the Allies fight back with experimental technology. It is known for its campy full-motion-video cutscenes and asymmetric Allied and Soviet factions. This build bundles the Yuri's Revenge expansion, which adds a third faction, and supports skirmish and LAN multiplayer.",
   "lutris": "https://lutris.net/games/command-conquer-red-alert-2/",
   "name": "Command & Conquer: Red Alert 2 + Yuri's Revenge",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Command & Conquer: Red Alert 2 + Yuri's Revenge (via Proton with cnc-ddraw)",
   "steam_appid": null,

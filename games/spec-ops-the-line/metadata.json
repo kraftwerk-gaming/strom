@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmYK3WWJMfFCDBmJkrbWPnPkvTsVLb79UGQbfzv26Yr6ZL"
+  ],
+  "description": "Spec Ops: The Line (2012 Yager, GOG, via Proton)",
   "developers": [
     "Yager Development"
   ],
@@ -10,6 +14,7 @@
   "long": "Spec Ops: The Line is a third-person military shooter following Captain Martin Walker and a Delta Force squad sent into a sandstorm-buried Dubai. Known for its dark, psychological narrative, it subverts genre conventions while featuring cover-based combat and morally weighted choices. The game includes a separate team-based multiplayer mode.",
   "lutris": "https://lutris.net/games/spec-ops-the-line/",
   "name": "Spec Ops: The Line",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Spec Ops: The Line (2012 Yager, GOG, via Proton)",
   "steam_appid": null,

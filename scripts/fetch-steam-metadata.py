@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """Fetch Steam store metadata into per-game games/<slug>/steam.json.
 
-Reads the slug list from ``web/games.json`` and, for each game, resolves a
-Steam appid (auto fuzzy-match by name, or a forced ``"appid"`` in the game's
-``games/<slug>/metadata.json``; ``"appid": null`` means "off Steam, never
-fetch"). Fetches the Steam ``appdetails`` API and writes the Steam-derived
-fields to ``games/<slug>/steam.json``.
+Reads the slug list from the games/ directory and, for each game, resolves a
+Steam appid (auto fuzzy-match by the flake description in
+``games/<slug>/metadata.json``, or a forced ``"appid"`` there; ``"appid":
+null`` means "off Steam, never fetch"). Fetches the Steam ``appdetails`` API
+and writes the Steam-derived fields to ``games/<slug>/steam.json``.
 
-Games with no Steam match get a one-time fallback ``metadata.json`` (name from
-the description, lutris banner) so they still render a tile; existing
-``metadata.json`` files are never clobbered. The merged display catalog is
-assembled from these per-game files at build time by
+A game with no Steam match and no hand-authored curation gets fallback display
+fields merged into its ``metadata.json`` (name from the description, lutris
+banner) so it still renders a tile; curated metadata is never clobbered. The
+merged display catalog is assembled from these per-game files at build time by
 ``scripts/assemble-catalog.py`` -- this script never writes catalog.json.
 
 Default runs are incremental: a game that already has a ``steam.json`` is left
@@ -36,7 +36,6 @@ from typing import Any
 SCRIPT_DIR = Path(__file__).parent
 ROOT = SCRIPT_DIR.parent
 GAMES_DIR = ROOT / "games"
-GAMES_JSON = ROOT / "web" / "games.json"
 CACHE_DIR = ROOT / "web" / ".steam-cache"
 
 STORESEARCH_URL = "https://store.steampowered.com/api/storesearch/"
@@ -281,12 +280,25 @@ def read_metadata(slug: str) -> dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
+_BUILD_KEYS = frozenset({"cids", "description", "runtime"})
+
+
+def has_curation(md: dict[str, Any]) -> bool:
+    """True if metadata.json holds hand-authored display data (not merely the
+    flake-projected build keys, an appid directive, or _comment keys)."""
+    return any(
+        not k.startswith("_") and k != "appid" and k not in _BUILD_KEYS for k in md
+    )
+
+
 def process(slug: str, games: dict[str, Any], *, offline: bool, refresh: bool) -> str:
     """Reconcile one game's steam.json / metadata.json. Returns a status word."""
     gdir = GAMES_DIR / slug
     steam_path = gdir / "steam.json"
     meta_path = gdir / "metadata.json"
-    directive = read_metadata(slug).get("appid", _MISSING)
+    md = read_metadata(slug)
+    directive = md.get("appid", _MISSING)
+    curated = has_curation(md)
 
     if directive is None:
         # Off-Steam pin ("appid": null): never fetch; drop any stale steam.json.
@@ -299,20 +311,21 @@ def process(slug: str, games: dict[str, Any], *, offline: bool, refresh: bool) -
 
     if isinstance(directive, int):
         appid: int | None = directive
-    elif meta_path.exists() and not refresh:
+    elif curated and not refresh:
         return "manual"  # curated off-Steam game, no appid directive
     else:
-        appid = resolve_appid(
-            search_name(slug, games[slug].get("description")), offline
-        )
+        appid = resolve_appid(search_name(slug, md.get("description")), offline)
 
     if appid is None:
         if offline:
             return "unresolved (offline)"
-        if not meta_path.exists():
+        if not curated:
+            # Seed fallback display fields, keeping the generated build keys.
             entry = build_entry(slug, games, None, None)
             entry.pop("runtime", None)
-            write_json(meta_path, entry)
+            merged = dict(md)
+            merged.update(entry)
+            write_json(meta_path, merged)
             return "fallback (new)"
         return "manual"
 
@@ -340,14 +353,11 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if not GAMES_JSON.exists():
-        log(f"Error: {GAMES_JSON} not found; run generate-readme.py first")
-        return 1
-
-    games: dict[str, Any] = json.loads(GAMES_JSON.read_text())
+    slugs = sorted(d.name for d in GAMES_DIR.iterdir() if d.is_dir())
+    games: dict[str, Any] = {slug: read_metadata(slug) for slug in slugs}
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-    targets = args.slugs or sorted(games)
+    targets = args.slugs or slugs
     refresh = args.refresh or bool(args.slugs)
     for i, slug in enumerate(targets, 1):
         if slug not in games:

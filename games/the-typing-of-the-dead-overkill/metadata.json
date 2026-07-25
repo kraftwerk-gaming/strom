@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmZPyBkFumfgoTHLvVbJUjsJCNAhgaquvGtkFLYb6xN93A"
+  ],
+  "description": "The Typing of the Dead: Overkill (Steam, via Proton and gamescope)",
   "developers": [
     "Modern Dream"
   ],
@@ -10,6 +14,7 @@
   "long": "The Typing of the Dead: Overkill is a typing-based rail shooter built on the grindhouse-styled The House of the Dead: Overkill. Players type the words displayed over enemies to kill them as the camera moves on rails through B-movie horror levels. It supports local two-player co-op and was published by Sega.",
   "lutris": "https://lutris.net/games/the-typing-of-the-dead-overkill/",
   "name": "The Typing of the Dead: Overkill",
+  "runtime": "proton",
   "screenshots": [],
   "short": "The Typing of the Dead: Overkill (Steam, via Proton and gamescope)",
   "steam_appid": null,

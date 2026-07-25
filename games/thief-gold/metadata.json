@@ -1,4 +1,9 @@
 {
+  "cids": [
+    "QmfQzREoGpt5T9E5aL71aVqMoe28oK12UcpvGUCdAKMRCm",
+    "QmYsKaAyDYeDXoAEHopfTfxC9ePUuTLyzTQ4jUy2dDoxMt"
+  ],
+  "description": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
   "developers": [
     "Looking Glass Studios"
   ],
@@ -11,6 +16,7 @@
   "long": "Thief Gold is an expanded edition of Thief: The Dark Project, a first-person stealth game where master thief Garrett sneaks through a dark steampunk-medieval city avoiding guards rather than fighting them. Light, shadow, and sound are core mechanics. It was developed by Looking Glass Studios and published by Eidos Interactive; this build adds the community TFix patch on the NewDark engine.",
   "lutris": "https://lutris.net/games/thief-gold/",
   "name": "Thief Gold with TFix",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Thief Gold with TFix (NewDark engine, via Proton and gamescope)",
   "steam_appid": null,

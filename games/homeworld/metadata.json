@@ -1,5 +1,11 @@
 {
   "_comment": "Slug 'homeworld' but description identifies Homeworld 2.",
+  "cids": [
+    "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",
+    "QmcAz3HugvgxsXrqUjSpoz2pKDQKiMi9bee8fbKDcz9nV4",
+    "QmWNTi4bwTDXjQRmsu2ua4z6nvPvYBK5kEBPWWyC8RxPYy"
+  ],
+  "description": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
   "developers": [
     "Relic Entertainment"
   ],
@@ -11,6 +17,7 @@
   "long": "Homeworld 2 is a fully three-dimensional real-time strategy game set in space, continuing the story of the Hiigarans and their Mothership. Players build and command fleets of capital ships, fighters and corvettes while managing resources and research across a single-player campaign. It is renowned for its cinematic presentation, tactical formations and full freedom of movement in 3D combat.",
   "lutris": "https://lutris.net/games/homeworld/",
   "name": "Homeworld 2",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
   "steam_appid": null,

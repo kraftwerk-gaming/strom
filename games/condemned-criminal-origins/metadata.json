@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmTUyjaAtWX34K8hBtggLbupdY6XoHmomzRtab2PJ7uZ16"
+  ],
+  "description": "Condemned: Criminal Origins (Monolith Productions 2005, via Proton)",
   "developers": [
     "Monolith Productions"
   ],
@@ -12,6 +16,7 @@
   "long": "Condemned: Criminal Origins is a first-person psychological horror game in which FBI agent Ethan Thomas hunts serial killers through derelict, decaying urban environments. Combat focuses on brutal, improvised melee using found objects, complemented by forensic investigation of crime scenes. The single-player game is built on the Lithtech Jupiter EX engine for tense, atmospheric encounters.",
   "lutris": "https://lutris.net/games/condemned-criminal-origins/",
   "name": "Condemned: Criminal Origins",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Condemned: Criminal Origins (Monolith Productions 2005, via Proton)",
   "steam_appid": null,

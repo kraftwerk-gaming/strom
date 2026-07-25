@@ -1,4 +1,9 @@
 {
+  "cids": [
+    "Qme6kRZLgxGMEDaNUwCis9Wp7j6DWys4EWoDX8ePSiPh5N",
+    "QmSob3MrZzftZrvXRotQgGpgyqPdvMCXLnBQWWoKgXZyem"
+  ],
+  "description": "Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)",
   "developers": [
     "Westwood Studios"
   ],
@@ -10,6 +15,7 @@
   "long": "Command & Conquer: Tiberian Dawn is the original entry in the seminal real-time strategy series, pitting the Global Defense Initiative against the terrorist Brotherhood of Nod in a war over the mysterious resource Tiberium. Players harvest resources, build bases, and command armies across full-motion-video briefed campaigns. This Vanilla Conquer port runs the game natively and retains its skirmish and network multiplayer.",
   "lutris": "https://lutris.net/games/command-conquer/",
   "name": "Command & Conquer: Tiberian Dawn",
+  "runtime": "native",
   "screenshots": [],
   "short": "Command & Conquer: Tiberian Dawn (Vanilla Conquer, native)",
   "steam_appid": null,

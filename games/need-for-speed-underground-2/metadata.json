@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm"
+  ],
+  "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
   "developers": [
     "EA Black Box"
   ],
@@ -10,6 +14,7 @@
   "long": "Need for Speed: Underground 2 (2004) is an arcade street-racing game centered on the import tuner scene. It introduced a free-roaming open city where players explore to find races, shops, and events. Deep visual and performance car customization is a core feature of the game.",
   "lutris": "https://lutris.net/games/need-for-speed-underground-2/",
   "name": "Need for Speed: Underground 2",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Need for Speed: Underground 2 (via Proton and gamescope)",
   "steam_appid": null,

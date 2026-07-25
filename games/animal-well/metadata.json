@@ -1,4 +1,9 @@
 {
   "_comment": "Force this Steam appid; auto-search matches the wrong app.",
-  "appid": 813230
+  "appid": 813230,
+  "cids": [
+    "QmcNc9smjop4rKYUooR1WtUiB54XwGuYqc4xBiXhxY1gjt"
+  ],
+  "description": "ANIMAL WELL (Billy Basso 2024, via Proton)",
+  "runtime": "proton"
 }

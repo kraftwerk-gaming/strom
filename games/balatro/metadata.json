@@ -1,4 +1,9 @@
 {
   "_comment": "Force this Steam appid; auto-search matches the wrong app.",
-  "appid": 2379780
+  "appid": 2379780,
+  "cids": [
+    "QmXqGFXAh7Y9vzBRXj5cGyjnLFPPsYnMJPZVAoMAbdWmtj"
+  ],
+  "description": "Balatro (via Proton)",
+  "runtime": "proton"
 }

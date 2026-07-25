@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmU7RfUrkdx3sMV2h1wUExwrs1SngP81rkHKBQFzVAPLXW"
+  ],
+  "description": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
   "developers": [
     "Beam Software"
   ],
@@ -10,6 +14,7 @@
   "long": "Krush Kill 'n Destroy (KKnD) is a post-apocalyptic real-time strategy game pitting the surface-dwelling Survivors against the mutant Evolved. Players harvest resources, build bases and command armored units across a campaign of base-building skirmishes. The Xtreme re-release adds extra missions and higher-resolution support.",
   "lutris": "https://lutris.net/games/kknd/",
   "name": "KKnD Xtreme / Krush Kill 'n Destroy",
+  "runtime": "proton",
   "screenshots": [],
   "short": "KKnD Xtreme / Krush Kill 'n Destroy (Beam Software 1997, GOG, via Proton)",
   "steam_appid": null,

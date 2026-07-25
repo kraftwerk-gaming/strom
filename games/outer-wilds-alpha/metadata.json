@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmbPABWqByuFiwvfxwoMsWLexnqd9PjxdqAfj4azWKwHG1"
+  ],
+  "description": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
   "developers": [
     "Mobius Digital"
   ],
@@ -10,6 +14,7 @@
   "long": "Outer Wilds Alpha 1.2 is an early prototype build of the acclaimed space-exploration adventure. The player explores a small handcrafted solar system trapped in a time loop, uncovering the secrets of an ancient civilization. This alpha showcases the core open-world exploration and physics-driven planetary systems before the full release.",
   "lutris": "https://lutris.net/games/outer-wilds-alpha/",
   "name": "Outer Wilds Alpha 1.2",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Outer Wilds Alpha 1.2 (via Proton and gamescope)",
   "steam_appid": null,

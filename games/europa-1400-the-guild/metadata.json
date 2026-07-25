@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmVGbehWtufnkvDbiUJa5wCo1CurPzsPJM74VLhqykZUWP"
+  ],
+  "description": "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)",
   "developers": [
     "4HEAD Studios"
   ],
@@ -11,6 +15,7 @@
   "long": "Europa 1400: The Guild is a life and business simulation set in late-medieval Europe, where the player builds a dynasty by running a trade, craft or service while scheming through politics, courts and intrigue against rival families. It blends economic management with role-playing and emergent social simulation across multiple generations. This Gold Edition runs through Proton and gamescope.",
   "lutris": "https://lutris.net/games/europa-1400-the-guild/",
   "name": "Europa 1400: The Guild - Gold Edition",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Europa 1400: The Guild - Gold Edition (via Proton and gamescope)",
   "steam_appid": null,

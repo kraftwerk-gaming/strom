@@ -1,4 +1,10 @@
 {
+  "cids": [
+    "QmWMS4zhvCMj5Nz3gpcaDbgChsZZR6ULY9z9aNcHakuaBR",
+    "QmWAc3pDNQrvngxjcBCqNV8LyxCdFcSqSq2kW1K3kKh9MW",
+    "bafkreid7lxtov7z6aj74dp5fvwh2rtxs56o6tj6v7q4n6rtyqwcaripmgi"
+  ],
+  "description": "Anno 1602 A.D. Gold Edition (via Proton and gamescope)",
   "developers": [
     "Max Design"
   ],
@@ -11,6 +17,7 @@
   "long": "Anno 1602 A.D. is the first game in the Anno series, blending city building, economic simulation, exploration, and combat in a colonial setting. Players establish settlements on island archipelagos, balance production chains and citizen needs, and expand through trade or conquest. The Gold Edition bundles the base game with its New Islands, New Adventures expansion.",
   "lutris": "https://lutris.net/games/anno-1602-ad/",
   "name": "Anno 1602 A.D. Gold Edition",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Anno 1602 A.D. Gold Edition (via Proton and gamescope)",
   "steam_appid": null,

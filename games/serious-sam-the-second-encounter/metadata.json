@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "Qmc1kVGaJCmJRAXEY1jPvXrTvsPFUZWG54th4fqpfY1TF9"
+  ],
+  "description": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
   "developers": [
     "Croteam"
   ],
@@ -10,6 +14,7 @@
   "long": "Serious Sam: The Second Encounter is a 2002 first-person shooter that continues the series' fast-paced, horde-driven combat. It adds new weapons, enemies, and environments spanning Mesoamerican, Mesopotamian, and medieval European settings. Like its predecessor, it supports cooperative multiplayer over LAN and online.",
   "lutris": "https://lutris.net/games/serious-sam-the-second-encounter/",
   "name": "Serious Sam: The Second Encounter",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Serious Sam: The Second Encounter (Croteam 2002, retail v1.07, via Proton)",
   "steam_appid": null,

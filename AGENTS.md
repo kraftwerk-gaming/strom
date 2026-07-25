@@ -12,19 +12,20 @@
 - All `.nix` files must be `nixfmt`-clean. Run `nix fmt` before committing.
 - `nix flake check` runs `checks.<system>.nixfmt` which fails on any tracked unformatted file.
 
-## README and games.json
+## README generation (generate-readme.py)
 
-- After adding or removing a game, regenerate both the games table and the JSON metadata: `python3 scripts/generate-readme.py`
-- The script reads flake metadata via `scripts/generate-readme.nix`, rewrites the block between the `<!-- BEGIN/END GENERATED GAMES -->` markers in `README.md`, and writes `web/games.json` (consumed by the static checker at `web/index.html`). Do not edit either generated file by hand.
+- After adding or removing a game, regenerate the derived files: `python3 scripts/generate-readme.py`
+- It reads flake metadata via `scripts/generate-readme.nix` and: rewrites the games table between the `<!-- BEGIN/END GENERATED GAMES -->` markers in `README.md`; writes each game's flake-projected build keys (`cids`, `description`, `runtime`) into `games/<slug>/metadata.json` (merged over hand-authored keys, which are left untouched); and bakes the `{slug: {cids, description, runtime}}` dataset into `web/index.html` between its `<!-- BEGIN/END GENERATED GAMES DATA -->` markers so the standalone IPFS checker is self-contained. Do not hand-edit the generated table, the build keys, or the index.html data block. There is no `web/games.json`.
 
 ## Game display metadata (steam.json + metadata.json)
 
 - Per-game display metadata lives in two optional files under `games/<slug>/`:
   - `steam.json`: Steam-fetched fields (`name`, `short`, `long`, `genres`, player-mode `tags`, `year`, `developers`, `hero`, `screenshots`, `steam_appid`). Written by `scripts/fetch-steam-metadata.py`; treat it as a committed cache, do not hand-edit.
   - `metadata.json`: hand-maintained data. For a Steam game it holds only the corrected fields, overlaid over `steam.json` (lists replace, they do not append). For an off-Steam game it is the whole entry and there is no `steam.json`. Recognized display fields: `name`, `short`, `long`, `genres` (list), `tags` (list), `year` (int), `developers` (list), `hero` (URL), `screenshots` (list of URLs), `lutris` (URL). Plus a non-display `appid` directive (below). Keys starting with `_` are comments. See `games/battlefield-2/metadata.json`.
-- There is no committed `catalog.json`. The merged display catalog is assembled at build time by `scripts/assemble-catalog.py` (steam.json overlaid by metadata.json, plus `runtime` from `web/games.json`). Both consumers build it themselves: the couch launcher (`pkgs/launcher`) bakes it into its env, and the web GUI (`web/gui`, `nix run .#gui`) writes it into its served root.
+  - Generated build keys (`cids`, `description`, `runtime`) are also written into `metadata.json` by `generate-readme.py` (flake projections of `default.nix`); they are not display fields, `assemble-catalog.py` excludes them from the catalog, and they must not be hand-edited.
+- There is no committed `catalog.json`. The merged display catalog is assembled at build time by `scripts/assemble-catalog.py` (steam.json overlaid by metadata.json's display fields, plus `runtime` from metadata.json). Both consumers build it themselves: the couch launcher (`pkgs/launcher`) bakes it into its env, and the web GUI (`web/gui`, `nix run .#gui`) writes it into its served root.
 - Steam matching is driven by `metadata.json`'s `appid`: an integer forces a specific Steam appid; `null` skips Steam entirely (GOG-only, fan ports, abandonware, delisted titles; no `steam.json` is written); absent means auto fuzzy-match by name. This replaces the old `scripts/steam-overrides.json`.
-- `python3 scripts/fetch-steam-metadata.py` writes/refreshes per-game `steam.json`. It is incremental: a game that already has a `steam.json` is left alone. Pass explicit slugs or `--refresh` to re-fetch, `--offline` to never hit the network. A game with no Steam match gets a one-time fallback `metadata.json` (name from description, lutris banner); existing `metadata.json` files are never clobbered. Raw API responses cache under `web/.steam-cache/` (gitignored). It never writes `catalog.json`.
+- `python3 scripts/fetch-steam-metadata.py` writes/refreshes per-game `steam.json`. It is incremental: a game that already has a `steam.json` is left alone. Pass explicit slugs or `--refresh` to re-fetch, `--offline` to never hit the network. A game with no Steam match and no hand-authored curation gets fallback display fields merged into its `metadata.json` (name from description, lutris banner); curated metadata and the generated build keys are preserved. Raw API responses cache under `web/.steam-cache/` (gitignored). It never writes `catalog.json`.
 - When adding a game, run `python3 scripts/fetch-steam-metadata.py <slug>` (after `generate-readme.py`) so it gets a `steam.json`, or hand-write a `metadata.json` for an off-Steam title.
 - `tags` drive the Features filter (web GUI) and the couch launcher's filter bar. Use these exact Steam-category strings so a game lands in the right bucket:
   - Single-player: `Single-player`

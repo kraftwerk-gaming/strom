@@ -1,4 +1,9 @@
 {
+  "cids": [
+    "QmP7T7DrPTfmUqv7VzgKRqe38JaQNCsnv7gNiZmNqGaDMb",
+    "QmTjftj3F8JLxRFS59scJY8SRbvuWvAVQMvgsQ2jjQLxVy"
+  ],
+  "description": "Paquerette Down the Bunburrows v1.1.2 (GOG, via Proton)",
   "developers": [],
   "genres": [
     "Puzzle",
@@ -9,6 +14,7 @@
   "long": "Paquerette Down the Bunburrows is a 2022 indie puzzle game about catching rabbits in a sprawling, interconnected warren. Players navigate grid-based burrows and use spatial reasoning to corner elusive bunnies. It is praised for its deep, gradually escalating puzzle mechanics and large, maze-like world.",
   "lutris": "https://lutris.net/games/paquerette-down-the-bunburrows/",
   "name": "Paquerette Down the Bunburrows v1.1.2",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Paquerette Down the Bunburrows v1.1.2 (GOG, via Proton)",
   "steam_appid": null,

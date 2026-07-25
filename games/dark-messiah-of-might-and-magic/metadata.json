@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmSVGKyNwZmDQk3LHuLWjdjVrb58fP6MxMEBo2c8ExEGqi"
+  ],
+  "description": "Dark Messiah of Might and Magic (Arkane 2006, Source engine, ElAmigos repack, via Proton)",
   "developers": [
     "Arkane Studios"
   ],
@@ -11,6 +15,7 @@
   "long": "Dark Messiah of Might and Magic is a first-person action RPG built on Valve's Source engine, set in the Might and Magic fantasy universe. Combat emphasizes physics-driven, environmental kills, letting players kick enemies into spike traps, off ledges, or into hazards alongside swords, bows, and magic. This is the single-player campaign following the apprentice Sareth.",
   "lutris": "https://lutris.net/games/dark-messiah-of-might-and-magic/",
   "name": "Dark Messiah of Might and Magic",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Dark Messiah of Might and Magic (Arkane 2006, Source engine, ElAmigos repack, via Proton)",
   "steam_appid": null,

@@ -1,5 +1,9 @@
 {
   "appid": null,
+  "cids": [
+    "QmcGUudkqnj5KUyMNwUchifDV8PvhLfK5jqeAcw1VvaoJj"
+  ],
+  "description": "Babbdi (Lemaitre Bros 2022, free first-person exploration, Unity Mono via Proton)",
   "developers": [
     "Lemaitre Bros"
   ],
@@ -11,6 +15,7 @@
   "long": "Babbdi is a short free first-person exploration game set in an oppressive, brutalist concrete city. The player's only goal is to find a way to leave by train, traversing the surreal environment and collecting tools and items that grant new movement abilities. It is known for its dreamlike atmosphere and fluid traversal.",
   "lutris": "https://lutris.net/games/babbdi/",
   "name": "Babbdi",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Babbdi (Lemaitre Bros 2022, free first-person exploration, Unity Mono via Proton)",
   "steam_appid": null,

@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmUauVkZopH2gW1yZhcaaWp428kisXUXdRsgKbdmAW4rmj"
+  ],
+  "description": "Serious Sam: The First Encounter (Croteam 2001, retail v1.05, via Proton)",
   "developers": [
     "Croteam"
   ],
@@ -10,6 +14,7 @@
   "long": "Serious Sam: The First Encounter is a 2001 first-person shooter known for its frantic, old-school action against massive hordes of enemies. Set across ancient Egyptian environments, the player battles overwhelming swarms in wide-open arenas with a powerful arsenal. It supports cooperative multiplayer over LAN and the internet.",
   "lutris": "https://lutris.net/games/serious-sam/",
   "name": "Serious Sam: The First Encounter",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Serious Sam: The First Encounter (Croteam 2001, retail v1.05, via Proton)",
   "steam_appid": null,

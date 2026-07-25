@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "Qmbj3vMjcFQoFd8kCKgS1wMuB2L5swHtcFATKU7SCbhLy6"
+  ],
+  "description": "SiN Gold (Ritual Entertainment 1998, GOG v1.13b build 36951, via Proton)",
   "developers": [
     "Ritual Entertainment"
   ],
@@ -10,6 +14,7 @@
   "long": "SiN is a first-person shooter built on the Quake II engine in which players control security force commander John Blade battling the SinTEK corporation and its leader Elexis Sinclaire. It mixes action combat with branching missions and interactive environments. SiN Gold bundles the original game with the Wages of Sin expansion.",
   "lutris": "https://lutris.net/games/sin/",
   "name": "SiN Gold",
+  "runtime": "proton",
   "screenshots": [],
   "short": "SiN Gold (Ritual Entertainment 1998, GOG v1.13b build 36951, via Proton)",
   "steam_appid": null,

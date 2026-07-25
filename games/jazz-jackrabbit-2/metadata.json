@@ -1,5 +1,9 @@
 {
   "_comment": "Played via Jazz2 Resurrection reimplementation with multiplayer.",
+  "cids": [
+    "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb"
+  ],
+  "description": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
   "developers": [
     "Epic MegaGames"
   ],
@@ -11,6 +15,7 @@
   "long": "Jazz Jackrabbit 2 is a fast-paced side-scrolling platformer starring the green rabbit Jazz and his brother Spaz. Players run, jump and shoot through colorful cartoon levels collecting gems and power-ups. The Jazz2 Resurrection reimplementation adds online and local multiplayer, including cooperative and competitive modes on modern systems.",
   "lutris": "https://lutris.net/games/jazz-jackrabbit-2/",
   "name": "Jazz Jackrabbit 2",
+  "runtime": "native",
   "screenshots": [],
   "short": "Jazz Jackrabbit 2 (Jazz\u00b2 Resurrection with game data and multiplayer)",
   "steam_appid": null,

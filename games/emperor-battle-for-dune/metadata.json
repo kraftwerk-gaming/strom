@@ -1,4 +1,8 @@
 {
+  "cids": [
+    "QmVuVwSfwjHY7aKCWePoQSPnBzqZRt3SLXwExR3Ps5SHB3"
+  ],
+  "description": "Emperor: Battle for Dune (Westwood 2001, via Proton with wheybags HD/multiplayer patch)",
   "developers": [
     "Westwood Studios"
   ],
@@ -10,6 +14,7 @@
   "long": "Emperor: Battle for Dune is a 3D real-time strategy game based on Frank Herbert's Dune, in which House Atreides, House Harkonnen and House Ordos fight for control of the spice-rich planet Arrakis. It blends a branching campaign with full-motion-video storytelling and lets players ally with five sub-factions. This build applies the wheybags patch, restoring HD resolutions and multiplayer, and runs through Proton.",
   "lutris": "https://lutris.net/games/emperor-battle-for-dune/",
   "name": "Emperor: Battle for Dune",
+  "runtime": "proton",
   "screenshots": [],
   "short": "Emperor: Battle for Dune (Westwood 2001, via Proton with wheybags HD/multiplayer patch)",
   "steam_appid": null,

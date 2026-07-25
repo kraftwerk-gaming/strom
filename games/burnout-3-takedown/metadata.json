@@ -1,4 +1,9 @@
 {
+  "cids": [
+    "QmTR7JR8zd4yENd9sudBy5iQBKRKKvYuB66vhymrRMLmSn",
+    "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+  ],
+  "description": "Burnout 3: Takedown (via PCSX2)",
   "developers": [
     "Criterion Games"
   ],
@@ -10,6 +15,7 @@
   "long": "Burnout 3: Takedown is an arcade racing game centered on aggressive driving, where players earn boost by drifting, drafting, and slamming rivals into traffic and obstacles. Its signature Takedown and Crash modes reward spectacular, high-speed wrecks. The game includes split-screen multiplayer for local competition.",
   "lutris": "https://lutris.net/games/burnout-3-takedown/",
   "name": "Burnout 3: Takedown",
+  "runtime": "pcsx2",
   "screenshots": [],
   "short": "Burnout 3: Takedown (via PCSX2)",
   "steam_appid": null,
