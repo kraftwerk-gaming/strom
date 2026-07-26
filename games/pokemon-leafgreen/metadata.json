@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmerCkFKAqMBkML3i5D51FWfew7jnMHoeqWYtPUVUBZXVT"
+  ],
+  "description": "Pokemon LeafGreen Version (Game Freak/Nintendo, 2004 GBA, via RetroArch / mGBA)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-leafgreen.jpg",
+  "lutris": "https://lutris.net/games/pokemon-leafgreen/",
+  "name": "Pokemon LeafGreen Version",
+  "runtime": "retroarch",
+  "short": "The GBA remake of Pokemon Green's Kanto adventure, paired with FireRed: the original 151 rebuilt on Gen-3 mechanics, with version-exclusive encounters and the Sevii Islands after the Elite Four.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2004
+}
