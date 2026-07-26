@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmW3XjWfFpvP4cck7DXQAGVqVmZMN8vFQXKoysjRYFu6Zp"
+  ],
+  "description": "Pokemon FireRed Version (Game Freak/Nintendo, 2004 GBA, via RetroArch / mGBA)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-firered.jpg",
+  "lutris": "https://lutris.net/games/pokemon-firered/",
+  "name": "Pokemon FireRed Version",
+  "runtime": "retroarch",
+  "short": "The Kanto original remade on GBA: the same 151-Pokemon journey to the Indigo Plateau, rebuilt with Gen-3 mechanics, the Vs. Seeker and a post-game chain of Sevii Islands.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2004
+}
