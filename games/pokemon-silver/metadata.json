@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmaqfZkZdK644P2gb1c6uHsg4AVAgK4XQ6tdtjQn9qviaW"
+  ],
+  "description": "Pokemon Silver Version (Game Freak/Nintendo, 1999 Game Boy Color, via RetroArch / gambatte)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-silver.jpg",
+  "lutris": "https://lutris.net/games/pokemon-silver/",
+  "name": "Pokemon Silver Version",
+  "runtime": "retroarch",
+  "short": "The Johto counterpart to Gold: day/night cycles, breeding, Steel and Dark types, a different set of version exclusives, and Lugia beneath the Whirl Islands.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1999
+}
