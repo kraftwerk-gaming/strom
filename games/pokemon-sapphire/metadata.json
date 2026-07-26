@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmNo9qmfDF57kN9rWduMdYgdHzXf1r2UvTcFHhMNz4p5yr"
+  ],
+  "description": "Pokemon Sapphire Version (Game Freak/Nintendo, 2002 GBA, via RetroArch / mGBA)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-sapphire.jpg",
+  "lutris": "https://lutris.net/games/pokemon-sapphire/",
+  "name": "Pokemon Sapphire Version",
+  "runtime": "retroarch",
+  "short": "The Hoenn counterpart to Ruby: the same Gen-3 debut of abilities, natures and double battles, but Team Aqua chases Kyogre to drown the land instead.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2002
+}
