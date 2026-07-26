@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: the 1998 PlayStation original has no Steam release, so any fuzzy match would be a different Tenchu entry or unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmczfxxrqaZpp5DWsPMrKHmiwfRubd4czQGaohDTJ3Mu8W",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Tenchu: Stealth Assassins (PSX 1998 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Acquire"
+  ],
+  "genres": [
+    "Stealth",
+    "Action"
+  ],
+  "hero": "https://lutris.net/games/banner/tenchu-stealth-assassins.jpg",
+  "lutris": "https://lutris.net/games/tenchu-stealth-assassins/",
+  "name": "Tenchu: Stealth Assassins",
+  "runtime": "retroarch",
+  "short": "Feudal-Japan stealth before stealth was a genre: pick Rikimaru or Ayame, read the ki meter to track guards, and earn your grade by reaching targets unseen for a one-hit kill.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}
