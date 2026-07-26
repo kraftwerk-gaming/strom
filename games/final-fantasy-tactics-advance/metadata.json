@@ -1,0 +1,24 @@
+{
+  "_appid": "Skip Steam: the 2003 GBA game has no Steam release. The closest listings are for the PSX Final Fantasy Tactics and its remaster, which are a different game entirely.",
+  "appid": null,
+  "cids": [
+    "QmVkk3B4kGZ22wpUY5gZGAWu7Rpg5RNTyaKotLNAaJqbKL"
+  ],
+  "description": "Final Fantasy Tactics Advance (Square, 2003 GBA, via RetroArch / mGBA)",
+  "developers": [
+    "Square"
+  ],
+  "genres": [
+    "Tactical RPG",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/final-fantasy-tactics-advance.jpg",
+  "lutris": "https://lutris.net/games/final-fantasy-tactics-advance/",
+  "name": "Final Fantasy Tactics Advance",
+  "runtime": "retroarch",
+  "short": "Marche and his friends are pulled into the storybook world of Ivalice, where they build a clan and fight isometric, grid-based battles across five races and dozens of job classes -- under laws that ban a different tactic in every fight.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2003
+}
