@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmQ4xPCtnWKbkoAEDNcKeJtRg6kSWNLbN9YpNWuPenSdFQ"
+  ],
+  "description": "Pok\u00e9mon Diamond Version (2006 Game Freak/Nintendo, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-diamond.jpg",
+  "lutris": "https://lutris.net/games/pokemon-diamond/",
+  "name": "Pokemon Diamond Version",
+  "runtime": "retroarch",
+  "short": "The Gen-4 debut in Sinnoh: the physical/special split that reshaped competitive battling, underground fossil digging with friends, and the Distortion-World legendary Dialga at the top of Mt. Coronet.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2006
+}
