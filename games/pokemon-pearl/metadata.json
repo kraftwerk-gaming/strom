@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmVTDuEEt71Ltfhu6fZLvtWRQ7NPT3Gkys4pcVHg717E8E"
+  ],
+  "description": "Pok\u00e9mon Pearl (2006 Nintendo, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-pearl.jpg",
+  "lutris": "https://lutris.net/games/pokemon-pearl/",
+  "name": "Pokemon Pearl Version",
+  "runtime": "retroarch",
+  "short": "The Sinnoh half-pair to Diamond: same Gen-4 journey and physical/special split, with version-exclusive Pokemon and the space-warping legendary Palkia waiting at the Spear Pillar.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2006
+}
