@@ -1,0 +1,27 @@
+{
+  "_appid": "Skip Steam: the Dreamcast Soul Calibur (1999) has no Steam release. The only Steam entry is the 2018 Soulcalibur VI, a different game whose art would misrepresent this package.",
+  "appid": null,
+  "cids": [
+    "Qmbi1qZhNwE6cdMTXgkLwLVoCS4rGPbvNrufV3GnLtzY2D"
+  ],
+  "description": "Soulcalibur (Dreamcast 1999 Namco, USA, via RetroArch / Flycast)",
+  "developers": [
+    "Namco"
+  ],
+  "genres": [
+    "Fighting"
+  ],
+  "hero": "https://lutris.net/games/banner/soul-calibur.jpg",
+  "lutris": "https://lutris.net/games/soul-calibur/",
+  "name": "Soul Calibur",
+  "runtime": "retroarch",
+  "short": "Namco's weapon fighter and the Dreamcast's showcase launch title: sixteen warriors duel for the cursed Soul Edge, with a mission-battle single-player and 8-way-run movement.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 1999
+}
