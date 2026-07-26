@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmZmBEfLXwXKU1k2rK4hCG1GkaUfnCwBpNoEpfM47vFntx"
+  ],
+  "description": "Pokemon Stadium (2000 Nintendo, N64, via RetroArch / mupen64plus-next)",
+  "developers": [
+    "Nintendo EAD"
+  ],
+  "genres": [
+    "Strategy",
+    "Party"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-stadium.jpg",
+  "lutris": "https://lutris.net/games/pokemon-stadium/",
+  "name": "Pokemon Stadium",
+  "runtime": "retroarch",
+  "short": "The original 151 rendered in 3D for fully animated turn-based battles: run the Stadium cups and Gym Leader Castle with rentals, plus a set of four-player minigames.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 2000
+}

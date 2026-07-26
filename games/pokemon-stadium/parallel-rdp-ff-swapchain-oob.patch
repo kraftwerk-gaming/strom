@@ -1,0 +1,43 @@
+diff --git a/mupen64plus-video-paraLLEl/rdp.cpp b/mupen64plus-video-paraLLEl/rdp.cpp
+index 0131759..e95bb32 100644
+--- a/mupen64plus-video-paraLLEl/rdp.cpp
++++ b/mupen64plus-video-paraLLEl/rdp.cpp
+@@ -282,6 +282,22 @@ void deinit()
+ 	timeline_trace_file.reset();
+ }
+ 
++// The frontend may recreate its swapchain with a different image count at any
++// time (RetroArch switches present mode FIFO -> MAILBOX when fast-forward
++// clears the swap interval, and MAILBOX requires one more image on several
++// WSI implementations). There is no callback into the core when this happens,
++// so get_sync_index() can return an index past the end of the arrays that were
++// sized once in init(). Grow them on demand; the assert() below is compiled
++// out in release builds and never caught this.
++static void ensure_sync_index_capacity(unsigned index)
++{
++	if (index >= retro_images.size())
++	{
++		retro_images.resize(index + 1);
++		retro_image_handles.resize(index + 1);
++	}
++}
++
+ static void complete_frame_error()
+ {
+ 	static const char error_tex[] =
+@@ -308,6 +324,7 @@ static void complete_frame_error()
+ 	auto image = device->create_image(info, &data);
+ 
+ 	unsigned index = vulkan->get_sync_index(vulkan->handle);
++	ensure_sync_index_capacity(index);
+ 	assert(index < retro_images.size());
+ 
+ 	retro_images[index].image_view = image->get_view().get_view();
+@@ -374,6 +391,7 @@ void complete_frame()
+ 	opts.crop_overscan_pixels = overscan;
+ 	auto image = frontend->scanout(opts);
+ 	unsigned index = vulkan->get_sync_index(vulkan->handle);
++	ensure_sync_index_capacity(index);
+ 
+ 	if (!image)
+ 	{
