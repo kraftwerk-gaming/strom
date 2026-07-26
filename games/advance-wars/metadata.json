@@ -1,0 +1,18 @@
+{
+  "cids": [
+    "QmXZLR2PCr7UNB6pFKFwV3DajDVmAnqG1a1U8fj1EUvuNK"
+  ],
+  "description": "Advance Wars (Intelligent Systems/Nintendo, 2001 GBA, via RetroArch / mGBA)",
+  "developers": [],
+  "genres": [],
+  "hero": "https://lutris.net/games/banner/advance-wars.jpg",
+  "long": "",
+  "lutris": "https://lutris.net/games/advance-wars/",
+  "name": "Advance Wars",
+  "runtime": "retroarch",
+  "screenshots": [],
+  "short": "Advance Wars (Intelligent Systems/Nintendo, 2001 GBA, via RetroArch / mGBA)",
+  "steam_appid": null,
+  "tags": [],
+  "year": null
+}
