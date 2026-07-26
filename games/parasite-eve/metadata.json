@@ -1,0 +1,26 @@
+{
+  "_appid": "Skip Steam: the 1998 PSX game has never been released on Steam (it is a PS1 Classics / emulation-only title), so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "Qmc9ZmGJpUqQNu3ouWmHa5gAHHBzBQX2DgHujDuf6oGbt7",
+    "QmcUohdTYKiRFZbDYZs6CX7Cbaq3Cf7cehacG7oeva1GPs",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Parasite Eve (PSX 1998 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Squaresoft"
+  ],
+  "genres": [
+    "RPG",
+    "Survival Horror"
+  ],
+  "hero": "https://lutris.net/games/banner/parasite-eve.jpg",
+  "lutris": "https://lutris.net/games/parasite-eve/",
+  "name": "Parasite Eve",
+  "runtime": "retroarch",
+  "short": "NYPD rookie Aya Brea hunts Eve through a Manhattan where mitochondria have turned against their hosts -- a cinematic RPG with real-time-ringed combat, weapon tuning and two discs of pre-rendered New York.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}
