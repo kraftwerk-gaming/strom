@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: the 2000 Neversoft PlayStation game has no Steam release; fuzzy matching would hit a modern Spider-Man title instead.",
+  "appid": null,
+  "cids": [
+    "QmY3oA5VedKngCtfXB2aguEsg2uHNp8T2rBtvujES9Hvcz",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Spider-Man (PSX 2000 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Neversoft"
+  ],
+  "genres": [
+    "Action",
+    "Platformer"
+  ],
+  "hero": "https://lutris.net/games/banner/spider-man-playstation.jpg",
+  "lutris": "https://lutris.net/games/spider-man-playstation/",
+  "name": "Spider-Man",
+  "runtime": "retroarch",
+  "short": "Neversoft's web-slinger: swing and wall-crawl through a fog-shrouded Manhattan, fight Venom, Rhino and Doctor Octopus, and unlock alternate suits, narrated by Stan Lee.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2000
+}
