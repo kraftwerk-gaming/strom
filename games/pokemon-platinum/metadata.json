@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmTk1mAWQf2ABaPZH5e8C8hVsmxGdJTQtUJqSEjdwpsvc6"
+  ],
+  "description": "Pok\u00e9mon Platinum Version (2008 Game Freak, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-platinum.jpg",
+  "lutris": "https://lutris.net/games/pokemon-platinum/",
+  "name": "Pokemon Platinum Version",
+  "runtime": "retroarch",
+  "short": "The definitive Sinnoh game: a reworked story that pulls Giratina and its Distortion World to the centre, a wider regional Pokedex, faster battles and the Battle Frontier as the endgame.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2008
+}
