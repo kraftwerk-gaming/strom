@@ -1,0 +1,23 @@
+{
+  "_appid": "No Steam release: the 1999 Reflections/GT Interactive game was never re-released on Steam. Auto-matching picks up IObit's unrelated 'Driver Booster' utility (appid 920490), so Steam is skipped entirely.",
+  "appid": null,
+  "cids": [
+    "QmXJtuT3obuzCNPGhDdMbtnLAFNEZgTu2swxQEtn8Mw9qD",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Driver - You Are the Wheelman (PSX 1999 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Reflections Interactive"
+  ],
+  "genres": [
+    "Racing",
+    "Action"
+  ],
+  "lutris": "https://lutris.net/games/driver/",
+  "name": "Driver",
+  "runtime": "retroarch",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1999
+}
