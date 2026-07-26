@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmRheuPttVwksywqHqjMigShz9P6R7oswRgZLSZ5ahj2xU"
+  ],
+  "description": "Pok\u00e9mon HeartGold Version (2009 Game Freak, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-heartgold.jpg",
+  "lutris": "https://lutris.net/games/pokemon-heartgold/",
+  "name": "Pokemon HeartGold Version",
+  "runtime": "retroarch",
+  "short": "The Gen-4 remake of Pokemon Gold: all of Johto and Kanto rebuilt on DS, with your lead Pokemon walking behind you, the Pokeathlon, and the climb to Red at the summit of Mt. Silver.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2009
+}
