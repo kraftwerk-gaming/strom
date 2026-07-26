@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: Shadow Tower is a PS1-only FromSoftware title with no Steam release, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "Qmd91vzcFFrztYeqEDHvj2pteutsjNNd53AHWc9AtcC3Wv",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Shadow Tower (PSX 1999 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "FromSoftware"
+  ],
+  "genres": [
+    "RPG",
+    "Dungeon Crawler"
+  ],
+  "hero": "https://lutris.net/games/banner/shadow-tower-1999.jpg",
+  "lutris": "https://lutris.net/games/shadow-tower-1999/",
+  "name": "Shadow Tower",
+  "runtime": "retroarch",
+  "short": "FromSoftware's grim first-person dungeon crawler, a King's Field sibling: descend a collapsed tower where every weapon slowly wears out and defeated souls can be absorbed for power.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1998
+}
