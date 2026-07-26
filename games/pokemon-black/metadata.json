@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmaZwVwaooGdanm5hzDnkuUnS5FjPvZzQteeEHtQVRFXkn"
+  ],
+  "description": "Pokemon Black Version (Game Freak/Nintendo, 2010 Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-black.jpg",
+  "lutris": "https://lutris.net/games/pokemon-black/",
+  "name": "Pokemon Black Version",
+  "runtime": "retroarch",
+  "short": "The Gen-5 entry set in Unova, built around an all-new regional Pokedex of 156 species you meet before any returning favourites, with seasons that change the map and a story that argues about whether training Pokemon is right at all.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2010
+}
