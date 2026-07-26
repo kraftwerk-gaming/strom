@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmbA32fn51A8StLtJ8bmJBGMvCyFgEc85bNJtZBZNGDBGn"
+  ],
+  "description": "Pokemon Emerald Version (Game Freak/Nintendo, 2004 Game Boy Advance, via RetroArch / mGBA)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-emerald.jpg",
+  "lutris": "https://lutris.net/games/pokemon-emerald/",
+  "name": "Pokemon Emerald Version",
+  "runtime": "retroarch",
+  "short": "The definitive Hoenn game: Team Magma and Team Aqua both scheme at once, Rayquaza settles it, and the endgame opens the seven-facility Battle Frontier.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2004
+}
