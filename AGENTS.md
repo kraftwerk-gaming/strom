@@ -82,6 +82,14 @@
 - For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
 - For `winetricks`-style verb installs (vcrun, dotnet, dxvk, etc.): manually drop the DLLs into the prefix's `system32`/`syswow64` from buildScript or preRun. Don't shell out to winetricks.
 
+## NEVER launch GUI programs on the host display
+
+- The workstation runs the operator's live sway/Wayland session on `DISPLAY=:0` (and its Wayland socket). **NEVER launch a game, installer, Proton/Wine GUI, `gamescope`, or any window-opening binary onto the host session display.** A GUI installer (e.g. InstallShield `Setup.exe`) or a fullscreen game grabs keyboard/pointer/output on the operator's real desktop and **locks them out of the entire machine**. This has happened once (a HoI2 `Setup.exe` run under Proton on `:0`); it must never happen again.
+- Applies to **every** context: packaging workers, agent diagnostics, one-off shell commands, interactive test attempts. Do NOT set `DISPLAY=:0`, do NOT point `WAYLAND_DISPLAY` at the host compositor, and do NOT `steam-run` / `proton` / `wine` a GUI binary against the live seat.
+- Interactive/GUI verification MUST be headless: launch through the game's own **nested `gamescope`** with the screenshot sidecar (`STROM_AGENT_DEBUG=1`, see `lib/screenshot.nix` / `lib/screenshot-sidecar.sh`), which renders offscreen and captures PNG frames — never onto the operator's seat.
+- If a package can only be advanced by a real interactive GUI step (e.g. an InstallShield wizard prompting for a serial), that step is **out of scope for the agent**: stage it `broken`, document the blocker, and leave it for the operator. Never attempt it on `:0`.
+- Headless build steps (nix builds, archive extraction, autopatchelf) are fine — they open no window. The rule targets anything that opens a window or grabs input.
+
 ## Stage-branch workflow for untested games
 
 - The `rad` remote is the canonical destination for this repo. `github` is a mirror.
