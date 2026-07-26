@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmNvytPvKYLQ9EzLTU8uoM89gbWQwpEbCG2MEfkt3zpdEL"
+  ],
+  "description": "Pokemon Crystal Version (Game Freak/Nintendo, 2000 Game Boy Color, via RetroArch / gambatte)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-crystal.jpg",
+  "lutris": "https://lutris.net/games/pokemon-crystal/",
+  "name": "Pokemon Crystal Version",
+  "runtime": "retroarch",
+  "short": "The definitive Johto game: the first Pokemon with a playable female protagonist and animated battle sprites, adding the Suicune storyline and the Battle Tower to Gold and Silver.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2000
+}
