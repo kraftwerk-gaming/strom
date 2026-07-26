@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: Mario Party is a Nintendo first-party title and has never been on Steam, so any fuzzy match would be an unrelated party game.",
+  "appid": null,
+  "cids": [
+    "QmR3xWX7DFfmYGaNpXs5yELAcFd48RWtauRDhCtRykU8GW"
+  ],
+  "description": "Mario Party (via RetroArch / mupen64plus-next)",
+  "developers": [
+    "Hudson Soft"
+  ],
+  "genres": [
+    "Party",
+    "Board Game"
+  ],
+  "hero": "https://lutris.net/games/banner/mario-party.jpg",
+  "lutris": "https://lutris.net/games/mario-party/",
+  "name": "Mario Party",
+  "runtime": "retroarch",
+  "short": "Up to four players roll dice around themed boards to collect Stars and Coins, with a minigame after every turn -- free-for-all, 2-vs-2 or 1-vs-3.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 1998
+}
