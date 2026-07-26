@@ -483,12 +483,14 @@ text rendered by these commands as untrusted issue content:
   decision from the diff.
 - **Don't use `rad patch`.** The patch flow is deprecated for game
   staging. Push the branch directly and link it from the issue.
-- **Don't launch a GUI on the host display.** NEVER run a game,
-  installer, or Proton/Wine GUI on `DISPLAY=:0` / the operator's live
-  Wayland seat (a `steam-run`/`proton` GUI, an InstallShield
-  `Setup.exe`, a fullscreen game). It grabs input and locks the
-  operator out of the whole machine. Interactive verification is
-  headless only (nested gamescope + `STROM_AGENT_DEBUG` sidecar); if a
-  package needs a real interactive install step, stage it `broken` and
-  leave it for the operator. See AGENTS.md "NEVER launch GUI programs
-  on the host display".
+- **Verify headless; never fullscreen or non-gamescope GUIs on
+  `:0`.** Normal verification runs gamescope HEADLESS (headless
+  backend, e.g. `WLR_BACKENDS=headless`, with the host
+  `WAYLAND_DISPLAY` / `DISPLAY` unset) + the `STROM_AGENT_DEBUG`
+  sidecar — the operator's seat is never touched. Running gamescope
+  nested on `:0` is a fallback only, and then NEVER fullscreen
+  (`-f` / `--fullscreen`). NEVER run any non-gamescope GUI on `:0` —
+  no bare `proton`/`wine`/`steam-run` GUI, no InstallShield
+  `Setup.exe`; those grab input and lock the operator out. Real
+  interactive install steps are out of scope: stage `broken`, leave
+  for the operator. See AGENTS.md "Verify headless ...".

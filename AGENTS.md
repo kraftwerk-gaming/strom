@@ -82,13 +82,13 @@
 - For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
 - For `winetricks`-style verb installs (vcrun, dotnet, dxvk, etc.): manually drop the DLLs into the prefix's `system32`/`syswow64` from buildScript or preRun. Don't shell out to winetricks.
 
-## NEVER launch GUI programs on the host display
+## Verify headless; never fullscreen or non-gamescope GUIs on `DISPLAY=:0`
 
-- The workstation runs the operator's live sway/Wayland session on `DISPLAY=:0` (and its Wayland socket). **NEVER launch a game, installer, Proton/Wine GUI, `gamescope`, or any window-opening binary onto the host session display.** A GUI installer (e.g. InstallShield `Setup.exe`) or a fullscreen game grabs keyboard/pointer/output on the operator's real desktop and **locks them out of the entire machine**. This has happened once (a HoI2 `Setup.exe` run under Proton on `:0`); it must never happen again.
-- Applies to **every** context: packaging workers, agent diagnostics, one-off shell commands, interactive test attempts. Do NOT set `DISPLAY=:0`, do NOT point `WAYLAND_DISPLAY` at the host compositor, and do NOT `steam-run` / `proton` / `wine` a GUI binary against the live seat.
-- Interactive/GUI verification MUST be headless: launch through the game's own **nested `gamescope`** with the screenshot sidecar (`STROM_AGENT_DEBUG=1`, see `lib/screenshot.nix` / `lib/screenshot-sidecar.sh`), which renders offscreen and captures PNG frames — never onto the operator's seat.
-- If a package can only be advanced by a real interactive GUI step (e.g. an InstallShield wizard prompting for a serial), that step is **out of scope for the agent**: stage it `broken`, document the blocker, and leave it for the operator. Never attempt it on `:0`.
-- Headless build steps (nix builds, archive extraction, autopatchelf) are fine — they open no window. The rule targets anything that opens a window or grabs input.
+- **Normal package verification runs gamescope HEADLESS**, not on the operator's seat: launch the game with gamescope's headless backend (e.g. `WLR_BACKENDS=headless`, with the host `WAYLAND_DISPLAY` / `DISPLAY` unset) plus the screenshot sidecar (`STROM_AGENT_DEBUG=1`, see `lib/screenshot.nix` / `lib/screenshot-sidecar.sh`). gamescope renders offscreen and the sidecar captures PNG frames from the nested `gamescope-*` wayland socket — the operator's `DISPLAY=:0` session is never touched.
+- The agent MAY run gamescope nested on `DISPLAY=:0` when necessary, but it is not the default, and then: **NEVER fullscreen** — no `-f` / `--fullscreen` or any flag that grabs the whole output; fullscreen takes over the operator's display and input and locks them out of the machine. Keep it a windowed nested surface.
+- **NEVER run any non-gamescope GUI on `:0`.** No bare `proton` / `wine` / `steam-run` GUI binary, no raw installer (e.g. InstallShield `Setup.exe`), nothing that opens a window outside gamescope. Such a window grabs input on the operator's real desktop. This happened once (a HoI2 `Setup.exe` run under Proton + steam-run straight on `:0`); it must never happen again.
+- If a package can only be advanced by a real interactive GUI step (e.g. an InstallShield wizard prompting for a serial), that step is **out of scope for the agent**: stage it `broken`, document the blocker, and leave it for the operator.
+- Headless build steps (nix builds, archive extraction, autopatchelf) open no window and are always fine.
 
 ## Stage-branch workflow for untested games
 
