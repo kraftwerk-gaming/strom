@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmXGpzBBmC7hrqBMAbpToLND81ruQuc3pGb9ixxnGdmYag"
+  ],
+  "description": "Pokemon Stadium 2 (2001 Nintendo, N64, via RetroArch / mupen64plus-next)",
+  "developers": [
+    "Nintendo EAD"
+  ],
+  "genres": [
+    "Strategy",
+    "Party"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-stadium-2.jpg",
+  "lutris": "https://lutris.net/games/pokemon-stadium-2/",
+  "name": "Pokemon Stadium 2",
+  "runtime": "retroarch",
+  "short": "All 251 Pokemon in 3D battles across Johto and Kanto cups, both Gym Leader castles, twelve new minigames and tutorials on competitive mechanics.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 2001
+}
