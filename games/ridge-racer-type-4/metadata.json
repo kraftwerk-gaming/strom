@@ -1,0 +1,29 @@
+{
+  "_appid": "Skip Steam: R4 has never been released on Steam (PS1/PSN only). Fuzzy matching would land on an unrelated Ridge Racer entry or another arcade racer.",
+  "appid": null,
+  "cids": [
+    "QmViMV19CRpDL9aKYh9Lp23KR59iCdmyKvH6SvrecLTsKk",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Ridge Racer Type 4 (PSX 1998 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Namco"
+  ],
+  "genres": [
+    "Racing",
+    "Arcade"
+  ],
+  "hero": "https://lutris.net/games/banner/ridge-racer-type-4.jpg",
+  "lutris": "https://lutris.net/games/ridge-racer-type-4/",
+  "name": "R4: Ridge Racer Type 4",
+  "runtime": "retroarch",
+  "short": "Namco's drift racer at its most stylish: a Grand Prix season driving for one of four teams, 320-plus cars unlocked by how you finish, and a jazz-and-house soundtrack over neon night circuits.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 1998
+}
