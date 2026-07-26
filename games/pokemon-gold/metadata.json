@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmSpnR58zBEnQqWAPPSEAybbkJfFFRLXSjSkqiuDwhsA4z"
+  ],
+  "description": "Pokemon Gold Version (Game Freak/Nintendo, 1999 Game Boy Color, via RetroArch / gambatte)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-gold.jpg",
+  "lutris": "https://lutris.net/games/pokemon-gold/",
+  "name": "Pokemon Gold Version",
+  "runtime": "retroarch",
+  "short": "Gen 2 in Johto: a real-time day/night clock, breeding and held items, the Steel and Dark types, and a second half that reopens all of Kanto for sixteen badges in total.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1999
+}
