@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmZUGgWuzrNTe6sKaNnYUhH4jgKzho7ZWVwboHtcptF2AV"
+  ],
+  "description": "Pokemon Ruby Version (Game Freak/Nintendo, 2002 GBA, via RetroArch / mGBA)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-ruby.jpg",
+  "lutris": "https://lutris.net/games/pokemon-ruby/",
+  "name": "Pokemon Ruby Version",
+  "runtime": "retroarch",
+  "short": "Gen 3 opens up Hoenn: double battles, abilities and natures arrive, Team Magma tries to wake Groudon to expand the continent, and secret bases let you carve a hideout into the world.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2002
+}
