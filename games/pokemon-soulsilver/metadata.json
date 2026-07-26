@@ -1,0 +1,23 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmSo4sUeyrgvjxBFUrLknvkgzm1jRyBcUJK8WNEb8WfeLA"
+  ],
+  "description": "Pok\u00e9mon SoulSilver (2009 Game Freak, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Game Freak"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-soulsilver.jpg",
+  "lutris": "https://lutris.net/games/pokemon-soulsilver/",
+  "name": "Pokemon SoulSilver Version",
+  "runtime": "retroarch",
+  "short": "The DS remake of Pokemon Silver: Johto and Kanto rebuilt across sixteen badges, your lead Pokemon following you around, the Pokeathlon, and Lugia as the cover legendary.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2009
+}
