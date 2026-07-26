@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: Mario Party 3 is a Nintendo first-party title and has never been on Steam, so any fuzzy match would be an unrelated party game.",
+  "appid": null,
+  "cids": [
+    "Qma3HU44wdAAirrChzU2FPA5qJ5aVh1enQP1hmiw3Lre6t"
+  ],
+  "description": "Mario Party 3 (via RetroArch / mupen64plus-next)",
+  "developers": [
+    "Hudson Soft"
+  ],
+  "genres": [
+    "Party",
+    "Board Game"
+  ],
+  "hero": "https://lutris.net/games/banner/mario-party-3.jpg",
+  "lutris": "https://lutris.net/games/mario-party-3/",
+  "name": "Mario Party 3",
+  "runtime": "retroarch",
+  "short": "The last N64 Mario Party: four players chase Stars across six boards in Story Mode, plus a two-player Duel Mode fought with partner characters over life points, and more than 70 minigames.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 2000
+}
