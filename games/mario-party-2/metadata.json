@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: Mario Party 2 is a Nintendo first-party title and has never been on Steam, so any fuzzy match would be an unrelated party game.",
+  "appid": null,
+  "cids": [
+    "QmSjX76DT5xbAG7zAWV1vuvABKzJWVqNH1J5wfZsDEyUFa"
+  ],
+  "description": "Mario Party 2 (1999 Hudson Soft / Nintendo, N64, via RetroArch / mupen64plus-next)",
+  "developers": [
+    "Hudson Soft"
+  ],
+  "genres": [
+    "Party",
+    "Board Game"
+  ],
+  "hero": "https://lutris.net/games/banner/mario-party-2.jpg",
+  "lutris": "https://lutris.net/games/mario-party-2/",
+  "name": "Mario Party 2",
+  "runtime": "retroarch",
+  "short": "Four players compete across costumed boards -- Pirate Land, Western Land, Space Land and more -- rolling for Stars and Coins, with over 60 minigames between turns and a new item system to sabotage the leader.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 1999
+}
