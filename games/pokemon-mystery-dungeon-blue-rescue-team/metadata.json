@@ -1,0 +1,27 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmdSFv99fidedvW31n6fVyiz2RF1r3H3oLGjunfWcERC4x"
+  ],
+  "description": "Pok\u00e9mon Mystery Dungeon: Blue Rescue Team (2006 Chunsoft, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Chunsoft"
+  ],
+  "genres": [
+    "Roguelike",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-mystery-dungeon-blue-rescue-team.jpg",
+  "long": "The Nintendo DS half of the first Pokemon Mystery Dungeon pair, released alongside the Game Boy Advance Red Rescue Team. A personality quiz turns you into a Pokemon, and you and a partner set up a rescue team that answers distress calls from procedurally generated dungeons. Combat is turn-based and grid-based: the whole floor moves only when you do, so every step, item and Pokemon recruited is a deliberate choice. The DS version uses the bottom screen for a live dungeon map and touch shortcuts, and adds Wonder Mail password missions plus wireless friend rescues.",
+  "lutris": "https://lutris.net/games/pokemon-mystery-dungeon-blue-rescue-team/",
+  "name": "Pok\u00e9mon Mystery Dungeon: Blue Rescue Team",
+  "runtime": "retroarch",
+  "screenshots": [],
+  "short": "Turn-based roguelike in which a personality quiz turns you into a Pokemon: form a rescue team and delve procedurally generated dungeons one shared turn at a time.",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2006
+}
