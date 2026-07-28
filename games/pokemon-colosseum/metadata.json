@@ -1,0 +1,29 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmeQ8NRoudiJQaReZBj7Py1StCVVE9hokQKTkzsPrxjtTz"
+  ],
+  "description": "Pokemon Colosseum (via Dolphin)",
+  "developers": [
+    "Genius Sonority"
+  ],
+  "genres": [
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-colosseum.jpg",
+  "long": "Pokemon Colosseum drops the series into the desert region of Orre, where there are no wild Pokemon to catch: ex-Team Snagem member Wes steals a Snag Machine and snatches Shadow Pokemon - creatures whose hearts have been artificially closed - away from the criminals using them, then purifies them. Every battle in the story is a Double Battle, fought in full 3D on the GameCube. Alongside the story, Battle Mode is a standalone competitive suite: Battle Now hands one or two players a rental team for an immediate Single or Double Battle at one of four difficulties, and up to four players can enter a Colosseum battle on one console (four players fight 2-on-2). Teams can also be imported from the Game Boy Advance Ruby/Sapphire/FireRed/LeafGreen cartridges over a link cable, which is not reproducible under emulation here.",
+  "lutris": "https://lutris.net/games/pokemon-colosseum/",
+  "name": "Pokemon Colosseum",
+  "runtime": "dolphin",
+  "short": "Snag and purify Shadow Pokemon across the lawless region of Orre in an all-Double-Battle 3D RPG, with a rental-team battle mode for up to four players on one console.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 2003
+}
