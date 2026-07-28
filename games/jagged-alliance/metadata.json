@@ -1,0 +1,26 @@
+{
+  "_appid": "No Steam release matches this build: the 1995 Sir-Tech DOS CD release of Jagged Alliance is not sold standalone on Steam. The nearest listing, 'Jagged Alliance Gold' (appid 283270), is a different SKU that bundles Deadly Games and its expansions, and auto-matching otherwise lands on Jagged Alliance 3 (appid 1084160). Display fields are hand-written.",
+  "appid": null,
+  "cids": [
+    "QmUPQbDJSSp7cAeeMz7AUWaAXBNs7RuyPKxM774JPSpdAN"
+  ],
+  "description": "Jagged Alliance (1995 Sir-Tech / Madlab, DOS CD release via DOSBox-X)",
+  "developers": [
+    "Madlab Software",
+    "Sir-Tech Software"
+  ],
+  "genres": [
+    "Strategy",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/jagged-alliance.jpg",
+  "long": "Jagged Alliance is the 1995 turn-based tactics game that founded the series. Hired to retake the island of Metavira from the mercenary Lucas Santino, you recruit a squad from the A.I.M. roster - each merc with their own salary demands, skills, quirks and grudges - and liberate the island one sector at a time. Days are spent tapping the island's Fallow trees for the medicinal sap that funds the campaign, then fighting sector-by-sector engagements on an isometric grid with action points, line of sight, stances, and per-limb damage. Between battles you manage payroll, equipment, training of native workers, and the mercs' opinions of each other, since personality clashes can make a merc quit mid-contract.",
+  "lutris": "https://lutris.net/games/jagged-alliance/",
+  "name": "Jagged Alliance",
+  "runtime": "custom",
+  "short": "Turn-based tactics on the island of Metavira: hire A.I.M. mercenaries, tap the Fallow trees, and take Metavira back one sector at a time.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1995
+}
