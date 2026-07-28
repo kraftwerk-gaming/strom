@@ -3,10 +3,52 @@
   lib,
   pkgs,
   fetchIpfs,
+  fetchurl,
   unzip,
+  cabextract,
   pkgsi686Linux,
 }:
 
+let
+  # Microsoft DirectX End-User Runtime (February 2010 redistributable) --
+  # the same package winetricks's `directplay` verb pulls, and the same
+  # one games/gothic uses for DirectMusic. The native DirectPlay DLLs
+  # live in the nested `dxnt.cab` inside the self-extracting outer
+  # cabinet, so cabextract reaches them in two stages.
+  directxFeb2010 = fetchurl {
+    url = "https://web.archive.org/web/20100205120000id_/https://download.microsoft.com/download/E/E/1/EE17FF74-6C45-4575-9CF4-7FC2597ACD18/directx_feb2010_redist.exe";
+    hash = "sha256-9tGR6JqWPXzKNPFp0w9J6rmcHtO7ktpz7ENhfKqh6T8=";
+    name = "directx_feb2010_redist.exe";
+  };
+
+  # The DirectPlay 6 pieces age2_x1.5.exe actually uses: dplayx (it
+  # imports DPLAYX.dll by ordinal 1/2/4 = DirectPlayCreate /
+  # DirectPlayEnumerateA / DirectPlayLobbyCreateA), the TCP/IP service
+  # provider dpwsockx, and dplaysvr, the out-of-process session helper
+  # native dplayx spawns to own a hosted session.
+  #
+  # dpnet/dpnhpast/dpnhupnp/dpmodemx are DirectPlay *8* and unused by
+  # this title -- overriding them native additionally hangs wine before
+  # the process reaches main(), so they are deliberately left builtin.
+  directPlayDlls = [
+    "dplayx.dll"
+    "dpwsockx.dll"
+    "dplaysvr.exe"
+  ];
+
+  directPlayNative =
+    pkgs.runCommandLocal "directplay-native"
+      {
+        nativeBuildInputs = [ cabextract ];
+      }
+      ''
+        mkdir -p "$out"
+        cabextract -q -L -d . -F dxnt.cab ${directxFeb2010}
+        for f in ${lib.concatStringsSep " " directPlayDlls}; do
+          cabextract -q -L -d "$out" -F "$f" dxnt.cab
+        done
+      '';
+in
 self.lib.mkGame { inherit lib pkgs; } {
   name = "age-of-empires-ii-the-conquerors";
 
@@ -27,7 +69,11 @@ self.lib.mkGame { inherit lib pkgs; } {
     unzip -q $src -d "$out"
     # Remove third-party hooks that cause problems under Proton/Wine.
     # cnc-ddraw: fails to find a DirectDraw device under gamescope
-    # IPXWrapper: hooks networking, not needed for single-player
+    # IPXWrapper: hooks networking via loose dpwsockx/dplayerx/wsock32
+    # shims. These MUST go: wine resolves a DLL next to the exe before
+    # syswow64, so leaving them would shadow the native DirectPlay set
+    # preRun installs into the prefix (see the directPlayNative note
+    # above). Multiplayer runs over native DirectPlay + TCP/IP instead.
     rm -f "$out/AOE2-CON/age2_x1/ddraw.dll"
     rm -f "$out/AOE2-CON/age2_x1/ddraw.ini"
     rm -f "$out/AOE2-CON/age2_x1/wsock32.dll"
@@ -72,7 +118,13 @@ self.lib.mkGame { inherit lib pkgs; } {
 
   env = {
     PROTON_USE_WINED3D = "1";
-    WINEDLLOVERRIDES = "ddraw=b";
+    # dplayx/dpwsockx native: wine's builtin dplayx returns E_NOTIMPL from
+    # IDirectPlay4::Open(DPOPEN_CREATE), so hosting a TCP/IP game fails and
+    # session enumeration comes back empty -- i.e. multiplayer is dead on
+    # builtins even though the service-provider list populates fine. The
+    # native DX6 DLLs preRun drops into the prefix host and enumerate
+    # correctly. `n,b` so a missing DLL still falls back to builtin.
+    WINEDLLOVERRIDES = "ddraw=b;dplayx=n,b;dpwsockx=n,b";
     STAGING_WRITECOPY = "1";
     WINE_LARGE_ADDRESS_AWARE = "1";
   };
@@ -86,6 +138,33 @@ self.lib.mkGame { inherit lib pkgs; } {
     if ! grep -q 'DirectDrawRenderer' "$reg_file" 2>/dev/null; then
       printf '\n[Software\\\\Wine\\\\Direct3D]\n"DirectDrawRenderer"="gdi"\n' \
         >> "$reg_file" 2>/dev/null || true
+    fi
+
+    # Native DirectPlay 6 for multiplayer. This is winetricks's `directplay`
+    # verb done the way this repo requires (no winetricks/regsvr32 at
+    # runtime -- preRun runs outside proton's FHS chroot, so wine binaries
+    # can't resolve their 32-bit interpreter here anyway). No COM
+    # registration is needed: wine already registers CLSID_DirectPlay and
+    # CLSID_DirectPlayLobby against C:\windows\system32\dplayx.dll, which is
+    # exactly the path these natives take over, and the game reaches
+    # DirectPlay through DirectPlayCreate rather than CoCreateInstance.
+    # Sentinel-gated so a wiped prefix re-installs and a warm one doesn't.
+    DP_SENTINEL="$STROM_COMPATDATA/0/pfx/.strom-directplay-installed"
+    SYSWOW64="$STROM_COMPATDATA/0/pfx/drive_c/windows/syswow64"
+    if [ -d "$SYSWOW64" ] && [ ! -e "$DP_SENTINEL" ]; then
+      echo "[strom] age-of-empires-ii: installing native DirectPlay 6"
+      for f in ${lib.concatStringsSep " " directPlayDlls}; do
+        if [ -f "${directPlayNative}/$f" ]; then
+          # Move wine's builtin aside rather than deleting it, so the
+          # override can be undone by hand without rebuilding the prefix.
+          if [ -e "$SYSWOW64/$f" ] || [ -L "$SYSWOW64/$f" ]; then
+            mv -f "$SYSWOW64/$f" "$SYSWOW64/$f.builtin" 2>/dev/null || true
+          fi
+          cp "${directPlayNative}/$f" "$SYSWOW64/$f"
+          chmod 644 "$SYSWOW64/$f"
+        fi
+      done
+      touch "$DP_SENTINEL"
     fi
   '';
 
