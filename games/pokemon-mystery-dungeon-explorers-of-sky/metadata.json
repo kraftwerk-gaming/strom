@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmdWRMvrRHcmngeddKYPtC1EdqoMb7tR9PvwUoefoXx9uo"
+  ],
+  "description": "Pok\u00e9mon Mystery Dungeon: Explorers of Sky (2009 Chunsoft, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Chunsoft"
+  ],
+  "genres": [
+    "Roguelike",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-mystery-dungeon-explorers-of-sky.jpg",
+  "long": "The expanded, definitive cut of the Explorers duology. You wake up as a human turned Pokemon with no memory, team up with a partner and run Wigglytuff's Guild, then descend into procedurally generated mystery dungeons where every step you take is a turn the whole floor takes with you. Sky adds five playable Special Episodes told from other characters' viewpoints, new dungeons and items, a much larger pool of starters and partners, and keeps the long, unusually sombre story that made the original a cult favourite.",
+  "lutris": "https://lutris.net/games/pokemon-mystery-dungeon-explorers-of-sky/",
+  "name": "Pokemon Mystery Dungeon: Explorers of Sky",
+  "runtime": "retroarch",
+  "short": "Turn-based roguelike in which you wake up as a Pokemon: recruit a team, delve procedurally generated dungeons and follow the series' most-loved story, expanded here with five Special Episodes.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2009
+}
