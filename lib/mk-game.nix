@@ -624,12 +624,12 @@ let
 
         (lib.mkIf (cfg.runtime == "dolphin") {
           dolphin.isoPath = overlayExe;
-          # Unlike PCSX2's Qt-wayland subsurface path, Dolphin renders fine
-          # on gamescope's wayland display, which is what the two
-          # pre-helper Dolphin games (pikmin, super-smash-bros-melee) were
-          # tested on — so keep --expose-wayland. mkDefault so a game can
-          # drop it if a title turns out to need Xwayland instead.
-          gamescope.flags."--expose-wayland" = lib.mkDefault true;
+          # Dolphin runs on gamescope's nested Xwayland, NOT its wayland
+          # display: its keyboard/mouse ControllerInterface device is XInput2,
+          # which only exists under X11, so a wayland Dolphin has no keyboard
+          # at all (see lib/dolphin.nix). Rendering works either way -- the
+          # two pre-helper games were tested on wayland -- but input does not,
+          # so --expose-wayland is deliberately NOT set here.
           gamescope.command = lib.getExe cfg.dolphin.outputs.wrapper;
           entrypoint =
             if cfg.enableGamescope then
