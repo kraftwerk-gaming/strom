@@ -1,0 +1,26 @@
+{
+  "_appid": "Skip Steam: this is the 2001 PS2 NTSC-U disc (SLUS-20312). The only Steam listing is 'FINAL FANTASY X/X-2 HD Remaster' (appid 359870), a 2016 re-release with remade character models, a re-recorded soundtrack and the International-edition content - a different product whose art and description would misrepresent this dump.",
+  "appid": null,
+  "cids": [
+    "QmUUoujHXde2wgwU5pKETzry7spmHu5ocevSK8mYYrqJyb",
+    "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+  ],
+  "description": "Final Fantasy X (PS2 2001 USA, via PCSX2)",
+  "developers": [
+    "Square"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/final-fantasy-x.jpg",
+  "long": "Final Fantasy X is Square's 2001 PlayStation 2 role-playing game and the first in the series with voice acting and fully 3D environments. Tidus, a star blitzball player pulled a thousand years into the future, joins the summoner Yuna's pilgrimage across Spira to destroy the world-devouring Sin. Combat is the Conditional Turn-Based Battle system, which shows the turn order and lets any party member be swapped in mid-fight, and character growth runs on the Sphere Grid instead of experience levels.",
+  "lutris": "https://lutris.net/games/final-fantasy-x/",
+  "name": "Final Fantasy X",
+  "runtime": "pcsx2",
+  "screenshots": [],
+  "short": "Tidus is thrown a thousand years into Spira's future and joins the summoner Yuna's pilgrimage to destroy Sin, fighting through turn-order-visible CTB battles and growing his party on the Sphere Grid.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2001
+}
