@@ -1,0 +1,27 @@
+{
+  "_lutris": "slug corrected from the issue title: the package-request issue said 'sid-meiers-civilization', which does not exist on Lutris -- the 1991 MicroProse original is the 'civilization' slug (name \"Sid Meier's Civilization\", year 1991). AGENTS.md requires dir name = flake attr = Lutris slug, so the package was renamed before merge.",
+  "appid": null,
+  "cids": [
+    "QmNkCCuK2wLfNStXm869SHyZjvFauNVCcw3Wc2qvBm9AGz"
+  ],
+  "description": "Sid Meier's Civilization (MicroProse 1991 DOS, build 474.05, via DOSBox-X)",
+  "developers": [
+    "MicroProse"
+  ],
+  "genres": [
+    "Strategy",
+    "Simulation"
+  ],
+  "hero": "https://lutris.net/games/banner/civilization.jpg",
+  "long": "The 1991 MS-DOS original that founded the 4X genre. Starting with a single band of settlers in 4000 BC, you found cities, research technologies up a branching tech tree, manage terrain improvements and trade, and steer a civilization through diplomacy and war until either you conquer the world or you launch the first spaceship to Alpha Centauri. This is build 474.05, the last patch of the original DOS run, together with MicroProse's 1994 sound-driver update that adds OPL-3 FM and General MIDI support. Not Civilization II, not CivNet, not the Windows remake.",
+  "lutris": "https://lutris.net/games/civilization/",
+  "name": "Sid Meier's Civilization",
+  "runtime": "custom",
+  "screenshots": [],
+  "short": "Sid Meier's original 1991 turn-based empire builder: guide a civilization from 4000 BC to the space age.",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1991
+}
