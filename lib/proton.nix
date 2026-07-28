@@ -128,6 +128,17 @@ in
         p.pkgsi686Linux.openal
         p.pkgsi686Linux.alsa-lib
         p.pkgsi686Linux.libpulseaudio
+        # 32-bit libudev, the counterpart to `p.systemd` in the 64-bit list
+        # above. Proton's i386-unix/winepulse.so has libudev.so.1 in its
+        # NEEDED, so without this it can never dlopen -- it fails with
+        # `err:mmdevapi:load_driver Unable to load UNIX functions:
+        # c0000135` and waveOutGetNumDevs() returns 0 for EVERY 32-bit or
+        # Win16 Proton game, which presents as a silent game rather than as
+        # a missing library. fhs32 shipped 32-bit libpulse and libasound but
+        # not this, so the audio stack looked complete and was not.
+        # games/homeworld-2 had to add this by hand in its own targetPkgs to
+        # get any audio device at all; hoisting it here fixes the class.
+        p.pkgsi686Linux.systemd
       ];
       description = ''
         32+64-bit graphics/audio stack proton needs in the FHS at /usr.
