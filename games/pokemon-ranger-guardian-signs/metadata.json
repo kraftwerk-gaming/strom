@@ -1,0 +1,26 @@
+{
+  "cids": [
+    "Qmepet2CFBi6Swe6XfQfHSpvNHVyu7hWCc1LeewJueKxDS"
+  ],
+  "description": "Pok\u00e9mon Ranger: Guardian Signs (2010 Creatures Inc., Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Creatures Inc."
+  ],
+  "genres": [
+    "RPG",
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-ranger-guardian-signs.jpg",
+  "long": "Pokemon Ranger: Guardian Signs is the third and final Pokemon Ranger action-RPG for the Nintendo DS, set in the Oblivia archipelago. As a Pokemon Ranger you befriend wild Pokemon by drawing loops around them on the touch screen with the Capture Styler, then use their Poke Assist powers to clear obstacles and complete missions. Guardian Signs adds drawable Ranger Signs that summon legendary Pokemon, and a past-Oblivia story arc. Touch control is mapped to the right analog stick with R3 as the stylus press, so a gamepad works for menus and taps, but the timed capture loops are noticeably easier with a mouse.",
+  "lutris": "https://lutris.net/games/pokemon-ranger-guardian-signs/",
+  "name": "Pok\u00e9mon Ranger: Guardian Signs",
+  "runtime": "retroarch",
+  "screenshots": [],
+  "short": "Pok\u00e9mon Ranger: Guardian Signs (via RetroArch / melonDS)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2010
+}
