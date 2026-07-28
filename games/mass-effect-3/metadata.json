@@ -1,0 +1,26 @@
+{
+  "_comment": "Hand-written: the standalone 2012 Mass Effect 3 was an Origin/EA-App exclusive and has no Steam store page of its own (the only ME3 on Steam is the 2021 Legendary Edition, appid 1328670, which is a different release and is NOT what this package ships), so appid is pinned to null. tags reflect what is actually packaged: the repack's LAN multiplayer needs the ME3Server_WV emulator blocks that default.nix deliberately does not extract, so this is a single-player install.",
+  "appid": null,
+  "cids": [
+    "QmNMk3TjnazNq6ihymGto41H29vxX6PyTBgeis5ez49tfB",
+    "Qma3cEPFgMPzJ7yFRLeJNEPTPxLQFosFtEpWM18Vv1zgf5"
+  ],
+  "description": "Mass Effect 3 (BioWare 2012, Unreal Engine 3, via Proton)",
+  "developers": [
+    "BioWare"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/mass-effect-3.jpg",
+  "long": "The final chapter of Commander Shepard's trilogy. Earth has fallen to the Reapers and Shepard has to weld the galaxy's fractured species into one war fleet, calling in every alliance and grudge carried over from the previous two games. Third-person cover shooting with squad powers, a war-asset meta-layer fed by side missions, and dialogue choices imported from a Mass Effect 2 save.",
+  "lutris": "https://lutris.net/games/mass-effect-3/",
+  "name": "Mass Effect 3",
+  "runtime": "proton",
+  "short": "Mass Effect 3 (BioWare 2012, Unreal Engine 3, via Proton)",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2012
+}
