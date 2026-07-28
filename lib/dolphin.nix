@@ -60,14 +60,20 @@ in
       DOLPHIN_USER="$STROM_GAMEDIR/dolphin-user"
       mkdir -p "$DOLPHIN_USER/Config"
 
-      # Enumerate SDL gamepads once, in SDL index order (the Nth name is
-      # SDL index N-1, which is what Dolphin's "SDL/<index>/<name>" device
-      # string wants). SDL insists on a video driver even for a
+      # Enumerate SDL gamepads once as "<sdl-index>\t<name>" lines. The SDL
+      # index is read from sdl2-jstest's own "Joystick Number:" field rather
+      # than inferred from listing position: Dolphin's device string is
+      # "SDL/<index>/<name>", and a non-pad stick (wheel, HOTAS) occupying a
+      # low index would otherwise shift every mapping onto the wrong device.
+      # sed normalises the two interesting lines first so awk needs no
+      # embedded quoting. SDL insists on a video driver even for a
       # joystick-only query and there is no wayland/X yet at preHook time,
       # hence SDL_VIDEODRIVER=dummy.
-      pad_names=$(SDL_VIDEODRIVER=dummy ${config.pkgs.sdl-jstest}/bin/sdl2-jstest --list 2>/dev/null \
-        | sed -n "s/^Joystick Name: *'\(.*\)'/\1/p")
-      pad_count=$(printf '%s' "$pad_names" | ${config.pkgs.gnugrep}/bin/grep -c . || true)
+      pad_list=$(SDL_VIDEODRIVER=dummy ${config.pkgs.sdl-jstest}/bin/sdl2-jstest --list 2>/dev/null \
+        | sed -n -e "s/^Joystick Name: *'\(.*\)'/N \1/p" \
+                 -e "s/^Joystick Number: *\([0-9][0-9]*\).*/I \1/p" \
+        | awk '/^N /{ sub(/^N /, ""); name = $0 } /^I /{ if (name != "") print $2 "\t" name }')
+      pad_count=$(printf '%s' "$pad_list" | ${config.pkgs.gnugrep}/bin/grep -c . || true)
       if [ "$pad_count" -gt 4 ]; then
         pad_count=4
       fi
@@ -164,17 +170,18 @@ in
           printf 'Rumble/Motor = `Motor L` | `Motor R`\n'
         }
         {
-          pad_idx=0
-          printf '%s\n' "$pad_names" | while IFS= read -r pad_name; do
-            if [ -z "$pad_name" ] || [ "$pad_idx" -ge 4 ]; then
+          pad_port=1
+          printf '%s\n' "$pad_list" | while IFS="$(printf '\t')" read -r pad_index pad_name; do
+            if [ -z "$pad_name" ] || [ "$pad_port" -gt 4 ]; then
               continue
             fi
-            if [ "$pad_idx" -eq 0 ]; then
-              emit_pad "GCPad1" "SDL/0/$pad_name" "XInput2/0/Virtual core pointer"
+            # Ports fill in listing order; the device index is SDL's own.
+            if [ "$pad_port" -eq 1 ]; then
+              emit_pad "GCPad1" "SDL/$pad_index/$pad_name" "XInput2/0/Virtual core pointer"
             else
-              emit_pad "GCPad$((pad_idx + 1))" "SDL/$pad_idx/$pad_name" ""
+              emit_pad "GCPad$pad_port" "SDL/$pad_index/$pad_name" ""
             fi
-            pad_idx=$((pad_idx + 1))
+            pad_port=$((pad_port + 1))
           done
         } > "$DOLPHIN_USER/Config/GCPadNew.ini"
       fi
