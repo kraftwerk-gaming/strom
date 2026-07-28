@@ -58,32 +58,45 @@ let
     # put a real gamepad at index 1 when motion sensors or virtual devices
     # grab index 0. PCSX2 ORs the bindings, so whichever index the actual
     # controller ends up on works.
+    #
+    # Keyboard is ORed in alongside the pad (same `&` mechanism), NOT as an
+    # alternative to it: both are live at once, so a PS2 game is playable
+    # with no controller attached and a pad still works the moment one is
+    # plugged in. Without this the whole [Pad1] section was SDL-only and
+    # every PS2 title was unplayable on a keyboard-only machine.
+    #
+    # The key names are PCSX2's OWN generic keyboard defaults, lifted from
+    # InputManager.cpp's AddGenericBindings (Cross=K, Circle=L, Square=J,
+    # Triangle=I, Start=Return, Select=Backspace, left stick WASD, right
+    # stick TFGH, L1/R1=Q/E, L2/R2=1/3, L3/R3=2/4), so muscle memory and
+    # every PCSX2 guide on the internet match. Names are the Qt key
+    # spellings from pcsx2-qt/QtKeyCodes.cpp.
     [Pad1]
-    Up = SDL-0/DPadUp & SDL-1/DPadUp
-    Right = SDL-0/DPadRight & SDL-1/DPadRight
-    Down = SDL-0/DPadDown & SDL-1/DPadDown
-    Left = SDL-0/DPadLeft & SDL-1/DPadLeft
-    Triangle = SDL-0/FaceNorth & SDL-1/FaceNorth
-    Circle = SDL-0/FaceEast & SDL-1/FaceEast
-    Cross = SDL-0/FaceSouth & SDL-1/FaceSouth
-    Square = SDL-0/FaceWest & SDL-1/FaceWest
-    Select = SDL-0/Back & SDL-1/Back
-    Start = SDL-0/Start & SDL-1/Start
-    L1 = SDL-0/LeftShoulder & SDL-1/LeftShoulder
-    L2 = SDL-0/+LeftTrigger & SDL-1/+LeftTrigger
-    R1 = SDL-0/RightShoulder & SDL-1/RightShoulder
-    R2 = SDL-0/+RightTrigger & SDL-1/+RightTrigger
-    L3 = SDL-0/LeftStick & SDL-1/LeftStick
-    R3 = SDL-0/RightStick & SDL-1/RightStick
+    Up = SDL-0/DPadUp & SDL-1/DPadUp & Keyboard/Up
+    Right = SDL-0/DPadRight & SDL-1/DPadRight & Keyboard/Right
+    Down = SDL-0/DPadDown & SDL-1/DPadDown & Keyboard/Down
+    Left = SDL-0/DPadLeft & SDL-1/DPadLeft & Keyboard/Left
+    Triangle = SDL-0/FaceNorth & SDL-1/FaceNorth & Keyboard/I
+    Circle = SDL-0/FaceEast & SDL-1/FaceEast & Keyboard/L
+    Cross = SDL-0/FaceSouth & SDL-1/FaceSouth & Keyboard/K
+    Square = SDL-0/FaceWest & SDL-1/FaceWest & Keyboard/J
+    Select = SDL-0/Back & SDL-1/Back & Keyboard/Backspace
+    Start = SDL-0/Start & SDL-1/Start & Keyboard/Return
+    L1 = SDL-0/LeftShoulder & SDL-1/LeftShoulder & Keyboard/Q
+    L2 = SDL-0/+LeftTrigger & SDL-1/+LeftTrigger & Keyboard/1
+    R1 = SDL-0/RightShoulder & SDL-1/RightShoulder & Keyboard/E
+    R2 = SDL-0/+RightTrigger & SDL-1/+RightTrigger & Keyboard/3
+    L3 = SDL-0/LeftStick & SDL-1/LeftStick & Keyboard/2
+    R3 = SDL-0/RightStick & SDL-1/RightStick & Keyboard/4
     Analog = SDL-0/Guide & SDL-1/Guide
-    LUp = SDL-0/-LeftY & SDL-1/-LeftY
-    LRight = SDL-0/+LeftX & SDL-1/+LeftX
-    LDown = SDL-0/+LeftY & SDL-1/+LeftY
-    LLeft = SDL-0/-LeftX & SDL-1/-LeftX
-    RUp = SDL-0/-RightY & SDL-1/-RightY
-    RRight = SDL-0/+RightX & SDL-1/+RightX
-    RDown = SDL-0/+RightY & SDL-1/+RightY
-    RLeft = SDL-0/-RightX & SDL-1/-RightX
+    LUp = SDL-0/-LeftY & SDL-1/-LeftY & Keyboard/W
+    LRight = SDL-0/+LeftX & SDL-1/+LeftX & Keyboard/D
+    LDown = SDL-0/+LeftY & SDL-1/+LeftY & Keyboard/S
+    LLeft = SDL-0/-LeftX & SDL-1/-LeftX & Keyboard/A
+    RUp = SDL-0/-RightY & SDL-1/-RightY & Keyboard/T
+    RRight = SDL-0/+RightX & SDL-1/+RightX & Keyboard/H
+    RDown = SDL-0/+RightY & SDL-1/+RightY & Keyboard/G
+    RLeft = SDL-0/-RightX & SDL-1/-RightX & Keyboard/F
     LargeMotor = SDL-0/LargeMotor & SDL-1/LargeMotor
     SmallMotor = SDL-0/SmallMotor & SDL-1/SmallMotor
 
