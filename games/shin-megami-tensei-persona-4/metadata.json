@@ -1,0 +1,29 @@
+{
+  "_appid": "Off-Steam: the PS2 disc (SLUS-21782) was never sold on Steam. Steam's only Persona 4 listing is Persona 4 Golden (appid 1113000), a different product packaged separately as persona-4-golden; pinned to null so fuzzy matching cannot attach it here.",
+  "_lutris": "slug corrected from the issue title: the package-request issue said 'persona-4', but that slug does not exist on Lutris at all -- the PS2 release is shin-megami-tensei-persona-4. AGENTS.md requires dir name = flake attr = Lutris slug, so the package was renamed before merge.",
+  "appid": null,
+  "cids": [
+    "QmbQwSoKHQ8QxLpXoDoqWtVjYuZCuCAH5anBM5oB7KRCn5",
+    "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+  ],
+  "description": "Shin Megami Tensei: Persona 4 (PS2 NTSC-U, via PCSX2)",
+  "developers": [
+    "Atlus"
+  ],
+  "genres": [
+    "RPG",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/shin-megami-tensei-persona-4.jpg",
+  "long": "Shin Megami Tensei: Persona 4 is Atlus' 2008 PlayStation 2 role-playing game set in the rural town of Inaba, where a group of high-school students investigate a string of murders linked to a world inside the television. Days are split between a social-simulation half of school, part-time jobs and Social Links that strengthen the party's Personas, and a dungeon-crawling half of turn-based battles that exploit enemy weaknesses through the One More and All-Out Attack system. This is the original PS2 release, not the later Persona 4 Golden port, and it runs via the PCSX2 emulator.",
+  "lutris": "https://lutris.net/games/shin-megami-tensei-persona-4/",
+  "name": "Shin Megami Tensei: Persona 4",
+  "runtime": "pcsx2",
+  "screenshots": [],
+  "short": "Shin Megami Tensei: Persona 4 (PS2 NTSC-U, via PCSX2)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2008
+}
