@@ -1,0 +1,26 @@
+{
+  "_appid": "Skip Steam: the 1997 PS1 original has no Steam release. Fuzzy matching lands on appid 1004640, \"FINAL FANTASY TACTICS - The Ivalice Chronicles\" (2025 remaster) - a different product from the SCUS-94221 disc packaged here.",
+  "appid": null,
+  "cids": [
+    "QmRvMro7gieEdnthrsVKeorUoUDhJrk97bmYGC6JMq2xY1",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Final Fantasy Tactics (PSX 1997 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Square"
+  ],
+  "genres": [
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/final-fantasy-tactics.jpg",
+  "long": "Final Fantasy Tactics is Yasumi Matsuno's tactical role-playing game set in Ivalice, where the War of the Lions has left the kingdom fractured between rival regents and the Church of Glabados. Ramza Beoulve, a cadet of a noble house, follows the fate of his childhood friend Delita through a story of class, betrayal, and buried heresy. Battles play out on isometric grids where height, facing, and turn order decided by Charge Time all matter, and the Job system lets each unit learn abilities as a Knight, Black Mage, Time Mage, Calculator or Dark Knight and then carry them across classes. This is the original 1997 Square PlayStation release (USA disc SCUS-94221), run via RetroArch with the SwanStation core - not the PSP War of the Lions port nor the 2025 Ivalice Chronicles remaster.",
+  "lutris": "https://lutris.net/games/final-fantasy-tactics/",
+  "name": "Final Fantasy Tactics",
+  "runtime": "retroarch",
+  "short": "Square's Ivalice tactics RPG: command Ramza's company on isometric grids where height and turn order rule, and grow each unit through a deep Job and ability system.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1997
+}
