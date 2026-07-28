@@ -60,67 +60,123 @@ in
       DOLPHIN_USER="$STROM_GAMEDIR/dolphin-user"
       mkdir -p "$DOLPHIN_USER/Config"
 
+      # Enumerate SDL gamepads once, in SDL index order (the Nth name is
+      # SDL index N-1, which is what Dolphin's "SDL/<index>/<name>" device
+      # string wants). SDL insists on a video driver even for a
+      # joystick-only query and there is no wayland/X yet at preHook time,
+      # hence SDL_VIDEODRIVER=dummy.
+      pad_names=$(SDL_VIDEODRIVER=dummy ${config.pkgs.sdl-jstest}/bin/sdl2-jstest --list 2>/dev/null \
+        | sed -n "s/^Joystick Name: *'\(.*\)'/\1/p")
+      pad_count=$(printf '%s' "$pad_names" | ${config.pkgs.gnugrep}/bin/grep -c . || true)
+      if [ "$pad_count" -gt 4 ]; then
+        pad_count=4
+      fi
+
       # Skip the analytics opt-in dialog on first run. Dolphin auto-creates
-      # the rest of Dolphin.ini on startup; SIDevice0=6 (Standard
-      # Controller) is the default but pinned for safety.
+      # the rest of Dolphin.ini on startup.
       if ! [ -f "$DOLPHIN_USER/Config/Dolphin.ini" ]; then
         # Note: Dolphin's INI parser does NOT strip leading whitespace
         # (`if (line[0] == '[')` in IniFile::Load), so section headers
         # must start at column 0 — printf avoids the heredoc indent trap.
-        printf '%s\n' \
-          '[Analytics]' \
-          'PermissionAsked = True' \
-          'Enabled = False' \
-          '[Core]' \
-          'SIDevice0 = 6' \
-          > "$DOLPHIN_USER/Config/Dolphin.ini"
-        cat ${config.pkgs.writeText "dolphin-extra.ini" config.extraIni} \
-          >> "$DOLPHIN_USER/Config/Dolphin.ini"
+        {
+          printf '%s\n' '[Analytics]' 'PermissionAsked = True' 'Enabled = False' '[Core]'
+          # One Standard Controller (SIDevice = 6) per detected pad, so
+          # local-multiplayer titles actually see ports 2-4 instead of
+          # being single-player-only on a couch with four pads. Port 1 is
+          # always pinned even with no pad, matching Dolphin's default.
+          si_ports=$pad_count
+          if [ "$si_ports" -lt 1 ]; then
+            si_ports=1
+          fi
+          i=0
+          while [ "$i" -lt "$si_ports" ]; do
+            printf 'SIDevice%s = 6\n' "$i"
+            i=$((i + 1))
+          done
+          cat ${config.pkgs.writeText "dolphin-extra.ini" config.extraIni}
+        } > "$DOLPHIN_USER/Config/Dolphin.ini"
       fi
     ''
     + lib.optionalString config.seedGamepad ''
 
-      # Detect a plugged SDL gamepad and pre-seed GCPadNew.ini with both
-      # the gamepad bindings (mirrors the bundled "SDL Gamepad" profile)
-      # AND keyboard fallback (Dolphin's own Linux defaults). Without
-      # this Dolphin only auto-binds keyboard; the user would have to
-      # open Options → Controllers to assign a gamepad each fresh
-      # install.
-      if ! [ -f "$DOLPHIN_USER/Config/GCPadNew.ini" ]; then
-        gamepad_name=$(${config.pkgs.sdl-jstest}/bin/sdl2-jstest --list 2>/dev/null \
-          | sed -n "s/^Joystick Name: *'\(.*\)'/\1/p" | head -1)
-        if [ -n "$gamepad_name" ]; then
-          kbd="XInput2/0/Virtual core pointer"
-          printf '%s\n' \
-            "[GCPad1]" \
-            "Device = SDL/0/$gamepad_name" \
-            "Buttons/A = \`Button A\` | \`$kbd:X\`" \
-            "Buttons/B = \`Button B\` | \`$kbd:Z\`" \
-            "Buttons/X = \`Button X\` | \`$kbd:C\`" \
-            "Buttons/Y = \`Button Y\` | \`$kbd:S\`" \
-            "Buttons/Z = \`Shoulder R\` | \`$kbd:D\`" \
-            "Buttons/Start = \`Start\` | \`$kbd:Return\`" \
-            "Main Stick/Up = \`Left Y+\` | \`$kbd:Up\`" \
-            "Main Stick/Down = \`Left Y-\` | \`$kbd:Down\`" \
-            "Main Stick/Left = \`Left X-\` | \`$kbd:Left\`" \
-            "Main Stick/Right = \`Left X+\` | \`$kbd:Right\`" \
-            "Main Stick/Calibration = 100.00" \
-            "C-Stick/Up = \`Right Y+\` | \`$kbd:I\`" \
-            "C-Stick/Down = \`Right Y-\` | \`$kbd:K\`" \
-            "C-Stick/Left = \`Right X-\` | \`$kbd:J\`" \
-            "C-Stick/Right = \`Right X+\` | \`$kbd:L\`" \
-            "C-Stick/Calibration = 100.00" \
-            "Triggers/L = \`Trigger L\` | \`$kbd:Q\`" \
-            "Triggers/R = \`Trigger R\` | \`$kbd:W\`" \
-            "Triggers/L-Analog = \`Trigger L\`" \
-            "Triggers/R-Analog = \`Trigger R\`" \
-            "D-Pad/Up = \`Pad N\` | \`$kbd:T\`" \
-            "D-Pad/Down = \`Pad S\` | \`$kbd:G\`" \
-            "D-Pad/Left = \`Pad W\` | \`$kbd:F\`" \
-            "D-Pad/Right = \`Pad E\` | \`$kbd:H\`" \
-            "Rumble/Motor = \`Motor L\` | \`Motor R\`" \
-            > "$DOLPHIN_USER/Config/GCPadNew.ini"
+      # Pre-seed GCPadNew.ini for every detected pad, mirroring Dolphin's
+      # bundled "SDL Gamepad" profile. Port 1 additionally carries the
+      # keyboard fallback (Dolphin's own Linux defaults) so a padless
+      # install is still playable; ports 2-4 are pad-only, since sharing
+      # one keyboard across four players is meaningless. Without this
+      # Dolphin auto-binds keyboard to port 1 only and every extra player
+      # has to be assigned by hand in Options → Controllers.
+      # Seed when there is nothing to preserve. "Write-if-absent" alone is
+      # not enough: if the very first launch happens with no pad attached,
+      # Dolphin writes its own keyboard-only GCPadNew.ini on exit, and a
+      # file-exists gate would then skip pad seeding forever on that
+      # install even after a pad is plugged in. So also seed when the file
+      # binds no SDL device at all. A user who has mapped a pad (or remapped
+      # one) has `Device = SDL/` lines and is never touched.
+      needs_pad_seed=0
+      if [ "$pad_count" -gt 0 ]; then
+        if ! [ -f "$DOLPHIN_USER/Config/GCPadNew.ini" ]; then
+          needs_pad_seed=1
+        elif ! ${config.pkgs.gnugrep}/bin/grep -q 'Device = SDL/' "$DOLPHIN_USER/Config/GCPadNew.ini"; then
+          needs_pad_seed=1
         fi
+      fi
+      if [ "$needs_pad_seed" -eq 1 ]; then
+        # shellcheck disable=SC2016 # Dolphin's INI syntax wraps every control
+        # reference in literal backticks, so these printf formats must stay
+        # single-quoted; nothing in them is meant to expand.
+        emit_pad() {
+          pad_section=$1
+          pad_device=$2
+          pad_kbd=$3
+          # Second binding on a control, only when a keyboard fallback applies.
+          alt() {
+            if [ -n "$pad_kbd" ]; then
+              printf ' | `%s:%s`' "$pad_kbd" "$1"
+            fi
+          }
+          printf '[%s]\n' "$pad_section"
+          printf 'Device = %s\n' "$pad_device"
+          printf 'Buttons/A = `Button A`%s\n' "$(alt X)"
+          printf 'Buttons/B = `Button B`%s\n' "$(alt Z)"
+          printf 'Buttons/X = `Button X`%s\n' "$(alt C)"
+          printf 'Buttons/Y = `Button Y`%s\n' "$(alt S)"
+          printf 'Buttons/Z = `Shoulder R`%s\n' "$(alt D)"
+          printf 'Buttons/Start = `Start`%s\n' "$(alt Return)"
+          printf 'Main Stick/Up = `Left Y+`%s\n' "$(alt Up)"
+          printf 'Main Stick/Down = `Left Y-`%s\n' "$(alt Down)"
+          printf 'Main Stick/Left = `Left X-`%s\n' "$(alt Left)"
+          printf 'Main Stick/Right = `Left X+`%s\n' "$(alt Right)"
+          printf 'Main Stick/Calibration = 100.00\n'
+          printf 'C-Stick/Up = `Right Y+`%s\n' "$(alt I)"
+          printf 'C-Stick/Down = `Right Y-`%s\n' "$(alt K)"
+          printf 'C-Stick/Left = `Right X-`%s\n' "$(alt J)"
+          printf 'C-Stick/Right = `Right X+`%s\n' "$(alt L)"
+          printf 'C-Stick/Calibration = 100.00\n'
+          printf 'Triggers/L = `Trigger L`%s\n' "$(alt Q)"
+          printf 'Triggers/R = `Trigger R`%s\n' "$(alt W)"
+          printf 'Triggers/L-Analog = `Trigger L`\n'
+          printf 'Triggers/R-Analog = `Trigger R`\n'
+          printf 'D-Pad/Up = `Pad N`%s\n' "$(alt T)"
+          printf 'D-Pad/Down = `Pad S`%s\n' "$(alt G)"
+          printf 'D-Pad/Left = `Pad W`%s\n' "$(alt F)"
+          printf 'D-Pad/Right = `Pad E`%s\n' "$(alt H)"
+          printf 'Rumble/Motor = `Motor L` | `Motor R`\n'
+        }
+        {
+          pad_idx=0
+          printf '%s\n' "$pad_names" | while IFS= read -r pad_name; do
+            if [ -z "$pad_name" ] || [ "$pad_idx" -ge 4 ]; then
+              continue
+            fi
+            if [ "$pad_idx" -eq 0 ]; then
+              emit_pad "GCPad1" "SDL/0/$pad_name" "XInput2/0/Virtual core pointer"
+            else
+              emit_pad "GCPad$((pad_idx + 1))" "SDL/$pad_idx/$pad_name" ""
+            fi
+            pad_idx=$((pad_idx + 1))
+          done
+        } > "$DOLPHIN_USER/Config/GCPadNew.ini"
       fi
     '';
 
