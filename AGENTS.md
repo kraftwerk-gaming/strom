@@ -49,30 +49,55 @@
 
 - PS2 games use `lib/pcsx2.nix`, which provides the shared BIOS, a default
   PCSX2.ini (controller mappings, speedhacks, recompiler settings), and the
-  launch wrapper.
-- Import the helper and call `mkPcsx2Game`:
+  launch wrapper. It is a wrapperModule, reached through `mkGame` as
+  `runtime = "pcsx2"` -- there is no `mkPcsx2Game` function.
+- Direct ISO (`games/burnout-3-takedown/default.nix`):
 
-      mkPcsx2Game = self.lib.mkPcsx2Game { inherit lib pkgs; };
+      self.lib.mkGame { inherit lib pkgs; } {
+        name = "my-game";                 # lutris slug
+        src = fetchIpfs { ... };
+        runtime = "pcsx2";
+        executable = "my-game.iso";       # path inside the overlay
+        meta = { ... };
+      }
 
-      mkPcsx2Game {
-        name = "my-game";            # lutris slug
-        src = fetchIpfs { ... };     # game source (fetchIpfs derivation)
-        description = "My Game (via PCSX2)";
-        # gamePath = "...";          # optional: override ISO path when src
-        #                            # is not a direct ISO (e.g. zip)
-        # extraIni = "...";          # optional: extra INI sections appended
-      };
+- Archive source (`games/shadow-of-the-colossus/default.nix`): unpack in
+  `buildScript` and point `executable` at the ISO the archive contained.
 
-- `src` is the fetchIpfs derivation for the game. It is used for IPFS
-  pinning (ipfsSources) and, by default, as the ISO path passed to PCSX2.
-- If the source is a zip/archive, extract it with `runCommandLocal` and
-  pass the extracted ISO path via `gamePath`.
-- The PS2 BIOS and fetchIpfs are constructed internally by lib/pcsx2.nix.
-  Do NOT duplicate the BIOS fetch or PCSX2 config in individual game files.
-  Use `extraIni` for game-specific overrides only.
-- See `games/burnout-3-takedown/default.nix` (direct ISO) and
-  `games/shadow-of-the-colossus/default.nix` (zip -> extract -> ISO) for
-  examples of both patterns.
+      nativeBuildInputs = [ pkgs.unzip ];
+      buildScript = ''
+        mkdir -p $out
+        unzip "$src" -d $out
+      '';
+      executable = "Shadow of the Colossus (USA).iso";
+
+- The PS2 BIOS and fetchIpfs are constructed internally by lib/pcsx2.nix,
+  and the BIOS is added to `ipfsSources` automatically. Do NOT duplicate the
+  BIOS fetch or PCSX2 config in individual game files. Use `pcsx2.extraIni`
+  for game-specific INI overrides only.
+
+## Packaging GameCube / Wii games (Dolphin)
+
+- GC/Wii games use `lib/dolphin.nix` via `runtime = "dolphin"`. Same shape as
+  pcsx2: the disc image is `executable` (a path inside the overlay), and the
+  helper owns everything else. See `games/pikmin/default.nix` (`.ciso`) and
+  `games/super-smash-bros-melee/default.nix` (`.iso`).
+- Dolphin accepts `.iso`, `.gcm`, `.ciso`, `.rvz`, `.wbfs`. Package whatever
+  container the verified dump ships as; don't recompress.
+- The helper puts Dolphin's user dir at `$STROM_GAMEDIR/dolphin-user`, so
+  memory cards, save states and Wii NAND live with the game rather than in
+  the user's global `~/.local/share`. Nothing needs `saveLocations` (that
+  option is proton-only).
+- Config seeding is **write-if-absent**, not overwrite-per-launch: Dolphin
+  owns these files at runtime and rewrites them on exit, and remapping a pad
+  through its GUI is how a couch setup gets adjusted. On first run the helper
+  writes an analytics opt-out `Dolphin.ini` and, when an SDL gamepad is
+  present, a `GCPadNew.ini` mirroring Dolphin's bundled "SDL Gamepad" profile
+  plus keyboard fallback.
+- Options: `dolphin.extraIni` (extra Dolphin.ini fragments, first-run only --
+  section headers MUST start at column 0, Dolphin's IniFile::Load does not
+  strip leading whitespace) and `dolphin.seedGamepad` (set false for a game
+  shipping its own mapping).
 
 ## Windows compatibility runtime: Proton, never bare Wine
 
