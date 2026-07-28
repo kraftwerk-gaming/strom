@@ -10,6 +10,7 @@
 #   custom    : exe -> gamescope -> bwrap          [FHS + overlay]
 #   retroarch : rom -> retroarch -> bwrap
 #   pcsx2     : iso -> pcsx2 -> bwrap
+#   dolphin   : iso -> dolphin -> bwrap
 #
 # Single outer bwrap call handles FHS at /usr (strom-fhs.nix). The
 # read-write overlay over the nix-store game data is mounted with patched
@@ -85,6 +86,7 @@ let
             "custom"
             "retroarch"
             "pcsx2"
+            "dolphin"
           ];
           default = "custom";
         };
@@ -501,6 +503,10 @@ let
           type = wrapperType ./pcsx2.nix { };
         };
 
+        dolphin = mkOption {
+          type = wrapperType ./dolphin.nix { };
+        };
+
         padToKb = mkOption {
           type = wrapperType ./pad-to-kb.nix { };
         };
@@ -614,6 +620,22 @@ let
               lib.getExe cfg.gamescope.outputs.wrapper
             else
               lib.getExe cfg.pcsx2.outputs.wrapper;
+        })
+
+        (lib.mkIf (cfg.runtime == "dolphin") {
+          dolphin.isoPath = overlayExe;
+          # Unlike PCSX2's Qt-wayland subsurface path, Dolphin renders fine
+          # on gamescope's wayland display, which is what the two
+          # pre-helper Dolphin games (pikmin, super-smash-bros-melee) were
+          # tested on — so keep --expose-wayland. mkDefault so a game can
+          # drop it if a title turns out to need Xwayland instead.
+          gamescope.flags."--expose-wayland" = lib.mkDefault true;
+          gamescope.command = lib.getExe cfg.dolphin.outputs.wrapper;
+          entrypoint =
+            if cfg.enableGamescope then
+              lib.getExe cfg.gamescope.outputs.wrapper
+            else
+              lib.getExe cfg.dolphin.outputs.wrapper;
         })
 
         (lib.mkIf cfg.n2n.enable {

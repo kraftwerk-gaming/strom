@@ -46,6 +46,7 @@ RUNTIME_COLORS = {
     "native": (95, 200, 120),
     "dosbox": (232, 165, 70),
     "retroarch": (232, 95, 130),
+    "dolphin": (70, 200, 210),
     "wine": (120, 150, 232),
 }
 
