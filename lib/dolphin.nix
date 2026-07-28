@@ -177,16 +177,17 @@ in
                 pad_kbd=$3      # XInput2 device string, or empty for pad-only
                 # Compose one control: pad ref, keyboard ref, or both ORed.
                 #
-                # When a port carries the keyboard (port 1), the section's Device
-                # is the KEYBOARD and the pad reference is written fully qualified
-                # ("SDL/0/Name:Button A"). That way the pad going away cannot take
-                # keyboard input with it -- the failure that left pikmin-2 dead
-                # after its verification pad disappeared. Pad-only ports (2-4)
-                # keep the pad as Device with short refs; if that pad vanishes the
-                # port is simply idle, and there is no keyboard binding to lose.
+                # When a pad is present it IS player 1: the section's Device is
+                # the pad, so Dolphin's own controller UI shows the gamepad on
+                # port 1, and the keyboard rides along as a fully-qualified
+                # second binding ("XInput2/0/Virtual core pointer:X"). With no
+                # pad the keyboard becomes the Device instead, so a padless
+                # machine is still playable. A pad that later disappears is
+                # handled by the reseed rule above rather than by demoting the
+                # pad here.
                 bind() {
                   if [ -n "$pad_device" ] && [ -n "$pad_kbd" ]; then
-                    printf '`%s:%s` | `%s:%s`' "$pad_device" "$1" "$pad_kbd" "$2"
+                    printf '`%s` | `%s:%s`' "$1" "$pad_kbd" "$2"
                   elif [ -n "$pad_device" ]; then
                     printf '`%s`' "$1"
                   else
@@ -194,10 +195,10 @@ in
                   fi
                 }
                 printf '[%s]\n' "$pad_section"
-                if [ -n "$pad_kbd" ]; then
-                  printf 'Device = %s\n' "$pad_kbd"
-                else
+                if [ -n "$pad_device" ]; then
                   printf 'Device = %s\n' "$pad_device"
+                else
+                  printf 'Device = %s\n' "$pad_kbd"
                 fi
                 printf 'Buttons/A = %s\n' "$(bind 'Button A' X)"
                 printf 'Buttons/B = %s\n' "$(bind 'Button B' Z)"
