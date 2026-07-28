@@ -38,6 +38,14 @@ let
   coreOptionsCfg = config.pkgs.writeText "retroarch-core-options.cfg" (
     lib.concatStringsSep "\n" (lib.mapAttrsToList (k: v: ''${k} = "${v}"'') config.coreOptions)
   );
+
+  # Same file with coreOptionsWithPad merged over the top, used only when a
+  # gamepad is actually present at launch.
+  coreOptionsPadCfg = config.pkgs.writeText "retroarch-core-options-pad.cfg" (
+    lib.concatStringsSep "\n" (
+      lib.mapAttrsToList (k: v: ''${k} = "${v}"'') (config.coreOptions // config.coreOptionsWithPad)
+    )
+  );
 in
 {
   _class = "wrapper";
@@ -65,6 +73,23 @@ in
       type = lib.types.attrsOf lib.types.str;
       default = { };
       description = "Core options written to retroarch-core-options.cfg (e.g. swanstation_GPU_ResolutionScale).";
+    };
+
+    coreOptionsWithPad = lib.mkOption {
+      type = lib.types.attrsOf lib.types.str;
+      default = { };
+      description = ''
+        Core options merged over `coreOptions` ONLY when an SDL gamepad is
+        present at launch. For options whose correct value depends on the
+        input device actually attached rather than on the game.
+
+        The motivating case is melonDS's `melonds_touch_mode`: "Mouse" lets a
+        desktop user drive the DS touch screen with the pointer, while
+        "Joystick" gives a stick-driven virtual stylus for a pad-only couch
+        setup. They are mutually exclusive -- picking one at build time breaks
+        the other input device -- so a stylus-driven title sets Mouse in
+        `coreOptions` and Joystick here.
+      '';
     };
 
     romPath = lib.mkOption {
@@ -108,7 +133,24 @@ in
         echo "log_dir = \"$STROM_GAMEDIR/\""
         cat ${staticCfg}
       } > "$STROM_GAMEDIR/config/retroarch/retroarch.cfg"
-      cat ${coreOptionsCfg} > "$STROM_GAMEDIR/config/retroarch/retroarch-core-options.cfg"
+      ${
+        if config.coreOptionsWithPad == { } then
+          ''cat ${coreOptionsCfg} > "$STROM_GAMEDIR/config/retroarch/retroarch-core-options.cfg"''
+        else
+          ''
+            # This game's core options depend on the attached input device, so
+            # pick the file by what is actually plugged in. SDL insists on a
+            # video driver even for a joystick-only query and there is no
+            # wayland/X yet at preHook time, hence SDL_VIDEODRIVER=dummy.
+            pad_count=$(SDL_VIDEODRIVER=dummy ${config.pkgs.sdl-jstest}/bin/sdl2-jstest --list 2>/dev/null \
+              | ${config.pkgs.gnugrep}/bin/grep -c '^Joystick Name:' || true)
+            if [ "$pad_count" -gt 0 ]; then
+              cat ${coreOptionsPadCfg} > "$STROM_GAMEDIR/config/retroarch/retroarch-core-options.cfg"
+            else
+              cat ${coreOptionsCfg} > "$STROM_GAMEDIR/config/retroarch/retroarch-core-options.cfg"
+            fi
+          ''
+      }
     '';
 
     args = [
