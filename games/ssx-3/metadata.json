@@ -1,0 +1,31 @@
+{
+  "_appid": "never released on Steam; EA Sports BIG PS2 title, no PC port",
+  "appid": null,
+  "cids": [
+    "QmUqcjszxZ9JNY5BcwqPZ6BZa6J4HqYroJcUSX2pHV7J32",
+    "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+  ],
+  "description": "SSX 3 (via PCSX2)",
+  "developers": [
+    "EA Canada"
+  ],
+  "genres": [
+    "Sports",
+    "Racing"
+  ],
+  "hero": "https://lutris.net/games/banner/ssx-3.jpg",
+  "long": "SSX 3 is an arcade snowboarding game set on a single seamless mountain split into three peaks, which can be ridden top to bottom in one continuous run. Riders chain grinds, flips and Uber tricks to fill a boost meter, competing in race, slopestyle, big-air and backcountry events while unlocking gear and new characters. Local play is 2-player split screen.",
+  "lutris": "https://lutris.net/games/ssx-3/",
+  "name": "SSX 3",
+  "runtime": "pcsx2",
+  "screenshots": [],
+  "short": "SSX 3 (via PCSX2)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP"
+  ],
+  "year": 2003
+}
