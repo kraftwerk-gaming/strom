@@ -1,0 +1,27 @@
+{
+  "_comment": "Off-Steam PS2 disc release. appid is pinned to null so the auto fuzzy-match cannot attach the FFX/X-2 HD Remaster (Steam 359870), which is a different product with different assets.",
+  "appid": null,
+  "cids": [
+    "Qmba1no1hhMsWPWkdu8SFbaspCYwqZSaLaFd2vzbd2CkW5",
+    "QmRJTnELYzS3JsxzPcNiPXpQgzpG65W9JMjniwm5SQx1be"
+  ],
+  "description": "Final Fantasy X-2 (PS2 NTSC-U, via PCSX2)",
+  "developers": [
+    "Square Enix"
+  ],
+  "genres": [
+    "RPG",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/final-fantasy-x-2.jpg",
+  "long": "Final Fantasy X-2 is the direct sequel to Final Fantasy X, following Yuna, Rikku and Paine as the Gullwings sphere-hunting crew two years after the defeat of Sin. It replaces its predecessor's Sphere Grid with the Dressphere and Garment Grid system, letting the three party members switch jobs mid-battle in a fully real-time Active Time Battle system. Spira is now freely revisitable via airship, and the story branches through optional missions toward multiple endings.",
+  "lutris": "https://lutris.net/games/final-fantasy-x-2/",
+  "name": "Final Fantasy X-2",
+  "runtime": "pcsx2",
+  "screenshots": [],
+  "short": "Final Fantasy X-2 (PS2 NTSC-U, via PCSX2)",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2003
+}
