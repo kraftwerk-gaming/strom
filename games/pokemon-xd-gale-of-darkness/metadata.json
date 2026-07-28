@@ -1,0 +1,32 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmW6HrYrJ9FgVNpnQW3t8dy7RJ5AQsMq2gQZXvf6P8Ss1A"
+  ],
+  "description": "Pokemon XD: Gale of Darkness (via Dolphin)",
+  "developers": [
+    "Genius Sonority"
+  ],
+  "genres": [
+    "RPG",
+    "Adventure",
+    "Strategy"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-xd-gale-of-darkness.jpg",
+  "long": "Pokemon XD: Gale of Darkness is Genius Sonority's GameCube sequel to Pokemon Colosseum, set five years later in the desert region of Orre. As Michael you wear the Snag Machine to steal Cipher's artificially corrupted Shadow Pokemon out of enemy trainers' hands, then purify them at the Relic Stone or in the new Purify Chamber. Battles are the Generation III system rendered in full 3D and are mostly Double Battles; unlike Colosseum there are wild Pokemon to catch at Poke Spots, plus Battle Bingo, Battle Sims and the post-game Orre Colosseum. VS Mode's Quick Battle can be played by two people on one console with preset teams.",
+  "lutris": "https://lutris.net/games/pokemon-xd-gale-of-darkness/",
+  "name": "Pokemon XD: Gale of Darkness",
+  "runtime": "dolphin",
+  "screenshots": [],
+  "short": "Snag and purify Cipher's Shadow Pokemon across Orre in this 3D GameCube RPG, then take a friend on in a two-player Quick Battle.",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 2005
+}
