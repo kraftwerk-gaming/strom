@@ -1,0 +1,24 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmdmsKuPhqLzLUibcnyQFC91RwVUdDjZpqjtGbeayKDmy2"
+  ],
+  "description": "Pokemon Mystery Dungeon: Red Rescue Team (Chunsoft/Nintendo, 2005 Game Boy Advance, via RetroArch / mGBA)",
+  "developers": [
+    "Chunsoft"
+  ],
+  "genres": [
+    "RPG",
+    "Roguelike"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-mystery-dungeon-red-rescue-team.jpg",
+  "lutris": "https://lutris.net/games/pokemon-mystery-dungeon-red-rescue-team/",
+  "name": "Pokemon Mystery Dungeon: Red Rescue Team",
+  "runtime": "retroarch",
+  "short": "You wake up as a Pokemon and run a rescue team through randomly generated dungeons, recruiting the Pokemon you defeat and trading rescue passwords when a run wipes.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2005
+}
