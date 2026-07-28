@@ -1,0 +1,24 @@
+{
+  "_appid": "No Steam release: Civilization II (1996) and its Multiplayer Gold / Test of Time re-releases were never sold on Steam - the rights sit with 2K, whose Steam catalogue starts at Civilization III. Auto-matching would land on Civilization III (appid 3910), so Steam is skipped entirely.",
+  "appid": null,
+  "cids": [
+    "QmZLYBr81qMLpSmtAyTKJnFJizTofbFzQVxvHokmbUNbQj"
+  ],
+  "description": "Sid Meier's Civilization II (MicroProse 1996, English Win3.1/95 retail CD, via Proton)",
+  "developers": [
+    "MicroProse"
+  ],
+  "genres": [
+    "Strategy"
+  ],
+  "hero": null,
+  "long": "The 1996 sequel to Sid Meier's Civilization: build a civilization from 4000 BC to the space race on an isometric world map, researching advances, founding cities, negotiating with rival leaders and fighting the wars those negotiations fail to prevent. This is the original Windows 3.1/95 release - a 16-bit WinG title - not the 1998 Multiplayer Gold Edition or the 1999 Test of Time.",
+  "lutris": "https://lutris.net/games/sid-meiers-civilization-ii/",
+  "name": "Sid Meier's Civilization II",
+  "runtime": "proton",
+  "short": "Turn-based empire building from 4000 BC to the space race.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 1996
+}
