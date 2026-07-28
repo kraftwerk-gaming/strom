@@ -1,0 +1,30 @@
+{
+  "developers": [
+    "BioWare"
+  ],
+  "genres": [
+    "Action",
+    "RPG"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/header.jpg?t=1777395273",
+  "long": "Special Edition\n\nAbout the Game\n\nAs Commander Shepard, you lead an elite squad on a heroic, action-packed adventure throughout the galaxy.\n\nDiscover the imminent danger from an ancient threat and battle the traitorous Saren and his deadly army to save civilization.  The fate of all life depends on your actions!\n\t\t\t\t\t2007 New York Times Game of the Year\n\nA Stunning universe with high resolution graphics and textures\n\nControls and interface optimized for PC gamers\n\nCustomize your character and embark on a pulse-pounding adventure in an immersive open-ended storyline\n\nIncredible real-time character interaction\n\nThrilling, tactical combat as you lead an elite squad of three\n\nInterplanetary exploration of an epic proportion",
+  "lutris": "https://lutris.net/games/mass-effect/",
+  "name": "Mass Effect (2007)",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006620.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006621.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006622.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006623.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006624.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006625.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006626.1920x1080.jpg?t=1777395273",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/17460/0000006627.1920x1080.jpg?t=1777395273"
+  ],
+  "short": "As Commander Shepard, you lead an elite squad on a heroic, action-packed adventure throughout the galaxy.",
+  "steam_appid": 17460,
+  "tags": [
+    "Single-player",
+    "Family Sharing"
+  ],
+  "year": 2008
+}
