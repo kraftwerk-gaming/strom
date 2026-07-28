@@ -1,17 +1,18 @@
---- a/b/main.c	2026-04-01 19:25:30.670947142 +0200
-+++ b/main.c	2026-04-01 19:25:30.676816215 +0200
-@@ -957,6 +957,10 @@
+--- a/main.c
++++ b/main.c
+@@ -1002,6 +1002,11 @@
+ 
    st->st_uid = find_mapping (st->st_uid, data, true, true);
    st->st_gid = find_mapping (st->st_gid, data, true, false);
- 
-+      /* Grant owner write permission when squash is active, enabling copy-up */
-+      if (data->squash_to_uid != -1 || data->squash_to_root)
-+        st->st_mode |= S_IWUSR | (S_ISDIR (st->st_mode) ? S_IXUSR : 0);
 +
-   st->st_ino = node->tmp_ino;
-   st->st_dev = node->tmp_dev;
++  /* Grant owner write permission when squash is active, enabling copy-up */
++  if (data->squash_to_uid != -1 || data->squash_to_root)
++    st->st_mode |= S_IWUSR | (S_ISDIR (st->st_mode) ? S_IXUSR : 0);
++
+   st->st_ino = get_st_ino (node, data);
  
-@@ -3124,7 +3128,7 @@
+   if (node->loaded && node->n_links > 0)
+@@ -3173,7 +3178,7 @@
    if (override_mode (src->layer, sfd, NULL, NULL, &st) < 0 && errno != ENODATA && errno != EOPNOTSUPP)
      return -1;
  
