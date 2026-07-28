@@ -1,0 +1,30 @@
+{
+  "_appid": "Skip Steam: Pikmin 2 is a Nintendo first-party title and has never been on Steam; any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmZ59GJmiHCoNhYFPjwKSPARSoyEeXDDnLYK8NC2fStkTo"
+  ],
+  "description": "Pikmin 2 (via Dolphin)",
+  "developers": [
+    "Nintendo EAD"
+  ],
+  "genres": [
+    "Real-Time Strategy",
+    "Puzzle"
+  ],
+  "hero": "https://lutris.net/games/banner/pikmin-2.jpg",
+  "long": "Captain Olimar returns to the Pikmin planet, this time to dig the Hocotate Freight company out of debt by hauling back every piece of treasure he can find. The day timer is gone, so exploration is open-ended, but the new underground caves are a gauntlet: no sunlight to regrow sprouts, no ship support, and a wipe costs you the whole squad. Two new Pikmin types change the puzzle math -- purples are heavy bruisers that stun on impact, whites are poison-immune and sniff out buried treasure -- and Olimar can now split duties with a second captain, Louie, so both halves of the map progress at once. Beyond the story there is a 2-player Challenge Mode co-op and a competitive 2-Player Battle, both split-screen with Olimar on top and Louie below.",
+  "lutris": "https://lutris.net/games/pikmin-2/",
+  "name": "Pikmin 2",
+  "runtime": "dolphin",
+  "short": "Olimar returns to pay off Hocotate Freight's debt, hauling treasure out of open-ended surface maps and one-shot underground caves with two captains and five Pikmin types.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Shared/Split Screen",
+    "Shared/Split Screen Co-op",
+    "Shared/Split Screen PvP",
+    "PvP"
+  ],
+  "year": 2004
+}
