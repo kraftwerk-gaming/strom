@@ -1,0 +1,39 @@
+{
+  "developers": [
+    "Gearbox Software",
+    "Aspyr (Mac)"
+  ],
+  "genres": [
+    "Simulation",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/header.jpg?t=1781819205",
+  "long": "The Homeworld Remastered Collection includes:\nHomeworld Remastered Edition\n\nHomeworld 2 Remastered Edition\n\nHomeworld Remastered Steam Multiplayer\n\nAs a bonus, you will also receive free access to:\nHomeworld Classic\n\nHomeworld 2 Classic\n\nExperience the epic space strategy games that redefined the RTS genre. Control your fleet and build an armada across more than 30 single-player missions. Choose unit types, fleet formations and flight tactics for each strategic situation. Utilize advanced research to construct ships ranging from light fighters to huge carriers and everything in between.\n\nThe Homeworld games have been painstakingly re-mastered with key members of the original development team and taking critical influence and assistance from the passionate fan community. The Homeworld Remastered Collection introduces Relic's acclaimed space strategy games Homeworld and Homeworld 2 to modern players and operating systems using the newest sophisticated graphics rendering technology, plus a fully remastered score and new, high fidelity voice recordings by the original actors.\n\nAs a free bonus, this collection also includes original, non-remastered versions of Homeworld Classic and Homeworld 2 Classic, preserving the purest form of the original releases with compatibility for modern operating systems.\n\nHomeworld Remastered Collection also provides access to the Homeworld Remastered Steam Multiplayer. The competitive multiplayer modes for both Homeworld and Homeworld 2 have been combined into one centralized mode that will allow you access to content (races, maps and game modes) and improvements, features and technology from both games, allowing you to play unlimited competitive multiplayer space battles on an epic scale.Key Features:\nBuild and battle with more than 100 space ships\n\nUpdated high-res textures and models\n\nNew graphical effects\n\nSupport for HD, UHD, and 4K resolutions\n\nNew audio mix using original source effects and music\n\nCinematic scenes recreated in beautiful high fidelity by original artists\n\nMod support and mod tools\n\nBonus archival versions of Homeworld Classic and Homeworld 2 classic, preserving the purest form of the original releases with compatibility for modern operating systems\n\n\u2022\tAccess to Homeworld Remastered Steam Multiplayer: play Homeworld races against Homeworld 2 races with up to eight players on 23 maps, plus brand new game modes",
+  "lutris": "https://lutris.net/games/homeworld-remastered-collection/",
+  "name": "Homeworld Remastered Collection",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_2d5780ac7d52fa62cd1f7dbbaf54062e39205072.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_30fd7cd949e975074d75496ee45c3694e58568d8.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_00c4865153238dfa69fa88e135d23577e152bc79.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_ea9b77342982d63fddc53de39b7ec904c09dc1b8.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_3565a97ff6f8aaa6d79e3096247365a2c0bfd87e.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_7fe0826d4834adb0b86a4abec1ac0172a507c283.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_680418354fc588753b0a6602ee06d23975443e4d.1920x1080.jpg?t=1781819205",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244160/ss_f6f30b33726e479b1da637e25540c27ab4f6d694.1920x1080.jpg?t=1781819205"
+  ],
+  "short": "Experience the epic space strategy games that redefined the RTS genre. Control your fleet and build an armada across more than 30 single-player missions. Choose unit types, fleet formations and flight tactics for each strategic situation.",
+  "steam_appid": 244160,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "Steam Achievements",
+    "Steam Workshop",
+    "Adjustable Text Size",
+    "Camera Comfort",
+    "Custom Volume Controls",
+    "Save Anytime",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2015
+}

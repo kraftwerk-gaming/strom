@@ -1,0 +1,16 @@
+{
+  "_lutris": "OPERATOR-APPROVED SLUG EXCEPTION. AGENTS.md requires dir = flake attr = Lutris slug with no exceptions; the operator granted one here explicitly. Lutris's slug for the 2015 product is 'homeworld-remastered-collection' (id 4118) and it has no slug for either remaster alone, but this package is NOT the collection: the repo splits that one installer into three packages sharing its three CIDs -- homeworld (Homeworld1Classic), homeworld-2 (Homeworld2Classic) and this one (HomeworldRM). Calling it 'collection' described the source installer rather than the payload. Because the couch launcher derived banner art from the slug, the rename would have 404'd (homeworld-remastered.jpg is 404, homeworld-remastered-collection.jpg is 200), so `hero` and `lutris` are set explicitly above and the launcher was taught to prefer `hero` (matching the web GUI) in the same series of commits.",
+  "_name": "Display name is 'Homeworld Remastered', NOT 'Homeworld Remastered Collection', because the package does not ship the collection: this repo splits that product into three packages sharing one installer and one set of CIDs -- homeworld (Homeworld1Classic), homeworld-2 (Homeworld2Classic), and this one (HomeworldRM). The directory/flake/attr name must stay the Lutris slug per AGENTS.md, and Lutris has only 'homeworld-remastered-collection' for the 2015 product (id 4118) with no slug for either remaster alone -- the slug is also what the couch launcher fetches banner art by. So the slug stays canonical and the DISPLAY name says what actually launches. HomeworldRM.exe holds both remastered campaigns but the in-game menu does not switch between them: the campaign is selected by argv, this package defaults to HW1, and HW2 Remastered is reachable via the .apply override documented in default.nix.",
+  "cids": [
+    "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",
+    "QmcAz3HugvgxsXrqUjSpoz2pKDQKiMi9bee8fbKDcz9nV4",
+    "QmWNTi4bwTDXjQRmsu2ua4z6nvPvYBK5kEBPWWyC8RxPYy"
+  ],
+  "description": "Homeworld Remastered Collection (Gearbox/Relic, 2015 remasters of Homeworld and Homeworld 2, GOG v2.1 build 3877, via Proton)",
+  "hero": "https://lutris.net/games/banner/homeworld-remastered-collection.jpg",
+  "lutris": "https://lutris.net/games/homeworld-remastered-collection/",
+  "name": "Homeworld Remastered",
+  "runtime": "proton",
+  "short": "Gearbox's 2015 remaster of Homeworld, on the unified HomeworldRM engine. Launches the Homeworld 1 campaign; Homeworld 2 Remastered is a documented override.",
+  "year": 2015
+}
