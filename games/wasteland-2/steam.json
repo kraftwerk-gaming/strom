@@ -1,0 +1,34 @@
+{
+  "developers": [
+    "inXile Entertainment"
+  ],
+  "genres": [
+    "Adventure",
+    "Indie",
+    "RPG",
+    "Strategy"
+  ],
+  "hero": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/header.jpg?t=1686191412",
+  "long": "Digital Deluxe Edition\nWasteland 2: Director's Cut\n\nWasteland 2\n\nA free copy of Wasteland 1 - The Original Classic.\n\nA free copy of The Bard's Tale.\n\nThree digital novellas set in the Wasteland world.\n\nMark Morgan's Wasteland 2 original soundtrack in digital format.\n\nAn incredible digital concept art book showcasing many of the world's characters and environments.\n\nThe extras can be found in your Steam installation location for Wasteland 2. (e.g. C:\\\\Program Files\\\\Steam\\\\SteamApps\\\\common\\\\Wasteland 2)\n\nAbout the Game\nFrom the Producer of the original Fallout comes Wasteland 2, the sequel to the first-ever post-apocalyptic computer RPG.\n\nThe Wasteland's hellish landscape is waiting for you to make your mark... or die trying. With over 80 hours of gameplay, you will deck out your Desert Ranger squad with the most devastating weaponry this side of the fallout zone, test the limits of your strategy skills, and bring justice to the wasteland.\n\nKey Features:\nOne Size Does Not Fit All: Don't feel like finding the key for a door? Pick the lock, bash it down with your boot, or just blow it open!\n\nDecision Making... with Consequences: With both short and long term reactivity, your choices ripple outwards, changing the game's events and forever altering the lives of those in the wasteland.\n\nHuge & Customizable: Hundreds of characters. Thousands of variations on your Rangers' appearance. Over 150 weapons. No two players will have the same experience.\n\nSteam Features:  Wasteland 2 supports Cloud Saving so you can sync your saves across multiple computers!\n\nDirector's Cut New Features:\nComplete Graphics Overhaul: Rebuilt in Unity 5, Wasteland 2's environments and characters have been updated to take advantage of the latest graphics technologies.\n\nPerks &: Quirks: Customize your squad even more! Perks & Quirks are special personality traits you can use to give your characters even more life, with their own unique bonuses... and drawbacks.\n\nPrecision Strikes: Fire on your enemies and debilitate them with tactical attacks! Cripple a leg to slow an enemy down, fire on their gun to blast it to bits, or aim for the head to knock them senseless \u2013 or blow it clean off.\n\nExpanded Voice Over: Over 8,000 lines of new voice-over dialog have been added for the game's characters and companions, bringing the Wasteland to life like never before.",
+  "lutris": "https://lutris.net/games/wasteland-2/",
+  "name": "Wasteland 2: Director's Cut",
+  "screenshots": [
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/ss_a413f85bb1d5e1b4e7eccc1b39b24e2de09a3a54.1920x1080.jpg?t=1686191412",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/ss_2e0afaede35d4b80acebdc7d0ede1c755c1f9813.1920x1080.jpg?t=1686191412",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/ss_fcbf5d77e8e01ab14dc0878d9654047b6f759f51.1920x1080.jpg?t=1686191412",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/ss_4caafb3b914fff92cc45c8f1edc9132e36c938a6.1920x1080.jpg?t=1686191412",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/ss_17d6dee0cfaac8c0acefff6e1db06a05bff65bfa.1920x1080.jpg?t=1686191412",
+    "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/240760/ss_159e6d067bd29c22936bc2ae5ca42229cee048ac.1920x1080.jpg?t=1686191412"
+  ],
+  "short": "From the producer of the original Fallout comes Wasteland 2. With over 80 hours of gameplay, deck out your Ranger squad with devastating weaponry, test the limits of your strategy skills, and bring justice to the Wasteland! The choices are yours\u2026but so are the consequences.",
+  "steam_appid": 240760,
+  "tags": [
+    "Single-player",
+    "Steam Achievements",
+    "Captions available",
+    "Partial Controller Support",
+    "Steam Cloud",
+    "Family Sharing"
+  ],
+  "year": 2014
+}

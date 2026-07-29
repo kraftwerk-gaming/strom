@@ -290,13 +290,17 @@ stop. An empty stage branch with no commit is not worth pushing.
 
 ### Source-discovery hints for common cases
 
-- **Native-Linux GOG titles**: the de-facto mirror is the
-  `phoenix-games-lab` collection on archive.org
-  (`https://archive.org/details/phoenix-games-lab`). If the title is
-  there, fetch the `.sh` mojo installer directly. Recipe: tar/unzip
-  the installer, copy `data/noarch/game/`, apply `autoPatchelfHook`,
-  `runtime = "native"` (or `"custom"` if SDL2/etc. need FHS dlopen).
-  See `games/dead-cells/default.nix` for the canonical pattern.
+- **Native-Linux GOG titles**: the de-facto mirror is
+  `phoenix-games-lab` on archive.org. Note it is **not** a collection:
+  `collection:phoenix-games-lab` and `identifier:phoenix-games-lab`
+  both return zero hits. It is a suffix inside item identifiers, e.g.
+  `hotline-miami-linux-gog-phoenix-games-lab`. Search it as
+  `identifier:*phoenix-games-lab*` or as the free-text phrase
+  `phoenix games lab`. If the title is there, fetch the `.sh` mojo
+  installer directly. Recipe: tar/unzip the installer, copy
+  `data/noarch/game/`, apply `autoPatchelfHook`, `runtime = "native"`
+  (or `"custom"` if SDL2/etc. need FHS dlopen). See
+  `games/dead-cells/default.nix` for the canonical pattern.
 - **Native-Linux titles missing from phoenix-games-lab**: these
   generally need operator intervention - drop the installer on the
   pin host so it gets a CID and becomes reachable as a fallbackUrl.
@@ -306,7 +310,19 @@ stop. An empty stage branch with no commit is not worth pushing.
   "blocked: source unreachable from headless session, operator drop
   needed" is the right outcome.
 - **Windows GOG titles**: same archive.org mirror first, then
-  steamrip / freegogpcgames if reachable.
+  steamrip / freegogpcgames if reachable. Also try
+  `identifier:setup_*` (GOG offline installers are often uploaded
+  under their installer basename, e.g. `setup_sid_meiers_pirates_2.0.0.4`),
+  `identifier:*_win_gog_*` / `identifier:*_lin_gog_*` (a coherent
+  early-2024 GOG dump family), and `subject:gog AND mediatype:software`
+  as the broadest sweep.
+- **Windows titles available only as a GameImage FlatImage**: a family
+  of ~70 archive.org items titled `<Game> - LINUX` are actually
+  Windows games in FlatImage containers with a bundled wine. They are
+  a verifiable, headlessly-reachable source, but `runtime` is
+  `proton`, NOT `native`, and the bundled wine is discarded. Format
+  and extraction recipe: `docs/flatimage-sources.md`. Worked example:
+  `games/wasteland-2/default.nix`.
 - **BYO-asset titles** (MMO launchers like PokeMMO, OSRS, EVE; games
   whose distributable launcher needs user-supplied data files): the
   Phase 1 package wraps the launcher but does NOT bundle the data
