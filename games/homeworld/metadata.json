@@ -1,5 +1,6 @@
 {
   "_comment": "Slug 'homeworld' but description identifies Homeworld 2.",
+  "_name": "Named '(Classic)' because all three Homeworld packages are built from the same GOG Remastered Collection installer and share its three CIDs. Gearbox's own tree names these builds Homeworld1Classic and Homeworld2Classic. Before this fix every display field here was copy-pasted from homeworld-2: name 'Homeworld 2', year 2003, and a short/long describing the sequel -- so the launcher showed two entries both called 'Homeworld 2' and dated the 1999 game to 2003.",
   "cids": [
     "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",
     "QmcAz3HugvgxsXrqUjSpoz2pKDQKiMi9bee8fbKDcz9nV4",
@@ -14,12 +15,12 @@
     "RTS"
   ],
   "hero": "https://lutris.net/games/banner/homeworld.jpg",
-  "long": "Homeworld 2 is a fully three-dimensional real-time strategy game set in space, continuing the story of the Hiigarans and their Mothership. Players build and command fleets of capital ships, fighters and corvettes while managing resources and research across a single-player campaign. It is renowned for its cinematic presentation, tactical formations and full freedom of movement in 3D combat.",
+  "long": "Homeworld (Relic, 1999) is the original fully three-dimensional real-time strategy game. You command the Kushan exodus fleet after the destruction of Kharak, and crucially the fleet you finish a mission with is the fleet you start the next one with, so losses are permanent and salvaging enemy ships is a strategy rather than a flourish. This is the original 1999 binary as preserved inside the Homeworld Remastered Collection (Gearbox calls it Homeworld1Classic), not the 2015 remaster -- see homeworld-remastered-collection for that.",
   "lutris": "https://lutris.net/games/homeworld/",
-  "name": "Homeworld 2",
+  "name": "Homeworld (Classic)",
   "runtime": "proton",
   "screenshots": [],
-  "short": "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)",
+  "short": "Relic's 1999 3D space RTS: lead the Kushan exodus from Kharak, with one fleet that persists across every mission.",
   "steam_appid": null,
   "tags": [
     "Single-player",
@@ -27,5 +28,5 @@
     "Online PvP",
     "LAN PvP"
   ],
-  "year": 2003
+  "year": 1999
 }

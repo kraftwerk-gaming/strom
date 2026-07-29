@@ -1,5 +1,6 @@
 {
   "_comment": "Hand-written metadata: the 2003 Homeworld 2 is not sold on Steam (Steam only carries the 2015 Homeworld Remastered Collection, appid 244160, which is a different product), so appid is pinned to null and there is no steam.json.",
+  "_name": "'(Classic)' distinguishes the 2003 binary (Homeworld2Classic in Gearbox's tree) from the 2015 remaster shipped by homeworld-remastered-collection. All three come from the same installer.",
   "appid": null,
   "cids": [
     "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",
@@ -16,7 +17,7 @@
   "hero": "https://lutris.net/games/banner/homeworld-2.jpg",
   "long": "Relic's 2003 sequel to Homeworld, and still one of the few real-time strategy games fought in a genuinely three-dimensional battlespace. A hundred years after the Kushan reclaimed Hiigara, the Vaygr sweep in from the periphery and the Mothership Pride of Hiigara is launched to find the third and last Hyperspace Core. You build, research and manoeuvre an entire fleet that carries its damage, veterancy and losses from mission to mission across a sixteen-map campaign, backed by Paul Ruskay's score and the series' painterly nebula skyboxes. This is the original 2003 engine (Homeworld2Classic), not the 2015 remaster.",
   "lutris": "https://lutris.net/games/homeworld-2/",
-  "name": "Homeworld 2",
+  "name": "Homeworld 2 (Classic)",
   "runtime": "proton",
   "screenshots": [],
   "short": "Relic's 2003 3D space RTS: rebuild the Hiigaran fleet and fight the Vaygr for the last Hyperspace Core.",
