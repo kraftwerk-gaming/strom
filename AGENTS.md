@@ -109,7 +109,8 @@
 
 ## Verify headless; never fullscreen or non-gamescope GUIs on `DISPLAY=:0`
 
-- **Normal package verification runs gamescope HEADLESS**, not on the operator's seat: launch the game with gamescope's headless backend (e.g. `WLR_BACKENDS=headless`, with the host `WAYLAND_DISPLAY` / `DISPLAY` unset) plus the screenshot sidecar (`STROM_AGENT_DEBUG=1`, see `lib/screenshot.nix` / `lib/screenshot-sidecar.sh`). gamescope renders offscreen and the sidecar captures PNG frames from the nested `gamescope-*` wayland socket — the operator's `DISPLAY=:0` session is never touched.
+- **Normal package verification runs gamescope HEADLESS**, not on the operator's seat: launch the game with gamescope's headless backend plus the screenshot sidecar (`STROM_AGENT_DEBUG=1`, see `lib/screenshot.nix` / `lib/screenshot-sidecar.sh`). gamescope renders offscreen and the sidecar captures PNG frames from the nested `gamescope-*` wayland socket — the operator's `DISPLAY=:0` session is never touched.
+- **`WLR_BACKENDS=headless` alone is NOT sufficient** (measured on gamescope 3.16.25): wlserver comes up headless but the output backend still opens `/dev/dri/card1` and dies with "Could not open KMS device". Pass `--backend headless` (e.g. via `GAMESCOPE_ARGS`) — that is the knob that works. Unset the host `WAYLAND_DISPLAY` / `DISPLAY` as well.
 - The agent MAY run gamescope nested on `DISPLAY=:0` when necessary, but it is not the default, and then: **NEVER fullscreen** — no `-f` / `--fullscreen` or any flag that grabs the whole output; fullscreen takes over the operator's display and input and locks them out of the machine. Keep it a windowed nested surface.
 - **NEVER run any non-gamescope GUI on `:0`.** No bare `proton` / `wine` / `steam-run` GUI binary, no raw installer (e.g. InstallShield `Setup.exe`), nothing that opens a window outside gamescope. Such a window grabs input on the operator's real desktop. This happened once (a HoI2 `Setup.exe` run under Proton + steam-run straight on `:0`); it must never happen again.
 - If a package can only be advanced by a real interactive GUI step (e.g. an InstallShield wizard prompting for a serial), that step is **out of scope for the agent**: stage it `broken`, document the blocker, and leave it for the operator.
@@ -127,13 +128,23 @@
   own game to it, and record from `stromtest_<slug>.monitor` with `parec`/`sox`. Report
   peak and RMS dBFS. Unload the module when you are done -- do not leave `stromtest_*`
   sinks loaded.
-- **`PULSE_SINK` alone does NOT isolate a Proton game.** Wine reaches the server through
-  pipewire-alsa (streams appear as `PipeWire ALSA [wine64-preloader]`); that path resolves
-  its device through the ALSA plugin rather than libpulse, so the `PULSE_SINK` hint is
-  ignored and game audio is born on the default sink. Set the target on the client so the
-  stream is never on the wrong sink to begin with -- PipeWire's own knobs
-  (`PIPEWIRE_NODE=<sink-name>`, `PIPEWIRE_PROPS={ target.object = "<sink-name>" }`) apply
-  to the alsa path; keep `PULSE_SINK` too, since it covers the libpulse path.
+- **`PULSE_SINK` alone does NOT isolate ANY runtime -- not just Proton.** Two independent
+  measurements: a Proton game reaches the server through pipewire-alsa (streams appear as
+  `PipeWire ALSA [wine64-preloader]`), and a fully NATIVE game (dhewm3, no wine anywhere)
+  escaped it too because openal-soft 1.24.3 uses its native PipeWire backend. Neither path
+  consults libpulse, so the `PULSE_SINK` hint is never read. Treat it as
+  necessary-but-not-sufficient everywhere.
+- **`PIPEWIRE_NODE=<sink-name>` is the knob that works**, and it is an unconditional
+  override rather than a fallback: pipewire's `src/pipewire/stream.c` sets
+  `PW_KEY_TARGET_OBJECT` from it unguarded, AFTER stream.rules matching, so it beats what
+  the app itself asked for; `pipewire-alsa/alsa-plugins/pcm_pipewire.c` has the identical
+  line, which is why it also covers wine. It accepts a `node.name`, so the null-sink name
+  works directly. Set BOTH `PIPEWIRE_NODE` and `PULSE_SINK` at launch (belt and braces
+  across backends), then gate measurement on reading back the sink-input's Sink index.
+- If a run does NOT need an audio measurement, the strongest isolation is to make the sink
+  unreachable rather than merely retargeted: point `PULSE_SERVER` / `PIPEWIRE_REMOTE` at
+  nonexistent sockets. Nothing to move, nothing to clean up, and the operator's sink cannot
+  be reached even by a misconfigured client.
 - **NEVER `pactl set-default-sink`, and never move a stream you do not own.** If you move
   streams at all, select them by verifying the sink-input's client PID is a descendant of
   the process you launched (walk `/proc`). Never select by `application.name`, by a
