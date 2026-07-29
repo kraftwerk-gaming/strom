@@ -126,7 +126,7 @@ self.lib.mkGame { inherit lib pkgs; } {
   '';
 
   meta = {
-    description = "Homeworld 2 (Relic, 2003 classic, GOG v2.1 build 3877, via Proton)";
+    description = "Homeworld (Relic, 1999 classic, GOG Remastered Collection v2.1 build 3877, via Proton)";
     platforms = [ "x86_64-linux" ];
     mainProgram = "homeworld";
   };
