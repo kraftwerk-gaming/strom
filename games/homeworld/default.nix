@@ -69,13 +69,22 @@ self.lib.mkGame { inherit lib pkgs; } {
   # campaigns), Homeworld1Classic and Homeworld2Classic (legacy
   # 1999/2003 ports) and HWLauncher (the .NET/WPF Gearbox picker GUI).
   #
-  # HomeworldRM.exe statically imports Galaxy.dll (GOG Galaxy SDK). On
-  # startup it calls galaxy::api::Init(); without a running Galaxy
-  # client the SDK throws RuntimeError@gog@@, the engine swallows the
-  # exception but tears down its memory pools and silently exits in
-  # ~10s. Stripping Galaxy.dll instead trips Wine's static-import
-  # loader (c0000135), and HWLauncher.exe hangs for the same Galaxy
-  # reason.
+  # HomeworldRM.exe statically imports Galaxy.dll (GOG Galaxy SDK) and
+  # calls galaxy::api::Init() on startup. An earlier note here blamed
+  # that for a silent ~10s exit. THAT CONCLUSION WAS WRONG, and the
+  # correction is worth keeping because the observation behind it was
+  # right: Galaxy.dll really does throw (16x e06d7363, with catch types
+  # .?AVIRuntimeError@api@galaxy@@ / IUnauthorizedAccessError /
+  # IInvalidArgumentError / IInvalidStateError registered by its own SEH
+  # descriptors). But Galaxy.dll CATCHES it, the engine's g_galaxyInit
+  # gate goes false, and all 50 gated call sites take the offline
+  # branch, so the game runs. The silent exit was the pre-73e3ae6
+  # overlay copy-up EXDEV bug killing the engine's write-next-to-binary
+  # probe. Measured on the fixed base: stock tree, stock Galaxy.dll,
+  # reaches the Remastered main menu and is still rendering it at 203s.
+  # No stub DLL is needed; one was written and proven correct, then
+  # deliberately not shipped. games/homeworld-remastered-collection now
+  # ships that RM build from these same three CIDs.
   #
   # Homeworld1Classic is the original 1999 Relic binary preserved
   # alongside the remaster. Imports table (verified with strings):
