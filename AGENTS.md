@@ -101,7 +101,8 @@
 
 ## Windows compatibility runtime: Proton, never bare Wine
 
-- This project uses **Proton (GE-Proton10-34) exclusively**. The bundled binaries live at `${proton}/files/bin/` and are invoked through `lib/proton.nix` / `mk-game.nix`.
+- This project uses **Proton exclusively**. The bundled binaries live at `${proton}/files/bin/` and are invoked through `lib/proton.nix` / `mk-game.nix`.
+- **The Proton version is NOT pinned by this repo.** `pkgs/proton.nix` is a thin `overrideAttrs` over nixpkgs' `proton-ge-bin`, so the version floats with `flake.lock` (GE-Proton11-1 at the time of writing). Two consequences that have already bitten: (1) bumping nixpkgs changes wine under *every* proton game at once, so a diagnosis recorded against an older Proton must be re-verified after a rebase, and any measurement you report should name the version it was taken on; (2) rebasing a stage branch onto master can change a `<slug>-data` derivation hash, which invalidates an extracted tree that was surviving in `/nix/store` and makes the `fetchIpfs` asset necessary again -- a branch that built in seconds pre-rebase may want a multi-GB download post-rebase.
 - **Never invoke bare `wine`, `wineboot`, `winecfg`, `winetricks`, `wineserver`** anywhere — including build-time tooling, preRun scripts, agent diagnostics, or one-off shell commands. Bare wine on a Proton-managed prefix produces UI popups (Mono/Gecko prompts, debugger dialogs) and corrupts wineserver lifecycle.
 - **Never `pkgs.wine` / `pkgs.wineWowPackages.*` / `pkgs.wineWow64Packages.*`** in `default.nix` files. Use the project's Proton derivation: `proton = pkgs.callPackage ../../pkgs/proton.nix { };` then `${proton}/files/bin/wine`.
 - For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
