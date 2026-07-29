@@ -108,6 +108,29 @@
 - For prefix registry tweaks: edit `system.reg` / `user.reg` files directly with `sed`/`cat` from preRun (after the prefix exists), NOT via `wine reg add`.
 - For `winetricks`-style verb installs (vcrun, dotnet, dxvk, etc.): manually drop the DLLs into the prefix's `system32`/`syswow64` from buildScript or preRun. Don't shell out to winetricks.
 
+## GOG Inno installers: never delete `__support` before merging it
+
+- `innoextract` on a GOG installer leaves several installer-side subtrees beside the game:
+  `app/`, `tmp/`, `__redist/`, `commonappdata/`, `webcache.zip` and `__support/`. The first
+  five really are debris. **`__support/` is not** -- it is the tree GOG's installer copies
+  OVER the install root as a post-install step, so it can carry files the game genuinely
+  needs, and `innoextract` leaves it un-merged.
+- Deleting it unmerged silently ships a broken game. Real example: `civilization-iii` lost
+  `__support/save/LSANS.TTF` (the Lucida Sans face the UI rebuilds `LSANS.fot` from) AND
+  `__support/save/Conquests/conquests.biq` + `.mb` (the Conquests default ruleset). The
+  result presented as a black screen, because that engine dereferences a NULL font pointer
+  inside its own missing-asset error popup -- i.e. it crashed while trying to report the
+  missing file. Cost: a long misdiagnosis blaming OpenGL and gamescope.
+- So: run `innoextract --gog -l` and READ the destination list before deciding what to
+  drop. If `__support/` has payload, merge it over the tree first, then delete it, and add
+  a hard failure if the directory ever moves so the merge cannot silently become a no-op.
+  Recipes that already do this correctly and are worth copying: `games/jagged-alliance-2`,
+  `games/planescape-torment`, `games/risen-2-dark-waters` (which also extracts a PhysX
+  redist out of `__support/add/`), and `games/aquanox`.
+- Many existing recipes `rm -rf "$out/__support"` without merging. For some that is right
+  (in `games/fear` it is documented SecuROM debris). It has NOT been audited per game, so
+  if a GOG title misbehaves with missing assets, check this first.
+
 ## Verify headless; never fullscreen or non-gamescope GUIs on `DISPLAY=:0`
 
 - **Normal package verification runs gamescope HEADLESS**, not on the operator's seat: launch the game with gamescope's headless backend plus the screenshot sidecar (`STROM_AGENT_DEBUG=1`, see `lib/screenshot.nix` / `lib/screenshot-sidecar.sh`). gamescope renders offscreen and the sidecar captures PNG frames from the nested `gamescope-*` wayland socket — the operator's `DISPLAY=:0` session is never touched.
