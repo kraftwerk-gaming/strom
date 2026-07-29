@@ -159,12 +159,13 @@ def load_manifest() -> list[dict]:
                 "genres": list(genres),
                 "tags": set(cat.get("tags") or []),
                 "screenshots": list(cat.get("screenshots") or []),
+                "hero": cat.get("hero"),
             }
         )
     return games
 
 
-def fetch_banner(slug: str) -> Path | None:
+def fetch_banner(slug: str, hero: str | None = None) -> Path | None:
     BANNER_CACHE.mkdir(parents=True, exist_ok=True)
     dest = BANNER_CACHE / f"{slug}.jpg"
     if dest.exists():
@@ -175,7 +176,11 @@ def fetch_banner(slug: str) -> Path | None:
     miss = BANNER_CACHE / f"{slug}.miss"
     if miss.exists():
         return None
-    url = f"https://lutris.net/games/banner/{slug}.jpg"
+    # An explicit `hero` from metadata.json wins over the slug-derived Lutris
+    # URL, matching what the web GUI already does (`e.hero || LUTRIS_BANNER`).
+    # Needed whenever a package's slug is not its Lutris slug, which is now a
+    # documented, operator-approved possibility.
+    url = hero or f"https://lutris.net/games/banner/{slug}.jpg"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "strom-launcher/1"})
         with urllib.request.urlopen(req, timeout=5) as r:
@@ -189,8 +194,8 @@ def fetch_banner(slug: str) -> Path | None:
         return None
 
 
-def load_banner_surface(slug: str) -> pygame.Surface | None:
-    p = fetch_banner(slug)
+def load_banner_surface(slug: str, hero: str | None = None) -> pygame.Surface | None:
+    p = fetch_banner(slug, hero)
     if p is None:
         return None
     try:
@@ -644,9 +649,11 @@ def main() -> int:
     banner_queue = [g["slug"] for g in games]
     banner_done: dict[str, bool] = {}
 
+    hero_by_slug = {g["slug"]: g.get("hero") for g in games}
+
     def _prefetch_banners() -> None:
         for g in games:
-            banner_done[g["slug"]] = fetch_banner(g["slug"]) is not None
+            banner_done[g["slug"]] = fetch_banner(g["slug"], g.get("hero")) is not None
 
     threading.Thread(target=_prefetch_banners, daemon=True).start()
 
@@ -658,7 +665,7 @@ def main() -> int:
                 break  # prefetch works in order; nothing later is ready yet
             banner_queue.pop(0)
             if banner_done[slug]:
-                surf = load_banner_surface(slug)
+                surf = load_banner_surface(slug, hero_by_slug.get(slug))
                 if surf:
                     surf = round_surface(surf, 8)
                     banners[slug] = surf
