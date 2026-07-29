@@ -80,8 +80,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   # Homeworld1Classic is the original 1999 Relic binary preserved
   # alongside the remaster. Imports table (verified with strings):
   # DDRAW / DSOUND / glide2x / opengl32 / binkw32 / rgl — zero
-  # Galaxy.dll, zero steam_api, zero .NET. Runs cleanly under Proton
-  # using DXVK's DDraw shim on AMD Mesa.
+  # Galaxy.dll, zero steam_api, zero .NET. Runs cleanly under Proton on
+  # AMD Mesa via Wine's builtin ddraw onto wined3d. (NOT via DXVK: no
+  # DXVK ddraw exists. GE-Proton's dxvk dir ships only d3d8, d3d9,
+  # d3d10core, d3d11 and dxgi, so DirectDraw never goes through it.)
   executable = "Homeworld1Classic/exe/Homeworld.exe";
   # HW1 only knows about a fixed set of CLI resolutions (/640, /800,
   # /1024, /1280, /1600 — no /1920). Picking /1280 sidesteps the
