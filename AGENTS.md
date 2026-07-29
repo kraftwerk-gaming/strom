@@ -135,13 +135,23 @@
   escaped it too because openal-soft 1.24.3 uses its native PipeWire backend. Neither path
   consults libpulse, so the `PULSE_SINK` hint is never read. Treat it as
   necessary-but-not-sufficient everywhere.
-- **`PIPEWIRE_NODE=<sink-name>` is the knob that works**, and it is an unconditional
-  override rather than a fallback: pipewire's `src/pipewire/stream.c` sets
-  `PW_KEY_TARGET_OBJECT` from it unguarded, AFTER stream.rules matching, so it beats what
-  the app itself asked for; `pipewire-alsa/alsa-plugins/pcm_pipewire.c` has the identical
-  line, which is why it also covers wine. It accepts a `node.name`, so the null-sink name
-  works directly. Set BOTH `PIPEWIRE_NODE` and `PULSE_SINK` at launch (belt and braces
-  across backends), then gate measurement on reading back the sink-input's Sink index.
+- **Which knob actually wins depends on the client's API, so set all of them.** Measured
+  three ways on this repo:
+  - `PIPEWIRE_NODE=<sink-name>` wins for clients on pipewire-alsa or a native `pw_stream`
+    backend. It is an unconditional override, not a fallback: pipewire's
+    `src/pipewire/stream.c` sets `PW_KEY_TARGET_OBJECT` from it unguarded and AFTER
+    stream.rules matching, so it beats what the app asked for, and
+    `pipewire-alsa/alsa-plugins/pcm_pipewire.c` carries the identical line.
+  - `PULSE_SINK` wins for clients that arrive through pipewire-pulse, i.e. the libpulse
+    path. A 32-bit wine title was attributed by pointing `PULSE_SINK` at null sink B and
+    both `PIPEWIRE_NODE`/`PIPEWIRE_PROPS` at null sink A: both of its streams landed on B.
+  - So set `PIPEWIRE_NODE` AND `PULSE_SINK` (and optionally
+    `PIPEWIRE_PROPS={ target.object = ... }`) to the SAME sink at launch. Do not assume
+    which one took effect.
+  You can tell which API a client used from its sink-input properties: `client.api` reads
+  `pipewire-pulse` for the libpulse path. When attributing a routing knob, point the
+  candidates at two DIFFERENT null sinks so the loser cannot reach the operator either way.
+  Always gate measurement on reading back the sink-input's Sink index.
 - If a run does NOT need an audio measurement, the strongest isolation is to make the sink
   unreachable rather than merely retargeted: point `PULSE_SERVER` / `PIPEWIRE_REMOTE` at
   nonexistent sockets. Nothing to move, nothing to clean up, and the operator's sink cannot
