@@ -115,6 +115,36 @@
 - If a package can only be advanced by a real interactive GUI step (e.g. an InstallShield wizard prompting for a serial), that step is **out of scope for the agent**: stage it `broken`, document the blocker, and leave it for the operator.
 - Headless build steps (nix builds, archive extraction, autopatchelf) open no window and are always fine.
 
+## Audio measurement: isolate on your own null sink, never touch the operator's streams
+
+- The operator is usually sitting at this machine with audio playing. A test run that
+  reaches their speakers, or that hijacks their streams, is a defect in the harness --
+  it has happened twice: a Mass Effect 2 test instance played through their speakers for
+  15 minutes, and a name-matching "sink guard" loop moved the operator's Firefox stream
+  onto a test null sink, killing their audio mid-session.
+- To measure a game's audio: create a dedicated null sink
+  (`pactl load-module module-null-sink sink_name=stromtest_<slug> ...`), route only your
+  own game to it, and record from `stromtest_<slug>.monitor` with `parec`/`sox`. Report
+  peak and RMS dBFS. Unload the module when you are done -- do not leave `stromtest_*`
+  sinks loaded.
+- **`PULSE_SINK` alone does NOT isolate a Proton game.** Wine reaches the server through
+  pipewire-alsa (streams appear as `PipeWire ALSA [wine64-preloader]`); that path resolves
+  its device through the ALSA plugin rather than libpulse, so the `PULSE_SINK` hint is
+  ignored and game audio is born on the default sink. Set the target on the client so the
+  stream is never on the wrong sink to begin with -- PipeWire's own knobs
+  (`PIPEWIRE_NODE=<sink-name>`, `PIPEWIRE_PROPS={ target.object = "<sink-name>" }`) apply
+  to the alsa path; keep `PULSE_SINK` too, since it covers the libpulse path.
+- **NEVER `pactl set-default-sink`, and never move a stream you do not own.** If you move
+  streams at all, select them by verifying the sink-input's client PID is a descendant of
+  the process you launched (walk `/proc`). Never select by `application.name`, by a
+  wine/game-name regex, or by "the newest N" -- names are not identity, and the operator's
+  browser is not your game.
+- Before measuring, assert isolation: every sink-input on your test sink is yours, and no
+  stream of yours is on the hardware sink.
+- If isolation cannot be achieved with confidence, the correct outcome is to report
+  "audio not measured, isolation not achievable by mechanism X" and move on. An honest
+  non-measurement beats both a fabricated number and a disturbed operator.
+
 ## Stage-branch workflow for untested games
 
 - The `rad` remote is the canonical destination for this repo. `github` is a mirror.
