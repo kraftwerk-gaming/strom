@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmWiE474VJZKhGLQ5d472PND5orypbPHokfBj752WjfB5D"
+  ],
+  "description": "Pok\u00e9mon Mystery Dungeon: Explorers of Time (2007 Chunsoft, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Chunsoft"
+  ],
+  "genres": [
+    "Roguelike",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-mystery-dungeon-explorers-of-time.jpg",
+  "long": "The original half of the Explorers duology, released alongside Explorers of Darkness. You wake up as a human turned Pokemon with no memory, take on a partner, join Wigglytuff's Guild and descend into procedurally generated mystery dungeons where every step you take is a turn the whole floor takes with you. The story is the series' most-loved and unusually sombre one. Time and Darkness are the same adventure with different exclusives: each version has its own recruitable Pokemon and a handful of version-only dungeons, and the two carts can trade rescues. The 2009 re-release Explorers of Sky is the expanded cut of the same game.",
+  "lutris": "https://lutris.net/games/pokemon-mystery-dungeon-explorers-of-time/",
+  "name": "Pokemon Mystery Dungeon: Explorers of Time",
+  "runtime": "retroarch",
+  "short": "Turn-based roguelike in which you wake up as a Pokemon: recruit a team, delve procedurally generated dungeons and follow the series' most-loved story. Paired release with Explorers of Darkness.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2007
+}
