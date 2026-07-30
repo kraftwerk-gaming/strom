@@ -1,0 +1,25 @@
+{
+  "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "appid": null,
+  "cids": [
+    "QmP5svHaaV2Laewp1Gt61SKyU7ioAe94LKWL6V7kgspf4p"
+  ],
+  "description": "Pok\u00e9mon Mystery Dungeon: Explorers of Darkness (2007 Chunsoft, Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Chunsoft"
+  ],
+  "genres": [
+    "Roguelike",
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-mystery-dungeon-explorers-of-darkness.jpg",
+  "long": "You wake up on a beach as a Pokemon with no memory of ever having been human, team up with a partner and start taking rescue jobs, then follow a long and unusually sombre story about a world whose time has stopped. Dungeons are procedurally generated and turn-based: every step you take is a turn the whole floor takes with you, faint and you lose money and items on the way out. Darkness is one half of the paired 2007 release (Explorers of Time is the other, and the later Explorers of Sky is the expanded cut); the main story is shared, and the two carts differ in a set of version-exclusive recruitable Pokemon and dungeons that players were meant to trade between. Released in Japan in September 2007 and in North America in April 2008.",
+  "lutris": "https://lutris.net/games/pokemon-mystery-dungeon-explorers-of-darkness/",
+  "name": "Pokemon Mystery Dungeon: Explorers of Darkness",
+  "runtime": "retroarch",
+  "short": "Turn-based roguelike in which you wake up as a Pokemon with no memory: recruit a team and delve procedurally generated dungeons. The Darkness half of the paired Explorers release.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2007
+}
