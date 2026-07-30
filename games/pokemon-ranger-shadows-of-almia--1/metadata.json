@@ -1,0 +1,28 @@
+{
+  "_appid": "Never on Steam. A 2008 Nintendo-published DS title; Pok\u00e9mon is Nintendo/Creatures/Game Freak first-party and has never shipped on Steam, so Steam matching is pinned off rather than left to fuzzy-match something unrelated. Same treatment as the Guardian Signs sibling.",
+  "_lutris": "The directory, flake attr and name all use Lutris's slug verbatim, including the odd `--1` suffix: https://lutris.net/api/games/pokemon-ranger-shadows-of-almia--1 is the real entry (name \"Pok\u00e9mon Ranger: Shadows of Almia\", 2008) and the un-suffixed `pokemon-ranger-shadows-of-almia` does not exist. AGENTS.md requires dir = flake attr = Lutris slug, and the launcher fetches banner art BY SLUG, so do not \"fix\" the suffix.",
+  "appid": null,
+  "cids": [
+    "QmZszGmHUj3cbhuuebmqTAcPTQBvWzAjc5ujfZVZiHWEoL"
+  ],
+  "description": "Pok\u00e9mon Ranger: Shadows of Almia (2008 Creatures Inc., Nintendo DS, via RetroArch / melonDS)",
+  "developers": [
+    "Creatures Inc."
+  ],
+  "genres": [
+    "RPG",
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/pokemon-ranger-shadows-of-almia--1.jpg",
+  "long": "Pok\u00e9mon Ranger: Shadows of Almia is the second Pok\u00e9mon Ranger action-RPG for the Nintendo DS, set in the Almia region as a rookie Ranger training at the Ranger School. Wild Pok\u00e9mon are befriended by drawing loops around them on the touch screen with the Capture Styler under time pressure, then lend their Pok\u00e9 Assist powers to clear obstacles and finish missions. Partner Pok\u00e9mon and a darker Team Dim Sun plot distinguish it from the first game. The whole capture mechanic is stylus-driven, including the attract screen, so this package follows the input device: mouse pointer when no pad is attached, right stick plus R3 as the stylus when one is.",
+  "lutris": "https://lutris.net/games/pokemon-ranger-shadows-of-almia--1/",
+  "name": "Pok\u00e9mon Ranger: Shadows of Almia",
+  "runtime": "retroarch",
+  "screenshots": [],
+  "short": "Pok\u00e9mon Ranger: Shadows of Almia (via RetroArch / melonDS)",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2008
+}
