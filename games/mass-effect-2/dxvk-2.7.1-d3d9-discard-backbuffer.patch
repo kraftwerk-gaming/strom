@@ -1,0 +1,47 @@
+Emulate the Windows D3DSWAPEFFECT_DISCARD contract, opt-in per game.
+
+DXVK deliberately preserves the app-visible back buffer across Present when
+the swap chain has a single back buffer -- its own comment a few lines above
+this hunk says so ("Games with a buffer count of 1 rely on the contents of the
+previous frame still being there"). Windows drivers do the opposite for
+D3DSWAPEFFECT_DISCARD: the surface handed back is undefined, and in practice
+blank.
+
+Mass Effect 2's full-screen Scaleform screens (New Game difficulty, in-game
+Options) issue no D3DCLEAR_TARGET at all -- a WINEDEBUG=+d3d9 capture of those
+frames shows the back buffer as the render target for the whole frame with
+only two D3DCLEAR_STENCIL calls -- and draw every row with alpha blending. With
+the contents preserved, each frame composites onto the accumulated history of
+the previous ones: the row-selection highlight leaves one solid green bar per
+visited row and the slide-in animation leaves doubled labels. Everything opaque
+in the same frame looks correct, which is why the surrounding art is fine.
+
+wined3d preserves the back buffer too (PROTON_USE_WINED3D=1 corrupts
+identically), so this is not DXVK-specific behaviour and not a Vulkan or RADV
+issue; it is the wine-side back-buffer lifetime differing from Windows.
+
+Gated behind DXVK_D3D9_DISCARD_BACKBUFFER=1 so only the game that needs it
+pays the clear, and so the DLL stays a drop-in replacement everywhere else.
+
+--- a/src/d3d9/d3d9_swapchain.cpp	2026-07-30 06:55:12.973028065 +0200
++++ b/src/d3d9/d3d9_swapchain.cpp	2026-07-30 06:55:12.974028049 +0200
+@@ -189,6 +189,19 @@
+       UpdateWindowedRefreshRate();
+       UpdateTargetFrameRate(presentInterval);
+       PresentImage(presentInterval);
++
++      // Emulate the Windows DISCARD contract for apps that rely on it: after
++      // Present the back buffer comes back blank instead of keeping the frame
++      // that was just shown. Opt-in, because DXVK's default of preserving the
++      // contents is what other single-back-buffer games depend on.
++      static const bool discardBackBuffer =
++        env::getEnvVar("DXVK_D3D9_DISCARD_BACKBUFFER") == "1";
++
++      if (unlikely(discardBackBuffer)
++       && m_presentParams.SwapEffect == D3DSWAPEFFECT_DISCARD
++       && !m_backBuffers.empty())
++        m_parent->ColorFill(m_backBuffers[0].ptr(), nullptr, 0);
++
+       return D3D_OK;
+     } catch (const DxvkError& e) {
+       Logger::err(e.message());
