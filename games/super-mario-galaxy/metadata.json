@@ -1,0 +1,28 @@
+{
+  "_appid": "Never on Steam. A 2007 Nintendo-published, first-party Wii exclusive; the only re-releases are Nintendo's own (Wii U eShop, the 3D All-Stars Switch collection), so Steam matching is pinned off rather than left to fuzzy-match an unrelated \"galaxy\" title.",
+  "appid": null,
+  "cids": [
+    "QmU2Sfm3ji9nknoXUzgabuXpZrwJFAGEFWZDLPM9k8VxsH"
+  ],
+  "description": "Super Mario Galaxy (Nintendo 2007, Wii, via Dolphin)",
+  "developers": [
+    "Nintendo EAD Tokyo"
+  ],
+  "genres": [
+    "Platformer",
+    "Action",
+    "Adventure"
+  ],
+  "hero": "https://lutris.net/games/banner/super-mario-galaxy.jpg",
+  "long": "Super Mario Galaxy is Nintendo's 2007 Wii 3D platformer, in which Mario chases Bowser across a series of tiny spherical worlds with their own gravity, running around planetoids upside down, launching between them off Launch Stars and spinning to stun enemies. Star Bits are collected with the Wii Remote's pointer and a second player can help by pointing along. Under Dolphin this one is played at a desk: the mouse is the pointer, left and right click are A and B, middle click is the spin, W A S D is the Nunchuk stick, and Control/Shift are C and Z. A gamepad will not do, because nothing currently maps a pad onto the emulated Wii Remote's pointer and motion, so a pad-only couch seat can boot the game but not play it. Wii save data is kept in the per-game Dolphin NAND, so progress survives rebuilds.",
+  "lutris": "https://lutris.net/games/super-mario-galaxy/",
+  "name": "Super Mario Galaxy",
+  "runtime": "dolphin",
+  "screenshots": [],
+  "short": "Super Mario Galaxy (via Dolphin) - mouse and keyboard required, no pad mapping yet",
+  "tags": [
+    "Single-player",
+    "Shared/Split Screen Co-op"
+  ],
+  "year": 2007
+}
