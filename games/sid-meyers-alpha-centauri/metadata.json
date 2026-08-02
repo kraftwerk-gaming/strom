@@ -1,0 +1,32 @@
+{
+  "_appid": "Never released on Steam. A 1999 EA/Firaxis title; the only current digital release is the GOG Planetary Pack, so Steam matching is skipped outright rather than fuzzy-matched.",
+  "_lutris": "Directory, flake attr and name all use Lutris's canonical slug 'sid-meyers-alpha-centauri' (Lutris id 57, name \"Sid Meier's Alpha Centauri\", 1999). Lutris misspells Meier as Meyer; we follow it anyway because AGENTS.md requires dir = flake attr = Lutris slug, and the couch launcher fetches banner art BY SLUG: https://lutris.net/games/banner/sid-meyers-alpha-centauri.jpg returns 200 while the correctly-spelled sid-meiers-alpha-centauri.jpg returns 404. Lutris also lists aliases sid-meier-s-alpha-centauri and sid-meyer-s-alpha-centauri; neither is 'sid-meiers-'. sid-meiers-civilization-ii/-iii legitimately differ because each matches its own Lutris slug.",
+  "appid": null,
+  "cids": [
+    "QmRnfjQv7ajfJjYhwRGqahsmhcCKMFhuicoLAqB4AiAG77",
+    "QmTSowk4VUSA5gFfMd3hEGeeCWBSidkvqV9XSBPAnxW5A7"
+  ],
+  "description": "Sid Meier's Alpha Centauri - Planetary Pack (Firaxis 1999, Alien Crossfire from the retail disc + unofficial SMAX patch 3.5, via Proton)",
+  "developers": [
+    "Firaxis Games"
+  ],
+  "genres": [
+    "Strategy",
+    "Turn-based strategy",
+    "4X"
+  ],
+  "hero": "https://lutris.net/games/banner/sid-meyers-alpha-centauri.jpg",
+  "long": "Brian Reynolds' 1999 science-fiction successor to Civilization II, bundled here as the Planetary Pack: the original Alpha Centauri plus the Alien Crossfire expansion, whose terranx.exe is the executable this package launches. The UN colony ship Unity breaks up in orbit around Chiron and its crew splinters into seven ideological factions, each with its own agenda, social-engineering biases and voice. You terraform an alien world that pushes back -- fungus, mind worms and a planetary consciousness that notices what you do to it -- design your own units from researched components rather than picking from a fixed roster, and steer a faction by choosing Politics, Economics, Values and Future Society settings instead of a single government type. Victory can be conquest, an elected Planetary Governor, economic dominance, or Transcendence: merging with the planet's own emergent mind.",
+  "lutris": "https://lutris.net/games/sid-meyers-alpha-centauri/",
+  "name": "Sid Meier's Alpha Centauri",
+  "runtime": "proton",
+  "screenshots": [],
+  "short": "Turn-based 4X on an alien world: seven ideological factions terraform Planet and fight over what humanity should become.",
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "LAN PvP",
+    "PvP"
+  ],
+  "year": 1999
+}
