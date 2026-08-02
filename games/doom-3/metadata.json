@@ -1,0 +1,32 @@
+{
+  "cids": [
+    "QmNgBDxMtJ4uwjA3jdaEkrQJGP8jeVxrnght5H7THeB42h",
+    "QmcgT8A8pcUzGvWzrthMGZv3w9Pq8vUas1sh5NvSNsWXfQ"
+  ],
+  "description": "Doom 3 + Resurrection of Evil (id Software 2004, via dhewm3)",
+  "developers": [
+    "id Software",
+    "Nerve Software"
+  ],
+  "genres": [
+    "FPS",
+    "Action",
+    "Horror"
+  ],
+  "hero": "https://lutris.net/games/banner/doom-3.jpg",
+  "long": "Doom 3 is id Software's survival-horror reimagining of the series, trading open arenas for the claustrophobic corridors of a UAC research complex on Mars after a teleport experiment tears open a portal to Hell. It was the debut title for id Tech 4, whose unified per-pixel lighting and stencil shadows made darkness itself the antagonist and the flashlight a weapon slot. This package ships the fully patched 1.3.1 retail assets plus the official Resurrection of Evil expansion, and runs them on dhewm3, the maintained GPL source port of id Tech 4, so no Windows compatibility layer is involved. Resurrection of Evil is selectable from the main menu's Mods entry.",
+  "lutris": "https://lutris.net/games/doom-3/",
+  "name": "Doom 3",
+  "runtime": "native",
+  "screenshots": [],
+  "short": "Doom 3 + Resurrection of Evil (id Software 2004, via dhewm3)",
+  "steam_appid": null,
+  "tags": [
+    "Single-player",
+    "Multi-player",
+    "PvP",
+    "Online PvP",
+    "LAN PvP"
+  ],
+  "year": 2004
+}
