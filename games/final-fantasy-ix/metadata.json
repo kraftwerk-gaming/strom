@@ -1,0 +1,28 @@
+{
+  "_appid": "Skip Steam: the only FINAL FANTASY IX on Steam is appid 377840, the 2016 remaster with re-rendered character models, boosters and its own launcher. That is a different product and it is the other Lutris slug (final-fantasy-ix--1); this entry is the 2000 PlayStation original, which was never sold on Steam.",
+  "appid": null,
+  "cids": [
+    "QmXXNaYj4fPLenZRQY7upCBK2qDRT4i1H5aAuyiZz2meJM",
+    "QmRqPM25TbSNAPZMXMX6fwUq7DWnn6xnu7z129rpTbJzZE",
+    "QmTWXSxcjf5E5jmEejLSXh3PhnqakVwVgi7T4BcCu7hHmf",
+    "QmUnwAaeksgJ7x8V3DWtBtbMJHA93rdP1Wspoxxv8ahaLr",
+    "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"
+  ],
+  "description": "Final Fantasy IX (PSX 2000 USA, via RetroArch / SwanStation)",
+  "developers": [
+    "Square"
+  ],
+  "genres": [
+    "RPG"
+  ],
+  "hero": "https://lutris.net/games/banner/final-fantasy-ix.jpg",
+  "long": "Final Fantasy IX is Squaresoft's deliberate return to the series' medieval-fantasy roots after the science-fiction turn of VII and VIII. The thief Zidane and his Tantalus troupe kidnap Princess Garnet of Alexandria, only to find she wanted to escape; the abduction unravels into a war driven by Queen Brahne's sudden appetite for conquest and by Kuja, the arms dealer feeding it. Four discs of pre-rendered backgrounds carry a party of eight, each locked to a class - thief, black mage, knight, white mage, summoner, dragon knight - who learn abilities out of the equipment they wear and keep them permanently once the AP is paid. Battles are ATB with up to four characters, Trance replaces the limit-break meter, and the world is dense with optional systems: Chocobo Hot and Cold treasure hunting, the Tetra Master card game, moogle mail, and synthesis shops.",
+  "lutris": "https://lutris.net/games/final-fantasy-ix/",
+  "name": "Final Fantasy IX",
+  "runtime": "retroarch",
+  "short": "Squaresoft's return to medieval fantasy: a thief, a runaway princess and a war over summoned magic, across four discs of ATB battles and class-locked ability learning.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2000
+}
