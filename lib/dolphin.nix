@@ -251,6 +251,131 @@ in
                 fi
               } > "$DOLPHIN_USER/Config/GCPadNew.ini"
             fi
+
+            # Pre-seed WiimoteNew.ini the same way, so a Wii disc is playable
+            # from a pad instead of only from a desk. Dolphin's stock emulated
+            # Wiimote binds keyboard+mouse only (verified against upstream
+            # LoadDefaults: A/B are `Click 1`/`Click 3`, shake is `Click 2`,
+            # pointing is `Cursor X/Y`, the Nunchuk stick is WASD), which is
+            # enough to play at a desk and leaves a pad-only couch seat able to
+            # boot a Wii game and not play it -- exactly what
+            # games/super-mario-galaxy documented as its open gap.
+            #
+            # Inert for GameCube titles: Dolphin only consults this file for
+            # Wii discs, so seeding it unconditionally costs a GC game nothing
+            # and means no per-game knob has to be set correctly.
+            #
+            # Reseed rules and the pad/keyboard layering are identical to
+            # GCPadNew.ini above, including the "mapped pad is gone" case.
+            needs_wii_seed=0
+            wiimote_ini="$DOLPHIN_USER/Config/WiimoteNew.ini"
+            if ! [ -f "$wiimote_ini" ]; then
+              needs_wii_seed=1
+            elif [ "$pad_count" -gt 0 ] \
+              && ! ${config.pkgs.gnugrep}/bin/grep -q 'Device = SDL/' "$wiimote_ini"; then
+              needs_wii_seed=1
+            else
+              while IFS= read -r dev; do
+                [ -n "$dev" ] || continue
+                if ! printf '%s\n' "$pad_list" \
+                  | ${config.pkgs.gawk}/bin/awk -F'\t' -v d="$dev" '$1 != "" && ("SDL/" $1 "/" $2) == d { found = 1 } END { exit !found }'; then
+                  needs_wii_seed=1
+                fi
+              done <<EOF
+      $(${config.pkgs.gnused}/bin/sed -n 's/^Device = \(SDL\/.*\)$/\1/p' "$wiimote_ini")
+      EOF
+            fi
+            if [ "$needs_wii_seed" -eq 1 ]; then
+              # shellcheck disable=SC2016 # Dolphin control references are literal
+              # backticks; these formats must stay single-quoted.
+              emit_wiimote() {
+                wm_section=$1
+                wm_device=$2   # SDL device string, or empty for keyboard-only
+                wm_kbd=$3      # XInput2 device string, or empty for pad-only
+                wbind() {
+                  if [ -n "$wm_device" ] && [ -n "$wm_kbd" ]; then
+                    printf '`%s` | `%s:%s`' "$1" "$wm_kbd" "$2"
+                  elif [ -n "$wm_device" ]; then
+                    printf '`%s`' "$1"
+                  else
+                    printf '`%s:%s`' "$wm_kbd" "$2"
+                  fi
+                }
+                printf '[%s]\n' "$wm_section"
+                if [ -n "$wm_device" ]; then
+                  printf 'Device = %s\n' "$wm_device"
+                else
+                  printf 'Device = %s\n' "$wm_kbd"
+                fi
+                # Source 1 = emulated. Only slots that have something driving
+                # them are enabled; a slot switched on with nothing bound shows
+                # the game a connected-but-dead remote.
+                printf 'Source = 1\n'
+                # A jumps, B is the trigger (shoot). Spin -- the move Galaxy
+                # asks for constantly -- is a shake, so it gets two comfortable
+                # bindings rather than a buried one.
+                printf 'Buttons/A = %s\n' "$(wbind 'Button A' 'Click 1')"
+                printf 'Buttons/B = %s\n' "$(wbind 'Button B' 'Click 3')"
+                printf 'Buttons/1 = %s\n' "$(wbind 'Button Y' 1)"
+                printf 'Buttons/2 = %s\n' "$(wbind 'Button X' 2)"
+                printf 'Buttons/- = %s\n' "$(wbind 'Back' Q)"
+                printf 'Buttons/+ = %s\n' "$(wbind 'Start' E)"
+                printf 'Buttons/Home = %s\n' "$(wbind 'Guide' Return)"
+                printf 'D-Pad/Up = %s\n' "$(wbind 'Pad N' Up)"
+                printf 'D-Pad/Down = %s\n' "$(wbind 'Pad S' Down)"
+                printf 'D-Pad/Left = %s\n' "$(wbind 'Pad W' Left)"
+                printf 'D-Pad/Right = %s\n' "$(wbind 'Pad E' Right)"
+                # Pointing: right stick, ABSOLUTE (stick centre = screen
+                # centre, release re-centres the pointer). Deliberately not
+                # `IR/Relative Input = True`: that setting is per-remote and
+                # would make the mouse relative too, breaking the desk map that
+                # was verified in game on this title.
+                printf 'IR/Up = %s\n' "$(wbind 'Right Y+' 'Cursor Y-')"
+                printf 'IR/Down = %s\n' "$(wbind 'Right Y-' 'Cursor Y+')"
+                printf 'IR/Left = %s\n' "$(wbind 'Right X-' 'Cursor X-')"
+                printf 'IR/Right = %s\n' "$(wbind 'Right X+' 'Cursor X+')"
+                # Spin attack.
+                for wm_axis in X Y Z; do
+                  printf 'Shake/%s = %s\n' "$wm_axis" "$(wbind 'Shoulder R' 'Click 2')"
+                done
+                printf 'Extension = Nunchuk\n'
+                printf 'Nunchuk/Buttons/C = %s\n' "$(wbind 'Shoulder L' Control_L)"
+                printf 'Nunchuk/Buttons/Z = %s\n' "$(wbind 'Trigger L' Shift_L)"
+                printf 'Nunchuk/Stick/Up = %s\n' "$(wbind 'Left Y+' W)"
+                printf 'Nunchuk/Stick/Down = %s\n' "$(wbind 'Left Y-' S)"
+                printf 'Nunchuk/Stick/Left = %s\n' "$(wbind 'Left X-' A)"
+                printf 'Nunchuk/Stick/Right = %s\n' "$(wbind 'Left X+' D)"
+                printf 'Nunchuk/Stick/Calibration = 100.00\n'
+                # Nunchuk shake is its own control (some games use it for a
+                # second spin); mirror the remote's.
+                for wm_axis in X Y Z; do
+                  printf 'Nunchuk/Shake/%s = %s\n' "$wm_axis" "$(wbind 'Trigger R' 'Click 2')"
+                done
+                if [ -n "$wm_device" ]; then
+                  printf 'Rumble/Motor = `Motor L` | `Motor R`\n'
+                fi
+              }
+              {
+                if [ "$pad_count" -eq 0 ]; then
+                  emit_wiimote "Wiimote1" "" "$kbd_device"
+                else
+                  wm_port=1
+                  printf '%s\n' "$pad_list" | while IFS="$(printf '\t')" read -r pad_index pad_name; do
+                    if [ -z "$pad_name" ] || [ "$wm_port" -gt 4 ]; then
+                      continue
+                    fi
+                    if [ "$wm_port" -eq 1 ]; then
+                      emit_wiimote "Wiimote1" "SDL/$pad_index/$pad_name" "$kbd_device"
+                    else
+                      emit_wiimote "Wiimote$wm_port" "SDL/$pad_index/$pad_name" ""
+                    fi
+                    wm_port=$((wm_port + 1))
+                  done
+                fi
+                # Balance Board slot: Dolphin expects the section to exist.
+                printf '[BalanceBoard]\nSource = 0\n'
+              } > "$wiimote_ini"
+            fi
     '';
 
     args = [
