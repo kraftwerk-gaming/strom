@@ -266,6 +266,26 @@
 - Sub-wrapper options live under `gamescope.*`, `proton.*`, `fhs.*`, `bwrap.*`, `pcsx2.*`, `retroarch.*`, `fuseOverlayfs.*`, `padToKb.*`. Their schema is the `lib/<name>.nix` file of the matching wrapper.
 - `flake.packages.<arch>.<slug>` is unchanged: still the default-args derivation, still what `nix run .#<game>` builds.
 
+## Player-facing settings in the couch launcher
+
+- **Nothing declares these.** Every `bool` and `enum` option a game's own `default.nix` declares becomes a row in the launcher's options screen, automatically:
+
+      options.music = mkOption {
+        type = types.enum [ "vanilla" "psx" "orchestral" ];   # -> a value cycler
+        default = "vanilla";                                  # -> the shipped value
+        description = ''
+          Replace the soundtrack. ...                         # -> the row's help line
+        '';                                                   #    (first paragraph only)
+      };
+
+  The label comes from the option name (`fieldBackgrounds` -> "Field backgrounds"). So a row cannot drift from what the game accepts, and there is no second place to update.
+- **Consequences when writing a recipe:**
+  - Keep the FIRST PARAGRAPH of every bool/enum option's `description` something a player can act on -- the download size, the caveat. Provenance and reasoning go in later paragraphs, which the launcher does not show.
+  - A `bool`/`enum` option IS a menu row, so do not add one for something that is not a player choice. There is no opt-out: a compat or debug switch declared as a bool will appear on screen. `games/final-fantasy-viii/default.nix` shows the shape -- its seven bool/enum options are all rows (`ffnx` included), while `mods` (a list of derivations) and `internalResolutionScale` (an int) are not, because a pad cannot present either.
+  - Options every game inherits (`enableGamescope`, `runtime`, and any future one) are excluded by WHERE they are declared -- anything from `lib/` or the wrapper base modules is dropped, so framework knobs never leak into the menu and nothing has to be maintained by name.
+- The resolved schema rides `passthru.settingsSchema` on the wrapper derivation, reaches `legacyPackages.<arch>.gameMeta.<slug>.settings`, and is baked into the launcher's manifest at build time. The launcher stores a player's picks in `$XDG_CONFIG_HOME/strom/settings.json` (only values that differ from the default) and launches the combination as `nix build --impure --expr '(flake.modules.<system>.<slug>.apply { <key> = lib.mkForce <value>; }).outputs.wrapper' --print-out-paths`, i.e. exactly the override path above, then execs `<out>/bin/<slug>`. `--impure` is required by `builtins.getFlake` on an unlocked flake reference, which is what `STROM_FLAKE` always is. There is deliberately no second `nix run`: it would re-evaluate the same installable (uncached, since `--impure` disables the eval cache) and, for an unlocked ref, could resolve to a different rev than the one whose build was just shown.
+- A game that declares no bool/enum option of its own gets no options screen; it is built from the plain ref (`<flake>#<slug>`) and exec'd the same way.
+
 - Think before acting. Read existing files before writing code.
 - Be concise in responses but thorough in reasoning.
 - Prefer editing over rewriting whole files.

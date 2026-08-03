@@ -60,13 +60,100 @@ let
     };
 
   gameModule =
-    { config, lib, ... }:
+    {
+      config,
+      options,
+      lib,
+      ...
+    }:
     let
       cfg = config;
       # No quotes here: wrapPackage's escapeShellArgWithEnv adds its
       # own, and literal quotes leak into the filename wine sees.
       overlayExe =
         if lib.hasPrefix "/" cfg.executable then cfg.executable else "$STROM_OVERLAY/${cfg.executable}";
+
+      # Schema for the launcher's per-game customize view, published as
+      # `passthru.settingsSchema` on the wrapper derivation (the couch
+      # launcher bakes it into its manifest at build time).
+      #
+      # Nothing is declared for this. Every `bool` and `enum` option a GAME's
+      # own recipe declares becomes a row: the label comes from the option
+      # name, the help line from the first paragraph of `description`, the
+      # values from the type and the shipped value from `default`. So a row
+      # cannot drift from what the game accepts, and adding a knob to a recipe
+      # is all it takes to put it on screen.
+      #
+      # "the game's own" is decided by WHERE the option was declared, not by a
+      # name list: `enableGamescope` and `runtime` are bool/enum too, and
+      # neither is a player's choice (nor is any future framework option), so
+      # anything declared under this lib or in the wrapper base modules is
+      # dropped. An option with no recorded position is dropped as well, so the
+      # filter fails closed.
+      userOptions =
+        let
+          frameworkDirs = [
+            (toString ./.)
+            (toString wrappers)
+          ];
+          fromFramework =
+            pos: pos.file != null && lib.any (dir: lib.hasPrefix dir (toString pos.file)) frameworkDirs;
+          declaredByGame =
+            opt:
+            let
+              positions = opt.declarationPositions or [ ];
+            in
+            positions != [ ] && !(lib.any fromFramework positions);
+        in
+        lib.filterAttrs (
+          _: opt:
+          lib.isAttrs opt
+          && opt._type or null == "option"
+          && !(opt.internal or false)
+          && lib.elem (opt.type.name or "") [
+            "bool"
+            "enum"
+          ]
+          && declaredByGame opt
+        ) options;
+
+      settingsSchema =
+        let
+          # "fieldBackgrounds" -> "Field backgrounds".
+          prettify =
+            key:
+            let
+              spaced = lib.concatMapStrings (
+                c: if c == lib.toUpper c && c != lib.toLower c then " ${lib.toLower c}" else c
+              ) (lib.stringToCharacters key);
+            in
+            lib.toUpper (lib.substring 0 1 spaced) + lib.substring 1 (-1) spaced;
+
+          # First paragraph of the option's description, unwrapped onto one
+          # line. The rest is usually provenance and reasoning aimed at whoever
+          # reads default.nix, not at someone holding a pad.
+          summarize =
+            text:
+            lib.concatStringsSep " " (
+              lib.filter (w: w != "") (
+                lib.splitString " " (lib.replaceStrings [ "\n" ] [ " " ] (lib.head (lib.splitString "\n\n" text)))
+              )
+            );
+
+          entry =
+            key: opt:
+            {
+              inherit key;
+              label = prettify key;
+              help = summarize (opt.description or "");
+              default = cfg.${key};
+              kind = opt.type.name;
+            }
+            // lib.optionalAttrs (opt.type.name == "enum") {
+              choices = map toString opt.type.functor.payload.values;
+            };
+        in
+        lib.mapAttrsToList entry userOptions;
     in
     {
       _class = "wrapper";
@@ -803,6 +890,7 @@ let
             passthru = (old.passthru or { }) // {
               runtime = cfg.runtime;
               ipfsSources = cfg.ipfsSources;
+              inherit settingsSchema;
             };
             meta = (old.meta or { }) // gameMeta;
           });

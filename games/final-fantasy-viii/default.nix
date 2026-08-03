@@ -847,6 +847,11 @@ self.lib.mkGame { inherit lib pkgs; } {
             '';
           };
 
+          # NOTE: every bool/enum option above reaches the couch launcher's
+          # options screen automatically (lib/mk-game.nix builds the schema from
+          # the recipe's own declarations), `ffnx` included. `mods` and
+          # `internalResolutionScale` do not: a list of derivations and an int
+          # are not things a pad can present.
         };
 
         config = {

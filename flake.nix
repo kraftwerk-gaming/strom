@@ -125,6 +125,10 @@
           gameMeta = builtins.mapAttrs (_: p: {
             description = p.meta.description or null;
             runtime = p.passthru.runtime or "unknown";
+            # Player-facing bool/enum knobs, if the recipe declared any
+            # (lib/mk-game.nix `userSettings`); drives the launcher's
+            # customize view.
+            settings = p.passthru.settingsSchema or [ ];
           }) games;
         in
         {
