@@ -1,5 +1,6 @@
 {
   lib,
+  stdenv,
   writeShellScriptBin,
   writeText,
   python3,
@@ -23,6 +24,7 @@ writeShellScriptBin "strom-launcher" ''
   export PATH=${lib.makeBinPath [ nix ]}:$PATH
   export STROM_MANIFEST=${manifest}
   export STROM_GAMES=${../../games}
+  export STROM_SYSTEM=${stdenv.hostPlatform.system}
   : "''${STROM_FLAKE:=github:kraftwerk-gaming/strom}"
   export STROM_FLAKE
   exec ${py.interpreter} ${./launcher.py} "$@"

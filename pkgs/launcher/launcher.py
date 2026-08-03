@@ -24,14 +24,25 @@ import pygame  # noqa: E402
 MANIFEST = Path(os.environ["STROM_MANIFEST"])
 GAMES = Path(os.environ["STROM_GAMES"])
 FLAKE_REF = os.environ.get("STROM_FLAKE", "github:kraftwerk-gaming/strom")
+# Baked in by pkgs/launcher/default.nix. Only used to address
+# flake.modules.<system>.<slug> when building a customized game; having it here
+# keeps `builtins.currentSystem` (and its impurity) out of that expression.
+SYSTEM = os.environ["STROM_SYSTEM"]
 
 XDG_CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
 BANNER_CACHE = XDG_CACHE / "strom" / "banners"
 SHOT_CACHE = XDG_CACHE / "strom" / "shots"
 
-TILE_W, TILE_H = 460, 215
-TILE_GAP = 36
-COLS = 3
+# Per-game customize choices, keyed by slug: {"final-fantasy-viii": {"music":
+# "psx"}}. Only values that differ from the packaged default are stored, so an
+# empty (or missing) entry means "launch the plain package".
+CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "strom"
+SETTINGS_FILE = CONFIG_DIR / "settings.json"
+
+# Layout is computed from the actual window (see Layout.of); the only fixed
+# thing about a tile is its aspect, which is the aspect of the banner art
+# itself (Lutris serves 460x215).
+BANNER_ASPECT = 215 / 460
 
 BG_TOP = (12, 14, 24)
 BG_BOT = (24, 18, 38)
@@ -57,6 +68,73 @@ SHOT_DWELL = 0.5  # seconds a tile stays selected before its slideshow starts
 SHOT_HOLD = 3.2  # seconds each screenshot is shown
 SHOT_FADE = 0.5  # screenshot cross-fade duration
 MAX_SHOTS = 6  # screenshots fetched per game
+
+# --- layout ----------------------------------------------------------------
+#
+# Every metric below is derived from the window's real size, so the launcher
+# lays out for the display it is on rather than rendering a fixed 1920x1080
+# canvas and stretching it. Column count follows the width (a phone-ish narrow
+# window gets 2, a 2880px panel gets 4), tile height follows the banner aspect,
+# and text sizes follow the height. Rebuilt on every resize.
+
+
+class Layout:
+    __slots__ = (
+        "w",
+        "h",
+        "cols",
+        "tile_w",
+        "tile_h",
+        "gap",
+        "pop_w",
+        "pop_h",
+        "row_pitch",
+        "top",
+        "left",
+        "grid_x",
+        "foot_y",
+        "label_gap",
+        "font",
+        "small",
+        "badge_font",
+        "title_font",
+        "big_font",
+    )
+
+    def __init__(self, w: int, h: int):
+        self.w, self.h = w, h
+        # Columns follow the ASPECT, not the raw width: three across is the
+        # design at 16:9, a wider window fits more, a portrait one fits fewer.
+        # Keying it off width instead made tiles SHRINK on a bigger panel (a
+        # 2880x1920 screen got 5 columns of 411px where 1920x1080 had 3 of 460).
+        self.cols = max(2, min(5, round(3 * (w / h) / (16 / 9))))
+        self.gap = max(12, round(w * 0.019))
+        usable = round(w * 0.79)
+        self.tile_w = (usable - (self.cols - 1) * self.gap) // self.cols
+        self.tile_h = round(self.tile_w * BANNER_ASPECT)
+        self.pop_w = round(self.tile_w * POP_SCALE)
+        self.pop_h = round(self.tile_h * POP_SCALE)
+        # Room under each tile for its label plus a subtitle on the selected one.
+        self.label_gap = round(h * 0.046)
+        self.row_pitch = self.tile_h + self.gap + self.label_gap
+        self.top = round(h * 0.074)
+        self.left = round(w * 0.021)
+        grid_w = self.cols * self.tile_w + (self.cols - 1) * self.gap
+        self.grid_x = (w - grid_w) // 2
+        self.foot_y = h - round(h * 0.013)
+        self.font = pygame.font.SysFont(None, max(16, round(h * 0.0315)))
+        self.small = pygame.font.SysFont(None, max(13, round(h * 0.0222)))
+        self.badge_font = pygame.font.SysFont(
+            None, max(11, round(h * 0.0185)), bold=True
+        )
+        self.title_font = pygame.font.SysFont(
+            None, max(24, round(h * 0.052)), bold=True
+        )
+        self.big_font = pygame.font.SysFont(None, max(24, round(h * 0.048)), bold=True)
+
+    @classmethod
+    def of(cls, surface: pygame.Surface) -> "Layout":
+        return cls(*surface.get_size())
 
 
 # Filter facets for the overview. `genres` come straight from the catalog;
@@ -160,6 +238,10 @@ def load_manifest() -> list[dict]:
                 "tags": set(cat.get("tags") or []),
                 "screenshots": list(cat.get("screenshots") or []),
                 "hero": cat.get("hero"),
+                # Player-facing bool/enum knobs this game declares, already
+                # resolved to {key,kind,label,help,default,choices} by
+                # lib/mk-game.nix. Empty for almost every game.
+                "settings": list(meta.get("settings") or []),
             }
         )
     return games
@@ -194,13 +276,18 @@ def fetch_banner(slug: str, hero: str | None = None) -> Path | None:
         return None
 
 
-def load_banner_surface(slug: str, hero: str | None = None) -> pygame.Surface | None:
+def load_banner_surface(
+    slug: str, hero: str | None, size: tuple[int, int]
+) -> pygame.Surface | None:
+    """Banner art scaled to `size`. Loaded from the cache file each time rather
+    than kept at native size: a resize is rare, and holding ~700 unscaled
+    surfaces to save a rescale is the wrong trade."""
     p = fetch_banner(slug, hero)
     if p is None:
         return None
     try:
         img = pygame.image.load(str(p)).convert()
-        return pygame.transform.smoothscale(img, (TILE_W, TILE_H))
+        return pygame.transform.smoothscale(img, size)
     except pygame.error:
         return None
 
@@ -303,14 +390,74 @@ def make_badge(font: pygame.font.Font, text: str, color: tuple) -> pygame.Surfac
     return s
 
 
+# --- our window ------------------------------------------------------------
+#
+# A game does NOT get the screen by asking for it: gamescope is launched
+# windowed on purpose, so on a normal sway/wayland desktop our fullscreen
+# surface would simply sit on top of the game's tiled window and the operator
+# would stare at the grid while the game they started renders underneath. So the
+# launcher hands the screen back for the duration of a game: the window is
+# destroyed and SDL is re-initialised on the dummy video driver, which keeps the
+# event queue (and therefore the Back+Start kill combo and pad hotplug) alive
+# with no window at all. Under the gamescope-session kiosk this costs nothing --
+# there the game is a client of the session compositor either way.
+
+_SDL_DRIVER = os.environ.get("SDL_VIDEODRIVER")
+
+
+def open_display() -> pygame.Surface:
+    """(Re)create the launcher window at the size the compositor gives us.
+
+    No `SCALED`: the UI lays itself out for whatever surface it gets (see
+    Layout), so there is no logical resolution to scale from. A plain resizable
+    window is the default because the launcher is an ordinary application on a
+    desktop; fullscreen is opt-IN via `STROM_LAUNCHER_FULLSCREEN` for a
+    couch/kiosk seat, where taking the whole output is the point."""
+    if os.environ.get("STROM_LAUNCHER_FULLSCREEN"):
+        screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    else:
+        # Default to most of the desktop without covering it. desktop_sizes()
+        # is unavailable on the dummy driver, hence the fallback.
+        try:
+            dw, dh = pygame.display.get_desktop_sizes()[0]
+        except (pygame.error, IndexError):
+            dw, dh = 1600, 900
+        screen = pygame.display.set_mode(
+            (round(dw * 0.8), round(dh * 0.8)), pygame.RESIZABLE
+        )
+    pygame.display.set_caption("strom")
+    return screen
+
+
+def release_display() -> None:
+    """Drop our window (see above). Surfaces stay valid across this -- they are
+    software surfaces, not textures bound to the window."""
+    pygame.display.quit()
+    os.environ["SDL_VIDEODRIVER"] = "dummy"
+    pygame.display.init()
+    pygame.display.set_mode((1, 1))
+
+
+def reclaim_display() -> pygame.Surface:
+    """Take the screen back after the game exits. Returns the NEW display
+    surface; the one held across `release_display` is dead."""
+    pygame.display.quit()
+    if _SDL_DRIVER is None:
+        os.environ.pop("SDL_VIDEODRIVER", None)
+    else:
+        os.environ["SDL_VIDEODRIVER"] = _SDL_DRIVER
+    pygame.display.init()
+    return open_display()
+
+
 # --- launch progress -------------------------------------------------------
 #
-# `nix run` builds the game before running it, and the first launch of an
-# uncached game fetches/builds for minutes with nothing on screen. Rather than
-# invent our own progress, reuse nix's: `nix build --log-format internal-json`
-# emits the exact activity/result stream that drives nix's own progress bar
-# (start/stop activities, done/expected counts, build-log lines). Parse that
-# generically and draw it; then `nix run` (cached now) starts the game at once.
+# The first launch of an uncached game fetches/builds for minutes, and doing
+# that with nothing on screen is unacceptable. Rather than invent our own
+# progress, reuse nix's: `nix build --log-format internal-json` emits the exact
+# activity/result stream that drives nix's own progress bar (start/stop
+# activities, done/expected counts, build-log lines). Parse that generically and
+# draw it; the same command's `--print-out-paths` then names the binary to exec.
 
 KILL_COMBO = {6, 7}  # Back (View) + Start (Menu) on an Xbox pad
 
@@ -471,15 +618,301 @@ def _draw_progress(screen, fonts, bg, state, lock, t) -> None:
     pygame.display.flip()
 
 
-def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
+# --- per-game settings -----------------------------------------------------
+#
+# A game may flag bool/enum options of its own as player-facing (`user = true`,
+# see lib/mk-option.nix); the flake resolves those into a schema per game and
+# the launcher's manifest carries it. Picking a non-default value means building
+# a different derivation -- there is no runtime switch for a mod that is an
+# overlay lower -- so a customized launch goes through
+# `flake.modules.<system>.<slug>.apply`, the same path a hand-written override
+# takes.
+
+
+def load_settings() -> dict:
+    data = _read_json(SETTINGS_FILE)
+    return {k: v for k, v in data.items() if isinstance(v, dict)}
+
+
+def save_settings(chosen: dict) -> None:
+    CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+    tmp = SETTINGS_FILE.with_suffix(".json.new")
+    tmp.write_text(json.dumps(chosen, indent=2, sort_keys=True) + "\n")
+    tmp.replace(SETTINGS_FILE)
+
+
+def prune_settings(chosen: dict, games: list[dict]) -> dict:
+    """Drop stored choices the current flake revision no longer offers (a key
+    that is gone, a value an enum no longer accepts) and anything that just
+    restates the default, so a stale file can never build a bogus expression."""
+    schemas = {g["slug"]: {s["key"]: s for s in g["settings"]} for g in games}
+    out = {}
+    for slug, picked in chosen.items():
+        schema = schemas.get(slug, {})
+        keep = {}
+        for key, value in picked.items():
+            spec = schema.get(key)
+            if not spec or value == spec["default"]:
+                continue
+            if spec["kind"] == "bool" and not isinstance(value, bool):
+                continue
+            if spec["kind"] == "enum" and value not in spec["choices"]:
+                continue
+            keep[key] = value
+        if keep:
+            out[slug] = keep
+    return out
+
+
+def _nix_literal(value) -> str:
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int):
+        return str(value)
+    # A nix string takes the same escapes as JSON, plus ${...} interpolation.
+    return json.dumps(str(value)).replace("${", "\\${")
+
+
+def build_expr(slug: str, overrides: dict, no_gamescope: bool) -> str:
+    """The `--expr` installable for a game with non-default settings.
+
+    mkForce because an override has to win over whatever the recipe's own
+    `config` sets, not merely tie with it.
+
+    This needs `--impure`, and only for one reason: `builtins.getFlake` refuses
+    an unlocked flake reference in pure evaluation mode, and STROM_FLAKE is
+    exactly that -- `github:kraftwerk-gaming/strom` with no rev, or a path to a
+    working checkout. The system comes from STROM_SYSTEM (baked in at build
+    time) rather than `builtins.currentSystem`, so that is not a second reason.
+
+    `no_gamescope` mirrors what the plain path does by appending
+    `.no-gamescope` to the ref: under a gamescope-session kiosk
+    (STROM_NO_GAMESCOPE=1) the session compositor already IS gamescope, so the
+    game renders into it directly instead of nesting a second one. It is not a
+    policy this code invents, and it is the only case where the launcher touches
+    an option the player did not pick."""
+    args = dict(overrides)
+    if no_gamescope:
+        args["enableGamescope"] = False
+    body = "".join(
+        f"  {key} = lib.mkForce {_nix_literal(value)};\n"
+        for key, value in sorted(args.items())
+    )
+    return (
+        "let\n"
+        f'  flake = builtins.getFlake "{FLAKE_REF}";\n'
+        "  lib = flake.inputs.nixpkgs.lib;\n"
+        "in\n"
+        f"(flake.modules.{SYSTEM}.{slug}.apply {{\n{body}}}).outputs.wrapper\n"
+    )
+
+
+def _game_binary(out_path: str, slug: str) -> str | None:
+    """The launchable binary inside a built game's output. `lib/mk-game.nix`
+    names it after the game (`bwrap.binName = cfg.name`), so this is a
+    construction guarantee, not a guess; fall back to a lone entry in bin/
+    rather than picking one arbitrarily."""
+    if not out_path:
+        return None
+    bindir = Path(out_path) / "bin"
+    exact = bindir / slug
+    if exact.exists():
+        return str(exact)
+    try:
+        entries = sorted(bindir.iterdir())
+    except OSError:
+        return None
+    return str(entries[0]) if len(entries) == 1 else None
+
+
+def fmt_value(spec: dict, value) -> str:
+    if spec["kind"] == "bool":
+        return "on" if value else "off"
+    return str(value)
+
+
+def cycle_value(spec: dict, value, step: int):
+    if spec["kind"] == "bool":
+        return not value
+    values = spec["choices"]
+    idx = values.index(value) if value in values else 0
+    return values[(idx + step) % len(values)]
+
+
+def wrap_text(font: pygame.font.Font, text: str, width: int) -> list[str]:
+    lines: list[str] = []
+    cur = ""
+    for word in text.split():
+        cand = f"{cur} {word}".strip()
+        if not cur or font.size(cand)[0] <= width:
+            cur = cand
+        else:
+            lines.append(cur)
+            cur = word
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def settings_view(
+    screen: pygame.Surface, game: dict, picked: dict, pads: dict
+) -> tuple[str, dict]:
+    """Modal per-game customize view. Returns ("launch" | "back", choices),
+    where choices holds only the values that differ from the defaults."""
+    specs = game["settings"]
+    values = {s["key"]: picked.get(s["key"], s["default"]) for s in specs}
+
+    lay = Layout.of(screen)
+    bg = make_gradient(lay.w, lay.h)
+
+    def measure():
+        """Everything that depends on the window size, so a resize just calls
+        this again."""
+        title = lay.title_font.render(
+            f"{game.get('label', game['slug'])} -- options", True, TEXT
+        )
+        hint = lay.small.render(
+            "D-pad / arrows  move      Left/Right  change      "
+            "A / Enter  launch      X  defaults      B / Esc  back",
+            True,
+            DIM,
+        )
+        row_h = round(lay.h * 0.054)
+        # Selected-row plate. Drawn on its own SRCALPHA surface and blitted:
+        # pygame.draw ignores the alpha channel of a colour when the target has
+        # no per-pixel alpha, which turned the row into a solid accent block.
+        pad = round(lay.w * 0.0125)
+        plate = pygame.Surface(
+            (lay.w - 2 * (lay.left * 4 - pad), row_h - 6), pygame.SRCALPHA
+        )
+        pygame.draw.rect(plate, (*ACCENT, 46), plate.get_rect(), border_radius=8)
+        pygame.draw.rect(
+            plate, (*ACCENT, 120), plate.get_rect(), width=2, border_radius=8
+        )
+        return title, hint, row_h, pad, plate
+
+    title, hint, row_h, pad, row_hl = measure()
+    left = lay.left * 4
+    top = round(lay.h * 0.157)
+    val_x = lay.w - left
+    help_w = lay.w - 2 * left
+
+    def relayout(size: tuple[int, int]) -> None:
+        nonlocal lay, bg, title, hint, row_h, pad, row_hl, left, top, val_x, help_w
+        screen = pygame.display.set_mode(size, pygame.RESIZABLE)
+        lay = Layout.of(screen)
+        bg = make_gradient(lay.w, lay.h)
+        title, hint, row_h, pad, row_hl = measure()
+        left = lay.left * 4
+        top = round(lay.h * 0.157)
+        val_x = lay.w - left
+        help_w = lay.w - 2 * left
+
+    sel = 0
+    axis_latch = {0: 0, 1: 0}
+    action = "back"
+    clock = pygame.time.Clock()
+    running = True
+    while running:
+        # Wait with a timeout rather than indefinitely: the first pass must
+        # reach the draw below without an input, and pads need the rescan.
+        for ev in [pygame.event.wait(100)] + pygame.event.get():
+            if ev.type == pygame.QUIT:
+                running = False
+            elif ev.type == pygame.VIDEORESIZE:
+                relayout((ev.w, ev.h))
+                screen = pygame.display.get_surface()
+            elif ev.type == pygame.KEYDOWN:
+                if ev.key in (pygame.K_ESCAPE, pygame.K_BACKSPACE):
+                    running = False
+                elif ev.key in (pygame.K_DOWN, pygame.K_s):
+                    sel = (sel + 1) % len(specs)
+                elif ev.key in (pygame.K_UP, pygame.K_w):
+                    sel = (sel - 1) % len(specs)
+                elif ev.key in (pygame.K_RIGHT, pygame.K_d):
+                    key = specs[sel]["key"]
+                    values[key] = cycle_value(specs[sel], values[key], 1)
+                elif ev.key in (pygame.K_LEFT, pygame.K_a):
+                    key = specs[sel]["key"]
+                    values[key] = cycle_value(specs[sel], values[key], -1)
+                elif ev.key in (pygame.K_r, pygame.K_x):
+                    values = {s["key"]: s["default"] for s in specs}
+                elif ev.key in (pygame.K_RETURN, pygame.K_SPACE):
+                    action = "launch"
+                    running = False
+            elif ev.type == pygame.JOYHATMOTION:
+                hx, hy = ev.value
+                if hy:
+                    sel = (sel - hy) % len(specs)
+                elif hx:
+                    key = specs[sel]["key"]
+                    values[key] = cycle_value(specs[sel], values[key], hx)
+            elif ev.type == pygame.JOYAXISMOTION and ev.axis in (0, 1):
+                prev = axis_latch[ev.axis]
+                if abs(ev.value) > 0.6 and prev == 0:
+                    step = 1 if ev.value > 0 else -1
+                    axis_latch[ev.axis] = step
+                    if ev.axis == 1:
+                        sel = (sel + step) % len(specs)
+                    else:
+                        key = specs[sel]["key"]
+                        values[key] = cycle_value(specs[sel], values[key], step)
+                elif abs(ev.value) < 0.3 and prev != 0:
+                    axis_latch[ev.axis] = 0
+            elif ev.type == pygame.JOYBUTTONDOWN:
+                if ev.button == 0:
+                    action = "launch"
+                    running = False
+                elif ev.button == 1:
+                    running = False
+                elif ev.button == 2:
+                    values = {s["key"]: s["default"] for s in specs}
+            elif ev.type == pygame.JOYDEVICEADDED:
+                _rescan_pads(pads)
+
+        screen.blit(bg, (0, 0))
+        screen.blit(title, (left, round(lay.h * 0.056)))
+        for i, spec in enumerate(specs):
+            y = top + i * row_h
+            cur = i == sel
+            color = TEXT if cur else DIM
+            if cur:
+                screen.blit(row_hl, (left - pad, y - round(row_h * 0.14)))
+            lab = lay.font.render(spec["label"], True, color)
+            screen.blit(lab, (left, y))
+            shown = fmt_value(spec, values[spec["key"]])
+            if values[spec["key"]] != spec["default"]:
+                shown += " *"
+            val = lay.font.render(f"<  {shown}  >" if cur else shown, True, color)
+            screen.blit(val, val.get_rect(topright=(val_x, y)))
+
+        help_y = top + len(specs) * row_h + round(lay.h * 0.037)
+        for line in wrap_text(lay.small, specs[sel]["help"], help_w):
+            screen.blit(lay.small.render(line, True, DIM), (left, help_y))
+            help_y += round(lay.small.get_height() * 1.15)
+
+        screen.blit(hint, hint.get_rect(midbottom=(lay.w // 2, lay.foot_y)))
+        pygame.display.flip()
+        clock.tick(30)
+
+    pygame.event.clear()
+    defaults = {s["key"]: s["default"] for s in specs}
+    return action, {k: v for k, v in values.items() if v != defaults[k]}
+
+
+def launch_with_fade(
+    screen: pygame.Surface, game: dict, overrides: dict | None = None
+) -> pygame.Surface:
+    """Build the game, hand the screen over to it, take it back when it exits.
+    Returns the display surface to keep drawing on -- a NEW one whenever the
+    window had to be recreated, so callers must not reuse the one they passed."""
     slug = game["slug"]
     label = game.get("label", slug)
-    sw, sh = screen.get_size()
-
-    big = pygame.font.SysFont(None, 56, bold=True)
-    mid = pygame.font.SysFont(None, 34)
-    small = pygame.font.SysFont(None, 24)
-    fonts = (big, mid, small)
+    lay = Layout.of(screen)
+    sw, sh = lay.w, lay.h
+    big = lay.big_font
+    fonts = (big, lay.font, lay.small)
+    small = lay.small
     bg = make_gradient(sw, sh)
 
     # fade the grid out under a "launching <label>" caption
@@ -496,12 +929,27 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
 
     # In a gamescope-session kiosk (STROM_NO_GAMESCOPE=1) run the game directly
     # in the session compositor instead of nesting a per-game gamescope.
-    ref = f"{FLAKE_REF}#{slug}"
-    if os.environ.get("STROM_NO_GAMESCOPE"):
-        ref += ".no-gamescope"
+    no_gamescope = bool(os.environ.get("STROM_NO_GAMESCOPE"))
+    overrides = overrides or {}
 
-    # Phase 1: build, showing nix's own progress. `nix run` alone would build
-    # too, but silently; building first lets us surface the download/build.
+    # What to build. A customized game is not one of the flake's packaged
+    # attributes, so it is addressed as an `apply` expression instead of a ref;
+    # both forms are installables, so the command below takes either unchanged.
+    if overrides:
+        installable = ["--impure", "--expr", build_expr(slug, overrides, no_gamescope)]
+    else:
+        installable = [
+            f"{FLAKE_REF}#{slug}" + (".no-gamescope" if no_gamescope else "")
+        ]
+
+    # ONE nix invocation, then exec what it produced. `nix build` is the one
+    # that can report progress (`--log-format internal-json` is the same stream
+    # nix's own progress bar consumes) and `--print-out-paths` hands back the
+    # path, so a following `nix run` would only re-evaluate the identical
+    # installable to arrive at the same store path -- ~3s for a trivial game,
+    # uncached, since `--impure` turns the eval cache off. Worse, `nix run`
+    # re-resolves the ref: an unlocked `github:` STROM_FLAKE could move between
+    # the two commands and start a build we never showed progress for.
     state = {
         "headline": "preparing",
         "detail": "",
@@ -510,13 +958,22 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
         "error": "",
     }
     lock = threading.Lock()
-    build = ["nix", "build", ref, "--no-link", "-L", "--log-format", "internal-json"]
+    build = [
+        "nix",
+        "build",
+        *installable,
+        "--no-link",
+        "-L",
+        "--log-format",
+        "internal-json",
+        "--print-out-paths",
+    ]
     print(f"+ {' '.join(build)}", file=sys.stderr)
     try:
         proc = subprocess.Popen(
             build,
             start_new_session=True,
-            stdout=subprocess.DEVNULL,
+            stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
             bufsize=1,
@@ -524,7 +981,7 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
     except FileNotFoundError:
         print("nix not found in PATH", file=sys.stderr)
         pygame.event.clear()
-        return
+        return screen
     threading.Thread(target=_read_nix, args=(proc, state, lock), daemon=True).start()
 
     held: set = set()
@@ -539,20 +996,18 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
         if _poll_kill(held, pads, proc):
             _terminate(proc)
             pygame.event.clear()
-            return
+            return screen
         _draw_progress(screen, fonts, bg, state, lock, t)
         t += clock.tick(30) / 1000.0
 
-    if rc != 0:
-        with lock:
-            err = state["error"] or state["detail"] or "see journal"
+    def _fail(err: str) -> None:
         screen.blit(bg, (0, 0))
         t1 = big.render(f"failed to launch {label}", True, (240, 150, 150))
         screen.blit(t1, t1.get_rect(center=(sw // 2, sh // 2 - 30)))
         t2 = small.render(err[:104], True, DIM)
         screen.blit(t2, t2.get_rect(center=(sw // 2, sh // 2 + 30)))
-        hint = small.render("any button to continue", True, DIM)
-        screen.blit(hint, hint.get_rect(midbottom=(sw // 2, sh - 24)))
+        msg = small.render("any button to continue", True, DIM)
+        screen.blit(msg, msg.get_rect(midbottom=(sw // 2, sh - 24)))
         pygame.display.flip()
         held.clear()
         waited = 0
@@ -562,24 +1017,35 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
                     waited = 5000
             waited += clock.tick(30)
         pygame.event.clear()
-        return
 
-    # Phase 2: run. Build is cached now, so `nix run` starts the game at once;
-    # its gamescope maps over us under sway. Hold Back+Start to kill it.
+    if rc != 0:
+        with lock:
+            err = state["error"] or state["detail"] or "see journal"
+        _fail(err)
+        return screen
+
+    # Hand the screen to the game (see release_display), then run it. Hold
+    # Back+Start to kill it; the combo still works with no window because the
+    # dummy driver keeps SDL's event queue pumping.
+    printed = (proc.stdout.read() if proc.stdout else "").strip().splitlines()
+    binary = _game_binary(printed[-1] if printed else "", slug)
+    if not binary:
+        _fail("built game has no launchable binary")
+        return screen
     cap = big.render(f"starting {label}", True, TEXT)
     screen.blit(bg, (0, 0))
     screen.blit(cap, cap.get_rect(center=(sw // 2, sh // 2)))
     pygame.display.flip()
-    run = ["nix", "run", ref]
-    print(f"+ {' '.join(run)}", file=sys.stderr)
+    print(f"+ {binary}", file=sys.stderr)
+    release_display()
     try:
         # start_new_session so the whole game tree gets its own process group
-        # and we can signal all of it, not just `nix run`.
-        proc = subprocess.Popen(run, start_new_session=True)
-    except FileNotFoundError:
-        print("nix not found in PATH", file=sys.stderr)
+        # and we can signal all of it, not just the wrapper.
+        proc = subprocess.Popen([binary], start_new_session=True)
+    except OSError as err:
+        print(f"{binary}: {err}", file=sys.stderr)
         pygame.event.clear()
-        return
+        return reclaim_display()
 
     held.clear()
     while proc.poll() is None:
@@ -587,16 +1053,20 @@ def launch_with_fade(screen: pygame.Surface, game: dict) -> None:
             _terminate(proc)
         clock.tick(30)
     _terminate(proc)
+    screen = reclaim_display()
     pygame.event.clear()
+    return screen
 
 
-def target_scroll(sel: int, cur: float, sh: int) -> float:
-    row = sel // COLS
-    tile_y = 80 + row * (TILE_H + TILE_GAP + 50)
-    if tile_y - cur < 80:
-        return float(tile_y - 80)
-    if tile_y + TILE_H - cur > sh - 120:
-        return float(tile_y + TILE_H - sh + 120)
+def target_scroll(sel: int, cur: float, lay: Layout) -> float:
+    """Keep the selected row inside the viewport, in layout units."""
+    row = sel // lay.cols
+    tile_y = lay.top + row * lay.row_pitch
+    if tile_y - cur < lay.top:
+        return float(tile_y - lay.top)
+    bottom_pad = lay.top + lay.label_gap
+    if tile_y + lay.tile_h - cur > lay.h - bottom_pad:
+        return float(tile_y + lay.tile_h - lay.h + bottom_pad)
     return cur
 
 
@@ -605,6 +1075,10 @@ def main() -> int:
     if not games:
         print("manifest empty", file=sys.stderr)
         return 1
+
+    # Customize choices persist across launches, and across flake revisions
+    # that change what a game offers -- hence the prune before first use.
+    picked = prune_settings(load_settings(), games)
 
     facets = build_facets(games)
     facet_idx = 0
@@ -620,30 +1094,18 @@ def main() -> int:
 
     _rescan_pads(joysticks)
 
-    flags = pygame.FULLSCREEN | pygame.SCALED
-    if os.environ.get("STROM_LAUNCHER_WINDOWED"):
-        flags = pygame.RESIZABLE
-    screen = pygame.display.set_mode((1920, 1080), flags)
-    pygame.display.set_caption("strom")
-    sw, sh = screen.get_size()
+    screen = open_display()
+    lay = Layout.of(screen)
+    sw, sh = lay.w, lay.h
 
-    font = pygame.font.SysFont(None, 34)
-    small = pygame.font.SysFont(None, 24)
-    badge_font = pygame.font.SysFont(None, 20, bold=True)
-    title_font = pygame.font.SysFont(None, 56, bold=True)
-
-    # static layers
-    bg = make_gradient(sw, sh)
-    vignette = make_vignette(sw, sh)
-    shadow = make_shadow(TILE_W, TILE_H)
-    title = title_font.render("STROM", True, ACCENT)
+    # Every surface below is sized from `lay` and rebuilt by relayout() when the
+    # window changes size; nothing here assumes a resolution.
+    bg = vignette = shadow = pop_shadow = title = None
 
     # Banner art loads without blocking the grid: a background thread downloads
     # every banner into the cache, and pump_banners() pulls finished ones into
     # surfaces a few per frame from the main loop. Previously this warmed ~700
     # banners synchronously before the event loop, delaying input for minutes.
-    pop_w, pop_h = int(TILE_W * POP_SCALE), int(TILE_H * POP_SCALE)
-    pop_shadow = make_shadow(pop_w, pop_h)
     banners: dict[str, pygame.Surface] = {}
     banners_pop: dict[str, pygame.Surface] = {}
     banner_queue = [g["slug"] for g in games]
@@ -665,12 +1127,14 @@ def main() -> int:
                 break  # prefetch works in order; nothing later is ready yet
             banner_queue.pop(0)
             if banner_done[slug]:
-                surf = load_banner_surface(slug, hero_by_slug.get(slug))
+                surf = load_banner_surface(
+                    slug, hero_by_slug.get(slug), (lay.tile_w, lay.tile_h)
+                )
                 if surf:
                     surf = round_surface(surf, 8)
                     banners[slug] = surf
                     banners_pop[slug] = pygame.transform.smoothscale(
-                        surf, (pop_w, pop_h)
+                        surf, (lay.pop_w, lay.pop_h)
                     )
             loaded += 1
 
@@ -718,37 +1182,98 @@ def main() -> int:
         surfs = shot_surfs.setdefault(slug, [])
         loaded = 0
         while len(surfs) < len(files) and loaded < budget:
-            surfs.append(load_shot_surface(files[len(surfs)], pop_w, pop_h))
+            surfs.append(load_shot_surface(files[len(surfs)], lay.pop_w, lay.pop_h))
             loaded += 1
 
-    # pre-render badges
     badges: dict[str, pygame.Surface] = {}
-    for g in games:
-        rt = g["runtime"]
-        if rt not in badges:
-            color = RUNTIME_COLORS.get(rt, (100, 100, 110))
-            badges[rt] = make_badge(badge_font, rt, color)
+    labels_dim: dict[str, pygame.Surface] = {}
+    labels_sel: dict[str, pygame.Surface] = {}
+    subtitles: dict[str, pygame.Surface] = {}
+    tuned_badge = dimmer = hint = hint_opts = None
 
-    # dim overlay for non-selected tiles
-    dimmer = pygame.Surface((TILE_W, TILE_H), pygame.SRCALPHA)
-    dimmer.fill((0, 0, 0, 90))
-    dimmer = round_surface(dimmer, 8)
+    # Footer legend. The options entry is always present -- only a couple of
+    # games in the catalog expose settings, so hiding the entry on the rest
+    # means nobody ever discovers it -- and it greys out on a game that has
+    # none instead of moving, so the line never reflows under the selection.
+    def _legend(options_color: tuple) -> pygame.Surface:
+        parts = [
+            ("D-pad / arrows  move      A / Enter  launch      ", DIM),
+            ("Y / C  options", options_color),
+            ("      LB / RB  filter      B / Esc  quit", DIM),
+        ]
+        rendered = [lay.small.render(text, True, color) for text, color in parts]
+        out = pygame.Surface(
+            (
+                sum(s.get_width() for s in rendered),
+                max(s.get_height() for s in rendered),
+            ),
+            pygame.SRCALPHA,
+        )
+        x = 0
+        for surf in rendered:
+            out.blit(surf, (x, 0))
+            x += surf.get_width()
+        return out
 
-    # Pre-render per-game labels and the footer hint once. Re-rendering this
-    # text every frame was a large slice of the per-frame cost.
-    labels_dim = {g["slug"]: small.render(g["label"], True, DIM) for g in games}
-    labels_sel = {g["slug"]: font.render(g["label"], True, TEXT) for g in games}
-    subtitles = {
-        g["slug"]: small.render(g["subtitle"], True, DIM)
-        for g in games
-        if g["subtitle"]
-    }
-    hint = small.render(
-        "D-pad / arrows  move      A / Enter  launch      "
-        "LB / RB  filter      B / Esc  quit",
-        True,
-        DIM,
-    )
+    def rebuild_visuals() -> None:
+        """(Re)render everything whose size depends on the window: gradients,
+        drop shadows, badges, the per-game text, the legend. Called once at
+        startup and again after every resize, so text stays crisp instead of
+        being a scaled bitmap."""
+        nonlocal bg, vignette, shadow, pop_shadow, title
+        nonlocal tuned_badge, dimmer, hint, hint_opts
+        bg = make_gradient(lay.w, lay.h)
+        vignette = make_vignette(lay.w, lay.h)
+        shadow = make_shadow(lay.tile_w, lay.tile_h)
+        pop_shadow = make_shadow(lay.pop_w, lay.pop_h)
+        title = lay.title_font.render("STROM", True, ACCENT)
+
+        badges.clear()
+        for g in games:
+            rt = g["runtime"]
+            if rt not in badges:
+                color = RUNTIME_COLORS.get(rt, (100, 100, 110))
+                badges[rt] = make_badge(lay.badge_font, rt, color)
+        # Marks a tile whose stored settings differ from the packaged defaults,
+        # so it is visible from the grid that this game builds something custom.
+        tuned_badge = make_badge(lay.badge_font, "tuned", (226, 160, 70))
+
+        # dim overlay for non-selected tiles
+        dim = pygame.Surface((lay.tile_w, lay.tile_h), pygame.SRCALPHA)
+        dim.fill((0, 0, 0, 90))
+        dimmer = round_surface(dim, 8)
+
+        # Per-game text is pre-rendered: doing it per frame was a large slice of
+        # the frame cost with ~700 tiles.
+        labels_dim.clear()
+        labels_sel.clear()
+        subtitles.clear()
+        for g in games:
+            labels_dim[g["slug"]] = lay.small.render(g["label"], True, DIM)
+            labels_sel[g["slug"]] = lay.font.render(g["label"], True, TEXT)
+            if g["subtitle"]:
+                subtitles[g["slug"]] = lay.small.render(g["subtitle"], True, DIM)
+
+        hint = _legend((62, 65, 78))
+        hint_opts = _legend(ACCENT)
+
+    rebuild_visuals()
+
+    def relayout(size: tuple[int, int]) -> None:
+        """Adopt a new window size: recompute the layout, re-render everything,
+        and drop the art caches so banners and screenshots come back at the new
+        tile size instead of being stretched."""
+        nonlocal screen, lay, sw, sh, scroll, scroll_tgt
+        screen = pygame.display.set_mode(size, pygame.RESIZABLE)
+        lay = Layout.of(screen)
+        sw, sh = lay.w, lay.h
+        rebuild_visuals()
+        banners.clear()
+        banners_pop.clear()
+        banner_queue[:] = [g["slug"] for g in games if banner_done.get(g["slug"])]
+        banner_queue.extend(g["slug"] for g in games if g["slug"] not in banner_done)
+        shot_surfs.clear()
+        scroll = scroll_tgt = target_scroll(sel, 0.0, lay)
 
     sel = 0
     scroll = 0.0
@@ -780,21 +1305,29 @@ def main() -> int:
     repeat_at = 0.0
     REPEAT_DELAY = 0.35
     REPEAT_INTERVAL = 0.09
-    KEY_MOVE = {
+    # Vertical steps are one grid row, so they follow the current column count.
+    KEY_MOVE_H = {
         pygame.K_RIGHT: 1,
         pygame.K_d: 1,
         pygame.K_LEFT: -1,
         pygame.K_a: -1,
-        pygame.K_DOWN: COLS,
-        pygame.K_s: COLS,
-        pygame.K_UP: -COLS,
-        pygame.K_w: -COLS,
     }
+    KEY_MOVE_V = {
+        pygame.K_DOWN: 1,
+        pygame.K_s: 1,
+        pygame.K_UP: -1,
+        pygame.K_w: -1,
+    }
+
+    def key_move(key: int) -> int:
+        if key in KEY_MOVE_H:
+            return KEY_MOVE_H[key]
+        return KEY_MOVE_V.get(key, 0) * lay.cols
 
     def move(d: int) -> None:
         nonlocal sel, scroll_tgt
         sel = max(0, min(n - 1, sel + d))
-        scroll_tgt = target_scroll(sel, scroll_tgt, sh)
+        scroll_tgt = target_scroll(sel, scroll_tgt, lay)
 
     def start_hold(d: int) -> None:
         nonlocal held_move, repeat_at
@@ -823,8 +1356,29 @@ def main() -> int:
     def cycle_facet(step: int) -> None:
         set_facet(facet_idx + step)
 
-    grid_w = COLS * TILE_W + (COLS - 1) * TILE_GAP
-    ox = (sw - grid_w) // 2
+    def launch(game: dict) -> None:
+        # The window is destroyed while the game has the screen, so pick up the
+        # surface the launch hands back rather than the one captured above.
+        nonlocal screen
+        stop_hold()
+        screen = launch_with_fade(screen, game, picked.get(game["slug"]))
+
+    def open_options(game: dict) -> None:
+        """Customize view for a game that declares settings; a launch from
+        inside it uses the choices just made."""
+        if not game["settings"]:
+            return
+        stop_hold()
+        action, chosen = settings_view(
+            screen, game, picked.get(game["slug"], {}), joysticks
+        )
+        if chosen:
+            picked[game["slug"]] = chosen
+        else:
+            picked.pop(game["slug"], None)
+        save_settings(picked)
+        if action == "launch":
+            launch(game)
 
     def _settled() -> bool:
         # True when no animation is in flight, so the loop can idle on events
@@ -867,27 +1421,30 @@ def main() -> int:
         for ev in pending:
             if ev.type == pygame.QUIT:
                 running = False
+            elif ev.type == pygame.VIDEORESIZE:
+                relayout((ev.w, ev.h))
             elif ev.type == pygame.KEYDOWN:
                 if ev.key == pygame.K_ESCAPE:
                     running = False
-                elif ev.key in KEY_MOVE:
-                    start_hold(KEY_MOVE[ev.key])
+                elif key_move(ev.key):
+                    start_hold(key_move(ev.key))
                 elif ev.key == pygame.K_q:
                     cycle_facet(-1)
                 elif ev.key == pygame.K_e:
                     cycle_facet(1)
+                elif ev.key == pygame.K_c:
+                    open_options(view[sel])
                 elif ev.key in (pygame.K_RETURN, pygame.K_SPACE):
-                    stop_hold()
-                    launch_with_fade(screen, view[sel])
+                    launch(view[sel])
             elif ev.type == pygame.KEYUP:
-                if ev.key in KEY_MOVE:
-                    stop_hold(KEY_MOVE[ev.key])
+                if key_move(ev.key):
+                    stop_hold(key_move(ev.key))
             elif ev.type == pygame.JOYHATMOTION:
                 hx, hy = ev.value
                 if hx:
                     start_hold(hx)
                 elif hy:
-                    start_hold(-hy * COLS)
+                    start_hold(-hy * lay.cols)
                 else:
                     stop_hold()
             elif ev.type == pygame.JOYAXISMOTION:
@@ -897,16 +1454,17 @@ def main() -> int:
                     if abs(v) > AXIS_DEAD and prev == 0:
                         step = 1 if v > 0 else -1
                         axis_latched[ev.axis] = step
-                        start_hold(step if ev.axis == 0 else step * COLS)
+                        start_hold(step if ev.axis == 0 else step * lay.cols)
                     elif abs(v) < AXIS_DEAD * 0.5 and prev != 0:
                         axis_latched[ev.axis] = 0
-                        stop_hold(prev if ev.axis == 0 else prev * COLS)
+                        stop_hold(prev if ev.axis == 0 else prev * lay.cols)
             elif ev.type == pygame.JOYBUTTONDOWN:
                 if ev.button == 0:
-                    stop_hold()
-                    launch_with_fade(screen, view[sel])
+                    launch(view[sel])
                 elif ev.button == 1:
                     running = False
+                elif ev.button == 3:
+                    open_options(view[sel])
                 elif ev.button == 4:
                     cycle_facet(-1)
                 elif ev.button == 5:
@@ -971,21 +1529,26 @@ def main() -> int:
             pop[i] += (tgt - pop[i]) * EASE
 
         # draw
+        pad = max(6, round(lay.h * 0.008))
         screen.blit(bg, (0, 0))
-        screen.blit(title, (40, 28))
+        screen.blit(title, (lay.left, round(lay.h * 0.026)))
         fac = facets[facet_idx][0]
-        fac_txt = font.render(f"< {fac} >   ({n})", True, ACCENT if facet_idx else DIM)
-        screen.blit(fac_txt, (sw - 40 - fac_txt.get_width(), 40))
+        fac_txt = lay.font.render(
+            f"< {fac} >   ({n})", True, ACCENT if facet_idx else DIM
+        )
+        screen.blit(
+            fac_txt, (lay.w - lay.left - fac_txt.get_width(), round(lay.h * 0.037))
+        )
 
-        oy = 80 - scroll
+        oy = lay.top - scroll
         pulse = 0.5 + 0.5 * math.sin(t * 3.2)
 
         # pass 1: non-selected tiles
         for i, g in enumerate(view):
-            col, row = i % COLS, i // COLS
-            x = ox + col * (TILE_W + TILE_GAP)
-            y = oy + row * (TILE_H + TILE_GAP + 50)
-            if y + TILE_H < -50 or y > sh + 50:
+            col, row = i % lay.cols, i // lay.cols
+            x = lay.grid_x + col * (lay.tile_w + lay.gap)
+            y = oy + row * lay.row_pitch
+            if y + lay.tile_h < -lay.tile_h or y > lay.h + lay.tile_h:
                 continue
             if i == sel:
                 continue
@@ -997,29 +1560,50 @@ def main() -> int:
                 screen.blit(dimmer, (x, y))
             else:
                 pygame.draw.rect(
-                    screen, (40, 42, 56), (x, y, TILE_W, TILE_H), border_radius=8
+                    screen,
+                    (40, 42, 56),
+                    (x, y, lay.tile_w, lay.tile_h),
+                    border_radius=8,
                 )
-                ph = font.render(g["slug"], True, DIM)
-                screen.blit(ph, ph.get_rect(center=(x + TILE_W // 2, y + TILE_H // 2)))
+                ph = lay.small.render(g["slug"], True, DIM)
+                screen.blit(
+                    ph,
+                    ph.get_rect(center=(x + lay.tile_w // 2, y + lay.tile_h // 2)),
+                )
 
             badge = badges[g["runtime"]]
-            screen.blit(badge, (x + TILE_W - badge.get_width() - 8, y + 8))
+            screen.blit(badge, (x + lay.tile_w - badge.get_width() - pad, y + pad))
+            if picked.get(g["slug"]):
+                screen.blit(
+                    tuned_badge,
+                    (
+                        x
+                        + lay.tile_w
+                        - badge.get_width()
+                        - tuned_badge.get_width()
+                        - pad * 2,
+                        y + pad,
+                    ),
+                )
 
             label = labels_dim[g["slug"]]
-            screen.blit(label, label.get_rect(midtop=(x + TILE_W // 2, y + TILE_H + 8)))
+            screen.blit(
+                label,
+                label.get_rect(midtop=(x + lay.tile_w // 2, y + lay.tile_h + pad)),
+            )
 
         # pass 2: selected tile on top, popped + glowing
         i = sel
         g = view[sel]
-        col, row = i % COLS, i // COLS
-        bx = ox + col * (TILE_W + TILE_GAP)
-        by = oy + row * (TILE_H + TILE_GAP + 50)
+        col, row = i % lay.cols, i // lay.cols
+        bx = lay.grid_x + col * (lay.tile_w + lay.gap)
+        by = oy + row * lay.row_pitch
 
         p = pop[i]
-        cw = int(TILE_W + (pop_w - TILE_W) * p)
-        ch = int(TILE_H + (pop_h - TILE_H) * p)
-        x = bx - (cw - TILE_W) // 2
-        y = by - (ch - TILE_H) // 2
+        cw = int(lay.tile_w + (lay.pop_w - lay.tile_w) * p)
+        ch = int(lay.tile_h + (lay.pop_h - lay.tile_h) * p)
+        x = bx - (cw - lay.tile_w) // 2
+        y = by - (ch - lay.tile_h) // 2
 
         # pulsing glow ring
         glow_a = int(120 + 80 * pulse)
@@ -1052,21 +1636,41 @@ def main() -> int:
                 screen.blit(surf, (x, y))
             else:
                 pygame.draw.rect(screen, (60, 64, 84), (x, y, cw, ch), border_radius=8)
-                ph = font.render(g["slug"], True, TEXT)
+                ph = lay.font.render(g["slug"], True, TEXT)
                 screen.blit(ph, ph.get_rect(center=(x + cw // 2, y + ch // 2)))
 
         badge = badges[g["runtime"]]
-        screen.blit(badge, (x + cw - badge.get_width() - 10, y + 10))
+        screen.blit(badge, (x + cw - badge.get_width() - pad, y + pad))
+        if picked.get(g["slug"]):
+            screen.blit(
+                tuned_badge,
+                (
+                    x + cw - badge.get_width() - tuned_badge.get_width() - pad * 2,
+                    y + pad,
+                ),
+            )
 
         label = labels_sel[g["slug"]]
-        screen.blit(label, label.get_rect(midtop=(bx + TILE_W // 2, by + TILE_H + 10)))
+        screen.blit(
+            label,
+            label.get_rect(midtop=(bx + lay.tile_w // 2, by + lay.tile_h + pad)),
+        )
         sub = subtitles.get(g["slug"])
         if sub:
-            screen.blit(sub, sub.get_rect(midtop=(bx + TILE_W // 2, by + TILE_H + 44)))
+            screen.blit(
+                sub,
+                sub.get_rect(
+                    midtop=(
+                        bx + lay.tile_w // 2,
+                        by + lay.tile_h + pad + label.get_height() + pad // 2,
+                    )
+                ),
+            )
 
         screen.blit(vignette, (0, 0))
 
-        screen.blit(hint, hint.get_rect(midbottom=(sw // 2, sh - 14)))
+        cur_hint = hint_opts if g["settings"] else hint
+        screen.blit(cur_hint, cur_hint.get_rect(midbottom=(lay.w // 2, lay.foot_y)))
 
         pygame.display.flip()
 

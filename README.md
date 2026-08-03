@@ -25,6 +25,47 @@ nix run github:kraftwerk-gaming/strom#<slug>
 Game state (saves, wine prefixes) lives in `~/.strom/<slug>` and survives
 rebuilds.
 
+## Couch launcher
+
+```bash
+nix run github:kraftwerk-gaming/strom#launcher
+```
+
+A gamepad-driven grid: D-pad to move, `A` to launch, `LB`/`RB` to cycle the
+Runtime/Genre/Features filters, `Back`+`Start` to kill a running game. It opens
+as an ordinary resizable window and lays itself out for whatever size it has --
+column count follows the window's aspect, tile and text sizes follow its
+dimensions. Set `STROM_LAUNCHER_FULLSCREEN=1` for a couch or kiosk seat, where
+taking the whole output is the point. While a game runs the launcher gives up
+its window entirely, so the game is what you see; it comes back when the game
+exits.
+
+A few games expose real choices (mods, soundtrack, difficulty variant) rather
+than one fixed build. Those tiles show a **Y / C options** hint; that opens a
+per-game options screen where each row is a toggle or a value cycler, with the
+option's own first paragraph as its help line:
+
+```text
+Final Fantasy VIII -- options
+
+  Ffnx                                              on
+  Field backgrounds                                off
+  Music                                           psx *
+  Ragnarok                                         off
+  Ragnarok mode                               standard
+  Textures                                        on *
+  Voices                                           off
+```
+
+Picks are remembered in `$XDG_CONFIG_HOME/strom/settings.json` and a tile whose
+settings differ from the packaged defaults is badged **tuned**. Because a mod is
+an overlay layer decided at build time, a non-default pick builds a variant of
+the game (`flake.modules.<system>.<slug>.apply`) -- normally just the mod's own
+download, since the base game tree is never re-extracted. The rows are not
+configured anywhere: they are every `bool`/`enum` option the game's own
+`default.nix` declares, with the label, values and default read off the option
+(see [AGENTS.md](AGENTS.md)).
+
 ## Web GUI
 
 A Steam-like web catalog with clickable tiles, per-game detail pages (hero
