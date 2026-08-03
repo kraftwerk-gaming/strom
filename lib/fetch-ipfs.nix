@@ -196,11 +196,34 @@ stdenvNoCC.mkDerivation {
         --min-split-size=16M \
         --file-allocation=none \
         --check-integrity=false \
-        --allow-overwrite=true \
+        --continue=true \
+        --allow-overwrite=false \
         --auto-file-renaming=false \
         --dir="$TMPDIR" \
         --out="fetch.bin" \
         $urls >>"$TMPDIR/fetch.log" 2>&1
+    }
+
+    # Retry the whole aria2 run, resuming each time. A gateway that accepts
+    # the request and THEN fails mid-stream (ipfs.io answers 501 under load,
+    # observed on a 15 GiB asset after ~3 GiB) makes aria2 abort the entire
+    # download with errorCode=22, which failed the build outright. Combined
+    # with --continue=true above, each attempt resumes where the last stopped
+    # and re-probes every URI, so the gateways still serving out-race the
+    # broken one instead of the derivation dying. Without --continue this
+    # loop would restart from byte 0 every time and never finish a large
+    # asset. This aria2 build has no --retry-on-* options, so the retry has
+    # to live out here rather than in-process.
+    fetch_via_aria_retrying() {
+      attempt=1
+      while [ "$attempt" -le 3 ]; do
+        if fetch_via_aria; then
+          return 0
+        fi
+        echo "[fetch-ipfs] aria2c attempt $attempt failed; resuming" >>"$TMPDIR/fetch.log"
+        attempt=$((attempt + 1))
+      done
+      return 1
     }
 
     fetch_via_curl() {
@@ -212,7 +235,7 @@ stdenvNoCC.mkDerivation {
         -o "$TMPDIR/fetch.bin" "$fallbackUrl" >>"$TMPDIR/fetch.log" 2>&1
     }
 
-    if fetch_via_aria; then
+    if fetch_via_aria_retrying; then
       stop_poll
       mv "$TMPDIR/fetch.bin" "$out"
       exit 0
