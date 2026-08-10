@@ -1,0 +1,151 @@
+name: android
+
+# Builds the Strom Android client and publishes it as a GitHub release, so
+# it installs and updates through Obtainium without a Play listing.
+#
+# This builds on every push, which is affordable only because of the Nix
+# store cache below. Measured: the toolchain is ~2.4 GiB (Android SDK 1.6,
+# JDK 0.8) and caches to ~1.4 GiB, after which rebuilding the APK itself
+# takes about six seconds. An earlier version filtered the trigger to the
+# paths the app is built from, to avoid refetching that 2.4 GiB on commits
+# that only added a game. The cache makes the saving not worth the two
+# liabilities the filter carried: it would have gone silently stale if the
+# app ever started embedding catalog data, and it already missed
+# lib/mk-game.nix, whose options lib/android reads.
+#
+# Releasing stays deliberate even though building does not. versionCode is
+# the repo's revCount, so every commit yields a new version even when it
+# changed no code; releasing per push would notify every Obtainium install
+# about nothing. So a release happens on a v* tag, or when this workflow
+# is run by hand with publish=true.
+
+on:
+  push:
+    branches: [master]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Attach the APK to a GitHub release"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # versionCode is the repo's revCount, which needs full history.
+          # A shallow clone has none, and every release would claim
+          # version 1 and be uninstallable as an update.
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      # Without this a fresh runner refetches ~2.4 GiB every time: the
+      # Android SDK closure is 1.6, the JDK 0.8. Those come from nixpkgs
+      # and change only when flake.lock does, so that is the cache key --
+      # deliberately NOT the revision, or versionCode alone would miss the
+      # cache on every commit and the whole exercise would be pointless.
+      #
+      # The APK itself is never usefully cached: its derivation embeds
+      # revCount, so it rebuilds regardless. That is fine and cheap; what
+      # was expensive was the toolchain underneath it.
+      - name: Cache the Nix store
+        uses: nix-community/cache-nix-action@v7
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('flake.lock') }}
+          # A changed lock should still start from the previous store
+          # rather than from nothing.
+          restore-prefixes-first-match: nix-${{ runner.os }}-
+          # Pull requests get their own cache scope which is evicted with
+          # the branch, so saving from them only burns the repo's budget.
+          save: ${{ github.event_name != 'pull_request' }}
+          # Keep one entry comfortably inside the 10 GiB repo limit, and
+          # drop stale entries from earlier locks.
+          gc-max-store-size-linux: 4G
+          purge: true
+          purge-prefixes: nix-${{ runner.os }}-
+          purge-created: P7D
+          purge-primary-key: never
+
+      # checkPhase runs the CAR/UnixFS verifier tests, so a verifier that
+      # would accept tampered data fails here rather than reaching a phone.
+      - name: Build the APK
+        run: nix build --print-build-logs .#androidApp
+
+      - name: Name it after the version it carries
+        id: apk
+        run: |
+          out=$(nix path-info .#androidApp)
+          version="${out##*-strom-android-}"
+          cp "$out/strom.apk" "strom-$version.apk"
+          sha=$(sha256sum "strom-$version.apk" | cut -d' ' -f1)
+          # '+' is semver build metadata. Git accepts it in a tag, but
+          # version parsers -- Obtainium's included -- may treat everything
+          # after it as ignorable, which would make two releases compare
+          # equal. The tag uses '-'; the APK keeps '+' in its versionName.
+          echo "path=strom-$version.apk" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v${version//+/-}" >> "$GITHUB_OUTPUT"
+          echo "sha256=$sha" >> "$GITHUB_OUTPUT"
+          # State the real coverage in the release notes rather than a
+          # number written once and left to rot. Most of the catalog is
+          # not installable on a phone yet, and a release that does not
+          # say so invites the reader to find out the slow way.
+          total=$(find games -mindepth 1 -maxdepth 1 -type d | wc -l)
+          published=$(grep -l '"cid"' games/*/metadata.json 2>/dev/null | wc -l)
+          echo "total=$total" >> "$GITHUB_OUTPUT"
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+          echo "built strom-$version.apk  sha256=$sha"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.apk.outputs.path }}
+          path: ${{ steps.apk.outputs.path }}
+          if-no-files-found: error
+
+      # A tag release is named by the tag. One published by hand has no tag
+      # to borrow, so it is named after the version the APK carries, which
+      # keeps the release and the versionCode inside it in step.
+      - name: Publish a release
+        if: startsWith(github.ref, 'refs/tags/v') || inputs.publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.apk.outputs.path }}
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || steps.apk.outputs.tag }}
+          name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || steps.apk.outputs.tag }}
+          body: |
+            Strom Android client `${{ steps.apk.outputs.version }}`.
+
+            **${{ steps.apk.outputs.published }} of ${{ steps.apk.outputs.total }} games
+            are playable on Android at this revision.** The rest have no payload
+            published yet, and the client lists them as unavailable rather than
+            hiding them. RetroArch is the only runtime wired up; GameNative,
+            which covers the Windows games and so most of the catalog, refuses
+            with a message saying what is unverified. `docs/android.md` has the
+            detail.
+
+            Install and update through [Obtainium](https://github.com/ImranR98/Obtainium)
+            by pointing it at this repository. You will also need RetroArch
+            installed, and to have launched it once.
+
+            The build is reproducible, and the APK is signed with the debug key
+            committed in `pkgs/android-app/`, which proves nothing about who
+            built it. What you can check is that it matches the source:
+
+            ```
+            nix build github:kraftwerk-gaming/strom/${{ github.sha }}#androidApp
+            sha256sum result/strom.apk
+            # ${{ steps.apk.outputs.sha256 }}
+            ```

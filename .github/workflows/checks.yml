@@ -1,0 +1,33 @@
+name: checks
+
+# The two gates the pre-commit hooks enforce locally, so a push that
+# bypassed them does not land unnoticed. Unfiltered, because both are
+# about the repo as a whole: formatting covers every .nix file, and the
+# metadata check re-derives every game's build keys.
+#
+# Deliberately not `nix flake check`, which would evaluate and build far
+# more than these two questions need.
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Formatting
+        run: nix fmt -- --ci
+
+      - name: Generated metadata is in sync
+        run: ./scripts/check-metadata-synced.sh
