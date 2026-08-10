@@ -128,13 +128,12 @@ jobs:
           body: |
             Strom Android client `${{ steps.apk.outputs.version }}`.
 
-            **${{ steps.apk.outputs.published }} of ${{ steps.apk.outputs.total }} games
-            are playable on Android at this revision.** The rest have no payload
-            published yet, and the client lists them as unavailable rather than
-            hiding them. RetroArch is the only runtime wired up; GameNative,
-            which covers the Windows games and so most of the catalog, refuses
-            with a message saying what is unverified. `docs/android.md` has the
-            detail.
+            **${{ steps.apk.outputs.published }} of ${{ steps.apk.outputs.total }} games are playable on Android at this revision.**
+            The rest have no payload published yet, and the client lists them as
+            unavailable rather than hiding them. RetroArch is the only runtime
+            wired up; GameNative, which covers the Windows games and so most of
+            the catalog, refuses with a message saying what is unverified.
+            `docs/android.md` has the detail.
 
             Install and update through [Obtainium](https://github.com/ImranR98/Obtainium)
             by pointing it at this repository. You will also need RetroArch
@@ -145,7 +144,12 @@ jobs:
             built it. What you can check is that it matches the source:
 
             ```
-            nix build github:kraftwerk-gaming/strom/${{ github.sha }}#androidApp
+            nix build 'git+https://github.com/${{ github.repository }}?rev=${{ github.sha }}#androidApp'
             sha256sum result/strom.apk
             # ${{ steps.apk.outputs.sha256 }}
             ```
+
+            The fetcher matters: a `github:` reference is a tarball with no
+            history, so `revCount` is absent, versionCode falls back to 1 and
+            the APK does not match. `git+https` with an explicit rev carries
+            the history and reproduces these bytes exactly.
