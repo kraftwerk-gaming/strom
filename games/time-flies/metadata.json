@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Time Flies.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmepDyeoMCh1xbqrgWX7QiVA3m6AdHZmCsakCC1U83zzaN"
   ],

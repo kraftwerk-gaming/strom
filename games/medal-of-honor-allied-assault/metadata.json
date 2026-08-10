@@ -1,5 +1,10 @@
 {
   "_comment": "Played via OpenMoHAA source port; multiplayer supported.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "a Linux x86_64 ELF needs box64 plus a glibc rootfs, and no Android runtime app exposes a way to launch one",
+    "schema": 1
+  },
   "cids": [
     "QmcmhYLPYFi32ifs5iqnuiPgoLiAHgFRCbr6zEaXfroZDt",
     "QmUUKZ2GuYgKPgSfv8qA9gRAzng3gz5Cwcg4Xj3ZjJGXgF"

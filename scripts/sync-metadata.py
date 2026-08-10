@@ -45,6 +45,7 @@ def build_values(m: dict) -> dict:
         "cids": m.get("cids") or [],
         "description": m.get("description"),
         "runtime": m.get("runtime") or "unknown",
+        "android": m.get("android") or {},
     }
 
 

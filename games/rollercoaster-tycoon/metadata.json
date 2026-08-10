@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "RCT.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmR3NEi1oBN3sNtc3RCyWtGncwnf6MiWx54gtx1hUiNyBN"
   ],

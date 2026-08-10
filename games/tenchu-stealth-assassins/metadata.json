@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the 1998 PlayStation original has no Steam release, so any fuzzy match would be a different Tenchu entry or unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Tenchu - Stealth Assassins (USA).chd"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmczfxxrqaZpp5DWsPMrKHmiwfRubd4czQGaohDTJ3Mu8W",

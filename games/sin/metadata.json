@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "+set vid_fullscreen 1 +set gl_mode 6",
+        "executablePath": "sin.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmbj3vMjcFQoFd8kCKgS1wMuB2L5swHtcFATKU7SCbhLy6"
   ],

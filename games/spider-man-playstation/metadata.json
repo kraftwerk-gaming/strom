@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the 2000 Neversoft PlayStation game has no Steam release; fuzzy matching would hit a modern Spider-Man title instead.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Spider-Man (USA).chd"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmY3oA5VedKngCtfXB2aguEsg2uHNp8T2rBtvujES9Hvcz",

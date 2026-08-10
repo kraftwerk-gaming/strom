@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "The Jackbox Party Pack 7.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTuc6xHziHS2JUQDwh9xdrwEgzeMpwQw4GkGcZ7C9eXnj"
   ],

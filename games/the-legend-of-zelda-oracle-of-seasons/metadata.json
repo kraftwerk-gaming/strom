@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmcBM6xSp5VCqJL8j4NF4UEx93cQJjLF92L1JUCXhGUkyQ",
+      "name": "the-legend-of-zelda-oracle-of-seasons.gbc",
+      "sha256": "sha256-Nf2AmiHfBMfawWz3b3zF0EAX476ryhAtLjeJEqSFOdk="
+    },
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "the-legend-of-zelda-oracle-of-seasons.gbc"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcBM6xSp5VCqJL8j4NF4UEx93cQJjLF92L1JUCXhGUkyQ"
   ],

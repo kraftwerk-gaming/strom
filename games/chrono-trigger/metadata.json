@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "Qmdwp6PEMUghQXoQgRkunAzvkRaXDTQdW8f84QcQ3fqvpN",
+      "name": "chrono-trigger.sfc",
+      "sha256": "sha256-BtHCsGtxYFLFWWqqDC5WMqAn/uGpooQ55Qn4E8MIKak="
+    },
+    "retroarch": {
+      "core": "bsnes_libretro_android.so",
+      "coreOptions": {},
+      "rom": "chrono-trigger.sfc"
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmdwp6PEMUghQXoQgRkunAzvkRaXDTQdW8f84QcQ3fqvpN"
   ],

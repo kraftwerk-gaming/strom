@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "BBPSX.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmTminqp4KC2yvPuKAit7CZuxdFXMV84FbFdJPamqLjS8X"

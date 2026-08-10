@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Vampire Crawlers.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZ9gcmgjvXPF29qzvj3GanDyACRMK5oA24RF48tu7oGkL"
   ],

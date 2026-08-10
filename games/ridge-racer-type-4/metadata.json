@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: R4 has never been released on Steam (PS1/PSN only). Fuzzy matching would land on an unrelated Ridge Racer entry or another arcade racer.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Ridge Racer Type 4 (USA).chd"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmViMV19CRpDL9aKYh9Lp23KR59iCdmyKvH6SvrecLTsKk",

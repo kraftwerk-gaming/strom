@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SamuraiGunn.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmY91zCdfq89VwWnfSdziBofhEL8wHeyzV2exY2BndtGWs"
   ],

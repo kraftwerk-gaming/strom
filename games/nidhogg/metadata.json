@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Nidhogg.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXpnfHL8bphczGSpi1m8JkNeJTcgH7KNEju6Bm9LAJxXP"
   ],

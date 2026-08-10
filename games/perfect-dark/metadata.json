@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmYdSV7dxZkWLxcVLbPctppR2YGPye1ryAArLk4QeBzWgx",
+      "name": "perfect-dark.z64",
+      "sha256": "sha256-tBc+6Qum41FLF9fzQMbCSOKkxCn9w8Zx3YK79a/LsVI="
+    },
+    "retroarch": {
+      "core": "mupen64plus_next_gles3_libretro_android.so",
+      "coreOptions": {},
+      "rom": "perfect-dark.z64"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYdSV7dxZkWLxcVLbPctppR2YGPye1ryAArLk4QeBzWgx"
   ],

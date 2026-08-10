@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-pearl.nds"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmVTDuEEt71Ltfhu6fZLvtWRQ7NPT3Gkys4pcVHg717E8E"

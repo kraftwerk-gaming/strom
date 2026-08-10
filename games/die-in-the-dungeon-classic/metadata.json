@@ -1,4 +1,9 @@
 {
+  "android": {
+    "backend": "unsupported",
+    "reason": "custom runtimes are per-game shell scripts with no Android equivalent; port individually",
+    "schema": 1
+  },
   "cids": [
     "QmQznuRJuvebACp4a9bUoy37YoXTtCsKf3khU8At5qN1tp"
   ],

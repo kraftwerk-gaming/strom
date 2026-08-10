@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmVDFMYSFWEKNb6SgpuG51sLYnTQavAa723tLSU22LKy7u",
+      "name": "majoras-mask.z64",
+      "sha256": "sha256-77E2WzrjYmBFFMD5oaLRH13IaIulvmYKN96/XjvkPys="
+    },
+    "retroarch": {
+      "core": "mupen64plus_next_gles3_libretro_android.so",
+      "coreOptions": {},
+      "rom": "majoras-mask.z64"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVDFMYSFWEKNb6SgpuG51sLYnTQavAa723tLSU22LKy7u"
   ],

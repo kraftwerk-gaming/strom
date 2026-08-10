@@ -1,6 +1,16 @@
 {
   "_comment": "Slug 'homeworld' but description identifies Homeworld 2.",
   "_name": "Named '(Classic)' because all three Homeworld packages are built from the same GOG Remastered Collection installer and share its three CIDs. Gearbox's own tree names these builds Homeworld1Classic and Homeworld2Classic. Before this fix every display field here was copy-pasted from homeworld-2: name 'Homeworld 2', year 2003, and a short/long describing the sequel -- so the launcher showed two entries both called 'Homeworld 2' and dated the 1999 game to 2003.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "/1280 /fullscreen /safeGL",
+        "executablePath": "Homeworld1Classic/exe/Homeworld.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",
     "QmcAz3HugvgxsXrqUjSpoz2pKDQKiMi9bee8fbKDcz9nV4",

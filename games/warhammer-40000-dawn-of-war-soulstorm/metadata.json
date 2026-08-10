@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Soulstorm.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmPQB7v72d8pgKy8rX6TYD9EheuC9DbRKnSQQAS3upzTTG"

@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the Dreamcast Soul Calibur (1999) has no Steam release. The only Steam entry is the 2018 Soulcalibur VI, a different game whose art would misrepresent this package.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "flycast_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Soulcalibur (USA).cue"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "Qmbi1qZhNwE6cdMTXgkLwLVoCS4rGPbvNrufV3GnLtzY2D"

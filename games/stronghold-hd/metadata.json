@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Stronghold.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVuY5eMwcMHa6DE3BUfvMByULz2P18NJNDSpUUtYCq9oh"
   ],

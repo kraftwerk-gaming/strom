@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-CD d:\\",
+        "executablePath": "LOLG95.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPjapo3soDkDW3a3pSdV7g66ozEktqMDiBDRMQz4vNd3h",
     "QmUq4yKd5gqRpvD1Y5p3nLQteWAJH8ZvQgALJW3exYh4JD",

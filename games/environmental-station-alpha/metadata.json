@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Environmental Station Alpha.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSKfKZbygBUXXknED9vQUpaY4yjApjHMqTXq4cwtDD9xQ"
   ],

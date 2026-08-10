@@ -1,5 +1,12 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "dolphin",
+    "dolphin": {
+      "disc": "pokemon-xd-gale-of-darkness.rvz"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmW6HrYrJ9FgVNpnQW3t8dy7RJ5AQsMq2gQZXvf6P8Ss1A"

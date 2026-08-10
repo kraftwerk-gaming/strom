@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "DemonLordJustABlock.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUGu12nm8YfouvUUbsj8iXj9PBpcLTpBE3DAqtQtLxEx4"
   ],

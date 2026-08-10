@@ -1,5 +1,10 @@
 {
   "_comment": "Developer unknown; two-player split-screen PvP per gameplay recollection.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "custom runtimes are per-game shell scripts with no Android equivalent; port individually",
+    "schema": 1
+  },
   "cids": [
     "QmZ1nZ8Hkm81P48ABcfGBot8rSkb2c4K2badYPBrMsT2zp"
   ],

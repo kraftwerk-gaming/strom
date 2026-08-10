@@ -1,5 +1,19 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmNo9qmfDF57kN9rWduMdYgdHzXf1r2UvTcFHhMNz4p5yr",
+      "name": "pokemon-sapphire.gba",
+      "sha256": "sha256-AspBUTWAqLeAmJ3uQo33R7UqCxpVvsYXiGtAWesRUvs="
+    },
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-sapphire.gba"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNo9qmfDF57kN9rWduMdYgdHzXf1r2UvTcFHhMNz4p5yr"

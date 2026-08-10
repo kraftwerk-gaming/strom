@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "runblack.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbyH7EDnyttsXsebhCue2FgwNdJsWyn8AGK6iHURVrVbC"
   ],

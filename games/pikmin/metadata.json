@@ -1,4 +1,11 @@
 {
+  "android": {
+    "backend": "dolphin",
+    "dolphin": {
+      "disc": "pikmin.ciso"
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmd1bP4XPoia96JkSFwpZ6UxoCMETLm1gLor4NcNocQAiC"
   ],

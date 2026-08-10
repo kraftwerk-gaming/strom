@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "jelly.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmR2g2EaFsJLXRW37mVgJyTXwD9KnXSH9PtJxUMG6dTRZB"
   ],

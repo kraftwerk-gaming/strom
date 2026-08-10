@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "RainbowSix.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmY1hSdRXiBikBw7zskLtgDW25G14YsKmwxVXNFhx1hJvh"
   ],

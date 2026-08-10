@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "buckshot-roulette.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmS8Z3bVhozDD993VGdRGsqA2kLUdoxQgv5cCCZWNiw7gp"
   ],

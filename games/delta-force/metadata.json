@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "dflw.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYetUwyifXet4hsacsJ4CYZKhUmKGvcXuMrABQjFExnbD"
   ],

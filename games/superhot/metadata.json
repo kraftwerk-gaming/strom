@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-adapter 0 -screen-fullscreen 1 -force-d3d11",
+        "executablePath": "SH.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmReaYyJTGGy1QSgoJnmJPnVAdDuE4tfTNYBdgR8jjdwjL"
   ],

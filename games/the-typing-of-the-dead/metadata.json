@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Tod_e.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmeXCgXCm2ogepvGD7iCe48yNTpp5dwLB77CrjjVyeR4R7"
   ],

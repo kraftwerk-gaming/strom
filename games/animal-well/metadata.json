@@ -1,5 +1,14 @@
 {
   "_comment": "Force this Steam appid; auto-search matches the wrong app.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Animal Well.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 813230,
   "cids": [
     "QmcNc9smjop4rKYUooR1WtUiB54XwGuYqc4xBiXhxY1gjt"

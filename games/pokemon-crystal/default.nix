@@ -22,11 +22,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "retroarch";
   executable = "pokemon-crystal.gbc";
 
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/pokemon-crystal.gbc
-  '';
-
   retroarch = {
     cores = [ pkgs.libretro.gambatte ];
 

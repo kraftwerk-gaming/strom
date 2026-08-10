@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Iron Lung.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmY5gwRVK9HpnG5mufRmDPK7cx9bxgGPx7xPz2MnTsq9RE"
   ],

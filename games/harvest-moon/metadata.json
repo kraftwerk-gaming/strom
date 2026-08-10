@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "Qmb3XE2q79kVqrZ1iHfGwxKKj1byDCjwDwVUS27dPV1Rv9",
+      "name": "harvest-moon.sfc",
+      "sha256": "sha256-c6Oqh93Vzl31ulEpIxb0K24SgoAXmwobEbTc3cF9QWM="
+    },
+    "retroarch": {
+      "core": "bsnes_libretro_android.so",
+      "coreOptions": {},
+      "rom": "harvest-moon.sfc"
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmb3XE2q79kVqrZ1iHfGwxKKj1byDCjwDwVUS27dPV1Rv9"
   ],

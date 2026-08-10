@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "darkcrusade.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmQpodxcCWcFQMUjMbvc1YwuzzETD41ktcJB2J3ra46CzG"

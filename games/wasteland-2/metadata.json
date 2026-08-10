@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-screen-fullscreen 1 -screen-width 1920 -screen-height 1080",
+        "executablePath": "WL2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmdZ9taVcD6UxC4bXb8vna4SivC9muCMkqJRqdKoXAcUjU"
   ],

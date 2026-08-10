@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Simpsons.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmT1cgcUcMbBXMaUif8aT6oed9BGHno9tRp3ySbUE2JiSo"
   ],

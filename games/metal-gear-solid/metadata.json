@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Metal Gear Solid (USA) (Disc 1).cue"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmdZc6eT9LPvCeuG6Fi647L829LmAC2hSTzJY7kUjQ8VYZ",
     "QmUvdpnfso8VrNHCy4GKtruhMQC73fzCzm9Lsjr5xatSKc",

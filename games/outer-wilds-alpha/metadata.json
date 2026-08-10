@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-screen-fullscreen 1 -screen-width 1920 -screen-height 1080",
+        "executablePath": "OuterWilds_Alpha_1_2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbPABWqByuFiwvfxwoMsWLexnqd9PjxdqAfj4azWKwHG1"
   ],

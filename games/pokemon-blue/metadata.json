@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmcYT8mZSfYRHz1D1QJRLiahgZP1GMLJAz43pVUouU6jq9",
+      "name": "pokemon-blue.gb",
+      "sha256": "sha256-KpUTE8JkDowssh8l0dsBmuYkXZxxIfdU+mGv177mRS0="
+    },
+    "retroarch": {
+      "core": "gambatte_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-blue.gb"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcYT8mZSfYRHz1D1QJRLiahgZP1GMLJAz43pVUouU6jq9"
   ],

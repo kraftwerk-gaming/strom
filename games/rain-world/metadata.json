@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "RainWorld.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWtc45sv19XtZMsZ7SjURAzRnoPfoKde32jTZMpPazeKA",
     "QmXZBznavGsxtbmXgcUHrtBkzPdNXRi8mYjupR7YwGtk8J"

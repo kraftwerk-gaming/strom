@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "LornsLure.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmX5FPJjRbZ4qcpNYJ1FkVbkbi23cbttVzctuynEieEofz"
   ],

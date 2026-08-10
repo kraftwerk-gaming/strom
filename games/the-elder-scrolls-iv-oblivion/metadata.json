@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Oblivion.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmToRXKY2pRbvyBTUGX42LYzYbEbbRto7D2humBLBnRkT9"
   ],

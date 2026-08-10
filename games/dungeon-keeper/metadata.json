@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "keeperfx.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmez7AYzB1fAm129WEkUafvBnshvSfM5hPozpjQcZV8m3y"
   ],

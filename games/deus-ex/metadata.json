@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-ResX=1920 -ResY=1080 -32bit",
+        "executablePath": "System/DeusEx.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYirjSSa4qwbxoBWH3Cc2g8Ywn1ZwUa3hphcmH7phq8bg"
   ],

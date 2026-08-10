@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "ColonyShipGame/Binaries/Win64/ColonyShipGame-Win64-Shipping.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWJR5bs9Xy3HptFyEE6BmKSTEbaXMWeUUqP6yzobTyxmk",
     "QmSxAfANyXbQ3MkqPcNdXaquDCe8jiHTMwXLQ43SzXAPsA",

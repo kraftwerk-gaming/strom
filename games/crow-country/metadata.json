@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Crow Country.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPaPLesWagh5s8ZpKNiCMWSYxhNypN8CAcvTydoxmGrsY"
   ],

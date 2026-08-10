@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "AOE2-CON/age2_x1/age2_x1.5.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmaty9puM8eHXB1qmdHYF7G9dBJNVr6ezV99w5iuNADPxY"
   ],

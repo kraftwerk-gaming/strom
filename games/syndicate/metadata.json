@@ -1,4 +1,9 @@
 {
+  "android": {
+    "backend": "unsupported",
+    "reason": "a Linux x86_64 ELF needs box64 plus a glibc rootfs, and no Android runtime app exposes a way to launch one",
+    "schema": 1
+  },
   "cids": [
     "QmegVB6p577pTEmYEYabyRyfKy77h2mukp56z5oj7ZoFey",
     "QmccmdGq8GmfpN56MqjKLJJNFu45f3pvA4o41iSiKgZWdy"

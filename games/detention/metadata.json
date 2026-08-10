@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Detention.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTJWi1w8iBVv9jpecNCTeFJ5Lou7W4JM4ubJve5XnxVKY"
   ],

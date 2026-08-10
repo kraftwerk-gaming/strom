@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmUPd38byri7dZauzebF5Yzc18GAH3Dv6uL2ar2QDgyC6w",
+      "name": "the-legend-of-zelda-oracle-of-ages.gbc",
+      "sha256": "sha256-C1a3ip5FRS6Ywz7dERI0kx8eA03Al/byMILrjbYFVHQ="
+    },
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "the-legend-of-zelda-oracle-of-ages.gbc"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUPd38byri7dZauzebF5Yzc18GAH3Dv6uL2ar2QDgyC6w"
   ],

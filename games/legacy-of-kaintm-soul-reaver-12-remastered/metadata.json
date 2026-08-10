@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SRX.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmfJRiEGTapvtvps35o46DrJ6zpVSDFfFJgauzQ9cvWGNv"
   ],

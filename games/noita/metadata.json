@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "noita.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRhHG2AMa5Q2GpJeBnSzcFDoFEVXShFoR8CKvFFQ8jRxD"
   ],

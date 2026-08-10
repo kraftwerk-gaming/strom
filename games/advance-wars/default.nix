@@ -22,11 +22,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "retroarch";
   executable = "advance-wars.gba";
 
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/advance-wars.gba
-  '';
-
   retroarch = {
     cores = [ pkgs.libretro.mgba ];
 

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Pirates!.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qma2AyXzbaDPJq2Ztx2ahETHESGt8DHDBv2sFoUrdC8mzE",
     "Qma9Kf3XB5HwjpAedVfgWW2K6AprpufG2PTDJ3mZsP38DA"

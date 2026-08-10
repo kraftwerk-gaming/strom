@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Psychonauts.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWYZZzaDxXdrm3FoDCFKHuVB7Xw4YaXvGZTKpTjH3WpdQ"
   ],

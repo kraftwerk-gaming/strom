@@ -1,5 +1,10 @@
 {
   "_appid": "No Steam release matches this build: the 1995 Sir-Tech DOS CD release of Jagged Alliance is not sold standalone on Steam. The nearest listing, 'Jagged Alliance Gold' (appid 283270), is a different SKU that bundles Deadly Games and its expansions, and auto-matching otherwise lands on Jagged Alliance 3 (appid 1084160). Display fields are hand-written.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "custom runtimes are per-game shell scripts with no Android equivalent; port individually",
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmUPQbDJSSp7cAeeMz7AUWaAXBNs7RuyPKxM774JPSpdAN"

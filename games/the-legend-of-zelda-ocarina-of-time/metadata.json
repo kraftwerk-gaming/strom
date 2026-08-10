@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmPbeK1K79B4HpbfJ2GqHebFxWvhyaUf5U5GqYnn95aHPn",
+      "name": "ocarina-of-time.n64",
+      "sha256": "sha256-yRarMV++gqIhab/xPWuGbp/dyQdGHrawoie4Ks31tQY="
+    },
+    "retroarch": {
+      "core": "mupen64plus_next_gles3_libretro_android.so",
+      "coreOptions": {},
+      "rom": "ocarina-of-time.n64"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPbeK1K79B4HpbfJ2GqHebFxWvhyaUf5U5GqYnn95aHPn"
   ],

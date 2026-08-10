@@ -1,5 +1,10 @@
 {
   "_appid": "never released on Steam; EA Sports BIG PS2 title, no PC port",
+  "android": {
+    "backend": "unsupported",
+    "reason": "no redistributable source-available Android PS2 emulator exists (PCSX2 has no Android target; AetherSX2 is discontinued and closed; NetherSX2 is an unlicensed patch)",
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmUqcjszxZ9JNY5BcwqPZ6BZa6J4HqYroJcUSX2pHV7J32",

@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the 2003 GBA game has no Steam release. The closest listings are for the PSX Final Fantasy Tactics and its remaster, which are a different game entirely.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "final-fantasy-tactics-advance.gba"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmVkk3B4kGZ22wpUY5gZGAWu7Rpg5RNTyaKotLNAaJqbKL"

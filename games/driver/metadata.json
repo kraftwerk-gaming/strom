@@ -1,5 +1,14 @@
 {
   "_appid": "No Steam release: the 1999 Reflections/GT Interactive game was never re-released on Steam. Auto-matching picks up IObit's unrelated 'Driver Booster' utility (appid 920490), so Steam is skipped entirely.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Driver (USA).chd"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmXJtuT3obuzCNPGhDdMbtnLAFNEZgTu2swxQEtn8Mw9qD",

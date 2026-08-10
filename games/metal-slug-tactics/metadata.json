@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Metal Slug Tactics.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNbqY58iVsj3FCchrg5xHQSe6yZFG4cPA7aVWJUhxa94N"
   ],

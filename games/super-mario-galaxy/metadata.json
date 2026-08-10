@@ -1,5 +1,12 @@
 {
   "_appid": "Never on Steam. A 2007 Nintendo-published, first-party Wii exclusive; the only re-releases are Nintendo's own (Wii U eShop, the 3D All-Stars Switch collection), so Steam matching is pinned off rather than left to fuzzy-match an unrelated \"galaxy\" title.",
+  "android": {
+    "backend": "dolphin",
+    "dolphin": {
+      "disc": "super-mario-galaxy.rvz"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmU2Sfm3ji9nknoXUzgabuXpZrwJFAGEFWZDLPM9k8VxsH"

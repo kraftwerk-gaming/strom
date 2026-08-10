@@ -2,6 +2,15 @@
   "_comment": "Display metadata. steam.json is fetched separately (appid 39150) and this file only carries corrections over it.",
   "_name": "The catalog would otherwise show Steam's all-caps 'FINAL FANTASY VIII'; this is the same product, cased for a game grid.",
   "_slug": "This package is the 2013 Square Enix PC re-release, which IS Lutris entry 1670 (its Steam provider is appid 39150), so the canonical slug needs no exception. The PlayStation version that used to occupy this slug was deliberately dropped rather than shipped alongside: it cannot take PC mods, which is this package's whole purpose.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "strom-ff8-supervisor.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 39150,
   "cids": [
     "QmWB3qGAdcU2Uu9Q55dXq82HxgCUDUNizDVJfghvTwckg4"

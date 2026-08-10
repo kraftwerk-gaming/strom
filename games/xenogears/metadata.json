@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Xenogears (Disc 1).cue"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRnafsnEmZgj6i2sJ7aJbns4y8bVSzrzgqdcJwXJFjsBj",
     "QmSysVXQPdcJHsJnDTYxRiq7vF3PcGgFqobziHzp3EZaE8",

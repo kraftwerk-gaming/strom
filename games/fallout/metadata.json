@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "falloutwHR.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVcYYsXnYEEc2zLKUcq4FnXDjBsPMTGYc3Ehiko4EMHpx"
   ],

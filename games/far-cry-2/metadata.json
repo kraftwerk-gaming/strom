@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-GameProfile_SkipIntroMovies 1 -GameProfile_FrameRateLimit 60",
+        "executablePath": "bin/farcry2game.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYRVdmUSPFjWzfCLPTiUmhLQ9n4VxycFE8s4oiB7GosnY"
   ],

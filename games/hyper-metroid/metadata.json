@@ -1,5 +1,19 @@
 {
   "_comment": "Fan-made ROM hack of Super Metroid.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmW79tNQukhmDQJjbK8ymC9Sm4bbNmUiicWHvKTvd97Tw6",
+      "name": "hyper-metroid.smc",
+      "sha256": "sha256-kLIucCBmoiuubULOyWTjgzjZQCqUFN2stvHO5I1d3IM="
+    },
+    "retroarch": {
+      "core": "bsnes_libretro_android.so",
+      "coreOptions": {},
+      "rom": "hyper-metroid.smc"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmW79tNQukhmDQJjbK8ymC9Sm4bbNmUiicWHvKTvd97Tw6"
   ],

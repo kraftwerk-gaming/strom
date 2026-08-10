@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: this is the 1998 PSX original. The only Steam listing is the 2017 'Crash Bandicoot N. Sane Trilogy' remake (appid 731490), a different product whose HD art and description would misrepresent what this package ships.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Crash Bandicoot - Warped (USA).cue"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNdTd9Avt4fJVSQgAocBrGS2fq8h2cmZ6LDpopcY5gyai",

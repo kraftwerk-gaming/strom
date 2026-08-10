@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "EmperorLauncher.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVuVwSfwjHY7aKCWePoQSPnBzqZRt3SLXwExR3Ps5SHB3"
   ],

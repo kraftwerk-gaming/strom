@@ -1,5 +1,15 @@
 {
   "_comment": "Manual web-GUI metadata for a game that is not on Steam (or whose Steam data is wrong). Merged over the lutris fallback by scripts/fetch-steam-metadata.py. See AGENTS.md > Web GUI catalog metadata for the field reference and the recognized `tags` strings that drive the Features filter.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "+menu 1 +fullscreen 1 +szx 1920 +szy 1080 +ignoreAsserts 1",
+        "executablePath": "BF2.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 24860,
   "cids": [
     "QmcaQ1SRUNpGvd7tAo1hLNbSZFPsJYK1nhf7KbhY28Ztpx"

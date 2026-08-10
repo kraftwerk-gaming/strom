@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "disco.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmS6uizMSR652viMi4N9qmQdKBD548Q7FdJkAPdm3iE1LL"
   ],

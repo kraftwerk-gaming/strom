@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the 1997 PS1 original has no Steam release. Fuzzy matching lands on appid 1004640, \"FINAL FANTASY TACTICS - The Ivalice Chronicles\" (2025 remaster) - a different product from the SCUS-94221 disc packaged here.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Final Fantasy Tactics (USA).chd"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmRvMro7gieEdnthrsVKeorUoUDhJrk97bmYGC6JMq2xY1",

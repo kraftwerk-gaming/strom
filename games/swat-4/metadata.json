@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-nointro",
+        "executablePath": "ContentExpansion/System/Swat4X.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPt5rAY7fZXtgHvjWAaywnEYHgmba97qy9t38hCru29KT"
   ],

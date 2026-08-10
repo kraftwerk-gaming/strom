@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-nointro",
+        "executablePath": "GameData/System/SWRepublicCommando.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZe2GTKZQG97ibJk9mSKmqEXNtFKedEDzjZy31aHBra7U"
   ],

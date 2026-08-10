@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Everhood.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmR8tacot64jvaZn8ZV2J9Gh8dxDqKy2c7MW6aSo2UC9MN"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "TmForever.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcnK2Y7DwFsc8Fc3kWkuAWHTMs8gPCcBEE2GP3KSQHbuc"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Rune Dice.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWto77kLwyysUAQTGbQadxQj4uTZmctZjA8yyNxJGp5E2"
   ],

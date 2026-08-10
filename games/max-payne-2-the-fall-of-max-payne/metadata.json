@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-nodialog -skipstartup",
+        "executablePath": "MaxPayne2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbL7JDhPYzV4tR7RR4y9jxWbEKcvgCL9wWFM67VUFKS4D"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "portal2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZekbNAWY6JUsJGJPCzHJouSjaJshbydniqhg85yThX7w"
   ],

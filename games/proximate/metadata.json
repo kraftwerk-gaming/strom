@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "PROXIMATE.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbfvvcMU8J4YnCwtxYLDkvRe7H3nRowEu2zH9QpbXM1QX"
   ],

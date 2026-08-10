@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "VRising.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNxWYo1ymaGAtdQhASRgNNxsL7Wtf7zt3QUUWbpi3ANX4"
   ],

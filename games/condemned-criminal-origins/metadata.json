@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Condemned.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTUyjaAtWX34K8hBtggLbupdY6XoHmomzRtab2PJ7uZ16"
   ],

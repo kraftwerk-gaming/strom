@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Arcania.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmQQGAo8PBAb75FaWVA1oWjBDgZ4hJ5RExpAPNKShDN2HW",
     "QmU7egxTUWfC3mySHRwCtcnW3LXDBtbM2qxMnPziTAesEY"

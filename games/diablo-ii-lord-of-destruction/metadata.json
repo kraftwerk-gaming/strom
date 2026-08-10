@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-3dfx -dxnocompatmodefix",
+        "executablePath": "Game.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbkGxa7sxm2udcEzivSpXZ3ZjRvXprgtjF3vph3TiyfrA"
   ],

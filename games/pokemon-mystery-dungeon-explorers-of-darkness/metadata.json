@@ -1,5 +1,19 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {
+        "melonds_screen_gap": "0",
+        "melonds_screen_layout": "Top/Bottom",
+        "melonds_threaded_renderer": "enabled",
+        "melonds_touch_mode": "Mouse"
+      },
+      "rom": "pokemon-mystery-dungeon-explorers-of-darkness.nds"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmP5svHaaV2Laewp1Gt61SKyU7ioAe94LKWL6V7kgspf4p"

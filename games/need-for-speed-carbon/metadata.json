@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "NFSC.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmb6B7BWnVvJLSywmPWHVB7J5qP3abc26aWvkN6Hz9VEWu"
   ],

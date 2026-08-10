@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "KKNDgame.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmU7RfUrkdx3sMV2h1wUExwrs1SngP81rkHKBQFzVAPLXW"
   ],

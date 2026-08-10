@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Mouthwashing.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVJ8PQ5sm42bBVCEDqR2bxEaH1NdH877r7hc7hCuHdQTN"
   ],

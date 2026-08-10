@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Magicka.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYjA47DUhTPt6aTMcjBHPtr1a1Mk2LXLYv6orJ6hNT2Gy",
     "Qmbytir26JNwT6dRxvZh8hwFMjGXhg3MUugcbHhtju7KRR"

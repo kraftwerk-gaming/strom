@@ -1,5 +1,15 @@
 {
   "_comment": "Force this Steam appid; auto-search matches the wrong app.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-dx9",
+        "executablePath": "Builds/Release/Bioshock.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 7670,
   "cids": [
     "QmV5fHnd19vCdrwEKB99BnV5t8pTAZoJrkAxRwarsDcNFp"

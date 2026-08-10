@@ -1,5 +1,10 @@
 {
   "_lutris": "slug corrected from the issue title: the package-request issue said 'sid-meiers-civilization', which does not exist on Lutris -- the 1991 MicroProse original is the 'civilization' slug (name \"Sid Meier's Civilization\", year 1991). AGENTS.md requires dir name = flake attr = Lutris slug, so the package was renamed before merge.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "custom runtimes are per-game shell scripts with no Android equivalent; port individually",
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNkCCuK2wLfNStXm869SHyZjvFauNVCcw3Wc2qvBm9AGz"

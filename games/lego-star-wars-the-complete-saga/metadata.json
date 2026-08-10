@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "LEGOStarWarsSaga.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmd5fuTDVghgvRrbJnqSPyA2QEWXGed2B8nrBKdip6qjY9"
   ],

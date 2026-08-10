@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "The Library of Babel.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYFD1X1zfm8daN5yre6aQZAwHSVSCgXhoYANNmMvuA6rQ"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Ostranauts.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbTCFt7zsSkTvjo7aar6VRczPALPYXY36ovdu4UAJaFSx"
   ],

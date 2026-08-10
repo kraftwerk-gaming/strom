@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "TidesOfNumenera.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZZDSGK5fuBHNk9NeVsMw5yPdSv3EPXCQ3awR9SSREsoG",
     "QmXzrffXJFg6hpmzVLWXUg9sRmmkW51UyXnNnZ3ZYavJH1",

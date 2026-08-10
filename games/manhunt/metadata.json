@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "manhunt.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZy3pG9ASgPh73tdSBr37E3pCBmDPJj4wg8TR2SEraH6D"
   ],

@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "+game DC_Final",
+        "executablePath": "BF1942.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSnWcj6uRHNp1Mi7Xanhthx1AnBtzSu8Q2eRgGehYH2HT"
   ],

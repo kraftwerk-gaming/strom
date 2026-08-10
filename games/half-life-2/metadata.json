@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-game hl2 -w 1920 -h 1080 -fullscreen",
+        "executablePath": "hl2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUZBT8TNRozqJpBqnCSv9Q971pFYBeMPDGM8pNHhkpSqT"
   ],

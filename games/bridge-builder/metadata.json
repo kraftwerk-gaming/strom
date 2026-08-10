@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "bridge.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "bafkreifyyr4daukoyvdd23vmscqdv7prpeo2m65b6mrybnazsndqhicjxi"
   ],

@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the Gran Turismo series is a PlayStation exclusive and has never been released on Steam, so any fuzzy match would be an unrelated racing game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Gran Turismo (USA).cue"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "Qmade5Sep26jg7GiozNWgwVpY2aRnn5zpYgdwLM29C6Fe6",

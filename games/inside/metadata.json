@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "INSIDE.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmavAbnNuAu4EoCiPxDwbec5S9V4Q6dVY68qncg2ao1J6R"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Chants Of Sennaar.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNR74MJe5Sjr7JiVVHsgZvidzzhL2aB9r8f9Gy2sFr3Sr"
   ],

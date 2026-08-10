@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SPEED2.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm"
   ],

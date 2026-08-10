@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Empire Earth - The Art of Conquest/EE-AOC.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmedoMJTRgLNK3R4PGtKQCzzU2euwAzj4mSmXqCGkoovgY"
   ],

@@ -22,11 +22,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "retroarch";
   executable = "pokemon-ruby.gba";
 
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/pokemon-ruby.gba
-  '';
-
   retroarch = {
     cores = [ pkgs.libretro.mgba ];
 

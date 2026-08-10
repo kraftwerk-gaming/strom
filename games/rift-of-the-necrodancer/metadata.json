@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "RiftOfTheNecroDancer.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXYVe3vFfKvpMTzGP45BjMxrXwUmHDEMih8LZS5rRaqUb"
   ],

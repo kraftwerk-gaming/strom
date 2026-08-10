@@ -1,4 +1,23 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "Qmepet2CFBi6Swe6XfQfHSpvNHVyu7hWCc1LeewJueKxDS",
+      "name": "pokemon-ranger-guardian-signs.nds",
+      "sha256": "sha256-iql++w5wctTW2MpAA/lXjYeK6jNkp7fzfXSv4TceR+c="
+    },
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {
+        "melonds_screen_gap": "0",
+        "melonds_screen_layout": "Top/Bottom",
+        "melonds_threaded_renderer": "enabled",
+        "melonds_touch_mode": "Mouse"
+      },
+      "rom": "pokemon-ranger-guardian-signs.nds"
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmepet2CFBi6Swe6XfQfHSpvNHVyu7hWCc1LeewJueKxDS"
   ],

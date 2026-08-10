@@ -1,5 +1,14 @@
 {
   "_appid": "No Steam release: Civilization II (1996) and its Multiplayer Gold / Test of Time re-releases were never sold on Steam - the rights sit with 2K, whose Steam catalogue starts at Civilization III. Auto-matching would land on Civilization III (appid 3910), so Steam is skipped entirely.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "CIV2.EXE"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmZLYBr81qMLpSmtAyTKJnFJizTofbFzQVxvHokmbUNbQj"

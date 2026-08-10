@@ -1,5 +1,12 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "dolphin",
+    "dolphin": {
+      "disc": "pokemon-colosseum.iso"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmeQ8NRoudiJQaReZBj7Py1StCVVE9hokQKTkzsPrxjtTz"

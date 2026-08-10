@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "Qme3jE9E7fCJTFiZrcBeWQ7swsQrzZucLxKoE1KdvbrmPX",
+      "name": "disco-elysium-gb-edition.gb",
+      "sha256": "sha256-JVaWvfmPpn+lkoKcDoY+dChIJJJwDw8Lq74mgyc1SpU="
+    },
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "disco-elysium-gb-edition.gb"
+    },
+    "schema": 1
+  },
   "cids": [
     "Qme3jE9E7fCJTFiZrcBeWQ7swsQrzZucLxKoE1KdvbrmPX"
   ],

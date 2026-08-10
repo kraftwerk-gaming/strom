@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "ManifoldGarden.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPu3YiQH3mFBBgPJu6BRXUD1c9X92ck8kYkpgU3LYDR4y"
   ],

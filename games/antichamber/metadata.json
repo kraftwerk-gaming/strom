@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-LANGUAGE=INT",
+        "executablePath": "Binaries/Win32/UDK.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNqHYfVSpdkBLCpYSFQUC7dii1uorK9oJGP42dpUW4QLn"
   ],

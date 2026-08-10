@@ -22,11 +22,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "retroarch";
   executable = "pokemon-sapphire.gba";
 
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/pokemon-sapphire.gba
-  '';
-
   retroarch = {
     cores = [ pkgs.libretro.mgba ];
 

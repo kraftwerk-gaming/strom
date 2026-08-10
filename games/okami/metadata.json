@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "okami.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXsbeevoC5YcmeubAyWr7PAS3GxvEdhbc4jhUw3155cxC"
   ],

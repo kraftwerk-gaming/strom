@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "LEP.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmQn77sU6sU4MNZJfKQUQHX7Xmd641d8dZN9hpJdL5ZpND"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Leap Year March.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZmFqNFqj5wG7pngQK3kXgTGnqAhzvfzaxj2WVXTPvekA"
   ],

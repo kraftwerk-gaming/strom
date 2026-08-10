@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "system/Risen.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmaDyzewYrCrhq2ykqffzdNxWfaum2LoPZ9gEqdApHok6p"
   ],

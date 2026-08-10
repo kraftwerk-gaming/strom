@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Binaries/Win32/Dishonored.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXupcbMi8gY16HFez7vYdKS48M5n6Hwjoe2BU1cc1NJ6r"
   ],

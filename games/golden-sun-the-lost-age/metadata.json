@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "golden-sun-the-lost-age.gba"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWMtnoKV4BviYwgLJWJ2TGWz7fj3r3X5cGK6i1ymo6KFU"
   ],

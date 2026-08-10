@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "DungeonSiege.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXnPuv75FK5EshQ8CCyEuDjoU6Ta9hHuvZZ7LNNE38LH1",
     "Qmd1iATRQFXwpXUijY84BTAYHxMAd4WcPPKcVvfV58b8yi"

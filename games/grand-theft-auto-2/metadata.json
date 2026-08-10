@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "gta2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXf4yBiYYqCPc18buJCL4MtFiHDR5dNhVyfEhyVqSzYsy"
   ],

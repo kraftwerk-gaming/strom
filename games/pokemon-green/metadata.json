@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "gambatte_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-green.gb"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmQNH7dKdEwNATtKNjNiP6H8Gk876rCy1yXrd34iT31kQ6"
   ],

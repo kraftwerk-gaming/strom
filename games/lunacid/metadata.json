@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "LUNACID.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPC94pgFSKLU22yk9LjDEafKaF8pTPyDjcQYecv4xzotZ"
   ],

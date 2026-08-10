@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-mystery-dungeon-red-rescue-team.gba"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmdmsKuPhqLzLUibcnyQFC91RwVUdDjZpqjtGbeayKDmy2"

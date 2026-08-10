@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: Anomaly is a free standalone total conversion, not a Steam product. Fuzzy matching would land on one of GSC's original S.T.A.L.K.E.R. releases, which is a different game and would misrepresent what this package ships.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "bin/AnomalyDX11AVX.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmbpLg263Ptx7K1f99W2vM8GMekEHuqszqkefQ4U89s8Pr",

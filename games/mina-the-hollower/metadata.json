@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "MinaTheHollower.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbRZQvqyvxLaHvxt38ZQz4zN1q6zaEHBsADkYMnXqoXdy"
   ],

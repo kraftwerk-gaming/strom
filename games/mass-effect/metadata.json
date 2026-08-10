@@ -1,5 +1,14 @@
 {
   "_comment": "appid 17460 is the ORIGINAL 2008 Mass Effect on Steam (\"Mass Effect (2007)\"), which is the release packaged here -- not 1328670 (Legendary Edition). Steam's own category list for 17460 is just Single-player + Family Sharing, so tags is pinned to the single player-mode string that drives the launcher filter bar.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Binaries/MassEffect.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 17460,
   "cids": [
     "Qmai8dcSmBgTA7p32wLKb3rqyx7oXy5mr9UbySBYXPvaud"

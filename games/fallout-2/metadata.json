@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "fallout2HR.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmcp7sfYBKRtWSZnfy1aPLv4DJGu3VPEGn9vddf1dAVU4K"
   ],

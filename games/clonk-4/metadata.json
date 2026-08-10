@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Clonk4.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWydrkqvdj6b8Zisoixxsoi5e9M5CUAMvwRus3bXxN2Jb"
   ],

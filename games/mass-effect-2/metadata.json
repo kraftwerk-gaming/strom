@@ -1,5 +1,15 @@
 {
   "_appid": "standalone Mass Effect 2 (2010), not the Legendary Edition (1328670)",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-log",
+        "executablePath": "Binaries/MassEffect2.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 24980,
   "cids": [
     "QmXTrjMzTCVz8Hm6nkBQDAV4iHemQqYYmsrL8qeR4pMB15"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "JadeEmpire.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUjDgq9FLYBR3bYZsKRZPNfMzXK2Hppv9pgEgyjisTgA2"
   ],

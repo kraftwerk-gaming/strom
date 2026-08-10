@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "1602.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWMS4zhvCMj5Nz3gpcaDbgChsZZR6ULY9z9aNcHakuaBR",
     "QmWAc3pDNQrvngxjcBCqNV8LyxCdFcSqSq2kW1K3kKh9MW",

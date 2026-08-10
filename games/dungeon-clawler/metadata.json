@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "DungeonClawler.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmS2f4TY3LxxZVoJnDKMzAg4AP9nzryhotTjDwPe3ZnNa6"
   ],

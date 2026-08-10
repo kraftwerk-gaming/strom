@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "HOTD_NG.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZPyBkFumfgoTHLvVbJUjsJCNAhgaquvGtkFLYb6xN93A"
   ],

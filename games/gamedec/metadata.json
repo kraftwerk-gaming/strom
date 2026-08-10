@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "GameDEC/Binaries/Win64/GameDEC-Win64-Shipping.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcSXNFgdp491vKjsXkcs1Qc4RbS7nQ4Qfh7WwMsfNcrVQ",
     "QmYpapEoXumkidm99Cd3RWFx2zdoqSaAS9SFsCfwQfAvLd",

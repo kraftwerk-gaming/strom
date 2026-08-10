@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmQLxpguCe1cWs6SR3sDkcyb7oG5exVxbZ6GWiihGyWDvU",
+      "name": "super-mario-64.z64",
+      "sha256": "sha256-F84Hc0PGEz+Mny1tbZpKtiyM0qpXxArqH0kLTIuyHZE="
+    },
+    "retroarch": {
+      "core": "mupen64plus_next_gles3_libretro_android.so",
+      "coreOptions": {},
+      "rom": "super-mario-64.z64"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmQLxpguCe1cWs6SR3sDkcyb7oG5exVxbZ6GWiihGyWDvU"
   ],

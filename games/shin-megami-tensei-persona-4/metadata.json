@@ -1,6 +1,11 @@
 {
   "_appid": "Off-Steam: the PS2 disc (SLUS-21782) was never sold on Steam. Steam's only Persona 4 listing is Persona 4 Golden (appid 1113000), a different product packaged separately as persona-4-golden; pinned to null so fuzzy matching cannot attach it here.",
   "_lutris": "slug corrected from the issue title: the package-request issue said 'persona-4', but that slug does not exist on Lutris at all -- the PS2 release is shin-megami-tensei-persona-4. AGENTS.md requires dir name = flake attr = Lutris slug, so the package was renamed before merge.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "no redistributable source-available Android PS2 emulator exists (PCSX2 has no Android target; AetherSX2 is discontinued and closed; NetherSX2 is an unlicensed patch)",
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmbQwSoKHQ8QxLpXoDoqWtVjYuZCuCAH5anBM5oB7KRCn5",

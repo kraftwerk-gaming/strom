@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Aqua.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmdyH6yPQixyf5viA3ht3maMkdbU25n6r9QJPAmH9sgJJW",
     "QmPaDr75c1JLZq4Gcbce1hS1nUjEpbJ5L793kx8y7myTi4"

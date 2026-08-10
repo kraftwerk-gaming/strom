@@ -1,5 +1,23 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmZmBEfLXwXKU1k2rK4hCG1GkaUfnCwBpNoEpfM47vFntx",
+      "name": "pokemon-stadium.z64",
+      "sha256": "sha256-otydFLrlA1vainygW5wW5hu1oZvl5wfdb24f6YzrpOo="
+    },
+    "retroarch": {
+      "core": "mupen64plus_next_gles3_libretro_android.so",
+      "coreOptions": {
+        "mupen64plus-parallel-rdp-deinterlace-method": "Weave",
+        "mupen64plus-rdp-plugin": "parallel",
+        "mupen64plus-rsp-plugin": "hle"
+      },
+      "rom": "pokemon-stadium.z64"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmZmBEfLXwXKU1k2rK4hCG1GkaUfnCwBpNoEpfM47vFntx"

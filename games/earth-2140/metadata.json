@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Earth2140.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZnCAckaMvrujj6B2Ym3arx57HmsX25inPbGzoELuWN6a"
   ],

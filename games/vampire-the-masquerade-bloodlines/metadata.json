@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Loader.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZeWvEYsmPkqRVs2aX6vEB8jdQB2982aB1Ej7rb5DBFAR"
   ],

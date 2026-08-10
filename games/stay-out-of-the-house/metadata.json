@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Stay out of the House.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmeYYsBsxj68RyCSGSK2BaSaY18QTB3rY96TVXDNrZrP2d"
   ],

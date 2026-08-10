@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Pikuniku.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmb1oRLhCtE8oxPsDLVjykHbrZcMfPJwMDaehKHMfBrsWy"
   ],

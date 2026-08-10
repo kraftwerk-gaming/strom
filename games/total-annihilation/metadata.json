@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "TotalA.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRPU9ZPykAtfCMEfbHQGzd2F66EWuAzEJM1PnASW9keQd"
   ],

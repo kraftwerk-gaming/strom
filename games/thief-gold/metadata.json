@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Thief.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmfQzREoGpt5T9E5aL71aVqMoe28oK12UcpvGUCdAKMRCm",
     "QmYsKaAyDYeDXoAEHopfTfxC9ePUuTLyzTQ4jUy2dDoxMt"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "POP2.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZANN4qAVVzpis3dQnc6x4ci4Fs6pCXHRddjT3VGbamWb",
     "QmPi2XYSUHGqFPMH2EvriwtdDXoKF9k2YB8vZo3gocMNxN",

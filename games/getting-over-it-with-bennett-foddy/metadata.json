@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "GettingOverIt.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcSQfYfra3Scgmj9drWygX4GgVEoVpMCxQibH8JUzCvue"
   ],

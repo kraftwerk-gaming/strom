@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: Shadow Tower is a PS1-only FromSoftware title with no Steam release, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Shadow Tower (USA).chd"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "Qmd91vzcFFrztYeqEDHvj2pteutsjNNd53AHWc9AtcC3Wv",

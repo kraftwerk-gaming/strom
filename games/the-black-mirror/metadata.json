@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "BMirror.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmV8whLp7FnitCV1AjZ5f9brdaHDqM117XM7u4AWHKNGvY"
   ],

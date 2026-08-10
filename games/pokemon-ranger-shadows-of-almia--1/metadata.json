@@ -1,6 +1,20 @@
 {
   "_appid": "Never on Steam. A 2008 Nintendo-published DS title; Pok\u00e9mon is Nintendo/Creatures/Game Freak first-party and has never shipped on Steam, so Steam matching is pinned off rather than left to fuzzy-match something unrelated. Same treatment as the Guardian Signs sibling.",
   "_lutris": "The directory, flake attr and name all use Lutris's slug verbatim, including the odd `--1` suffix: https://lutris.net/api/games/pokemon-ranger-shadows-of-almia--1 is the real entry (name \"Pok\u00e9mon Ranger: Shadows of Almia\", 2008) and the un-suffixed `pokemon-ranger-shadows-of-almia` does not exist. AGENTS.md requires dir = flake attr = Lutris slug, and the launcher fetches banner art BY SLUG, so do not \"fix\" the suffix.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {
+        "melonds_screen_gap": "0",
+        "melonds_screen_layout": "Top/Bottom",
+        "melonds_threaded_renderer": "enabled",
+        "melonds_touch_mode": "Mouse"
+      },
+      "rom": "pokemon-ranger-shadows-of-almia--1.nds"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmZszGmHUj3cbhuuebmqTAcPTQBvWzAjc5ujfZVZiHWEoL"

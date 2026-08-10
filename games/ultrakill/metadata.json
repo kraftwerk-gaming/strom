@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "ULTRAKILL.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTP87KiyUYcqq58U78JQpfgg8tqraM8cVxHys79h6hnNx"
   ],

@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: Mario Party is a Nintendo first-party title and has never been on Steam, so any fuzzy match would be an unrelated party game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "mupen64plus_next_gles3_libretro_android.so",
+      "coreOptions": {},
+      "rom": "mario-party.z64"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmR3xWX7DFfmYGaNpXs5yELAcFd48RWtauRDhCtRykU8GW"

@@ -1,5 +1,19 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmaZwVwaooGdanm5hzDnkuUnS5FjPvZzQteeEHtQVRFXkn",
+      "name": "pokemon-black.nds",
+      "sha256": "sha256-uZeRidKZoCMdAciIXA0FS3Bpdv/HVCfKWdhODOFJMDQ="
+    },
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-black.nds"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmaZwVwaooGdanm5hzDnkuUnS5FjPvZzQteeEHtQVRFXkn"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "White Knuckle.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVYKSCB9HiSVZ3ujrhBSK6VVixgofuCh9tRccLLL7c88R"
   ],

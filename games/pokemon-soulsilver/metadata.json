@@ -1,5 +1,19 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmSo4sUeyrgvjxBFUrLknvkgzm1jRyBcUJK8WNEb8WfeLA",
+      "name": "pokemon-soulsilver.nds",
+      "sha256": "sha256-UdD5ShavfXfAZ7TLfYIbqJChMgOi4sdgSWIzMsBYLiA="
+    },
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-soulsilver.nds"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmSo4sUeyrgvjxBFUrLknvkgzm1jRyBcUJK8WNEb8WfeLA"

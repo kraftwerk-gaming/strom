@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "StarCraft.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcqdWwb33rKcfFzoZyTJQpL62ADcTHr8W2APG4Q6MFERx"
   ],

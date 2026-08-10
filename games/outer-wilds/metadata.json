@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "OuterWilds.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmb1sbog54M4NwpRf1yg8yp5rqU6QcJXLfiUByytow7diF"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Supraland.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbxzpQNY8RPAG6t2DhGSah5nT6dWRzi1128rMtZx5BRDS"
   ],

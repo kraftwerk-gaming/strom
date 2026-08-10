@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "cryostasis.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmdbyRwrQNTHKiyYX7fVST18y394fzKuAkqKbThSMqkaXS"
   ],

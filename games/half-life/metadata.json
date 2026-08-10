@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-gl -windowed -nojoy -w 1920 -h 1080 -lw 1920 -lh 1080",
+        "executablePath": "Half-Life/hl.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmeUQvq7qxgmktqQyWR5XmyDEXxayjJaQrEpkMg1P8F1qP"
   ],

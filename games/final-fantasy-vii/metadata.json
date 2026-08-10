@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Final Fantasy VII (USA).m3u"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcxcNS7SR3vqpFgq4Bfo9xXywi6NJY8iRKXxmhqRryfKD",
     "QmZNZn7EM2m9S5Q9aMrfWRiX4biV1juaX2QcjsqPCtnTi3",

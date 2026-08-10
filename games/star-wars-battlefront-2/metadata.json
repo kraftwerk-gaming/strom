@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "battlefrontII.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWenFrRUnLTrxuDBcYGt3PqaAEhW7T5fK5MZUF1knVPJY"
   ],

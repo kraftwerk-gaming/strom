@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the 1998 PSX game has never been released on Steam (it is a PS1 Classics / emulation-only title), so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Parasite Eve (USA).m3u"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "Qmc9ZmGJpUqQNu3ouWmHa5gAHHBzBQX2DgHujDuf6oGbt7",

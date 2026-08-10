@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Kain.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUB18G41smnpTJUE3sb3YjZstM1kxB9BU2V8X3ChtDNKk"
   ],

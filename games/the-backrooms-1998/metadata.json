@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "The Backrooms 98 Free.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUU5ZeXzio1BcLRaNcqmNP96Jy7riyWydiogQc1RAQxfX"
   ],

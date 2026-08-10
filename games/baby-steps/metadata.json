@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "BabySteps.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZzc2ffQdtsokSZ8CxBWdSdzohoKwJBfcRv1dnzd9Q5Fw"
   ],

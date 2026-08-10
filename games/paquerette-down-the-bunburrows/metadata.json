@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Paquerette Down the Bunburrows.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmP7T7DrPTfmUqv7VzgKRqe38JaQNCsnv7gNiZmNqGaDMb",
     "QmTjftj3F8JLxRFS59scJY8SRbvuWvAVQMvgsQ2jjQLxVy"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "S3.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmaWFgt4NGDQ3uAW17Qj2tZHoujciB2yWersWNNM4Sf69D"
   ],

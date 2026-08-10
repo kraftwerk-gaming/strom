@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "System/splintercell3.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZvjRD1KbdzkjBAbkAM7vnk8HweuEY5nUQnYVuAWZkyNd"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "BridgeIt.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTFNcg4GcaXtrC4cNYQy98A9oFNyzZZ9PQ25Hiz6fTV6i"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "setup/GUBBLECD.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmY3cKyHYWXcYScJE8VfYmdBc5R2XJrHLFaG8UpqmRzpDM"
   ],

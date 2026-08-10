@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SS2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYDAEVndJxfs5qwGfyantkhvimYKyEdA9ZYq3XXJoCYb4"
   ],

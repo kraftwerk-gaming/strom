@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "BF1942.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSnWcj6uRHNp1Mi7Xanhthx1AnBtzSu8Q2eRgGehYH2HT"
   ],

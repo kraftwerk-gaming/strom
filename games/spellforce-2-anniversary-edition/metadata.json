@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SpellForce2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcDUyycudv2RtWB5Yfw2RpDCcdo81B3CdfAmWMcHz4AiC"
   ],

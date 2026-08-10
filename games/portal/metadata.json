@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-game portal -steam",
+        "executablePath": "hl2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbjX2XZdYpD9yxvPb14JZzuxaDqALDcmK8kLqTEH6oXkm"
   ],

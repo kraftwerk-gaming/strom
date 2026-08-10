@@ -1,5 +1,10 @@
 {
   "_comment": "Windows 95 release of Lemmings (Lemmings Paintball era port).",
+  "android": {
+    "backend": "unsupported",
+    "reason": "a Linux x86_64 ELF needs box64 plus a glibc rootfs, and no Android runtime app exposes a way to launch one",
+    "schema": 1
+  },
   "cids": [
     "QmUumu4xqgz8xSkqKMtxSXDqGc3fKhztSJWGXeyZJR93hq"
   ],

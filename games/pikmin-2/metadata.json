@@ -1,5 +1,12 @@
 {
   "_appid": "Skip Steam: Pikmin 2 is a Nintendo first-party title and has never been on Steam; any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "dolphin",
+    "dolphin": {
+      "disc": "pikmin-2.rvz"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmZ59GJmiHCoNhYFPjwKSPARSoyEeXDDnLYK8NC2fStkTo"

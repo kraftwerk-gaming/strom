@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "system/Gothic2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmeTtngpG3MdbSFyhpiZjF5tjBeoADwy1fJk9xPVv1kHcw",
     "QmRqRswjxcgiqBUZNwHphd7xC6AtarKnjubZxMwjzXirHH"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Dwarf Eats Mountain.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYJrkgroH1NRewj7X8aJA3oq2tFGfamZP2YBUkxTuKZdh"
   ],

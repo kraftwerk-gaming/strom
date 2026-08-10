@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "gambatte_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-red.gb"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPFNcdvYc6uGjhtN1jnWgx7Cm95vfSRyWzKSdqiYGTj21"
   ],

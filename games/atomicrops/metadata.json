@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Atomicrops.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYCBXRWtbgkSbRqsivK12M6MZi8GwnD5omJii2mkwxA97"
   ],

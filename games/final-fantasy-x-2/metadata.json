@@ -1,5 +1,10 @@
 {
   "_comment": "Off-Steam PS2 disc release. appid is pinned to null so the auto fuzzy-match cannot attach the FFX/X-2 HD Remaster (Steam 359870), which is a different product with different assets.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "no redistributable source-available Android PS2 emulator exists (PCSX2 has no Android target; AetherSX2 is discontinued and closed; NetherSX2 is an unlicensed patch)",
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "Qmba1no1hhMsWPWkdu8SFbaspCYwqZSaLaFd2vzbd2CkW5",

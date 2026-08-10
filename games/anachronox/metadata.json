@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "+set gl_driver opengl32 +set gl_mode 8 +set u_gl_mode 8 +set vid_fullscreen 1 +set u_vid_fullscreen 1 +set s_initsound 0",
+        "executablePath": "anox.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qma31wDiB337AYUrJqQmJfeuc7RoZCWDUtVdeWbQnLrojD"
   ],

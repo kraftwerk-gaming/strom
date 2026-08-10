@@ -1,5 +1,19 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmNvytPvKYLQ9EzLTU8uoM89gbWQwpEbCG2MEfkt3zpdEL",
+      "name": "pokemon-crystal.gbc",
+      "sha256": "sha256-Q5zV09bO5iwE1bRCTDyaNMHlzDhejoNeRxULKxJWAbA="
+    },
+    "retroarch": {
+      "core": "gambatte_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-crystal.gbc"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNvytPvKYLQ9EzLTU8uoM89gbWQwpEbCG2MEfkt3zpdEL"

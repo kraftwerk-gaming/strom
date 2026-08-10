@@ -22,11 +22,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "retroarch";
   executable = "pokemon-blue.gb";
 
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/pokemon-blue.gb
-  '';
-
   retroarch = {
     cores = [ pkgs.libretro.gambatte ];
 

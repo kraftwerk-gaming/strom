@@ -21,11 +21,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   runtime = "retroarch";
   executable = "pokemon-firered.gba";
 
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/pokemon-firered.gba
-  '';
-
   retroarch = {
     cores = [ pkgs.libretro.mgba ];
 

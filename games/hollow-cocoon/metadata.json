@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Hollow Cocoon.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRt3rQvc722RtpQAUDvK4HydgEtF4kst42a1zEX7YRvui"
   ],

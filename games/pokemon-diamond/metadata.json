@@ -1,5 +1,19 @@
 {
   "_appid": "Skip Steam: Pokemon is Nintendo first-party and has never been on Steam, so any fuzzy match would be an unrelated game.",
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmQ4xPCtnWKbkoAEDNcKeJtRg6kSWNLbN9YpNWuPenSdFQ",
+      "name": "pokemon-diamond.nds",
+      "sha256": "sha256-4pvG6+Qx16ayOCZ7axUh/sSjvBTy+jSHmAYvhwxzhFQ="
+    },
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-diamond.nds"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmQ4xPCtnWKbkoAEDNcKeJtRg6kSWNLbN9YpNWuPenSdFQ"

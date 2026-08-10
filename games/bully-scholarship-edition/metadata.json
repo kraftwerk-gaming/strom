@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Bully.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmeTAuvZ3W8FFxiPCGdUarUSouSGWLUhFdDoknhskuZK5u"
   ],

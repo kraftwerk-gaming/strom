@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Arcanum.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWtEG4aRWfkPC5z6ec5hNdAkxJLBHYL8V8eDMjS1pJyoq"
   ],

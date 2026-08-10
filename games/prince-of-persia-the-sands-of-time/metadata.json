@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "PrinceOfPersia.EXE"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmbpUvgkJcw9QfyKjxvP3msV7ktH33VtpBsJftkL2wKMXB",
     "QmUceUiz7bM8dsquB2fL2uvzTLK5tSWgP4NTmbjg2vp93U"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "bin/xr_3da.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVgQiiHfuWyfj3nj1oDse9KrXJKMLrsqvoNFHQEfM3Gjg"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "EasyDeliveryCo.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcLPetJ1bDALGMUnspzJSsB4aTwob58537ic2fm8uiDWv"
   ],

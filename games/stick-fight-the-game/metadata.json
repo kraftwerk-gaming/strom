@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "StickFight.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPUJ1qwyjKBw4B2NuSXqjy76VdARFzYWcwzeqRCBrbn1Z"
   ],

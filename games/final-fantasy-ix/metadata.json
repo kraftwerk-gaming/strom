@@ -1,5 +1,14 @@
 {
   "_appid": "Skip Steam: the only FINAL FANTASY IX on Steam is appid 377840, the 2016 remaster with re-rendered character models, boosters and its own launcher. That is a different product and it is the other Lutris slug (final-fantasy-ix--1); this entry is the 2000 PlayStation original, which was never sold on Steam.",
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Final Fantasy IX (USA).m3u"
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmXXNaYj4fPLenZRQY7upCBK2qDRT4i1H5aAuyiZz2meJM",

@@ -1,5 +1,14 @@
 {
   "_comment": "The 2016 TECOPARK original, later re-released free on Steam as 'PICO PARK: Classic Edition' (appid 1745480). This file's \"appid\": null skips Steam matching so it is not auto-matched to the 2021 paid PICO PARK (appid 1509960, packaged as pico-park-2021); the name keeps the two tiles distinct. See AGENTS.md > Game display metadata.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "pico_park.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNUoeQQd9tvFuTcCvyheCSasqStkRjRvMH1iz8kErsqNu"

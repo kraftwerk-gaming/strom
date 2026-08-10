@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SIGNALIS.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRzNSoG7yP2hQHda9LCyqtJVxtxiSjmoqH2XNEKUoTma9"
   ],

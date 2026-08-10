@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "game/Civ4/Beyond the Sword/Civ4BeyondSword.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qme5gCJd65fFqtYwq1tA1k7igvsNyZJMQQLfkNdys2ZkQK",
     "QmQQnubn2XRTGZtyjbv2NrdZVsNZ9NPfevwKDvwsDZw7Ls"

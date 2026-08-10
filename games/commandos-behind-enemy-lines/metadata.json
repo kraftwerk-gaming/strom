@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Comandos.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPygowuCaS7xtfRTPLgYvybjD8u1oFDTvKbXVhwKHF1ij",
     "QmYyWm3mZJew3jz3QPvWQQ7HUyf3rFbEC6Qo7TaPD3eS6b"

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "HeaveHo.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXqCGP9bKyeLMYdFjujeMgXYv5Un9JqqTW1SMrdoXwPx4"
   ],

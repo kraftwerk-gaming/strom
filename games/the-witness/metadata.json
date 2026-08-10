@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "witness64_d3d11.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZVcwjeVerNMGy4MtNxKT4m2bwkusjTi6yWgfF66uq5dW"
   ],

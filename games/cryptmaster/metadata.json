@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "CryptMaster.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWjQzXRXQbWTBBTbMmuZoU4uR3AUjUd8UU73EcFpMPJJn"
   ],

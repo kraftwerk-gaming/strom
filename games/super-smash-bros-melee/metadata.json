@@ -1,4 +1,11 @@
 {
+  "android": {
+    "backend": "dolphin",
+    "dolphin": {
+      "disc": "melee.iso"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNchGZ9oPDdv9DZjtXLkDnvyGoMsPY8rUAwY5eknYCbzb"
   ],

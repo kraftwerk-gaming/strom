@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "Qmangoooph9xBwKUPEJoTrhEaQFZXtCroL9ikFTKJhrEY6",
+      "name": "mslug.zip",
+      "sha256": "sha256-+23VQsjIfTxBj2qv/Sk10hqalp7KcqwpmSP8ITGV5Vc="
+    },
+    "retroarch": {
+      "core": "fbneo_libretro_android.so",
+      "coreOptions": {},
+      "rom": "mslug.zip"
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmangoooph9xBwKUPEJoTrhEaQFZXtCroL9ikFTKJhrEY6"
   ],

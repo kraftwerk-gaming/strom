@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "ScritchyScratchy.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmaJ3vHdT8Pi7LkWVi5YD88Mej7ynYSbfHKyLHcygjSt3G"
   ],

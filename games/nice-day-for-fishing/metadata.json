@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Nice Day For Fishing.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZCgP8XjfWpmc5fPXDybTCykETXUumLupyJRXoF8b7op3"
   ],

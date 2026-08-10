@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "HoI2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmaWN3QaRb15tr5K21Ze8YdkQsBcFNbhKmACFhzqCb6XCA"
   ],

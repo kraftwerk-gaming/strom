@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-windowtitle No One Lives Forever -rez NOLF.rez -rez NOLF2.rez -rez nolfu003.rez -rez NOLFCRES003.REZ -rez NOLFGOTY.rez -rez Custom/MODERNIZER.REZ -rez Custom/WidescreenGOTY.rez -rez Custom/FontSizeFix_03.REZ -rez Custom/FOX.REZ -rez Custom/NOLFC001.REZ -rez Custom/NOLFC002.rez +multiplayer 0 +DisableMusic 0 +DisableSound 0 +DisableTripBuf 0 +DisableHardwareCursor 0 +screenwidth 1920 +screenheight 1080 +bitdepth 32 +disableflashscreen 1",
+        "executablePath": "lithtech.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmNNopwiiZ9daLJQ7Z2fT6emAxKeVnFwkWiYWAp4oHC1KH"
   ],

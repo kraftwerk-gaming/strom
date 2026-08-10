@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "jetsetradio.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVfcnecdG5cfr9RJhHPCzrEqjqYQ2j5ZKxH5ndL4eZ5NF"
   ],

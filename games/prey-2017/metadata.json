@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Binaries/Danielle/x64/Release/Prey.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmP66yV8tTvXaM9Wh4YaRBTGCMhtRzaoTyqsMDyMWXTy1W"
   ],

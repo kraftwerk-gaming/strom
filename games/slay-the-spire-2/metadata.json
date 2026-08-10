@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "--rendering-driver vulkan",
+        "executablePath": "SlayTheSpire2.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUHtxVXCPD2X7p7NG4sxNNewt3V8vEoyYCRw2tuzwryF7"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Rounds.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUo4XGU6BYAwt1AFsEueLhdUKmNmpXq9ogAY8YWTbyHUk"
   ],

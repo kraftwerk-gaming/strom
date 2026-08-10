@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "SuperliminalSteam.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTHZZB5YwxEMurv341kd7W8X9JgjE3MtADdbLXahxRwrM"
   ],

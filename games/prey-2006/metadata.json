@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "PREY.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmYEridBgpmaBEpp9tKmKaBnrvEnXssktr2USi5NVRFs8X"
   ],

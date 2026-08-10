@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Earth2150.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSYnrqEct1KYknMXmg1GRtm9UX562CksbEtRck9BDEtam"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Risk of Rain.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUiGfcZ9zbgubBA8RZCwGvMhz4drAKztWZr3eKZ9s4C3m"
   ],

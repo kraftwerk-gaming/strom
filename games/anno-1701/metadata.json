@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Anno1701AddOn.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmajdrBZvqXLktKec6nrrVM7dPEufiXYToaUf6AUdzYoDG"
   ],

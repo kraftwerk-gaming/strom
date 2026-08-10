@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "pico_park.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmTdBHTieEyv11xE2phVhmfFCWhJFGyk8btD3M2kMa5jti"
   ],

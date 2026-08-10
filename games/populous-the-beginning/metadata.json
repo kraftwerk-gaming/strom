@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "popTB.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSLdTZSiCJcguj7FaKcFC2PMQiSahAe4UvoDDWwM89gAv"
   ],

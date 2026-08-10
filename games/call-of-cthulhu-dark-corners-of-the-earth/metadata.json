@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Engine/CoCMainWin32.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmXshetsRsiSbvd42xRZfb26ojv7kkkKKxP11o84Rd3cm1"
   ],

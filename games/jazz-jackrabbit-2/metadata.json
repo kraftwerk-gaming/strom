@@ -1,5 +1,10 @@
 {
   "_comment": "Played via Jazz2 Resurrection reimplementation with multiplayer.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "a Linux x86_64 ELF needs box64 plus a glibc rootfs, and no Android runtime app exposes a way to launch one",
+    "schema": 1
+  },
   "cids": [
     "QmYfukSFCe24fSoJ6TVrFDG8153nfVVyh9FapcPpbrdfjb"
   ],

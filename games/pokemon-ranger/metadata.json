@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmZHUyEk66jfC4EA9oxPwQqqU2HH5kbyqvDeGEjtsd6h5f",
+      "name": "pokemon-ranger.nds",
+      "sha256": "sha256-qK0dDWh5b+v86h8s8BI6HjVVMqW14rNsPDnxxoU6d+E="
+    },
+    "retroarch": {
+      "core": "melonds_libretro_android.so",
+      "coreOptions": {},
+      "rom": "pokemon-ranger.nds"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZHUyEk66jfC4EA9oxPwQqqU2HH5kbyqvDeGEjtsd6h5f"
   ],

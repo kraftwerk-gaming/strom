@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Bin/SeriousSam.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qmc1kVGaJCmJRAXEY1jPvXrTvsPFUZWG54th4fqpfY1TF9"
   ],

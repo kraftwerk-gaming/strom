@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-DEVMODE",
+        "executablePath": "Bin32/FarCry.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSeBi5c7WXQziStu72ocgCMsUoHGZKd3v1VFTWd8RLAVJ"
   ],

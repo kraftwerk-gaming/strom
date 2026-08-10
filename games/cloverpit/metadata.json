@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "CloverPit.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRaFP9hfudYEPJ5GqaBWWegY8C5VPEuSc5K7BB5DCN5kG"
   ],

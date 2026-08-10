@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "mgba_libretro_android.so",
+      "coreOptions": {},
+      "rom": "golden-sun.gba"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmaSeGWrzZ77vZQZ9RHsnyizfmXzizdkXaov1JiGgTMH58"
   ],

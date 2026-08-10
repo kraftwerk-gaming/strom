@@ -1,4 +1,18 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "payload": {
+      "cid": "QmRVRg1spGsV96NuKv7HH27kwhnPKwadNnBp3ZyarDPFwY",
+      "name": "super-metroid.sfc",
+      "sha256": "sha256-Erd8S8nBgyzuiIEkRlkGXuHYTHDD0p5ur5LmeYzCynI="
+    },
+    "retroarch": {
+      "core": "bsnes_libretro_android.so",
+      "coreOptions": {},
+      "rom": "super-metroid.sfc"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmRVRg1spGsV96NuKv7HH27kwhnPKwadNnBp3ZyarDPFwY"
   ],

@@ -1,6 +1,15 @@
 {
   "_appid": "Never released on Steam. A 1999 EA/Firaxis title; the only current digital release is the GOG Planetary Pack, so Steam matching is skipped outright rather than fuzzy-matched.",
   "_lutris": "Directory, flake attr and name all use Lutris's canonical slug 'sid-meyers-alpha-centauri' (Lutris id 57, name \"Sid Meier's Alpha Centauri\", 1999). Lutris misspells Meier as Meyer; we follow it anyway because AGENTS.md requires dir = flake attr = Lutris slug, and the couch launcher fetches banner art BY SLUG: https://lutris.net/games/banner/sid-meyers-alpha-centauri.jpg returns 200 while the correctly-spelled sid-meiers-alpha-centauri.jpg returns 404. Lutris also lists aliases sid-meier-s-alpha-centauri and sid-meyer-s-alpha-centauri; neither is 'sid-meiers-'. sid-meiers-civilization-ii/-iii legitimately differ because each matches its own Lutris slug.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "terranx.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmRnfjQv7ajfJjYhwRGqahsmhcCKMFhuicoLAqB4AiAG77",

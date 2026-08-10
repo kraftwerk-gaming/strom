@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "ObraDinn.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmefADojRgYj81RXePWmpEVGNBCR7RCyGQrgFZLqmmPFUe"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "W40kWA.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "Qmd4Nrec6TXLY1VDA3T46zWU9RrHMZSrKfb7C4V5XCLW2d"

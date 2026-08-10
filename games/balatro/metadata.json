@@ -1,5 +1,14 @@
 {
   "_comment": "Force this Steam appid; auto-search matches the wrong app.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Balatro.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": 2379780,
   "cids": [
     "QmXqGFXAh7Y9vzBRXj5cGyjnLFPPsYnMJPZVAoMAbdWmtj"

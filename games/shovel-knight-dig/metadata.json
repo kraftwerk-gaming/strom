@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "skDig64.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmW5sbvthozq9QHC6ZvN1SJmKoLFm2wh6XNt1h1vEowMMf"
   ],

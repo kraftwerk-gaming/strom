@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "i76.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "Qma3cbzkU4FucWUeNY1cfgzFML3G6XPoWr1HKYGMNdQCWh"
   ],

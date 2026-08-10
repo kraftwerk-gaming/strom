@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "AnemoiapolisChapter1.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmdFDwC6TXWJwNf7T9rAumNgg9ermgrFuRK37guyhX4tFW"
   ],

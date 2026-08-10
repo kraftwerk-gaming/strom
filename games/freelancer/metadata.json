@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "exe/freelancer.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWn94KUgDs59QMvs6sjyVQsXScRiwDzPnEJKbHn8EQxUN"
   ],

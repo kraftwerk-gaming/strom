@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Everything is Crab.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmUwUvaj5DmqcraPZ74xpepwhx5HbgMCWQweeWM1aMHHXk"
   ],

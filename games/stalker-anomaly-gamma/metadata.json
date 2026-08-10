@@ -1,5 +1,15 @@
 {
   "_appid": "Skip Steam: G.A.M.M.A. is a free modpack on standalone Anomaly, not a Steam product. Fuzzy matching would land on one of GSC's original S.T.A.L.K.E.R. releases, which is a different game and would misrepresent what this package ships.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-smap2048",
+        "executablePath": "bin/AnomalyDX11AVX.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmPf36pvP1sqsPmSKRCmUeEZDTrpMeXVyDEkKcxws3eqnE",

@@ -1,5 +1,10 @@
 {
   "_comment": "Fan SE Talkie edition combining original VGA with Special Edition speech, via ScummVM.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "a Linux x86_64 ELF needs box64 plus a glibc rootfs, and no Android runtime app exposes a way to launch one",
+    "schema": 1
+  },
   "cids": [
     "QmYs37wpRTvw1ihxgzd4HR8Zf1Y1QqSATd8rHZMKETTuTm"
   ],

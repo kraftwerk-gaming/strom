@@ -44,10 +44,6 @@ self.lib.mkGame { inherit lib pkgs; } {
   executable = "pokemon-platinum.nds";
 
   # Source serves a bare .nds (not zipped), so just place it in $out.
-  buildScript = ''
-    mkdir -p $out
-    cp "$src" $out/pokemon-platinum.nds
-  '';
 
   retroarch = {
     # NDS → melonDS libretro core (single .so under lib/retroarch/cores/,

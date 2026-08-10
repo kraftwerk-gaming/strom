@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "DELTARUNE.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSSr7w3G9i3EidAK51sjnpGUuDEX55q2cp3FwLefQN2UV"
   ],

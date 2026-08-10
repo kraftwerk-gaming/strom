@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Hollow Knight Silksong.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmQV4uWyt7NbkMWX949SVsr2yNczDsoEbQbH9FgZR6X2jU"
   ],

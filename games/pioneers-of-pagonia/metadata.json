@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Pioneers of Pagonia.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmS5RZD8tD9r2cXg3Rr8NRgy33ufp4dyRa5QjLCbHQBVpq"
   ],

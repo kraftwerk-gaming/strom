@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-screen-fullscreen 1 -screen-width 1920 -screen-height 1080",
+        "executablePath": "Shipbreaker.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcVJd7C6vARAN7RudbqDB1aZr141ELitzqtCuN3wPoPaU"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "prototypef.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmWRHVtwqmkafD5bzf7Nxprp7DsJuEeYfkxRr6ZqC7AQQa"
   ],

@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "retroarch",
+    "retroarch": {
+      "core": "swanstation_libretro_android.so",
+      "coreOptions": {},
+      "rom": "Spyro the Dragon (USA).chd"
+    },
+    "schema": 1
+  },
   "cids": [
     "QmPFJ4r73mxWoBk2wtJWBgYbNJT8PeaCXMkruCaF7A6svY",
     "bafkreibalsxl4jo23j4lgxoubseqbquwudj5nieni3jsoxszkc3aza6g7u"

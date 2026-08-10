@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "TowerFall.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmX1jKGFedEKzuHxh1WdSEYzLQF9JP1eVCGD2RqwJWSigo"
   ],

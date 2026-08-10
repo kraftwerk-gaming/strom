@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "LoneSurvivor-TheDirectorsCut.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmcwMQYu7baPa7Ans6yM6ARCfZLx8htu9z32Ao2DvrjwwX"
   ],

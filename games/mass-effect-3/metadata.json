@@ -1,5 +1,15 @@
 {
   "_comment": "Hand-written: the standalone 2012 Mass Effect 3 was an Origin/EA-App exclusive and has no Steam store page of its own (the only ME3 on Steam is the 2021 Legendary Edition, appid 1328670, which is a different release and is NOT what this package ships), so appid is pinned to null. tags reflect what is actually packaged: the repack's LAN multiplayer needs the ME3Server_WV emulator blocks that default.nix deliberately does not extract, so this is a single-player install.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-log",
+        "executablePath": "Binaries/Win32/MassEffect3.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNMk3TjnazNq6ihymGto41H29vxX6PyTBgeis5ez49tfB",

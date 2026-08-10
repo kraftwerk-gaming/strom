@@ -1,5 +1,10 @@
 {
   "_comment": "Fan-made MBF21 PWAD megawad for Doom II, run via GZDoom.",
+  "android": {
+    "backend": "unsupported",
+    "reason": "custom runtimes are per-game shell scripts with no Android equivalent; port individually",
+    "schema": 1
+  },
   "cids": [
     "QmcYboes353EtSS4xYFtAgzcKDEybEaioRrLBsbk3d2WiV",
     "QmbvTqMatBt2tRcuM461BbCUdrf2kzL6hMSNUtGP4amkJc"

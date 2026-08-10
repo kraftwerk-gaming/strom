@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Balls.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmVP4fju6q57QgZg441JTpfgPid8wy5NFkjcavnX5dFwqD"
   ],

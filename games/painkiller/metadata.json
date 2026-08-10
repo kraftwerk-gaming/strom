@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Bin/Painkiller.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmZbeXCa8N3iWv7aoNMJTceV1743tKhgYmNV5maB85voYC"
   ],

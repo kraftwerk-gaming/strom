@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "DREDGE.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmfM2FyB21ujQ1RHNMFSFvKoC9qhd6EZFn6JtTmWk15z15"
   ],

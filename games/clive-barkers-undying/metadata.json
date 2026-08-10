@@ -1,4 +1,14 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "execArgs": "-ResX=1920 -ResY=1080 -32bit",
+        "executablePath": "System/Undying.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmfEixNEUami9F2aLM56EhzJKv79kDb3dsuCNdM8Drj4qQ"
   ],

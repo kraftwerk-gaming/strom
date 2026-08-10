@@ -1,6 +1,15 @@
 {
   "_comment": "Hand-written metadata: the 2003 Homeworld 2 is not sold on Steam (Steam only carries the 2015 Homeworld Remastered Collection, appid 244160, which is a different product), so appid is pinned to null and there is no steam.json.",
   "_name": "'(Classic)' distinguishes the 2003 binary (Homeworld2Classic in Gearbox's tree) from the 2015 remaster shipped by homeworld-remastered-collection. All three come from the same installer.",
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "Homeworld2Classic/Bin/Release/Homeworld2.exe"
+      }
+    },
+    "schema": 1
+  },
   "appid": null,
   "cids": [
     "QmNZii5dEietiWJ3XWamoXtZVJ4G8uWoMokCFXjg38puiQ",

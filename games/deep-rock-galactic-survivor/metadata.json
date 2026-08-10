@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "DRG Survivor.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmSL5h9UesxVdWGxAdPzXEgr1cTJ2puw2LJv71mcUgtSR4"
   ],

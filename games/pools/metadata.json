@@ -1,4 +1,13 @@
 {
+  "android": {
+    "backend": "gamenative",
+    "gamenative": {
+      "containerConfig": {
+        "executablePath": "POOLS.exe"
+      }
+    },
+    "schema": 1
+  },
   "cids": [
     "QmdEe9RAT2md6TaVzgtMzG5Jw7bvmtfvtWhDeJPvzrfJ5m"
   ],
