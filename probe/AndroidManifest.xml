@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gaming.kraftwerk.stromprobe"
+    android:versionCode="1"
+    android:versionName="0.1">
+
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34" />
+
+  <!-- All-files access. Needed because a file our app creates in shared
+       storage is attributed to us by MediaProvider, and another app (the
+       runtime we hand off to) then cannot read it. Must be declared here
+       before it can be granted, by the user through a Settings screen or by
+       the appops shell command in testing. -->
+  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+  <!-- API 30+ package visibility. Without this, PackageManager pretends the
+       runtime apps do not exist and our intents will not resolve. Whether
+       that is really required is one of the things this probe measures. -->
+  <queries>
+    <package android:name="com.retroarch" />
+    <package android:name="app.gamenative" />
+    <package android:name="org.dolphinemu.dolphinemu" />
+  </queries>
+
+  <application android:label="strom probe" android:hasCode="true">
+    <activity android:name=".ProbeActivity" android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>

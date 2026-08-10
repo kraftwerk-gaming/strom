@@ -33,3 +33,7 @@ dl/
 _src/
 extract/
 iso_files/
+
+# Hand-built diagnostic APK output (probe/); the sources are tracked, the
+# aapt2/d8/apksigner artifacts are not.
+probe/build/
