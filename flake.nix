@@ -130,6 +130,17 @@
             # customize view.
             settings = p.passthru.settingsSchema or [ ];
           }) games;
+
+          # The Android SDK is unfree and its licence must be accepted
+          # explicitly, so the APK build gets its own nixpkgs instance
+          # rather than tainting the one every game is built from.
+          pkgsAndroid = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+              android_sdk.accept_license = true;
+            };
+          };
         in
         {
           patched-pkgs = {
@@ -137,6 +148,15 @@
             sdl2 = pkgs.callPackage ./pkgs/sdl2.nix { };
           };
           inherit games;
+          # revCount is monotonic across the repo's history, which is
+          # exactly what versionCode has to be, and it needs no manual
+          # bump before a release. A dirty or shallow checkout has no
+          # revCount, so local builds fall back to 1 -- CI must clone with
+          # full history or every release would claim the same version.
+          androidApp = pkgsAndroid.callPackage ./pkgs/android-app {
+            versionCode = self.revCount or 1;
+            versionName = "0.1.0+r${toString (self.revCount or 0)}.${self.shortRev or "dirty"}";
+          };
           scripts = {
             launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
             gui = pkgs.callPackage ./pkgs/gui { };
@@ -162,14 +182,27 @@
 
       packages = forAllSystems (system: self.legacyPackages.${system}.games);
 
-      # Android APK outputs. Thin alias: a game's `android` submodule
-      # exposes an `outputs.apk` derivation (per-game seam, see
-      # lib/android/default.nix); this remaps the path so
-      # `nix build .#apks.<slug>` works without typing out
-      # `.#modules.x86_64-linux.<slug>.android.outputs.apk`. Lazy per
-      # attribute: games without an APK definition only error when
-      # their attribute is actually evaluated.
+      # Android outputs. Thin aliases onto each game's `android`
+      # submodule (see lib/android/default.nix) so the useful paths are
+      # `nix build .#androidManifests.<slug>` rather than
+      # `.#modules.x86_64-linux.<slug>.android.outputs.manifest`. Lazy
+      # per attribute: a game that doesn't define an APK only errors
+      # when its `apks` attribute is actually evaluated.
+      #
+      # androidManifests  per-game descriptor for the Strom Android
+      #                   client (backend, payload CID, launch args).
+      # androidPayloads   the zip an operator builds and IPFS-pins to
+      #                   make a game available on Android.
+      # apks              per-game self-contained APK, where one exists.
+      # androidApp        the client itself: one APK for every game, which
+      #                   reads the manifests above and fetches payloads by
+      #                   CID. `nix build .#androidApp`.
       apks = nixpkgs.lib.mapAttrs (_: m: m.android.outputs.apk) self.modules.x86_64-linux;
+      androidManifests = nixpkgs.lib.mapAttrs (
+        _: m: m.android.outputs.manifest
+      ) self.modules.x86_64-linux;
+      androidPayloads = nixpkgs.lib.mapAttrs (_: m: m.android.outputs.payload) self.modules.x86_64-linux;
+      androidApp = self.legacyPackages.x86_64-linux.androidApp;
       apps = forAllSystems (
         system:
         let

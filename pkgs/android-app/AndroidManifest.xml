@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gaming.kraftwerk.strom"
+    android:versionCode="1"
+    android:versionName="0.1.0">
+
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34" />
+
+  <uses-permission android:name="android.permission.INTERNET" />
+
+  <!-- Deliberately NO storage permission. Measured on an API 34 AVD: the
+       client writes payloads into public Download/Strom, which needs no
+       grant at all, and a runtime app can read them back from there. The
+       client's own Android/data is unusable for this because no other app
+       may reach into it, and arbitrary shared storage would cost the user
+       an All-Files grant. See docs/android.md. -->
+
+  <!-- API 30+ package visibility. Without this, PackageManager reports the
+       runtime apps as absent and the handoff intents do not resolve. -->
+  <queries>
+    <package android:name="com.retroarch" />
+    <package android:name="com.retroarch.aarch64" />
+    <package android:name="app.gamenative" />
+    <package android:name="org.dolphinemu.dolphinemu" />
+  </queries>
+
+  <application
+      android:label="Strom"
+      android:hasCode="true"
+      android:allowBackup="false">
+    <activity
+        android:name=".MainActivity"
+        android:exported="true"
+        android:label="Strom">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
+</manifest>
