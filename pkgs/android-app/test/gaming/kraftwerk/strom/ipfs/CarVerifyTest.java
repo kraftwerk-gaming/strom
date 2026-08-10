@@ -33,6 +33,7 @@ public final class CarVerifyTest {
         rejectsATruncatedCar();
         rejectsARootThatWasNotRequested();
         cidTextRoundTrips();
+        reassemblesAFileWhoseChunksRepeat();
 
         if (failures > 0) {
             System.err.println(failures + " test(s) failed");
@@ -79,6 +80,52 @@ public final class CarVerifyTest {
             java.util.Arrays.equals(a, Files.readAllBytes(new File(out, "a.txt").toPath())));
         check("directory file b survives",
             java.util.Arrays.equals(b, Files.readAllBytes(new File(out, "b.txt").toPath())));
+    }
+
+    /**
+     * A chunked file whose chunks are not all distinct.
+     *
+     * <p>Trustless gateways serve {@code dups=n}: a block is transmitted
+     * once however many times the DAG points at it. Real payloads point at
+     * the same block constantly, because a ROM's padding chunks are byte
+     * identical and so share a CID. The extractor originally assumed one
+     * arriving block per reference and failed such a file with "CAR ended
+     * with N block(s) unaccounted for" -- on real data that was 2 blocks
+     * for a 32 MiB ROM and 111 for a 128 MiB one, so most of the published
+     * catalogue could not be fetched at all.
+     */
+    private static void reassemblesAFileWhoseChunksRepeat() throws Exception {
+        byte[] padding = new byte[64];      // the repeated chunk
+        java.util.Arrays.fill(padding, (byte) 0xff);
+        byte[] head = "header".getBytes("UTF-8");
+
+        Cid cHead = rawCid(head);
+        Cid cPad = rawCid(padding);
+        // head, padding, padding, padding: four references, three distinct.
+        byte[] file = fileNode(
+            new Cid[] { cHead, cPad, cPad, cPad },
+            new int[] { head.length, padding.length, padding.length, padding.length });
+        Cid cFile = dagCid(file);
+
+        // What a dups=n gateway actually puts on the wire: each block once.
+        byte[] car = car(cFile, new Block[] {
+            new Block(cFile, file), new Block(cHead, head), new Block(cPad, padding),
+        });
+
+        File out = tmp("dedup");
+        UnixFs.Stats st = UnixFs.extract(new ByteArrayInputStream(car), cFile, out);
+
+        byte[] want = new byte[head.length + padding.length * 3];
+        System.arraycopy(head, 0, want, 0, head.length);
+        for (int i = 0; i < 3; i++) {
+            System.arraycopy(padding, 0, want, head.length + i * padding.length, padding.length);
+        }
+        byte[] got = Files.readAllBytes(out.toPath());
+
+        check("a repeated chunk is written once per reference, not once",
+            java.util.Arrays.equals(want, got));
+        check("the repeats are counted", st.duplicates == 2);
+        check("only the distinct blocks were received", st.blocks == 3);
     }
 
     private static void rejectsATamperedLeaf() throws Exception {
@@ -241,6 +288,41 @@ public final class CarVerifyTest {
             v >>>= 7;
         }
         o.write((int) v);
+    }
+
+    /** A UnixFS chunked-file PBNode: links plus Data{type=file, filesize, blocksizes}. */
+    private static byte[] fileNode(Cid[] cids, int[] sizes) throws IOException {
+        ByteArrayOutputStream o = new ByteArrayOutputStream();
+        long total = 0;
+        for (int i = 0; i < cids.length; i++) {
+            ByteArrayOutputStream link = new ByteArrayOutputStream();
+            byte[] h = cids[i].toBytes();
+            link.write(0x0a);
+            writeVarint(link, h.length);
+            link.write(h);
+            link.write(0x12);                                // Name, empty for file chunks
+            writeVarint(link, 0);
+            link.write(0x18);
+            writeVarint(link, sizes[i]);
+            o.write(0x12);
+            writeVarint(o, link.size());
+            o.write(link.toByteArray());
+            total += sizes[i];
+        }
+        ByteArrayOutputStream u = new ByteArrayOutputStream();
+        u.write(0x08);
+        writeVarint(u, 2);                                   // Type = file
+        u.write(0x18);
+        writeVarint(u, total);                               // filesize
+        for (int s2 : sizes) {
+            u.write(0x20);                                   // repeated blocksizes
+            writeVarint(u, s2);
+        }
+        byte[] unixfs = u.toByteArray();
+        o.write(0x0a);
+        writeVarint(o, unixfs.length);
+        o.write(unixfs);
+        return o.toByteArray();
     }
 
     /** A UnixFS directory PBNode: links plus a Data field of type dir. */

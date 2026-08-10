@@ -28,9 +28,15 @@ public final class UnixFs {
     private static final int TYPE_FILE = 2;
 
     public static final class Stats {
+        /** Blocks received on the wire. */
         public long blocks;
         public long bytesOut;
         public long files;
+        /**
+         * References served from an earlier copy of the same block. Nonzero
+         * whenever the payload repeats content, which most ROMs do.
+         */
+        public long duplicates;
     }
 
     private UnixFs() {
@@ -207,6 +213,36 @@ public final class UnixFs {
          */
         long pending;
 
+        /**
+         * Blocks kept in case the DAG references them again.
+         *
+         * <p>Bounded, because a payload is far larger than memory: this is
+         * an LRU over CACHE_MAX bytes. Duplicates are near neighbours in
+         * practice, since the runs of identical padding that create them
+         * sit together in the file, so a modest window catches them. If one
+         * is ever evicted before its second reference the walk fails
+         * loudly, which is the right outcome -- silently writing the wrong
+         * bytes is the thing this class exists to prevent.
+         */
+        static final int CACHE_MAX = 24 * 1024 * 1024;
+        final java.util.LinkedHashMap<Cid, byte[]> seen =
+            new java.util.LinkedHashMap<Cid, byte[]>(64, 0.75f, true);
+        long cached;
+
+        private void remember(Cid cid, byte[] data) {
+            if (data.length > CACHE_MAX) {
+                return;
+            }
+            if (seen.put(cid, data) == null) {
+                cached += data.length;
+            }
+            java.util.Iterator<java.util.Map.Entry<Cid, byte[]>> it = seen.entrySet().iterator();
+            while (cached > CACHE_MAX && it.hasNext()) {
+                cached -= it.next().getValue().length;
+                it.remove();
+            }
+        }
+
         Walker(Cid root, File dest) {
             this.dest = dest;
             expect.addLast(new Expect(root, "", false));
@@ -215,6 +251,10 @@ public final class UnixFs {
         @Override
         public void block(Cid cid, byte[] data) throws IOException {
             stats.blocks++;
+            // A block the walk already expects may have been satisfied by an
+            // earlier copy of itself; clear those before matching this one.
+            replay();
+
             Expect e = expect.pollFirst();
             if (e == null) {
                 throw new VerifyException("CAR contains more blocks than the DAG references");
@@ -222,13 +262,40 @@ public final class UnixFs {
             if (!e.cid.equals(cid)) {
                 throw new VerifyException("out-of-order block: expected " + e.cid + ", got " + cid);
             }
+            remember(cid, data);
+            place(e, cid, data);
+        }
+
+        /**
+         * Satisfy expectations for blocks that have already arrived.
+         *
+         * <p>A gateway serving {@code dups=n} transmits each distinct block
+         * once, however many times the DAG points at it, and real payloads
+         * point at the same block often: a ROM's padding chunks are byte
+         * identical, so they share a CID. Every reference after the first
+         * has to be served from what we kept, or the walk ends holding
+         * expectations nothing will ever fill.
+         */
+        private void replay() throws IOException {
+            while (!expect.isEmpty()) {
+                byte[] cached = seen.get(expect.peekFirst().cid);
+                if (cached == null) {
+                    return;
+                }
+                Expect e = expect.pollFirst();
+                stats.duplicates++;
+                place(e, e.cid, cached);
+            }
+        }
+
+        /** Write a block's content, wherever the bytes came from. */
+        private void place(Expect e, Cid cid, byte[] data) throws IOException {
             if (e.append && sink == null) {
                 throw new VerifyException("no open file for " + cid);
             }
             if (!e.append && sink != null) {
                 throw new VerifyException("block for " + e.path + " arrived inside " + sinkPath);
             }
-
             if (cid.codec == Cid.CODEC_RAW) {
                 // A raw leaf is file content verbatim; this repo pins with
                 // --raw-leaves, so most of a payload arrives this way.
@@ -341,6 +408,11 @@ public final class UnixFs {
         }
 
         private void finish() throws IOException {
+            // The tail of a payload is often its most repetitive part, so
+            // the last references frequently resolve to blocks already seen
+            // rather than to anything still on the wire.
+            replay();
+
             boolean midFile = sink != null;
             if (midFile) {
                 OutputStream out = sink;
@@ -349,7 +421,8 @@ public final class UnixFs {
             }
             if (!expect.isEmpty()) {
                 throw new VerifyException("CAR ended with " + expect.size()
-                    + " block(s) unaccounted for");
+                    + " block(s) unaccounted for; " + expect.peekFirst().cid
+                    + " was never sent and is not in the recent-block cache");
             }
             if (midFile) {
                 throw new VerifyException("CAR ended mid-file");
