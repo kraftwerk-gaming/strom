@@ -17,8 +17,11 @@ import android.view.InputDevice;
 
 import gaming.kraftwerk.strom.catalog.Game;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Hands a prepared game to an installed runtime app.
@@ -412,29 +415,71 @@ public final class Handoff {
     }
 
     /**
-     * Whether this core has already been copied into the runtime, recorded
-     * on our side because its private cores directory is unreadable to us.
+     * Whether this core is known to be in place inside the runtime,
+     * recorded on our side because its private cores directory is
+     * unreadable to us.
      *
      * <p>Keyed by the runtime's install time as well as the core, so a
      * reinstalled or updated RetroArch -- which takes its private data with
      * it -- is copied into again rather than launched against a core that
      * is no longer there.
+     *
+     * <p>The marker records when the copy should be <em>finished</em>, not
+     * when it was started, and that distinction is not academic: a 67 MB
+     * fbneo copy was still in flight when a second Play took the launch
+     * path that trusts it, and RetroArch got a half-written core --
+     * {@code linker: has invalid shdr offset/size: 66956040/1792}, then a
+     * black screen. Being early costs a corrupt core; being late costs one
+     * more launch through the sideload path, which merely draws the
+     * overlay again. So the estimate is deliberately pessimistic.
      */
     private static File copyMarker(String pkg, File core) {
         return new File(CoreInstaller.ROOT, "." + pkg + "." + core.getName() + ".installed");
     }
 
     private static boolean copyRecorded(Context c, String pkg, File core) {
-        return copyMarker(pkg, core).lastModified() >= installTime(c, pkg);
+        File marker = copyMarker(pkg, core);
+        if (marker.lastModified() < installTime(c, pkg)) {
+            return false;
+        }
+        return readyAt(marker) <= System.currentTimeMillis();
     }
 
+    private static long readyAt(File marker) {
+        try {
+            BufferedReader r = new BufferedReader(new FileReader(marker));
+            try {
+                String s = r.readLine();
+                return s == null ? Long.MAX_VALUE : Long.parseLong(s.trim());
+            } finally {
+                r.close();
+            }
+        } catch (IOException e) {
+            return Long.MAX_VALUE;
+        } catch (NumberFormatException e) {
+            return Long.MAX_VALUE;
+        }
+    }
+
+    /**
+     * Note that a copy of this core is under way, and when to believe it.
+     * One mebibyte per second is far below what the device manages; the
+     * point is a bound that a slow copy cannot beat, not an estimate.
+     */
     private static void recordCopy(String pkg, File core) {
+        long ready = System.currentTimeMillis() + SECOND_FIRE_MS
+            + (core.length() / 1024) + 5000L;
         File marker = copyMarker(pkg, core);
         try {
             if (!CoreInstaller.ROOT.isDirectory()) {
                 CoreInstaller.ROOT.mkdirs();
             }
-            new java.io.FileOutputStream(marker).close();
+            PrintWriter w = new PrintWriter(marker, "UTF-8");
+            try {
+                w.println(ready);
+            } finally {
+                w.close();
+            }
         } catch (IOException e) {
             Log.w(TAG, "cannot record core install of " + core.getName(), e);
         }
