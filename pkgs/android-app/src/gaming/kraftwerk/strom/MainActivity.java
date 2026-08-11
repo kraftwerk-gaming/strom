@@ -412,6 +412,12 @@ public class MainActivity extends Activity {
                     } else {
                         say(status, "failed: " + e);
                     }
+                } finally {
+                    // Including after a launch that worked. Quitting the
+                    // game returns the player here, and the obvious thing
+                    // to do next is play it again; a button that stays
+                    // dead until the list happens to be rebuilt is just a
+                    // dead button.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
