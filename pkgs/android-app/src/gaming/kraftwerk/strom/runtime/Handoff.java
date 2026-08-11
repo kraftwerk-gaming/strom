@@ -4,13 +4,16 @@ import android.app.ActivityOptions;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.view.Display;
+import android.view.InputDevice;
 
 import gaming.kraftwerk.strom.catalog.Game;
 
@@ -34,6 +37,14 @@ public final class Handoff {
     };
     private static final String RETROARCH_SIDELOAD =
         "com.retroarch.browser.debug.CoreSideloadActivity";
+    /**
+     * RetroArch's own game activity, exported, and the only entry that
+     * takes a caller-supplied CONFIGFILE. The sideload activity above
+     * builds its own intent and calls UserPreferences.getDefaultConfigPath,
+     * so a config handed to that one never reaches RetroArch.
+     */
+    private static final String RETROARCH_FUTURE =
+        "com.retroarch.browser.retroactivity.RetroActivityFuture";
 
     /**
      * WatermelonDS, a melonDS port for handhelds with two physical panels.
@@ -292,20 +303,66 @@ public final class Handoff {
                 + " Answer its permission prompts until its menu appears, then press Play again.");
         }
 
+        ApplicationInfo ra;
+        try {
+            ra = c.getPackageManager().getApplicationInfo(pkg, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new NotInstalled("gone while launching: " + pkg);
+        }
+
+        // Shared storage is noexec, so RetroArch cannot load the core from
+        // where we downloaded it. CoreSideloadActivity exists to copy it
+        // into RetroArch's private cores directory, and that copy is the
+        // only reason we still use it: it reads exactly LIBRETRO and ROM
+        // and then builds its own intent around
+        // UserPreferences.getDefaultConfigPath, so a game launched through
+        // it runs under RetroArch's config and we cannot decide a setting.
+        //
+        // So the first game to use a core is launched through it anyway,
+        // rather than as a separate install step. Sending it a core with
+        // no ROM does copy the core, but RetroArch then tries to start
+        // that core with no content and dies in it -- measured on an AYN
+        // Thor: SIGSEGV in bsnes_libretro_android.so retro_set_environment,
+        // taking the copy's own success message down with it. Playing the
+        // game is what installs the core, and everything after that is
+        // ours.
+        File installed = new File(new File(ra.dataDir, "cores"), core.getName());
+        if (!copyRecorded(c, pkg, core)) {
+            sideload(c, pkg, core, rom);
+            recordCopy(pkg, core);
+            return;
+        }
+
+        // Everything RetroArch's own launcher passes, reproduced. DATADIR
+        // and APK must be RetroArch's, not ours: they locate its bundled
+        // assets, menu, overlays and autoconfig. SDCARD decides where its
+        // saves, states and system directory default to, so omitting it
+        // would silently relocate a user's existing data. IME is left out
+        // deliberately -- it only renames a pad for three IME-based
+        // gamepad bridges.
+        String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath();
         final Intent intent = new Intent();
-        intent.setComponent(new ComponentName(pkg, RETROARCH_SIDELOAD));
-        intent.putExtra("LIBRETRO", core.getAbsolutePath());
+        intent.setComponent(new ComponentName(pkg, RETROARCH_FUTURE));
         intent.putExtra("ROM", rom.getAbsolutePath());
+        intent.putExtra("LIBRETRO", installed.getAbsolutePath());
+        intent.putExtra("CONFIGFILE", RetroArchConfig.write(!hasGamepad()).getAbsolutePath());
+        intent.putExtra("DATADIR", ra.dataDir);
+        intent.putExtra("APK", ra.sourceDir);
+        intent.putExtra("SDCARD", sdcard);
+        intent.putExtra("EXTERNAL", sdcard + "/Android/data/" + pkg + "/files");
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        // Always send it twice rather than tracking whether the core is
-        // already installed. RetroArch's private cores directory is
-        // unreadable to us, so any such record is a guess about another
-        // app's state, and a first attempt that failed (its cores dir did
-        // not exist yet, say) would leave the guess permanently wrong and
-        // the game unlaunchable. The second intent costs one re-copy of a
-        // few-MB core and is harmless when the first already worked.
-        Log.i(TAG, "handoff -> " + pkg + " core=" + core + " rom=" + rom);
+        // Sent twice, for a reason specific to this activity. RetroArch is
+        // singleInstance and reads its config once at startup, so a live
+        // instance cannot be re-pointed: given a ROM that differs from the
+        // one it started with, onNewIntent calls System.exit(0) and drops
+        // the intent, and nothing relaunches it. A player who just quit a
+        // different game and pressed Play on this one lands exactly there.
+        // So the first intent may do nothing but kill the stale instance,
+        // and the second one starts the game. With no instance running the
+        // first starts it and the second is identical, which onNewIntent
+        // answers with setIntent and no restart.
+        Log.i(TAG, "handoff -> " + pkg + " core=" + installed + " rom=" + rom);
         c.startActivity(intent, onBuiltIn());
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
@@ -319,6 +376,97 @@ public final class Handoff {
                 }
             }
         }, SECOND_FIRE_MS);
+    }
+
+    /**
+     * Play a game through RetroArch's own sideload entry, which copies the
+     * core into its private directory on the way. Used for the first game
+     * on each core, and only for the copy: this launch runs under
+     * RetroArch's own config, so its touch overlay is drawn even on a
+     * handheld whose controls make it useless. Every later launch of that
+     * core goes through RetroActivityFuture with ours.
+     */
+    private static void sideload(final Context c, final String pkg, File core, File rom) {
+        final Intent intent = new Intent();
+        intent.setComponent(new ComponentName(pkg, RETROARCH_SIDELOAD));
+        intent.putExtra("LIBRETRO", core.getAbsolutePath());
+        intent.putExtra("ROM", rom.getAbsolutePath());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        // Twice, as before: RetroArch creates its cores directory on its
+        // own first launch and the sideload refuses until it exists, so an
+        // attempt that lands too early has to be followed by one that does
+        // not. The repeat costs a re-copy of a few MB.
+        Log.i(TAG, "installing core into " + pkg + " by playing " + rom.getName());
+        c.startActivity(intent, onBuiltIn());
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    c.startActivity(intent, onBuiltIn());
+                } catch (Exception e) {
+                    Log.w(TAG, "second sideload intent failed", e);
+                }
+            }
+        }, SECOND_FIRE_MS);
+    }
+
+    /**
+     * Whether this core has already been copied into the runtime, recorded
+     * on our side because its private cores directory is unreadable to us.
+     *
+     * <p>Keyed by the runtime's install time as well as the core, so a
+     * reinstalled or updated RetroArch -- which takes its private data with
+     * it -- is copied into again rather than launched against a core that
+     * is no longer there.
+     */
+    private static File copyMarker(String pkg, File core) {
+        return new File(CoreInstaller.ROOT, "." + pkg + "." + core.getName() + ".installed");
+    }
+
+    private static boolean copyRecorded(Context c, String pkg, File core) {
+        return copyMarker(pkg, core).lastModified() >= installTime(c, pkg);
+    }
+
+    private static void recordCopy(String pkg, File core) {
+        File marker = copyMarker(pkg, core);
+        try {
+            if (!CoreInstaller.ROOT.isDirectory()) {
+                CoreInstaller.ROOT.mkdirs();
+            }
+            new java.io.FileOutputStream(marker).close();
+        } catch (IOException e) {
+            Log.w(TAG, "cannot record core install of " + core.getName(), e);
+        }
+    }
+
+    /**
+     * When the runtime was last installed or updated. Unknown means gone,
+     * reported as a time no marker can satisfy so nothing is launched
+     * against a core that cannot be there.
+     */
+    private static long installTime(Context c, String pkg) {
+        try {
+            return c.getPackageManager().getPackageInfo(pkg, 0).lastUpdateTime;
+        } catch (PackageManager.NameNotFoundException e) {
+            return Long.MAX_VALUE;
+        }
+    }
+
+    /** Whether a physical pad is attached, which decides the touch overlay. */
+    private static boolean hasGamepad() {
+        for (int id : InputDevice.getDeviceIds()) {
+            InputDevice d = InputDevice.getDevice(id);
+            if (d == null) {
+                continue;
+            }
+            int s = d.getSources();
+            if ((s & InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD
+                || (s & InputDevice.SOURCE_JOYSTICK) == InputDevice.SOURCE_JOYSTICK) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

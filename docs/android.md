@@ -850,9 +850,39 @@ that a PSX core actually finds `scph1001.bin` through a
 `system_directory` set this way. Nothing about the config mechanism
 suggests it will not, but it has not been run.
 
-Until that is done the client keeps using the sideload intent, which
-costs a 1-23 MB re-copy of the core and gets every extra right without
-us computing any of them.
+**The client now does this**, confirmed on an AYN Thor against
+`com.retroarch.aarch64` 1.22.2 and not only on an AVD: RetroArch logs
+`[ENV] Config file: "/storage/emulated/0/Download/Strom/retroarch.cfg"`
+and starts the ROM. What forced it was the touch overlay, which is drawn
+over every game and is useless on a handheld with physical controls;
+`input_overlay_enable` is a config key and there is no intent extra or
+broadcast that reaches it.
+
+Two things had to be got right, both measured rather than reasoned:
+
+- **The core still has to arrive through the sideload activity**, because
+  shared storage is `noexec` and RetroArch cannot load the `.so` from
+  where we downloaded it. Sending that activity a core with *no* ROM does
+  copy it, but RetroArch then starts the core with no content and dies in
+  it -- SIGSEGV in `bsnes_libretro_android.so` `retro_set_environment`.
+  So the first game on each core is launched through the sideload intent
+  as before, which copies the core as a side effect, and every launch
+  after that is ours. The cost is honest and bounded: that first launch
+  runs under RetroArch's config, so the overlay appears once per core.
+- **`input_overlay_hide_when_gamepad_connected` is the wrong key**, though
+  it names exactly this intent. RetroArch's Android input driver registers
+  a pad only when an event arrives from it (`handle_hotplug` is reached
+  from the poll loop; nothing enumerates devices at init), so the overlay
+  is drawn over the start of every game until the player presses
+  something. The client decides it instead, from
+  `InputDevice.getDeviceIds()` at launch, and writes `input_overlay_enable`
+  -- so a phone with no pad keeps its overlay.
+
+`config_save_on_exit` defaults true, so RetroArch rewrites that file with
+its complete settings on every clean exit. The client therefore
+read-modify-writes it before each launch instead of generating it: a
+fresh file would silently discard everything the player changed in
+RetroArch's own menus.
 
 **`QUERY_INSTALLED_CORES` does not exist in any release.** It is on
 master only; RetroArch 1.22.2_GIT declares no receivers at all and the
