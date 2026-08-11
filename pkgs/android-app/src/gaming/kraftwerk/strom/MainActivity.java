@@ -20,6 +20,7 @@ import gaming.kraftwerk.strom.ipfs.Fetcher;
 import gaming.kraftwerk.strom.ipfs.UnixFs;
 import gaming.kraftwerk.strom.runtime.CoreInstaller;
 import gaming.kraftwerk.strom.runtime.Handoff;
+import gaming.kraftwerk.strom.runtime.RuntimeInstaller;
 
 import java.io.File;
 import java.util.List;
@@ -255,16 +256,24 @@ public class MainActivity extends Activity {
         box.addView(status);
 
         final Button play = new Button(this);
-        boolean installed = Handoff.available(this, g.backend);
-        play.setEnabled(g.isPlayable() && installed);
+        final boolean installed = Handoff.available(this, g.backend);
+        final String offer = RuntimeInstaller.offerLabel(g.backend);
+
+        play.setEnabled(g.isPlayable() && (installed || offer != null));
         if (!g.isPlayable()) {
             play.setText("not published for Android");
             status.setText(g.payloadCid == null
                 ? "no payload CID in metadata.json"
                 : "backend '" + g.backend + "' unsupported");
+        } else if (!installed && offer != null) {
+            // The runtime is missing but we have a pinned build of it, so
+            // offer that rather than telling someone to go and find an APK.
+            play.setText("Install " + offer);
+            status.setText(human(RuntimeInstaller.offerSize(g.backend))
+                + " download, then Play");
         } else if (!installed) {
             play.setText("runtime app not installed");
-            status.setText("install the app for backend '" + g.backend + "'");
+            status.setText("nothing pinned for backend '" + g.backend + "'");
         } else {
             play.setText("Play");
         }
@@ -272,11 +281,50 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 play.setEnabled(false);
-                prepareAndLaunch(g, status, play);
+                // Re-check rather than trusting what the row was built
+                // with: the user may have installed it since, from here or
+                // from anywhere else.
+                if (!Handoff.available(MainActivity.this, g.backend)) {
+                    installRuntime(g, status, play);
+                } else {
+                    prepareAndLaunch(g, status, play);
+                }
             }
         });
         box.addView(play);
         return box;
+    }
+
+    /** Fetch and offer the pinned runtime app for a game's backend. */
+    private void installRuntime(final Game g, final TextView status, final Button play) {
+        pool.submit(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    say(status, "fetching " + RuntimeInstaller.offerLabel(g.backend));
+                    RuntimeInstaller.install(MainActivity.this, g.backend,
+                        new RuntimeInstaller.Progress() {
+                            @Override
+                            public void bytes(long soFar, long total) {
+                                say(status, "fetching runtime " + human(soFar)
+                                    + (total > 0 ? " of " + human(total) : ""));
+                            }
+                        });
+                    say(status, "confirm the install, then press Play");
+                } catch (final Exception e) {
+                    Log.w(TAG, "runtime install failed for " + g.slug, e);
+                    say(status, "install failed: " + e);
+                } finally {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            play.setEnabled(true);
+                            play.setText("Play");
+                        }
+                    });
+                }
+            }
+        });
     }
 
     private void prepareAndLaunch(final Game g, final TextView status, final Button play) {

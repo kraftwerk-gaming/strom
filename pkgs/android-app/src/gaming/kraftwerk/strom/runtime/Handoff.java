@@ -176,6 +176,70 @@ public final class Handoff {
         c.startActivity(intent, onBuiltIn.toBundle());
     }
 
+    private static final String RETROARCH_MENU = "com.retroarch.browser.mainmenu.MainMenuActivity";
+
+    /** Raised when a runtime needs its own first-run setup before it can be used. */
+    public static final class NeedsSetup extends IOException {
+        public NeedsSetup(String m) {
+            super(m);
+        }
+    }
+
+    /**
+     * Open a runtime's own menu once, so it can create the directories it
+     * only creates when launched.
+     *
+     * <p>RetroArch builds its private {@code cores/} directory on first
+     * launch rather than at install time, and CoreSideloadActivity refuses
+     * until it exists. Since this client now offers to install RetroArch,
+     * a brand-new one is the normal case and the first game would
+     * otherwise fail with an error the user cannot act on.
+     *
+     * <p>This does not wait for a timer, because what has to happen is not
+     * a delay: on Android 13 a fresh RetroArch asks for storage and then
+     * for media access, and only reaches its menu once both are answered.
+     * An earlier version slept for nine seconds and hoped, which failed
+     * every time on a real device. So the runtime is opened, the user
+     * completes its setup, and they press Play again.
+     *
+     * @return true when the runtime was just opened for setup, meaning the
+     *         caller should stop rather than hand off into an app that is
+     *         still asking the user questions
+     */
+    private static String labelFor(String pkg) {
+        return pkg.startsWith("com.retroarch") ? "RetroArch" : pkg;
+    }
+
+    private static boolean prime(Context c, String pkg) {
+        File marker = new File(CoreInstaller.ROOT, "." + pkg + ".primed");
+        if (marker.exists()) {
+            return false;
+        }
+        try {
+            Intent menu = new Intent();
+            menu.setComponent(new ComponentName(pkg, RETROARCH_MENU));
+            menu.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Log.i(TAG, "priming " + pkg + ": opening it for its own first-run setup");
+            c.startActivity(menu);
+        } catch (Exception e) {
+            Log.w(TAG, "could not open " + pkg + " for setup", e);
+            return false;
+        }
+        // Recorded even though the user may abandon setup: a second
+        // detour would be no more useful than the first, and the sideload
+        // then fails with RetroArch's own message, which says exactly what
+        // is wrong.
+        try {
+            if (!CoreInstaller.ROOT.isDirectory()) {
+                CoreInstaller.ROOT.mkdirs();
+            }
+            new java.io.FileOutputStream(marker).close();
+        } catch (IOException e) {
+            Log.w(TAG, "cannot record priming of " + pkg, e);
+        }
+        return true;
+    }
+
     private static void launchRetroArch(final Context c, final String pkg, Game g, File payloadDir)
         throws IOException {
         File core = CoreInstaller.coreFile(g.retroarchCore);
@@ -186,6 +250,18 @@ public final class Handoff {
         if (rom == null) {
             throw new IOException("launch target '" + g.launchTarget
                 + "' not found under " + payloadDir);
+        }
+
+        // RetroArch creates its private cores directory on its own first
+        // launch, not at install time, and CoreSideloadActivity refuses
+        // outright until it exists: "Destination directory doesn't exist
+        // (/data/user/0/<pkg>/cores)". A freshly installed RetroArch --
+        // which is now the common case, since this client offers to
+        // install it -- therefore fails the first game with an error the
+        // user cannot act on. So open its menu once and wait.
+        if (prime(c, pkg)) {
+            throw new NeedsSetup(labelFor(pkg) + " needs its own one-time setup."
+                + " Answer its permission prompts until its menu appears, then press Play again.");
         }
 
         final Intent intent = new Intent();

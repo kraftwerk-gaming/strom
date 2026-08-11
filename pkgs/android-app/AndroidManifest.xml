@@ -8,6 +8,13 @@
 
   <uses-permission android:name="android.permission.INTERNET" />
 
+  <!-- Offer to install a runtime app when the device has none. Android
+       still shows its own confirmation for every install, and the user
+       must first allow this app as an install source, so this permission
+       buys a prompt rather than the power to install anything quietly.
+       An app already present is never touched, whatever its version. -->
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
   <!-- Deliberately NO storage permission. Measured on an API 34 AVD: the
        client writes payloads into public Download/Strom, which needs no
        grant at all, and a runtime app can read them back from there. The
