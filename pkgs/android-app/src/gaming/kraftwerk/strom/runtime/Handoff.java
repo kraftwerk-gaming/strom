@@ -1,12 +1,15 @@
 package gaming.kraftwerk.strom.runtime;
 
+import android.app.ActivityOptions;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Display;
 
 import gaming.kraftwerk.strom.catalog.Game;
 
@@ -30,6 +33,20 @@ public final class Handoff {
     };
     private static final String RETROARCH_SIDELOAD =
         "com.retroarch.browser.debug.CoreSideloadActivity";
+
+    /**
+     * WatermelonDS, a melonDS port for handhelds with two physical panels.
+     *
+     * <p>Preferred over RetroArch for DS games when it is installed,
+     * because a DS has two screens and a device like the AYN Thor has two
+     * to put them on. RetroArch draws both into one surface, so it can
+     * only stack them on a single panel; WatermelonDS drives the panels
+     * itself. Chosen at launch rather than recorded per game, so the same
+     * catalogue works on a phone, where RetroArch remains the answer.
+     */
+    private static final String WATERMELON_PKG = "me.magnum.melondualds";
+    private static final String WATERMELON_ACTIVITY = "me.magnum.melonds.ui.emulator.EmulatorActivity";
+    private static final String WATERMELON_LAUNCH = "me.magnum.melondualds.LAUNCH_ROM";
 
     /**
      * The second intent goes out after this long. The first one from cold
@@ -88,6 +105,12 @@ public final class Handoff {
             throw new NotInstalled("no app installed for backend '" + g.backend + "'");
         }
         if ("retroarch".equals(g.backend)) {
+            // A DS game on a two-panel handheld belongs in an emulator that
+            // can use both panels, when the user has one installed.
+            if (isNintendoDs(g) && installed(c, WATERMELON_PKG)) {
+                launchWatermelon(c, g, payloadDir);
+                return;
+            }
             launchRetroArch(c, pkg, g, payloadDir);
             return;
         }
@@ -101,6 +124,56 @@ public final class Handoff {
         throw new IOException("backend '" + g.backend
             + "' is not wired up yet: its handoff is unverified on a real device"
             + " (see docs/android.md)");
+    }
+
+    private static boolean installed(Context c, String pkg) {
+        try {
+            c.getPackageManager().getPackageInfo(pkg, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    /** Whether the manifest sends this game to a melonDS-family core. */
+    private static boolean isNintendoDs(Game g) {
+        return g.retroarchCore != null && g.retroarchCore.startsWith("melonds");
+    }
+
+    /**
+     * Hand a DS ROM to WatermelonDS, which puts one screen on each panel.
+     *
+     * <p>Its EmulatorActivity takes the ROM as the intent's data URI, not
+     * as an extra. That has to be a {@code content:} URI: a targetSdk 24+
+     * app throws FileUriExposedException when it passes {@code file:} to
+     * another process. The payload already sits in public Downloads, so
+     * MediaStore can name it, which avoids shipping a FileProvider and the
+     * res/xml tree that would need.
+     */
+    private static void launchWatermelon(Context c, Game g, File payloadDir) throws IOException {
+        File rom = romIn(payloadDir, g.launchTarget);
+        if (rom == null) {
+            throw new IOException("launch target '" + g.launchTarget
+                + "' not found under " + payloadDir);
+        }
+        Uri uri = MediaStoreUri.of(c, rom);
+        Intent intent = new Intent(WATERMELON_LAUNCH);
+        intent.setComponent(new ComponentName(WATERMELON_PKG, WATERMELON_ACTIVITY));
+        intent.setData(uri);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        Log.i(TAG, "handoff -> " + WATERMELON_PKG + " (dual screen) rom=" + rom + " uri=" + uri);
+        // Pinned to the built-in panel instead of inheriting ours. A
+        // dual-screen emulator puts one DS screen in its own window and
+        // presents the other onto a secondary display, so started on the
+        // secondary display it has nowhere left to present and stacks both
+        // DS screens in the one window. That is what a user sees after
+        // opening this client on the external panel, which the Thor's
+        // launcher makes easy to do by accident. Which physical panel then
+        // shows which DS screen is the emulator's own setting to make.
+        ActivityOptions onBuiltIn = ActivityOptions.makeBasic();
+        onBuiltIn.setLaunchDisplayId(Display.DEFAULT_DISPLAY);
+        c.startActivity(intent, onBuiltIn.toBundle());
     }
 
     private static void launchRetroArch(final Context c, final String pkg, Game g, File payloadDir)

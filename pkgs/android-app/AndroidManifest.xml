@@ -22,6 +22,10 @@
     <package android:name="com.retroarch.aarch64" />
     <package android:name="app.gamenative" />
     <package android:name="org.dolphinemu.dolphinemu" />
+    <!-- WatermelonDS: a DS emulator that drives two physical panels, so a
+         DS game on a dual-screen handheld gets a screen each. Preferred
+         over RetroArch for melonDS-core games when present. -->
+    <package android:name="me.magnum.melondualds" />
   </queries>
 
   <application
