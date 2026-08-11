@@ -66,6 +66,13 @@ public class MainActivity extends Activity {
     private TextView topStatus;
     /** The loaded catalog, kept so the filter can rebuild the list offline. */
     private List<Game> games = java.util.Collections.emptyList();
+    /**
+     * Whether to list games this device cannot run. Off by default: most of
+     * the catalog is PC titles with no Android payload, so leaving them in
+     * buries the handful that do run under hundreds of dead rows.
+     */
+    private boolean showAll;
+    private Button showAllToggle;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -136,6 +143,18 @@ public class MainActivity extends Activity {
         });
         root.addView(filterField);
 
+        showAllToggle = new Button(this);
+        showAllToggle.setText("Show all games");
+        showAllToggle.setEnabled(false);
+        showAllToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAll = !showAll;
+                render();
+            }
+        });
+        root.addView(showAllToggle);
+
         list = new LinearLayout(this);
         list.setOrientation(LinearLayout.VERTICAL);
 
@@ -185,8 +204,19 @@ public class MainActivity extends Activity {
     private void render() {
         String q = filterField.getText().toString().trim().toLowerCase();
         list.removeAllViews();
+        int playable = 0;
+        for (Game g : games) {
+            if (g.isPlayable()) {
+                playable++;
+            }
+        }
+        int hidden = showAll ? 0 : games.size() - playable;
+
         int shown = 0;
         for (Game g : games) {
+            if (!showAll && !g.isPlayable()) {
+                continue;
+            }
             if (!q.isEmpty()
                 && !g.title().toLowerCase().contains(q)
                 && !g.slug.toLowerCase().contains(q)) {
@@ -204,20 +234,21 @@ public class MainActivity extends Activity {
             list.addView(row(g));
             shown++;
         }
-        int playable = 0;
-        for (Game g : games) {
-            if (g.isPlayable()) {
-                playable++;
-            }
-        }
-        String summary = games.size() + " games, " + playable + " playable"
+
+        showAllToggle.setText(showAll
+            ? "Show only what runs here"
+            : "Show all " + games.size() + " games");
+        showAllToggle.setEnabled(games.size() > playable || showAll);
+
+        String summary = playable + " playable"
+            + (hidden > 0 ? ", " + hidden + " not published for Android" : "")
             + (q.isEmpty() ? "" : ", " + shown + " matching");
         // A catalog where nothing is playable is the expected result when
         // the seed's canonical head predates the revision that published
         // the games, and public seeds do lag. Saying so beats leaving
-        // someone to scroll hundreds of greyed-out rows wondering what is
-        // broken. A revision pin is deliberately not suggested here: it is
-        // a testing affordance, and the normal answer is another seed.
+        // someone with an empty list wondering what is broken. A revision
+        // pin is deliberately not suggested here: it is a testing
+        // affordance, and the normal answer is another seed.
         if (!games.isEmpty() && playable == 0) {
             summary += "\nNo game here is published for Android yet."
                 + " This seed's master may predate them; try another remote.";
