@@ -48,9 +48,11 @@ final class Runtimes {
         183956821L);
 
     /**
-     * WatermelonDS, for DS games on handhelds with two physical panels.
-     * Offered only where it would actually be used, which the caller
-     * decides; installing a DS emulator on a phone helps nobody.
+     * WatermelonDS, used for every DS game rather than only on handhelds
+     * with two panels. It is a melonDS port and renders both screens on
+     * one display just as RetroArch's melonDS core does, so a phone loses
+     * nothing; a dual-screen device gains a screen each. One runtime for
+     * DS everywhere also means one thing to test and one thing to pin.
      */
     static final Spec WATERMELONDS = new Spec(
         "me.magnum.melondualds",
@@ -62,13 +64,27 @@ final class Runtimes {
     private Runtimes() {
     }
 
-    /** The app to offer for a backend, or null if we cannot install one. */
-    static Spec forBackend(String backend) {
-        if ("retroarch".equals(backend)) {
+    /**
+     * The app to offer for a game, or null if we cannot install one.
+     *
+     * <p>Per game rather than per backend, because a DS game wants a DS
+     * emulator even though the manifest routes it through the retroarch
+     * backend like every other console.
+     */
+    static Spec forGame(gaming.kraftwerk.strom.catalog.Game g) {
+        if (isNintendoDs(g)) {
+            return WATERMELONDS;
+        }
+        if ("retroarch".equals(g.backend)) {
             return RETROARCH;
         }
         // gamenative and dolphin have no verified handoff yet, so there is
         // nothing to install them for.
         return null;
+    }
+
+    /** Whether the manifest sends this game to a melonDS-family core. */
+    static boolean isNintendoDs(gaming.kraftwerk.strom.catalog.Game g) {
+        return g.retroarchCore != null && g.retroarchCore.startsWith("melonds");
     }
 }

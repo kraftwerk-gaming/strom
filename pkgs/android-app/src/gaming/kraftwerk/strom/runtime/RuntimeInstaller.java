@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.util.Log;
 
+import gaming.kraftwerk.strom.catalog.Game;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,19 +40,14 @@ public final class RuntimeInstaller {
     private RuntimeInstaller() {
     }
 
-    /** True when some app that can serve this backend is already present. */
-    public static boolean satisfied(Context c, String backend) {
-        return Handoff.available(c, backend);
-    }
-
-    /** What we would install for this backend, or null if nothing. */
-    public static String offerLabel(String backend) {
-        Runtimes.Spec s = Runtimes.forBackend(backend);
+    /** What we would install for this game, or null if nothing. */
+    public static String offerLabel(Game g) {
+        Runtimes.Spec s = Runtimes.forGame(g);
         return s == null ? null : s.label;
     }
 
-    public static long offerSize(String backend) {
-        Runtimes.Spec s = Runtimes.forBackend(backend);
+    public static long offerSize(Game g) {
+        Runtimes.Spec s = Runtimes.forGame(g);
         return s == null ? 0 : s.size;
     }
 
@@ -61,10 +58,10 @@ public final class RuntimeInstaller {
      * accepts is theirs to decide and is observed later by asking the
      * package manager again.
      */
-    public static void install(Context c, String backend, Progress p) throws IOException {
-        Runtimes.Spec spec = Runtimes.forBackend(backend);
+    public static void install(Context c, Game g, Progress p) throws IOException {
+        Runtimes.Spec spec = Runtimes.forGame(g);
         if (spec == null) {
-            throw new IOException("no runtime app is pinned for backend '" + backend + "'");
+            throw new IOException("no runtime app is pinned for backend '" + g.backend + "'");
         }
         install(c, spec, p);
     }

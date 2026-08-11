@@ -256,8 +256,8 @@ public class MainActivity extends Activity {
         box.addView(status);
 
         final Button play = new Button(this);
-        final boolean installed = Handoff.available(this, g.backend);
-        final String offer = RuntimeInstaller.offerLabel(g.backend);
+        final boolean installed = Handoff.available(this, g);
+        final String offer = RuntimeInstaller.offerLabel(g);
 
         play.setEnabled(g.isPlayable() && (installed || offer != null));
         if (!g.isPlayable()) {
@@ -269,7 +269,7 @@ public class MainActivity extends Activity {
             // The runtime is missing but we have a pinned build of it, so
             // offer that rather than telling someone to go and find an APK.
             play.setText("Install " + offer);
-            status.setText(human(RuntimeInstaller.offerSize(g.backend))
+            status.setText(human(RuntimeInstaller.offerSize(g))
                 + " download, then Play");
         } else if (!installed) {
             play.setText("runtime app not installed");
@@ -284,7 +284,7 @@ public class MainActivity extends Activity {
                 // Re-check rather than trusting what the row was built
                 // with: the user may have installed it since, from here or
                 // from anywhere else.
-                if (!Handoff.available(MainActivity.this, g.backend)) {
+                if (!Handoff.available(MainActivity.this, g)) {
                     installRuntime(g, status, play);
                 } else {
                     prepareAndLaunch(g, status, play);
@@ -301,8 +301,8 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 try {
-                    say(status, "fetching " + RuntimeInstaller.offerLabel(g.backend));
-                    RuntimeInstaller.install(MainActivity.this, g.backend,
+                    say(status, "fetching " + RuntimeInstaller.offerLabel(g));
+                    RuntimeInstaller.install(MainActivity.this, g,
                         new RuntimeInstaller.Progress() {
                             @Override
                             public void bytes(long soFar, long total) {

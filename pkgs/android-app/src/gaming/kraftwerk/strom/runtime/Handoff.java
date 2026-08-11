@@ -69,6 +69,19 @@ public final class Handoff {
         return installedPackage(c, backend) != null;
     }
 
+    /**
+     * Whether a runtime that can open this particular game is installed.
+     *
+     * <p>A DS game is served by WatermelonDS, so RetroArch being present
+     * does not make it playable and vice versa.
+     */
+    public static boolean available(Context c, Game g) {
+        if (Runtimes.isNintendoDs(g)) {
+            return installed(c, WATERMELON_PKG);
+        }
+        return available(c, g.backend);
+    }
+
     private static String installedPackage(Context c, String backend) {
         if (backend == null) {
             return null;
@@ -100,17 +113,24 @@ public final class Handoff {
      *                   file itself when the game is a single ROM
      */
     public static void launch(Context c, Game g, File payloadDir) throws IOException {
+        // Resolved before anything looks for the backend's own app, because
+        // a DS game is served by WatermelonDS under a different package. A
+        // device with WatermelonDS and no RetroArch is the normal case once
+        // the client has offered the DS runtime, and checking the backend
+        // first told that device "no app installed for backend 'retroarch'"
+        // -- a dead end, since availability correctly reported the DS
+        // runtime present, so the button stayed on Play and never offered
+        // to install anything.
+        if (Runtimes.isNintendoDs(g) && installed(c, WATERMELON_PKG)) {
+            launchWatermelon(c, g, payloadDir);
+            return;
+        }
+
         String pkg = installedPackage(c, g.backend);
         if (pkg == null) {
             throw new NotInstalled("no app installed for backend '" + g.backend + "'");
         }
         if ("retroarch".equals(g.backend)) {
-            // A DS game on a two-panel handheld belongs in an emulator that
-            // can use both panels, when the user has one installed.
-            if (isNintendoDs(g) && installed(c, WATERMELON_PKG)) {
-                launchWatermelon(c, g, payloadDir);
-                return;
-            }
             launchRetroArch(c, pkg, g, payloadDir);
             return;
         }
@@ -133,11 +153,6 @@ public final class Handoff {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
-    }
-
-    /** Whether the manifest sends this game to a melonDS-family core. */
-    private static boolean isNintendoDs(Game g) {
-        return g.retroarchCore != null && g.retroarchCore.startsWith("melonds");
     }
 
     /**
