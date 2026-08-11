@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -178,17 +179,29 @@ public final class Handoff {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         Log.i(TAG, "handoff -> " + WATERMELON_PKG + " (dual screen) rom=" + rom + " uri=" + uri);
-        // Pinned to the built-in panel instead of inheriting ours. A
-        // dual-screen emulator puts one DS screen in its own window and
-        // presents the other onto a secondary display, so started on the
-        // secondary display it has nowhere left to present and stacks both
-        // DS screens in the one window. That is what a user sees after
-        // opening this client on the external panel, which the Thor's
-        // launcher makes easy to do by accident. Which physical panel then
-        // shows which DS screen is the emulator's own setting to make.
-        ActivityOptions onBuiltIn = ActivityOptions.makeBasic();
-        onBuiltIn.setLaunchDisplayId(Display.DEFAULT_DISPLAY);
-        c.startActivity(intent, onBuiltIn.toBundle());
+        c.startActivity(intent, onBuiltIn());
+    }
+
+    /**
+     * Where a runtime is started, rather than wherever this client happens
+     * to be. Both observations behind this are from an AYN Thor, whose
+     * launcher makes it easy to open an app on the external panel without
+     * meaning to.
+     *
+     * <p>A dual-screen emulator keeps one DS screen in its own window and
+     * presents the other onto a secondary display, so started on the
+     * secondary display it has nowhere left to present and stacks both DS
+     * screens into one window.
+     *
+     * <p>RetroArch is worse: on the secondary display its first-run
+     * "grant access to Read External Storage" dialog does not render at
+     * all, leaving a blank window over a permission the user cannot grant
+     * and a runtime that can therefore never finish its setup.
+     */
+    private static Bundle onBuiltIn() {
+        ActivityOptions o = ActivityOptions.makeBasic();
+        o.setLaunchDisplayId(Display.DEFAULT_DISPLAY);
+        return o.toBundle();
     }
 
     private static final String RETROARCH_MENU = "com.retroarch.browser.mainmenu.MainMenuActivity";
@@ -235,7 +248,7 @@ public final class Handoff {
             menu.setComponent(new ComponentName(pkg, RETROARCH_MENU));
             menu.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Log.i(TAG, "priming " + pkg + ": opening it for its own first-run setup");
-            c.startActivity(menu);
+            c.startActivity(menu, onBuiltIn());
         } catch (Exception e) {
             Log.w(TAG, "could not open " + pkg + " for setup", e);
             return false;
@@ -293,14 +306,14 @@ public final class Handoff {
         // the game unlaunchable. The second intent costs one re-copy of a
         // few-MB core and is harmless when the first already worked.
         Log.i(TAG, "handoff -> " + pkg + " core=" + core + " rom=" + rom);
-        c.startActivity(intent);
+        c.startActivity(intent, onBuiltIn());
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
                 Log.i(TAG, "handoff -> " + pkg + " second intent");
                 try {
-                    c.startActivity(intent);
+                    c.startActivity(intent, onBuiltIn());
                 } catch (Exception e) {
                     Log.w(TAG, "second intent failed", e);
                 }

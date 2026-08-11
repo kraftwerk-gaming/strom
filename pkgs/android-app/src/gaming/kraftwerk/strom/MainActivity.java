@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import gaming.kraftwerk.strom.catalog.Catalog;
 import gaming.kraftwerk.strom.catalog.Game;
@@ -398,7 +399,19 @@ public class MainActivity extends Activity {
                     // debugged over adb on a phone and a silent failure
                     // costs an hour.
                     Log.w(TAG, "launch failed for " + g.slug, e);
-                    say(status, "failed: " + e);
+                    if (e instanceof Handoff.NeedsSetup) {
+                        // An instruction, not a fault: printing the
+                        // exception class in front of it turns "here is
+                        // what to do" into "something crashed". And a row
+                        // of our own UI cannot be read at all once the
+                        // runtime we just opened is covering us, which is
+                        // how this presents as "I pressed Play and nothing
+                        // happened" -- so it is also said in a toast.
+                        say(status, e.getMessage());
+                        toast(e.getMessage());
+                    } else {
+                        say(status, "failed: " + e);
+                    }
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -446,6 +459,16 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 t.setText(s);
+            }
+        });
+    }
+
+    /** Said where it can still be read once another app is in front. */
+    private void toast(final String s) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, s, Toast.LENGTH_LONG).show();
             }
         });
     }
