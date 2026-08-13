@@ -81,6 +81,14 @@ public final class Handoff {
     private static final String AZAHAR_ACTIVITY = "org.citra.citra_emu.activities.EmulationActivity";
 
     /**
+     * GameNative's only external surface: an action on its exported
+     * MainActivity. There is no result code and no broadcast back, so a
+     * caller can observe "GameNative came to the foreground" and nothing
+     * more -- see the launch method for what that costs us.
+     */
+    private static final String GAMENATIVE_LAUNCH = "app.gamenative.LAUNCH_GAME";
+
+    /**
      * The second intent goes out after this long. The first one from cold
      * only installs the core: its RetroActivityFuture is force-finished as
      * the sideload activity tears itself down, so nothing runs until a
@@ -177,13 +185,15 @@ public final class Handoff {
             launchRetroArch(c, pkg, g, payloadDir);
             return;
         }
-        // GameNative and Dolphin are described in docs/android.md, but the
-        // decisive facts for both are still marked device-only there: for
-        // GameNative whether its `A:` drive repoint actually boots the game
-        // we point it at, and for Dolphin the intent shape has not been
-        // measured against a running app at all. Inventing an intent here
-        // would produce a silent no-op on a phone, which is worse than a
-        // refusal that names what is missing.
+        if ("gamenative".equals(g.backend)) {
+            launchGameNative(c, pkg, g, payloadDir);
+            return;
+        }
+        // Dolphin is described in docs/android.md, but its decisive fact is
+        // still marked device-only there: the intent shape has never been
+        // measured against a running app. Inventing one here would produce a
+        // silent no-op on a phone, which is worse than a refusal that names
+        // what is missing.
         throw new IOException("backend '" + g.backend
             + "' is not wired up yet: its handoff is unverified on a real device"
             + " (see docs/android.md)");
@@ -287,6 +297,145 @@ public final class Handoff {
 
         Log.i(TAG, "handoff -> " + pkg + " (3ds) rom=" + rom);
         c.startActivity(intent, onBuiltIn());
+    }
+
+    /**
+     * Hand a Windows game to GameNative, which runs it under wine on box64.
+     *
+     * <p>Three couplings, and only the last is an interface GameNative
+     * advertises:
+     *
+     * <ol>
+     *   <li>the tree sits in its own folder on public storage,
+     *   <li>a {@code .gamenative} file in it fixes the id, so ours is
+     *       deterministic instead of a hash of a path,
+     *   <li>the user registers that folder once, inside GameNative -- its
+     *       custom-game library IS the list of registered folders, held in
+     *       its own private preferences, and nothing exported writes to it,
+     *   <li>the launch intent, which names the id and nothing else.
+     * </ol>
+     *
+     * <p><b>Deliberately no container_config, and this is the whole
+     * design.</b> Sending one looks obvious -- it is how you would set the
+     * executable and point the {@code A:} drive at the game -- and it
+     * cannot be used on any current Adreno device. Measured on an AYN Thor
+     * against GameNative 1.1.1, then confirmed in its source:
+     *
+     * <ul>
+     *   <li>Its intent parser rebuilds the whole container record from the
+     *       JSON, and {@code wineVersion} is not one of the keys it reads.
+     *       So the record is completed with the class default,
+     *       {@code wine-9.2-x86_64}, and applying it overwrites the wine
+     *       build unconditionally. Every Adreno device is configured for
+     *       {@code proton-9.0-arm64ec} instead, and that build is the one
+     *       actually installed, so the launch then looks for a wine that
+     *       was never there: {@code [BOX64] Error: File is not found.
+     *       (wine)}, guest status 255, a black screen. The container's own
+     *       stored wine build is left correct, which is what makes this
+     *       look mysterious -- only the launch is poisoned.
+     *   <li>Without a config, the drive layout is the one GameNative
+     *       computed when it created the container: {@code A:} is the
+     *       folder the user registered. So the folder to register is this
+     *       game's own, not a shared parent -- a parent would put the
+     *       executable one level below {@code A:\}, where its own
+     *       auto-detect has to guess, and FF8 alone ships nine
+     *       {@code .exe} files.
+     * </ul>
+     *
+     * <p>Which leaves the executable. With no config we cannot send it, and
+     * auto-detect refuses whenever a tree has more than one candidate, so
+     * the player sets it once in GameNative's own container settings -- the
+     * exact thing GameNative's own error message asks for. Named in the
+     * setup message below, because a player cannot guess
+     * {@code strom-ff8-supervisor.exe}.
+     *
+     * <p>Nothing comes back either way: no result code, no broadcast, and a
+     * missing executable is not an error to GameNative -- it boots its
+     * bundled file manager. So this reports "handed off", never "running".
+     */
+    private static void launchGameNative(Context c, String pkg, Game g, File payloadDir)
+        throws IOException {
+        if (!payloadDir.isDirectory()) {
+            throw new IOException("payload directory " + payloadDir + " is missing");
+        }
+        int appId = gamenativeId(payloadDir);
+
+        // Asked once, because we cannot read the answer: the folder list and
+        // the executable both live in GameNative's private preferences.
+        if (askOnce(pkg)) {
+            throw new NeedsSetup("GameNative needs two one-time steps for"
+                + " this game. Add this folder to its library: "
+                + payloadDir.getAbsolutePath()
+                + " -- then in that entry's container settings set the"
+                + " executable path to " + g.executablePath
+                + ". Then press Play again.");
+        }
+
+        Intent intent = new Intent(GAMENATIVE_LAUNCH);
+        intent.setPackage(pkg);
+        intent.putExtra("app_id", appId);
+        // Uppercased and then matched against an enum; anything it does not
+        // recognise silently becomes STEAM, which would look for a game we
+        // never installed.
+        intent.putExtra("game_source", "CUSTOM_GAME");
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        Log.i(TAG, "handoff -> " + pkg + " (windows) appId=" + appId
+            + " dir=" + payloadDir + " exe=" + g.executablePath
+            + " (no container_config: it would overwrite the wine build)");
+        c.startActivity(intent, onBuiltIn());
+    }
+
+    /**
+     * The id GameNative will use for the registered folder, pinned by
+     * writing its own metadata file.
+     *
+     * <p>Without the file it derives one from the folder path's hash, which
+     * we could recompute -- but that ties us to another app's hashing and
+     * to Java's String.hashCode staying what it is. Writing the file makes
+     * the id ours and survives every rescan, because a present positive
+     * appId is returned unchanged. Must be positive: the intent parser
+     * rejects anything else and reports it only in its own UI.
+     */
+    private static int gamenativeId(File parent) throws IOException {
+        File marker = new File(parent, ".gamenative");
+        int id = Math.abs(parent.getAbsolutePath().hashCode());
+        if (id == 0) {
+            id = 1;
+        }
+        if (marker.isFile()) {
+            BufferedReader r = new BufferedReader(new FileReader(marker));
+            try {
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = r.readLine()) != null) {
+                    sb.append(line);
+                }
+                int at = sb.indexOf("\"appId\"");
+                if (at >= 0) {
+                    String tail = sb.substring(at + 7).replace(":", " ");
+                    java.util.Scanner sc = new java.util.Scanner(tail);
+                    if (sc.hasNextInt()) {
+                        int found = sc.nextInt();
+                        if (found > 0) {
+                            return found;
+                        }
+                    }
+                }
+            } finally {
+                r.close();
+            }
+        }
+        if (!parent.isDirectory() && !parent.mkdirs()) {
+            throw new IOException("cannot create " + parent);
+        }
+        PrintWriter w = new PrintWriter(marker, "UTF-8");
+        try {
+            w.print("{\"appId\": " + id + "}");
+        } finally {
+            w.close();
+        }
+        return id;
     }
 
     /**

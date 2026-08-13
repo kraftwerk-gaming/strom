@@ -1,5 +1,8 @@
 package gaming.kraftwerk.strom.catalog;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * One catalog entry, flattened from a game's {@code metadata.json}.
  *
@@ -28,6 +31,22 @@ public final class Game {
     public String execArgs;
     public String screenSize;
     public String dxwrapper;
+
+    /**
+     * The game's published player options, empty when it has none.
+     *
+     * <p>Exactly {@code passthru.settingsSchema}, so this client and the
+     * desktop couch launcher offer the same rows for the same game.
+     */
+    public List<Setting> settings = Collections.emptyList();
+    /**
+     * Optional mod trees, in extraction order, empty when the game has none.
+     *
+     * <p>Each is fetched only when the player's picks select it and unpacked
+     * over the base payload, so a moddable game is one pinned base plus one
+     * pinned tree per mod rather than one payload per combination.
+     */
+    public List<Layer> layers = Collections.emptyList();
 
     /** Backends this client can actually hand off to. */
     public static boolean supported(String backend) {

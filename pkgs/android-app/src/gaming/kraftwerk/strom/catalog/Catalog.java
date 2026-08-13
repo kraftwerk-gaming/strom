@@ -183,6 +183,12 @@ public final class Catalog {
         g.dxwrapper =
             orElse(Json.str(m, "android", "gamenative", "containerConfig", "dxwrapper"), "dxvk");
 
+        // Player options and the mod trees they select. Both are absent for
+        // every game that publishes no settings, which is nearly all of
+        // them, and absent reads as none rather than as an error.
+        g.settings = Setting.parseAll(Json.path(m, "android", "settings"));
+        g.layers = Layer.parseAll(Json.path(m, "android", "layers"));
+
         // steam.json supplies the display name for most games; metadata.json
         // wins where it sets one, which is the same precedence the web GUI
         // and the couch launcher apply.

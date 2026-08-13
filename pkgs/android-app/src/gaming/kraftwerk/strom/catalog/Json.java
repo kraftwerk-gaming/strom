@@ -2,6 +2,7 @@ package gaming.kraftwerk.strom.catalog;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +58,42 @@ public final class Json {
     public static String str(Object root, String... keys) {
         Object v = path(root, keys);
         return (v instanceof String) ? (String) v : null;
+    }
+
+    /**
+     * A scalar at a path as text: strings pass through, booleans and whole
+     * numbers stringify. null if missing or a container.
+     *
+     * <p>The manifest types a value naturally -- an option's bool default is
+     * JSON {@code false}, an enum's is a string -- while a player's pick is
+     * one comparable type, and this is where the two meet.
+     */
+    public static String scalar(Object root, String... keys) {
+        Object v = path(root, keys);
+        if (v instanceof String) {
+            return (String) v;
+        }
+        if (v instanceof Boolean) {
+            return v.toString();
+        }
+        if (v instanceof Double) {
+            double d = ((Double) v).doubleValue();
+            return (d == Math.rint(d) && !Double.isInfinite(d))
+                ? Long.toString((long) d) : Double.toString(d);
+        }
+        return null;
+    }
+
+    /** A number at a path, or {@code fallback} if missing or not a number. */
+    public static long num(Object root, long fallback, String... keys) {
+        Object v = path(root, keys);
+        return (v instanceof Double) ? ((Double) v).longValue() : fallback;
+    }
+
+    /** An array at a path; empty when missing or not an array. */
+    public static List<?> list(Object root, String... keys) {
+        Object v = path(root, keys);
+        return (v instanceof List) ? (List<?>) v : Collections.emptyList();
     }
 
     // ---- parser ----------------------------------------------------------

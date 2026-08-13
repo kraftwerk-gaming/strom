@@ -9,7 +9,161 @@
         "executablePath": "strom-ff8-supervisor.exe"
       }
     },
-    "schema": 1
+    "layers": [
+      {
+        "cid": null,
+        "key": "voices",
+        "name": "ff8-voice-echo-s-8-demo",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "music",
+        "name": "ff8-music-psx",
+        "value": "psx"
+      },
+      {
+        "cid": null,
+        "key": "music",
+        "name": "ff8-music-orchestral",
+        "value": "orchestral"
+      },
+      {
+        "cid": null,
+        "key": "fieldBackgrounds",
+        "name": "ff8-texturepack-fields",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-world",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-battles",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-enemies",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-spells",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-gfs",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-battleModels",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-characters",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "textures",
+        "name": "ff8-texturepack-models",
+        "value": "true"
+      },
+      {
+        "cid": null,
+        "key": "ragnarokMode",
+        "name": "ff8-ragnarok-1.2.3-standard",
+        "requires": {
+          "key": "ragnarok",
+          "value": "true"
+        },
+        "value": "standard"
+      },
+      {
+        "cid": null,
+        "key": "ragnarokMode",
+        "name": "ff8-ragnarok-1.2.3-lionheart",
+        "requires": {
+          "key": "ragnarok",
+          "value": "true"
+        },
+        "value": "lionheart"
+      }
+    ],
+    "schema": 1,
+    "settings": [
+      {
+        "default": true,
+        "help": "Install the FFNx driver over the stock Steam renderer. FFNx replaces the 2013 build's D3D path with its own (Vulkan here), and it is the layer every texture pack, the external-music mods and the Hext half of the gameplay mods are written against.",
+        "key": "ffnx",
+        "kind": "bool",
+        "label": "Ffnx"
+      },
+      {
+        "default": false,
+        "help": "Install 4x-upscaled field backgrounds -- the pre-rendered room and location art, which is what dominates the screen in any non-battle scene and which `textures` does not touch.",
+        "key": "fieldBackgrounds",
+        "kind": "bool",
+        "label": "Field backgrounds"
+      },
+      {
+        "choices": [
+          "vanilla",
+          "psx",
+          "orchestral"
+        ],
+        "default": "vanilla",
+        "help": "Replace the soundtrack. The 2013 release ships the 2000 PC port's audio verbatim: 91 DirectMusic .sgt sequences rendered through an 8 MB DLS instrument bank, i.e. a General-MIDI-class software synth. It is the largest fidelity gap in this package.",
+        "key": "music",
+        "kind": "enum",
+        "label": "Music"
+      },
+      {
+        "default": false,
+        "help": "Install the Ragnarok Rebalancing Mod v1.2.3 (Callisto).",
+        "key": "ragnarok",
+        "kind": "bool",
+        "label": "Ragnarok"
+      },
+      {
+        "choices": [
+          "standard",
+          "lionheart"
+        ],
+        "default": "standard",
+        "help": "Which Ragnarok difficulty variant to install. Both ship in the same download and differ only in the six replaced `Data/lang-en` archives; \"lionheart\" is the harder one. Ignored unless `ragnarok` is set.",
+        "key": "ragnarokMode",
+        "kind": "enum",
+        "label": "Ragnarok mode"
+      },
+      {
+        "default": false,
+        "help": "Install the Tsunamods HD texture packs -- all of them:",
+        "key": "textures",
+        "kind": "bool",
+        "label": "Textures"
+      },
+      {
+        "default": false,
+        "help": "Install Tsunamods Echo-S 8, a human-cast voice acting mod -- the only voiced FF8 that exists. FFNx's FF8 voice layer is complete, so this is a pure file drop.",
+        "key": "voices",
+        "kind": "bool",
+        "label": "Voices"
+      }
+    ]
   },
   "appid": 39150,
   "cids": [

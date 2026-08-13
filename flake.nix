@@ -200,8 +200,12 @@
       #
       # androidManifests  per-game descriptor for the Strom Android
       #                   client (backend, payload CID, launch args).
-      # androidPayloads   the zip an operator builds and IPFS-pins to
-      #                   make a game available on Android.
+      # androidPayloads   the base tree an operator builds and IPFS-pins
+      #                   to make a game available on Android.
+      # androidLayerPayloads
+      #                   one tree per opt-in mod layer, keyed by layer
+      #                   name, pinned the same way so a phone can toggle
+      #                   a mod without re-fetching the base.
       # apks              per-game self-contained APK, where one exists.
       # androidApp        the client itself: one APK for every game, which
       #                   reads the manifests above and fetches payloads by
@@ -211,6 +215,9 @@
         _: m: m.android.outputs.manifest
       ) self.modules.x86_64-linux;
       androidPayloads = nixpkgs.lib.mapAttrs (_: m: m.android.outputs.payload) self.modules.x86_64-linux;
+      androidLayerPayloads = nixpkgs.lib.mapAttrs (
+        _: m: nixpkgs.lib.listToAttrs (map (l: nixpkgs.lib.nameValuePair l.name l.tree) m.android.layers)
+      ) self.modules.x86_64-linux;
       androidApp = self.legacyPackages.x86_64-linux.androidApp;
       apps = forAllSystems (
         system:

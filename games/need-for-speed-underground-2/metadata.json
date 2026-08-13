@@ -6,7 +6,16 @@
         "executablePath": "SPEED2.EXE"
       }
     },
-    "schema": 1
+    "schema": 1,
+    "settings": [
+      {
+        "default": false,
+        "help": "When true, install ECM (External Custom Music, an ASI plugin) into `SCRIPTS/` and let the player drop tracks into `~/.strom/need-for-speed-underground-2/SCRIPTS/Music/` at runtime. The drop directory is the overlay UPPER, so files there merge with the build-time `extraSoundtracks` (shipped as a separate overlay lower) and become visible to ECM without a rebuild. Supported formats per ECM: wav, mp1, mp2, mp3, ogg, aif. F11 in-game toggles the ECM overlay (volume / skip / playlist).",
+        "key": "enablePlayerSoundtracks",
+        "kind": "bool",
+        "label": "Enable player soundtracks"
+      }
+    ]
   },
   "cids": [
     "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm"

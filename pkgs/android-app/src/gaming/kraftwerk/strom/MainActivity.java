@@ -17,14 +17,27 @@ import android.widget.Toast;
 
 import gaming.kraftwerk.strom.catalog.Catalog;
 import gaming.kraftwerk.strom.catalog.Game;
+import gaming.kraftwerk.strom.catalog.Layer;
+import gaming.kraftwerk.strom.catalog.Options;
+import gaming.kraftwerk.strom.catalog.Setting;
 import gaming.kraftwerk.strom.ipfs.Fetcher;
 import gaming.kraftwerk.strom.ipfs.UnixFs;
 import gaming.kraftwerk.strom.runtime.CoreInstaller;
 import gaming.kraftwerk.strom.runtime.Handoff;
 import gaming.kraftwerk.strom.runtime.RuntimeInstaller;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -59,6 +72,15 @@ public class MainActivity extends Activity {
 
     private static final String PREFS = "strom";
     private static final String PREF_CATALOG = "catalog-url";
+    /** One entry per game that has options, holding just its non-default picks. */
+    private static final String PREF_OPTIONS = "options:";
+    /**
+     * Which mod layers are unpacked into a game directory.
+     *
+     * <p>Kept inside the tree it describes, so deleting the game forgets it
+     * too and the two can never disagree.
+     */
+    private static final String LAYER_MARKER = ".strom-layers";
 
     private ExecutorService pool;
     private LinearLayout list;
@@ -309,6 +331,36 @@ public class MainActivity extends Activity {
         } else {
             play.setText("Play");
         }
+
+        // Turning a mod back off cannot be done by unpacking anything, so
+        // the only honest answer is to fetch the game again -- and the base
+        // is gigabytes, so that is offered on a button the player has to
+        // press, shown only once a pick actually needs it.
+        final Button reset = new Button(this);
+        reset.setText("Delete this download and start over");
+        reset.setVisibility(View.GONE);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reset.setEnabled(false);
+                pool.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        say(status, "deleting");
+                        Fetcher.deleteTree(CoreInstaller.payloadDir(g));
+                        say(status, "deleted; press Play to download it with your options");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                reset.setEnabled(true);
+                                reset.setVisibility(View.GONE);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -319,12 +371,116 @@ public class MainActivity extends Activity {
                 if (!Handoff.available(MainActivity.this, g)) {
                     installRuntime(g, status, play);
                 } else {
-                    prepareAndLaunch(g, status, play);
+                    prepareAndLaunch(g, status, play, reset);
                 }
             }
         });
         box.addView(play);
+
+        // Only games that publish options get the affordance; for the rest
+        // there is nothing behind it.
+        if (!g.settings.isEmpty()) {
+            final LinearLayout panel = new LinearLayout(this);
+            panel.setOrientation(LinearLayout.VERTICAL);
+            panel.setPadding(dp(12), 0, 0, 0);
+            panel.setVisibility(View.GONE);
+
+            final Button show = new Button(this);
+            show.setText("Options");
+            show.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean open = panel.getVisibility() == View.VISIBLE;
+                    show.setText(open ? "Options" : "Hide options");
+                    panel.setVisibility(open ? View.GONE : View.VISIBLE);
+                    if (!open) {
+                        buildOptions(g, panel, reset);
+                    }
+                }
+            });
+            box.addView(show);
+            box.addView(panel);
+        }
+        box.addView(reset);
         return box;
+    }
+
+    /**
+     * The options panel: one row per published setting, a bool toggling and
+     * an enum cycling its choices.
+     *
+     * <p>Rebuilt after every pick rather than mutated in place, because a
+     * pick changes what its neighbours may offer: a parent switch going off
+     * takes the option that depends on it with it.
+     */
+    private void buildOptions(final Game g, final LinearLayout panel, final Button reset) {
+        panel.removeAllViews();
+        final Map<String, String> picks = picks(g);
+
+        for (final Setting s : g.settings) {
+            final String off = Options.unavailable(g, s, picks);
+            final String current = Options.value(s, picks);
+
+            final Button b = new Button(this);
+            b.setText(s.title() + ": " + current);
+            // A pick that could not be honoured must not be pickable at all;
+            // the line underneath says which reason it is.
+            b.setEnabled(off == null);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    List<String> usable = Options.selectable(g, s, picks);
+                    int at = usable.indexOf(current);
+                    picks.put(s.key, usable.get((at + 1) % usable.size()));
+                    savePicks(g, picks);
+                    // Whatever the picks were when the offer to delete this
+                    // download appeared, they have just changed; Play works
+                    // out again whether it is still the only way forward.
+                    reset.setVisibility(View.GONE);
+                    buildOptions(g, panel, reset);
+                }
+            });
+            panel.addView(b);
+
+            TextView note = new TextView(this);
+            note.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+            note.setTextColor(Color.GRAY);
+            note.setText(off != null ? off : detail(g, s, current, picks));
+            panel.addView(note);
+        }
+
+        // Counted, not just summed: a manifest may publish a layer without a
+        // size, and "no mods selected" would then be a lie about a download
+        // that is about to happen.
+        List<Layer> chosen = Options.select(g, picks);
+        long extra = Options.bytes(chosen);
+        TextView total = new TextView(this);
+        total.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        total.setTextColor(Color.GRAY);
+        total.setText(chosen.isEmpty()
+            ? "no mods selected"
+            : chosen.size() + " mod layer(s) selected"
+                + (extra > 0 ? ", " + human(extra) + " to download" : ""));
+        panel.addView(total);
+    }
+
+    /** An offered row's second line: what the option does, and what it costs. */
+    private static String detail(Game g, Setting s, String current, Map<String, String> picks) {
+        String help = (s.help == null) ? "" : s.help;
+        long size = Options.bytes(Options.wouldSelect(g, s, current, picks));
+        return size > 0 ? help + "  (+" + human(size) + ")" : help;
+    }
+
+    /** A game's stored picks; only the non-default ones are ever written. */
+    private Map<String, String> picks(Game g) {
+        return Options.decode(getSharedPreferences(PREFS, MODE_PRIVATE)
+            .getString(PREF_OPTIONS + g.slug, ""));
+    }
+
+    private void savePicks(Game g, Map<String, String> picks) {
+        getSharedPreferences(PREFS, MODE_PRIVATE).edit()
+            .putString(PREF_OPTIONS + g.slug, Options.encode(g.settings, picks))
+            .apply();
     }
 
     /** Fetch and offer the pinned runtime app for a game's backend. */
@@ -359,7 +515,8 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void prepareAndLaunch(final Game g, final TextView status, final Button play) {
+    private void prepareAndLaunch(final Game g, final TextView status, final Button play,
+        final Button reset) {
         pool.submit(new Runnable() {
             @Override
             public void run() {
@@ -369,8 +526,26 @@ public class MainActivity extends Activity {
                         CoreInstaller.ensure(g.retroarchCore);
                     }
 
-                    File dir = CoreInstaller.payloadDir(g.slug);
-                    if (!present(dir)) {
+                    File dir = CoreInstaller.payloadDir(g);
+                    boolean have = present(dir);
+                    // What the tree already carries, so a mod is fetched once
+                    // and a mod that was switched back off is noticed.
+                    Set<String> applied = have
+                        ? readApplied(dir) : new LinkedHashSet<String>();
+                    Options.Plan plan = Options.plan(g, picks(g), applied);
+                    if (plan.problem != null) {
+                        // Launching regardless would run a tree that is not
+                        // what was picked: a mod the player looks for and
+                        // cannot find, or one they turned off and still get.
+                        say(status, plan.problem);
+                        toast(plan.problem);
+                        if (!plan.stale.isEmpty()) {
+                            show(reset);
+                        }
+                        return;
+                    }
+
+                    if (!have) {
                         // A single-file payload extracts to a file and a
                         // directory payload to a tree, and which one it is
                         // is only known once the DAG arrives. Land it on a
@@ -387,8 +562,29 @@ public class MainActivity extends Activity {
                         place(part, dir, g);
                         say(status, "verified " + st.blocks + " blocks, "
                             + human(st.bytesOut));
+                        // A base that was just unpacked carries no mods,
+                        // whatever an interrupted earlier attempt recorded.
+                        applied.clear();
+                        writeApplied(dir, applied);
                     } else {
                         say(status, "already downloaded");
+                    }
+
+                    for (final Layer l : plan.fetch) {
+                        say(status, "fetching mod " + l.name);
+                        UnixFs.Stats ls = Fetcher.fetchAndMerge(l.cid, dir, l.name,
+                            new Fetcher.Progress() {
+                                @Override
+                                public void bytes(long soFar) {
+                                    say(status, "fetching " + l.name + " " + human(soFar));
+                                }
+                            });
+                        // Recorded per layer, and only once its whole tree is
+                        // verified and merged: an interrupted mod is refetched
+                        // rather than remembered as applied.
+                        applied.add(l.name);
+                        writeApplied(dir, applied);
+                        say(status, "merged " + l.name + ", " + human(ls.bytesOut));
                     }
 
                     say(status, "handing off");
@@ -442,22 +638,73 @@ public class MainActivity extends Activity {
      * its published name inside the game's directory so the extension
      * survives; a directory payload becomes the directory itself.
      */
-    private static void place(File part, File dir, Game g) throws java.io.IOException {
+    private static void place(File part, File dir, Game g) throws IOException {
         if (part.isDirectory()) {
             if (!part.renameTo(dir)) {
-                throw new java.io.IOException("cannot move " + part + " to " + dir);
+                throw new IOException("cannot move " + part + " to " + dir);
             }
             return;
         }
         if (!dir.isDirectory() && !dir.mkdirs()) {
-            throw new java.io.IOException("cannot create " + dir);
+            throw new IOException("cannot create " + dir);
         }
         String name = (g.payloadName != null && !g.payloadName.isEmpty())
             ? g.payloadName : g.slug;
         File dst = new File(dir, name);
         if (!part.renameTo(dst)) {
-            throw new java.io.IOException("cannot move " + part + " to " + dst);
+            throw new IOException("cannot move " + part + " to " + dst);
         }
+    }
+
+    /** The mod layers already unpacked into a game directory. */
+    private static Set<String> readApplied(File dir) {
+        Set<String> out = new LinkedHashSet<String>();
+        File f = new File(dir, LAYER_MARKER);
+        if (!f.isFile()) {
+            // Either nothing was ever merged, or this tree predates the
+            // marker; both mean every picked mod still has to be fetched,
+            // and merging one twice changes nothing.
+            return out;
+        }
+        try {
+            BufferedReader r = new BufferedReader(
+                new InputStreamReader(new FileInputStream(f), "UTF-8"));
+            try {
+                for (String line = r.readLine(); line != null; line = r.readLine()) {
+                    String name = line.trim();
+                    if (!name.isEmpty()) {
+                        out.add(name);
+                    }
+                }
+            } finally {
+                r.close();
+            }
+        } catch (IOException e) {
+            Log.w(TAG, "cannot read " + f, e);
+        }
+        return out;
+    }
+
+    private static void writeApplied(File dir, Set<String> names) throws IOException {
+        Writer w = new OutputStreamWriter(
+            new FileOutputStream(new File(dir, LAYER_MARKER)), "UTF-8");
+        try {
+            for (String name : names) {
+                w.write(name);
+                w.write('\n');
+            }
+        } finally {
+            w.close();
+        }
+    }
+
+    private void show(final View v) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                v.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     private void say(final TextView t, final String s) {

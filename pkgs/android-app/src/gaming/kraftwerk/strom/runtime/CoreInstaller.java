@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import gaming.kraftwerk.strom.catalog.Game;
+
 /**
  * Downloads libretro cores from the official Android buildbot.
  *
@@ -27,6 +29,13 @@ public final class CoreInstaller {
     /** Public Downloads is the one place both processes can reach without a grant. */
     public static final File ROOT = new File("/storage/emulated/0/Download/Strom");
     private static final File CORES = new File(ROOT, "cores");
+
+    /**
+     * The one folder a user registers in GameNative, holding every
+     * gamenative game as a subfolder. Registering the parent means one
+     * picker trip ever instead of one per game.
+     */
+    public static final File GAMENATIVE_PARENT = new File(ROOT, "games");
 
     private CoreInstaller() {
     }
@@ -114,5 +123,22 @@ public final class CoreInstaller {
     /** Where a game's payload is unpacked. */
     public static File payloadDir(String slug) {
         return new File(ROOT, slug);
+    }
+
+    /**
+     * Where THIS game's payload is unpacked.
+     *
+     * <p>A gamenative game lands one level deeper, under a single shared
+     * parent. GameNative's custom-game library is literally a list of
+     * registered folder paths, each registered once by the user in its own
+     * UI, and it reads the tree in place rather than importing it. So every
+     * gamenative game has to be a subfolder of the one folder the user
+     * registered, or it is not in the library at all. See docs/android.md.
+     */
+    public static File payloadDir(Game g) {
+        if ("gamenative".equals(g.backend)) {
+            return new File(GAMENATIVE_PARENT, g.slug);
+        }
+        return new File(ROOT, g.slug);
     }
 }

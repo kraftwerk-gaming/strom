@@ -307,10 +307,10 @@ trusting the gateway's CID resolution.
 
 Publishing follows the same discipline as a game's `src` (AGENTS.md,
 "IPFS pinning only after testing"): build the payload, test the game on
-a device, pin, then wire the result back as `android.data = fetchIpfs
-{ ... }`. Until that happens the manifest reports `payload = null` and
-the client lists the game as not yet available on Android. Do not pin
-multi-GB Android payloads for games nobody has run on a phone.
+a device, pin, then wire the result back as `android.payload.cid`. Until
+that happens the manifest omits `payload` and the client lists the game
+as not yet available on Android. Do not pin multi-GB Android payloads
+for games nobody has run on a phone.
 
 ### Superseded: keeping the originals as the only pinned artifact
 
@@ -388,7 +388,7 @@ worktree as a directory rather than a zip, which is what the client can
 actually consume: it fetches a CAR and verifies the DAG, so it
 reconstructs a UnixFS tree and has no archive reader. The operator pins
 it with `ipfs add -r --raw-leaves` and puts the resulting directory CID
-in `android.data`. The remaining half of the plan -- making `_gameData`
+in `android.payload.cid`. The remaining half of the plan -- making `_gameData`
 itself fetch that pinned tree, so the desktop stops extracting too -- is
 not done.
 
@@ -560,7 +560,7 @@ and layering is the simpler one.
   "slug": "portal",
   "runtime": "proton",
   "backend": "gamenative",
-  "payload": { "cid": "Qm...", "name": "portal-android.zip", "sha256": "sha256-..." },
+  "payload": { "cid": "Qm...", "name": "", "sha256": null },
   "gamenative": {
     "containerConfig": {
       "executablePath": "hl2.exe",
@@ -576,160 +576,95 @@ and layering is the simpler one.
 `executable`. Backend-specific shapes: `retroarch` carries
 `{ core, rom, coreOptions }`, `dolphin` carries `{ disc }`,
 `unsupported` carries `reason`. Per-game overrides are `android.backend`,
-`android.retroarchCore`, `android.containerConfig`, `android.data`.
+`android.retroarchCore`, `android.containerConfig`, `android.payload`,
+`android.layers`.
+
+A game with mods carries two more keys, both omitted when empty.
+`settings` is verbatim `passthru.settingsSchema` -- the same bool/enum
+option list the couch launcher renders, so the two option screens cannot
+drift. `layers` is one entry per opt-in mod tree, in EXTRACTION order
+(`lib.reverseList` of the game's overlay `lowers`, lowest priority
+first): the client unpacks `payload`, then every layer whose
+`settings[key] == value` in list order, later files winning. `value` is
+the choice string for an enum and `"true"` for a bool; several layers may
+share one key/value, and all of them are fetched. `cid: null` means not
+pinned yet, which the client shows as unavailable rather than launching
+without a layer the player asked for, and an optional `size` is the
+layer's uncompressed bytes for the download prompt. The optional
+`requires` is a second key/value that must match too, for a mod whose
+variant enum only means something when its parent bool is on (FF8's
+`ragnarokMode` under `ragnarok`); without it the enum's default would
+match on its own. An option with no layers at all changes files inside
+the base tree (FF8's `ffnx`) and so cannot be toggled on the phone: it
+stays in `settings` for honesty and the client grays it out.
+
+```json
+"settings": [
+  { "key": "music", "kind": "enum", "label": "Music", "help": "...",
+    "default": "vanilla", "choices": [ "vanilla", "psx", "orchestral" ] }
+],
+"layers": [
+  { "name": "ff8-music-orchestral", "key": "music", "value": "orchestral",
+    "cid": null },
+  { "name": "ff8-ragnarok-1.2.3-lionheart", "key": "ragnarokMode",
+    "value": "lionheart", "requires": { "key": "ragnarok", "value": "true" },
+    "cid": null }
+]
+```
+
+`sha256` is non-null only for a single-file payload (a ROM), where it is
+the source FOD's hash. A directory payload carries `sha256: null` and
+`name: ""`: the DAG CID verifies every block on the way in, so there is
+nothing left for a file hash to add and the client must not demand one.
 
 ## Integration contracts
 
 ### GameNative (`gamenative`)
 
-There is no SDK, no library and no plugin API. "Integration" is four
-coupling points, and only the last one is something GameNative
-advertises:
+No SDK and no plugin API. Four coupling points:
 
-  1. one shared parent folder on public storage that both apps can read,
-  2. a `.gamenative` file we write into it to fix its id,
-  3. one registration of that parent folder, performed once ever by the
-     *user* in GameNative's own UI,
-  4. the `app.gamenative.LAUNCH_GAME` intent, which per launch moves the
-     `A:` drive onto the game's own subfolder.
+  1. the game's own folder on public storage, readable by both apps,
+  2. a `.gamenative` file we write into it (`{"appId": <positive int>}`,
+     `GameMetadataManager`) so the id is ours instead of a path hash,
+  3. two one-time steps the *user* performs in GameNative's UI: registering
+     that folder (`PrefManager.customGameManualFolders`, its own private
+     prefs, nothing exported writes to it) and setting the executable path,
+  4. `Intent("app.gamenative.LAUNCH_GAME")` with `app_id` (Int > 0) and
+     `game_source = "CUSTOM_GAME"` -- and no `container_config`.
 
-The mechanics, in the order they have to happen:
+The tree is used in place: registering only stores the path, and the drive
+becomes a symlink, so a multi-GB payload is never duplicated.
 
-1. **Register the parent once.** `/storage/emulated/0/Download/Strom/games` must
-   be in `PrefManager.customGameManualFolders`, a string list in
-   GameNative's own private SharedPreferences. The user, inside
-   GameNative, taps add-game-folder; that opens the Android system
-   folder picker (`ActivityResultContracts.OpenDocumentTree`,
-   `ui/components/CustomGameFolderPicker.kt`); `getPathFromTreeUri`
-   converts the tree URI to a raw filesystem path (handling primary
-   storage, SD cards and USB OTG mount points); and
-   `LibraryViewModel.addCustomGameFolder` appends it. It persists until
-   removed - a stored setting, not a per-launch grant.
+**No `container_config`, deliberately.** Its parser rebuilds the whole
+`ContainerData` from the JSON and `wineVersion` is not one of the keys it
+reads, so the record is completed with the class default `wine-9.2-x86_64`
+and `applyToContainer` assigns it unconditionally -- overwriting the
+arm64ec build an Adreno device actually has, which makes the launch hunt
+for a wine that is not installed. Omitting the config also fixes `A:` to
+the registered folder, which is why the folder to register is the game's
+own rather than a shared parent, and why the executable path is the
+player's one-time step: with no config we cannot send it, and GameNative's
+auto-detect refuses on any tree with more than one `.exe` (FF8 ships nine).
 
-   That list *is* the custom-game library:
-   `CustomGameScanner.scanAsLibraryItems` iterates only
-   `customGameManualFolders` and emits exactly one library item per
-   stored path, with no recursion. Registering the parent therefore
-   produces **one** library entry and **one** container shared by every
-   game, which is what makes the step once-ever. We cannot do it for the
-   user: the list is in another app's private SharedPreferences and
-   nothing exported writes to it.
+Nothing comes back: no result code, no broadcast, and a missing executable
+boots its bundled file manager instead of failing. So the client reports
+"handed off", never "running".
 
-   Registration is also what makes the Steamworks-style layout work -
-   `WineUtils.createDosdevicesSymlinks` only treats the `A:` path as the
-   game directory when it is under `/Steam/steamapps/common/` or
-   literally listed in `customGameManualFolders`.
-2. Write `.gamenative` in the parent: `{"appId": <positive int>}`.
-   `getOrGenerateGameId` returns a present, positive `appId` unchanged,
-   so a deterministic id survives every rescan. Per-game `.gamenative`
-   files are pointless in parent mode - there is one library entry.
-3. Extract each payload to
-   `/storage/emulated/0/Download/Strom/games/<slug>/`.
-4. **Per launch, move the `A:` drive and send `executablePath`.** Send
-   `drives` with `A:` pointed at the game's own subfolder;
-   `ContainerUtils` re-asserts `A:` on every launch and
-   `createDosdevicesSymlinks` rebuilds the dosdevices link, so the
-   window is per launch. Send `executablePath` too, always, equal to the
-   recipe's `executable`.
+**Known wall: a 32-bit payload gets no renderer** (GameNative 1.1.1, Adreno
+740). 32-bit code runs, but every graphics backend fails -- Vulkan and
+D3D11 make `bgfx::init` return false, OpenGL fails at
+`ChoosePixelFormat`/`wglCreateContext`. No 32-bit graphics wrappers exist
+in the container, and `wow64Mode`, which would build a split 32/64 prefix
+with box86, is not in its UI and does not work over the intent. Most of the
+269 `proton` games are 32-bit, so this gates the backend: do not pin a
+worktree for one until a container can render it.
 
-   **Why always send it.** `executable` is already the single source of
-   truth for the launch target, and `getLaunchExecutable` prefers
-   `container.executablePath` whenever that file exists relative to `A:`,
-   falling back to its own scan otherwise. So sending it is strictly more
-   robust than omitting it: right answer when the path is good, graceful
-   degradation when it is not.
+**Source-derived, not a published API.** Only the intent is advertised; the
+folder layout, `.gamenative` format and `A:` mapping were read out of
+GameNative 1.1.1 and can change without notice. Mitigations: check its
+`versionCode` and refuse an untested one with a clear message, and upstream
+an `ADD_CUSTOM_GAME_FOLDER` intent so the picker trip disappears.
 
-   The alternative - omit it and let
-   `CustomGameScanner.findUniqueExeRelativeToFolder` rediscover it - was
-   built and then removed. It collects `*.exe` (case-insensitive) from the
-   folder root plus each immediate subdirectory, drops basenames starting
-   with `unins`, deduplicates, and returns the single survivor. Three
-   things killed it:
-
-   - **It can launch the wrong binary.** Uniqueness is not correctness. A
-     payload whose real target sits at depth 3 with a single stray
-     `Patcher.exe` at depth 1 yields exactly one candidate, so a
-     uniqueness check passes and the updater boots instead of the game.
-     Reproduced against a synthetic tree before deleting the mechanism.
-   - **It needs a per-game flag and a build-time scan**, both of which
-     exist only to protect the optimisation, and it discards information
-     the repo already has.
-   - **Ambiguity is the common case anyway.** Of six real built trees,
-     three cannot be auto-detected: `portal` (`Launcher.exe` + `hl2.exe`),
-     `half-life` (nine, including Wise's `UNWISE.EXE`, which GameNative's
-     `startsWith("unins")` filter does not catch) and
-     `final-fantasy-viii` (nine). `animal-well`, `risk-of-rain` and
-     `max-payne` are clean.
-
-   **The cost we accept, and it is unmeasured.**
-   `ContainerUtils.applyToContainer` calls `setNeedsUnpacking(true)`
-   whenever `executablePath` differs from a non-empty stored value, and
-   `needsUnpacking` makes the next boot run
-   `wine msiexec /i wine-mono-11.0.0-x86.msi && wineserver -k` plus a
-   redistributables pass behind an "Installing Mono..." splash. With one
-   shared container and every game sending its own path, that plausibly
-   fires on every game switch. **How slow that is has not been measured
-   and is device test item 6.** If it turns out to hurt, the fix is
-   per-game registration - separate containers, so no shared stored value
-   to churn - not a heuristic that can boot the wrong exe.
-
-   The other two `setNeedsUnpacking(true)` sites are
-   `launchRealSteam`/`launchBionicSteam` changing and `unpackFiles`
-   becoming true; we send none of those. So `wincomponents`,
-   `dxwrapper`, `graphicsDriver`, `envVars`, `screenSize` and `execArgs`
-   are all free to differ per game regardless.
-5. Launch: `Intent("app.gamenative.LAUNCH_GAME")` with
-   `app_id` (positive Int), `game_source = "CUSTOM_GAME"`, and
-   `container_config` (JSON, max 50000 chars). The game runs **in
-   place** off `A:`; nothing is copied into the container.
-
-**What parent mode costs.** One wineprefix for every game, so
-`drive_c/users/xuser/{Documents,AppData,...}` is shared and a game that
-needs components baked into the prefix pollutes it for the others. That
-is a real regression against the desktop, where each game gets its own
-`~/.strom/.compatdata/<game>`; on the other hand it is exactly how an
-ordinary Windows install behaves, different games write to different
-vendor directories, and saves that land next to the binary stay in the
-game's own folder on external storage. Per-game registration remains
-available for anyone who wants isolation, at one picker trip per game.
-
-Notes that constrain what we can express:
-
-- `container_config` is a temporary in-memory override, restored
-  afterwards. Merge semantics are "differs from the parse-time default
-  wins", so a value cannot be forced *back* to a default over the
-  intent (`showFPS = false` is indistinguishable from absent).
-- Not settable over the intent even though `ContainerData` has them:
-  `wineVersion`, `emulator` (Box64 versus FEX), `containerVariant`
-  (glibc versus bionic), `fexcore*`, `graphicsDriverConfig`. Those are
-  in-app settings only.
-- `dxwrapperConfig` is stored as `"version=" + value`, so pass only the
-  version string.
-- The `drives` string has no separator: `"D:/path...E:/path...A:/path"`,
-  parsed by scanning for `:`. Paths must not contain `:`. `D:` and `E:`
-  are re-added automatically if missing; max 8 drive letters.
-- `CUSTOM_GAME` needs no Steam login (`needsDeferLaunch` returns false
-  for it). A never-logged-in install may still land on the login screen
-  before consuming a pending launch request - unverified.
-- The first launch of any game downloads `imagefs_gamenative.txz`
-  (166,439,388 bytes, measured 2026-08-04) plus a Wine patch archive,
-  behind GameNative's own progress dialog. Warn the user before the
-  first handoff.
-- Paths outside GameNative's own directories are gated on
-  `Environment.isExternalStorageManager()`, so the user grants All-Files
-  access to GameNative too.
-
-**This is a source-derived contract, not a published API.** Only the
-`LAUNCH_GAME` intent is advertised; the folder layout, the `.gamenative`
-file format, the `A:` drive mapping and the `container_config` key set
-were all established by reading GameNative 1.1.1's source, and any of
-them can change without notice. Mitigations, in order of value: keep the
-whole `containerConfig` data-driven from the manifest so a schema change
-is a repo edit rather than an app release; check GameNative's
-`versionCode` via `PackageManager` and refuse to hand off to an untested
-version with a clear message instead of failing weirdly; and upstream an
-`ADD_CUSTOM_GAME_FOLDER` intent so even the once-ever picker trip
-disappears.
 
 ### RetroArch (`retroarch`)
 
@@ -1172,11 +1107,12 @@ signing, which is the real ongoing cost of switching.
 ## Staged plan
 
 **Stage 0 - contract (done).** `lib/android/default.nix` gains `backend`,
-`retroarchCore`, `containerConfig`, `data`, `outputs.payload` and
+`retroarchCore`, `containerConfig`, `payload`, `outputs.payload` and
 `outputs.manifest`; `flake.nix` exposes `androidManifests.<slug>` and
 `androidPayloads.<slug>`. Verified: manifests evaluate correctly for all
 six runtime buckets, the payload zip is byte-reproducible under
-`nix build --rebuild`, `android.data` wiring yields a non-null `payload`.
+`nix build --rebuild`, `android.payload` wiring yields a non-null
+`payload` key.
 
 **Stage 1 - publication.** The client must read the catalog over plain
 HTTP without Nix, the way `web/gui/app.js` already does from a Radicle

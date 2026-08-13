@@ -107,18 +107,30 @@ stdenvNoCC.mkDerivation {
   '';
 
   # The verifier is the only thing standing between a hostile gateway and
-  # a phone, so it is tested on every build. These classes touch nothing
-  # from android.jar, so they run on the plain JDK with no device or
-  # emulator; the test builds tampered CARs and asserts each is refused.
+  # a phone, and the layer resolution is the only thing standing between a
+  # player's picks and a multi-gigabyte download they did not ask for, so
+  # both are tested on every build. These classes touch nothing from
+  # android.jar, so they run on the plain JDK with no device or emulator;
+  # the tests build tampered CARs and assert each is refused, and resolve
+  # picks against a manifest and assert the exact layer list and order.
   doCheck = true;
   checkPhase = ''
     runHook preCheck
 
     mkdir -p test-classes
+    # The catalog package is listed file by file because Catalog.java needs
+    # android.util.Log, while the option and layer logic it feeds
+    # deliberately depends on nothing outside the JDK.
     javac -nowarn -d test-classes \
       $(find src/gaming/kraftwerk/strom/ipfs -name '*.java') \
+      src/gaming/kraftwerk/strom/catalog/Game.java \
+      src/gaming/kraftwerk/strom/catalog/Json.java \
+      src/gaming/kraftwerk/strom/catalog/Layer.java \
+      src/gaming/kraftwerk/strom/catalog/Options.java \
+      src/gaming/kraftwerk/strom/catalog/Setting.java \
       $(find test -name '*.java')
     java -cp test-classes gaming.kraftwerk.strom.ipfs.CarVerifyTest
+    java -cp test-classes gaming.kraftwerk.strom.catalog.OptionsTest
 
     runHook postCheck
   '';

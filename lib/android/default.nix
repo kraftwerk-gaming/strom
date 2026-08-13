@@ -17,14 +17,15 @@
 #                     projection of the game's default.nix; see
 #                     docs/android.md for the schema and the rationale.
 #
-#   outputs.payload   the artifact that manifest points at: a zip of the
-#                     game's built data tree (the same `_gameData` the
-#                     desktop overlay lowers). Built and IPFS-pinned by
-#                     the operator, then wired back in as `data` so the
-#                     manifest carries a real CID. Android cannot run a
-#                     game's `buildScript` (arbitrary nix/bash calling
-#                     innoextract, 7zz, patchelf, winetricks...), so the
-#                     BUILT tree is what ships, not the source archive.
+#   outputs.payload   the artifact that manifest points at: the game's
+#                     built data tree (the same `_gameData` the desktop
+#                     overlay lowers). Built and IPFS-pinned by the
+#                     operator, then wired back in as `android.payload`
+#                     so the manifest carries a real CID. Android cannot
+#                     run a game's `buildScript` (arbitrary nix/bash
+#                     calling innoextract, 7zz, patchelf, winetricks...),
+#                     so the BUILT tree is what ships, not the source
+#                     archive.
 #
 #   outputs.apk       per-game APK seam, for the rare game with a real
 #                     self-contained Android build (e.g. a LOVE2D game via
@@ -38,6 +39,12 @@
 {
   lib,
   game,
+  # The parent's resolved bool/enum option schema (mk-game's
+  # `settingsSchema`, published as `passthru.settingsSchema`). Passed in
+  # rather than recomputed: the manifest's options screen and the couch
+  # launcher's must be the same list, not two implementations of one
+  # rule.
+  settingsSchema,
   pkgs,
   ...
 }:
@@ -181,8 +188,42 @@ in
       '';
     };
 
-    data = mkOption {
-      type = types.nullOr types.package;
+    payload = mkOption {
+      type = types.nullOr (
+        types.submodule {
+          options = {
+            cid = mkOption {
+              type = types.str;
+              description = ''
+                CID the client fetches. A directory CID (`ipfs add -r
+                --raw-leaves` of `outputs.payload`) for a built tree, a
+                file CID for a game that is one already-pinned file.
+              '';
+            };
+
+            name = mkOption {
+              type = types.str;
+              default = "";
+              description = ''
+                File name to give a single-file payload once fetched.
+                Empty for a directory payload, whose DAG carries its own
+                names.
+              '';
+            };
+
+            sha256 = mkOption {
+              type = types.nullOr types.str;
+              default = null;
+              description = ''
+                Content hash of a single-file payload. Null for a
+                directory payload: the DAG CID already verifies every
+                block on the way in, and a tree has no one file to hash,
+                so the client must not demand one.
+              '';
+            };
+          };
+        }
+      );
       default =
         let
           srcs = game.ipfsSources or [ ];
@@ -213,19 +254,133 @@ in
           && builtins.length srcs == 1
           && (only.name or null) == game.executable
         then
-          only
+          {
+            inherit (only) cid name;
+            sha256 = only.outputHash;
+          }
         else
           null;
+      defaultText = lib.literalMD "the game's own pinned source, for a single-file game that builds nothing; otherwise `null`";
       description = ''
-        The published Android payload: a `fetchIpfs` of the zip that
+        The published Android payload: the pinned CID of the tree
         `outputs.payload` builds. Defaults to the game's own pinned
-        source for a retroarch game that builds nothing, because there
+        source for a single-file game that builds nothing, because there
         the two are the same bytes (see the comment above). Otherwise
         null until the operator has tested the game on a device and
         pinned the artifact -- same stage-then-pin discipline as a
-        game's `src` (see AGENTS.md). When null the manifest reports
-        `payload = null` and the client lists the game as not yet
-        available on Android.
+        game's `src` (see AGENTS.md). When null the manifest omits
+        `payload` and the client lists the game as not yet available on
+        Android.
+      '';
+    };
+
+    layers = mkOption {
+      type = types.listOf (
+        types.submodule (
+          { config, ... }:
+          {
+            options = {
+              key = mkOption {
+                type = types.str;
+                description = ''
+                  The `settingsSchema` key this layer belongs to, i.e. the
+                  option a player toggles to ask for it.
+                '';
+              };
+
+              value = mkOption {
+                type = types.str;
+                description = ''
+                  The option value that selects this layer: the choice
+                  string for an enum, `"true"` for a bool. Several layers
+                  may share one key/value -- an option that expands to
+                  eight texture packs is eight layers -- and the client
+                  fetches every match, in list order.
+                '';
+              };
+
+              requires = mkOption {
+                type = types.nullOr (
+                  types.submodule {
+                    options = {
+                      key = mkOption { type = types.str; };
+                      value = mkOption { type = types.str; };
+                    };
+                  }
+                );
+                default = null;
+                description = ''
+                  A second key/value that must ALSO match for this layer
+                  to be selected. Exists for the parent-switch shape: a
+                  mod with a difficulty enum whose choice only means
+                  anything when the mod's own bool is on. Without it the
+                  enum's default value would match on its own and the
+                  client would fetch a mod nobody enabled.
+                '';
+              };
+
+              tree = mkOption {
+                type = types.package;
+                description = ''
+                  The derivation this layer publishes -- the very same mod
+                  tree the recipe stacks into `bwrap.overlay.lowers`, so
+                  what the phone unzips cannot drift from what the desktop
+                  overlay mounts. Built and pinned via
+                  `nix build .#androidLayerPayloads.<slug>.<name>`.
+                '';
+              };
+
+              cid = mkOption {
+                type = types.nullOr types.str;
+                default = null;
+                description = ''
+                  Directory CID of the pinned layer, null until an
+                  operator has pinned it. Null reaches the client as
+                  `cid: null`, which it must present as unavailable rather
+                  than launching without a layer the player asked for.
+                '';
+              };
+
+              name = mkOption {
+                type = types.str;
+                default = config.tree.pname or config.tree.name;
+                defaultText = lib.literalMD "the tree's `pname`, else its derivation `name`";
+                description = ''
+                  Stable identifier for this layer, in the manifest and as
+                  the `androidLayerPayloads` attribute an operator pins.
+                  The full derivation name rather than `lib.getName`
+                  precisely because the version part distinguishes
+                  variants of one mod (a "standard" and a "lionheart"
+                  build of the same rebalance would collapse onto one
+                  attribute otherwise).
+                '';
+              };
+
+              size = mkOption {
+                type = types.nullOr types.int;
+                default = null;
+                description = ''
+                  Uncompressed bytes, for the client's download prompt.
+                  Only knowable by building the tree, so it is filled in
+                  by hand when the layer is pinned; null just means the
+                  client cannot quote a size.
+                '';
+              };
+            };
+          }
+        )
+      );
+      default = [ ];
+      description = ''
+        One artifact per opt-in mod, so a phone can toggle mods without
+        re-fetching the multi-GB base tree. In EXTRACTION order, which is
+        `lib.reverseList` of the game's `bwrap.overlay.lowers` (lowest
+        priority first): the client unpacks `payload` and then each
+        selected layer in list order, later files overwriting earlier
+        ones. That reproduces the overlay's merge exactly, because a mod
+        tree only ever adds or wins a path -- it has no whiteouts, so
+        nothing a lower layer wrote can need deleting. Same reasoning as
+        `outputs.payload`, which flattens the identical order.
       '';
     };
 
@@ -236,7 +391,7 @@ in
         presents it, for the operator to pin:
         `nix build .#androidPayloads.<slug>` then
         `ipfs add -r --raw-leaves` the result, which yields the single
-        directory CID that goes into `android.data`.
+        directory CID that goes into `android.payload.cid`.
 
         A directory, not an archive. The client fetches a CAR and
         verifies the DAG block by block, so what it reconstructs is a
@@ -346,12 +501,32 @@ in
         backend = game.android.backend;
       }
       # Absent means "not published for Android"; there is no third state,
-      # so an explicit null on 400-odd games is dead weight.
-      // lib.optionalAttrs (game.android.data != null) {
-        payload = {
-          inherit (game.android.data) cid name;
-          sha256 = game.android.data.outputHash;
-        };
+      # so an explicit null on 400-odd games is dead weight. Same for the
+      # optional-layer and settings lists: a game with no mods and no
+      # player-facing options says so by omission.
+      // lib.optionalAttrs (game.android.payload != null) {
+        inherit (game.android) payload;
+      }
+      // lib.optionalAttrs (game.android.layers != [ ]) {
+        layers = map (
+          l:
+          {
+            inherit (l)
+              name
+              key
+              value
+              cid
+              ;
+          }
+          // lib.optionalAttrs (l.requires != null) { inherit (l) requires; }
+          // lib.optionalAttrs (l.size != null) { inherit (l) size; }
+        ) game.android.layers;
+      }
+      # Verbatim `passthru.settingsSchema`, the same list the couch
+      # launcher renders, so the phone's options screen and the desktop's
+      # cannot drift.
+      // lib.optionalAttrs (settingsSchema != [ ]) {
+        settings = settingsSchema;
       }
       // lib.optionalAttrs (game.android.backend == "unsupported") {
         reason = game.android.unsupportedReason;

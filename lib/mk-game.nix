@@ -618,7 +618,7 @@ let
           type = types.submoduleWith {
             specialArgs = {
               game = cfg;
-              inherit pkgs;
+              inherit pkgs settingsSchema;
             };
             modules = [ ./android ];
           };

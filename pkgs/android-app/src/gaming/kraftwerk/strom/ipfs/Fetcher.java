@@ -2,9 +2,12 @@ package gaming.kraftwerk.strom.ipfs;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
@@ -58,7 +61,7 @@ public final class Fetcher {
                 lastGateway = GATEWAYS[i];
                 // Whatever this attempt managed to write is unverified in
                 // part, so the next gateway has to start from nothing.
-                delete(dest);
+                deleteTree(dest);
             }
         }
         if (last == null) {
@@ -69,6 +72,93 @@ public final class Fetcher {
             throw new VerifyException(message);
         }
         throw new IOException(message, last);
+    }
+
+    /**
+     * Fetch a mod layer and merge it over a game directory that is already
+     * there. {@code p} may be null.
+     *
+     * <p>A layer is not a payload of its own but a partial tree whose files
+     * win over the ones already present, which is what reproduces the
+     * desktop's overlay merge. It lands on a scratch path beside the game so
+     * the whole DAG is verified before a single byte of what the player
+     * already has is touched, and so the merge moves entries rather than
+     * copying a second multi-gigabyte tree.
+     */
+    public static UnixFs.Stats fetchAndMerge(String cidText, File dir, String layerName,
+        Progress p) throws IOException {
+        if (!dir.isDirectory()) {
+            throw new IOException("no game directory to merge into: " + dir);
+        }
+        File part = new File(dir.getAbsolutePath() + ".layer-" + safe(layerName) + ".part");
+        deleteTree(part);
+        UnixFs.Stats st = fetchAndExtract(cidText, part, p);
+        try {
+            merge(part, dir);
+        } finally {
+            // Whatever a failed merge left behind is a partial copy of bytes
+            // that are still on a gateway; the next attempt refetches.
+            deleteTree(part);
+        }
+        return st;
+    }
+
+    /** A layer name is a Nix pname, but a scratch path must not be steerable. */
+    private static String safe(String name) {
+        StringBuilder b = new StringBuilder(name.length());
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
+            boolean ok = (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+                || (c >= '0' && c <= '9') || c == '.' || c == '_' || c == '-';
+            b.append(ok ? c : '-');
+        }
+        return b.toString();
+    }
+
+    /** Move {@code src} onto {@code dst}, entry by entry, src winning. */
+    private static void merge(File src, File dst) throws IOException {
+        if (src.isDirectory()) {
+            if (dst.exists() && !dst.isDirectory()) {
+                deleteTree(dst);
+            }
+            if (!dst.isDirectory() && !dst.mkdirs()) {
+                throw new IOException("cannot create " + dst);
+            }
+            File[] kids = src.listFiles();
+            if (kids == null) {
+                throw new IOException("cannot list " + src);
+            }
+            for (int i = 0; i < kids.length; i++) {
+                merge(kids[i], new File(dst, kids[i].getName()));
+            }
+            return;
+        }
+        if (dst.exists()) {
+            deleteTree(dst);
+        }
+        if (!src.renameTo(dst)) {
+            // Only when the scratch path and the game ended up on different
+            // mounts, which the shared parent makes unlikely but not
+            // impossible on a device with an SD card.
+            copy(src, dst);
+        }
+    }
+
+    private static void copy(File src, File dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        try {
+            OutputStream out = new FileOutputStream(dst);
+            try {
+                byte[] buf = new byte[BUFFER];
+                for (int n = in.read(buf); n > 0; n = in.read(buf)) {
+                    out.write(buf, 0, n);
+                }
+            } finally {
+                out.close();
+            }
+        } finally {
+            in.close();
+        }
     }
 
     private static UnixFs.Stats attempt(String gateway, String cidText, Cid root, File dest,
@@ -105,11 +195,11 @@ public final class Fetcher {
     }
 
     /** Remove a file, or a directory tree, that must not be kept. */
-    private static void delete(File f) {
+    public static void deleteTree(File f) {
         File[] kids = f.listFiles();
         if (kids != null) {
             for (int i = 0; i < kids.length; i++) {
-                delete(kids[i]);
+                deleteTree(kids[i]);
             }
         }
         // Nothing useful to do if this fails: the next attempt will
