@@ -153,9 +153,18 @@
           # bump before a release. A dirty or shallow checkout has no
           # revCount, so local builds fall back to 1 -- CI must clone with
           # full history or every release would claim the same version.
+          #
+          # The leading number is the release this is built towards, and it
+          # does need bumping when a tag is cut. Obtainium reconciles the
+          # release it sees with the versionName of the APK installed, and
+          # a v0.1.1 release carrying "0.1.0+..." leaves it unable to, so
+          # it falls back to a pseudo-version and says so on the app's
+          # page. Everything after the + is build metadata that names the
+          # exact commit, which is more useful than the release number for
+          # anything except matching a release.
           androidApp = pkgsAndroid.callPackage ./pkgs/android-app {
             versionCode = self.revCount or 1;
-            versionName = "0.1.0+r${toString (self.revCount or 0)}.${self.shortRev or "dirty"}";
+            versionName = "0.1.2+r${toString (self.revCount or 0)}.${self.shortRev or "dirty"}";
           };
           scripts = {
             launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
