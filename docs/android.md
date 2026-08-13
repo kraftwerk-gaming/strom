@@ -939,68 +939,31 @@ games; not worth more engineering than that.
 
 ### Azahar (`azahar`)
 
-3DS, and the only live emulator for it: Citra was deleted after the 2024
-Nintendo settlement, and Lime3DS merged into Azahar and archived itself in
-April 2025. Pin the **vanilla** artifact, not `googleplay` -- different
-application id (`org.azahar_emu.azahar` vs `io.github.lime3ds.android`), and
-only vanilla resolves an incoming `content:` URI into a file descriptor.
+3DS, and the only live emulator for it (Citra deleted after the 2024
+settlement, Lime3DS merged into Azahar). Pin the **vanilla** artifact, not
+`googleplay`: different application id and only vanilla opens an incoming
+`content:` URI.
 
-`org.citra.citra_emu.activities.EmulationActivity` is exported with
-`ACTION_VIEW` and `scheme="content"`. Two ways in, and the second is the one
-the client uses:
+`org.citra.citra_emu.activities.EmulationActivity`, `ACTION_VIEW`. Pass the
+ROM as the `SelectedGame` extra prefixed with `!`, Azahar's own marker for
+"filesystem path, not document" -- a `content:` URI works only for a file
+this client created, so a path avoids the ownership question entirely.
 
-- `intent.data` as a `content:` URI. Works, and needs the URI to be
-  grantable -- which it is only for a file this client created. A payload
-  placed any other way fails with `UID ... does not have permission to
-  content://media/...`.
-- `SelectedGame` as a string, prefixed with `!`. That prefix is Azahar's own
-  marker for "filesystem path, not document"
-  (`FileUtil.isNativePath`, `GameHelper.getGame`, `EmulationFragment`): it
-  skips the descriptor branch and the loader opens the path itself. No
-  ownership condition, and being a string extra there is no `file:` URI to
-  expose. Use this.
+Its first run is a mandatory wizard (all-files permission plus a folder for
+its data); handing it a ROM before that crashes it out of
+`DirectoryInitialization.getUserDirectory`, so it is primed like RetroArch.
+The dump must be **decrypted** -- any NCCH with `no_crypto` clear is
+refused, and no keys are needed since they are compiled in.
 
-**Its first run is a wizard and it is mandatory.** All-files access, then a
-folder granted through the system picker becomes its user directory.
-Launching `EmulationActivity` before that does not degrade, it crashes
-Azahar: `RuntimeException` out of
-`DirectoryInitialization.getUserDirectory`. Prime it like RetroArch.
+Settings split three ways and only one is reachable: screen layout lives in
+`config.ini` in the granted folder (ours to write), while host-key mapping
+and the on-screen overlay are private SharedPreferences (not ours, so the
+setup message names them -- Azahar ships no pad mapping at all, and its
+Controls settings have an Auto-Map action). Azahar never reports which
+folder it was given, so the client finds it by shape: a readable
+`config/config.ini` beside two or more of `sdmc`, `nand`, `sysdata`,
+`shaders`. Read-modify-write, because Azahar rewrites that file on exit.
 
-**The dump must be decrypted.** Any NCCH with `no_crypto` clear is refused
-outright (`ncch_container.cpp`, `ErrorEncrypted`) and there is no key-based
-path, so an ordinary No-Intro `.cci` will not boot. The AES keys for a
-decrypted dump are compiled in (`ENABLE_BUILTIN_KEYBLOB`, default ON), so no
-system files are needed. Check a candidate before pinning it: NCSD magic at
-`0x100`, first partition offset at `0x120` in media units, then `NCCH` magic
-and `flags[7] & 0x04` at that offset.
-
-**Settings split three ways, and only one is reachable:**
-
-| setting | lives in | ours? |
-| --- | --- | --- |
-| screen layout, secondary display | `config.ini` in the granted folder | yes |
-| host-key mapping | its default SharedPreferences | no |
-| on-screen input overlay | its default SharedPreferences | no |
-
-The config is reachable but not addressable: Azahar never reports the folder
-and opens the picker with no initial location
-(`PermissionsHandler.compatibleSelectDirectory` passes null on Android 11+),
-so steering the choice means telling the player exactly where to tap. The
-client asks for all-files access instead -- once, and only on a device with a
-second panel, the only case where it buys anything -- and finds the folder by
-its shape on disk: a readable `config/config.ini` beside two or more of
-`sdmc`, `nand`, `sysdata`, `shaders`. Then it writes
-`enable_secondary_display`, `secondary_display_layout` and `layout_option`
-for one 3DS screen per panel. Read-modify-write: Azahar rewrites that file
-wholesale on exit.
-
-The two preference-backed settings are private app data, which all-files
-access does not reach, so the client names them in its setup message rather
-than pretending. The mapping one matters most: **Azahar ships no host
-mapping at all**, so `getButtonSet` returns an empty set and a physical pad
-does *nothing* while the touch overlay works, which is a bewildering way to
-meet a new emulator. Its Controls settings have an `Auto-Map Controller`
-action that binds a whole pad from one button press.
 
 ## How many apps does a user install?
 
