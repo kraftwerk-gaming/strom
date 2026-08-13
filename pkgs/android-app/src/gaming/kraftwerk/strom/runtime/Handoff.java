@@ -389,29 +389,23 @@ public final class Handoff {
      * handheld whose controls make it useless. Every later launch of that
      * core goes through RetroActivityFuture with ours.
      */
-    private static void sideload(final Context c, final String pkg, File core, File rom) {
-        final Intent intent = new Intent();
+    private static void sideload(Context c, String pkg, File core, File rom) {
+        Intent intent = new Intent();
         intent.setComponent(new ComponentName(pkg, RETROARCH_SIDELOAD));
         intent.putExtra("LIBRETRO", core.getAbsolutePath());
         intent.putExtra("ROM", rom.getAbsolutePath());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        // Twice, as before: RetroArch creates its cores directory on its
-        // own first launch and the sideload refuses until it exists, so an
-        // attempt that lands too early has to be followed by one that does
-        // not. The repeat costs a re-copy of a few MB.
+        // Exactly once. An earlier version sent this twice, six seconds
+        // apart, to survive a cores directory that did not exist yet --
+        // priming the runtime handles that now, and the repeat was doing
+        // real damage: the copy overwrites the .so in place, so the second
+        // one rewrote a core the game launched by the first had already
+        // loaded. Reported as Super Mario 64 and A Link to the Past
+        // quitting a few seconds in; the crash is in the core, six seconds
+        // after it started.
         Log.i(TAG, "installing core into " + pkg + " by playing " + rom.getName());
         c.startActivity(intent, onBuiltIn());
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    c.startActivity(intent, onBuiltIn());
-                } catch (Exception e) {
-                    Log.w(TAG, "second sideload intent failed", e);
-                }
-            }
-        }, SECOND_FIRE_MS);
     }
 
     /**
@@ -445,19 +439,32 @@ public final class Handoff {
         return readyAt(marker) <= System.currentTimeMillis();
     }
 
+    /**
+     * When the copy this marker stands for can be believed.
+     *
+     * <p>A marker with nothing in it was written by a version that had no
+     * notion of a copy still being in flight, and meant "this core is
+     * installed" outright. Treated as such rather than as corrupt: reading
+     * it as never-ready sends every one of those cores back through the
+     * copy path on every launch, which is how a re-copy came to land on
+     * top of a running game.
+     */
     private static long readyAt(File marker) {
         try {
             BufferedReader r = new BufferedReader(new FileReader(marker));
             try {
                 String s = r.readLine();
-                return s == null ? Long.MAX_VALUE : Long.parseLong(s.trim());
+                if (s == null || s.trim().isEmpty()) {
+                    return 0L;
+                }
+                return Long.parseLong(s.trim());
             } finally {
                 r.close();
             }
         } catch (IOException e) {
             return Long.MAX_VALUE;
         } catch (NumberFormatException e) {
-            return Long.MAX_VALUE;
+            return 0L;
         }
     }
 
