@@ -64,6 +64,23 @@ public final class Handoff {
     private static final String WATERMELON_LAUNCH = "me.magnum.melondualds.LAUNCH_ROM";
 
     /**
+     * Azahar, for 3DS games. Its launch contract is an explicit
+     * ACTION_VIEW at EmulationActivity with the ROM as intent data --
+     * there is no custom action to name, unlike WatermelonDS. The
+     * component is given explicitly, so the activity's own intent-filter
+     * (mimeType application/octet-stream, scheme content) does not have to
+     * be matched.
+     *
+     * <p>It renders the 3DS's two screens onto two physical displays
+     * through android.app.Presentation when its secondary-display setting
+     * is on, which is chosen in Azahar's settings: no intent extra
+     * selects it, so a two-panel handheld needs that switch flipped once
+     * by hand.
+     */
+    private static final String AZAHAR_PKG = "org.azahar_emu.azahar";
+    private static final String AZAHAR_ACTIVITY = "org.citra.citra_emu.activities.EmulationActivity";
+
+    /**
      * The second intent goes out after this long. The first one from cold
      * only installs the core: its RetroActivityFuture is force-finished as
      * the sideload activity tears itself down, so nothing runs until a
@@ -108,6 +125,13 @@ public final class Handoff {
             candidates = new String[] { "app.gamenative" };
         } else if (backend.equals("dolphin")) {
             candidates = new String[] { "org.dolphinemu.dolphinemu" };
+        } else if (backend.equals("azahar")) {
+            // Only the vanilla artifact. The Play flavour carries the
+            // legacy id io.github.lime3ds.android AND skips the code that
+            // turns an incoming content:// URI into a file descriptor, so
+            // accepting it here would report a runtime that cannot open
+            // anything this client hands it.
+            candidates = new String[] { AZAHAR_PKG };
         } else {
             return null;
         }
@@ -145,6 +169,10 @@ public final class Handoff {
         if (pkg == null) {
             throw new NotInstalled("no app installed for backend '" + g.backend + "'");
         }
+        if ("azahar".equals(g.backend)) {
+            launchAzahar(c, pkg, g, payloadDir);
+            return;
+        }
         if ("retroarch".equals(g.backend)) {
             launchRetroArch(c, pkg, g, payloadDir);
             return;
@@ -168,6 +196,97 @@ public final class Handoff {
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
+    }
+
+    /**
+     * Hand a 3DS dump to Azahar.
+     *
+     * <p>The ROM travels as a path in the {@code SelectedGame} extra, with
+     * a {@code !} in front of it, and not as the intent's data URI the way
+     * the DS handoff does. That prefix is Azahar's own marker for "this is
+     * a filesystem path, not a document": it skips the branch that turns an
+     * incoming URI into a file descriptor, and reaches the loader as a path
+     * Azahar opens itself, which it can do because its setup takes an
+     * all-files permission.
+     *
+     * <p>Chosen over a {@code content:} URI because a URI has to be
+     * grantable to be useful, and this client can only grant one for a file
+     * it created: a payload placed by anything else -- staged by hand, or
+     * left by an earlier install -- fails with "UID ... does not have
+     * permission to content://media/...". A path has no such condition, so
+     * whoever put the bytes there, the launch works. It is also a string
+     * extra rather than a Uri, so no {@code file:} URI is ever handed to
+     * another process and FileUriExposedException cannot arise.
+     *
+     * <p>Its action is the plain ACTION_VIEW rather than a private one,
+     * and the component is set explicitly so the activity's declared
+     * mimeType does not have to be matched.
+     *
+     * <p>Sent once. RetroArch needs a second intent because its sideload
+     * entry tears down the activity it just started; nothing here does
+     * that.
+     */
+    private static void launchAzahar(Context c, String pkg, Game g, File payloadDir)
+        throws IOException {
+        File rom = romIn(payloadDir, g.launchTarget);
+        if (rom == null) {
+            throw new IOException("launch target '" + g.launchTarget
+                + "' not found under " + payloadDir);
+        }
+
+        // Azahar's first run is a wizard, and it is not optional: it takes
+        // an all-files permission and a folder for its data, and until it
+        // has them its user directory does not exist. Handing
+        // EmulationActivity a ROM before that does not fail gracefully, it
+        // crashes Azahar -- RuntimeException out of
+        // DirectoryInitialization.getUserDirectory, measured on an AYN
+        // Thor. So open its own UI once and say what it will ask for, the
+        // same detour RetroArch needs.
+        //
+        // Any folder will do. Azahar opens the system picker with no
+        // initial location (PermissionsHandler.compatibleSelectDirectory
+        // passes null on Android 11+), so steering the choice would mean
+        // telling the player exactly where to tap; the folder is found
+        // afterwards instead. See AzaharConfig.
+        if (prime(c, pkg)) {
+            // Two of Azahar's own settings are named here because they are
+            // the two a handheld needs and neither can be set from outside:
+            // the host-key mapping and the on-screen overlay both live in
+            // Azahar's default SharedPreferences, inside its private data
+            // directory, where no permission reaches. Unmapped is not a
+            // degraded state but a dead one -- getButtonSet returns an
+            // empty set, so a physical pad does literally nothing while the
+            // touch overlay still works, which is a confusing way to find
+            // out. Auto-map is one action in its Controls settings.
+            throw new NeedsSetup("Azahar needs its own one-time setup."
+                + " Give it filesystem access, pick any folder for its data,"
+                + " and finish its welcome screens. Then, in its settings,"
+                + " use Controls > Auto-map so the gamepad works, and turn the"
+                + " on-screen overlay off. Then press Play again.");
+        }
+
+        // Only on a device that has a second panel, and only once: asking
+        // for all-files access buys exactly one thing, a screen on each
+        // panel instead of both in one window, so it is asked for where
+        // that is true and skipped everywhere else. Declining is a fine
+        // outcome -- the game still runs under Azahar's own layout -- which
+        // is why this is asked once and never again.
+        if (AzaharConfig.secondDisplay(c) && !AzaharConfig.canWrite() && askOnce(pkg)) {
+            c.startActivity(AzaharConfig.grantIntent(c));
+            throw new NeedsSetup("For a screen on each panel, Strom needs"
+                + " all-files access: it writes the two-screen setting into"
+                + " Azahar's own config, wherever you put it. Allow it and press"
+                + " Play again, or just press Play again to use Azahar's layout.");
+        }
+        AzaharConfig.apply(c);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setComponent(new ComponentName(pkg, AZAHAR_ACTIVITY));
+        intent.putExtra("SelectedGame", "!" + rom.getAbsolutePath());
+        intent.putExtra("SelectedTitle", g.title());
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        Log.i(TAG, "handoff -> " + pkg + " (3ds) rom=" + rom);
+        c.startActivity(intent, onBuiltIn());
     }
 
     /**
@@ -219,6 +338,14 @@ public final class Handoff {
     }
 
     private static final String RETROARCH_MENU = "com.retroarch.browser.mainmenu.MainMenuActivity";
+    /**
+     * Azahar's own launcher activity, opened so it can run its first-run
+     * wizard. Handing EmulationActivity a ROM before that has happened
+     * does not merely fail, it crashes Azahar:
+     * {@code RuntimeException ... DirectoryInitialization.getUserDirectory},
+     * because its user directory is a folder the user must still grant.
+     */
+    private static final String AZAHAR_MAIN = "org.citra.citra_emu.ui.main.MainActivity";
 
     /** Raised when a runtime needs its own first-run setup before it can be used. */
     public static final class NeedsSetup extends IOException {
@@ -249,7 +376,39 @@ public final class Handoff {
      *         still asking the user questions
      */
     private static String labelFor(String pkg) {
-        return pkg.startsWith("com.retroarch") ? "RetroArch" : pkg;
+        if (pkg.startsWith("com.retroarch")) {
+            return "RetroArch";
+        }
+        if (pkg.equals(AZAHAR_PKG)) {
+            return "Azahar";
+        }
+        return pkg;
+    }
+
+    /** The activity to open so a runtime performs its own first-run setup. */
+    private static String setupActivity(String pkg) {
+        return pkg.equals(AZAHAR_PKG) ? AZAHAR_MAIN : RETROARCH_MENU;
+    }
+
+    /**
+     * True once, then never again. Records that we have asked the player
+     * for something, so a request they declined does not reappear on every
+     * launch of every game.
+     */
+    private static boolean askOnce(String pkg) {
+        File marker = new File(CoreInstaller.ROOT, "." + pkg + ".asked");
+        if (marker.exists()) {
+            return false;
+        }
+        try {
+            if (!CoreInstaller.ROOT.isDirectory()) {
+                CoreInstaller.ROOT.mkdirs();
+            }
+            new java.io.FileOutputStream(marker).close();
+        } catch (IOException e) {
+            Log.w(TAG, "cannot record the request for " + pkg, e);
+        }
+        return true;
     }
 
     private static boolean prime(Context c, String pkg) {
@@ -259,7 +418,7 @@ public final class Handoff {
         }
         try {
             Intent menu = new Intent();
-            menu.setComponent(new ComponentName(pkg, RETROARCH_MENU));
+            menu.setComponent(new ComponentName(pkg, setupActivity(pkg)));
             menu.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Log.i(TAG, "priming " + pkg + ": opening it for its own first-run setup");
             c.startActivity(menu, onBuiltIn());

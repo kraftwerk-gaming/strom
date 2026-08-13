@@ -18,7 +18,10 @@ public final class Game {
     public String payloadName;
     public String payloadSha256;
     public String retroarchCore;
-    /** File to open inside the payload: the ROM, or the disc image for Dolphin. */
+    /**
+     * File to open inside the payload: the ROM, the disc image for
+     * Dolphin, or the 3DS dump for Azahar.
+     */
     public String launchTarget;
 
     public String executablePath;
@@ -29,6 +32,7 @@ public final class Game {
     /** Backends this client can actually hand off to. */
     public static boolean supported(String backend) {
         return "retroarch".equals(backend)
+            || "azahar".equals(backend)
             || "gamenative".equals(backend)
             || "dolphin".equals(backend);
     }

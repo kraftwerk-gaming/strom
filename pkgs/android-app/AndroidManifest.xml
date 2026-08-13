@@ -15,12 +15,20 @@
        An app already present is never touched, whatever its version. -->
   <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-  <!-- Deliberately NO storage permission. Measured on an API 34 AVD: the
-       client writes payloads into public Download/Strom, which needs no
-       grant at all, and a runtime app can read them back from there. The
+  <!-- Payloads need NO storage permission. Measured on an API 34 AVD: the
+       client writes them into public Download/Strom, which is its own
+       Downloads subtree, and a runtime app reads them back from there. The
        client's own Android/data is unusable for this because no other app
-       may reach into it, and arbitrary shared storage would cost the user
-       an All-Files grant. See docs/android.md. -->
+       may reach into it. See docs/android.md. -->
+
+  <!-- Held so this client can write one setting into another app's config:
+       Azahar's, which decides whether a 3DS game gets a screen on each
+       panel. Azahar is granted a folder for its data through the system
+       picker and never tells anyone where, and it opens that picker with no
+       initial location, so the folder can only be found, not dictated.
+       Nothing else here needs it: payloads live in this app's own Downloads
+       subtree, which needs no permission at all. -->
+  <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
   <!-- API 30+ package visibility. Without this, PackageManager reports the
        runtime apps as absent and the handoff intents do not resolve. -->
@@ -33,11 +41,26 @@
          DS game on a dual-screen handheld gets a screen each. Preferred
          over RetroArch for melonDS-core games when present. -->
     <package android:name="me.magnum.melondualds" />
+    <!-- Azahar, for 3DS games; the vanilla artifact's id. The Play build
+         is io.github.lime3ds.android and is deliberately NOT listed: it
+         cannot open the content: URIs this client hands out. -->
+    <package android:name="org.azahar_emu.azahar" />
   </queries>
 
+  <!-- Cleartext is permitted because a catalog may be a plain static
+       server: the remote field offers "an http server serving /games",
+       and without this that mode fails with "Cleartext HTTP traffic to
+       127.0.0.1 not permitted", which is a documented feature the
+       platform has blocked by default since API 28. It permits rather
+       than prefers: an https seed URL is still fetched over TLS, and
+       payloads come from https gateways either way. A
+       network-security-config limited to private ranges would be
+       narrower, but it needs a res/xml resource and this APK
+       deliberately has no resource tree. -->
   <application
       android:label="Strom"
       android:hasCode="true"
+      android:usesCleartextTraffic="true"
       android:allowBackup="false">
     <activity
         android:name=".MainActivity"

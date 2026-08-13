@@ -164,6 +164,8 @@ public final class Catalog {
         g.retroarchCore = Json.str(m, "android", "retroarch", "core");
         if ("dolphin".equals(g.backend)) {
             g.launchTarget = Json.str(m, "android", "dolphin", "disc");
+        } else if ("azahar".equals(g.backend)) {
+            g.launchTarget = Json.str(m, "android", "azahar", "rom");
         } else {
             g.launchTarget = Json.str(m, "android", "retroarch", "rom");
         }

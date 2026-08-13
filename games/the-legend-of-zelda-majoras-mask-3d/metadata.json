@@ -1,0 +1,37 @@
+{
+  "_comment": "Nintendo 3DS title, never on Steam: appid null so fetch-steam-metadata.py does not fuzzy-match it onto some other Zelda. Everything below is hand-curated; the android/cids/description/runtime keys are written by scripts/sync-metadata.py.",
+  "android": {
+    "azahar": {
+      "rom": "majoras-mask-3d.3ds"
+    },
+    "backend": "azahar",
+    "payload": {
+      "cid": "QmZ91XHc33Kx3pUhUHvLbZk5g9TKuUhPpevN1K259Ce5ee",
+      "name": "majoras-mask-3d.3ds",
+      "sha256": "sha256-oLChP+i95PescZXGPFL2+DNmlj7jUSPj5bx9m0BSwN4="
+    },
+    "schema": 1
+  },
+  "appid": null,
+  "cids": [
+    "QmZ91XHc33Kx3pUhUHvLbZk5g9TKuUhPpevN1K259Ce5ee"
+  ],
+  "description": "The Legend of Zelda: Majora's Mask 3D (via Azahar)",
+  "developers": [
+    "Grezzo",
+    "Nintendo EPD"
+  ],
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "long": "A remake of the 2000 Nintendo 64 game, rebuilt for the 3DS with new models, lighting and a reworked save and fishing system. Link arrives in Termina to find the moon falling and three days left; the ocarina rewinds those days as often as it takes to break the cycle. Played here through Azahar, which renders the console's two screens onto two physical panels when the device has them.",
+  "lutris": "https://lutris.net/games/the-legend-of-zelda-majoras-mask-3d/",
+  "name": "The Legend of Zelda: Majora's Mask 3D",
+  "runtime": "azahar",
+  "short": "The 2015 3DS remake of Majora's Mask: three days, one falling moon, and a mask that ends the world.",
+  "tags": [
+    "Single-player"
+  ],
+  "year": 2015
+}

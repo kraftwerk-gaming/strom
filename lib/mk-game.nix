@@ -174,6 +174,7 @@ let
             "retroarch"
             "pcsx2"
             "dolphin"
+            "azahar"
           ];
           default = "custom";
         };
@@ -594,6 +595,10 @@ let
           type = wrapperType ./dolphin.nix { };
         };
 
+        azahar = mkOption {
+          type = wrapperType ./azahar.nix { };
+        };
+
         padToKb = mkOption {
           type = wrapperType ./pad-to-kb.nix { };
         };
@@ -723,6 +728,19 @@ let
               lib.getExe cfg.gamescope.outputs.wrapper
             else
               lib.getExe cfg.dolphin.outputs.wrapper;
+        })
+
+        (lib.mkIf (cfg.runtime == "azahar") {
+          azahar.romPath = overlayExe;
+          # Kept off gamescope's wayland display for the same reason the
+          # other Qt emulators here are (see lib/azahar.nix), so
+          # --expose-wayland is deliberately not set.
+          gamescope.command = lib.getExe cfg.azahar.outputs.wrapper;
+          entrypoint =
+            if cfg.enableGamescope then
+              lib.getExe cfg.gamescope.outputs.wrapper
+            else
+              lib.getExe cfg.azahar.outputs.wrapper;
         })
 
         (lib.mkIf cfg.n2n.enable {

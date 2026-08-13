@@ -68,11 +68,12 @@ doing the same over IPFS is the same shape, not a new one.
 | `proton`    |   269 | `gamenative`  | `app.gamenative.LAUNCH_GAME` as a CUSTOM_GAME             |
 | `retroarch` |    64 | `retroarch`   | `CoreSideloadActivity` then `RetroActivityFuture`         |
 | `dolphin`   |     6 | `dolphin`     | `dolphinemu://app/play/...`, user adds the folder once    |
+| `azahar`    |     1 | `azahar`      | `ACTION_VIEW` + `SelectedGame` as a `!`-prefixed path     |
 | `pcsx2`     |     9 | `unsupported` | no redistributable Android PS2 emulator exists            |
 | `native`    |    76 | `unsupported` | Linux x86_64 ELF, no runtime app will launch one          |
 | `custom`    |    40 | `unsupported` | per-game shell scripts, port individually                 |
 
-339 of 464 games (73 percent) map onto a backend. The `unsupported`
+340 of 465 games (73 percent) map onto a backend. The `unsupported`
 entries carry a `reason` string in the manifest so the client explains
 itself instead of hiding the game.
 
@@ -86,6 +87,13 @@ Runtime apps, all arm64-v8a:
 - **RetroArch** `com.retroarch`, GPL-3.0, on F-Droid. The only backend
   we can drive end to end with no manual step.
 - **Dolphin** `org.dolphinemu.dolphinemu`, GPLv2+, on F-Droid.
+- **WatermelonDS** `me.magnum.melondualds`, GPLv3, a melonDS port that
+  drives two physical panels. Used for every DS game, not only on
+  dual-screen hardware.
+- **Azahar** `org.azahar_emu.azahar`, GPL-2.0, `azahar-emu/azahar`. 3DS.
+  Pin the vanilla artifact; the Play flavour has a different id and cannot
+  open a `content:` URI. Two of its settings are private preferences the
+  client cannot reach, so its setup message names them.
 
 Not usable, for the record: Winlator itself exports no launch interface
 at all (only `MainActivity` MAIN/LAUNCHER). GameHub is
@@ -928,6 +936,71 @@ exported component takes a raw path or URI.
 So: download the disc image, then ask the user to add
 `/storage/emulated/0/Download/Strom/games/` to Dolphin's game folders once. Six
 games; not worth more engineering than that.
+
+### Azahar (`azahar`)
+
+3DS, and the only live emulator for it: Citra was deleted after the 2024
+Nintendo settlement, and Lime3DS merged into Azahar and archived itself in
+April 2025. Pin the **vanilla** artifact, not `googleplay` -- different
+application id (`org.azahar_emu.azahar` vs `io.github.lime3ds.android`), and
+only vanilla resolves an incoming `content:` URI into a file descriptor.
+
+`org.citra.citra_emu.activities.EmulationActivity` is exported with
+`ACTION_VIEW` and `scheme="content"`. Two ways in, and the second is the one
+the client uses:
+
+- `intent.data` as a `content:` URI. Works, and needs the URI to be
+  grantable -- which it is only for a file this client created. A payload
+  placed any other way fails with `UID ... does not have permission to
+  content://media/...`.
+- `SelectedGame` as a string, prefixed with `!`. That prefix is Azahar's own
+  marker for "filesystem path, not document"
+  (`FileUtil.isNativePath`, `GameHelper.getGame`, `EmulationFragment`): it
+  skips the descriptor branch and the loader opens the path itself. No
+  ownership condition, and being a string extra there is no `file:` URI to
+  expose. Use this.
+
+**Its first run is a wizard and it is mandatory.** All-files access, then a
+folder granted through the system picker becomes its user directory.
+Launching `EmulationActivity` before that does not degrade, it crashes
+Azahar: `RuntimeException` out of
+`DirectoryInitialization.getUserDirectory`. Prime it like RetroArch.
+
+**The dump must be decrypted.** Any NCCH with `no_crypto` clear is refused
+outright (`ncch_container.cpp`, `ErrorEncrypted`) and there is no key-based
+path, so an ordinary No-Intro `.cci` will not boot. The AES keys for a
+decrypted dump are compiled in (`ENABLE_BUILTIN_KEYBLOB`, default ON), so no
+system files are needed. Check a candidate before pinning it: NCSD magic at
+`0x100`, first partition offset at `0x120` in media units, then `NCCH` magic
+and `flags[7] & 0x04` at that offset.
+
+**Settings split three ways, and only one is reachable:**
+
+| setting | lives in | ours? |
+| --- | --- | --- |
+| screen layout, secondary display | `config.ini` in the granted folder | yes |
+| host-key mapping | its default SharedPreferences | no |
+| on-screen input overlay | its default SharedPreferences | no |
+
+The config is reachable but not addressable: Azahar never reports the folder
+and opens the picker with no initial location
+(`PermissionsHandler.compatibleSelectDirectory` passes null on Android 11+),
+so steering the choice means telling the player exactly where to tap. The
+client asks for all-files access instead -- once, and only on a device with a
+second panel, the only case where it buys anything -- and finds the folder by
+its shape on disk: a readable `config/config.ini` beside two or more of
+`sdmc`, `nand`, `sysdata`, `shaders`. Then it writes
+`enable_secondary_display`, `secondary_display_layout` and `layout_option`
+for one 3DS screen per panel. Read-modify-write: Azahar rewrites that file
+wholesale on exit.
+
+The two preference-backed settings are private app data, which all-files
+access does not reach, so the client names them in its setup message rather
+than pretending. The mapping one matters most: **Azahar ships no host
+mapping at all**, so `getButtonSet` returns an empty set and a physical pad
+does *nothing* while the touch overlay works, which is a bewildering way to
+meet a new emulator. Its Controls settings have an `Auto-Map Controller`
+action that binds a whole pad from one button press.
 
 ## How many apps does a user install?
 

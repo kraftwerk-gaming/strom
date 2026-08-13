@@ -61,6 +61,28 @@ final class Runtimes {
         "4a370332c97efbf6c36a63461ce9ede9b876516bc977a0ec7e677edaedc919fd",
         27403469L);
 
+    /**
+     * Azahar, for 3DS games. The surviving emulator of that console:
+     * Citra was deleted after the 2024 Nintendo settlement and Lime3DS
+     * merged into Azahar and archived itself in April 2025.
+     *
+     * <p>The "vanilla" artifact, not "googleplay", and the difference
+     * matters to this client rather than being a packaging detail. Only
+     * the vanilla build resolves an incoming content:// URI by opening a
+     * file descriptor from it; the Play build passes the raw URI on to a
+     * path resolver instead. A handoff from here is always a content://
+     * URI, because a targetSdk 34 app may not hand another process a
+     * file:// one. The two also carry different application ids, so
+     * installing the wrong one would leave the game unlaunchable and this
+     * client reporting the runtime as missing.
+     */
+    static final Spec AZAHAR = new Spec(
+        "org.azahar_emu.azahar",
+        "Azahar 2126.0",
+        "https://github.com/azahar-emu/azahar/releases/download/2126.0/azahar-android-vanilla-2126.0.apk",
+        "112d354be2145c17fa26d354ba4336445b1549a50bd995140bdeaf7219d5b6ff",
+        50206847L);
+
     private Runtimes() {
     }
 
@@ -74,6 +96,9 @@ final class Runtimes {
     static Spec forGame(gaming.kraftwerk.strom.catalog.Game g) {
         if (isNintendoDs(g)) {
             return WATERMELONDS;
+        }
+        if ("azahar".equals(g.backend)) {
+            return AZAHAR;
         }
         if ("retroarch".equals(g.backend)) {
             return RETROARCH;

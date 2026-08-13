@@ -57,6 +57,7 @@ let
     proton = "gamenative";
     retroarch = "retroarch";
     dolphin = "dolphin";
+    azahar = "azahar";
     pcsx2 = "unsupported";
     native = "unsupported";
     custom = "unsupported";
@@ -119,6 +120,7 @@ in
         "gamenative"
         "retroarch"
         "dolphin"
+        "azahar"
         "apk"
         "unsupported"
       ];
@@ -185,6 +187,10 @@ in
         let
           srcs = game.ipfsSources or [ ];
           only = builtins.head srcs;
+          singleFileBackends = builtins.elem game.android.backend [
+            "retroarch"
+            "azahar"
+          ];
         in
         # A game that builds nothing has nothing to pin. With no
         # buildScript, mkGame copies the single fetched file to
@@ -194,12 +200,15 @@ in
         # the name to equal `executable` keeps the manifest's `rom` and
         # the payload agreeing about what to open.
         #
+        # True of any backend whose game is one file the emulator opens --
+        # a libretro ROM and a 3DS dump are the same shape here.
+        #
         # Everything else is excluded and still needs its built tree
         # pinned by hand: a recipe that unzips or patches produces bytes
         # that exist nowhere yet, and a PSX game carries a second source
         # (the BIOS) that the payload would have to include.
         if
-          game.android.backend == "retroarch"
+          singleFileBackends
           && game.buildScript == ""
           && builtins.length srcs == 1
           && (only.name or null) == game.executable
@@ -361,6 +370,9 @@ in
       }
       // lib.optionalAttrs (game.android.backend == "dolphin") {
         dolphin.disc = game.executable;
+      }
+      // lib.optionalAttrs (game.android.backend == "azahar") {
+        azahar.rom = game.executable;
       };
 
     outputs.manifest = pkgs.writeText "${game.name}-android.json" (
