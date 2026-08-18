@@ -660,12 +660,16 @@ build a split prefix with box86, is neither in its UI nor usable over the
 intent. Most of the 269 `proton` games are 32-bit, so check bitness before
 pinning a worktree.
 
-**A game needing a non-default wrapper needs a manual step.** `animal-well`
-wants D3D12 and the container ships DXVK, so it stops at "Failed to create
-D3D12 Device" until DXWrapper is set to VKD3D in its container settings.
-We cannot send that: `dxwrapper` is only settable in the same
-`container_config` that would overwrite the wine build. That is the cost of
-the omission, and the reason to want a partial-config intent upstream.
+**Three settings are computable, in the manifest, and unsendable.** They
+travel in the same `container_config` that would overwrite the wine build,
+so the client names them in its setup message instead. Measured:
+`screenSize` left at GameNative's 1280x720 default on a 1080p panel renders
+the game in a scaled, decorated window with black margins (setting the
+container to 1920x1080 fixed it); `dxwrapper` left at DXVK stops a D3D12
+game with "Failed to create D3D12 Device" (VKD3D fixed it); `graphicsDriver`
+would be the third if a game ever needs a specific one. This is the cost of
+the omission and the reason to want either a partial-config intent upstream
+or a merge that preserves the base container's unlisted fields.
 
 **Source-derived, not a published API.** Only the intent is advertised; the
 folder layout, `.gamenative` format and `A:` mapping were read out of

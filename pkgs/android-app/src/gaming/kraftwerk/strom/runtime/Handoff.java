@@ -367,12 +367,21 @@ public final class Handoff {
         // cannot read the answer either way -- the folder list lives in its
         // private preferences.
         if (askOnce(pkg + "-" + g.slug)) {
+            // Everything the intent cannot carry, said once and in full. Each
+            // of these IS in the manifest and IS computable -- they travel in
+            // the same container_config that would overwrite the wine build,
+            // so naming them is all we can do. Measured consequences of
+            // leaving one out: a 720p container on a 1080p panel renders the
+            // game in a scaled, decorated window with black margins, and a
+            // D3D12 game stops at "Failed to create D3D12 Device".
             throw new NeedsSetup("GameNative needs this folder added to its"
                 + " library, once: " + payloadDir.getAbsolutePath()
                 + ". Open GameNative, add a game folder, pick that one."
-                + " If it then says the executable could not be"
-                + " auto-selected, set it to " + g.executablePath
-                + " in that entry's container settings. Then press Play again.");
+                + " In that entry's container settings: set Screen Size to"
+                + " your screen, set the executable path to "
+                + g.executablePath + " if it says the executable could not"
+                + " be auto-selected, and set DX Wrapper to VKD3D if the game"
+                + " needs Direct3D 12. Then press Play again.");
         }
 
         Intent intent = new Intent(GAMENATIVE_LAUNCH);
