@@ -48,6 +48,16 @@ public final class Game {
      */
     public List<Layer> layers = Collections.emptyList();
 
+    /**
+     * Cover art URL from the display metadata, null when it has none.
+     *
+     * <p>{@code metadata.json}'s {@code hero} wins over {@code steam.json}'s,
+     * which is the precedence the web GUI and the couch launcher apply.
+     */
+    public String hero;
+    /** Screenshot URLs, in published order; empty when there are none. */
+    public List<String> screenshots = Collections.emptyList();
+
     /** Backends this client can actually hand off to. */
     public static boolean supported(String backend) {
         return "retroarch".equals(backend)
@@ -64,6 +74,26 @@ public final class Game {
     /** What the user sees; falls back to the slug so a row is never blank. */
     public String title() {
         return (name != null && !name.isEmpty()) ? name : slug;
+    }
+
+    /**
+     * The image a tile shows. Never null; the last candidate is a guess.
+     *
+     * <p>Steam's {@code hero} is a 460x215 header, which is the aspect the
+     * grid is laid out for; a screenshot is 16:9 and gets centre-cropped
+     * into the same tile. The Lutris banner is the last resort and the same
+     * URL the desktop launcher falls back to ({@code fetch_banner}), so the
+     * couple of dozen games with neither Steam nor curated art still get a
+     * picture rather than a dark box.
+     */
+    public String art() {
+        if (hero != null && !hero.isEmpty()) {
+            return hero;
+        }
+        if (!screenshots.isEmpty()) {
+            return screenshots.get(0);
+        }
+        return "https://lutris.net/games/banner/" + slug + ".jpg";
     }
 
     @Override

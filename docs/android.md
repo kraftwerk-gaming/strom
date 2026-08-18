@@ -651,8 +651,8 @@ boots its bundled file manager instead of failing. So the client reports
 "handed off", never "running".
 
 **32-bit is the wall, and only 32-bit** (GameNative 1.1.1, Adreno 740).
-A 64-bit payload works: `animal-well` fetched over IPFS, handed off, and
-rendered in the default `proton-10.0-arm64ec` container. A 32-bit one runs
+A 64-bit payload plays: `animal-well` fetched over IPFS, handed off, and
+reached its title screen in the default `proton-10.0-arm64ec` container. A 32-bit one runs
 but gets no renderer -- Vulkan and D3D11 make `bgfx::init` return false,
 OpenGL fails at `ChoosePixelFormat`/`wglCreateContext` -- because the
 container has no 32-bit graphics wrappers, and `wow64Mode`, which would

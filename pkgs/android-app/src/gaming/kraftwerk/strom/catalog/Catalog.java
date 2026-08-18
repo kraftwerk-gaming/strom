@@ -142,6 +142,17 @@ public final class Catalog {
         return (v == null || v.isEmpty()) ? fallback : v;
     }
 
+    /** The string members of a JSON array; anything else is dropped. */
+    private static List<String> strings(List<?> node) {
+        List<String> out = new ArrayList<String>();
+        for (Object o : node) {
+            if (o instanceof String && !((String) o).isEmpty()) {
+                out.add((String) o);
+            }
+        }
+        return out;
+    }
+
     private static Game one(String base, String head, boolean radicle, String slug)
         throws IOException {
         Object m = fetchJson(base, head, radicle, slug, "metadata.json");
@@ -189,15 +200,27 @@ public final class Catalog {
         g.settings = Setting.parseAll(Json.path(m, "android", "settings"));
         g.layers = Layer.parseAll(Json.path(m, "android", "layers"));
 
-        // steam.json supplies the display name for most games; metadata.json
-        // wins where it sets one, which is the same precedence the web GUI
-        // and the couch launcher apply.
-        if (g.name == null) {
+        // Display metadata: metadata.json's fields win over steam.json's,
+        // which is the precedence the web GUI and the couch launcher apply.
+        // steam.json is read only when it can still supply something -- the
+        // name or the cover art -- because it is a second request per game
+        // and there are hundreds of them.
+        g.hero = Json.str(m, "hero");
+        g.screenshots = strings(Json.list(m, "screenshots"));
+        if (g.name == null || g.hero == null) {
             try {
                 Object s = fetchJson(base, head, radicle, slug, "steam.json");
-                g.name = Json.str(s, "name");
+                if (g.name == null) {
+                    g.name = Json.str(s, "name");
+                }
                 if (g.description == null) {
                     g.description = Json.str(s, "short");
+                }
+                if (g.hero == null) {
+                    g.hero = Json.str(s, "hero");
+                }
+                if (g.screenshots.isEmpty()) {
+                    g.screenshots = strings(Json.list(s, "screenshots"));
                 }
             } catch (IOException e) {
                 // Off-Steam titles legitimately have no steam.json.
