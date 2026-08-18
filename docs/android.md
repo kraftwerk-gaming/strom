@@ -650,14 +650,22 @@ Nothing comes back: no result code, no broadcast, and a missing executable
 boots its bundled file manager instead of failing. So the client reports
 "handed off", never "running".
 
-**Known wall: a 32-bit payload gets no renderer** (GameNative 1.1.1, Adreno
-740). 32-bit code runs, but every graphics backend fails -- Vulkan and
-D3D11 make `bgfx::init` return false, OpenGL fails at
-`ChoosePixelFormat`/`wglCreateContext`. No 32-bit graphics wrappers exist
-in the container, and `wow64Mode`, which would build a split 32/64 prefix
-with box86, is not in its UI and does not work over the intent. Most of the
-269 `proton` games are 32-bit, so this gates the backend: do not pin a
-worktree for one until a container can render it.
+**32-bit is the wall, and only 32-bit** (GameNative 1.1.1, Adreno 740).
+A 64-bit payload works: `animal-well` fetched over IPFS, handed off, and
+rendered in the default `proton-10.0-arm64ec` container. A 32-bit one runs
+but gets no renderer -- Vulkan and D3D11 make `bgfx::init` return false,
+OpenGL fails at `ChoosePixelFormat`/`wglCreateContext` -- because the
+container has no 32-bit graphics wrappers, and `wow64Mode`, which would
+build a split prefix with box86, is neither in its UI nor usable over the
+intent. Most of the 269 `proton` games are 32-bit, so check bitness before
+pinning a worktree.
+
+**A game needing a non-default wrapper needs a manual step.** `animal-well`
+wants D3D12 and the container ships DXVK, so it stops at "Failed to create
+D3D12 Device" until DXWrapper is set to VKD3D in its container settings.
+We cannot send that: `dxwrapper` is only settable in the same
+`container_config` that would overwrite the wine build. That is the cost of
+the omission, and the reason to want a partial-config intent upstream.
 
 **Source-derived, not a published API.** Only the intent is advertised; the
 folder layout, `.gamenative` format and `A:` mapping were read out of

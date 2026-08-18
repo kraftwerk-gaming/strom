@@ -71,5 +71,25 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <!-- Launch one game by slug, without the list screen: a test loop
+         driving adb, and a frontend that has its own library and only
+         wants a game started. Exported on purpose; it takes a catalog URL
+         and a slug and nothing else, and every payload it fetches is
+         verified against the CID the catalog names. noHistory so it never
+         sits in the recents list after the runtime takes over. Translucent
+         rather than NoDisplay: NoDisplay requires finish() before onResume
+         returns, and this activity fetches a payload first, which crashed
+         it with "did not call finish() prior to onResume() completing". -->
+    <activity
+        android:name=".LaunchActivity"
+        android:exported="true"
+        android:noHistory="true"
+        android:excludeFromRecents="true"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar">
+      <intent-filter>
+        <action android:name="gaming.kraftwerk.strom.LAUNCH" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
   </application>
 </manifest>

@@ -72,6 +72,7 @@ public class MainActivity extends Activity {
 
     private static final String PREFS = "strom";
     private static final String PREF_CATALOG = "catalog-url";
+    private static final String PREF_GATEWAY = "private-gateway";
     /** One entry per game that has options, holding just its non-default picks. */
     private static final String PREF_OPTIONS = "options:";
     /**
@@ -85,6 +86,7 @@ public class MainActivity extends Activity {
     private ExecutorService pool;
     private LinearLayout list;
     private EditText urlField;
+    private EditText gatewayField;
     private EditText filterField;
     private TextView topStatus;
     /** The loaded catalog, kept so the filter can rebuild the list offline. */
@@ -141,6 +143,43 @@ public class MainActivity extends Activity {
             }
         });
         root.addView(load);
+
+        // Same idea as STROM_IPFS_GATEWAYS on the desktop (AGENTS.md): a
+        // private or LAN mirror is tried first and the public gateways stay
+        // as the fallback. Safe to point anywhere, because the CID is the
+        // only trusted input -- a gateway that answers with the wrong bytes
+        // fails DAG verification and the next one gets a turn.
+        TextView gatewayLabel = new TextView(this);
+        gatewayLabel.setText("Private gateway (optional)");
+        gatewayLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+        gatewayLabel.setTextColor(Color.GRAY);
+        root.addView(gatewayLabel);
+
+        gatewayField = new EditText(this);
+        gatewayField.setInputType(InputType.TYPE_TEXT_VARIATION_URI);
+        gatewayField.setSingleLine(true);
+        gatewayField.setHint("http://host:8080");
+        gatewayField.setText(getSharedPreferences(PREFS, MODE_PRIVATE)
+            .getString(PREF_GATEWAY, ""));
+        gatewayField.addTextChangedListener(new android.text.TextWatcher() {
+            @Override
+            public void afterTextChanged(android.text.Editable e) {
+                String g = e.toString().trim();
+                getSharedPreferences(PREFS, MODE_PRIVATE)
+                    .edit().putString(PREF_GATEWAY, g).apply();
+                Fetcher.setPrivateGateway(g);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int a, int b, int c) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int a, int b, int c) {
+            }
+        });
+        root.addView(gatewayField);
+        Fetcher.setPrivateGateway(gatewayField.getText().toString().trim());
 
         topStatus = new TextView(this);
         topStatus.setText("idle");
@@ -521,99 +560,29 @@ public class MainActivity extends Activity {
             @Override
             public void run() {
                 try {
-                    if ("retroarch".equals(g.backend)) {
-                        say(status, "fetching core " + g.retroarchCore);
-                        CoreInstaller.ensure(g.retroarchCore);
+                    Launch.Outcome out = Launch.run(MainActivity.this, g, picks(g),
+                        new Launch.Progress() {
+                            @Override
+                            public void say(String message) {
+                                MainActivity.this.say(status, message);
+                            }
+                        });
+                    say(status, out.message);
+                    if (out.result == Launch.Result.NEEDS_SETUP
+                        || out.result == Launch.Result.REFUSED) {
+                        // A row of our own UI cannot be read once the runtime
+                        // we just opened is covering us, which is how this
+                        // presents as "I pressed Play and nothing happened".
+                        toast(out.message);
                     }
-
-                    File dir = CoreInstaller.payloadDir(g);
-                    boolean have = present(dir);
-                    // What the tree already carries, so a mod is fetched once
-                    // and a mod that was switched back off is noticed.
-                    Set<String> applied = have
-                        ? readApplied(dir) : new LinkedHashSet<String>();
-                    Options.Plan plan = Options.plan(g, picks(g), applied);
-                    if (plan.problem != null) {
-                        // Launching regardless would run a tree that is not
-                        // what was picked: a mod the player looks for and
-                        // cannot find, or one they turned off and still get.
-                        say(status, plan.problem);
-                        toast(plan.problem);
-                        if (!plan.stale.isEmpty()) {
-                            show(reset);
-                        }
-                        return;
-                    }
-
-                    if (!have) {
-                        // A single-file payload extracts to a file and a
-                        // directory payload to a tree, and which one it is
-                        // is only known once the DAG arrives. Land it on a
-                        // scratch path, then put it where it belongs.
-                        File part = new File(dir.getAbsolutePath() + ".part");
-                        say(status, "fetching payload");
-                        UnixFs.Stats st = Fetcher.fetchAndExtract(
-                            g.payloadCid, part, new Fetcher.Progress() {
-                                @Override
-                                public void bytes(long soFar) {
-                                    say(status, "fetching " + human(soFar));
-                                }
-                            });
-                        place(part, dir, g);
-                        say(status, "verified " + st.blocks + " blocks, "
-                            + human(st.bytesOut));
-                        // A base that was just unpacked carries no mods,
-                        // whatever an interrupted earlier attempt recorded.
-                        applied.clear();
-                        writeApplied(dir, applied);
-                    } else {
-                        say(status, "already downloaded");
-                    }
-
-                    for (final Layer l : plan.fetch) {
-                        say(status, "fetching mod " + l.name);
-                        UnixFs.Stats ls = Fetcher.fetchAndMerge(l.cid, dir, l.name,
-                            new Fetcher.Progress() {
-                                @Override
-                                public void bytes(long soFar) {
-                                    say(status, "fetching " + l.name + " " + human(soFar));
-                                }
-                            });
-                        // Recorded per layer, and only once its whole tree is
-                        // verified and merged: an interrupted mod is refetched
-                        // rather than remembered as applied.
-                        applied.add(l.name);
-                        writeApplied(dir, applied);
-                        say(status, "merged " + l.name + ", " + human(ls.bytesOut));
-                    }
-
-                    say(status, "handing off");
-                    Handoff.launch(MainActivity.this, g, dir);
-                    say(status, "launched");
-                } catch (final Exception e) {
-                    // Surfaced on screen, not just logcat: this gets
-                    // debugged over adb on a phone and a silent failure
-                    // costs an hour.
-                    Log.w(TAG, "launch failed for " + g.slug, e);
-                    if (e instanceof Handoff.NeedsSetup) {
-                        // An instruction, not a fault: printing the
-                        // exception class in front of it turns "here is
-                        // what to do" into "something crashed". And a row
-                        // of our own UI cannot be read at all once the
-                        // runtime we just opened is covering us, which is
-                        // how this presents as "I pressed Play and nothing
-                        // happened" -- so it is also said in a toast.
-                        say(status, e.getMessage());
-                        toast(e.getMessage());
-                    } else {
-                        say(status, "failed: " + e);
+                    if (out.staleLayers) {
+                        show(reset);
                     }
                 } finally {
-                    // Including after a launch that worked. Quitting the
-                    // game returns the player here, and the obvious thing
-                    // to do next is play it again; a button that stays
-                    // dead until the list happens to be rebuilt is just a
-                    // dead button.
+                    // Including after a launch that worked. Quitting the game
+                    // returns the player here, and the obvious thing to do
+                    // next is play it again; a button that stays dead until
+                    // the list happens to be rebuilt is just a dead button.
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -623,79 +592,6 @@ public class MainActivity extends Activity {
                 }
             }
         });
-    }
-
-    private static boolean present(File dir) {
-        if (dir.isFile()) {
-            return dir.length() > 0;
-        }
-        String[] kids = dir.list();
-        return kids != null && kids.length > 0;
-    }
-
-    /**
-     * Move a freshly fetched payload into place. A file payload is given
-     * its published name inside the game's directory so the extension
-     * survives; a directory payload becomes the directory itself.
-     */
-    private static void place(File part, File dir, Game g) throws IOException {
-        if (part.isDirectory()) {
-            if (!part.renameTo(dir)) {
-                throw new IOException("cannot move " + part + " to " + dir);
-            }
-            return;
-        }
-        if (!dir.isDirectory() && !dir.mkdirs()) {
-            throw new IOException("cannot create " + dir);
-        }
-        String name = (g.payloadName != null && !g.payloadName.isEmpty())
-            ? g.payloadName : g.slug;
-        File dst = new File(dir, name);
-        if (!part.renameTo(dst)) {
-            throw new IOException("cannot move " + part + " to " + dst);
-        }
-    }
-
-    /** The mod layers already unpacked into a game directory. */
-    private static Set<String> readApplied(File dir) {
-        Set<String> out = new LinkedHashSet<String>();
-        File f = new File(dir, LAYER_MARKER);
-        if (!f.isFile()) {
-            // Either nothing was ever merged, or this tree predates the
-            // marker; both mean every picked mod still has to be fetched,
-            // and merging one twice changes nothing.
-            return out;
-        }
-        try {
-            BufferedReader r = new BufferedReader(
-                new InputStreamReader(new FileInputStream(f), "UTF-8"));
-            try {
-                for (String line = r.readLine(); line != null; line = r.readLine()) {
-                    String name = line.trim();
-                    if (!name.isEmpty()) {
-                        out.add(name);
-                    }
-                }
-            } finally {
-                r.close();
-            }
-        } catch (IOException e) {
-            Log.w(TAG, "cannot read " + f, e);
-        }
-        return out;
-    }
-
-    private static void writeApplied(File dir, Set<String> names) throws IOException {
-        Writer w = new OutputStreamWriter(
-            new FileOutputStream(new File(dir, LAYER_MARKER)), "UTF-8");
-        try {
-            for (String name : names) {
-                w.write(name);
-                w.write('\n');
-            }
-        } finally {
-            w.close();
-        }
     }
 
     private void show(final View v) {

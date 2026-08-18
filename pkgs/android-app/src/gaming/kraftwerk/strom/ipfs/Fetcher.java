@@ -28,6 +28,38 @@ public final class Fetcher {
         "https://w3s.link",
     };
 
+    /**
+     * A private or LAN gateway, tried before the public ones. The desktop
+     * has the same escape hatch as STROM_IPFS_GATEWAYS (AGENTS.md); this is
+     * the phone's, for a local mirror, a LAN cache, or a payload that is
+     * not on public infrastructure yet.
+     *
+     * <p>Untrusted like every other gateway: the CID is the only trusted
+     * input, so wrong bytes fail verification and the next gateway is
+     * tried. That is what makes pointing this at anything safe.
+     */
+    private static volatile String privateGateway = "";
+
+    public static void setPrivateGateway(String g) {
+        String v = g == null ? "" : g.trim();
+        while (v.endsWith("/")) {
+            v = v.substring(0, v.length() - 1);
+        }
+        privateGateway = v;
+    }
+
+    /** The private gateway first when set, then the public list. */
+    private static String[] gateways() {
+        String p = privateGateway;
+        if (p.isEmpty()) {
+            return GATEWAYS;
+        }
+        String[] all = new String[GATEWAYS.length + 1];
+        all[0] = p;
+        System.arraycopy(GATEWAYS, 0, all, 1, GATEWAYS.length);
+        return all;
+    }
+
     private static final int CONNECT_TIMEOUT_MS = 20000;
     /**
      * Per read, not for the transfer as a whole: a game payload is
@@ -53,12 +85,13 @@ public final class Fetcher {
         Cid root = Cid.fromText(cidText);
         IOException last = null;
         String lastGateway = null;
-        for (int i = 0; i < GATEWAYS.length; i++) {
+        String[] list = gateways();
+        for (int i = 0; i < list.length; i++) {
             try {
-                return attempt(GATEWAYS[i], cidText, root, dest, p);
+                return attempt(list[i], cidText, root, dest, p);
             } catch (IOException e) {
                 last = e;
-                lastGateway = GATEWAYS[i];
+                lastGateway = list[i];
                 // Whatever this attempt managed to write is unverified in
                 // part, so the next gateway has to start from nothing.
                 deleteTree(dest);

@@ -360,15 +360,19 @@ public final class Handoff {
         }
         int appId = gamenativeId(payloadDir);
 
-        // Asked once, because we cannot read the answer: the folder list and
-        // the executable both live in GameNative's private preferences.
-        if (askOnce(pkg)) {
-            throw new NeedsSetup("GameNative needs two one-time steps for"
-                + " this game. Add this folder to its library: "
-                + payloadDir.getAbsolutePath()
-                + " -- then in that entry's container settings set the"
-                + " executable path to " + g.executablePath
-                + ". Then press Play again.");
+        // Asked once per GAME, not once per runtime: the folder to register
+        // is this game's own, so a second gamenative game needs its own
+        // instruction rather than silently inheriting the first one's
+        // marker and landing in GameNative's "not installed" dialog. We
+        // cannot read the answer either way -- the folder list lives in its
+        // private preferences.
+        if (askOnce(pkg + "-" + g.slug)) {
+            throw new NeedsSetup("GameNative needs this folder added to its"
+                + " library, once: " + payloadDir.getAbsolutePath()
+                + ". Open GameNative, add a game folder, pick that one."
+                + " If it then says the executable could not be"
+                + " auto-selected, set it to " + g.executablePath
+                + " in that entry's container settings. Then press Play again.");
         }
 
         Intent intent = new Intent(GAMENATIVE_LAUNCH);
