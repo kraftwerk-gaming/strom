@@ -36,6 +36,12 @@
     <package android:name="com.retroarch" />
     <package android:name="com.retroarch.aarch64" />
     <package android:name="app.gamenative" />
+    <!-- A locally built GameNative, which carries the same code under a
+         suffixed id so it can be installed beside the release (the two
+         cannot share a signature). Declared because package visibility on
+         Android 11+ hides anything not listed here, and without it a fork
+         is invisible even to resolveActivity. -->
+    <package android:name="app.gamenative.fork" />
     <package android:name="org.dolphinemu.dolphinemu" />
     <!-- WatermelonDS: a DS emulator that drives two physical panels, so a
          DS game on a dual-screen handheld gets a screen each. Preferred

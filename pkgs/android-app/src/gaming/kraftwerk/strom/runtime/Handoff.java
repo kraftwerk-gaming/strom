@@ -86,7 +86,17 @@ public final class Handoff {
      * caller can observe "GameNative came to the foreground" and nothing
      * more -- see the launch method for what that costs us.
      */
-    private static final String GAMENATIVE_LAUNCH = "app.gamenative.LAUNCH_GAME";
+    /**
+     * GameNative's launch action is derived from its own application id
+     * (`"${BuildConfig.APPLICATION_ID}.LAUNCH_GAME"`), so a build with a
+     * suffixed id listens on a different action. Deriving ours the same way
+     * means a fork, a `.gold` build or a locally built test build all work
+     * without a second code path -- and it is what let us test a patched
+     * build side by side with the released one.
+     */
+    private static String gamenativeLaunchAction(String pkg) {
+        return pkg + ".LAUNCH_GAME";
+    }
 
     /**
      * The second intent goes out after this long. The first one from cold
@@ -130,7 +140,12 @@ public final class Handoff {
         if (backend.equals("retroarch")) {
             candidates = RETROARCH_PKGS;
         } else if (backend.equals("gamenative")) {
-            candidates = new String[] { "app.gamenative" };
+            // The released build, then variants of it: a `.fork` test build
+            // sits beside the release rather than replacing it, because the
+            // two cannot share a signature and uninstalling the release
+            // takes every configured container with it. Order matters --
+            // the release wins when both are installed.
+            candidates = new String[] { "app.gamenative", "app.gamenative.fork" };
         } else if (backend.equals("dolphin")) {
             candidates = new String[] { "org.dolphinemu.dolphinemu" };
         } else if (backend.equals("azahar")) {
@@ -147,10 +162,24 @@ public final class Handoff {
         for (String p : candidates) {
             try {
                 pm.getPackageInfo(p, 0);
-                return p;
             } catch (PackageManager.NameNotFoundException e) {
-                // try the next one
+                continue;
             }
+            // Installed is not the same as able to run it. A package that is
+            // present but disabled still answers getPackageInfo, and handing
+            // it an intent then dies with ActivityNotFoundException -- which
+            // is what happens when two GameNative builds are installed and
+            // one is switched off. Ask whether the launch would resolve
+            // instead, and fall through to the next candidate when it would
+            // not. Backends whose launch is not a package-scoped action
+            // (retroarch's sideload dance, azahar) keep the presence answer.
+            if (backend.equals("gamenative")) {
+                Intent probe = new Intent(gamenativeLaunchAction(p)).setPackage(p);
+                if (pm.resolveActivity(probe, 0) == null) {
+                    continue;
+                }
+            }
+            return p;
         }
         return null;
     }
@@ -384,7 +413,7 @@ public final class Handoff {
                 + " needs Direct3D 12. Then press Play again.");
         }
 
-        Intent intent = new Intent(GAMENATIVE_LAUNCH);
+        Intent intent = new Intent(gamenativeLaunchAction(pkg));
         intent.setPackage(pkg);
         intent.putExtra("app_id", appId);
         // Uppercased and then matched against an enum; anything it does not
