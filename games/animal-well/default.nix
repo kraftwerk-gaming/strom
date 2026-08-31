@@ -44,6 +44,13 @@ self.lib.mkGame { inherit lib pkgs; } {
     };
   };
 
+  # The extracted worktree, pinned as a directory CID: what the Android
+  # client fetches, since it verifies a CAR into a UnixFS tree and has no
+  # archive reader. Built by `nix build .#androidPayloads.animal-well`,
+  # published with `tar -c . | curl --data-binary @- <the pin server>`.
+  # The `src` above stays the desktop's artifact and this game's provenance.
+  android.payload.cid = "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu";
+
   meta = {
     description = "ANIMAL WELL (Billy Basso 2024, via Proton)";
     platforms = [ "x86_64-linux" ];

@@ -7,6 +7,11 @@
         "executablePath": "Animal Well.exe"
       }
     },
+    "payload": {
+      "cid": "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu",
+      "name": "",
+      "sha256": null
+    },
     "schema": 1
   },
   "appid": 813230,
