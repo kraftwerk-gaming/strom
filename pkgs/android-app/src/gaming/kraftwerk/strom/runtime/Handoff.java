@@ -403,11 +403,22 @@ public final class Handoff {
             // leaving one out: a 720p container on a 1080p panel renders the
             // game in a scaled, decorated window with black margins, and a
             // D3D12 game stops at "Failed to create D3D12 Device".
+            //
+            // The emulator comes first because it is the one that kills
+            // silently: GameNative's default, FEXCore, faults inside its own
+            // wow64 layer the moment a 32-bit executable starts (a one-page
+            // stack, err:virtual:virtual_setup_exception), so every 32-bit
+            // game runs for a second and vanishes with no dialog. Box64 runs
+            // the same binaries, 64-bit ones included, and GameNative keeps
+            // the last chosen emulator as the default for every container it
+            // creates afterwards -- so this is one setting, not one per game.
             throw new NeedsSetup("GameNative needs this folder added to its"
                 + " library, once: " + payloadDir.getAbsolutePath()
                 + ". Open GameNative, add a game folder, pick that one."
-                + " In that entry's container settings: set Screen Size to"
-                + " your screen, set the executable path to "
+                + " In that entry's container settings: under Emulation set"
+                + " the emulator to Box64 (FEXCore cannot run 32-bit games;"
+                + " GameNative remembers this for later games), set Screen"
+                + " Size to your screen, set the executable path to "
                 + g.executablePath + " if it says the executable could not"
                 + " be auto-selected, and set DX Wrapper to VKD3D if the game"
                 + " needs Direct3D 12. Then press Play again.");

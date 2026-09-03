@@ -650,26 +650,102 @@ Nothing comes back: no result code, no broadcast, and a missing executable
 boots its bundled file manager instead of failing. So the client reports
 "handed off", never "running".
 
-**32-bit is the wall, and only 32-bit** (GameNative 1.1.1, Adreno 740).
-A 64-bit payload plays: `animal-well` fetched over IPFS, handed off, and
-reached its title screen in the default `proton-10.0-arm64ec` container. A 32-bit one runs
-but gets no renderer -- Vulkan and D3D11 make `bgfx::init` return false,
-OpenGL fails at `ChoosePixelFormat`/`wglCreateContext` -- because the
-container has no 32-bit graphics wrappers, and `wow64Mode`, which would
-build a split prefix with box86, is neither in its UI nor usable over the
-intent. Most of the 269 `proton` games are 32-bit, so check bitness before
-pinning a worktree.
+**32-bit games work; the emulator was the wall** (GameNative 1.1.1,
+proton-10.0-arm64ec-2, Adreno 740). An earlier version of this section
+blamed missing 32-bit graphics wrappers. Wrong: the prefix carries i386
+DXVK, wined3d, opengl32 and a 32-bit gallium WGL in `syswow64`, and the
+shipped `dxvk-*.tzst` packs contain both halves. What actually happens is
+that the 32-bit process loads `libwow64fex.dll` -- GameNative's default
+emulator, FEXCore -- and dies inside it before running a single guest
+instruction:
 
-**Three settings are computable, in the manifest, and unsendable.** They
-travel in the same `container_config` that would overwrite the wine build,
-so the client names them in its setup message instead. Measured:
-`screenSize` left at GameNative's 1280x720 default on a 1080p panel renders
-the game in a scaled, decorated window with black margins (setting the
-container to 1920x1080 fixed it); `dxwrapper` left at DXVK stops a D3D12
-game with "Failed to create D3D12 Device" (VKD3D fixed it); `graphicsDriver`
-would be the third if a game ever needs a specific one. This is the cost of
-the omission and the reason to want either a partial-config intent upstream
-or a merge that preserves the base container's unlisted fields.
+    011c:err:environ:init_peb starting L"A:\\strom-ff8-supervisor.exe" in experimental wow64 mode
+    011c:trace:loaddll:build_module Loaded L"C:\\windows\\system32\\libwow64fex.dll": builtin
+    011c:err:virtual:virtual_setup_exception stack overflow 1856 bytes addr 0x4ff93a9ba4
+                     stack 0x1001008c0 (0x100100000-0x100101000-0x1001ffd20)
+
+One committed page of stack, fault address inside FEX. The container's
+other emulator, Box64 (`wowbox64.dll`, `BionicProgramLauncherComponent.java:391-403`
+picks by the `emulator` field), runs the same binary: FF8's 32-bit
+supervisor, its Qt launcher and `FF8_EN.exe` all reach the screen, and the
+64-bit `animal-well` plays under it too. So the instruction is one setting,
+not one per game: `PrefManager.emulator` seeds every container created
+afterwards (`ContainerUtils.kt:152`, persisted at `:221`), and the UI offers
+exactly `FEXCore` / `Box64`. It is NOT settable over the launch intent
+(`parseContainerConfig` has no `emulator` key), so the client names it in
+its setup message. Hardware note: the old `wow64Mode` / `box86` fields are
+dead in both live launchers (only the unused proot launcher reads them) and
+no box86 ships, so that lever does not exist.
+
+**DirectInput-era games need the pad mapped to keys.** GameNative's pad
+support is XInput-shaped: `winhandler.exe` (64-bit, `0x140000000`) feeds a
+virtual XInput device, and profile bindings to `GAMEPAD_*` end up there.
+A game that imports `dinput.dll` (FF8 2013 does; DirectInput 7) sees
+nothing: the `directinput` wincomponent's native DLLs are not in the APK
+(`assets/wincomponents/` holds only the JSON), so `dinput`/`dinput8` load
+as wine builtins even with the override at `native,builtin`, and wine's
+dinput enumerates through winebus/HID, which has no devices in this
+container. Keys do arrive -- `binding.inject()` in
+`PhysicalControllerHandler.kt` puts X key events on the focused window --
+so an Input Controls profile whose controller bindings are `KEY_*` drives
+the game. Two traps: `getKeyCodeForAxis(AXIS_Y, +)` returns
+`AXIS_Y_NEGATIVE` (`-3`) while Android's positive Y is stick DOWN, so bind
+`-3 -> KEY_DOWN`, `-4 -> KEY_UP` (gamepad bindings do not notice because
+they carry the raw value); and keys go to the X focus window, which can be
+wine's desktop until the game surface is tapped once. FF8's keys, from its
+own in-game Keyboard screen (its `ff8input.cfg` lists them under shifted
+labels): Select=X, Cancel=C, Menu=V, Pause=A, Card=S, RotL=H, RotR=G,
+POV=F, Toggle=J, arrows to move. Verification note for anyone repeating
+this: `adb shell input` cannot test the pad path --
+`ExternalController.isGameController()` rejects `device.isVirtual()` -- so
+every injected-event "pad works" is meaningless; only a physical press or
+the game's own state proves it. Touch clicks land where aimed only with
+`touchscreenMode` on; the default touchpad mode moves a relative cursor.
+
+**FF8 specifically.** FFNx 1.24.3 died every launch at `0xc0000417`
+(`STATUS_INVALID_CRUNTIME_PARAMETER`) after logging `--- PC SPECS ---`.
+A `+relay` trace pinned it: `ffnx_log_current_pc_specs()` -> hwinfo ->
+`wstring_to_std_string` -> `setlocale(LC_ALL, ".65001")`, and the 32-bit
+ucrtbase of this proton build aborts inside that UTF-8 locale setup
+(`IsValidCodePage(65001)` -> locale build -> `SetUnhandledExceptionFilter(0)`
+-> terminate). The desktop's x86_64 ucrtbase survives the same call. Not
+WMI, not graphics. The recipe now ships FFNx with that one `call` NOPed
+(`ffnxDriver`, byte-asserted against the PDB address), on both platforms.
+Everything FF8's mod switches do depends on FFNx -- textures, field
+backgrounds, voices via its mod/voice paths, music via its external music
+player, Ragnarok half through Hext -- so without it every layer is dead
+and Ragnarok half-applies. Two more findings that went into the shared
+`FFNx.toml`: the music pack's config now travels inside the music layer
+(`ffnxToml`), because a build-time edit of the base cannot reach a phone
+that fetched only the layer; and the backend is pinned to Direct3D 11,
+because FFNx's auto pick chose OpenGL (zink) on the Thor and that path
+took the process down at 1920x1080 before its first frame, while D3D11
+through DXVK renders on both platforms. Measured end to end: the psx
+music layer fetched over IPFS is played by FFNx (`OpenPSF music plugin
+loaded using music/hebios.bin`, `sd_music_play`). Audio otherwise wanted
+`directmusic=1` (FF8's music is DirectMusic `.sgt`; the builtin dmusic
+glitches) and `PULSE_LATENCY_MSEC=300`; both are container settings, not
+intent-carried.
+
+**Testing on a suffixed fork build:** `evshim.c:80-90` falls back to the
+hardcoded `/data/data/app.gamenative/files` for the gamepad shm when
+`EVSHIM_BASE_PATH` is unset, and the app-side process reads its own
+environment, not the container's -- so on an `applicationIdSuffix` build
+the pad is dead until `setprop wrap.<pkg> "env EVSHIM_BASE_PATH=..."`.
+Not a bug in the release; a full evening's worth of misdirection on a fork.
+
+**Four settings are computable, in the manifest, and unsendable.** Three
+travel in the same `container_config` that would overwrite the wine build;
+the fourth, `emulator`, has no intent key at all. The client names them in
+its setup message instead. Measured: `emulator` left at FEXCore kills every
+32-bit game a second after launch, with no dialog (above); `screenSize`
+left at GameNative's 1280x720 default on a 1080p panel renders the game in
+a scaled, decorated window with black margins (setting the container to
+1920x1080 fixed it); `dxwrapper` left at DXVK stops a D3D12 game with
+"Failed to create D3D12 Device" (VKD3D fixed it); `graphicsDriver` would be
+next if a game ever needs a specific one. This is the cost of the omission
+and the reason to want either a partial-config intent upstream or a merge
+that preserves the base container's unlisted fields.
 
 **Source-derived, not a published API.** Only the intent is advertised; the
 folder layout, `.gamenative` format and `A:` mapping were read out of
