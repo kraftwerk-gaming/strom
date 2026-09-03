@@ -283,6 +283,20 @@ let
 
   texturePackLowers = map (key: mkTexturePack key texturePacks.${key}) texturePackOrder;
 
+  # Which mod trees are pinned for Android, keyed by the layer's own name
+  # (which `android.layers` derives from the derivation). Pin one with
+  #
+  #   nix build .#androidLayerPayloads.final-fantasy-viii.<name>
+  #   cd <result> && tar -c . | curl --data-binary @- <the pin server>
+  #
+  # and paste the returned CID here. A layer that is absent from this table
+  # has no CID in the manifest, which the client shows as "not published
+  # yet" rather than letting a player pick a mod it cannot fetch.
+  pinnedLayers = {
+    ff8-music-psx = "bafybeiaajatqdx26xscn74zzxzfzyqdzg2jtv6fsyeuptvstat46fgl5cm";
+    ff8-texturepack-spells = "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla";
+  };
+
   # Music. The 2013 release is the 2000 PC port's audio verbatim: 91
   # DirectMusic .sgt sequences rendered through an 8 MB DLS instrument bank
   # in Data/Music/dmusic. That is a General-MIDI-class software synth, and
@@ -1211,74 +1225,29 @@ self.lib.mkGame { inherit lib pkgs; } {
             "hext"
           ];
 
-          # Stack opt-in mods above the base tree. mkBefore prepends to
-          # mk-game's default `[ _gameData ]`, so mod files win on path
-          # conflict and the base game is never re-extracted.
-          bwrap.overlay.lowers = lib.mkBefore (
-            map toString (
-              config.mods
-              ++ lib.optional config.ragnarok (mkRagnarok config.ragnarokMode)
-              ++ lib.optionals config.textures texturePackLowers
-              ++ lib.optional config.fieldBackgrounds (mkTexturePack "fields" fieldBackgroundPack)
-              ++ lib.optional (config.music != "vanilla") (mkMusic config.music)
-              ++ lib.optional config.voices mkVoicePack
-            )
-          );
-
-          # One publishable artifact per opt-in mod, so the phone can turn
-          # a mod on without re-fetching the 3.7 GiB base. Every entry
-          # reuses the exact derivation the lowers list above stacks, so a
-          # layer cannot drift from what the desktop overlay mounts.
+          # Every opt-in mod, declared once. mk-game mounts the ones the
+          # current options select as overlay lowers and Android publishes
+          # all of them as fetchable layers, so what a phone offers and what
+          # the desktop mounts are the same list by construction.
           #
-          # Listed lowest priority FIRST -- `lib.reverseList` of the
-          # lowers order -- because the client extracts them in this
-          # order and later files overwrite earlier ones, which is the
-          # same flattening `outputs.payload` does.
+          # Highest priority first, matching `lowers`: Ragnarok's rebalance
+          # over the texture packs, those over the field backgrounds, then
+          # music and voices.
           #
-          # `mods` and `internalResolutionScale` get nothing: the first is
-          # an operator escape hatch holding arbitrary derivations, the
-          # second changes no files. `ffnx` gets nothing either -- it
-          # rearranges DLLs and env inside the base tree, so it cannot be
-          # toggled by adding a layer.
-          android.layers = [
-            {
-              key = "voices";
-              value = "true";
-              tree = mkVoicePack;
-            }
-          ]
-          ++
-            map
-              (mode: {
-                key = "music";
-                value = mode;
-                tree = mkMusic mode;
-              })
-              [
-                "psx"
-                "orchestral"
-              ]
-          ++ [
-            {
-              key = "fieldBackgrounds";
-              value = "true";
-              tree = mkTexturePack "fields" fieldBackgroundPack;
-            }
-          ]
-          ++ map (tree: {
-            key = "textures";
-            value = "true";
-            inherit tree;
-          }) (lib.reverseList texturePackLowers)
-          # `ragnarokMode` picks the variant, `ragnarok` is the switch that
-          # makes the pick mean anything; the enum's default would
-          # otherwise match on its own and install the rebalance for
-          # someone who never asked for it.
-          ++
+          # `mods` stays outside this: it is an operator escape hatch
+          # holding arbitrary derivations, not a player-facing choice, so it
+          # goes straight onto `lowers`. `internalResolutionScale` changes
+          # no files, and `ffnx` rearranges DLLs and env inside the base
+          # tree, so neither can be a layer.
+          modLayers =
             map
               (mode: {
                 key = "ragnarokMode";
                 value = mode;
+                # `ragnarokMode` picks the variant, `ragnarok` is the switch
+                # that makes the pick mean anything; the enum's default
+                # would otherwise select the rebalance for someone who
+                # never asked for it.
                 requires = {
                   key = "ragnarok";
                   value = "true";
@@ -1288,7 +1257,42 @@ self.lib.mkGame { inherit lib pkgs; } {
               [
                 "standard"
                 "lionheart"
-              ];
+              ]
+            ++ map (tree: {
+              key = "textures";
+              value = "true";
+              inherit tree;
+              cid = pinnedLayers.${tree.pname or tree.name} or null;
+            }) texturePackLowers
+            ++ [
+              {
+                key = "fieldBackgrounds";
+                value = "true";
+                tree = mkTexturePack "fields" fieldBackgroundPack;
+              }
+            ]
+            ++
+              map
+                (mode: {
+                  key = "music";
+                  value = mode;
+                  tree = mkMusic mode;
+                  cid = pinnedLayers."ff8-music-${mode}" or null;
+                })
+                [
+                  "psx"
+                  "orchestral"
+                ]
+            ++ [
+              {
+                key = "voices";
+                value = "true";
+                tree = mkVoicePack;
+              }
+            ];
+
+          # The operator escape hatch, above the base game.
+          bwrap.overlay.lowers = lib.mkBefore (map toString config.mods);
 
           # FFNx force-enables Steam achievements for the Steam edition,
           # overriding the `enable_steam_achievements = false` it ships:

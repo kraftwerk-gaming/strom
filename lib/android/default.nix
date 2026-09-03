@@ -275,112 +275,24 @@ in
     };
 
     layers = mkOption {
-      type = types.listOf (
-        types.submodule (
-          { config, ... }:
-          {
-            options = {
-              key = mkOption {
-                type = types.str;
-                description = ''
-                  The `settingsSchema` key this layer belongs to, i.e. the
-                  option a player toggles to ask for it.
-                '';
-              };
-
-              value = mkOption {
-                type = types.str;
-                description = ''
-                  The option value that selects this layer: the choice
-                  string for an enum, `"true"` for a bool. Several layers
-                  may share one key/value -- an option that expands to
-                  eight texture packs is eight layers -- and the client
-                  fetches every match, in list order.
-                '';
-              };
-
-              requires = mkOption {
-                type = types.nullOr (
-                  types.submodule {
-                    options = {
-                      key = mkOption { type = types.str; };
-                      value = mkOption { type = types.str; };
-                    };
-                  }
-                );
-                default = null;
-                description = ''
-                  A second key/value that must ALSO match for this layer
-                  to be selected. Exists for the parent-switch shape: a
-                  mod with a difficulty enum whose choice only means
-                  anything when the mod's own bool is on. Without it the
-                  enum's default value would match on its own and the
-                  client would fetch a mod nobody enabled.
-                '';
-              };
-
-              tree = mkOption {
-                type = types.package;
-                description = ''
-                  The derivation this layer publishes -- the very same mod
-                  tree the recipe stacks into `bwrap.overlay.lowers`, so
-                  what the phone unzips cannot drift from what the desktop
-                  overlay mounts. Built and pinned via
-                  `nix build .#androidLayerPayloads.<slug>.<name>`.
-                '';
-              };
-
-              cid = mkOption {
-                type = types.nullOr types.str;
-                default = null;
-                description = ''
-                  Directory CID of the pinned layer, null until an
-                  operator has pinned it. Null reaches the client as
-                  `cid: null`, which it must present as unavailable rather
-                  than launching without a layer the player asked for.
-                '';
-              };
-
-              name = mkOption {
-                type = types.str;
-                default = config.tree.pname or config.tree.name;
-                defaultText = lib.literalMD "the tree's `pname`, else its derivation `name`";
-                description = ''
-                  Stable identifier for this layer, in the manifest and as
-                  the `androidLayerPayloads` attribute an operator pins.
-                  The full derivation name rather than `lib.getName`
-                  precisely because the version part distinguishes
-                  variants of one mod (a "standard" and a "lionheart"
-                  build of the same rebalance would collapse onto one
-                  attribute otherwise).
-                '';
-              };
-
-              size = mkOption {
-                type = types.nullOr types.int;
-                default = null;
-                description = ''
-                  Uncompressed bytes, for the client's download prompt.
-                  Only knowable by building the tree, so it is filled in
-                  by hand when the layer is pinned; null just means the
-                  client cannot quote a size.
-                '';
-              };
-            };
-          }
-        )
-      );
-      default = [ ];
+      type = types.listOf types.attrs;
+      internal = true;
+      default = lib.reverseList game.modLayers;
+      defaultText = lib.literalMD "`lib.reverseList game.modLayers`";
       description = ''
         One artifact per opt-in mod, so a phone can toggle mods without
-        re-fetching the multi-GB base tree. In EXTRACTION order, which is
-        `lib.reverseList` of the game's `bwrap.overlay.lowers` (lowest
-        priority first): the client unpacks `payload` and then each
-        selected layer in list order, later files overwriting earlier
-        ones. That reproduces the overlay's merge exactly, because a mod
-        tree only ever adds or wins a path -- it has no whiteouts, so
-        nothing a lower layer wrote can need deleting. Same reasoning as
-        `outputs.payload`, which flattens the identical order.
+        re-fetching the multi-GB base tree.
+
+        Not declared per game: this IS the game's `modLayers`, the same
+        list the desktop overlay selects its lowers from, so what a player
+        is offered on a phone cannot drift from what actually gets mounted.
+        Reversed because `lowers` is highest-priority-first while the
+        client extracts lowest-priority-first, unpacking `payload` and then
+        each selected layer in list order with later files winning. That
+        reproduces the overlay's merge exactly, because a mod tree only
+        ever adds or wins a path -- it has no whiteouts, so nothing a lower
+        layer wrote can need deleting. Same reasoning as `outputs.payload`,
+        which flattens the identical order.
       '';
     };
 

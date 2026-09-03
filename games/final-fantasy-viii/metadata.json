@@ -19,14 +19,14 @@
       {
         "cid": null,
         "key": "music",
-        "name": "ff8-music-psx",
-        "value": "psx"
-      },
-      {
-        "cid": null,
-        "key": "music",
         "name": "ff8-music-orchestral",
         "value": "orchestral"
+      },
+      {
+        "cid": "bafybeiaajatqdx26xscn74zzxzfzyqdzg2jtv6fsyeuptvstat46fgl5cm",
+        "key": "music",
+        "name": "ff8-music-psx",
+        "value": "psx"
       },
       {
         "cid": null,
@@ -53,7 +53,7 @@
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla",
         "key": "textures",
         "name": "ff8-texturepack-spells",
         "value": "true"
@@ -85,22 +85,22 @@
       {
         "cid": null,
         "key": "ragnarokMode",
-        "name": "ff8-ragnarok-1.2.3-standard",
-        "requires": {
-          "key": "ragnarok",
-          "value": "true"
-        },
-        "value": "standard"
-      },
-      {
-        "cid": null,
-        "key": "ragnarokMode",
         "name": "ff8-ragnarok-1.2.3-lionheart",
         "requires": {
           "key": "ragnarok",
           "value": "true"
         },
         "value": "lionheart"
+      },
+      {
+        "cid": null,
+        "key": "ragnarokMode",
+        "name": "ff8-ragnarok-1.2.3-standard",
+        "requires": {
+          "key": "ragnarok",
+          "value": "true"
+        },
+        "value": "standard"
       }
     ],
     "schema": 1,

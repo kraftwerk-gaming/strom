@@ -117,6 +117,20 @@ let
           && declaredByGame opt
         ) options;
 
+      # Which declared mod layers the current option values ask for. The
+      # desktop mounts exactly these; Android publishes all of them and
+      # resolves the same predicate on the phone, so the two agree by
+      # construction rather than by both being maintained.
+      #
+      # Option values are normalised the way the manifest carries them: a
+      # bool is "true"/"false", not Nix's toString of a bool ("1"/"").
+      layerValue = v: if builtins.isBool v then lib.boolToString v else toString v;
+      layerSelected =
+        l:
+        layerValue (cfg.${l.key} or null) == l.value
+        && (l.requires == null || layerValue (cfg.${l.requires.key} or null) == l.requires.value);
+      selectedLayers = builtins.filter layerSelected cfg.modLayers;
+
       settingsSchema =
         let
           # "fieldBackgrounds" -> "Field backgrounds".
@@ -364,11 +378,13 @@ let
               # bwrap.nix creates this dir (--dir) inside the namespace; the
               # inner script (command, below) mounts fuse-overlayfs onto it
               # IN-NS so it auto-vanishes with the namespace on teardown.
-              # Default lowers = [_gameData]; recipes layer mods /
-              # soundtracks / etc. on top via `lib.mkBefore [...]` on
-              # this same option (first = highest priority).
+              # Lowers are first = highest priority: the mod trees the
+              # current options select, then the base game. A recipe adds
+              # unconditional lowers with `lib.mkBefore [...]` on this same
+              # option; anything a player can toggle belongs in `modLayers`
+              # instead, so Android offers exactly what the desktop mounts.
               overlay = {
-                lowers = [ "${cfg._gameData}" ];
+                lowers = map toString (map (l: l.tree) selectedLayers) ++ [ "${cfg._gameData}" ];
                 upper = "$STROM_GAMEDIR/.strom-overlay/upper";
                 work = "$STROM_GAMEDIR/.strom-overlay/work";
                 dest = "/tmp/.strom-overlay";
@@ -607,6 +623,80 @@ let
           type = wrapperType ./n2n.nix { };
         };
 
+        # Opt-in mod trees, declared ONCE and consumed twice: the desktop
+        # mounts the selected ones as overlay lowers, and Android publishes
+        # every one of them as a fetchable layer. A recipe that wrote both
+        # lists by hand could drift between what a player is offered and
+        # what actually gets mounted, which is exactly the bug this option
+        # exists to make impossible.
+        modLayers = mkOption {
+          type = types.listOf (
+            types.submodule (
+              { config, ... }:
+              {
+                options = {
+                  key = mkOption {
+                    type = types.str;
+                    description = "The bool/enum option a player toggles to ask for this tree.";
+                  };
+                  value = mkOption {
+                    type = types.str;
+                    description = ''
+                      The value of `key` that selects it: a choice string for
+                      an enum, `"true"` for a bool.
+                    '';
+                  };
+                  requires = mkOption {
+                    type = types.nullOr (
+                      types.submodule {
+                        options = {
+                          key = mkOption { type = types.str; };
+                          value = mkOption { type = types.str; };
+                        };
+                      }
+                    );
+                    default = null;
+                    description = ''
+                      A second option that must also match, for a variant
+                      enum whose default would otherwise select a mod nobody
+                      asked for (a `ragnarokMode` under a `ragnarok` switch).
+                    '';
+                  };
+                  tree = mkOption {
+                    type = types.package;
+                    description = "The mod's files: an overlay lower, and an Android layer.";
+                  };
+                  cid = mkOption {
+                    type = types.nullOr types.str;
+                    default = null;
+                    description = ''
+                      This tree pinned as a directory CID, for Android. Null
+                      until an operator pins it, which the client reports as
+                      not published rather than offering a mod it cannot
+                      fetch. The desktop ignores it: it builds the tree.
+                    '';
+                  };
+                  name = mkOption {
+                    type = types.str;
+                    default = config.tree.pname or config.tree.name;
+                    defaultText = lib.literalMD "the tree's `pname`";
+                    description = "Stable identifier, used in the manifest and as the pin target.";
+                  };
+                  size = mkOption {
+                    type = types.nullOr types.int;
+                    default = null;
+                    description = ''
+                      Uncompressed bytes, so a phone can say what a mod
+                      costs before fetching it. Null when unmeasured; the
+                      client then shows no size rather than a wrong one.
+                    '';
+                  };
+                };
+              }
+            )
+          );
+          default = [ ];
+        };
         # Android APK target. Plain submodule (not wrapperType): an APK
         # isn't a shell wrapper around an exe, so the wrapper module's
         # package/exePath schema doesn't fit. The parent game config
