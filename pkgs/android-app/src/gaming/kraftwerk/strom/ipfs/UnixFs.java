@@ -214,33 +214,56 @@ public final class UnixFs {
         long pending;
 
         /**
-         * Blocks kept in case the DAG references them again.
+         * Every block seen so far, so a later reference to the same CID can
+         * be satisfied without the gateway sending it again (it will not:
+         * a CAR carries each distinct block once, however many times the
+         * DAG points at it).
          *
-         * <p>Bounded, because a payload is far larger than memory: this is
-         * an LRU over CACHE_MAX bytes. Duplicates are near neighbours in
-         * practice, since the runs of identical padding that create them
-         * sit together in the file, so a modest window catches them. If one
-         * is ever evicted before its second reference the walk fails
-         * loudly, which is the right outcome -- silently writing the wrong
-         * bytes is the thing this class exists to prevent.
+         * <p>Content is NOT kept in memory. A raw leaf is recorded as where
+         * it was written -- file, offset, length -- and read back from
+         * there, so the window in which a repeat can be served is the whole
+         * payload rather than a memory budget. That matters because repeats
+         * are not only near neighbours (a ROM's padding runs) but also whole
+         * identical files at opposite ends of a tree: FF8's spells texture
+         * pack references a block first served 2000 blocks earlier, which
+         * the 24 MiB LRU this replaced had long evicted, and the walk then
+         * died on the next block as "out of order". DAG nodes (directories,
+         * file manifests) are small and stay in memory as bytes.
          */
-        static final int CACHE_MAX = 24 * 1024 * 1024;
-        final java.util.LinkedHashMap<Cid, byte[]> seen =
-            new java.util.LinkedHashMap<Cid, byte[]>(64, 0.75f, true);
-        long cached;
+        final java.util.HashMap<Cid, Object> seen = new java.util.HashMap<Cid, Object>();
 
-        private void remember(Cid cid, byte[] data) {
-            if (data.length > CACHE_MAX) {
-                return;
+        /** A raw leaf's bytes, on disk. */
+        private static final class Placed {
+            final String path;
+            final long offset;
+            final int length;
+
+            Placed(String path, long offset, int length) {
+                this.path = path;
+                this.offset = offset;
+                this.length = length;
             }
-            if (seen.put(cid, data) == null) {
-                cached += data.length;
+        }
+
+        private byte[] recall(Cid cid) throws IOException {
+            Object o = seen.get(cid);
+            if (o == null) {
+                return null;
             }
-            java.util.Iterator<java.util.Map.Entry<Cid, byte[]>> it = seen.entrySet().iterator();
-            while (cached > CACHE_MAX && it.hasNext()) {
-                cached -= it.next().getValue().length;
-                it.remove();
+            if (o instanceof byte[]) {
+                return (byte[]) o;
             }
+            Placed p = (Placed) o;
+            byte[] buf = new byte[p.length];
+            File f = p.path.isEmpty() ? dest : new File(dest, p.path);
+            java.io.RandomAccessFile raf = new java.io.RandomAccessFile(f, "r");
+            try {
+                raf.seek(p.offset);
+                raf.readFully(buf);
+            } finally {
+                raf.close();
+            }
+            return buf;
         }
 
         Walker(Cid root, File dest) {
@@ -262,7 +285,6 @@ public final class UnixFs {
             if (!e.cid.equals(cid)) {
                 throw new VerifyException("out-of-order block: expected " + e.cid + ", got " + cid);
             }
-            remember(cid, data);
             place(e, cid, data);
         }
 
@@ -272,19 +294,20 @@ public final class UnixFs {
          * <p>A gateway serving {@code dups=n} transmits each distinct block
          * once, however many times the DAG points at it, and real payloads
          * point at the same block often: a ROM's padding chunks are byte
-         * identical, so they share a CID. Every reference after the first
-         * has to be served from what we kept, or the walk ends holding
-         * expectations nothing will ever fill.
+         * identical, so they share a CID, and a texture pack ships the same
+         * image under several names. Every reference after the first has
+         * to be served from what was already placed, or the walk ends
+         * holding expectations nothing will ever fill.
          */
         private void replay() throws IOException {
             while (!expect.isEmpty()) {
-                byte[] cached = seen.get(expect.peekFirst().cid);
-                if (cached == null) {
+                byte[] again = recall(expect.peekFirst().cid);
+                if (again == null) {
                     return;
                 }
                 Expect e = expect.pollFirst();
                 stats.duplicates++;
-                place(e, e.cid, cached);
+                place(e, e.cid, again);
             }
         }
 
@@ -298,14 +321,24 @@ public final class UnixFs {
             }
             if (cid.codec == Cid.CODEC_RAW) {
                 // A raw leaf is file content verbatim; this repo pins with
-                // --raw-leaves, so most of a payload arrives this way.
+                // --raw-leaves, so most of a payload arrives this way. Its
+                // bytes are recorded by where they land, not kept.
                 if (e.append) {
+                    if (!seen.containsKey(cid)) {
+                        seen.put(cid, new Placed(sinkPath, sinkWritten, data.length));
+                    }
                     append(data, 0, data.length);
                     consumed(0);
                 } else {
+                    if (!seen.containsKey(cid)) {
+                        seen.put(cid, new Placed(e.path, 0, data.length));
+                    }
                     writeWhole(e.path, data, 0, data.length);
                 }
                 return;
+            }
+            if (!seen.containsKey(cid)) {
+                seen.put(cid, data);
             }
             if (cid.codec != Cid.CODEC_DAG_PB) {
                 throw new VerifyException("unexpected codec 0x" + Integer.toHexString(cid.codec));
@@ -422,7 +455,7 @@ public final class UnixFs {
             if (!expect.isEmpty()) {
                 throw new VerifyException("CAR ended with " + expect.size()
                     + " block(s) unaccounted for; " + expect.peekFirst().cid
-                    + " was never sent and is not in the recent-block cache");
+                    + " was never sent and had not been placed earlier");
             }
             if (midFile) {
                 throw new VerifyException("CAR ended mid-file");

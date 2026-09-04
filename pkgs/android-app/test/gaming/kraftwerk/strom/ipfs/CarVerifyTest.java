@@ -34,6 +34,7 @@ public final class CarVerifyTest {
         rejectsARootThatWasNotRequested();
         cidTextRoundTrips();
         reassemblesAFileWhoseChunksRepeat();
+        servesARepeatFromDiskHoweverFarApart();
 
         if (failures > 0) {
             System.err.println(failures + " test(s) failed");
@@ -126,6 +127,52 @@ public final class CarVerifyTest {
             java.util.Arrays.equals(want, got));
         check("the repeats are counted", st.duplicates == 2);
         check("only the distinct blocks were received", st.blocks == 3);
+    }
+
+    /**
+     * Two identical files at opposite ends of a directory, with enough
+     * distinct content between them that no memory-bounded window would
+     * still hold the first copy when the second is referenced. The
+     * ff8-texturepack-spells layer is exactly this: a block first served
+     * at position 223 of 2235 is referenced again near the end, and a
+     * 24 MiB LRU had evicted it, so the walk died on the next block as
+     * "out of order" on every gateway alike. Repeats must be served from
+     * where they were already written, whatever the distance.
+     */
+    private static void servesARepeatFromDiskHoweverFarApart() throws Exception {
+        byte[] same = new byte[1024];
+        java.util.Arrays.fill(same, (byte) 0x5a);
+        Cid cSame = rawCid(same);
+
+        // 64 distinct 1 MiB files in between: far more than any block cache
+        // this walker ever had, and served once each like everything else.
+        int between = 64;
+        String[] names = new String[between + 2];
+        Cid[] cids = new Cid[between + 2];
+        int[] sizes = new int[between + 2];
+        Block[] blocks = new Block[between + 2];
+        names[0] = "a-first"; cids[0] = cSame; sizes[0] = same.length;
+        blocks[1] = new Block(cSame, same);
+        for (int i = 0; i < between; i++) {
+            byte[] filler = new byte[1024 * 1024];
+            java.util.Arrays.fill(filler, (byte) i);
+            filler[0] = (byte) (i + 1);
+            Cid c = rawCid(filler);
+            names[i + 1] = "m-" + i; cids[i + 1] = c; sizes[i + 1] = filler.length;
+            blocks[i + 2] = new Block(c, filler);
+        }
+        names[between + 1] = "z-last"; cids[between + 1] = cSame; sizes[between + 1] = same.length;
+        byte[] dir = dirNode(names, cids, sizes);
+        Cid cDir = dagCid(dir);
+        blocks[0] = new Block(cDir, dir);
+
+        File out = tmp("far");
+        UnixFs.Stats st = UnixFs.extract(new ByteArrayInputStream(car(cDir, blocks)), cDir, out);
+
+        check("the far repeat is written from the first copy",
+            java.util.Arrays.equals(same, Files.readAllBytes(new File(out, "z-last").toPath())));
+        check("the far repeat is counted", st.duplicates == 1);
+        check("every distinct block was received once", st.blocks == between + 2);
     }
 
     private static void rejectsATamperedLeaf() throws Exception {

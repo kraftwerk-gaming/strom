@@ -71,6 +71,15 @@ public final class Fetcher {
 
     public interface Progress {
         void bytes(long soFar);
+
+        /**
+         * A gateway gave up and the next one is about to start from
+         * nothing. Without this the only visible reason is whichever
+         * gateway came LAST in the list, and the interesting failure is
+         * usually earlier -- a preferred private mirror that dropped the
+         * stream.
+         */
+        void gatewayFailed(String gateway, IOException e);
     }
 
     private Fetcher() {
@@ -90,6 +99,9 @@ public final class Fetcher {
             try {
                 return attempt(list[i], cidText, root, dest, p);
             } catch (IOException e) {
+                if (p != null) {
+                    p.gatewayFailed(list[i], e);
+                }
                 last = e;
                 lastGateway = list[i];
                 // Whatever this attempt managed to write is unverified in

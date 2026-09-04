@@ -140,6 +140,12 @@ public final class Launch {
                     ? "fetching " + human(soFar)
                     : "fetching " + label + " " + human(soFar));
             }
+
+            @Override
+            public void gatewayFailed(String gateway, java.io.IOException e) {
+                Log.w(TAG, "fetch " + (label == null ? "" : label + " ")
+                    + "via " + gateway + " failed: " + e);
+            }
         };
     }
 
