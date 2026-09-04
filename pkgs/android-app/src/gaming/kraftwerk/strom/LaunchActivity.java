@@ -30,8 +30,9 @@ import java.util.Map;
  *   --es options 'music=orchestral,voices=true'
  * </pre>
  *
- * <p>`remote` defaults to the one the list screen last used, so the common
- * case is just `--es slug`. `gateway` is optional and sets the private IPFS
+ * <p>`remote` defaults to the one the list screen last used, else the
+ * public seed the app ships with, so the common case is just `--es slug`.
+ * `gateway` is optional and sets the private IPFS
  * gateway for this process. `options` is a comma-separated list of
  * `key=value` picks, applied over the manifest defaults for this launch
  * only -- it does not overwrite what a player chose on screen.
@@ -58,9 +59,16 @@ public final class LaunchActivity extends Activity {
         String gateway = in.getStringExtra("gateway");
         final String options = in.getStringExtra("options");
 
+        // Same resolution as the grid: the intent's remote, else whatever
+        // the settings screen holds, else the public seed. An empty remote
+        // used to fall through here, so every automated launch had to
+        // repeat the URL that the app already knows.
         if (remote == null || remote.trim().isEmpty()) {
             remote = getSharedPreferences(PREFS, MODE_PRIVATE)
-                .getString(PREF_CATALOG, "");
+                .getString(PREF_CATALOG, MainActivity.DEFAULT_CATALOG);
+        }
+        if (remote.trim().isEmpty()) {
+            remote = MainActivity.DEFAULT_CATALOG;
         }
         if (gateway == null || gateway.trim().isEmpty()) {
             gateway = getSharedPreferences(PREFS, MODE_PRIVATE)

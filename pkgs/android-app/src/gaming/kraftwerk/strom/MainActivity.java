@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements Host {
      * point somewhere fresher, optionally pinning a revision with
      * {@code #<commit>}.
      */
-    private static final String DEFAULT_CATALOG =
+    static final String DEFAULT_CATALOG =
         "https://ash.radicle.garden/api/v1/repos/rad:zaCSBVa8UbKNEWBcmRTW1m9fZXhu";
 
     private static final String PREFS = "strom";
