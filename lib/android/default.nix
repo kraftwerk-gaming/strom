@@ -419,9 +419,15 @@ in
         # per game costs ~15 KB across the catalog and says nothing: they
         # are identical for all 269 gamenative entries. Documented as
         # defaults in docs/android.md so the client and this file agree.
+        #
+        # No screen size here. It is a property of the device, not the
+        # game: GameNative detects the panel when the intent leaves it
+        # out, and a value invented here overrides that -- measured, a
+        # "phone-shaped" 1280x720 sent from this file put a 1080p panel
+        # into a scaled, decorated window. A game that genuinely needs a
+        # size sets `containerConfig.screenSize` itself.
         containerDefaults = {
           execArgs = "";
-          screenSize = "1280x720";
           dxwrapper = "dxvk";
         };
         container = {
@@ -434,9 +440,6 @@ in
           # more robust than omitting it.
           executablePath = game.executable;
           execArgs = lib.concatStringsSep " " game.executableArgs;
-          # Phone-shaped default; the desktop gamescope size (often
-          # 1920x1080) is the wrong starting point on a handheld.
-          screenSize = "1280x720";
           dxwrapper = "dxvk";
         }
         // game.android.containerConfig;

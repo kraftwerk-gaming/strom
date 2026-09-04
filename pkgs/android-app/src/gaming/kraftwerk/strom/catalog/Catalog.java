@@ -189,8 +189,10 @@ public final class Catalog {
         // default; the pair of defaults is documented in docs/android.md
         // alongside the ones lib/android/default.nix filters against.
         g.execArgs = orElse(Json.str(m, "android", "gamenative", "containerConfig", "execArgs"), "");
-        g.screenSize =
-            orElse(Json.str(m, "android", "gamenative", "containerConfig", "screenSize"), "1280x720");
+        // No default: a screen size is the device's, and GameNative
+        // detects it when the intent leaves it out. Only a game that
+        // asks for a specific one carries it.
+        g.screenSize = Json.str(m, "android", "gamenative", "containerConfig", "screenSize");
         g.dxwrapper =
             orElse(Json.str(m, "android", "gamenative", "containerConfig", "dxwrapper"), "dxvk");
         Object pk = Json.path(m, "android", "gamenative", "padKeys");

@@ -514,8 +514,14 @@ public final class Handoff {
         if (registers) {
             StringBuilder sb = new StringBuilder("{\"executablePath\":")
                 .append(jsonString(g.executablePath))
-                .append(",\"screenSize\":").append(jsonString(g.screenSize))
                 .append(",\"dxwrapper\":").append(jsonString(g.dxwrapper));
+            // Only a size the game asked for. Sending a guess overrides
+            // GameNative's own panel detection -- and did: a 1280x720
+            // default from the catalog put the Thor's 1080p container into
+            // a scaled window and made FFNx's fullscreen request fail.
+            if (g.screenSize != null) {
+                sb.append(",\"screenSize\":").append(jsonString(g.screenSize));
+            }
             if (!g.execArgs.isEmpty()) {
                 sb.append(",\"execArgs\":").append(jsonString(g.execArgs));
             }

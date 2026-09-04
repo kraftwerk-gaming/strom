@@ -29,6 +29,7 @@ public final class Game {
 
     public String executablePath;
     public String execArgs;
+    /** Only when the game asks for a specific one; null means the device decides. */
     public String screenSize;
     public String dxwrapper;
     /**

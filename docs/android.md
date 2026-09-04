@@ -565,12 +565,17 @@ and layering is the simpler one.
     "containerConfig": {
       "executablePath": "hl2.exe",
       "execArgs": "-game portal -steam",
-      "screenSize": "1280x720",
       "dxwrapper": "dxvk"
     }
   }
 }
 ```
+
+No `screenSize` unless a recipe sets one: it is a property of the panel,
+which GameNative detects when the intent leaves it out, and a value from
+the catalog overrides that detection -- measured: a "phone-shaped"
+1280x720 sent by default put the Thor's 1080p container into a scaled,
+decorated window and made FFNx's fullscreen request fail.
 
 `executablePath` is always present and always equals the game's
 `executable`. Backend-specific shapes: `retroarch` carries
