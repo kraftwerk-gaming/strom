@@ -499,13 +499,53 @@ public final class Handoff {
         if (registers && profileName != null) {
             intent.putExtra("controls_profile", profileName);
         }
+        // A container_config, but only for a runtime that resolves the
+        // registration action: that build's parser merges over the
+        // container's stored record, so the wine build survives. Upstream's
+        // rebuilds the record from the JSON and would replace it with a
+        // wine that is not installed (see the class comment). What it
+        // carries is exactly what the setup message otherwise asks for by
+        // hand, plus one thing for a pad-to-keys game: winhandler's
+        // "Standard (Old Gamepads)" mapper emulates a keyboard from the
+        // pad on top of the profile's keys -- FF8 saw Shift+Left on every
+        // stick move, which FFNx takes as "cycle the aspect ratio" -- and
+        // the XInput mapper does not.
+        String config = null;
+        if (registers) {
+            StringBuilder sb = new StringBuilder("{\"executablePath\":")
+                .append(jsonString(g.executablePath))
+                .append(",\"screenSize\":").append(jsonString(g.screenSize))
+                .append(",\"dxwrapper\":").append(jsonString(g.dxwrapper));
+            if (!g.execArgs.isEmpty()) {
+                sb.append(",\"execArgs\":").append(jsonString(g.execArgs));
+            }
+            if (profileName != null) {
+                sb.append(",\"dinputMapperType\":2");
+            }
+            config = sb.append('}').toString();
+            intent.putExtra("container_config", config);
+        }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         Log.i(TAG, "handoff -> " + pkg + " (windows) appId=" + appId
             + " dir=" + payloadDir + " exe=" + g.executablePath
             + (profileName == null ? "" : " pad->keys profile '" + profileName + "'")
-            + " (no container_config: it would overwrite the wine build)");
+            + (config == null
+                ? " (no container_config: it would overwrite the wine build)"
+                : " config=" + config));
         c.startActivity(intent, onBuiltIn());
+    }
+
+    private static String jsonString(String s) {
+        StringBuilder sb = new StringBuilder("\"");
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (ch == '"' || ch == '\\') {
+                sb.append('\\');
+            }
+            sb.append(ch);
+        }
+        return sb.append('"').toString();
     }
 
     /** GameNative's own profile format, left beside the game for a stock install to import. */
