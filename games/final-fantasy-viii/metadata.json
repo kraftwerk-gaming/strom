@@ -7,47 +7,61 @@
     "gamenative": {
       "containerConfig": {
         "executablePath": "strom-ff8-supervisor.exe"
+      },
+      "padKeys": {
+        "a": "X",
+        "b": "C",
+        "dpad": "arrows",
+        "l1": "H",
+        "l2": "F",
+        "leftStick": "arrows",
+        "r1": "G",
+        "r2": "J",
+        "select": "D",
+        "start": "A",
+        "x": "S",
+        "y": "V"
       }
     },
     "layers": [
       {
-        "cid": null,
+        "cid": "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca",
         "key": "voices",
         "name": "ff8-voice-echo-s-8-demo",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeieyddbj3khcngfhogbdbchxrwpyhu7xpvldilxyorqsikopa25ddy",
         "key": "music",
         "name": "ff8-music-orchestral",
         "value": "orchestral"
       },
       {
-        "cid": "bafybeiaajatqdx26xscn74zzxzfzyqdzg2jtv6fsyeuptvstat46fgl5cm",
+        "cid": "bafybeigbxe2xgpcgpryfvqbphpd22d5oq3b7wtmeme5e7jtggxxs7hwoka",
         "key": "music",
         "name": "ff8-music-psx",
         "value": "psx"
       },
       {
-        "cid": null,
+        "cid": "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi",
         "key": "fieldBackgrounds",
         "name": "ff8-texturepack-fields",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni",
         "key": "textures",
         "name": "ff8-texturepack-world",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy",
         "key": "textures",
         "name": "ff8-texturepack-battles",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64",
         "key": "textures",
         "name": "ff8-texturepack-enemies",
         "value": "true"
@@ -59,31 +73,31 @@
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e",
         "key": "textures",
         "name": "ff8-texturepack-gfs",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i",
         "key": "textures",
         "name": "ff8-texturepack-battleModels",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq",
         "key": "textures",
         "name": "ff8-texturepack-characters",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq",
         "key": "textures",
         "name": "ff8-texturepack-models",
         "value": "true"
       },
       {
-        "cid": null,
+        "cid": "bafybeib4aftmigdo7u6u3fbthuu5tj2cj6bj63hbirbj5r2mpx5xdui76u",
         "key": "ragnarokMode",
         "name": "ff8-ragnarok-1.2.3-lionheart",
         "requires": {
@@ -93,7 +107,7 @@
         "value": "lionheart"
       },
       {
-        "cid": null,
+        "cid": "bafybeicbnm5ekth6orauv5bgtq7dqatqx6fewcuizonmjynrb5zhz5qnd4",
         "key": "ragnarokMode",
         "name": "ff8-ragnarok-1.2.3-standard",
         "requires": {

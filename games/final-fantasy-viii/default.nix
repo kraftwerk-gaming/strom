@@ -293,8 +293,20 @@ let
   # has no CID in the manifest, which the client shows as "not published
   # yet" rather than letting a player pick a mod it cannot fetch.
   pinnedLayers = {
-    ff8-music-psx = "bafybeiaajatqdx26xscn74zzxzfzyqdzg2jtv6fsyeuptvstat46fgl5cm";
-    ff8-texturepack-spells = "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla";
+    "ff8-music-orchestral" = "bafybeieyddbj3khcngfhogbdbchxrwpyhu7xpvldilxyorqsikopa25ddy";
+    "ff8-music-psx" = "bafybeigbxe2xgpcgpryfvqbphpd22d5oq3b7wtmeme5e7jtggxxs7hwoka";
+    "ff8-ragnarok-1.2.3-lionheart" = "bafybeib4aftmigdo7u6u3fbthuu5tj2cj6bj63hbirbj5r2mpx5xdui76u";
+    "ff8-ragnarok-1.2.3-standard" = "bafybeicbnm5ekth6orauv5bgtq7dqatqx6fewcuizonmjynrb5zhz5qnd4";
+    "ff8-texturepack-battleModels" = "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i";
+    "ff8-texturepack-battles" = "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy";
+    "ff8-texturepack-characters" = "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq";
+    "ff8-texturepack-enemies" = "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64";
+    "ff8-texturepack-fields" = "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi";
+    "ff8-texturepack-gfs" = "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e";
+    "ff8-texturepack-models" = "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq";
+    "ff8-texturepack-spells" = "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla";
+    "ff8-texturepack-world" = "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni";
+    "ff8-voice-echo-s-8-demo" = "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca";
   };
 
   # Music. The 2013 release is the 2000 PC port's audio verbatim: 91
@@ -335,9 +347,11 @@ let
 
   # Both modes install into a single music/ directory and set
   # external_music_path to it, so there is one lookup root and one bios
-  # location regardless of mode.
+  # location regardless of mode. The FFNx.toml that does the pointing is
+  # part of the layer (see ffnxToml in the module below): without it the
+  # files sit unread next to a vanilla config.
   mkMusic =
-    mode:
+    mode: toml:
     runCommandLocal "ff8-music-${mode}"
       {
         nativeBuildInputs = [
@@ -381,6 +395,7 @@ let
           done
         ''
         + ''
+          install -m644 ${toml} "$out/FFNx.toml"
           test -s "$out/music/hebios.bin"
           test -f "$out/music/config.toml"
           test "$(ls "$out/music" | wc -l)" -gt 90
@@ -468,6 +483,53 @@ let
     url = "https://github.com/julianxhokaxhiu/FFNx/releases/download/canary/FFNx-Steam-v1.24.3.172.zip";
     hash = "sha256-OpoAvAGPVnQ3AlcQrN046zwiu2VmA6cP+zL1hfvu48o=";
   };
+
+  # The release with ONE call removed: ffnx_log_current_pc_specs()
+  # (common.cpp:307, called unconditionally at common.cpp:1072). It only
+  # writes a "PC SPECS" block to FFNx.log, but to get the CPU name it
+  # goes through hwinfo's wstring_to_std_string (stringutils.h:156),
+  # which does setlocale(LC_ALL, ".65001") -- and the 32-bit ucrtbase of
+  # proton-10.0-arm64ec aborts inside that UTF-8 locale setup with
+  # STATUS_INVALID_CRUNTIME_PARAMETER (0xc0000417). Traced with +relay on
+  # the AYN Thor: RegQueryValueExW("VendorIdentifier") ->
+  # IsValidCodePage(65001) -> locale build -> SetUnhandledExceptionFilter
+  # (0) -> TerminateProcess, every launch, before the first frame. The
+  # desktop's x86_64 ucrtbase survives the same call, which is why this
+  # never showed on Linux.
+  #
+  # The function is void() cdecl and its single call site is followed
+  # by av_log_set_level(AV_LOG_VERBOSE) -- `6a 28` is push 0x28 -- so
+  # five NOPs remove the log block and nothing else. Both facts are
+  # asserted below; a new FFNx release that moves the code fails the
+  # build here rather than shipping an unpatched or mispatched driver.
+  # Symbol address from the FFNx.pdb the release ships
+  # (`?ffnx_log_current_pc_specs@@YAXXZ` = 0001:3874096).
+  ffnxDriver =
+    runCommandLocal "ffnx-steam-1.24.3-no-pc-specs"
+      {
+        nativeBuildInputs = [
+          unzip
+          python3
+        ];
+      }
+      ''
+        mkdir -p "$out"
+        unzip -q ${ffnx} -d "$out"
+        chmod u+w "$out/AF3DN.P"
+        python3 - "$out/AF3DN.P" <<'EOF'
+        import sys
+        path = sys.argv[1]
+        d = bytearray(open(path, "rb").read())
+        off = 0x3AC511
+        call = bytes.fromhex("e81a5c0000")    # call ffnx_log_current_pc_specs
+        after = bytes.fromhex("6a28")         # push AV_LOG_VERBOSE
+        assert d[off:off + 5] == call, d[off:off + 5].hex()
+        assert d[off + 5:off + 7] == after, d[off + 5:off + 7].hex()
+        d[off:off + 5] = b"\x90" * 5
+        open(path, "wb").write(d)
+        EOF
+        chmod u-w "$out/AF3DN.P"
+      '';
 
   # gbe_fork (Goldberg): an offline steam_api.dll, and the other half of
   # what makes FFNx usable here.
@@ -754,6 +816,74 @@ self.lib.mkGame { inherit lib pkgs; } {
       { config, lib, ... }:
       let
         inherit (lib) mkOption types;
+
+        # FFNx.toml for a given music choice. The base tree always gets
+        # the "vanilla" one; a music layer carries its own, which wins
+        # over the base on both platforms (first overlay lower on the
+        # desktop, later extraction on Android). That is what makes the
+        # music switch a self-contained layer: FFNx only plays a pack it
+        # has been pointed at, and the pointing used to be a build-time
+        # edit of the base -- which a fetched layer cannot reach.
+        #
+        # Resolution: FFNx's shipped defaults render 640x480 in window
+        # mode ("[RESOLUTION]"), which gamescope then stretches; pin the
+        # window to the size gamescope nests at so the two cannot
+        # disagree, and supersample per internalResolutionScale.
+        ffnxToml =
+          music:
+          pkgs.runCommandLocal "ff8-ffnx-toml-${music}" { } (
+            ''
+              cp ${ffnxDriver}/FFNx.toml "$out"
+              chmod u+w "$out"
+              #
+              # Backend pinned to Direct3D 11 rather than FFNx's auto pick.
+              # Both platforms render it through DXVK, and it is the one
+              # bgfx backend measured to survive everywhere: on the Thor,
+              # auto chose OpenGL (zink), which initialised at 1280x720 but
+              # took the process down at 1920x1080 before its first frame.
+              # Fullscreen at the pinned size, so wine's virtual desktop
+              # does not decorate a screen-sized window and shift it by a
+              # title bar.
+              substituteInPlace "$out" \
+                --replace-fail 'renderer_backend = 0' 'renderer_backend = 3' \
+                --replace-fail 'fullscreen = false' 'fullscreen = true' \
+                --replace-fail 'window_size_x = 0' 'window_size_x = ${toString config.gamescope.nested-width}' \
+                --replace-fail 'window_size_y = 0' 'window_size_y = ${toString config.gamescope.nested-height}' \
+                --replace-fail 'internal_resolution_scale = 0' 'internal_resolution_scale = ${toString config.internalResolutionScale}'
+            ''
+            + lib.optionalString (music != "vanilla") ''
+              # Point FFNx at the music/ tree the pack provides. None of
+              # this is defaulted for the Steam 2013 edition: FFNx
+              # force-enables external music only for FF7 Steam and FF8
+              # Remastered (common.cpp:3220,3323), and its unconditional
+              # external_music_path fallback (common.cpp:3373) is
+              # data/music/dmusic/ogg -- a directory this build does not
+              # have. Unset, the game simply goes silent, because FFNx
+              # has already replaced play_midi by then (music.cpp:1213).
+              #
+              # ff8_external_music_force_original_filenames stays false:
+              # it exists to feed Remastered oggs in under their raw .sgt
+              # names, and both packs here use FFNx's truncated naming
+              # (005s-battle.sgt -> battle, music.cpp:148-160).
+              substituteInPlace "$out" \
+                --replace-fail 'use_external_music = false' 'use_external_music = true' \
+                --replace-fail 'external_music_path = ""' 'external_music_path = "music"' \
+                --replace-fail 'he_bios_path = ""' 'he_bios_path = "music/hebios.bin"' \
+                --replace-fail 'external_music_ext = "ogg"' ${
+                  if music == "orchestral" then
+                    "'external_music_ext = [ \"ogg\", \"minipsf\" ]'"
+                  else
+                    "'external_music_ext = \"minipsf\"'"
+                }
+            ''
+            + lib.optionalString (music == "orchestral") ''
+              # OST-RF's own README asks for both of these; sync keeps
+              # the arranged tracks aligned with the engine's loop points.
+              substituteInPlace "$out" \
+                --replace-fail 'external_music_volume = -1' 'external_music_volume = 75' \
+                --replace-fail 'external_music_sync = false' 'external_music_sync = true'
+            ''
+          );
       in
       {
         options = {
@@ -1109,57 +1239,20 @@ self.lib.mkGame { inherit lib pkgs; } {
 
             # Drop FFNx over the stock Steam renderer -- AF3DN.P/AF4DN.P
             # are the game's own driver stubs and FFNx replaces them in
-            # place. `-o` overwrites without prompting, which
-            # deliberately includes steam_api.dll: FFNx validates that
-            # the one beside the executable is its own, so it must win.
+            # place. Overwrite deliberately includes steam_api.dll: FFNx
+            # validates that the one beside the executable is its own, so
+            # it must win. ffnxDriver is the release with the one crashing
+            # call removed (see its definition).
             #
             # This is gated behind `ffnx` because it is incompatible with
             # THIS tree's cracked executable (see the option's
             # description). Enable it together with a legitimate tree.
-            unzip -q -o ${ffnx} -d "$out"
+            cp -r --no-preserve=mode ${ffnxDriver}/. "$out/"
 
-            # Give FFNx a real resolution. Its shipped defaults render
-            # 640x480 in window mode (FFNx.toml "[RESOLUTION]"), which
-            # gamescope then stretches; pin the window to the same size
-            # gamescope nests at so the two cannot disagree, and
-            # supersample per internalResolutionScale.
-            substituteInPlace "$out/FFNx.toml" \
-              --replace-fail 'window_size_x = 0' 'window_size_x = ${toString config.gamescope.nested-width}' \
-              --replace-fail 'window_size_y = 0' 'window_size_y = ${toString config.gamescope.nested-height}' \
-              --replace-fail 'internal_resolution_scale = 0' 'internal_resolution_scale = ${toString config.internalResolutionScale}'
-
-            ${lib.optionalString (config.music != "vanilla") ''
-              # Point FFNx at the music/ tree the mkMusic lower provides.
-              # None of this is defaulted for the Steam 2013 edition: FFNx
-              # force-enables external music only for FF7 Steam and FF8
-              # Remastered (common.cpp:3220,3323), and its unconditional
-              # external_music_path fallback (common.cpp:3373) is
-              # data/music/dmusic/ogg -- a directory this build does not
-              # have. Unset, the game simply goes silent, because FFNx has
-              # already replaced play_midi by then (music.cpp:1213).
-              #
-              # ff8_external_music_force_original_filenames stays false: it
-              # exists to feed Remastered oggs in under their raw .sgt
-              # names, and both packs here use FFNx's truncated naming
-              # (005s-battle.sgt -> battle, music.cpp:148-160).
-              substituteInPlace "$out/FFNx.toml" \
-                --replace-fail 'use_external_music = false' 'use_external_music = true' \
-                --replace-fail 'external_music_path = ""' 'external_music_path = "music"' \
-                --replace-fail 'he_bios_path = ""' 'he_bios_path = "music/hebios.bin"' \
-                --replace-fail 'external_music_ext = "ogg"' ${
-                  if config.music == "orchestral" then
-                    "'external_music_ext = [ \"ogg\", \"minipsf\" ]'"
-                  else
-                    "'external_music_ext = \"minipsf\"'"
-                }
-            ''}
-            ${lib.optionalString (config.music == "orchestral") ''
-              # OST-RF's own README asks for both of these; sync keeps the
-              # arranged tracks aligned with the engine's loop points.
-              substituteInPlace "$out/FFNx.toml" \
-                --replace-fail 'external_music_volume = -1' 'external_music_volume = 75' \
-                --replace-fail 'external_music_sync = false' 'external_music_sync = true'
-            ''}
+            # The base always carries the vanilla-music config; a music
+            # pack brings its own FFNx.toml as part of its layer, which
+            # wins over this one. See ffnxToml.
+            install -m644 ${ffnxToml "vanilla"} "$out/FFNx.toml"
 
             # FFNx must find the Valve DLL it validates. It ships no
             # steam_api.dll of its own (verified against the artifact), so
@@ -1190,6 +1283,28 @@ self.lib.mkGame { inherit lib pkgs; } {
           # wineprefix, which the launcher treats as disposable, so the
           # whole directory is relocated into ~/.strom/<name>/.
           saveLocations = [ "Documents/Square Enix/FINAL FANTASY VIII Steam" ];
+
+          # FF8_EN.exe imports dinput.dll (DirectInput 7) and sees no pad
+          # under GameNative, whose pad support is XInput-shaped; keys do
+          # arrive. These are the game's own defaults as its in-game
+          # Keyboard screen lists them (ff8input.cfg files them under
+          # shifted labels): Select=X, Cancel=C, Menu=V, Card game=S,
+          # Rotation left/right=H/G, Switch POV=F, Toggle display=J,
+          # Pause=A, Escape battle=D+F. Measured on an AYN Thor.
+          android.padKeys = {
+            a = "X";
+            b = "C";
+            y = "V";
+            x = "S";
+            l1 = "H";
+            r1 = "G";
+            l2 = "F";
+            r2 = "J";
+            start = "A";
+            select = "D";
+            dpad = "arrows";
+            leftStick = "arrows";
+          };
 
           # The game creates its userdata directory only when a Steam
           # client hands it a user id, which never happens here, and the
@@ -1239,7 +1354,7 @@ self.lib.mkGame { inherit lib pkgs; } {
           # goes straight onto `lowers`. `internalResolutionScale` changes
           # no files, and `ffnx` rearranges DLLs and env inside the base
           # tree, so neither can be a layer.
-          modLayers =
+          modLayers = map (l: l // { cid = pinnedLayers.${l.tree.pname or l.tree.name} or null; }) (
             map
               (mode: {
                 key = "ragnarokMode";
@@ -1262,7 +1377,6 @@ self.lib.mkGame { inherit lib pkgs; } {
               key = "textures";
               value = "true";
               inherit tree;
-              cid = pinnedLayers.${tree.pname or tree.name} or null;
             }) texturePackLowers
             ++ [
               {
@@ -1276,8 +1390,7 @@ self.lib.mkGame { inherit lib pkgs; } {
                 (mode: {
                   key = "music";
                   value = mode;
-                  tree = mkMusic mode;
-                  cid = pinnedLayers."ff8-music-${mode}" or null;
+                  tree = mkMusic mode (ffnxToml mode);
                 })
                 [
                   "psx"
@@ -1289,7 +1402,8 @@ self.lib.mkGame { inherit lib pkgs; } {
                 value = "true";
                 tree = mkVoicePack;
               }
-            ];
+            ]
+          );
 
           # The operator escape hatch, above the base game.
           bwrap.overlay.lowers = lib.mkBefore (map toString config.mods);
