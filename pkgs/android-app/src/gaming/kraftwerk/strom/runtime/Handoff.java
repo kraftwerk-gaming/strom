@@ -16,6 +16,7 @@ import android.view.Display;
 import android.view.InputDevice;
 
 import gaming.kraftwerk.strom.catalog.Game;
+import gaming.kraftwerk.strom.catalog.PadKeys;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -387,7 +388,67 @@ public final class Handoff {
         if (!payloadDir.isDirectory()) {
             throw new IOException("payload directory " + payloadDir + " is missing");
         }
+        // Before gamenativeId(), which writes the marker.
+        boolean firstTime = !new File(payloadDir, ".gamenative").isFile();
         int appId = gamenativeId(payloadDir);
+
+        // The pad-to-key profile, when the manifest declares one. A runtime
+        // that accepts the registration intent gets it sent and imported;
+        // it is also written beside the game as GameNative's own `.icp`,
+        // which is this client's record of what it last sent (a change
+        // re-registers) and a readable statement of the mapping. Stock
+        // GameNative cannot import it -- its InputControlsManager has an
+        // importProfile() that no screen calls -- so a stock install is
+        // told the bindings to set by hand instead.
+        String profileName = null;
+        String profileJson = null;
+        boolean profileChanged = false;
+        if (PadKeys.any(g.padKeys)) {
+            profileName = "strom: " + g.slug;
+            profileJson = PadKeys.profileJson(0, profileName, g.padKeys);
+            profileChanged = writeIfChanged(new File(payloadDir, PROFILE_FILE), profileJson);
+        }
+
+        // A runtime carrying the registration intent (our fork, and
+        // upstream once it lands) registers the folder itself; every other
+        // build needs the player to do it once, in its own UI.
+        Intent register = new Intent(pkg + ".ADD_CUSTOM_GAME_FOLDER").setPackage(pkg);
+        boolean registers = c.getPackageManager().resolveActivity(register, 0) != null;
+        if (registers) {
+            // Only when there is something new to say: registration is
+            // idempotent but not free -- it cold-starts GameNative, and a
+            // launch sent into that startup is dropped (measured: the
+            // launch parsed, "Emitting ExternalGameLaunch", no session).
+            // So register on the first run and whenever the profile
+            // changed, wait out the startup, and otherwise send the launch
+            // alone.
+            if (firstTime || profileChanged) {
+                register.putExtra("folder", payloadDir.getAbsolutePath());
+                if (profileJson != null) {
+                    register.putExtra("controls_profile", profileJson);
+                }
+                register.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                c.startActivity(register, onBuiltIn());
+                Log.i(TAG, "registered " + payloadDir + " with " + pkg
+                    + (profileJson == null ? "" : " + controls profile"));
+                try {
+                    Thread.sleep(8000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            // The one setting no intent can carry, said once per install
+            // rather than per game: GameNative keeps the last chosen
+            // emulator as the default for every container it creates.
+            if (askOnce(pkg + "-emulator")) {
+                throw new NeedsSetup("Once, in GameNative: open any game's"
+                    + " container settings and under Emulation set the emulator"
+                    + " to Box64. Its default, FEXCore, cannot run 32-bit games"
+                    + " (they exit within a second, with no message), and"
+                    + " GameNative remembers the choice for every game after."
+                    + " Then press Play again.");
+            }
+        }
 
         // Asked once per GAME, not once per runtime: the folder to register
         // is this game's own, so a second gamenative game needs its own
@@ -395,7 +456,7 @@ public final class Handoff {
         // marker and landing in GameNative's "not installed" dialog. We
         // cannot read the answer either way -- the folder list lives in its
         // private preferences.
-        if (askOnce(pkg + "-" + g.slug)) {
+        if (!registers && askOnce(pkg + "-" + g.slug)) {
             // Everything the intent cannot carry, said once and in full. Each
             // of these IS in the manifest and IS computable -- they travel in
             // the same container_config that would overwrite the wine build,
@@ -421,7 +482,11 @@ public final class Handoff {
                 + " Size to your screen, set the executable path to "
                 + g.executablePath + " if it says the executable could not"
                 + " be auto-selected, and set DX Wrapper to VKD3D if the game"
-                + " needs Direct3D 12. Then press Play again.");
+                + " needs Direct3D 12."
+                + (profileJson == null ? "" : " This game reads the keyboard,"
+                    + " not a pad: in Input Controls, make a profile for it"
+                    + " binding " + PadKeys.describe(g.padKeys) + ".")
+                + " Then press Play again.");
         }
 
         Intent intent = new Intent(gamenativeLaunchAction(pkg));
@@ -431,12 +496,50 @@ public final class Handoff {
         // recognise silently becomes STEAM, which would look for a game we
         // never installed.
         intent.putExtra("game_source", "CUSTOM_GAME");
+        if (registers && profileName != null) {
+            intent.putExtra("controls_profile", profileName);
+        }
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         Log.i(TAG, "handoff -> " + pkg + " (windows) appId=" + appId
             + " dir=" + payloadDir + " exe=" + g.executablePath
+            + (profileName == null ? "" : " pad->keys profile '" + profileName + "'")
             + " (no container_config: it would overwrite the wine build)");
         c.startActivity(intent, onBuiltIn());
+    }
+
+    /** GameNative's own profile format, left beside the game for a stock install to import. */
+    static final String PROFILE_FILE = "strom-controls.icp";
+
+    /** Writes {@code content} unless the file already holds exactly it; true when written. */
+    private static boolean writeIfChanged(File f, String content) throws IOException {
+        byte[] want = content.getBytes("UTF-8");
+        if (f.isFile() && f.length() == want.length) {
+            byte[] have = new byte[want.length];
+            java.io.FileInputStream in = new java.io.FileInputStream(f);
+            try {
+                int off = 0;
+                while (off < have.length) {
+                    int n = in.read(have, off, have.length - off);
+                    if (n < 0) {
+                        break;
+                    }
+                    off += n;
+                }
+            } finally {
+                in.close();
+            }
+            if (java.util.Arrays.equals(have, want)) {
+                return false;
+            }
+        }
+        java.io.FileOutputStream out = new java.io.FileOutputStream(f);
+        try {
+            out.write(want);
+        } finally {
+            out.close();
+        }
+        return true;
     }
 
     /**

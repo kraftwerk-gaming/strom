@@ -127,10 +127,12 @@ stdenvNoCC.mkDerivation {
       src/gaming/kraftwerk/strom/catalog/Json.java \
       src/gaming/kraftwerk/strom/catalog/Layer.java \
       src/gaming/kraftwerk/strom/catalog/Options.java \
+      src/gaming/kraftwerk/strom/catalog/PadKeys.java \
       src/gaming/kraftwerk/strom/catalog/Setting.java \
       $(find test -name '*.java')
     java -cp test-classes gaming.kraftwerk.strom.ipfs.CarVerifyTest
     java -cp test-classes gaming.kraftwerk.strom.catalog.OptionsTest
+    java -cp test-classes gaming.kraftwerk.strom.catalog.PadKeysTest
 
     runHook postCheck
   '';

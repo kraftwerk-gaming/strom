@@ -31,6 +31,11 @@ public final class Game {
     public String execArgs;
     public String screenSize;
     public String dxwrapper;
+    /**
+     * Pad buttons mapped to the keys the game reads, empty when the pad
+     * should reach it as XInput. See {@link PadKeys}.
+     */
+    public java.util.Map<String, String> padKeys = Collections.emptyMap();
 
     /**
      * The game's published player options, empty when it has none.

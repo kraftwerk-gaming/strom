@@ -188,6 +188,41 @@ in
       '';
     };
 
+    padKeys = mkOption {
+      type = types.attrsOf types.str;
+      default = { };
+      example = {
+        a = "X";
+        b = "C";
+        dpad = "arrows";
+        leftStick = "arrows";
+      };
+      description = ''
+        Physical gamepad buttons mapped to keyboard keys, for a game that
+        reads the keyboard but not GameNative's virtual XInput pad. Empty
+        means the pad reaches the game as XInput, which is right for
+        anything modern.
+
+        The case this exists for: a DirectInput-era title. `dinput.dll`
+        games see no pad under GameNative at all -- its pad support is
+        XInput-shaped (winhandler feeds a virtual XInput device) and wine's
+        own dinput enumerates winebus, which has no devices there -- while
+        keys injected into the X server do arrive. So the pad is mapped to
+        whatever keys the game itself reads; those are a property of the
+        game and belong here, not in a hand-made profile on the phone.
+
+        Buttons: `a b x y l1 r1 l2 r2 l3 r3 start select`, plus `dpad`
+        and `leftStick` / `rightStick`, which take the four-way value
+        `arrows` (or `wasd`). Keys: a single letter or digit, or one of
+        `UP DOWN LEFT RIGHT ENTER ESC SPACE TAB BKSP DEL SHIFT CTRL ALT`.
+
+        Travels in the manifest as `gamenative.padKeys`; the client builds
+        GameNative's controls profile from it and installs it through the
+        registration intent when the runtime accepts one, else writes it
+        beside the game for a one-time import.
+      '';
+    };
+
     payload = mkOption {
       type = types.nullOr (
         types.submodule {
@@ -444,9 +479,39 @@ in
         reason = game.android.unsupportedReason;
       }
       // lib.optionalAttrs (game.android.backend == "gamenative") {
-        gamenative.containerConfig = lib.filterAttrs (
-          k: v: !(containerDefaults ? ${k}) || containerDefaults.${k} != v
-        ) container;
+        gamenative =
+          let
+            buttons = [
+              "a"
+              "b"
+              "x"
+              "y"
+              "l1"
+              "r1"
+              "l2"
+              "r2"
+              "l3"
+              "r3"
+              "start"
+              "select"
+              "dpad"
+              "leftStick"
+              "rightStick"
+            ];
+            bad = lib.filter (b: !(lib.elem b buttons)) (lib.attrNames game.android.padKeys);
+          in
+          {
+            containerConfig = lib.filterAttrs (
+              k: v: !(containerDefaults ? ${k}) || containerDefaults.${k} != v
+            ) container;
+          }
+          // lib.optionalAttrs (game.android.padKeys != { }) {
+            padKeys =
+              if bad != [ ] then
+                throw "${game.name}: android.padKeys has no such button: ${lib.concatStringsSep ", " bad}"
+              else
+                game.android.padKeys;
+          };
       }
       // lib.optionalAttrs (game.android.backend == "retroarch") {
         retroarch = {

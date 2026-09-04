@@ -193,6 +193,16 @@ public final class Catalog {
             orElse(Json.str(m, "android", "gamenative", "containerConfig", "screenSize"), "1280x720");
         g.dxwrapper =
             orElse(Json.str(m, "android", "gamenative", "containerConfig", "dxwrapper"), "dxvk");
+        Object pk = Json.path(m, "android", "gamenative", "padKeys");
+        if (pk instanceof java.util.Map) {
+            java.util.Map<String, String> keys = new java.util.LinkedHashMap<String, String>();
+            for (java.util.Map.Entry<?, ?> e : ((java.util.Map<?, ?>) pk).entrySet()) {
+                if (e.getValue() instanceof String) {
+                    keys.put(String.valueOf(e.getKey()), (String) e.getValue());
+                }
+            }
+            g.padKeys = keys;
+        }
 
         // Player options and the mod trees they select. Both are absent for
         // every game that publishes no settings, which is nearly all of

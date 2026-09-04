@@ -702,6 +702,40 @@ every injected-event "pad works" is meaningless; only a physical press or
 the game's own state proves it. Touch clicks land where aimed only with
 `touchscreenMode` on; the default touchpad mode moves a relative cursor.
 
+**The mapping is declared in the recipe.** `android.padKeys` on the game
+(`lib/android/default.nix`) names pad buttons and the keys they send --
+`a = "X"; dpad = "arrows"; leftStick = "arrows"` -- and travels in the
+manifest as `gamenative.padKeys`. The client (`catalog/PadKeys.java`)
+owns every GameNative-specific fact: the Android key codes its profiles
+bind by (96..109), the pseudo-codes for stick directions (-1..-8, with
+the Y pair swapped as above), the `KEY_*` vocabulary, and the `.icp`
+shape. It renders a profile named `strom: <slug>` with a wildcard
+controller and no on-screen elements. Delivery has two shapes:
+
+- A runtime that resolves `<pkg>.ADD_CUSTOM_GAME_FOLDER` (our fork) gets
+  the profile JSON in a `controls_profile` extra on that intent and
+  imports it under its name, borrowing the default profile's on-screen
+  elements so touch stays on; the launch intent then carries the name in
+  the same extra and the session pins it on the container as
+  `profileId`. Registration is sent only on the first run or when the
+  profile changed, because it cold-starts GameNative and a launch sent
+  into that startup is dropped; the client waits 8 s after sending it.
+  Verified on the Thor from a clean state: `controls profile 'strom:
+  final-fantasy-viii' imported as id 7`, `container uses controls
+  profile`, `Using CUSTOM profile: strom: final-fantasy-viii`, game up.
+- Stock GameNative cannot take it: `InputControlsManager.importProfile()`
+  exists but no screen calls it, so there is no import. The setup
+  message spells the bindings out for Input Controls instead
+  ("binding a to X, b to C, dpad to arrows, ..."). The `.icp` the client
+  writes beside the game is its record of what it last sent, not
+  something a stock install can use.
+
+The fork-side change is three hunks in `IntentLaunchManager.kt` plus one
+call in `XServerScreen.kt`. Not one line more in that composable: at
+5900 lines it is at the size where ART's verifier rejects it for one
+extra inlined lambda (`VerifyError ... copy1 v1<-v256`), which cost a
+build to learn.
+
 **FF8 specifically.** FFNx 1.24.3 died every launch at `0xc0000417`
 (`STATUS_INVALID_CRUNTIME_PARAMETER`) after logging `--- PC SPECS ---`.
 A `+relay` trace pinned it: `ffnx_log_current_pc_specs()` -> hwinfo ->
