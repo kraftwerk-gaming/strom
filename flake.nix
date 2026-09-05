@@ -166,6 +166,8 @@
             versionCode = self.revCount or 1;
             versionName = "0.1.3+r${toString (self.revCount or 0)}.${self.shortRev or "dirty"}";
           };
+          # The path shim for strom's GameNative build; see the file.
+          gamenativeRedirect = pkgs.callPackage ./pkgs/gamenative-redirect { };
           scripts = {
             launcher = pkgs.callPackage ./pkgs/launcher { inherit gameMeta; };
             gui = pkgs.callPackage ./pkgs/gui { };

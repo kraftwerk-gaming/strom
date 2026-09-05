@@ -83,6 +83,33 @@ final class Runtimes {
         "112d354be2145c17fa26d354ba4336445b1549a50bd995140bdeaf7219d5b6ff",
         50206847L);
 
+    /**
+     * GameNative, for the proton games: our own build of it. Upstream
+     * master plus the intent-provisioning branch, which fixes the external
+     * launch intent (a container_config no longer replaces the wine build,
+     * settings the intent omits keep their stored value, the config reaches
+     * an existing container) and adds the two intents this client drives:
+     * register a game folder, install and select a pad-to-keys profile.
+     * Without them GameNative needs a hand step per game.
+     *
+     * <p>It also ships none of the four binaries upstream's
+     * THIRD_PARTY_NOTICES withholds a redistribution grant for; the one
+     * that matters, the imagefs path shim, is replaced by our own
+     * (pkgs/gamenative-redirect). docs/android.md, "How many apps does a
+     * user install?", has the whole story and the release procedure.
+     *
+     * <p>Same application id as upstream, since the handoff and the
+     * container library are per id, but signed with strom's key -- so it
+     * cannot install over an upstream build. An upstream install is left
+     * alone, as every runtime is, and the hand steps apply there.
+     */
+    static final Spec GAMENATIVE = new Spec(
+        "app.gamenative",
+        "GameNative 1.2.0 (strom-1)",
+        "https://github.com/kraftwerk-gaming/GameNative/releases/download/strom-1/gamenative-strom-1.apk",
+        "7b07da4d394a8b9e4bf89d5c22c98b068f661ea5fcedd203f939e6ec9b1e87d3",
+        569459454L);
+
     private Runtimes() {
     }
 
@@ -103,8 +130,11 @@ final class Runtimes {
         if ("retroarch".equals(g.backend)) {
             return RETROARCH;
         }
-        // gamenative and dolphin have no verified handoff yet, so there is
-        // nothing to install them for.
+        if ("gamenative".equals(g.backend)) {
+            return GAMENATIVE;
+        }
+        // dolphin has no verified handoff yet, so there is nothing to
+        // install it for.
         return null;
     }
 

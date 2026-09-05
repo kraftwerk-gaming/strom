@@ -46,12 +46,14 @@ The structural problems on top of that:
   execute anything* - but a self-contained per-game APK would.
 - No update path. A wine or DXVK fix means rebuilding and redistributing
   every game.
-- GameNative's Android 15 exec workaround, its Steam bootstrap and its
-  KGSL shim are three deliberately closed-source binaries
-  (`libredirect.so`, `libsteambootstrap.so`, `libkgslshim.so`;
-  `THIRD_PARTY_NOTICES` says outright that they are closed to make
-  rebranded forks fail). We cannot redistribute them, so a fork inherits
-  a degraded runtime.
+- GameNative's imagefs path shim, its Steam bootstrap and its KGSL shim
+  are three deliberately closed-source binaries (`libredirect.so`,
+  `libsteambootstrap.so`, `libkgslshim.so`; `THIRD_PARTY_NOTICES` says
+  outright that they are closed to make rebranded forks fail). We cannot
+  redistribute them. The strom GameNative build (below, "How many apps")
+  replaces the one that is load-bearing with an open shim and drops the
+  other two; a self-contained per-game APK would have to carry all of
+  that per game.
 
 Fetching content at runtime is also simply what every runtime in this
 space already does: GameNative downloads a 159 MiB `imagefs` plus DXVK,
@@ -1043,14 +1045,59 @@ a one-time install that covers a whole bucket:
 RetroArch and Dolphin are on F-Droid; GameNative is a direct APK. A user
 who only wants Pokemon installs two apps, full stop.
 
-Strom should also *drive* those installs rather than send the user
-hunting: fetch the runtime's own release APK and hand it to a
-`PackageInstaller` session (`REQUEST_INSTALL_PACKAGES`). That makes it
-"tap yes twice", not a treasure hunt. One constraint: we must **not
-bundle GameNative's APK** in ours - it contains three binaries its own
-`THIRD_PARTY_NOTICES` marks proprietary with no redistribution grant.
-Fetching it from `downloads.gamenative.app` on the user's device is
-linking, not redistribution.
+Strom *drives* those installs rather than sending the user hunting
+(`RuntimeInstaller`): it fetches a pinned APK, checks the hash, and hands
+it to the system installer. "Tap yes twice", not a treasure hunt. An
+app already installed is never touched, whatever its version.
+
+**The GameNative it installs is our own build**, `kraftwerk-gaming/GameNative`
+branch `strom-build`, released as `strom-<n>` tags. Stock GameNative cannot
+be driven by intent: its launch intent clobbers the container's wine
+build, ignores an existing container, and there is no intent at all to
+register a game folder or install a pad profile. Branch
+`intent-provisioning` (eight commits, six fixes and two intents) fixes
+that and is what we will upstream; branch `strom-build` is that plus one
+commit upstream will never take, because it is about redistribution:
+
+- Upstream's APK carries four binaries its `THIRD_PARTY_NOTICES` marks
+  proprietary or source-withheld with no redistribution grant --
+  `libredirect.so`, `libsteambootstrap.so`, `libkgslshim.so`, Samsung's
+  perfsdk jar. Their own release page distributing them is their right;
+  a fork's release of the same bytes is exactly what the notice exists
+  to forbid. So the strom build ships none of them.
+- `libredirect.so` is load-bearing, the other three are not. The
+  imagefs GameNative downloads is Winlator's, and every binary in it was
+  built with `/data/data/com.winlator/files/imagefs` baked in: libxcb
+  connects the X server at that path, fontconfig looks for fonts there,
+  the X11 locale tables and XKeysymDB live there, and 459 RUNPATHs point
+  there. An app cannot create `/data/data/com.winlator`, so without a
+  path rewrite wine never reaches the display. Upstream does the rewrite
+  with the closed preload; ours is `pkgs/gamenative-redirect`, nixpkgs'
+  MIT `libredirect` (`NIX_REDIRECTS=/from=/to:...`) with the wrappers
+  wine needs added (`dlopen`, `lstat`, `readlink`, `realpath`, the
+  fortified `open` entry points), cross-built for aarch64 glibc and
+  checked to need nothing newer than the imagefs's glibc 2.41. It goes
+  into the fork as the `redirect.tzst` asset under its own name,
+  `libstromredirect.so`, and the launcher preloads that -- so the closed
+  `libredirect.so` the server's `imagefs_patches_gamenative.tzst` also
+  drops into the imagefs is present on the device but never loaded.
+- The bionic container path names `libredirect-bionic.so`, which is not
+  shipped either; containers this launcher creates are glibc, so that
+  path is not exercised. Real-Steam mode (`libsteambootstrap`) and
+  turnip on Quest 3 (`libkgslshim`) are gone from the strom build.
+
+The release is signed with strom's own key (`~/.config/strom/
+gamenative-release.jks`, `CN=strom`), same `app.gamenative` id as
+upstream because the handoff and the container library are per id. A
+device with upstream installed keeps it, per the rule above, and gets
+the hand-instruction path; a fresh device gets the strom build.
+
+Building a release: `nix build .#legacyPackages.x86_64-linux.gamenativeRedirect`
+for the asset, Gradle `:app:assembleLegacyRelease` on branch `strom-build` of
+the fork, `apksigner` with the strom key, `gh release create strom-<n>`
+on `kraftwerk-gaming/GameNative`, then the URL, sha256 and size go into
+`Runtimes.GAMENATIVE`. The fork's GitHub workflows cannot build it: they
+need upstream's signing and API secrets.
 
 ### The path to fewer apps
 
