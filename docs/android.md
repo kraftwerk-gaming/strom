@@ -257,7 +257,25 @@ parsing or UnixFS DAG assembly.
 a `Range` header returns `206` with `content-range`, and CAR requests
 return `200 application/vnd.ipld.car; version=1; order=dfs; dups=n`.
 `ipfs.io`, `dweb.link` and `w3s.link` answer with a `301` to a subdomain
-first, so the client must follow redirects.
+first, so the client must follow redirects. A multi-GB tree is often
+`504` on some of them while another serves it (measured 2026-09-06:
+FF8's base, three of four), so the fetcher tries the whole list.
+
+**A CAR cannot be resumed by byte range, so the fetcher resumes by
+file.** A gateway generates a CAR on the fly (`accept-ranges: none`),
+and a 3.6 GB tree in one HTTP response did not survive the connection
+(EOFException mid-stream, every retry from zero). The fetcher asks for
+the root with `dag-scope=block`, reads the directory's links, walks
+directories node by node and fetches each file as its own CAR
+(`dag-scope=all` on the file's CID), recording each finished file in a
+`<dest>.done/` marker tree that is removed once the payload is whole.
+A dropped stream costs one file; the next Play skips the finished ones
+(measured: a kill mid-tree, the relaunch resumed with the count at
+535 MiB). A file payload is one stream as before. The cost: the walker
+serves a repeated block from where it landed earlier in the same walk,
+and that memory is per walk, so a block two files share is transferred
+twice. `FetchResumeTest` stands in a gateway and cuts a stream to prove
+the contract.
 
 **Long downloads need a foreground service and must be resumable.** A
 `WorkManager` `Worker` is stopped after ten minutes. A foreground

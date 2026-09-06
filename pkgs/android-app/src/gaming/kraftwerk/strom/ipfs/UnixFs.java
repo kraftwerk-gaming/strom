@@ -70,6 +70,48 @@ public final class UnixFs {
         return w.stats;
     }
 
+    /** One link of a directory node: what to fetch, and where it lands. */
+    public static final class Entry {
+        public final Cid cid;
+        public final String name;
+
+        Entry(Cid cid, String name) {
+            this.cid = cid;
+            this.name = name;
+        }
+    }
+
+    /**
+     * The entries of a directory block, in link order, or null when the
+     * block is not a directory (a file payload, whose one block is content
+     * and has to be walked as such). The block must already be verified
+     * against {@code root}, which {@link Car} does for every block it
+     * hands out; the caller fetches each entry's own subtree, which is
+     * what lets a dropped stream cost one entry rather than the tree.
+     */
+    public static List<Entry> directoryEntries(Cid root, byte[] block) throws IOException {
+        if (root.codec != Cid.CODEC_DAG_PB) {
+            return null;
+        }
+        Node node = Node.decode(block);
+        Data u = node.dataLen > 0
+            ? Data.decode(block, node.dataOff, node.dataLen)
+            : Data.directory();
+        if (u.type != TYPE_DIR) {
+            return null;
+        }
+        List<Entry> out = new ArrayList<Entry>(node.links.size());
+        for (int i = 0; i < node.links.size(); i++) {
+            Link ln = node.links.get(i);
+            if (ln.name.isEmpty() || ln.name.equals(".") || ln.name.equals("..")
+                || ln.name.indexOf('/') >= 0) {
+                throw new VerifyException("directory entry with unusable name " + ln.name);
+            }
+            out.add(new Entry(ln.cid, ln.name));
+        }
+        return out;
+    }
+
     // ----------------------------------------------------------------
     // dag-pb
     // ----------------------------------------------------------------

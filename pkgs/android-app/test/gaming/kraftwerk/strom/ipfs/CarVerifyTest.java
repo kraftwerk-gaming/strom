@@ -258,12 +258,12 @@ public final class CarVerifyTest {
         }
     }
 
-    private static File tmp(String name) throws IOException {
+    static File tmp(String name) throws IOException {
         File d = Files.createTempDirectory("strom-test").toFile();
         return new File(d, name);
     }
 
-    private static final class Block {
+    static final class Block {
         final Cid cid;
         final byte[] data;
 
@@ -273,20 +273,20 @@ public final class CarVerifyTest {
         }
     }
 
-    private static byte[] sha256(byte[] b) throws Exception {
+    static byte[] sha256(byte[] b) throws Exception {
         return MessageDigest.getInstance("SHA-256").digest(b);
     }
 
-    private static Cid rawCid(byte[] content) throws Exception {
+    static Cid rawCid(byte[] content) throws Exception {
         return new Cid(1, Cid.CODEC_RAW, sha256(content));
     }
 
-    private static Cid dagCid(byte[] node) throws Exception {
+    static Cid dagCid(byte[] node) throws Exception {
         return new Cid(1, Cid.CODEC_DAG_PB, sha256(node));
     }
 
     /** A CARv1: varint-prefixed CBOR header, then varint-prefixed cid+block frames. */
-    private static byte[] car(Cid root, Block[] blocks) throws IOException {
+    static byte[] car(Cid root, Block[] blocks) throws IOException {
         ByteArrayOutputStream head = new ByteArrayOutputStream();
         head.write(0xa2);                                   // map(2)
         head.write(0x67);                                   // text(7)
@@ -338,7 +338,7 @@ public final class CarVerifyTest {
     }
 
     /** A UnixFS chunked-file PBNode: links plus Data{type=file, filesize, blocksizes}. */
-    private static byte[] fileNode(Cid[] cids, int[] sizes) throws IOException {
+    static byte[] fileNode(Cid[] cids, int[] sizes) throws IOException {
         ByteArrayOutputStream o = new ByteArrayOutputStream();
         long total = 0;
         for (int i = 0; i < cids.length; i++) {
@@ -373,7 +373,7 @@ public final class CarVerifyTest {
     }
 
     /** A UnixFS directory PBNode: links plus a Data field of type dir. */
-    private static byte[] dirNode(String[] names, Cid[] cids, int[] sizes) throws IOException {
+    static byte[] dirNode(String[] names, Cid[] cids, int[] sizes) throws IOException {
         ByteArrayOutputStream o = new ByteArrayOutputStream();
         for (int i = 0; i < names.length; i++) {
             ByteArrayOutputStream link = new ByteArrayOutputStream();

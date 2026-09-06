@@ -48,15 +48,24 @@ public final class Fetcher {
         privateGateway = v;
     }
 
+    /** The public list, or a test's replacement for it. */
+    private static volatile String[] publicGateways = GATEWAYS;
+
+    /** Null restores the built-in list. Tests only: no other caller. */
+    static void setPublicGatewaysForTest(String[] list) {
+        publicGateways = list == null ? GATEWAYS : list;
+    }
+
     /** The private gateway first when set, then the public list. */
     private static String[] gateways() {
         String p = privateGateway;
+        String[] pub = publicGateways;
         if (p.isEmpty()) {
-            return GATEWAYS;
+            return pub;
         }
-        String[] all = new String[GATEWAYS.length + 1];
+        String[] all = new String[pub.length + 1];
         all[0] = p;
-        System.arraycopy(GATEWAYS, 0, all, 1, GATEWAYS.length);
+        System.arraycopy(pub, 0, all, 1, pub.length);
         return all;
     }
 
@@ -94,12 +103,173 @@ public final class Fetcher {
     }
 
     /**
-     * Try each gateway in turn, writing the verified tree to {@code dest}.
+     * Write the verified tree behind {@code cidText} to {@code dest}.
      * {@code p} may be null.
+     *
+     * <p>A directory is walked node by node and each file fetched as its
+     * own CAR; a file that finished is not fetched again. A gateway
+     * generates a CAR on the fly (accept-ranges: none), so the only
+     * resume unit it offers is the DAG, and a 3.6 GB tree in one HTTP
+     * response did not survive the connection -- measured: EOFException
+     * mid-stream, the whole download gone, every retry from zero. Per
+     * top-level entry was not enough either: FF8's 57 entries
+     * include one directory holding 3 GB, and that stream cut the same
+     * way. So the unit is the file, the finest thing a gateway serves in
+     * one CAR. A file payload (a ROM) is one stream, as before.
+     *
+     * <p>What this gives up: the walker serves a repeated block from where
+     * it landed earlier in the same walk, and that memory is per walk, so
+     * a block two files share is transferred twice. Bandwidth, not
+     * correctness.
      */
     public static UnixFs.Stats fetchAndExtract(String cidText, File dest, Progress p)
         throws IOException {
         Cid root = Cid.fromText(cidText);
+        byte[] rootBlock = fetchBlock(cidText, root, p);
+        List<UnixFs.Entry> entries = UnixFs.directoryEntries(root, rootBlock);
+        if (entries == null) {
+            return race(cidText, root, dest, p, "all");
+        }
+
+        File done = new File(dest.getAbsolutePath() + ".done");
+        if (!done.isDirectory() && !done.mkdirs()) {
+            throw new IOException("cannot create " + done);
+        }
+        Tally tally = new Tally(p);
+        fetchDirectory(entries, dest, done, tally);
+        deleteTree(done);
+        return tally.total;
+    }
+
+    /**
+     * One running count across the files, so the status line and its
+     * percentage are the tree's, not the file's. Per attempt the counter
+     * restarts at zero (a failed gateway's bytes are gone), so the offset
+     * is what finished files delivered, and a restarted attempt is
+     * reported from that offset rather than from what the failed one had
+     * reached -- the count can pause, never run backwards.
+     */
+    private static final class Tally implements Progress {
+        final Progress p;
+        final UnixFs.Stats total = new UnixFs.Stats();
+        long before;
+
+        Tally(Progress p) {
+            this.p = p;
+        }
+
+        @Override
+        public void bytes(long soFar) {
+            if (p != null) {
+                p.bytes(before + soFar);
+            }
+        }
+
+        @Override
+        public void trying(String gateway) {
+            if (p != null) {
+                p.trying(gateway);
+            }
+        }
+
+        @Override
+        public void gatewayFailed(String gateway, IOException e) {
+            if (p != null) {
+                p.gatewayFailed(gateway, e);
+            }
+        }
+
+        void finished(UnixFs.Stats st) {
+            before += st.bytesOut;
+            total.blocks += st.blocks;
+            total.bytesOut += st.bytesOut;
+            total.files += st.files;
+            total.duplicates += st.duplicates;
+        }
+    }
+
+    private static void fetchDirectory(List<UnixFs.Entry> entries, File dir, File done,
+        Tally tally) throws IOException {
+        if (!dir.isDirectory() && !dir.mkdirs()) {
+            throw new IOException("cannot create " + dir);
+        }
+        for (int i = 0; i < entries.size(); i++) {
+            UnixFs.Entry e = entries.get(i);
+            File target = new File(dir, e.name);
+            File marker = new File(done, e.name);
+            if (marker.isFile() && target.exists()) {
+                tally.before += sizeOf(target);
+                continue;
+            }
+            String cidText = e.cid.toText();
+            byte[] block = fetchBlock(cidText, e.cid, tally);
+            List<UnixFs.Entry> kids = UnixFs.directoryEntries(e.cid, block);
+            if (kids != null) {
+                if (!marker.isDirectory() && !marker.mkdirs()) {
+                    throw new IOException("cannot create " + marker);
+                }
+                fetchDirectory(kids, target, marker, tally);
+                continue;
+            }
+            deleteTree(target);
+            UnixFs.Stats st = race(cidText, e.cid, target, tally, "all");
+            tally.finished(st);
+            new java.io.FileOutputStream(marker).close();
+        }
+    }
+
+    /** The one block behind a CID, verified, through the first gateway that has it. */
+    private static byte[] fetchBlock(String cidText, Cid cid, Progress p) throws IOException {
+        final byte[][] got = new byte[1][];
+        raceCar(cidText, cid, p, "block", new Car.BlockSink() {
+            @Override
+            public void block(Cid c, byte[] data) throws IOException {
+                if (!c.equals(cid) || got[0] != null) {
+                    throw new VerifyException("root CAR carries more than the root block");
+                }
+                got[0] = data;
+            }
+        });
+        if (got[0] == null) {
+            throw new VerifyException("root CAR carries no block");
+        }
+        return got[0];
+    }
+
+    /** Try each gateway in turn until one delivers the whole subtree to {@code dest}. */
+    private static UnixFs.Stats race(String cidText, Cid root, File dest, Progress p,
+        String scope) throws IOException {
+        final UnixFs.Stats[] out = new UnixFs.Stats[1];
+        final File target = dest;
+        raceCar(cidText, root, p, scope, null, new Attempt() {
+            @Override
+            public void run(InputStream in) throws IOException {
+                out[0] = UnixFs.extractBlocks(in, root, target);
+            }
+
+            @Override
+            public void failed() {
+                // Whatever this attempt managed to write is unverified in
+                // part, so the next gateway has to start from nothing.
+                deleteTree(target);
+            }
+        });
+        return out[0];
+    }
+
+    private interface Attempt {
+        void run(InputStream in) throws IOException;
+
+        void failed();
+    }
+
+    private static void raceCar(String cidText, Cid root, Progress p, String scope,
+        Car.BlockSink sink) throws IOException {
+        raceCar(cidText, root, p, scope, sink, null);
+    }
+
+    private static void raceCar(String cidText, Cid root, Progress p, String scope,
+        final Car.BlockSink sink, Attempt attempt) throws IOException {
         IOException last = null;
         String lastGateway = null;
         String[] list = gateways();
@@ -108,16 +278,26 @@ public final class Fetcher {
                 if (p != null) {
                     p.trying(list[i]);
                 }
-                return attempt(list[i], cidText, root, dest, p);
+                InputStream in = open(list[i], cidText, root, scope, p);
+                try {
+                    if (attempt != null) {
+                        attempt.run(in);
+                    } else {
+                        Car.streamBlocks(in, sink);
+                    }
+                } finally {
+                    in.close();
+                }
+                return;
             } catch (IOException e) {
                 if (p != null) {
                     p.gatewayFailed(list[i], e);
                 }
                 last = e;
                 lastGateway = list[i];
-                // Whatever this attempt managed to write is unverified in
-                // part, so the next gateway has to start from nothing.
-                deleteTree(dest);
+                if (attempt != null) {
+                    attempt.failed();
+                }
             }
         }
         if (last == null) {
@@ -217,12 +397,17 @@ public final class Fetcher {
         }
     }
 
-    private static UnixFs.Stats attempt(String gateway, String cidText, Cid root, File dest,
+    /**
+     * Open a CAR for {@code root} at {@code scope} ("all" for the subtree,
+     * "block" for the one node) from one gateway, with the header read
+     * and checked to be rooted there. Closing the stream disconnects.
+     */
+    private static InputStream open(String gateway, String cidText, Cid root, String scope,
         Progress p) throws IOException {
-        URL url = new URL(gateway + "/ipfs/" + cidText + "?format=car&dag-scope=all");
-        HttpURLConnection conn;
+        URL url = new URL(gateway + "/ipfs/" + cidText + "?format=car&dag-scope=" + scope);
+        HttpURLConnection first;
         try {
-            conn = request(url);
+            first = request(url);
         } catch (java.net.UnknownHostException e) {
             // A name that did not resolve is not a gateway without the
             // content; it is a lookup that missed, and Android caches the
@@ -237,20 +422,32 @@ public final class Fetcher {
                 Thread.currentThread().interrupt();
                 throw e;
             }
-            conn = request(url);
+            first = request(url);
         }
+        final HttpURLConnection conn = first;
         try {
             // A fresh counter per attempt: a progress bar should show this
             // download, not the sum of the ones that failed before it.
             InputStream in = new BufferedInputStream(new Counting(conn.getInputStream(), p),
-                BUFFER);
+                BUFFER) {
+                @Override
+                public void close() throws IOException {
+                    try {
+                        super.close();
+                    } finally {
+                        conn.disconnect();
+                    }
+                }
+            };
             List<Cid> roots = Car.readHeader(in);
             if (!roots.contains(root)) {
+                in.close();
                 throw new VerifyException("CAR is rooted elsewhere than " + cidText);
             }
-            return UnixFs.extractBlocks(in, root, dest);
-        } finally {
+            return in;
+        } catch (IOException e) {
             conn.disconnect();
+            throw e;
         }
     }
 
@@ -275,6 +472,21 @@ public final class Fetcher {
             conn.disconnect();
             throw e;
         }
+    }
+
+    /** Bytes under a path: what a finished entry contributed to the tree. */
+    private static long sizeOf(File f) {
+        if (f.isFile()) {
+            return f.length();
+        }
+        File[] kids = f.listFiles();
+        long n = 0;
+        if (kids != null) {
+            for (int i = 0; i < kids.length; i++) {
+                n += sizeOf(kids[i]);
+            }
+        }
+        return n;
     }
 
     /** Remove a file, or a directory tree, that must not be kept. */

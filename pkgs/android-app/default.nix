@@ -131,6 +131,7 @@ stdenvNoCC.mkDerivation {
       src/gaming/kraftwerk/strom/catalog/Setting.java \
       $(find test -name '*.java')
     java -cp test-classes gaming.kraftwerk.strom.ipfs.CarVerifyTest
+    java -cp test-classes gaming.kraftwerk.strom.ipfs.FetchResumeTest
     java -cp test-classes gaming.kraftwerk.strom.catalog.OptionsTest
     java -cp test-classes gaming.kraftwerk.strom.catalog.PadKeysTest
 
