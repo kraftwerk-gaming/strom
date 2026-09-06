@@ -136,9 +136,12 @@ public final class Launch {
 
     /**
      * The fetch status line: bytes so far, the total and a percentage when
-     * the manifest knows the size, and the rate over the last few seconds.
-     * The rate is what separates slow from stalled without watching the
-     * count; the total is what says how long slow is.
+     * the manifest knows the size, the rate over the last few seconds, and
+     * the gateway serving it. One line carrying all of it, because the
+     * callbacks interleave: the walker asks a gateway per file, so a line
+     * that only named the gateway would replace the byte count on every
+     * file and the progress would flicker away. The rate is what separates
+     * slow from stalled; the total is what says how long slow is.
      */
     private static Fetcher.Progress bytes(final Progress p, final String label,
         final long total) {
@@ -146,35 +149,43 @@ public final class Launch {
         return new Fetcher.Progress() {
             private long markTime;
             private long markBytes;
+            private long soFar;
             private String rate = "";
+            private String via = "";
 
-            @Override
-            public void bytes(long soFar) {
-                long now = System.currentTimeMillis();
-                if (markTime == 0) {
-                    markTime = now;
-                    markBytes = soFar;
-                } else if (soFar < markBytes) {
-                    // A restarted attempt counts from its own zero; a rate
-                    // across that would be negative and mean nothing.
-                    markTime = now;
-                    markBytes = soFar;
-                    rate = "";
-                } else if (now - markTime >= 3000) {
-                    long perSec = (soFar - markBytes) * 1000 / (now - markTime);
-                    rate = ", " + human(perSec) + "/s";
-                    markTime = now;
-                    markBytes = soFar;
-                }
+            private void show() {
                 String of = total > 0
                     ? " of " + human(total) + " (" + (soFar * 100 / total) + "%)"
                     : "";
-                p.say(what + " " + human(soFar) + of + rate);
+                p.say(what + " " + human(soFar) + of + rate + via);
+            }
+
+            @Override
+            public void bytes(long n) {
+                long now = System.currentTimeMillis();
+                soFar = n;
+                if (markTime == 0) {
+                    markTime = now;
+                    markBytes = n;
+                } else if (n < markBytes) {
+                    // A restarted attempt counts from its own zero; a rate
+                    // across that would be negative and mean nothing.
+                    markTime = now;
+                    markBytes = n;
+                    rate = "";
+                } else if (now - markTime >= 3000) {
+                    long perSec = (n - markBytes) * 1000 / (now - markTime);
+                    rate = ", " + human(perSec) + "/s";
+                    markTime = now;
+                    markBytes = n;
+                }
+                show();
             }
 
             @Override
             public void trying(String gateway) {
-                p.say(what + " via " + host(gateway));
+                via = " via " + host(gateway);
+                show();
             }
 
             @Override
