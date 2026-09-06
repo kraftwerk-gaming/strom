@@ -301,36 +301,39 @@ listing anyone should attempt. Distribution is sideload, same as every
 runtime app it talks to. The permission finding still matters: it is one
 fewer scary Settings trip during onboarding.
 
-## Artifact model: add a derived payload, keep pinning the originals
+## Artifact model: one pinned tree per game, fetched by both platforms
 
-A game's `src` is a source archive and its `buildScript` is arbitrary
-Nix and shell: `innoextract`, `7zz`, `unar`, `patchelf`, merging GOG's
-`__support` tree over the install root, baking a wineprefix with
-winetricks. None of that can run on a phone. So Android does not fetch
-`cids`; it fetches a **new artifact per game: a zip of the built
-`_gameData` tree**, which is exactly what the desktop overlay lowers.
+A game's data is a **pinned tree**: `src = fetchIpfs { directory = true;
+... }` with no `buildScript`. The desktop overlays that store path (it IS
+`_gameData`, no copy in between) and the Android client unpacks it, from
+the same CID. Nothing is extracted or patched on either side; a recipe's
+`innoextract`/`7z`/`patchelf` work ran once, on the packager's machine,
+to produce the tree that was pinned, and then left the recipe. Mods are
+more trees, one per `modLayers` entry, and a toggle's files -- FF8's FFNx
+included -- live in a layer, never in the base, since a phone cannot
+rebuild a base for a setting. `games/animal-well` is the one-tree case,
+`games/final-fantasy-viii` a base plus 15 layers.
 
-`outputs.payload` builds it. Deterministic: every mtime pinned to the
-zip epoch, `zip -X` to strip extra fields, entry names fed in `LC_ALL=C`
-order. Verified with `nix build --rebuild`.
+`lib/fetch-ipfs.nix` walks a tree one directory block at a time
+(`?format=car&dag-scope=block`, the one directory request every public
+gateway answers; `lib/ipfs-walk.py` decodes dag-pb/UnixFS, HAMT shards
+included) and downloads the files by path with the same aria2c
+multi-gateway racing as a single file, a few files at a time and one
+connection per gateway, because gateways rate-limit by request count.
+The FOD's recursive hash (`nix hash path` of the tree) is the
+verification. `android.payload` defaults to the `src` tree's CID and
+size; `modLayers[].cid`/`size` default to each layer tree's.
 
-Zip rather than tar.zst because `java.util.zip` is in the Android
-platform - no native dependency to ship, and `ZipFile` gives per-entry
-random access so an interrupted extraction resumes. Deflate on
-already-compressed game assets costs little against zstd.
+A recipe that still unpacks an archive in `buildScript` is the pre-pin
+state: `nix build .#androidPayloads.<slug>` builds its base (the overlay
+minus every `modLayers` tree, so a default-on layer is not baked in),
+`nix build '.#androidLayerPayloads.<slug>."<layer>"'` each layer. Pin
+those, replace `src` and the layer trees with the pinned CIDs, delete
+the extraction. Same discipline as a game's `src` (AGENTS.md, "IPFS
+pinning only after testing"): test the game on a device first, do not
+pin multi-GB trees for games nobody has run on a phone.
 
-Verification is by the artifact's **sha256**, which the repo already has
-for every FOD. That sidesteps the missing JVM CAR/UnixFS verifier
-entirely: gateways are an untrusted transport, and the payload is
-end-to-end verified against a hash committed in this repo. Stronger than
-trusting the gateway's CID resolution.
-
-Publishing follows the same discipline as a game's `src` (AGENTS.md,
-"IPFS pinning only after testing"): build the payload, test the game on
-a device, pin, then wire the result back as `android.payload.cid`. Until
-that happens the manifest omits `payload` and the client lists the game
-as not yet available on Android. Do not pin multi-GB Android payloads
-for games nobody has run on a phone.
+What follows is the reasoning that led here, kept as history.
 
 ### Superseded: keeping the originals as the only pinned artifact
 
@@ -403,14 +406,10 @@ Android-specific artifact; it becomes *the* build product, and
 `outputs.payload` stops being an Android output and becomes the thing
 `_gameData` is fetched from.
 
-**Implemented, in part.** `outputs.payload` now builds the merged
-worktree as a directory rather than a zip, which is what the client can
-actually consume: it fetches a CAR and verifies the DAG, so it
-reconstructs a UnixFS tree and has no archive reader. The operator pins
-it with `ipfs add -r --raw-leaves` and puts the resulting directory CID
-in `android.payload.cid`. The remaining half of the plan -- making `_gameData`
-itself fetch that pinned tree, so the desktop stops extracting too -- is
-not done.
+**Implemented** (see the section head): `src` is the pinned tree on both
+platforms, `outputs.payload` builds the base for a game not yet pinned
+as one, and the desktop stopped extracting. The per-bucket provenance
+policy below was dropped: the trees are the artifact, full stop.
 
 Verified on device that a directory payload round-trips: pointed a
 catalog entry at a known public UnixFS directory, and the client fetched
