@@ -312,10 +312,19 @@ public class MainActivity extends Activity implements Host {
 
     // ---- preferences -----------------------------------------------------
 
+    /**
+     * The catalog remote: what the player typed, or the seed the app ships
+     * with when they typed nothing. An emptied field has to mean the
+     * default rather than the literal empty string, which the loader
+     * would otherwise turn into "no protocol: /games/" -- measured, the
+     * obvious way to get back to the default after testing against a
+     * local server.
+     */
     @Override
     public String catalogUrl() {
-        return getSharedPreferences(PREFS, MODE_PRIVATE)
-            .getString(PREF_CATALOG, DEFAULT_CATALOG);
+        String url = getSharedPreferences(PREFS, MODE_PRIVATE)
+            .getString(PREF_CATALOG, "").trim();
+        return url.isEmpty() ? DEFAULT_CATALOG : url;
     }
 
     @Override
