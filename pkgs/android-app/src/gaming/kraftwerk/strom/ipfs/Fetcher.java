@@ -73,6 +73,14 @@ public final class Fetcher {
         void bytes(long soFar);
 
         /**
+         * A gateway is about to be asked. Shown, not only logged: until
+         * the first bytes arrive the byte counter has nothing to say, and
+         * a gateway that takes 30 s to answer 504 is indistinguishable
+         * from a stall unless its name is on screen.
+         */
+        void trying(String gateway);
+
+        /**
          * A gateway gave up and the next one is about to start from
          * nothing. Without this the only visible reason is whichever
          * gateway came LAST in the list, and the interesting failure is
@@ -97,6 +105,9 @@ public final class Fetcher {
         String[] list = gateways();
         for (int i = 0; i < list.length; i++) {
             try {
+                if (p != null) {
+                    p.trying(list[i]);
+                }
                 return attempt(list[i], cidText, root, dest, p);
             } catch (IOException e) {
                 if (p != null) {
@@ -209,22 +220,26 @@ public final class Fetcher {
     private static UnixFs.Stats attempt(String gateway, String cidText, Cid root, File dest,
         Progress p) throws IOException {
         URL url = new URL(gateway + "/ipfs/" + cidText + "?format=car&dag-scope=all");
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        HttpURLConnection conn;
         try {
-            conn.setRequestMethod("GET");
-            conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
-            conn.setReadTimeout(READ_TIMEOUT_MS);
-            conn.setRequestProperty("Accept", "application/vnd.ipld.car");
-            // Cloudflare-fronted gateways answer 403 to user agents they do
-            // not recognise. Measured on ipfs.io: the prototype's own agent
-            // string was rejected, curl's is served.
-            conn.setRequestProperty("User-Agent", "curl/8.4.0");
-
-            int code = conn.getResponseCode();
-            if (code != HttpURLConnection.HTTP_OK) {
-                throw new IOException("HTTP " + code + " " + conn.getResponseMessage());
+            conn = request(url);
+        } catch (java.net.UnknownHostException e) {
+            // A name that did not resolve is not a gateway without the
+            // content; it is a lookup that missed, and Android caches the
+            // miss. Measured: the first gateway in the list lost its one
+            // attempt to a transient miss on a device that resolved the
+            // same name a minute later, and the ones it fell through to
+            // could not serve the CID at all. One retry after a pause,
+            // then the failure is real.
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+                throw e;
             }
-
+            conn = request(url);
+        }
+        try {
             // A fresh counter per attempt: a progress bar should show this
             // download, not the sum of the ones that failed before it.
             InputStream in = new BufferedInputStream(new Counting(conn.getInputStream(), p),
@@ -236,6 +251,29 @@ public final class Fetcher {
             return UnixFs.extractBlocks(in, root, dest);
         } finally {
             conn.disconnect();
+        }
+    }
+
+    /** Send the CAR request and read the status; the body is untouched. */
+    private static HttpURLConnection request(URL url) throws IOException {
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        try {
+            conn.setRequestMethod("GET");
+            conn.setConnectTimeout(CONNECT_TIMEOUT_MS);
+            conn.setReadTimeout(READ_TIMEOUT_MS);
+            conn.setRequestProperty("Accept", "application/vnd.ipld.car");
+            // Cloudflare-fronted gateways answer 403 to user agents they do
+            // not recognise. Measured on ipfs.io: the prototype's own agent
+            // string was rejected, curl's is served.
+            conn.setRequestProperty("User-Agent", "curl/8.4.0");
+            int code = conn.getResponseCode();
+            if (code != HttpURLConnection.HTTP_OK) {
+                throw new IOException("HTTP " + code + " " + conn.getResponseMessage());
+            }
+            return conn;
+        } catch (IOException e) {
+            conn.disconnect();
+            throw e;
         }
     }
 

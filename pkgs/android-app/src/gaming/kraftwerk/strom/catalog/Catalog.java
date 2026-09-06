@@ -171,6 +171,7 @@ public final class Catalog {
         g.payloadCid = Json.str(m, "android", "payload", "cid");
         g.payloadName = Json.str(m, "android", "payload", "name");
         g.payloadSha256 = Json.str(m, "android", "payload", "sha256");
+        g.payloadSize = Json.num(m, 0, "android", "payload", "size");
 
         g.retroarchCore = Json.str(m, "android", "retroarch", "core");
         if ("dolphin".equals(g.backend)) {

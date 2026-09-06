@@ -95,7 +95,8 @@ public final class Launch {
                 // where it belongs.
                 File part = new File(dir.getAbsolutePath() + ".part");
                 p.say("fetching payload");
-                UnixFs.Stats st = Fetcher.fetchAndExtract(g.payloadCid, part, bytes(p, null));
+                UnixFs.Stats st = Fetcher.fetchAndExtract(g.payloadCid, part,
+                    bytes(p, null, g.payloadSize));
                 place(part, dir, g);
                 p.say("verified " + st.blocks + " blocks, " + human(st.bytesOut));
                 // A base that was just unpacked carries no mods, whatever an
@@ -108,7 +109,8 @@ public final class Launch {
 
             for (Layer l : plan.fetch) {
                 p.say("fetching mod " + l.name);
-                UnixFs.Stats ls = Fetcher.fetchAndMerge(l.cid, dir, l.name, bytes(p, l.name));
+                UnixFs.Stats ls = Fetcher.fetchAndMerge(l.cid, dir, l.name,
+                    bytes(p, l.name, l.size));
                 // Recorded per layer, and only once its whole tree is
                 // verified and merged: an interrupted mod is refetched rather
                 // than remembered as applied.
@@ -132,21 +134,62 @@ public final class Launch {
         }
     }
 
-    private static Fetcher.Progress bytes(final Progress p, final String label) {
+    /**
+     * The fetch status line: bytes so far, the total and a percentage when
+     * the manifest knows the size, and the rate over the last few seconds.
+     * The rate is what separates slow from stalled without watching the
+     * count; the total is what says how long slow is.
+     */
+    private static Fetcher.Progress bytes(final Progress p, final String label,
+        final long total) {
+        final String what = label == null ? "fetching" : "fetching " + label;
         return new Fetcher.Progress() {
+            private long markTime;
+            private long markBytes;
+            private String rate = "";
+
             @Override
             public void bytes(long soFar) {
-                p.say(label == null
-                    ? "fetching " + human(soFar)
-                    : "fetching " + label + " " + human(soFar));
+                long now = System.currentTimeMillis();
+                if (markTime == 0) {
+                    markTime = now;
+                    markBytes = soFar;
+                } else if (soFar < markBytes) {
+                    // A restarted attempt counts from its own zero; a rate
+                    // across that would be negative and mean nothing.
+                    markTime = now;
+                    markBytes = soFar;
+                    rate = "";
+                } else if (now - markTime >= 3000) {
+                    long perSec = (soFar - markBytes) * 1000 / (now - markTime);
+                    rate = ", " + human(perSec) + "/s";
+                    markTime = now;
+                    markBytes = soFar;
+                }
+                String of = total > 0
+                    ? " of " + human(total) + " (" + (soFar * 100 / total) + "%)"
+                    : "";
+                p.say(what + " " + human(soFar) + of + rate);
+            }
+
+            @Override
+            public void trying(String gateway) {
+                p.say(what + " via " + host(gateway));
             }
 
             @Override
             public void gatewayFailed(String gateway, java.io.IOException e) {
-                Log.w(TAG, "fetch " + (label == null ? "" : label + " ")
-                    + "via " + gateway + " failed: " + e);
+                Log.w(TAG, what + " via " + gateway + " failed: " + e);
+                p.say(host(gateway) + ": " + e.getMessage() + " -- trying the next gateway");
             }
         };
+    }
+
+    /** "https://ipfs.io" -> "ipfs.io": the status line is one line. */
+    private static String host(String gateway) {
+        String h = gateway.replaceFirst("^[a-z]+://", "");
+        int slash = h.indexOf('/');
+        return slash < 0 ? h : h.substring(0, slash);
     }
 
     static boolean present(File dir) {

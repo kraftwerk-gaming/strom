@@ -20,6 +20,8 @@ public final class Game {
     public String payloadCid;
     public String payloadName;
     public String payloadSha256;
+    /** Uncompressed bytes of the payload, or 0 when the manifest has none. */
+    public long payloadSize;
     public String retroarchCore;
     /**
      * File to open inside the payload: the ROM, the disc image for
