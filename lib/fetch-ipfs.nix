@@ -113,13 +113,19 @@ stdenvNoCC.mkDerivation {
 
     # Probe a gateway for the total size so the bar shows a percentage.
     # Optional: if no gateway yields a Content-Length the bar just counts
-    # bytes up without a denominator.
+    # bytes up without a denominator. The `|| true` is what KEEPS it
+    # optional: the builder runs under `set -e -o pipefail`, so without it
+    # a gateway that fails the HEAD (ipfs.io answers 429 under load,
+    # observed 2026-09-06 from four of the five defaults at once) makes
+    # curl's exit 22 kill the whole derivation right here -- before
+    # aria2c, before the retry loop, before the fallbackUrl, with nothing
+    # in the log but the URL list.
     expected=0
     for u in $urls; do
       len=$(curl -fsSL -I --max-time 20 "$u" 2>/dev/null \
         | tr -d '\r' \
         | awk 'tolower($1) == "content-length:" { print $2 }' \
-        | tail -n1)
+        | tail -n1 || true)
       case "$len" in
         "" | *[!0-9]*) ;;
         *)
