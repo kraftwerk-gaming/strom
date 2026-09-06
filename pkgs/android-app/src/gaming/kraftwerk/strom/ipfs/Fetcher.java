@@ -21,10 +21,21 @@ import java.util.List;
  * next one in the list.
  */
 public final class Fetcher {
+    /**
+     * Order is measured, not alphabetical. Against a freshly pinned CID
+     * that only one DHT provider announces, pinata and nftstorage.link
+     * resolve it cold (root block in 8 s and 28 s, a 53 MiB CAR in ~50 s);
+     * ipfs.io, dweb.link, w3s.link and trustless-gateway.link answer 504
+     * after their ~28 s budget until something has warmed their cache,
+     * after which they are the fastest (8 s for the same CAR). So the two
+     * that find content lead, and the fast-when-warm ones follow.
+     */
     public static final String[] GATEWAYS = {
-        "https://trustless-gateway.link",
+        "https://gateway.pinata.cloud",
+        "https://nftstorage.link",
         "https://ipfs.io",
         "https://dweb.link",
+        "https://trustless-gateway.link",
         "https://w3s.link",
     };
 
