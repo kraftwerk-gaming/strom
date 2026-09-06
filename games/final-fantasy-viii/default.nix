@@ -1316,7 +1316,10 @@ self.lib.mkGame { inherit lib pkgs; } {
 
           # The base worktree the Android client fetches before merging the
           # pinned layers over it (`nix build .#androidPayloads.final-fantasy-viii`).
-          android.payload.cid = "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm";
+          android.payload = {
+            cid = "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm";
+            size = 3887109121; # du -sb of the built tree
+          };
 
           # The game creates its userdata directory only when a Steam
           # client hands it a user id, which never happens here, and the

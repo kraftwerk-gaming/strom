@@ -4,7 +4,8 @@
     "payload": {
       "cid": "QmcBM6xSp5VCqJL8j4NF4UEx93cQJjLF92L1JUCXhGUkyQ",
       "name": "the-legend-of-zelda-oracle-of-seasons.gbc",
-      "sha256": "sha256-Nf2AmiHfBMfawWz3b3zF0EAX476ryhAtLjeJEqSFOdk="
+      "sha256": "sha256-Nf2AmiHfBMfawWz3b3zF0EAX476ryhAtLjeJEqSFOdk=",
+      "size": null
     },
     "retroarch": {
       "core": "mgba_libretro_android.so",

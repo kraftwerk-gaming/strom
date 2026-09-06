@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmQ4xPCtnWKbkoAEDNcKeJtRg6kSWNLbN9YpNWuPenSdFQ",
       "name": "pokemon-diamond.nds",
-      "sha256": "sha256-4pvG6+Qx16ayOCZ7axUh/sSjvBTy+jSHmAYvhwxzhFQ="
+      "sha256": "sha256-4pvG6+Qx16ayOCZ7axUh/sSjvBTy+jSHmAYvhwxzhFQ=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

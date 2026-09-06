@@ -4,7 +4,8 @@
     "payload": {
       "cid": "Qme3jE9E7fCJTFiZrcBeWQ7swsQrzZucLxKoE1KdvbrmPX",
       "name": "disco-elysium-gb-edition.gb",
-      "sha256": "sha256-JVaWvfmPpn+lkoKcDoY+dChIJJJwDw8Lq74mgyc1SpU="
+      "sha256": "sha256-JVaWvfmPpn+lkoKcDoY+dChIJJJwDw8Lq74mgyc1SpU=",
+      "size": null
     },
     "retroarch": {
       "core": "mgba_libretro_android.so",

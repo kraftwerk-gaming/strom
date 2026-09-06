@@ -120,7 +120,8 @@
     "payload": {
       "cid": "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm",
       "name": "",
-      "sha256": null
+      "sha256": null,
+      "size": 3887109121
     },
     "schema": 1,
     "settings": [

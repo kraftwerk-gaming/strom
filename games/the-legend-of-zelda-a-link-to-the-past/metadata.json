@@ -4,7 +4,8 @@
     "payload": {
       "cid": "QmaQPt3nPrqoxhkB13HEwpynGkPpmHatBv9Arix4Jj7jBt",
       "name": "a-link-to-the-past.smc",
-      "sha256": "sha256-2cacUnCy9+rFTyVGiKQ8x2f9XLTyH8B5oPn74Jl46uw="
+      "sha256": "sha256-2cacUnCy9+rFTyVGiKQ8x2f9XLTyH8B5oPn74Jl46uw=",
+      "size": null
     },
     "retroarch": {
       "core": "bsnes_libretro_android.so",

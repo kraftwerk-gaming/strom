@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmdWRMvrRHcmngeddKYPtC1EdqoMb7tR9PvwUoefoXx9uo",
       "name": "pokemon-mystery-dungeon-explorers-of-sky.nds",
-      "sha256": "sha256-kRYcsifESj55+ipiIGA4WBX1ZWRzVwYteIfxP0nVkeI="
+      "sha256": "sha256-kRYcsifESj55+ipiIGA4WBX1ZWRzVwYteIfxP0nVkeI=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

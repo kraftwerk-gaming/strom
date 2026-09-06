@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmW3XjWfFpvP4cck7DXQAGVqVmZMN8vFQXKoysjRYFu6Zp",
       "name": "pokemon-firered.gba",
-      "sha256": "sha256-PQx58WJwIuGHZXZvbLXqBn9rW/fcoRVVIYmtZaXDqKw="
+      "sha256": "sha256-PQx58WJwIuGHZXZvbLXqBn9rW/fcoRVVIYmtZaXDqKw=",
+      "size": null
     },
     "retroarch": {
       "core": "mgba_libretro_android.so",

@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmW79tNQukhmDQJjbK8ymC9Sm4bbNmUiicWHvKTvd97Tw6",
       "name": "hyper-metroid.smc",
-      "sha256": "sha256-kLIucCBmoiuubULOyWTjgzjZQCqUFN2stvHO5I1d3IM="
+      "sha256": "sha256-kLIucCBmoiuubULOyWTjgzjZQCqUFN2stvHO5I1d3IM=",
+      "size": null
     },
     "retroarch": {
       "core": "bsnes_libretro_android.so",

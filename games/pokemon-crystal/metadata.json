@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmNvytPvKYLQ9EzLTU8uoM89gbWQwpEbCG2MEfkt3zpdEL",
       "name": "pokemon-crystal.gbc",
-      "sha256": "sha256-Q5zV09bO5iwE1bRCTDyaNMHlzDhejoNeRxULKxJWAbA="
+      "sha256": "sha256-Q5zV09bO5iwE1bRCTDyaNMHlzDhejoNeRxULKxJWAbA=",
+      "size": null
     },
     "retroarch": {
       "core": "gambatte_libretro_android.so",

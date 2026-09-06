@@ -4,7 +4,8 @@
     "payload": {
       "cid": "QmXZLR2PCr7UNB6pFKFwV3DajDVmAnqG1a1U8fj1EUvuNK",
       "name": "advance-wars.gba",
-      "sha256": "sha256-TdS9IkQfKbIspa9VTzC/DrfSsaXa/w4s0HGkPhE4MwU="
+      "sha256": "sha256-TdS9IkQfKbIspa9VTzC/DrfSsaXa/w4s0HGkPhE4MwU=",
+      "size": null
     },
     "retroarch": {
       "core": "mgba_libretro_android.so",

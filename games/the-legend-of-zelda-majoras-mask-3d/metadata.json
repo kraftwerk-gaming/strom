@@ -8,7 +8,8 @@
     "payload": {
       "cid": "QmZ91XHc33Kx3pUhUHvLbZk5g9TKuUhPpevN1K259Ce5ee",
       "name": "majoras-mask-3d.3ds",
-      "sha256": "sha256-oLChP+i95PescZXGPFL2+DNmlj7jUSPj5bx9m0BSwN4="
+      "sha256": "sha256-oLChP+i95PescZXGPFL2+DNmlj7jUSPj5bx9m0BSwN4=",
+      "size": null
     },
     "schema": 1
   },

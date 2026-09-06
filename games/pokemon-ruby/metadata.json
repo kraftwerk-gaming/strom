@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmZUGgWuzrNTe6sKaNnYUhH4jgKzho7ZWVwboHtcptF2AV",
       "name": "pokemon-ruby.gba",
-      "sha256": "sha256-D9026St1vtZdCd9GNasLcHsojCvx3ExuekpPDuvp1kw="
+      "sha256": "sha256-D9026St1vtZdCd9GNasLcHsojCvx3ExuekpPDuvp1kw=",
+      "size": null
     },
     "retroarch": {
       "core": "mgba_libretro_android.so",

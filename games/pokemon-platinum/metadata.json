@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmTk1mAWQf2ABaPZH5e8C8hVsmxGdJTQtUJqSEjdwpsvc6",
       "name": "pokemon-platinum.nds",
-      "sha256": "sha256-7eYikqp/cBT/J9Qgl+dpdTOAUxc5iJwpuWi2e4D4Bng="
+      "sha256": "sha256-7eYikqp/cBT/J9Qgl+dpdTOAUxc5iJwpuWi2e4D4Bng=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

@@ -256,6 +256,19 @@ in
                 so the client must not demand one.
               '';
             };
+
+            size = mkOption {
+              type = types.nullOr types.int;
+              default = null;
+              description = ''
+                Uncompressed bytes of the tree, so the client can show
+                "n of total" and a percentage while fetching, and what a
+                game costs before it does. Recorded when the tree is
+                pinned (`du -sb` of the built tree). Null when unmeasured;
+                the client then shows the byte count alone rather than a
+                wrong total.
+              '';
+            };
           };
         }
       );

@@ -4,7 +4,8 @@
     "payload": {
       "cid": "QmcYT8mZSfYRHz1D1QJRLiahgZP1GMLJAz43pVUouU6jq9",
       "name": "pokemon-blue.gb",
-      "sha256": "sha256-KpUTE8JkDowssh8l0dsBmuYkXZxxIfdU+mGv177mRS0="
+      "sha256": "sha256-KpUTE8JkDowssh8l0dsBmuYkXZxxIfdU+mGv177mRS0=",
+      "size": null
     },
     "retroarch": {
       "core": "gambatte_libretro_android.so",

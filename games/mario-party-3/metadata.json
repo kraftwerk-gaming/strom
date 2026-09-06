@@ -5,7 +5,8 @@
     "payload": {
       "cid": "Qma3HU44wdAAirrChzU2FPA5qJ5aVh1enQP1hmiw3Lre6t",
       "name": "mario-party-3.z64",
-      "sha256": "sha256-oIy9ak9A0Vy9i83uZE+AzfuEPgbVadEzS81J8jJihVo="
+      "sha256": "sha256-oIy9ak9A0Vy9i83uZE+AzfuEPgbVadEzS81J8jJihVo=",
+      "size": null
     },
     "retroarch": {
       "core": "mupen64plus_next_gles3_libretro_android.so",

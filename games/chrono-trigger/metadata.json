@@ -4,7 +4,8 @@
     "payload": {
       "cid": "Qmdwp6PEMUghQXoQgRkunAzvkRaXDTQdW8f84QcQ3fqvpN",
       "name": "chrono-trigger.sfc",
-      "sha256": "sha256-BtHCsGtxYFLFWWqqDC5WMqAn/uGpooQ55Qn4E8MIKak="
+      "sha256": "sha256-BtHCsGtxYFLFWWqqDC5WMqAn/uGpooQ55Qn4E8MIKak=",
+      "size": null
     },
     "retroarch": {
       "core": "bsnes_libretro_android.so",

@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmXGpzBBmC7hrqBMAbpToLND81ruQuc3pGb9ixxnGdmYag",
       "name": "pokemon-stadium-2.z64",
-      "sha256": "sha256-gWCr59S5c0MXAAxE6fiC7+/kzGNZ6s3tmL5i8oEeQKk="
+      "sha256": "sha256-gWCr59S5c0MXAAxE6fiC7+/kzGNZ6s3tmL5i8oEeQKk=",
+      "size": null
     },
     "retroarch": {
       "core": "mupen64plus_next_gles3_libretro_android.so",

@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmRheuPttVwksywqHqjMigShz9P6R7oswRgZLSZ5ahj2xU",
       "name": "pokemon-heartgold.nds",
-      "sha256": "sha256-J2fiy4CswgYHQjLBCjt0pHnkWkcvLvn4S7/FXjatli0="
+      "sha256": "sha256-J2fiy4CswgYHQjLBCjt0pHnkWkcvLvn4S7/FXjatli0=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmSo4sUeyrgvjxBFUrLknvkgzm1jRyBcUJK8WNEb8WfeLA",
       "name": "pokemon-soulsilver.nds",
-      "sha256": "sha256-UdD5ShavfXfAZ7TLfYIbqJChMgOi4sdgSWIzMsBYLiA="
+      "sha256": "sha256-UdD5ShavfXfAZ7TLfYIbqJChMgOi4sdgSWIzMsBYLiA=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

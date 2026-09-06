@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmNo9qmfDF57kN9rWduMdYgdHzXf1r2UvTcFHhMNz4p5yr",
       "name": "pokemon-sapphire.gba",
-      "sha256": "sha256-AspBUTWAqLeAmJ3uQo33R7UqCxpVvsYXiGtAWesRUvs="
+      "sha256": "sha256-AspBUTWAqLeAmJ3uQo33R7UqCxpVvsYXiGtAWesRUvs=",
+      "size": null
     },
     "retroarch": {
       "core": "mgba_libretro_android.so",

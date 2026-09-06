@@ -4,7 +4,8 @@
     "payload": {
       "cid": "QmZHUyEk66jfC4EA9oxPwQqqU2HH5kbyqvDeGEjtsd6h5f",
       "name": "pokemon-ranger.nds",
-      "sha256": "sha256-qK0dDWh5b+v86h8s8BI6HjVVMqW14rNsPDnxxoU6d+E="
+      "sha256": "sha256-qK0dDWh5b+v86h8s8BI6HjVVMqW14rNsPDnxxoU6d+E=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

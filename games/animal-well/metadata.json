@@ -11,7 +11,8 @@
     "payload": {
       "cid": "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu",
       "name": "",
-      "sha256": null
+      "sha256": null,
+      "size": 36837264
     },
     "schema": 1
   },

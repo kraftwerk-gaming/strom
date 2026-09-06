@@ -5,7 +5,8 @@
     "payload": {
       "cid": "QmaZwVwaooGdanm5hzDnkuUnS5FjPvZzQteeEHtQVRFXkn",
       "name": "pokemon-black.nds",
-      "sha256": "sha256-uZeRidKZoCMdAciIXA0FS3Bpdv/HVCfKWdhODOFJMDQ="
+      "sha256": "sha256-uZeRidKZoCMdAciIXA0FS3Bpdv/HVCfKWdhODOFJMDQ=",
+      "size": null
     },
     "retroarch": {
       "core": "melonds_libretro_android.so",

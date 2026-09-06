@@ -49,7 +49,10 @@ self.lib.mkGame { inherit lib pkgs; } {
   # archive reader. Built by `nix build .#androidPayloads.animal-well`,
   # published with `tar -c . | curl --data-binary @- <the pin server>`.
   # The `src` above stays the desktop's artifact and this game's provenance.
-  android.payload.cid = "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu";
+  android.payload = {
+    cid = "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu";
+    size = 36837264; # du -sb of the built tree
+  };
 
   # The game is D3D12-only. Under DXVK, the manifest default, it stops at
   # "Failed to create D3D12 Device (error = 0x80004002)" before its first
