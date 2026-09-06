@@ -51,6 +51,11 @@ self.lib.mkGame { inherit lib pkgs; } {
   # The `src` above stays the desktop's artifact and this game's provenance.
   android.payload.cid = "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu";
 
+  # The game is D3D12-only. Under DXVK, the manifest default, it stops at
+  # "Failed to create D3D12 Device (error = 0x80004002)" before its first
+  # frame (measured, AYN Thor); VKD3D runs it.
+  android.containerConfig.dxwrapper = "vkd3d";
+
   meta = {
     description = "ANIMAL WELL (Billy Basso 2024, via Proton)";
     platforms = [ "x86_64-linux" ];

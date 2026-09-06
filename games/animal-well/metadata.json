@@ -4,6 +4,7 @@
     "backend": "gamenative",
     "gamenative": {
       "containerConfig": {
+        "dxwrapper": "vkd3d",
         "executablePath": "Animal Well.exe"
       }
     },
