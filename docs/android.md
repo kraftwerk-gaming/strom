@@ -775,18 +775,19 @@ environment, not the container's -- so on an `applicationIdSuffix` build
 the pad is dead until `setprop wrap.<pkg> "env EVSHIM_BASE_PATH=..."`.
 Not a bug in the release; a full evening's worth of misdirection on a fork.
 
-**Four settings are computable, in the manifest, and unsendable.** Three
-travel in the same `container_config` that would overwrite the wine build;
-the fourth, `emulator`, has no intent key at all. The client names them in
-its setup message instead. Measured: `emulator` left at FEXCore kills every
-32-bit game a second after launch, with no dialog (above); `screenSize`
-left at GameNative's 1280x720 default on a 1080p panel renders the game in
-a scaled, decorated window with black margins (setting the container to
-1920x1080 fixed it); `dxwrapper` left at DXVK stops a D3D12 game with
-"Failed to create D3D12 Device" (VKD3D fixed it); `graphicsDriver` would be
-next if a game ever needs a specific one. This is the cost of the omission
-and the reason to want either a partial-config intent upstream or a merge
-that preserves the base container's unlisted fields.
+**Four settings are computable and in the manifest; stock GameNative
+cannot take three of them and nothing can take the fourth.** With stock
+GameNative, `screenSize`, `dxwrapper` and `execArgs` travel in the same
+`container_config` that overwrites the wine build, so the client names
+them in its setup message instead; the strom build merges the config
+over the container's stored values, so there they are simply sent
+(verified: a `dxwrapper: vkd3d` sent to an existing container extracted
+the VKD3D DLLs and ANIMAL WELL ran; under the default DXVK it stops at
+"Failed to create D3D12 Device", so its recipe declares
+`android.containerConfig.dxwrapper`). `emulator` has no intent key in
+any build, and it is the one that kills silently: FEXCore ends every
+32-bit game a second after launch with no dialog (above), so the client
+still asks for Box64 once per install of the runtime.
 
 **Source-derived, not a published API.** Only the intent is advertised; the
 folder layout, `.gamenative` format and `A:` mapping were read out of
@@ -1065,26 +1066,36 @@ commit upstream will never take, because it is about redistribution:
   perfsdk jar. Their own release page distributing them is their right;
   a fork's release of the same bytes is exactly what the notice exists
   to forbid. So the strom build ships none of them.
-- `libredirect.so` is load-bearing, the other three are not. The
-  imagefs GameNative downloads is Winlator's, and every binary in it was
-  built with `/data/data/com.winlator/files/imagefs` baked in: libxcb
-  connects the X server at that path, fontconfig looks for fonts there,
-  the X11 locale tables and XKeysymDB live there, and 459 RUNPATHs point
-  there. An app cannot create `/data/data/com.winlator`, so without a
-  path rewrite wine never reaches the display. Upstream does the rewrite
-  with the closed preload; ours is `pkgs/gamenative-redirect`, nixpkgs'
-  MIT `libredirect` (`NIX_REDIRECTS=/from=/to:...`) with the wrappers
-  wine needs added (`dlopen`, `lstat`, `readlink`, `realpath`, the
-  fortified `open` entry points), cross-built for aarch64 glibc and
-  checked to need nothing newer than the imagefs's glibc 2.41. It goes
-  into the fork as the `redirect.tzst` asset under its own name,
-  `libstromredirect.so`, and the launcher preloads that -- so the closed
-  `libredirect.so` the server's `imagefs_patches_gamenative.tzst` also
-  drops into the imagefs is present on the device but never loaded.
-- The bionic container path names `libredirect-bionic.so`, which is not
-  shipped either; containers this launcher creates are glibc, so that
-  path is not exercised. Real-Steam mode (`libsteambootstrap`) and
-  turnip on Quest 3 (`libkgslshim`) are gone from the strom build.
+- Which shim matters depends on the container variant, and the variant
+  is bionic: every device class in `ContainerUtils.setContainerDefaults`
+  sets `Container.BIONIC`, and the glibc default in `DefaultVersion` is
+  dead. On the bionic path no shim is needed at all. The bionic imagefs
+  builds the X socket from `TMPDIR`, and fontconfig, Vulkan and the
+  linker take their directories from the environment the launcher sets;
+  the `com.winlator` strings still baked into its libraries are RUNPATHs
+  and defaults nothing reads. Upstream's own container switch "disable
+  libredirect" already runs legacy builds with no preload. The strom
+  build makes an absent `libredirect-bionic.so` mean the same thing --
+  strom-1 named the missing file and died in the linker on every exec,
+  `CANNOT LINK EXECUTABLE .../bin/wine`, measured on the Thor. Verified
+  in strom-2: ANIMAL WELL to its title screen with no preload but
+  upstream's own `libandroid-sysvshm.so` and `libevshim.so`.
+- The glibc path is different: that imagefs has
+  `/data/data/com.winlator/files/imagefs` baked into libxcb's X socket
+  path, fontconfig, the X11 locale tables and 459 RUNPATHs, and an app
+  cannot create that directory. `pkgs/gamenative-redirect` covers it --
+  nixpkgs' MIT `libredirect` (`NIX_REDIRECTS=/from=/to:...`) with the
+  wrappers wine needs added (`dlopen`, `lstat`, `readlink`, `realpath`,
+  the fortified `open` entry points), cross-built for aarch64 glibc,
+  checked against the imagefs's glibc 2.41, shipped as the fork's
+  `redirect.tzst` under its own name so the closed `libredirect.so` the
+  server's `imagefs_patches_gamenative.tzst` also drops in is never
+  loaded. Proven on the host against a fake imagefs (connect, open,
+  lstat, readlink, dlopen by baked path), not on a device: no device
+  class creates a glibc container, so nothing exercises it until a
+  player switches a container to glibc by hand.
+- Real-Steam mode (`libsteambootstrap`) and turnip on Quest 3
+  (`libkgslshim`) are gone from the strom build.
 
 The release is signed with strom's own key (`~/.config/strom/
 gamenative-release.jks`, `CN=strom`), same `app.gamenative` id as

@@ -105,9 +105,9 @@ final class Runtimes {
      */
     static final Spec GAMENATIVE = new Spec(
         "app.gamenative",
-        "GameNative 1.2.0 (strom-1)",
-        "https://github.com/kraftwerk-gaming/GameNative/releases/download/strom-1/gamenative-strom-1.apk",
-        "7b07da4d394a8b9e4bf89d5c22c98b068f661ea5fcedd203f939e6ec9b1e87d3",
+        "GameNative 1.2.0 (strom-2)",
+        "https://github.com/kraftwerk-gaming/GameNative/releases/download/strom-2/gamenative-strom-2.apk",
+        "bcacd85e36f4f2ad162b2719c4186625abb5a17e9f920967863e949cae29628f",
         569459454L);
 
     private Runtimes() {
