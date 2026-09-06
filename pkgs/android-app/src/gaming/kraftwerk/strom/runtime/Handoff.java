@@ -311,7 +311,7 @@ public final class Handoff {
         // that is true and skipped everywhere else. Declining is a fine
         // outcome -- the game still runs under Azahar's own layout -- which
         // is why this is asked once and never again.
-        if (AzaharConfig.secondDisplay(c) && !AzaharConfig.canWrite() && askOnce(pkg)) {
+        if (AzaharConfig.secondDisplay(c) && !AzaharConfig.canWrite() && askOnce(c, pkg, pkg)) {
             c.startActivity(AzaharConfig.grantIntent(c));
             throw new NeedsSetup("For a screen on each panel, Strom needs"
                 + " all-files access: it writes the two-screen setting into"
@@ -388,8 +388,6 @@ public final class Handoff {
         if (!payloadDir.isDirectory()) {
             throw new IOException("payload directory " + payloadDir + " is missing");
         }
-        // Before gamenativeId(), which writes the marker.
-        boolean firstTime = !new File(payloadDir, ".gamenative").isFile();
         int appId = gamenativeId(payloadDir);
 
         // The pad-to-key profile, when the manifest declares one. A runtime
@@ -422,6 +420,12 @@ public final class Handoff {
             // So register on the first run and whenever the profile
             // changed, wait out the startup, and otherwise send the launch
             // alone.
+            // "Registered" is a fact about this install of GameNative, not
+            // about the folder: its folder list dies with a reinstall, so
+            // the record is the per-install kind (askOnce), not the
+            // .gamenative file beside the game, which is GameNative's own
+            // id record and stays put across installs.
+            boolean firstTime = askOnce(c, pkg, pkg + "-registered-" + g.slug);
             if (firstTime || profileChanged) {
                 register.putExtra("folder", payloadDir.getAbsolutePath());
                 if (profileJson != null) {
@@ -440,7 +444,7 @@ public final class Handoff {
             // The one setting no intent can carry, said once per install
             // rather than per game: GameNative keeps the last chosen
             // emulator as the default for every container it creates.
-            if (askOnce(pkg + "-emulator")) {
+            if (askOnce(c, pkg, pkg + "-emulator")) {
                 throw new NeedsSetup("Once, in GameNative: open any game's"
                     + " container settings and under Emulation set the emulator"
                     + " to Box64. Its default, FEXCore, cannot run 32-bit games"
@@ -456,7 +460,7 @@ public final class Handoff {
         // marker and landing in GameNative's "not installed" dialog. We
         // cannot read the answer either way -- the folder list lives in its
         // private preferences.
-        if (!registers && askOnce(pkg + "-" + g.slug)) {
+        if (!registers && askOnce(c, pkg, pkg + "-" + g.slug)) {
             // Everything the intent cannot carry, said once and in full. Each
             // of these IS in the manifest and IS computable -- they travel in
             // the same container_config that would overwrite the wine build,
@@ -742,13 +746,21 @@ public final class Handoff {
     }
 
     /**
-     * True once, then never again. Records that we have asked the player
-     * for something, so a request they declined does not reappear on every
-     * launch of every game.
+     * True once per install of the runtime app, then never again. Records
+     * that we have asked the player for something, so a request they
+     * declined does not reappear on every launch of every game.
+     *
+     * <p>Per install, not forever: everything asked through here is state
+     * inside the runtime app (a registered folder, the emulator choice,
+     * a permission), and a reinstall of that app -- replacing upstream
+     * GameNative with ours, say -- starts it empty again while a marker
+     * written for the old install would say "already done". Measured:
+     * GameNative reinstalled, launch sent alone, its "Game Not Installed"
+     * dialog. So a marker older than the app's install counts as absent.
      */
-    private static boolean askOnce(String pkg) {
-        File marker = new File(CoreInstaller.ROOT, "." + pkg + ".asked");
-        if (marker.exists()) {
+    private static boolean askOnce(Context c, String pkg, String what) {
+        File marker = new File(CoreInstaller.ROOT, "." + what + ".asked");
+        if (marker.exists() && marker.lastModified() >= installedAt(c, pkg)) {
             return false;
         }
         try {
@@ -756,10 +768,24 @@ public final class Handoff {
                 CoreInstaller.ROOT.mkdirs();
             }
             new java.io.FileOutputStream(marker).close();
+            marker.setLastModified(System.currentTimeMillis());
         } catch (IOException e) {
-            Log.w(TAG, "cannot record the request for " + pkg, e);
+            Log.w(TAG, "cannot record the request for " + what, e);
         }
         return true;
+    }
+
+    /**
+     * When the runtime app was installed, as a wall-clock millisecond;
+     * a reinstall moves it. Zero when the app is not installed, so every
+     * marker then reads as current.
+     */
+    static long installedAt(Context c, String pkg) {
+        try {
+            return c.getPackageManager().getPackageInfo(pkg, 0).firstInstallTime;
+        } catch (PackageManager.NameNotFoundException e) {
+            return 0;
+        }
     }
 
     private static boolean prime(Context c, String pkg) {
