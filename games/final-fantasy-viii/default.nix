@@ -284,14 +284,11 @@ let
   texturePackLowers = map (key: mkTexturePack key texturePacks.${key}) texturePackOrder;
 
   # Which mod trees are pinned for Android, keyed by the layer's own name
-  # (which `android.layers` derives from the derivation). Pin one with
-  #
-  #   nix build .#androidLayerPayloads.final-fantasy-viii.<name>
-  #   cd <result> && tar -c . | curl --data-binary @- <the pin server>
-  #
-  # and paste the returned CID here. A layer that is absent from this table
-  # has no CID in the manifest, which the client shows as "not published
-  # yet" rather than letting a player pick a mod it cannot fetch.
+  # (which `android.layers` derives from the derivation; build one with
+  # `nix build .#androidLayerPayloads.final-fantasy-viii.<name>`). A layer
+  # that is absent from this table has no CID in the manifest, which the
+  # client shows as "not published yet" rather than letting a player pick
+  # a mod it cannot fetch.
   pinnedLayers = {
     "ff8-music-orchestral" = "bafybeieyddbj3khcngfhogbdbchxrwpyhu7xpvldilxyorqsikopa25ddy";
     "ff8-music-psx" = "bafybeigbxe2xgpcgpryfvqbphpd22d5oq3b7wtmeme5e7jtggxxs7hwoka";
@@ -479,9 +476,20 @@ let
   # rolling `canary` tag (every stable release from 1.5.3 through 1.24.3
   # ships exactly FF7_1998 + FF8_2000 + Steam) and is documented as
   # incomplete: "You will most likely encounters crashes in battle".
-  ffnx = fetchurl {
-    url = "https://github.com/julianxhokaxhiu/FFNx/releases/download/canary/FFNx-Steam-v1.24.3.172.zip";
-    hash = "sha256-OpoAvAGPVnQ3AlcQrN046zwiu2VmA6cP+zL1hfvu48o=";
+  #
+  # Pinned from the rolling `canary` tag, which force-replaces its assets
+  # on every CI build: the .172 build this recipe originally pointed at
+  # 404'd once .272 shipped, with no mirror anywhere (no wayback capture,
+  # no CI artifact, no cache). So the zip is pinned on our own IPFS node
+  # and the GitHub URL below is documentation of provenance, not a
+  # working fallback -- it will 404 again when canary rolls past .272.
+  # No stable release can replace it: the b62ccf0b steam_api split this
+  # recipe depends on (see gbeFork below) exists only on canary.
+  ffnx = fetchIpfs {
+    cid = "bafybeibrdmet3xylbkm557qqxxnwtcnxd6x4m3e7yypi34mqaoosxvybti";
+    fallbackUrl = "https://github.com/julianxhokaxhiu/FFNx/releases/download/canary/FFNx-Steam-v1.24.3.272.zip";
+    hash = "sha256-2fpG/hNH262JQs0XPoIkrE+sqVpMLHe+JF6kxlUOyUY=";
+    name = "FFNx-Steam-v1.24.3.272.zip";
   };
 
   # The release with ONE call removed: ffnx_log_current_pc_specs()
@@ -503,7 +511,7 @@ let
   # asserted below; a new FFNx release that moves the code fails the
   # build here rather than shipping an unpatched or mispatched driver.
   # Symbol address from the FFNx.pdb the release ships
-  # (`?ffnx_log_current_pc_specs@@YAXXZ` = 0001:3874096).
+  # (`?ffnx_log_current_pc_specs@@YAXXZ` = 0001:3875936).
   ffnxDriver =
     runCommandLocal "ffnx-steam-1.24.3-no-pc-specs"
       {
@@ -520,8 +528,8 @@ let
         import sys
         path = sys.argv[1]
         d = bytearray(open(path, "rb").read())
-        off = 0x3AC511
-        call = bytes.fromhex("e81a5c0000")    # call ffnx_log_current_pc_specs
+        off = 0x3ACB3A
+        call = bytes.fromhex("e8215d0000")    # call ffnx_log_current_pc_specs
         after = bytes.fromhex("6a28")         # push AV_LOG_VERBOSE
         assert d[off:off + 5] == call, d[off:off + 5].hex()
         assert d[off + 5:off + 7] == after, d[off + 5:off + 7].hex()
@@ -1305,6 +1313,10 @@ self.lib.mkGame { inherit lib pkgs; } {
             dpad = "arrows";
             leftStick = "arrows";
           };
+
+          # The base worktree the Android client fetches before merging the
+          # pinned layers over it (`nix build .#androidPayloads.final-fantasy-viii`).
+          android.payload.cid = "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm";
 
           # The game creates its userdata directory only when a Steam
           # client hands it a user id, which never happens here, and the

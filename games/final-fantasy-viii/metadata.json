@@ -117,6 +117,11 @@
         "value": "standard"
       }
     ],
+    "payload": {
+      "cid": "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm",
+      "name": "",
+      "sha256": null
+    },
     "schema": 1,
     "settings": [
       {
