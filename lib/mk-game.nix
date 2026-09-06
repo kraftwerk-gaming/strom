@@ -261,23 +261,32 @@ let
           defaultText = lib.literalMD "`[ src ]` plus the PS2 BIOS for `runtime = pcsx2`.";
         };
 
-        # Extracted game data; the overlay's lower layer.
+        # The game data: the overlay's lower layer, and the tree Android
+        # fetches. A pinned tree (`fetchIpfs { directory = true; }`) IS
+        # the game data, with no build in between: the desktop and the
+        # phone then fetch the same CID and never extract anything. A
+        # buildScript still turns an archive into a tree for the game
+        # that has not been pinned as one yet.
         _gameData = mkOption {
           type = types.package;
           internal = true;
-          default = pkgs.runCommandLocal "${cfg.name}-data" { inherit (cfg) nativeBuildInputs src; } (
-            if cfg.buildScript != "" then
-              cfg.buildScript
+          default =
+            if cfg.buildScript == "" && (cfg.src.directory or false) then
+              cfg.src
             else
-              ''
-                mkdir -p $out
-                if [ -d "$src" ]; then
-                  cp -r "$src"/. $out/
+              pkgs.runCommandLocal "${cfg.name}-data" { inherit (cfg) nativeBuildInputs src; } (
+                if cfg.buildScript != "" then
+                  cfg.buildScript
                 else
-                  cp "$src" "$out/${cfg.src.name or "src"}"
-                fi
-              ''
-          );
+                  ''
+                    mkdir -p $out
+                    if [ -d "$src" ]; then
+                      cp -r "$src"/. $out/
+                    else
+                      cp "$src" "$out/${cfg.src.name or "src"}"
+                    fi
+                  ''
+              );
         };
 
         bwrap = mkOption {
@@ -668,12 +677,14 @@ let
                   };
                   cid = mkOption {
                     type = types.nullOr types.str;
-                    default = null;
+                    default = if config.tree.directory or false then config.tree.cid else null;
+                    defaultText = lib.literalMD "the tree's CID when it is a fetched tree; otherwise `null`";
                     description = ''
-                      This tree pinned as a directory CID, for Android. Null
-                      until an operator pins it, which the client reports as
-                      not published rather than offering a mod it cannot
-                      fetch. The desktop ignores it: it builds the tree.
+                      This tree pinned as a directory CID, for Android. A
+                      tree that is itself `fetchIpfs { directory = true; }`
+                      carries its own. Null otherwise, until an operator pins
+                      it, which the client reports as not published rather
+                      than offering a mod it cannot fetch.
                     '';
                   };
                   name = mkOption {
@@ -684,7 +695,8 @@ let
                   };
                   size = mkOption {
                     type = types.nullOr types.int;
-                    default = null;
+                    default = config.tree.size or null;
+                    defaultText = lib.literalMD "the fetched tree's `size`; otherwise `null`";
                     description = ''
                       Uncompressed bytes, so a phone can say what a mod
                       costs before fetching it. Null when unmeasured; the

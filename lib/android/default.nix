@@ -280,42 +280,43 @@ in
             "retroarch"
             "azahar"
           ];
+          buildsNothing = game.buildScript == "" && builtins.length srcs == 1;
         in
-        # A game that builds nothing has nothing to pin. With no
-        # buildScript, mkGame copies the single fetched file to
-        # `$out/<src.name>`, so the tree the phone needs is byte-for-byte
-        # the archive already pinned as `src`, and `outputs.payload` would
-        # only republish those same bytes under a second CID. Requiring
-        # the name to equal `executable` keeps the manifest's `rom` and
-        # the payload agreeing about what to open.
+        # A game that builds nothing has nothing to pin: what the phone
+        # needs is exactly the source already pinned.
         #
-        # True of any backend whose game is one file the emulator opens --
-        # a libretro ROM and a 3DS dump are the same shape here.
+        # A pinned tree (`fetchIpfs { directory = true; }`) is the game
+        # data itself, on the desktop and on the phone, so its CID is the
+        # payload. This is the shape every game converges on.
         #
-        # Everything else is excluded and still needs its built tree
-        # pinned by hand: a recipe that unzips or patches produces bytes
-        # that exist nowhere yet, and a PSX game carries a second source
-        # (the BIOS) that the payload would have to include.
-        if
-          singleFileBackends
-          && game.buildScript == ""
-          && builtins.length srcs == 1
-          && (only.name or null) == game.executable
-        then
+        # A single pinned file that the emulator opens directly (a
+        # libretro ROM, a 3DS dump) is the same situation one file large:
+        # mkGame copies it to `$out/<src.name>`, so requiring the name to
+        # equal `executable` keeps the manifest's `rom` and the payload
+        # agreeing about what to open.
+        #
+        # Everything else still needs its built tree pinned: a recipe that
+        # unzips or patches produces bytes that exist nowhere yet, and a
+        # PSX game carries a second source (the BIOS) that the payload
+        # would have to include.
+        if buildsNothing && (only.directory or false) then
+          {
+            inherit (only) cid size;
+          }
+        else if buildsNothing && singleFileBackends && (only.name or null) == game.executable then
           {
             inherit (only) cid name;
             sha256 = only.outputHash;
           }
         else
           null;
-      defaultText = lib.literalMD "the game's own pinned source, for a single-file game that builds nothing; otherwise `null`";
+      defaultText = lib.literalMD "the game's own pinned source when it is a tree or a single file the emulator opens; otherwise `null`";
       description = ''
-        The published Android payload: the pinned CID of the tree
-        `outputs.payload` builds. Defaults to the game's own pinned
-        source for a single-file game that builds nothing, because there
-        the two are the same bytes (see the comment above). Otherwise
+        The published Android payload. Defaults to the game's own pinned
+        source when that is already what the phone needs: a pinned tree,
+        or one file the emulator opens (see the comment above). Otherwise
         null until the operator has tested the game on a device and
-        pinned the artifact -- same stage-then-pin discipline as a
+        pinned the built tree -- same stage-then-pin discipline as a
         game's `src` (see AGENTS.md). When null the manifest omits
         `payload` and the client lists the game as not yet available on
         Android.
@@ -397,29 +398,38 @@ in
 
   config = {
     outputs.payload =
+      let
+        # The base is what the desktop overlay presents with no layer
+        # selected: `_gameData` plus any tree a recipe stacks above it
+        # unconditionally (half-life-uplink's expansion over vanilla
+        # Half-Life). The player-selectable `modLayers` are published as
+        # layers of their own, so they are taken out here even when the
+        # option defaults select them -- otherwise a default-on layer
+        # (FF8's FFNx) would be baked into the base as well as offered as
+        # a toggle.
+        layerTrees = map (l: toString l.tree) game.modLayers;
+        lowers = builtins.filter (l: !(builtins.elem (toString l) layerTrees)) game.bwrap.overlay.lowers;
+      in
       pkgs.runCommand "${game.name}-android-tree"
         {
           passthru = {
             gameData = game._gameData;
-            inherit (game.bwrap.overlay) lowers;
+            inherit lowers;
           };
         }
         ''
           mkdir -p "$out"
 
-          # The payload must be what the desktop overlay presents, not just
-          # _gameData: recipes stack mods and other trees above it as extra
-          # fuse-overlayfs lowers (lib/mk-game.nix `overlay.lowers`, first =
-          # highest priority). Copy lowest priority first so higher ones
-          # overwrite, which reproduces the overlay's merge order. Without
-          # this, half-life-uplink would ship vanilla Half-Life.
+          # Copy lowest priority first so higher ones overwrite, which
+          # reproduces the overlay's merge order (lib/mk-game.nix
+          # `overlay.lowers`, first = highest priority).
           #
           # -L dereferences: a recipe may symlink discs in from the store
           # (games/final-fantasy-vii does), and a symlink into /nix/store
           # means nothing on a phone.
           ${lib.concatMapStringsSep "\n" (l: ''
             cp -rL --no-preserve=mode,ownership,timestamps -T "${l}" "$out"
-          '') (lib.reverseList game.bwrap.overlay.lowers)}
+          '') (lib.reverseList lowers)}
 
           chmod -R u+w "$out"
           test -n "$(ls -A "$out")" \
