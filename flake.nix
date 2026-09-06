@@ -113,6 +113,7 @@
               aria2
               curl
               cacert
+              python3
               ;
           };
       };
