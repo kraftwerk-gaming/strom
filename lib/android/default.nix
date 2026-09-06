@@ -421,11 +421,14 @@ in
         # defaults in docs/android.md so the client and this file agree.
         #
         # No screen size here. It is a property of the device, not the
-        # game: GameNative detects the panel when the intent leaves it
-        # out, and a value invented here overrides that -- measured, a
-        # "phone-shaped" 1280x720 sent from this file put a 1080p panel
-        # into a scaled, decorated window. A game that genuinely needs a
-        # size sets `containerConfig.screenSize` itself.
+        # game, and the client sends the panel it is running on; a value
+        # from this file is the recipe author's panel, not the player's
+        # -- measured, a "phone-shaped" 1280x720 sent from here put a
+        # 1080p panel into a scaled, decorated window. Leaving the key
+        # out of the intent does not help either: GameNative's own
+        # default buckets the aspect ratio and gives every 16:9 device
+        # 1280x720. A game that genuinely needs a size sets
+        # `containerConfig.screenSize` itself.
         containerDefaults = {
           execArgs = "";
           dxwrapper = "dxvk";

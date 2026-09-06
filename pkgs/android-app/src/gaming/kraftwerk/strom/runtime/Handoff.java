@@ -519,13 +519,16 @@ public final class Handoff {
             StringBuilder sb = new StringBuilder("{\"executablePath\":")
                 .append(jsonString(g.executablePath))
                 .append(",\"dxwrapper\":").append(jsonString(g.dxwrapper));
-            // Only a size the game asked for. Sending a guess overrides
-            // GameNative's own panel detection -- and did: a 1280x720
-            // default from the catalog put the Thor's 1080p container into
-            // a scaled window and made FFNx's fullscreen request fail.
-            if (g.screenSize != null) {
-                sb.append(",\"screenSize\":").append(jsonString(g.screenSize));
-            }
+            // The game's own size when it declares one, else the panel's.
+            // Omitting the key does not get the panel: GameNative's
+            // "detection" only buckets the aspect ratio and every 16:9
+            // device lands on its 1280x720 constant, which on a 1080p
+            // panel is a scaled, decorated window with black margins
+            // (measured twice: FF8, then ANIMAL WELL through the stock
+            // path). A size from the catalog is wrong the other way round,
+            // it is the recipe author's panel, not the player's.
+            sb.append(",\"screenSize\":")
+                .append(jsonString(g.screenSize != null ? g.screenSize : panelSize(c)));
             if (!g.execArgs.isEmpty()) {
                 sb.append(",\"execArgs\":").append(jsonString(g.execArgs));
             }
@@ -786,6 +789,24 @@ public final class Handoff {
         } catch (PackageManager.NameNotFoundException e) {
             return 0;
         }
+    }
+
+    /**
+     * The default display's physical size as GameNative's "WxH", landscape
+     * whichever way the device is held: the container's desktop fills the
+     * panel only when it is the panel's own pixel count.
+     */
+    static String panelSize(Context c) {
+        android.hardware.display.DisplayManager dm =
+            (android.hardware.display.DisplayManager) c.getSystemService(Context.DISPLAY_SERVICE);
+        Display d = dm == null ? null : dm.getDisplay(Display.DEFAULT_DISPLAY);
+        if (d == null) {
+            return "1920x1080";
+        }
+        Display.Mode m = d.getMode();
+        int w = Math.max(m.getPhysicalWidth(), m.getPhysicalHeight());
+        int h = Math.min(m.getPhysicalWidth(), m.getPhysicalHeight());
+        return w + "x" + h;
     }
 
     private static boolean prime(Context c, String pkg) {

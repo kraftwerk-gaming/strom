@@ -574,10 +574,14 @@ and layering is the simpler one.
 ```
 
 No `screenSize` unless a recipe sets one: it is a property of the panel,
-which GameNative detects when the intent leaves it out, and a value from
-the catalog overrides that detection -- measured: a "phone-shaped"
-1280x720 sent by default put the Thor's 1080p container into a scaled,
-decorated window and made FFNx's fullscreen request fail.
+and the client fills it in from the device it runs on (`Display.getMode`,
+landscape). A value from the catalog is the recipe author's panel --
+measured: a "phone-shaped" 1280x720 sent by default put the Thor's 1080p
+container into a scaled, decorated window and made FFNx's fullscreen
+request fail. Leaving the key out of the intent is no better: GameNative's
+own default only buckets the aspect ratio, and every 16:9 device gets its
+1280x720 constant (measured again with ANIMAL WELL, a title bar and black
+margins; sending 1920x1080 filled the panel).
 
 `executablePath` is always present and always equals the game's
 `executable`. Backend-specific shapes: `retroarch` carries
