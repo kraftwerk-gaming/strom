@@ -237,11 +237,16 @@ public final class GameScreen extends LinearLayout implements Screen {
         rows.clear();
         rowBox.removeAllViews();
         rows.add(new Row(KIND_PLAY, null));
-        for (Setting s : game.settings) {
-            rows.add(new Row(KIND_OPTION, s));
-        }
+        // Directly under Play, not after the options: it is the answer to
+        // the refusal shown beside Play, and after seven option rows it
+        // was below the fold on a 1080p panel (measured: the message said
+        // "downloading this game again from scratch" with no visible way
+        // to do that).
         if (offerReset) {
             rows.add(new Row(KIND_RESET, null));
+        }
+        for (Setting s : game.settings) {
+            rows.add(new Row(KIND_OPTION, s));
         }
         for (Row r : rows) {
             rowBox.addView(build(r));
