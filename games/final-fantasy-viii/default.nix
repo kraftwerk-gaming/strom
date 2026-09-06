@@ -3,819 +3,194 @@
   lib,
   pkgs,
   fetchIpfs,
-  fetchurl,
-  p7zip,
-  unzip,
-  binutils,
-  libarchive,
-  runCommandLocal,
-  python3,
 }:
 
 let
-  # Ragnarok Rebalancing Mod v1.2.3 (Callisto), the 2013-Steam build.
-  #
-  # The most popular FF8 mod by a wide margin -- 874 replies on its qhimm
-  # thread against 139 for the next gameplay mod (FFVIII Crystal) and 112
-  # for the one after (New Threat), and the one entry HobbitInstaller's
-  # catalogue ships under Gameplay for this release. Playtested start to
-  # finish by its author.
-  #
-  # Two difficulty variants ship in the same download and differ only in
-  # these six files, so they are a `ragnarokMode` choice rather than two
-  # packages.
-  #
-  # No source repository exists: it is distributed as Google Drive zips
-  # from qhimm topic 18404, and the file is a RAR despite the .zip name.
-  # `fallbackUrl` is that Drive link, which is unstable but the only
-  # source and doubles as provenance; the CID is what the build actually
-  # resolves. NOTE p7zip's build cannot read RAR5, hence libarchive.
-  ragnarokSrc = fetchIpfs {
-    cid = "QmSNStGCqEpiK4zVxzZXfg8pFq4N5NQ14HA4QFfYZEnUDN";
-    fallbackUrl = "https://drive.google.com/uc?id=1_3xRIFbvnnBJWS7S9npqwnA1T3Q-XHcQ";
-    hash = "sha256-Cw5wKEFGRz1GnxxO+MymlmQr33qO8wbIyOWW4u2w69M=";
-    name = "ragnarok-mod-v1.2.3-steam-2013.rar";
-  };
+  # Every tree this game is made of, pinned once and fetched as-is by the
+  # desktop (overlay lowers) and the Android client (unpacked layers)
+  # from the same CIDs. Nothing is extracted or patched at build time any
+  # more; the trees were produced once from the upstream archives and
+  # pinned, and this file only names them. `hash` is `nix hash path` of
+  # the tree, `size` its uncompressed bytes.
+  tree =
+    name: args:
+    fetchIpfs (
+      {
+        inherit name;
+        directory = true;
+      }
+      // args
+    );
 
-  # Project the chosen variant into a tree shaped like the game root, so
-  # it can be stacked as an overlay lower without re-extracting the 3.7 GB
-  # base. The archive double-nests its own directory name, hence the glob.
-  mkRagnarok =
-    mode:
-    runCommandLocal "ff8-ragnarok-1.2.3-${mode}" { nativeBuildInputs = [ libarchive ]; } ''
-      mkdir -p "$out/Data/lang-en" unpacked
-      bsdtar -xf ${ragnarokSrc} -C unpacked
-      src=$(echo unpacked/*/*/"${
-        if mode == "lionheart" then "Lionheart" else "Standard"
-      } Mode files"/lang-en)
-      test -d "$src" || { echo "ragnarok: variant tree not found: $src" >&2; exit 1; }
-      cp "$src"/*.fi "$src"/*.fl "$src"/*.fs "$out/Data/lang-en/"
-
-      # The other half of the mod: a Hext patch list for the things the
-      # data files cannot express (ATB filling speed, the 255% hit-rate
-      # removal, Protect/Shell reduction, the Vit-0 change). It only takes
-      # effect with `ffnx = true`; without FFNx nothing reads it.
-      #
-      # The directory is FFNx's, not ours: it composes
-      # hext/ff8/<variant> from the DETECTED executable
-      # (cfg.cpp:389-393), and this tree's exe reports
-      # VERSION_FF8_12_US_NV -- which is what every English Steam 2013
-      # install reports, since FFNx's version table only knows the 1.2
-      # lineage and flags the Steam build separately via af3dn.p. So
-      # en_nv IS the Steam-2013 directory, and a mod written for Steam
-      # 2013 belongs in it. Ragnarok's own instructions target the Steam
-      # release (via Roses and Wine, whose flat RaW/GLOBAL/Hext FFNx's
-      # hext/ replaces).
-      #
-      # Placing it wrongly is recoverable, not destructive: Hext patches
-      # are applied to the RUNNING process (VirtualProtect + memcpy_code
-      # in FFNx's hext.cpp:185,203), never to the file, and the game tree
-      # is a read-only store path. A mismatch crashes or no-ops; it cannot
-      # damage the installation.
-      mkdir -p "$out/hext/ff8/en_nv"
-      hext=$(echo unpacked/*/*/Ragnarok_mod.txt)
-      test -s "$hext" || { echo "ragnarok: Hext patch not found" >&2; exit 1; }
-      cp "$hext" "$out/hext/ff8/en_nv/"
-
-      # Every archive the mod replaces must be present, or the engine
-      # silently mixes modded and stock data.
-      for f in battle field main menu; do
-        for ext in fi fl fs; do
-          test -s "$out/Data/lang-en/$f.$ext" \
-            || { echo "ragnarok: missing $f.$ext" >&2; exit 1; }
-        done
-      done
-    '';
-
-  # Texture packs from the Tsunamods catalogue, which is where the FF8
-  # graphics scene actually lives. Every one of them -- like every mod in
-  # that catalogue -- ships as a .7z wrapping a single .iroj, the container
-  # format 7th Heaven and its FF8 fork Junction VIII use, so they are
-  # unusable as plain overlay lowers until unpacked. ./iro-extract.py does
-  # that (format ported from Junction VIII's AppWrapper/IrosArc.cs), which
-  # is what makes these installable without a Windows GUI.
-  #
-  # These are texture replacements: they add files under mods/textures/ and
-  # touch none of the Data/lang-en archives, so they compose freely with
-  # each other AND with `ragnarok`. Rebalance mods are the opposite -- see
-  # the ragnarok option.
-  #
-  # URLs are the catalogue's own (gp-mc.net), pinned by hash. Unlike the
-  # game asset these are small enough and stable enough for plain fetchurl,
-  # matching how games/grand-theft-auto-san-andreas pins its mods.
-  texturePacks = {
-    world = {
-      label = "Horizon Pack Plus v2.4 -- world map and town textures";
-      inner = "horizonpack.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/horizonpack.7z";
-        hash = "sha256-JuFjYSZmNIGKQjJhEZ7Dgojm/H9Xwfhi5m03IRGAtAI=";
-      };
+  # Ragnarok Rebalancing Mod v1.2.3 (Callisto), the 2013-Steam build:
+  # the most popular FF8 mod by a wide margin, playtested start to
+  # finish by its author. Two difficulty variants ship in one download
+  # and differ only in six Data/lang-en files, so they are a
+  # `ragnarokMode` choice rather than two packages. Each variant tree
+  # holds the four replaced archives (battle, field, main, menu as
+  # .fi/.fl/.fs) and the mod's Hext patch list under hext/ff8/en_nv/,
+  # which is where FFNx looks for a Steam-2013 executable (its version
+  # table reports this build as FF8 1.2 US NV). Hext patches apply to the
+  # running process only, so a misplaced one no-ops rather than damaging
+  # anything. The Hext half needs FFNx; without it only the data half
+  # applies.
+  ragnarok = {
+    standard = tree "ff8-ragnarok-1.2.3-standard" {
+      cid = "bafybeicbnm5ekth6orauv5bgtq7dqatqx6fewcuizonmjynrb5zhz5qnd4";
+      hash = "sha256-Xvyhe6Q81tn+YlgF0CoD8LjHsCa/e3Z9+5KNAwTRiG4=";
+      size = 356969624;
     };
-    models = {
-      label = "Poly-UP v4.5 -- character models and textures";
-      inner = "poly_up.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/chump/poly_up.7z";
-        hash = "sha256-lyj4Ziws2Ig+YH/zv6Y5DinduMVAuUEfy2fcX4UgxVs=";
-      };
-    };
-    enemies = {
-      label = "Lunar Cry Plus v4.4 -- enemy textures";
-      inner = "lunarcry.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/lunarcry.7z";
-        hash = "sha256-7/Tjfcsa4Qo3JPBMmx94sbClfoCHEkSaC0DXDHWkkjc=";
-      };
-    };
-    battles = {
-      label = "BattlefieldPack Plus v2.2 -- battlefield textures";
-      inner = "battlefieldpack.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/battlefieldpack.7z";
-        hash = "sha256-CJC/LGcfA7lttZY82ywyyjLWLj6r3j+8NTy9oG1z/a4=";
-      };
-    };
-    gfs = {
-      label = "ProjectHELLFIRE Plus v2.5 -- Guardian Force textures";
-      inner = "ph.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/ph.7z";
-        hash = "sha256-RBCzQNv6O745/WIf5LUBoljx7SfkEHfOBuWgqMiyV9g=";
-      };
-    };
-    characters = {
-      label = "Rebirth Flame Plus v2.0 -- character textures";
-      inner = "flame_rebirth_plus.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/chump/flame_rebirth_plus.7z";
-        hash = "sha256-IqvoJeKt74idKfQe0hgA/Wk9BQg1Zlk5l0kKjVCg6tg=";
-      };
-    };
-    spells = {
-      label = "Hit-J Plus v2.1 -- spell and effect textures";
-      inner = "hitj.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/chump/hitj.7z";
-        hash = "sha256-bP1/yiIIROhqdXeVa9aKht/R+Yj6KCXKL+dL10Fy4Ww=";
-      };
-    };
-    battleModels = {
-      label = "Skin-RF v1.62 -- battle model textures";
-      inner = "skin-RF.iroj";
-      src = fetchurl {
-        url = "https://www.gp-mc.net/mcindus/chump/skin-RF.7z";
-        hash = "sha256-dtV8eoL9W57Sc+tsL0AwGAV7pTosVRgjVshF2viEMxM=";
-      };
+    lionheart = tree "ff8-ragnarok-1.2.3-lionheart" {
+      cid = "bafybeib4aftmigdo7u6u3fbthuu5tj2cj6bj63hbirbj5r2mpx5xdui76u";
+      hash = "sha256-/E2498ol5yXF+CakGSf4UWyxiHf5wkEqFcKyX33qegQ=";
+      size = 356970255;
     };
   };
 
-  # Field backgrounds are a separate category from everything above, and
-  # the distinction is the whole reason this option exists. The eight packs
-  # ship mods/Textures/field/**model** -- the character models standing in
-  # a field. The pre-rendered room art itself lives in field.fs and FFNx
-  # overrides it at mods/Textures/field/mapdata/<map>/<map>.dds (its
-  # docs/ff8/mods/external_textures.md, "Field / Maps / One texture per
-  # map"). No pack above writes a single mapdata path, which is why rooms
-  # stay blurry however many of them you enable.
+  # Texture packs from the Tsunamods catalogue (gp-mc.net), where the FF8
+  # graphics scene lives. Unpacked from their .iroj containers into
+  # mods/Textures/ (FFNx's mod_path) plus direct/ for loose engine-file
+  # overrides. They are texture replacements only -- none touches the
+  # Data/lang-en archives -- so they compose freely with each other and
+  # with `ragnarok`.
   #
-  # This is the only free, maintained, FFNx-native field pack in
-  # existence. The alternatives were checked and rejected: AngelWing
-  # Ultima is the best-looking and is Patreon-only, never publicly
-  # released; the free AngelWing v3.0 ships 512x1024 tiles for Tonberry,
-  # where FFNx needs squares (its background.cpp works at
-  # TEXTURE_WIDTH_BPP4 x TEXTURE_HEIGHT = 256x256), so it does not load at
-  # all; Project Eden's only downloads are goo.gl links, dead since Google
-  # retired the shortener in 2025; GUM is a 2019 pre-alpha, also Tonberry.
-  #
-  # It is INCOMPLETE and honestly so: 157 of 877 maps, Balamb Garden and
-  # Ifrit's Cave finished. Outside those the rooms are still vanilla, so
-  # the game looks inconsistent -- which is why this is opt-in separately
-  # from `textures` rather than folded into it.
-  #
-  # Only _FBG_4XSHARP is taken. The archive also holds ~1.2 GiB of UI
-  # themes, cursors and controller glyphs, plus FIELD_MODELS/HIGH_POLY
-  # whose own README says high-poly field models were once withdrawn "to
-  # prevent crashes and artifacts". Those are not what this option is for,
-  # and 12 of the UI ModFolder elements carry no ActiveWhen at all, so
-  # mod.xml gating cannot exclude them -- hence the explicit --only.
-  fieldBackgroundPack = {
-    label = "AxlRose's WIP v2026.0705 -- 4x field backgrounds, 157 of 877 maps";
-    inner = "AxlRoseWIP.iroj";
-    only = [ "_FBG_4XSHARP" ];
-    src = fetchurl {
-      url = "https://www.gp-mc.net/ff8/tsunamods/AxlRoseWIP.7z";
-      hash = "sha256-PIa8J0pPMF1f9zsggGcoJBFwRCkw0/39Rg5y6ZFGCrw=";
-    };
-  };
-
-  # Priority order for the packs, highest first, because they DO overlap:
-  # 118 of the 1392 files collide, essentially all of them battle
-  # character textures shipped by both Poly-UP (which bundles matching
-  # models AND textures, v4.5) and the older Rebirth Flame Plus (textures
-  # only, v2.0). Overlay lowers are first-wins, so leaving this to the
-  # attribute set's alphabetical order would silently let the older
-  # textures land on the newer models. Poly-UP wins instead; the remaining
-  # packs cover disjoint surfaces and their order is immaterial.
-  texturePackOrder = [
-    "models"
-    "characters"
-    "battleModels"
-    "gfs"
-    "spells"
-    "enemies"
-    "battles"
-    "world"
+  # Priority order, highest first, because they DO overlap: 118 of the
+  # 1392 files collide, essentially all of them battle character textures
+  # shipped by both Poly-UP (models AND textures, v4.5) and the older
+  # Rebirth Flame Plus (textures only, v2.0). Overlay lowers are
+  # first-wins, so Poly-UP goes first; the remaining packs cover disjoint
+  # surfaces and their order is immaterial.
+  texturePacks = [
+    # Poly-UP v4.5 -- character models and textures
+    (tree "ff8-texturepack-models" {
+      cid = "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq";
+      hash = "sha256-iSko6Bzypp17WbtfmCOFAth2bxonAYRQwZNAD/htXfs=";
+      size = 159665748;
+    })
+    # Rebirth Flame Plus v2.0 -- character textures
+    (tree "ff8-texturepack-characters" {
+      cid = "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq";
+      hash = "sha256-P1WN6Nm1Xkk6Mc7nXalQ5nNb74kC1XrRBLNKEpcako0=";
+      size = 155402980;
+    })
+    # Battle models
+    (tree "ff8-texturepack-battleModels" {
+      cid = "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i";
+      hash = "sha256-VOz/8iEUFKstZ5nMKRM78yII+s01SlGW0MSgYNcTsM8=";
+      size = 161712636;
+    })
+    # ProjectHELLFIRE Plus v2.5 -- Guardian Force textures
+    (tree "ff8-texturepack-gfs" {
+      cid = "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e";
+      hash = "sha256-TiUcAttKg4Kt19fghiLPgufIH9v1kYjkhHgvrdOAC3o=";
+      size = 282919830;
+    })
+    # Spell effects
+    (tree "ff8-texturepack-spells" {
+      cid = "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla";
+      hash = "sha256-kxeFp8TsX1x3XAGhHGZtRRgJ768wvjghENsAK+mrH8w=";
+      size = 515801894;
+    })
+    # Lunar Cry Plus v4.4 -- enemy textures
+    (tree "ff8-texturepack-enemies" {
+      cid = "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64";
+      hash = "sha256-2umaoPppkFjMIRbKvZA8mXYMfbtkmIX5tbmhGzPurOA=";
+      size = 25169376;
+    })
+    # BattlefieldPack Plus v2.2 -- battlefield textures
+    (tree "ff8-texturepack-battles" {
+      cid = "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy";
+      hash = "sha256-v/BWmFTNRmGiYLH2BWfFD1ua2knuIqv6ueGXoXBOmKE=";
+      size = 765376432;
+    })
+    # Horizon Pack Plus v2.4 -- world map and town textures
+    (tree "ff8-texturepack-world" {
+      cid = "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni";
+      hash = "sha256-LEAqI9ulra5flv0I/n8Si1WrlPhJJi8bcji46EOO2fY=";
+      size = 52049856;
+    })
   ];
 
-  # Unwrap .7z -> .iroj -> plain tree. Folder selection inside the archive
-  # comes from the mod's own mod.xml defaults; ./iro-extract.py resolves
-  # each `<ModFolder ActiveWhen="var = value">` against the matching
-  # `<ConfigOption><Default>`, which is what Junction VIII's UI would
-  # otherwise ask the user about.
-  mkTexturePack =
-    key: pack:
-    runCommandLocal "ff8-texturepack-${key}"
-      {
-        nativeBuildInputs = [
-          p7zip
-          python3
-        ];
-      }
-      ''
-        7z x -y -bso0 -bsp0 -o"$TMPDIR/pack" ${pack.src}
-        mkdir -p "$out"
-        python3 ${./iro-extract.py} "$TMPDIR/pack/${pack.inner}" "$out" \
-          ${lib.concatMapStringsSep " " (f: "--only ${lib.escapeShellArg f}") (pack.only or [ ])}
-
-        # Normalise to the casing FFNx actually reads. Its mod_path is
-        # "mods/Textures" (FFNx.toml:488) and packs are inconsistent about
-        # it -- Horizon Pack emits mods/textures, Poly-UP mods/Textures.
-        # Windows would not care; a case-sensitive overlay would leave two
-        # sibling directories and wine would resolve only one of them,
-        # silently hiding the other pack's textures.
-        if [ -d "$out/mods/textures" ]; then
-          mkdir -p "$out/mods/Textures"
-          cp -rn "$out/mods/textures"/. "$out/mods/Textures"/
-          rm -rf "$out/mods/textures"
-        fi
-
-        # Anything outside mods/ is a loose replacement for a file the
-        # engine would otherwise read from an .fs archive -- Poly-UP ships
-        # FIELD/model/main_chr/*.mch that way. FFNx reads those from
-        # direct_mode_path (FFNx.toml:530, "if FF8 is looking for
-        # .../FIELD/... in field.fs, open direct/FIELD/... if it exists"),
-        # so that is where they go.
-        for entry in "$out"/*; do
-          base=$(basename "$entry")
-          case "$base" in
-            mods | direct | hext) continue ;;
-          esac
-          mkdir -p "$out/direct"
-          mv "$entry" "$out/direct/"
-        done
-
-        test -d "$out/mods/Textures" || test -d "$out/direct" || {
-          echo "${key}: produced neither mods/Textures nor direct/" >&2
-          exit 1
-        }
-      '';
-
-  texturePackLowers = map (key: mkTexturePack key texturePacks.${key}) texturePackOrder;
-
-  # Which mod trees are pinned for Android, keyed by the layer's own name
-  # (which `android.layers` derives from the derivation; build one with
-  # `nix build .#androidLayerPayloads.final-fantasy-viii.<name>`). A layer
-  # that is absent from this table has no CID in the manifest, which the
-  # client shows as "not published yet" rather than letting a player pick
-  # a mod it cannot fetch.
-  pinnedLayers = {
-    "ff8-music-orchestral" = "bafybeieyddbj3khcngfhogbdbchxrwpyhu7xpvldilxyorqsikopa25ddy";
-    "ff8-music-psx" = "bafybeigbxe2xgpcgpryfvqbphpd22d5oq3b7wtmeme5e7jtggxxs7hwoka";
-    "ff8-ragnarok-1.2.3-lionheart" = "bafybeib4aftmigdo7u6u3fbthuu5tj2cj6bj63hbirbj5r2mpx5xdui76u";
-    "ff8-ragnarok-1.2.3-standard" = "bafybeicbnm5ekth6orauv5bgtq7dqatqx6fewcuizonmjynrb5zhz5qnd4";
-    "ff8-texturepack-battleModels" = "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i";
-    "ff8-texturepack-battles" = "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy";
-    "ff8-texturepack-characters" = "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq";
-    "ff8-texturepack-enemies" = "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64";
-    "ff8-texturepack-fields" = "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi";
-    "ff8-texturepack-gfs" = "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e";
-    "ff8-texturepack-models" = "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq";
-    "ff8-texturepack-spells" = "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla";
-    "ff8-texturepack-world" = "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni";
-    "ff8-voice-echo-s-8-demo" = "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca";
+  # AxlRose's WIP v2026.0705 -- 4x field backgrounds, 157 of 877 maps
+  # (the _FBG_4XSHARP folder only; the rest of that archive is UI work
+  # its own mod.xml cannot gate).
+  fieldBackgrounds = tree "ff8-texturepack-fields" {
+    cid = "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi";
+    hash = "sha256-cEIEGyb6DCk55p4YKzh3QUYp3OEix1vUfiMKhN/q1KU=";
+    size = 590699204;
   };
 
   # Music. The 2013 release is the 2000 PC port's audio verbatim: 91
-  # DirectMusic .sgt sequences rendered through an 8 MB DLS instrument bank
-  # in Data/Music/dmusic. That is a General-MIDI-class software synth, and
-  # it is the biggest fidelity gap left in this package -- audibly worse
-  # than the PSX original it was derived from, which is why swapping it is
-  # worth 14 MB.
+  # DirectMusic .sgt sequences rendered through an 8 MB DLS instrument
+  # bank, a General-MIDI-class software synth and the biggest fidelity gap
+  # left in this package. Each pack installs into music/ and carries the
+  # FFNx.toml that points FFNx at it (external music is not defaulted for
+  # the Steam 2013 edition, and with use_external_music on FFNx replaces
+  # play_midi outright, so an unpointed pack plays SILENCE). The 19
+  # Data/Music/stream/*.wav ambiences stay: FFNx falls back to the
+  # original file for those.
   #
-  # The 19 Data/Music/stream/*.wav ambiences and eyes_on_me.wav are already
-  # 16-bit PCM, so replacing THOSE with lossy files is a downgrade. FFNx
-  # keeps them: .wav-backed tracks fall back to the original file when no
-  # external one exists (music.cpp:292-299). Only the sequenced half is
-  # replaced here.
-  #
-  # Note how FFNx names tracks, because it decides what a pack must be
-  # called: ff8_format_midi_name (music.cpp:148-160) cuts everything up to
-  # and including the first "-" off the .sgt filename, so 005s-battle.sgt
-  # is looked up as "battle". Both packs below already ship that naming.
-  #
-  # The hazard to design around: with use_external_music on, FFNx replaces
-  # play_midi outright (music.cpp:1213), so a sequenced track with no
-  # external file plays SILENCE -- there is no MIDI to fall back to.
-  # Coverage is therefore a correctness property, not a nicety.
-  musicPsf = fetchurl {
-    url = "https://www.ff8.fr/download/programs/FFNx-FF8Music-v1.5.zip";
-    hash = "sha256-E228AjwMIzDsrBH9yLaJTlSMVa+p/A8n7GfHA+SVM7Y=";
+  #   psx         the PlayStation rendering: minipsf sequences plus the
+  #               SPU sample library (FFNx-FF8Music v1.5, ff8.fr), played
+  #               through FFNx's built-in OpenPSF with the hebios.bin it
+  #               needs.
+  #   orchestral  OST-RF (Tsunamods): arranged oggs, over the psx set as
+  #               fallback, with FFNx's volume/sync settings the pack's
+  #               README asks for, and two tracks duplicated under the
+  #               names FFNx asks for (missile, eyes_on_me) because the
+  #               pack misnames them.
+  music = {
+    psx = tree "ff8-music-psx" {
+      cid = "bafybeibpvjr344pzyacsfqfxwr3urdm3vv4f7kdai3b7flqmtlu4v5fyb4";
+      hash = "sha256-GU+mHM8rx5YKAUnHT1DKRZBcOQe4ScR0oCyViN9skWE=";
+      size = 15319910;
+    };
+    orchestral = tree "ff8-music-orchestral" {
+      cid = "bafybeifj2tjtsllgh6gllqt7eyftwvh5mkelolrrovhhd24qc26kxqq2ra";
+      hash = "sha256-KVuGguwGKQ36GObPSzvFRnAkemk9TnzxZGfLPgjRY8I=";
+      size = 779051544;
+    };
   };
-
-  musicOstRf = fetchurl {
-    name = "OST-RF.iroj";
-    urls = [
-      "https://modcdn.win/ost-rf/OST-RF.iroj"
-      "https://download.tsunamods.com/?id=18"
-    ];
-    hash = "sha256-uqZwxpvjoeiz3uYHZhWnQ8WV1ipELVaxNjKUalQ6xF4=";
-  };
-
-  # Both modes install into a single music/ directory and set
-  # external_music_path to it, so there is one lookup root and one bios
-  # location regardless of mode. The FFNx.toml that does the pointing is
-  # part of the layer (see ffnxToml in the module below): without it the
-  # files sit unread next to a vanilla config.
-  mkMusic =
-    mode: toml:
-    runCommandLocal "ff8-music-${mode}"
-      {
-        nativeBuildInputs = [
-          unzip
-          python3
-        ];
-      }
-      (
-        ''
-          mkdir -p "$out/music"
-          unzip -q -o ${musicPsf} 'psf/*' -d "$TMPDIR"
-
-          # The PSX rendering: minipsf sequences plus the SPU sample
-          # library, played through FFNx's built-in OpenPSF. hebios.bin is
-          # the Highly-Experimental BIOS that emulation needs -- without it
-          # every track is silent, so it is not optional.
-          cp "$TMPDIR/psf"/*.minipsf "$out/music/"
-          cp "$TMPDIR/psf/FF8.psflib" "$TMPDIR/psf/hebios.bin" "$out/music/"
-        ''
-        + lib.optionalString (mode == "psx") ''
-          cp "$TMPDIR/psf/config.toml" "$out/music/"
-        ''
-        + lib.optionalString (mode == "orchestral") ''
-          python3 ${./iro-extract.py} ${musicOstRf} "$TMPDIR/ost"
-          cp "$TMPDIR/ost/music"/*.ogg "$out/music/"
-
-          # OST-RF's config.toml is a superset of the PSF one (same
-          # no_intro_track/intro_seconds entries plus a joriku volume), so
-          # it wins here rather than merging two files.
-          cp "$TMPDIR/ost/music/config.toml" "$out/music/"
-
-          # Two upstream naming bugs, both of which would play SILENCE
-          # because these are sequenced tracks with no wav fallback.
-          # Copy rather than rename so the pack stays as shipped:
-          #   missle.ogg  -> FFNx asks for "missile" (068s-missile.sgt)
-          #   eyesonme.ogg -> FFNx asks for "eyes_on_me" (music.cpp:45)
-          for pair in "missle:missile" "eyesonme:eyes_on_me"; do
-            src="$out/music/''${pair%%:*}.ogg"
-            dst="$out/music/''${pair##*:}.ogg"
-            if [ -f "$src" ] && [ ! -f "$dst" ]; then cp "$src" "$dst"; fi
-          done
-        ''
-        + ''
-          install -m644 ${toml} "$out/FFNx.toml"
-          test -s "$out/music/hebios.bin"
-          test -f "$out/music/config.toml"
-          test "$(ls "$out/music" | wc -l)" -gt 90
-        ''
-      );
 
   # Voice acting. Tsunamods Echo-S 8, a human-cast recording of the field
   # dialogue -- the only voiced FF8 that exists. It is a DEMO and the full
   # release has never shipped: coverage runs from the game start to
   # entering Timber, at which point it forces a game over on purpose.
-  #
-  # FFNx's FF8 voice layer is complete (voice.cpp:1403-1450 patches the
-  # field mes/ames/ask opcodes, battle name getters and 15 world-map
-  # assign_text sites), so nothing here needs an engine change. Lookup is
-  # <basedir>/voice/<field>/<dialog>[<page>].ogg, which is exactly how the
-  # pack is laid out.
-  #
-  # Unlike every other mod here this one needs a three-way split rather
-  # than the texture helper's "everything that is not mods/ is direct/":
-  #   voice/  -> game root, where external_voice_path points
-  #   FIELD/  -> direct/, engine file overrides (scripts and dialogue)
-  #   movies/ -> Data/movies/, where FFNx asks for disc%02i_%02ih.avi
-  # The movies are the voiced FMVs and are NOT optional: the pack's own
-  # field scripts invoke disc00_31h/32h, movie slots vanilla does not have.
-  voicePack = fetchurl {
-    name = "echo-s-8-demo.iroj";
-    urls = [
-      "https://modcdn.win/uprisen/Echo-S%208%20Demo.iroj"
-      "https://download.tsunamods.com/?id=20"
-    ];
-    hash = "sha256-WJQ9WerWa+OthyKcL6FeCmnT/LF0MhjXg3ODhqhqYdY=";
+  # Laid out as FFNx reads it: voice/ at the game root, the pack's field
+  # scripts under direct/FIELD/, and its voiced FMVs under Data/movies/
+  # (not optional: the scripts invoke movie slots vanilla does not have).
+  voices = tree "ff8-voice-echo-s-8-demo" {
+    cid = "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca";
+    hash = "sha256-ngXQHt0ff3FjGzSVPyImO4Zj6i4iXg7gDna8NeUK0sw=";
+    size = 1312611023;
   };
 
-  mkVoicePack =
-    runCommandLocal "ff8-voice-echo-s-8-demo"
-      {
-        nativeBuildInputs = [ python3 ];
-      }
-      ''
-        mkdir -p "$out"
-        python3 ${./iro-extract.py} ${voicePack} "$TMPDIR/echos"
-
-        cp -r "$TMPDIR/echos/voice" "$out/voice"
-
-        mkdir -p "$out/direct"
-        cp -r "$TMPDIR/echos/FIELD" "$out/direct/FIELD"
-
-        mkdir -p "$out/Data"
-        cp -r "$TMPDIR/echos/movies" "$out/Data/movies"
-
-        # The archive carries a few working files that are inert with
-        # external_voice_ext = "ogg" but have no business in a store path.
-        find "$out/voice" -name '*.sfk' -delete
-        find "$out/voice" -name '*.wav' -delete
-        find "$out/voice" -name '* - Copy.ogg' -delete
-
-        test "$(find "$out/voice" -name '*.ogg' | wc -l)" -gt 3000
-        test -d "$out/direct/FIELD/mapdata"
-        test -n "$(find "$out/Data/movies" -name '*.avi' -print -quit)"
-      '';
-
-  # FFNx is the engine layer this package is built around. It is the
-  # modern graphics/audio driver for the classic FF8 engine, and it is
-  # what makes the rebalance-mod ecosystem reachable: every gameplay mod
-  # in circulation for this release is an FFNx mod (verified against
-  # HobbitDur/HobbitInstaller's own compatibility switch, which maps
-  # FF8_2000 + FF8_2013 -> FFNx and FF8_REMASTER -> Demaster, and whose
-  # catalogue lists zero gameplay mods on the Demaster path).
+  # FFNx, the modern graphics/audio driver for the classic FF8 engine and
+  # what makes the mod ecosystem reachable: every gameplay mod for this
+  # release is an FFNx mod. Install is a file drop next to FF8_EN.exe --
+  # AF3DN.P/AF4DN.P are the game's own driver stubs and FFNx replaces
+  # them; FFNx_steam_api.dll is the Valve DLL it validates, while the
+  # tree's own steam_api.dll keeps its slot (the cracked executable is
+  # bound to that emulator; a generic one makes SteamAPI_Init fail).
   #
-  # Install is a pure file drop next to FF8_EN.exe -- no injector, no
-  # resident launcher, no registry. That is why this package targets
-  # FFNx and NOT the older Roses-and-Wine / HextLaunch tooling that
-  # every 2013-era mod README still tells you to install: RaW needs a
-  # second always-running FF8+.exe doing cross-process DLL injection,
-  # which is exactly the shape that behaves worst under gamescope.
-  # FFNx supersedes it -- `hext_patching_path = "hext"` in FFNx.toml
-  # applies the same Hext .txt patches those mods ship.
-  #
-  # Only the `FFNx-Steam` artifact is correct here. `FFNx-FF8_2000` is
-  # for the Eidos CD release, and FFNx-FF8_Remastered exists ONLY on the
-  # rolling `canary` tag (every stable release from 1.5.3 through 1.24.3
-  # ships exactly FF7_1998 + FF8_2000 + Steam) and is documented as
-  # incomplete: "You will most likely encounters crashes in battle".
-  #
-  # Pinned from the rolling `canary` tag, which force-replaces its assets
-  # on every CI build: the .172 build this recipe originally pointed at
-  # 404'd once .272 shipped, with no mirror anywhere (no wayback capture,
-  # no CI artifact, no cache). So the zip is pinned on our own IPFS node
-  # and the GitHub URL below is documentation of provenance, not a
-  # working fallback -- it will 404 again when canary rolls past .272.
-  # No stable release can replace it: the b62ccf0b steam_api split this
-  # recipe depends on (see gbeFork below) exists only on canary.
-  ffnx = fetchIpfs {
-    cid = "bafybeibrdmet3xylbkm557qqxxnwtcnxd6x4m3e7yypi34mqaoosxvybti";
-    fallbackUrl = "https://github.com/julianxhokaxhiu/FFNx/releases/download/canary/FFNx-Steam-v1.24.3.272.zip";
-    hash = "sha256-2fpG/hNH262JQs0XPoIkrE+sqVpMLHe+JF6kxlUOyUY=";
-    name = "FFNx-Steam-v1.24.3.272.zip";
-  };
-
-  # The release with ONE call removed: ffnx_log_current_pc_specs()
-  # (common.cpp:307, called unconditionally at common.cpp:1072). It only
-  # writes a "PC SPECS" block to FFNx.log, but to get the CPU name it
-  # goes through hwinfo's wstring_to_std_string (stringutils.h:156),
-  # which does setlocale(LC_ALL, ".65001") -- and the 32-bit ucrtbase of
-  # proton-10.0-arm64ec aborts inside that UTF-8 locale setup with
-  # STATUS_INVALID_CRUNTIME_PARAMETER (0xc0000417). Traced with +relay on
-  # the AYN Thor: RegQueryValueExW("VendorIdentifier") ->
-  # IsValidCodePage(65001) -> locale build -> SetUnhandledExceptionFilter
-  # (0) -> TerminateProcess, every launch, before the first frame. The
-  # desktop's x86_64 ucrtbase survives the same call, which is why this
-  # never showed on Linux.
-  #
-  # The function is void() cdecl and its single call site is followed
-  # by av_log_set_level(AV_LOG_VERBOSE) -- `6a 28` is push 0x28 -- so
-  # five NOPs remove the log block and nothing else. Both facts are
-  # asserted below; a new FFNx release that moves the code fails the
-  # build here rather than shipping an unpatched or mispatched driver.
-  # Symbol address from the FFNx.pdb the release ships
-  # (`?ffnx_log_current_pc_specs@@YAXXZ` = 0001:3875936).
-  ffnxDriver =
-    runCommandLocal "ffnx-steam-1.24.3-no-pc-specs"
-      {
-        nativeBuildInputs = [
-          unzip
-          python3
-        ];
-      }
-      ''
-        mkdir -p "$out"
-        unzip -q ${ffnx} -d "$out"
-        chmod u+w "$out/AF3DN.P"
-        python3 - "$out/AF3DN.P" <<'EOF'
-        import sys
-        path = sys.argv[1]
-        d = bytearray(open(path, "rb").read())
-        off = 0x3ACB3A
-        call = bytes.fromhex("e8215d0000")    # call ffnx_log_current_pc_specs
-        after = bytes.fromhex("6a28")         # push AV_LOG_VERBOSE
-        assert d[off:off + 5] == call, d[off:off + 5].hex()
-        assert d[off + 5:off + 7] == after, d[off + 5:off + 7].hex()
-        d[off:off + 5] = b"\x90" * 5
-        open(path, "wb").write(d)
-        EOF
-        chmod u-w "$out/AF3DN.P"
-      '';
-
-  # gbe_fork (Goldberg): an offline steam_api.dll, and the other half of
-  # what makes FFNx usable here.
-  #
-  # This is a Steamworks title, so the engine's own SteamAPI_Init has to
-  # succeed or it dies on "Steam must be running to play this game with
-  # achievements". A GENUINE steam_api.dll cannot do that offline -- it
-  # needs a live client -- so an emulator has to own that slot.
-  #
-  # Until 2026-07-26 that was impossible alongside FFNx, because stable
-  # 1.24.3 shipped its own steam_api.dll into the same filename and
-  # validated it (Authenticode signature, else SHA1
-  # 03bd9f3e352553a0af41f5fe006f6249a168c243 -- the genuine Valve blob,
-  # the same one Junction VIII whitelists), so an emulator there made FFNx
-  # refuse to load. Commit b62ccf0b split the two names: FFNx now installs
-  # the Valve DLL as FFNx_steam_api.dll, validates THAT, and explicitly
-  # stops deploying steam_api.dll (CMakeLists.txt:346-349 and 654-656).
-  # Verified against the artifact: the canary zip above contains
-  # FFNx_steam_api.dll and no steam_api.dll at all.
-  #
-  # FFNx never actually calls Steam here either way -- its whole Steam
-  # block is gated on `enable_steam_achievements` (common.cpp:828), shipped
-  # false -- so the Valve DLL just sits there satisfying the check.
-  #
-  # Same release pin as games/antichamber, the repo's other 32-bit user.
-  gbeFork = fetchurl {
-    url = "https://github.com/Detanup01/gbe_fork/releases/download/release-2026_04_25/emu-win-release.7z";
-    hash = "sha256-Ly0ZE1X6MQVZnons/Tgq2t4eSml3nUznhxI1Ll8OEoI=";
-  };
-
-  # The process proton actually tracks, and the reason the game is
-  # playable at all.
-  #
-  # FF8_Launcher.exe does NOT exit when it starts the game, and while it
-  # lives the game is unplayable: gamescope has to pick a primary window
-  # out of nine (the launcher, its Notice, a Debug window, Steam, SteamVR
-  # Status, Input, an IME window and the game) and the engine's keyboard
-  # and mouse stay dead, including in its own control-config screen.
-  # Junction VIII solves this the same way, enumerating FF8_Launcher
-  # processes and killing them.
-  #
-  # The launcher cannot simply be killed from preRun, though: it is the
-  # process `proton waitforexitandrun` is waiting on, so its death ends
-  # the session and takes the game with it (measured -- the game died
-  # four seconds after the kill). So the tracked process has to be
-  # something that outlives it. This supervisor is built for the windows
-  # subsystem, so it never creates a window of its own; it starts the
-  # launcher, waits for the engine to appear, retires the launcher, and
-  # then waits on the GAME so the session ends when the game does.
-  #
-  # Everything here is process lifecycle -- nothing is clicked and no UI
-  # is automated. The operator still presses PLAY once. Skipping that
-  # needs FF8_EN.exe to start directly, which is gated behind a launcher
-  # handshake of four named semaphores (ff8_{launcher,game}{CanRead,
-  # DidRead}MsgSem) plus at least one predicate that is still
-  # unidentified; supplying all four is not sufficient, and argv, the
-  # environment, the Steamworks emulator, named sections and the parent
-  # process name have each been ruled out by measurement.
-  launchSupervisor = pkgs.pkgsCross.mingw32.stdenv.mkDerivation {
-    pname = "strom-ff8-supervisor";
-    version = "1";
-    dontUnpack = true;
-
-    buildPhase = ''
-      runHook preBuild
-      cat > supervisor.c <<'CEOF'
-      #include <windows.h>
-      #include <tlhelp32.h>
-
-      static DWORD find_pid(const char *exe)
-      {
-          PROCESSENTRY32 entry;
-          DWORD pid = 0;
-          HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-
-          if (snap == INVALID_HANDLE_VALUE)
-              return 0;
-
-          entry.dwSize = sizeof entry;
-          if (Process32First(snap, &entry)) {
-              do {
-                  if (lstrcmpiA(entry.szExeFile, exe) == 0) {
-                      pid = entry.th32ProcessID;
-                      break;
-                  }
-              } while (Process32Next(snap, &entry));
-          }
-
-          CloseHandle(snap);
-          return pid;
-      }
-
-      /* The supervisor runs where nothing can watch it: no console, and on
-         Android no wine stderr reaches anywhere readable. So it says what
-         it did, beside itself in the game directory, where both a desktop
-         and a phone can read it afterwards. Truncated each run; a few KB. */
-      static HANDLE logfile = INVALID_HANDLE_VALUE;
-
-      static void log_open(void)
-      {
-          char path[MAX_PATH];
-          DWORD n = GetModuleFileNameA(NULL, path, MAX_PATH);
-          while (n > 0 && path[n - 1] != '\\')
-              n--;
-          lstrcpyA(path + n, "strom-ff8-supervisor.log");
-          logfile = CreateFileA(path, GENERIC_WRITE, FILE_SHARE_READ, NULL,
-                                CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-      }
-
-      static void log_line(const char *s)
-      {
-          DWORD written;
-          SYSTEMTIME t;
-          char stamp[32];
-
-          if (logfile == INVALID_HANDLE_VALUE)
-              return;
-          GetLocalTime(&t);
-          wsprintfA(stamp, "%02d:%02d:%02d ", t.wHour, t.wMinute, t.wSecond);
-          WriteFile(logfile, stamp, lstrlenA(stamp), &written, NULL);
-          WriteFile(logfile, s, lstrlenA(s), &written, NULL);
-          WriteFile(logfile, "\r\n", 2, &written, NULL);
-          FlushFileBuffers(logfile);
-      }
-
-      /* Every running image name, so a launcher that starts something
-         under a name we did not expect is visible rather than invisible. */
-      static void log_processes(void)
-      {
-          PROCESSENTRY32 entry;
-          HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-          char line[1024];
-          int len = 0;
-
-          if (snap == INVALID_HANDLE_VALUE)
-              return;
-
-          lstrcpyA(line, "processes:");
-          len = lstrlenA(line);
-          entry.dwSize = sizeof entry;
-          if (Process32First(snap, &entry)) {
-              do {
-                  int add = lstrlenA(entry.szExeFile) + 1;
-                  if (len + add > (int)sizeof line - 2)
-                      break;
-                  line[len++] = ' ';
-                  lstrcpyA(line + len, entry.szExeFile);
-                  len += add - 1;
-              } while (Process32Next(snap, &entry));
-          }
-          CloseHandle(snap);
-          log_line(line);
-      }
-
-      /* FFNx cannot start without a Steam-style user folder, and a fresh
-         wineprefix has none.
-
-         get_userdata_path (common.cpp:2937) builds
-         Documents\Square Enix\FINAL FANTASY VIII Steam and then looks for
-         the first "user_*" child. When there is none it leaves the path
-         without one, and Metadata::init (metadata.cpp:70) immediately does
-         userID.assign(strrchr(userPath, '_') + 1) -- strrchr returns NULL
-         and the game dies dereferencing 0x1. Measured on an AYN Thor: the
-         launcher's PLAY started FF8_EN.exe, FFNx.log stopped exactly after
-         "Metadata: Initializing manager", and the process was gone within
-         four seconds.
-
-         On the desktop the folder already exists (~/.strom/<game>/FINAL
-         FANTASY VIII Steam/user_1, created on first run and relocated by
-         saveLocations), which is why this only ever bit on a phone. The
-         name matches that one so saves stay interchangeable between them. */
-      static void ensure_userdata_dir(void)
-      {
-          static const char *parts[] = {
-              "Documents", "Square Enix", "FINAL FANTASY VIII Steam", "user_1"
-          };
-          char path[MAX_PATH];
-          DWORD n = GetEnvironmentVariableA("USERPROFILE", path, MAX_PATH);
-          int i;
-
-          if (n == 0 || n >= MAX_PATH) {
-              log_line("ensure_userdata_dir: no USERPROFILE");
-              return;
-          }
-
-          for (i = 0; i < 4; i++) {
-              if (lstrlenA(path) + lstrlenA(parts[i]) + 2 > MAX_PATH)
-                  return;
-              lstrcatA(path, "\\");
-              lstrcatA(path, parts[i]);
-              CreateDirectoryA(path, NULL);
-          }
-
-          if (GetFileAttributesA(path) == INVALID_FILE_ATTRIBUTES)
-              log_line("ensure_userdata_dir: FAILED to create the user folder");
-          else
-              log_line(path);
-      }
-
-      int WINAPI WinMain(HINSTANCE self, HINSTANCE prev, LPSTR args, int show)
-      {
-          STARTUPINFOA si;
-          PROCESS_INFORMATION pi;
-          char cmd[] = "FF8_Launcher.exe";
-          DWORD game = 0;
-          int i;
-
-          (void)self; (void)prev; (void)args; (void)show;
-
-          ZeroMemory(&si, sizeof si);
-          si.cb = sizeof si;
-
-          log_open();
-          log_line("supervisor start");
-          ensure_userdata_dir();
-
-          /* Mirrors what the desktop wrapper exports, because on Android
-             nothing outside the payload runs and GameNative's per-container
-             environment cannot be reached from a launch intent. FFNx
-             force-enables Steam achievements as soon as it sees af3dn.p and
-             then calls SteamAPI_Init unconditionally (common.cpp:845),
-             dying on "Steam must be running to play this game with
-             achievements"; this variable is the documented escape hatch,
-             read to detect its author's macOS wrapper (utils.cpp:169).
-             Inherited by the launcher and by the FF8_EN.exe it spawns. */
-          SetEnvironmentVariableA("__CFBundleIdentifier",
-                                  "com.julianxhokaxhiu.SummonKit");
-
-          if (!CreateProcessA("FF8_Launcher.exe", cmd, NULL, NULL, FALSE, 0,
-                              NULL, NULL, &si, &pi)) {
-              log_line("CreateProcess FF8_Launcher.exe FAILED");
-              return 2;
-          }
-          log_line("launcher started, waiting for FF8_EN.exe");
-
-          /* Wait for PLAY. Bounded so a session that is never started
-             still terminates instead of hanging forever. */
-          for (i = 0; i < 3600 && game == 0; i++) {
-              game = find_pid("FF8_EN.exe");
-              if (game == 0) {
-                  if (i % 15 == 0)
-                      log_processes();
-                  Sleep(1000);
-              }
-          }
-          log_line(game != 0 ? "FF8_EN.exe found" : "gave up waiting");
-
-          if (game != 0) {
-              HANDLE handle;
-
-              /* Let the engine finish taking over the display first. */
-              Sleep(4000);
-              TerminateProcess(pi.hProcess, 0);
-
-              handle = OpenProcess(SYNCHRONIZE, FALSE, game);
-              if (handle) {
-                  WaitForSingleObject(handle, INFINITE);
-                  CloseHandle(handle);
-              }
-          } else {
-              WaitForSingleObject(pi.hProcess, INFINITE);
-          }
-
-          CloseHandle(pi.hThread);
-          CloseHandle(pi.hProcess);
-          return 0;
-      }
-      CEOF
-      $CC -O2 -mwindows -o strom-ff8-supervisor.exe supervisor.c
-      runHook postBuild
-    '';
-
-    installPhase = ''
-      runHook preInstall
-      mkdir -p "$out"
-      cp strom-ff8-supervisor.exe "$out/"
-      runHook postInstall
-    '';
+  # This is the FFNx-Steam canary build v1.24.3.272 (a stable release
+  # cannot replace it: the b62ccf0b steam_api split it depends on exists
+  # only on canary) with ONE call NOP'd out: ffnx_log_current_pc_specs()
+  # at 0x3ACB3A of AF3DN.P, whose locale setup aborts the 32-bit ucrtbase
+  # of proton-arm64ec on every launch (traced with +relay on the AYN
+  # Thor). The desktop's x86_64 ucrtbase survives it, which is why it
+  # never showed on Linux. Plus FFNx.toml with the backend pinned to
+  # Direct3D 11 (the one bgfx backend measured to survive everywhere; on
+  # the Thor auto chose OpenGL and died at 1920x1080), fullscreen at the
+  # size gamescope nests at, and internal_resolution_scale = 2: FFNx's
+  # shipped zeros mean 640x480 stretched to the output (measured by
+  # capturing the live window), so the window is pinned and the engine
+  # supersamples at 1280x960 on top of it. A music pack's own FFNx.toml
+  # sits above this one. FFNx.pdb (148 MB of debug symbols) is left out.
+  ffnx = tree "ff8-ffnx-1.24.3" {
+    cid = "bafybeifxwghrrqbvbepdspitqji5ty5rk3ipdmvkw52slqgjunlycpj3t4";
+    hash = "sha256-vTQ2d+iT+tKVWWfJuYTPs5+ycT8xQsi/kSwvOCYfTvU=";
+    size = 41011267;
   };
 in
 self.lib.mkGame { inherit lib pkgs; } {
@@ -824,74 +199,6 @@ self.lib.mkGame { inherit lib pkgs; } {
       { config, lib, ... }:
       let
         inherit (lib) mkOption types;
-
-        # FFNx.toml for a given music choice. The base tree always gets
-        # the "vanilla" one; a music layer carries its own, which wins
-        # over the base on both platforms (first overlay lower on the
-        # desktop, later extraction on Android). That is what makes the
-        # music switch a self-contained layer: FFNx only plays a pack it
-        # has been pointed at, and the pointing used to be a build-time
-        # edit of the base -- which a fetched layer cannot reach.
-        #
-        # Resolution: FFNx's shipped defaults render 640x480 in window
-        # mode ("[RESOLUTION]"), which gamescope then stretches; pin the
-        # window to the size gamescope nests at so the two cannot
-        # disagree, and supersample per internalResolutionScale.
-        ffnxToml =
-          music:
-          pkgs.runCommandLocal "ff8-ffnx-toml-${music}" { } (
-            ''
-              cp ${ffnxDriver}/FFNx.toml "$out"
-              chmod u+w "$out"
-              #
-              # Backend pinned to Direct3D 11 rather than FFNx's auto pick.
-              # Both platforms render it through DXVK, and it is the one
-              # bgfx backend measured to survive everywhere: on the Thor,
-              # auto chose OpenGL (zink), which initialised at 1280x720 but
-              # took the process down at 1920x1080 before its first frame.
-              # Fullscreen at the pinned size, so wine's virtual desktop
-              # does not decorate a screen-sized window and shift it by a
-              # title bar.
-              substituteInPlace "$out" \
-                --replace-fail 'renderer_backend = 0' 'renderer_backend = 3' \
-                --replace-fail 'fullscreen = false' 'fullscreen = true' \
-                --replace-fail 'window_size_x = 0' 'window_size_x = ${toString config.gamescope.nested-width}' \
-                --replace-fail 'window_size_y = 0' 'window_size_y = ${toString config.gamescope.nested-height}' \
-                --replace-fail 'internal_resolution_scale = 0' 'internal_resolution_scale = ${toString config.internalResolutionScale}'
-            ''
-            + lib.optionalString (music != "vanilla") ''
-              # Point FFNx at the music/ tree the pack provides. None of
-              # this is defaulted for the Steam 2013 edition: FFNx
-              # force-enables external music only for FF7 Steam and FF8
-              # Remastered (common.cpp:3220,3323), and its unconditional
-              # external_music_path fallback (common.cpp:3373) is
-              # data/music/dmusic/ogg -- a directory this build does not
-              # have. Unset, the game simply goes silent, because FFNx
-              # has already replaced play_midi by then (music.cpp:1213).
-              #
-              # ff8_external_music_force_original_filenames stays false:
-              # it exists to feed Remastered oggs in under their raw .sgt
-              # names, and both packs here use FFNx's truncated naming
-              # (005s-battle.sgt -> battle, music.cpp:148-160).
-              substituteInPlace "$out" \
-                --replace-fail 'use_external_music = false' 'use_external_music = true' \
-                --replace-fail 'external_music_path = ""' 'external_music_path = "music"' \
-                --replace-fail 'he_bios_path = ""' 'he_bios_path = "music/hebios.bin"' \
-                --replace-fail 'external_music_ext = "ogg"' ${
-                  if music == "orchestral" then
-                    "'external_music_ext = [ \"ogg\", \"minipsf\" ]'"
-                  else
-                    "'external_music_ext = \"minipsf\"'"
-                }
-            ''
-            + lib.optionalString (music == "orchestral") ''
-              # OST-RF's own README asks for both of these; sync keeps
-              # the arranged tracks aligned with the engine's loop points.
-              substituteInPlace "$out" \
-                --replace-fail 'external_music_volume = -1' 'external_music_volume = 75' \
-                --replace-fail 'external_music_sync = false' 'external_music_sync = true'
-            ''
-          );
       in
       {
         options = {
@@ -900,7 +207,7 @@ self.lib.mkGame { inherit lib pkgs; } {
             default = [ ];
             description = ''
               Mod derivations stacked onto FF8 as additional overlay
-              lowers, above `_gameData`. Nothing is installed by
+              lowers, above the base tree. Nothing is installed by
               default: the base game is shipped mod-*ready* and each
               mod is opt-in, composed through
               `flake.modules.<arch>.final-fantasy-viii.apply { mods = [ ... ]; }`.
@@ -921,27 +228,6 @@ self.lib.mkGame { inherit lib pkgs; } {
               of every mod permutation -- toggling a mod does not
               re-extract the game. Later list entries win on conflicting
               paths.
-            '';
-          };
-
-          internalResolutionScale = mkOption {
-            type = types.ints.between 0 8;
-            default = 2;
-            description = ''
-              FFNx supersampling factor, in multiples of 640x480. The
-              engine renders at this size and FFNx downsamples to the
-              window, so 2 means 1280x960 internally, 4 means 2560x1920.
-
-              This is NOT cosmetic tuning, it is a defect fix. FFNx ships
-              window_size_x/y = 0, which its own docs define as "window
-              mode will use 640x480", and internal_resolution_scale = 0,
-              which then auto-matches that. The result is a 480p game
-              stretched to the gamescope output -- measured by capturing
-              the live window, which came back exactly 640x480. The window
-              size is now pinned to the gamescope nested resolution below,
-              and this supersamples on top of it.
-
-              0 restores FFNx's auto behaviour (match the window).
             '';
           };
 
@@ -1122,19 +408,16 @@ self.lib.mkGame { inherit lib pkgs; } {
 
               It also needs the `__CFBundleIdentifier` env var below.
 
-              PIN HAZARD: `canary` is a rolling tag whose assets are
-              replaced in place, so the fetchurl hash WILL stop matching
-              when upstream rebuilds. That fails the build loudly rather
-              than silently, and the fix is to re-pin; switch to a stable
-              release once one ships with b62ccf0b in it.
+              The layer is a pinned tree of the canary build (see `ffnx`
+              above), so upstream replacing canary's assets in place, as
+              it does on every CI build, changes nothing here.
             '';
           };
 
           # NOTE: every bool/enum option above reaches the couch launcher's
           # options screen automatically (lib/mk-game.nix builds the schema from
-          # the recipe's own declarations), `ffnx` included. `mods` and
-          # `internalResolutionScale` do not: a list of derivations and an int
-          # are not things a pad can present.
+          # the recipe's own declarations), `ffnx` included. `mods` does not:
+          # a list of derivations is not something a pad can present.
         };
 
         config = {
@@ -1202,84 +485,39 @@ self.lib.mkGame { inherit lib pkgs; } {
           # and `steamcmd +app_update 39150 validate` produces publisher
           # bytes satisfying every hash above; only the two cid/hash
           # pairs below would change.
-          src = fetchIpfs {
-            cid = "QmWB3qGAdcU2Uu9Q55dXq82HxgCUDUNizDVJfghvTwckg4";
-            fallbackUrl = "https://archive.org/download/CA-WINDOWS-Final-Fantasy-8/Final%20Fantasy%208.7z";
-            hash = "sha256-454gxyReyO0DcNssARSC7lcuERAA+sh0rvg71UuP6Cw=";
-            name = "final-fantasy-viii-2013-steam.7z";
+          # The base tree: the 2013 game files as the archive.org item
+          # `CA-WINDOWS-Final-Fantasy-8` ships them (477 files, loose),
+          # plus steam_appid.txt (the 2013 executable reads its appid
+          # from there when no client is present) and the supervisor
+          # below, minus the Inno uninstaller. Everything else STAYS,
+          # including steam_inlaws32.ini and iNLAWS/: the executable's
+          # ownership bypass reads both, and deleting them makes it exit
+          # before rendering a frame (measured). No FFNx in here: that is
+          # a layer like every other toggle.
+          src = tree "final-fantasy-viii" {
+            cid = "bafybeianarj35r6z2trxvjdd4nra22akasrudnm5eezhlflmtv6z6nfcni";
+            hash = "sha256-p/+x1otZpuamAazwYqqqWNwCES9X9wJqirtD7zOtkPY=";
+            size = 3698304904;
           };
 
-          ipfsSources = [ config.src ];
-
-          nativeBuildInputs = [
-            p7zip
-            unzip
-            binutils
-          ];
-
-          buildScript = ''
-            mkdir -p "$out"
-
-            # The archive wraps everything in a single "Final Fantasy 8"
-            # directory; the game root has to be $out itself, so that
-            # `executable` and any driver file drop land beside each
-            # other.
-            7z x -bso0 -bsp0 -o"$TMPDIR/game" "$src"
-            mv "$TMPDIR/game/Final Fantasy 8"/* "$out"/
-            chmod -R u+w "$out"
-
-            # The 2013 executable reads its appid from here when no
-            # client is present.
-            echo -n 39150 > "$out/steam_appid.txt"
-
-            # The Inno uninstaller is dead weight -- nothing loads it and
-            # it only invites confusion about what runs. Everything else
-            # in the tree STAYS, including steam_inlaws32.ini and
-            # iNLAWS/: the executable's ownership bypass reads both, and
-            # deleting them makes it exit before rendering a frame
-            # (measured).
-            rm -f "$out/unins000.exe" "$out/unins000.dat"
-
-            # The windowless supervisor that proton tracks (see above).
-            install -m0755 ${launchSupervisor}/strom-ff8-supervisor.exe "$out/"
-          ''
-          + lib.optionalString config.ffnx ''
-
-            # Drop FFNx over the stock Steam renderer -- AF3DN.P/AF4DN.P
-            # are the game's own driver stubs and FFNx replaces them in
-            # place. Overwrite deliberately includes steam_api.dll: FFNx
-            # validates that the one beside the executable is its own, so
-            # it must win. ffnxDriver is the release with the one crashing
-            # call removed (see its definition).
-            #
-            # This is gated behind `ffnx` because it is incompatible with
-            # THIS tree's cracked executable (see the option's
-            # description). Enable it together with a legitimate tree.
-            cp -r --no-preserve=mode ${ffnxDriver}/. "$out/"
-
-            # The base always carries the vanilla-music config; a music
-            # pack brings its own FFNx.toml as part of its layer, which
-            # wins over this one. See ffnxToml.
-            install -m644 ${ffnxToml "vanilla"} "$out/FFNx.toml"
-
-            # FFNx must find the Valve DLL it validates. It ships no
-            # steam_api.dll of its own (verified against the artifact), so
-            # the tree's own emulator keeps that slot -- which is what the
-            # cracked executable is bound to. A generic emulator does NOT
-            # substitute: gbe_fork in that slot loads and FFNx is happy,
-            # but the engine's SteamAPI_Init still fails ("Steam not
-            # running error"), because the crack talks to the emulator it
-            # shipped with.
-            test -s "$out/FFNx_steam_api.dll"
-            test -s "$out/steam_api.dll"
-          '';
-
           runtime = "proton";
-          # The supervisor, which starts FF8_Launcher.exe and retires it
-          # once the engine is up (see launchSupervisor above). It must be
-          # the tracked process: proton waits on whatever it launches, so
-          # with the launcher tracked directly, reaping it ends the
-          # session and kills the game.
+          # strom-ff8-supervisor.exe, in the base tree, is the process proton
+          # tracks and the reason the game is playable at all.
+          # FF8_Launcher.exe does NOT exit when it starts the game, and while
+          # it lives the game is unplayable: gamescope has to pick a primary
+          # window out of nine and the engine's input stays dead. It cannot
+          # simply be killed either: it is the process `proton
+          # waitforexitandrun` waits on, so its death ends the session and
+          # takes the game with it (measured). The supervisor is built for
+          # the windows subsystem, so it never creates a window; it starts
+          # the launcher, waits for the engine to appear, retires the
+          # launcher, then waits on the GAME so the session ends when the
+          # game does. Nothing is clicked. Source: ./supervisor.c, built
+          # with `i686-w64-mingw32-gcc -O2 -mwindows`. Starting FF8_EN.exe
+          # directly is gated behind a launcher handshake of four named
+          # semaphores plus at least one unidentified predicate; argv,
+          # environment, the Steamworks emulator, named sections and the
+          # parent process name were each ruled out by measurement.
           executable = "strom-ff8-supervisor.exe";
 
           # Verified from Junction VIII's own source (which reads and
@@ -1312,13 +550,6 @@ self.lib.mkGame { inherit lib pkgs; } {
             select = "D";
             dpad = "arrows";
             leftStick = "arrows";
-          };
-
-          # The base worktree the Android client fetches before merging the
-          # pinned layers over it (`nix build .#androidPayloads.final-fantasy-viii`).
-          android.payload = {
-            cid = "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm";
-            size = 3887109121; # du -sb of the built tree
           };
 
           # The game creates its userdata directory only when a Steam
@@ -1362,14 +593,13 @@ self.lib.mkGame { inherit lib pkgs; } {
           #
           # Highest priority first, matching `lowers`: Ragnarok's rebalance
           # over the texture packs, those over the field backgrounds, then
-          # music and voices.
+          # music and voices, and FFNx itself last, so that a music pack's
+          # FFNx.toml wins over the driver's own.
           #
           # `mods` stays outside this: it is an operator escape hatch
           # holding arbitrary derivations, not a player-facing choice, so it
-          # goes straight onto `lowers`. `internalResolutionScale` changes
-          # no files, and `ffnx` rearranges DLLs and env inside the base
-          # tree, so neither can be a layer.
-          modLayers = map (l: l // { cid = pinnedLayers.${l.tree.pname or l.tree.name} or null; }) (
+          # goes straight onto `lowers`.
+          modLayers =
             map
               (mode: {
                 key = "ragnarokMode";
@@ -1382,7 +612,7 @@ self.lib.mkGame { inherit lib pkgs; } {
                   key = "ragnarok";
                   value = "true";
                 };
-                tree = mkRagnarok mode;
+                tree = ragnarok.${mode};
               })
               [
                 "standard"
@@ -1392,12 +622,12 @@ self.lib.mkGame { inherit lib pkgs; } {
               key = "textures";
               value = "true";
               inherit tree;
-            }) texturePackLowers
+            }) texturePacks
             ++ [
               {
                 key = "fieldBackgrounds";
                 value = "true";
-                tree = mkTexturePack "fields" fieldBackgroundPack;
+                tree = fieldBackgrounds;
               }
             ]
             ++
@@ -1405,7 +635,7 @@ self.lib.mkGame { inherit lib pkgs; } {
                 (mode: {
                   key = "music";
                   value = mode;
-                  tree = mkMusic mode (ffnxToml mode);
+                  tree = music.${mode};
                 })
                 [
                   "psx"
@@ -1415,10 +645,14 @@ self.lib.mkGame { inherit lib pkgs; } {
               {
                 key = "voices";
                 value = "true";
-                tree = mkVoicePack;
+                tree = voices;
               }
-            ]
-          );
+              {
+                key = "ffnx";
+                value = "true";
+                tree = ffnx;
+              }
+            ];
 
           # The operator escape hatch, above the base game.
           bwrap.overlay.lowers = lib.mkBefore (map toString config.mods);

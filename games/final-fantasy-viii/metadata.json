@@ -25,75 +25,94 @@
     },
     "layers": [
       {
-        "cid": "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca",
-        "key": "voices",
-        "name": "ff8-voice-echo-s-8-demo",
+        "cid": "bafybeifxwghrrqbvbepdspitqji5ty5rk3ipdmvkw52slqgjunlycpj3t4",
+        "key": "ffnx",
+        "name": "ff8-ffnx-1.24.3",
+        "size": 41011267,
         "value": "true"
       },
       {
-        "cid": "bafybeieyddbj3khcngfhogbdbchxrwpyhu7xpvldilxyorqsikopa25ddy",
+        "cid": "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca",
+        "key": "voices",
+        "name": "ff8-voice-echo-s-8-demo",
+        "size": 1312611023,
+        "value": "true"
+      },
+      {
+        "cid": "bafybeifj2tjtsllgh6gllqt7eyftwvh5mkelolrrovhhd24qc26kxqq2ra",
         "key": "music",
         "name": "ff8-music-orchestral",
+        "size": 779051544,
         "value": "orchestral"
       },
       {
-        "cid": "bafybeigbxe2xgpcgpryfvqbphpd22d5oq3b7wtmeme5e7jtggxxs7hwoka",
+        "cid": "bafybeibpvjr344pzyacsfqfxwr3urdm3vv4f7kdai3b7flqmtlu4v5fyb4",
         "key": "music",
         "name": "ff8-music-psx",
+        "size": 15319910,
         "value": "psx"
       },
       {
         "cid": "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi",
         "key": "fieldBackgrounds",
         "name": "ff8-texturepack-fields",
+        "size": 590699204,
         "value": "true"
       },
       {
         "cid": "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni",
         "key": "textures",
         "name": "ff8-texturepack-world",
+        "size": 52049856,
         "value": "true"
       },
       {
         "cid": "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy",
         "key": "textures",
         "name": "ff8-texturepack-battles",
+        "size": 765376432,
         "value": "true"
       },
       {
         "cid": "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64",
         "key": "textures",
         "name": "ff8-texturepack-enemies",
+        "size": 25169376,
         "value": "true"
       },
       {
         "cid": "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla",
         "key": "textures",
         "name": "ff8-texturepack-spells",
+        "size": 515801894,
         "value": "true"
       },
       {
         "cid": "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e",
         "key": "textures",
         "name": "ff8-texturepack-gfs",
+        "size": 282919830,
         "value": "true"
       },
       {
         "cid": "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i",
         "key": "textures",
         "name": "ff8-texturepack-battleModels",
+        "size": 161712636,
         "value": "true"
       },
       {
         "cid": "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq",
         "key": "textures",
         "name": "ff8-texturepack-characters",
+        "size": 155402980,
         "value": "true"
       },
       {
         "cid": "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq",
         "key": "textures",
         "name": "ff8-texturepack-models",
+        "size": 159665748,
         "value": "true"
       },
       {
@@ -104,6 +123,7 @@
           "key": "ragnarok",
           "value": "true"
         },
+        "size": 356970255,
         "value": "lionheart"
       },
       {
@@ -114,14 +134,15 @@
           "key": "ragnarok",
           "value": "true"
         },
+        "size": 356969624,
         "value": "standard"
       }
     ],
     "payload": {
-      "cid": "bafybeif7lbushebtybujbyiqihsv6eksgmycn3y7zsjwhj4hfye2vxksqm",
+      "cid": "bafybeianarj35r6z2trxvjdd4nra22akasrudnm5eezhlflmtv6z6nfcni",
       "name": "",
       "sha256": null,
-      "size": 3887109121
+      "size": 3698304904
     },
     "schema": 1,
     "settings": [
@@ -187,7 +208,7 @@
   },
   "appid": 39150,
   "cids": [
-    "QmWB3qGAdcU2Uu9Q55dXq82HxgCUDUNizDVJfghvTwckg4"
+    "bafybeianarj35r6z2trxvjdd4nra22akasrudnm5eezhlflmtv6z6nfcni"
   ],
   "description": "Final Fantasy VIII (2013 Square Enix PC re-release, via Proton, mod-ready)",
   "lutris": "https://lutris.net/games/final-fantasy-viii",
