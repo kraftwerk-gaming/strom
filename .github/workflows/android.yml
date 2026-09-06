@@ -130,14 +130,19 @@ jobs:
 
             **${{ steps.apk.outputs.published }} of ${{ steps.apk.outputs.total }} games are playable on Android at this revision.**
             The rest have no payload published yet, and the client lists them as
-            unavailable rather than hiding them. RetroArch is the only runtime
-            wired up; GameNative, which covers the Windows games and so most of
-            the catalog, refuses with a message saying what is unverified.
-            `docs/android.md` has the detail.
+            unavailable rather than hiding them ("Playable only" hides them).
+
+            The client installs the runtime a game needs when you press Play:
+            RetroArch, WatermelonDS, Azahar, or GameNative -- the last from our
+            own build at `kraftwerk-gaming/GameNative`, which the client can
+            drive by intent (register the game, set the container up, install
+            the pad-to-keys profile). A runtime you already have is left alone.
+            Two things GameNative asks for once, in its own UI: "All files
+            access" (so it can read the game folder) and the emulator set to
+            Box64 in any container's settings. `docs/android.md` has the detail.
 
             Install and update through [Obtainium](https://github.com/ImranR98/Obtainium)
-            by pointing it at this repository. You will also need RetroArch
-            installed, and to have launched it once.
+            by pointing it at this repository.
 
             The build is reproducible, and the APK is signed with the debug key
             committed in `pkgs/android-app/`, which proves nothing about who
