@@ -86,18 +86,31 @@ public final class LaunchActivity extends Activity {
             @Override
             public void run() {
                 Game game = null;
+                List<Game> games;
+                java.io.File store = new java.io.File(getFilesDir(), "catalog");
                 try {
-                    List<Game> games = Catalog.load(base);
-                    for (Game g : games) {
-                        if (slug.equals(g.slug)) {
-                            game = g;
-                            break;
-                        }
-                    }
+                    games = Catalog.load(base, store);
                 } catch (Exception e) {
+                    // Off the network: the copy the grid left is what an
+                    // installed game launches from.
                     Log.w(TAG, "catalog " + base + " failed", e);
-                    finishWith(false, "catalog failed: " + e);
-                    return;
+                    Catalog.Cached cached = null;
+                    try {
+                        cached = Catalog.loadCached(store);
+                    } catch (Exception e2) {
+                        Log.w(TAG, "cached catalog unreadable", e2);
+                    }
+                    if (cached == null || !base.equals(cached.base)) {
+                        finishWith(false, "catalog failed: " + e);
+                        return;
+                    }
+                    games = cached.games;
+                }
+                for (Game g : games) {
+                    if (slug.equals(g.slug)) {
+                        game = g;
+                        break;
+                    }
                 }
                 if (game == null) {
                     finishWith(false, "no game '" + slug + "' in " + base);

@@ -28,7 +28,10 @@ import gaming.kraftwerk.strom.ui.Screen;
 import gaming.kraftwerk.strom.ui.SettingsScreen;
 import gaming.kraftwerk.strom.ui.Theme;
 
+import java.io.File;
+import java.text.DateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -97,6 +100,8 @@ public class MainActivity extends Activity implements Host {
      */
     private static List<Game> catalog = Collections.emptyList();
     private static String catalogFrom;
+    /** When the copy on screen was saved; zero once the remote answered. */
+    private static long catalogSavedAt;
 
     private ExecutorService pool;
     private CoverCache covers;
@@ -140,11 +145,51 @@ public class MainActivity extends Activity implements Host {
         if (!catalog.isEmpty() && url.equals(catalogFrom)) {
             grid.setGames(catalog);
         } else {
-            // Loaded without being asked. The old screen made "Load catalog"
+            // The copy of the last load goes on screen first, so the grid
+            // is up at once and a game already on the device can be played
+            // with no network at all; the remote is then re-read behind it.
+            // Loaded without being asked: the old screen made "Load catalog"
             // the first thing a player had to find, and there is nothing
             // else this app could usefully be doing on startup.
+            showCachedCatalog(url);
             reloadCatalog();
         }
+    }
+
+    /** Where {@link Catalog} keeps the copy of the last load. */
+    private File catalogStore() {
+        return new File(getFilesDir(), "catalog");
+    }
+
+    private void showCachedCatalog(final String url) {
+        pool.submit(new Runnable() {
+            @Override
+            public void run() {
+                final Catalog.Cached cached;
+                try {
+                    cached = Catalog.loadCached(catalogStore());
+                } catch (Exception e) {
+                    Log.w(TAG, "cached catalog unreadable", e);
+                    return;
+                }
+                if (cached == null || !url.equals(cached.base)) {
+                    return;
+                }
+                ui.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // The remote may have answered first; its list is
+                        // newer than the copy.
+                        if (catalog.isEmpty()) {
+                            catalog = cached.games;
+                            catalogFrom = url;
+                            grid.setGames(cached.games);
+                            catalogSavedAt = cached.savedAt;
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -369,17 +414,20 @@ public class MainActivity extends Activity implements Host {
     @Override
     public void reloadCatalog() {
         final String base = catalogUrl();
-        grid.setStatus("loading " + base);
+        if (catalog.isEmpty()) {
+            grid.setStatus("loading " + base);
+        }
         pool.submit(new Runnable() {
             @Override
             public void run() {
                 try {
-                    final List<Game> loaded = Catalog.load(base);
+                    final List<Game> loaded = Catalog.load(base, catalogStore());
                     ui.post(new Runnable() {
                         @Override
                         public void run() {
                             catalog = loaded;
                             catalogFrom = base;
+                            catalogSavedAt = 0;
                             grid.setGames(loaded);
                         }
                     });
@@ -388,7 +436,16 @@ public class MainActivity extends Activity implements Host {
                     ui.post(new Runnable() {
                         @Override
                         public void run() {
-                            grid.setStatus("catalog failed: " + e);
+                            if (catalog.isEmpty() || !base.equals(catalogFrom)) {
+                                grid.setStatus("catalog failed: " + e);
+                            } else if (catalogSavedAt > 0) {
+                                // What is on screen is the copy from the
+                                // last load, which is what offline means.
+                                grid.setStatus("offline: catalog as of "
+                                    + DateFormat.getDateTimeInstance(DateFormat.SHORT,
+                                        DateFormat.SHORT).format(new Date(catalogSavedAt))
+                                    + " (" + e.getMessage() + ")");
+                            }
                         }
                     });
                 }

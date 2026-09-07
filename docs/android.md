@@ -12,6 +12,15 @@ already-installed runtime app over a documented intent. It does not
 contain Wine, Box64, DXVK, Turnip, a glibc rootfs or an emulator core,
 and it never `execve`s anything.
 
+The catalog is one request per game (there is no index file in the
+repo, by design), so the client keeps a copy of every file the last
+load read under `filesDir/catalog` and puts that on screen at startup,
+then re-reads the remote behind it. A game that is already on the
+device therefore launches with no network at all, and the grid is up
+in a moment instead of after hundreds of requests; when the remote
+cannot be reached the status line says the copy's date. The automated
+launch intent (`LaunchActivity`) falls back to the same copy.
+
 Per-game APKs survive only as a narrow seam (`android.outputs.apk`) for
 games that have a genuine self-contained Android build. Today that is
 exactly one game: `games/balatro/apk.nix`, a LOVE title repackaged by

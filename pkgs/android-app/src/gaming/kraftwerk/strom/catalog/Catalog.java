@@ -3,10 +3,13 @@ package gaming.kraftwerk.strom.catalog;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,6 +42,55 @@ public final class Catalog {
     }
 
     /**
+     * What {@link #loadCached} hands back: the games, the remote they
+     * were read from, and when.
+     */
+    public static final class Cached {
+        public final List<Game> games;
+        public final String base;
+        public final long savedAt;
+
+        Cached(List<Game> games, String base, long savedAt) {
+            this.games = games;
+            this.base = base;
+            this.savedAt = savedAt;
+        }
+    }
+
+    /**
+     * The copy of the last successful load under {@code store}, or null
+     * when there is none. Reads no network: this is what makes a game
+     * that is already on the device playable on a plane, and what puts
+     * the grid on screen at once instead of after hundreds of requests.
+     * The files are the remote's own per-game JSON, staged by
+     * {@link #load} as it read them, so this parses exactly what the
+     * network load parsed.
+     */
+    public static Cached loadCached(File store) throws IOException {
+        File index = new File(store, "index");
+        if (!index.isFile()) {
+            return null;
+        }
+        String[] lines = new String(Files.readAllBytes(index.toPath()), "UTF-8").split("\n");
+        if (lines.length < 2) {
+            return null;
+        }
+        List<String> slugs = new ArrayList<String>();
+        for (int i = 2; i < lines.length; i++) {
+            if (!lines[i].isEmpty()) {
+                slugs.add(lines[i]);
+            }
+        }
+        List<Game> games = games(new Disk(store), slugs);
+        return new Cached(games, lines[0], index.lastModified());
+    }
+
+    /**
+     * Read the catalog at {@code baseUrl}, and when {@code store} is not
+     * null leave a copy of every file read under it for
+     * {@link #loadCached}. The copy is built beside the old one and swapped
+     * in whole, so a load that fails partway leaves the previous copy.
+     *
      * @param baseUrl either a Radicle {@code <api>/repos/<rid>} URL, or the
      *                root of a plain static server exposing {@code /games/}.
      *
@@ -65,7 +117,7 @@ public final class Catalog {
      *                graph, which a client that has cloned nothing does not
      *                have.
      */
-    public static List<Game> load(String baseUrl) throws IOException {
+    public static List<Game> load(String baseUrl, File store) throws IOException {
         String base = baseUrl.trim();
         String pinned = null;
         int hash = base.indexOf('#');
@@ -88,11 +140,39 @@ public final class Catalog {
         if (slugs.isEmpty()) {
             throw new IOException("no games found under " + base);
         }
+        File stage = null;
+        if (store != null) {
+            stage = new File(store.getPath() + ".new");
+            deleteTree(stage);
+            if (!stage.mkdirs()) {
+                throw new IOException("cannot create " + stage);
+            }
+        }
+        List<Game> out;
+        try {
+            out = games(new Remote(base, head, radicle, stage), slugs);
+            if (stage != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(baseUrl.trim()).append('\n').append(head == null ? "" : head);
+                for (String slug : slugs) {
+                    sb.append('\n').append(slug);
+                }
+                write(new File(stage, "index"), sb.toString());
+                deleteTree(store);
+                if (!stage.renameTo(store)) {
+                    throw new IOException("cannot move " + stage + " to " + store);
+                }
+            }
+        } finally {
+            if (stage != null) {
+                deleteTree(stage);
+            }
+        }
+        return out;
+    }
 
-        final String fbase = base;
-        final String fhead = head;
-        final boolean frad = radicle;
-
+    /** Every game {@code src} can read, in parallel, sorted by title. */
+    private static List<Game> games(final Source src, List<String> slugs) throws IOException {
         ExecutorService pool = Executors.newFixedThreadPool(PARALLEL);
         List<Game> out = new ArrayList<Game>();
         try {
@@ -102,7 +182,7 @@ public final class Catalog {
                     @Override
                     public Game call() {
                         try {
-                            return one(fbase, fhead, frad, slug);
+                            return one(src, slug);
                         } catch (Exception e) {
                             // One unreadable game must not sink the catalog.
                             Log.w(TAG, "skipping " + slug + ": " + e);
@@ -137,6 +217,75 @@ public final class Catalog {
         return out;
     }
 
+    /** Where a game's JSON files come from. Absent file: IOException. */
+    private interface Source {
+        String read(String slug, String file) throws IOException;
+    }
+
+    /**
+     * The remote, leaving a copy of every file it reads under
+     * {@code stage} (when not null) so the same catalog can be read
+     * again without it.
+     */
+    private static final class Remote implements Source {
+        private final String base;
+        private final String head;
+        private final boolean radicle;
+        private final File stage;
+
+        Remote(String base, String head, boolean radicle, File stage) {
+            this.base = base;
+            this.head = head;
+            this.radicle = radicle;
+            this.stage = stage;
+        }
+
+        @Override
+        public String read(String slug, String file) throws IOException {
+            String text = fetchText(base, head, radicle, slug, file);
+            if (stage != null) {
+                File dir = new File(stage, slug);
+                if (!dir.isDirectory() && !dir.mkdirs()) {
+                    throw new IOException("cannot create " + dir);
+                }
+                write(new File(dir, file), text);
+            }
+            return text;
+        }
+    }
+
+    /** The copy a {@link Remote} left. */
+    private static final class Disk implements Source {
+        private final File store;
+
+        Disk(File store) {
+            this.store = store;
+        }
+
+        @Override
+        public String read(String slug, String file) throws IOException {
+            File f = new File(new File(store, slug), file);
+            if (!f.isFile()) {
+                throw new FileNotFoundException(f.getPath());
+            }
+            return new String(Files.readAllBytes(f.toPath()), "UTF-8");
+        }
+    }
+
+    private static void write(File f, String text) throws IOException {
+        Files.write(f.toPath(), text.getBytes("UTF-8"));
+    }
+
+    private static void deleteTree(File f) {
+        File[] kids = f.listFiles();
+        if (kids != null) {
+            for (int i = 0; i < kids.length; i++) {
+                deleteTree(kids[i]);
+            }
+        }
+        f.delete();
+    }
+
     /** The manifest omits a key when it equals the documented default. */
     private static String orElse(String v, String fallback) {
         return (v == null || v.isEmpty()) ? fallback : v;
@@ -153,9 +302,8 @@ public final class Catalog {
         return out;
     }
 
-    private static Game one(String base, String head, boolean radicle, String slug)
-        throws IOException {
-        Object m = fetchJson(base, head, radicle, slug, "metadata.json");
+    private static Game one(Source src, String slug) throws IOException {
+        Object m = Json.parse(src.read(slug, "metadata.json"));
 
         Game g = new Game();
         g.slug = slug;
@@ -223,7 +371,7 @@ public final class Catalog {
         g.screenshots = strings(Json.list(m, "screenshots"));
         if (g.name == null || g.hero == null) {
             try {
-                Object s = fetchJson(base, head, radicle, slug, "steam.json");
+                Object s = Json.parse(src.read(slug, "steam.json"));
                 if (g.name == null) {
                     g.name = Json.str(s, "name");
                 }
@@ -245,17 +393,17 @@ public final class Catalog {
     }
 
     /**
-     * Read one of a game's JSON files.
+     * Read one of a game's JSON files, as text.
      *
      * <p>The two sources differ in shape, not just in URL: a plain server
      * returns the file, while radicle-httpd's blob route wraps it in an
      * envelope and puts the file in a {@code content} string. The web GUI
      * does the same unwrapping.
      */
-    private static Object fetchJson(String base, String head, boolean radicle,
+    private static String fetchText(String base, String head, boolean radicle,
         String slug, String file) throws IOException {
         if (!radicle) {
-            return Json.parse(getString(base + "/games/" + slug + "/" + file));
+            return getString(base + "/games/" + slug + "/" + file);
         }
         Object envelope = Json.parse(
             getString(base + "/blob/" + head + "/games/" + slug + "/" + file));
@@ -263,7 +411,7 @@ public final class Catalog {
         if (content == null) {
             throw new IOException("radicle blob carried no content: " + slug + "/" + file);
         }
-        return Json.parse(content);
+        return content;
     }
 
     // ---- radicle-httpd ---------------------------------------------------
