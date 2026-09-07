@@ -6,6 +6,13 @@
         "executablePath": "SPEED2.EXE"
       }
     },
+    "payload": {
+      "cid": "bafybeiaslq4dskcxm3bwnmwx7necche2gv64vcziq3j6pseyvliy5zebny",
+      "manifest": "bafkreig5g5j6u7jmdsyzbfqu2qcki4marfhbpeqo375dmwl753m2hcbt6e",
+      "name": "",
+      "sha256": null,
+      "size": 2770429907
+    },
     "schema": 1,
     "settings": [
       {
@@ -18,7 +25,7 @@
     ]
   },
   "cids": [
-    "QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm"
+    "bafybeiaslq4dskcxm3bwnmwx7necche2gv64vcziq3j6pseyvliy5zebny"
   ],
   "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
   "developers": [
