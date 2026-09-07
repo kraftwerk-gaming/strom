@@ -22,12 +22,20 @@
 #     hash = "sha256-...";   # `nix hash path` of the tree (NAR hash)
 #     name = "foo-tree";
 #     size = 3887109121;     # optional: uncompressed bytes, for the phone
+#     manifest = "bafkrei..."; # optional: the pinned listing sidecar
 #   }
 #
-# A directory is walked one block at a time through the gateways
-# (`?format=car&dag-scope=block`, the one directory request every public
-# gateway answers; see ipfs-walk.py), then every file is downloaded by
-# path with the same multi-gateway aria2c Range racing as a single file.
+# A directory with no `manifest` is walked one block at a time through
+# the gateways (`?format=car&dag-scope=block`, the one directory request
+# every public gateway answers; see ipfs-walk.py), then every file is
+# downloaded by path with the same multi-gateway aria2c Range racing as
+# a single file. The walk costs one small request per entry, which is
+# what public gateways rate-limit on, so a pinned tree SHOULD also pin
+# its listing (lib/tree-manifest.py over the built tree, the same file
+# ipfs-walk.py would produce) and name it here as `manifest`: one small
+# fetch then replaces the whole walk. A wrong or stale manifest cannot
+# corrupt anything -- it only names files; the NAR outputHash still
+# gates the content -- it can only fail the build.
 # There is no fallbackUrl for a tree: nothing outside IPFS serves it.
 #
 # Local mirrors:
@@ -56,6 +64,8 @@
   # client can show "n of total" before and while fetching. Null when
   # unmeasured; nothing here depends on it.
   size ? null,
+  # CID of the pinned listing sidecar (see above). Null: walk the DAG.
+  manifest ? null,
   # HTTP gateway prefixes (no trailing slash, no /ipfs/). aria2c will
   # request "<prefix>/ipfs/<cid>" from each and split the file across them
   # via Range. Order is measured, not alphabetical: against a freshly
@@ -95,13 +105,20 @@ stdenvNoCC.mkDerivation {
 
   inherit cid fallbackUrl;
   fetchDirectory = lib.boolToString directory;
+  manifestCid = lib.optionalString (manifest != null) manifest;
   providers = lib.concatStringsSep " " providers;
   walker = ./ipfs-walk.py;
 
   # What a recipe and the Android manifest read off the derivation: the
-  # CID it fetches, whether that is a tree, and the tree's size.
+  # CID it fetches, whether that is a tree, the tree's size, and its
+  # pinned listing sidecar.
   passthru = {
-    inherit cid directory size;
+    inherit
+      cid
+      directory
+      size
+      manifest
+      ;
   };
 
   SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -278,10 +295,39 @@ stdenvNoCC.mkDerivation {
 
     # --- a directory ------------------------------------------------------
     if [ "$fetchDirectory" = true ]; then
-      # Enumerate first: the walk yields every file's size, so the bar has
-      # its denominator before a byte of payload moves.
-      python3 "$walker" "$cid" "$TMPDIR/listing" $gws 2>>"$TMPDIR/fetch.log" \
-        || fail "could not walk $cid"
+      # Enumerate first: the listing yields every file's size, so the bar
+      # has its denominator before a byte of payload moves. With a pinned
+      # manifest that is one small fetch; without one the DAG is walked,
+      # one gateway request per entry (the request count is what public
+      # gateways rate-limit on, so pin a manifest for anything big).
+      if [ -n "$manifestCid" ]; then
+        got=""
+        for round in 1 2 3 4 5; do
+          for gw in $gws; do
+            if curl -fsSL --connect-timeout 30 --max-time 120 \
+              "$gw/ipfs/$manifestCid?filename=x.bin&download=true" \
+              -o "$TMPDIR/listing" 2>>"$TMPDIR/fetch.log"; then
+              # A rate-limit or error page instead of the listing would
+              # steer every later request wrong; the format check catches
+              # it here. (Content is still gated by the NAR hash.)
+              if awk -F'\t' '
+                  $1 == "d" && NF == 2 { next }
+                  $1 == "f" && NF == 5 { next }
+                  { exit 1 }
+                ' "$TMPDIR/listing" && [ -s "$TMPDIR/listing" ]; then
+                got=1
+                break 2
+              fi
+              echo "[fetch-ipfs] $gw served a malformed manifest $manifestCid" >>"$TMPDIR/fetch.log"
+            fi
+          done
+          sleep $((round * 15))
+        done
+        [ -n "$got" ] || fail "no gateway served the manifest $manifestCid"
+      else
+        python3 "$walker" "$cid" "$TMPDIR/listing" $gws 2>>"$TMPDIR/fetch.log" \
+          || fail "could not walk $cid"
+      fi
       expected=$(awk -F'\t' '$1 == "f" { s += $2 } END { print s + 0 }' "$TMPDIR/listing")
       echo "[fetch-ipfs] $cid: $(grep -c '^f' "$TMPDIR/listing") files, $expected bytes"
 
@@ -310,6 +356,17 @@ stdenvNoCC.mkDerivation {
 
       # One aria2c input entry per pending file: every gateway's URL for
       # the path, then where to put it.
+      #
+      # `?filename=x.bin&download=true` makes the gateway answer
+      # `application/octet-stream` + attachment instead of a sniffed
+      # `text/html`. Cloudflare fronts several public gateways and
+      # REWRITES text/html bodies in transit -- measured on ipfs.io: a
+      # 2331-byte .htm from this repo's own pinned tree arrived as 2625
+      # bytes with a hidden `/cdn-cgi/content?id=...` bot-check anchor
+      # injected after <body>, which made the size check refuse the file
+      # on all 8 rounds. Bytes are identical again with the
+      # octet-stream disposition. The manifest fetch above wears the
+      # same disguise.
       aria_input() {
         awk -F'\t' -v tree="$TMPDIR/tree" -v gws="$gws" -v cid="$cid" '
           BEGIN { n = split(gws, gw, " ") }
@@ -324,7 +381,7 @@ stdenvNoCC.mkDerivation {
             }
             line = ""
             for (i = 1; i <= n; i++) {
-              line = line (i > 1 ? "\t" : "") gw[i] "/ipfs/" cid "/" quoted
+              line = line (i > 1 ? "\t" : "") gw[i] "/ipfs/" cid "/" quoted "?filename=x.bin&download=true"
             }
             print line
             print " dir=" dir

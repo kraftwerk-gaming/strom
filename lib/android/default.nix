@@ -269,6 +269,20 @@ in
                 wrong total.
               '';
             };
+
+            manifest = mkOption {
+              type = types.nullOr types.str;
+              default = null;
+              description = ''
+                CID of the tree's pinned listing sidecar
+                (lib/tree-manifest.py over the built tree, pinned beside
+                it). One small fetch that replaces walking the DAG entry
+                by entry -- the walk's request count is what public
+                gateways rate-limit on. Null for a single-file payload,
+                and for a tree pinned before manifests existed: the
+                client then falls back to the walk.
+              '';
+            };
           };
         }
       );
@@ -302,6 +316,7 @@ in
         if buildsNothing && (only.directory or false) then
           {
             inherit (only) cid size;
+            manifest = only.manifest or null;
           }
         else if buildsNothing && singleFileBackends && (only.name or null) == game.executable then
           {
@@ -409,32 +424,44 @@ in
         # a toggle.
         layerTrees = map (l: toString l.tree) game.modLayers;
         lowers = builtins.filter (l: !(builtins.elem (toString l) layerTrees)) game.bwrap.overlay.lowers;
+        tree =
+          pkgs.runCommand "${game.name}-android-tree"
+            {
+              passthru = {
+                gameData = game._gameData;
+                inherit lowers;
+                # The tree's listing in ipfs-walk.py's format, to pin
+                # beside the tree and record as `manifest` on the fetch:
+                # `nix build .#androidPayloads.<slug>.fileManifest`. One
+                # small file a client fetches instead of walking the DAG
+                # entry by entry.
+                fileManifest =
+                  pkgs.runCommand "${game.name}-tree-manifest" { nativeBuildInputs = [ pkgs.python3 ]; }
+                    ''
+                      python3 ${../tree-manifest.py} ${tree} > "$out"
+                    '';
+              };
+            }
+            ''
+              mkdir -p "$out"
+
+              # Copy lowest priority first so higher ones overwrite, which
+              # reproduces the overlay's merge order (lib/mk-game.nix
+              # `overlay.lowers`, first = highest priority).
+              #
+              # -L dereferences: a recipe may symlink discs in from the store
+              # (games/final-fantasy-vii does), and a symlink into /nix/store
+              # means nothing on a phone.
+              ${lib.concatMapStringsSep "\n" (l: ''
+                cp -rL --no-preserve=mode,ownership,timestamps -T "${l}" "$out"
+              '') (lib.reverseList lowers)}
+
+              chmod -R u+w "$out"
+              test -n "$(ls -A "$out")" \
+                || (echo "android: empty payload for ${game.name}" >&2; exit 1)
+            '';
       in
-      pkgs.runCommand "${game.name}-android-tree"
-        {
-          passthru = {
-            gameData = game._gameData;
-            inherit lowers;
-          };
-        }
-        ''
-          mkdir -p "$out"
-
-          # Copy lowest priority first so higher ones overwrite, which
-          # reproduces the overlay's merge order (lib/mk-game.nix
-          # `overlay.lowers`, first = highest priority).
-          #
-          # -L dereferences: a recipe may symlink discs in from the store
-          # (games/final-fantasy-vii does), and a symlink into /nix/store
-          # means nothing on a phone.
-          ${lib.concatMapStringsSep "\n" (l: ''
-            cp -rL --no-preserve=mode,ownership,timestamps -T "${l}" "$out"
-          '') (lib.reverseList lowers)}
-
-          chmod -R u+w "$out"
-          test -n "$(ls -A "$out")" \
-            || (echo "android: empty payload for ${game.name}" >&2; exit 1)
-        '';
+      tree;
 
     outputs.manifestAttrs =
       let
@@ -481,7 +508,10 @@ in
       # optional-layer and settings lists: a game with no mods and no
       # player-facing options says so by omission.
       // lib.optionalAttrs (game.android.payload != null) {
-        inherit (game.android) payload;
+        # `manifest` stays out of the JSON while null so the 400-odd
+        # games without one do not all change shape; a client treats
+        # absent and null the same (walk the DAG).
+        payload = lib.filterAttrs (n: v: !(n == "manifest" && v == null)) game.android.payload;
       }
       // lib.optionalAttrs (game.android.layers != [ ]) {
         layers = map (
