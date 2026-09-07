@@ -111,16 +111,31 @@ public final class Theme {
     // selection stops moving; a pad user then cannot leave the field,
     // because a pad has no Tab.
 
-    public static void startEditing(EditText f) {
+    public static void startEditing(final EditText f) {
         f.setFocusable(true);
         f.setFocusableInTouchMode(true);
         f.requestFocus();
         f.setSelection(f.getText().length());
-        InputMethodManager im = (InputMethodManager)
+        final InputMethodManager im = (InputMethodManager)
             f.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (im != null) {
-            im.showSoftInput(f, InputMethodManager.SHOW_IMPLICIT);
+        if (im == null) {
+            return;
         }
+        // An explicit request (flags 0), not SHOW_IMPLICIT: Android drops
+        // implicit ones whenever it believes a hardware keyboard is
+        // attached, and a handheld's built-in pad counts as one -- on the
+        // Thor the keyboard stopped appearing for the remote field, with
+        // no way to edit it. The press that got here IS the user asking.
+        // Posted so the focus change has landed before the IME is asked,
+        // which it has not when both happen in one call.
+        f.post(new Runnable() {
+            @Override
+            public void run() {
+                if (f.hasFocus()) {
+                    im.showSoftInput(f, 0);
+                }
+            }
+        });
     }
 
     public static void stopEditing(EditText f) {
