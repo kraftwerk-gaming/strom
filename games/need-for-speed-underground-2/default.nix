@@ -149,8 +149,8 @@ self.lib.mkGame { inherit lib pkgs; } {
           src = fetchIpfs {
             cid = "bafybeib5hrao347l7gxdd3rqy6pcsjtg2dvckh7hycysr5ocqhefrxym24";
             bundle = true;
-            hash = "sha256-CGv75yIn3Q3a+9lBnM0sPTzUbCzqvYfX5iyqlNRjM4g=";
-            name = "need-for-speed-underground-2.tar.zst";
+            hash = "sha256-UWB9Rwa1Z4Y0B6Sd9qzvydoOvifs+tYZJgHcHrZyShE=";
+            name = "need-for-speed-underground-2";
             size = 1935074728;
           };
 

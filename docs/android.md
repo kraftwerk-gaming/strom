@@ -343,18 +343,24 @@ fetch disguised every file as `application/octet-stream`. A pinned
 listing sidecar (`fetchIpfs { manifest = ...; }`, `lib/tree-manifest.py`)
 removes the walk, but the per-file downloads remain. So a game is now
 pinned as ONE reproducible `tar.zst` of its tree, `src = fetchIpfs {
-bundle = true; }`: fetched as any single file (Range-raced across the
-gateways, resumable), extracted by `mk-game` into `_gameData` on the
-desktop and by the client's bundled libarchive on the phone.
-`nix run .#bundle -- <slug> <pin-url>` builds the tree, packs it
-(sorted, epoch mtimes, owner 0, hard links dereferenced, `zstd -19
---long=27`: the same tree packs to the same bytes anywhere), pins it and
-prints the `src` block. Measured on that 2.77 GB game: the bundle is
-1.94 GB (70%, within 1% of 7z/xz), fetches in 43 s from a mirror and
-264 s from the public pool against 142 s / 363 s for the tree with a
-manifest, in ~140 requests instead of ~2050, and unpacks in 4 s where
-deflate needs 19 s. `games/need-for-speed-underground-2` is the first
-bundled game; trees stay supported for the games pinned as such.
+bundle = true; }`: downloaded as any single file (Range-raced across
+the gateways, resumable) and extracted inside the same fixed-output
+build, whose output is the tree and whose `hash` is the tree's NAR
+hash -- the archive never enters the store. The phone extracts the
+same archive with its bundled libarchive. A mod layer is the same
+thing one level down: `tree = fetchIpfs { bundle = true; }` publishes
+the layer as `format: tar.zst`. `nix run .#bundle -- <slug> <pin-url>
+[<dir>]` packs a tree (sorted, epoch mtimes, owner 0, hard links
+dereferenced, `zstd -19 --long=27`: the same tree packs to the same
+bytes anywhere), pins it and prints the `src` block. Measured on a
+2.77 GB game: the bundle is 1.94 GB (70%, within 1% of 7z/xz), fetches
+in 43 s from a mirror and 264 s from the public pool against 142 s /
+363 s for the tree with a manifest, in ~140 requests instead of ~2050,
+and unpacks in 4 s where deflate needs 19 s. Every pinned game is a
+bundle now: `games/animal-well` (one), `games/need-for-speed-underground-2`
+(one), `games/final-fantasy-viii` (a base plus 15 layers, 9.3 GB of
+trees that became 5.3 GB of bundles). Directory trees stay supported
+for anything pinned as one.
 
 What follows is the reasoning that led here, kept as history.
 
@@ -663,11 +669,12 @@ stays in `settings` for honesty and the client grays it out.
 ]
 ```
 
-`sha256` is non-null for a single-file payload (a ROM), where it is the
-source FOD's hash, and for a bundle. A directory payload carries
-`sha256: null` and `name: ""`: the DAG CID verifies every block on the
-way in, so there is nothing left for a file hash to add and the client
-must not demand one. An optional `format` names what the fetched file
+`sha256` is non-null only for a single-file payload (a ROM), where it
+is the source FOD's hash. A directory payload carries `sha256: null`
+and `name: ""`, a bundle `sha256: null` and its file name: the DAG CID
+verifies every block on the way in, so there is nothing left for a
+file hash to add and the client must not demand one. An optional
+`format` names what the fetched file
 is: absent for a tree or a ROM, `"tar.zst"` for a bundle, which the
 client extracts with its bundled libarchive after the CID-verified
 download (`size` is then the archive's bytes, what is transferred). An

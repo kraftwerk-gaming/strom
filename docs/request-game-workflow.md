@@ -154,9 +154,9 @@ the recipe will use, and prints the `src` block:
     src = fetchIpfs {
       cid = "bafybei...";
       bundle = true;
-      hash = "sha256-...";
-      name = "<slug>.tar.zst";
-      size = 1935074728;
+      hash = "sha256-...";   # nix hash path of the tree
+      name = "<slug>";
+      size = 1935074728;     # the bundle's bytes
     };
 
 Write `games/<slug>/default.nix` with exactly that `src` and no

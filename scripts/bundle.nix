@@ -18,10 +18,14 @@
 # existing recipe builds at default settings: the path for re-bundling
 # a game after a recipe change, or migrating one that still builds.
 #
-# The bundle is also added to the local store under the name the
-# recipe will use, so `nix build .#<slug>` on this machine finds the
-# fixed-output already realised and needs no download of what was
-# just uploaded (the output path is a function of name and hash only).
+# The recipe's `hash` is the NAR hash of the TREE (`nix hash path`),
+# not of the archive: `fetchIpfs { bundle = true; }` downloads and
+# extracts in one fixed-output build and its output is the tree, so
+# the archive is never in the store. The tree is also added to the
+# local store under the name the recipe will use, so `nix build
+# .#<slug>` on this machine finds the fixed output already realised
+# and needs no download of what was just uploaded (the output path is
+# a function of name and hash only).
 #
 # Reproducible by construction: entries sorted, owner 0:0, mtime epoch,
 # modes normalised (the store's 0444/0555 become 0644/0755), hard links
@@ -99,8 +103,8 @@ pkgs.writeShellApplication {
           | zstd -19 --long=27 -T0 -q -o "$out"
 
         size=$(stat -c %s "$out")
-        hash=$(nix hash file --sri "$out")
-        nix store add-file --hash-algo sha256 --name "$slug.tar.zst" "$out" >/dev/null
+        hash=$(nix hash path --sri "$tree")
+        nix store add-path --name "$slug" "$tree" >/dev/null
         export IPFS_PATH="$work/ipfs"
         ipfs init -e >/dev/null 2>&1
         cid=$(ipfs add -Q --only-hash --cid-version=1 "$out")
@@ -127,7 +131,7 @@ pkgs.writeShellApplication {
         cid = "$cid";
         bundle = true;
         hash = "$hash";
-        name = "$slug.tar.zst";
+        name = "$slug";
         size = $size;
       };
     EOF

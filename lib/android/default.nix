@@ -250,10 +250,11 @@ in
               type = types.nullOr types.str;
               default = null;
               description = ''
-                Content hash of a single-file payload. Null for a
-                directory payload: the DAG CID already verifies every
-                block on the way in, and a tree has no one file to hash,
-                so the client must not demand one.
+                Content hash of a single-file payload the emulator opens
+                as-is. Null for a directory payload and for a bundle: the
+                DAG CID already verifies every block on the way in, and
+                the repo's own hash of a bundle is of the extracted tree,
+                so the client must not demand a file hash.
               '';
             };
 
@@ -335,8 +336,8 @@ in
           }
         else if buildsNothing && (only.bundle or false) then
           {
-            inherit (only) cid name size;
-            sha256 = only.outputHash;
+            inherit (only) cid size;
+            name = "${only.name}.tar.zst";
             format = "tar.zst";
           }
         else if buildsNothing && singleFileBackends && (only.name or null) == game.executable then
@@ -549,6 +550,7 @@ in
           }
           // lib.optionalAttrs (l.requires != null) { inherit (l) requires; }
           // lib.optionalAttrs (l.size != null) { inherit (l) size; }
+          // lib.optionalAttrs (l.format != null) { inherit (l) format; }
         ) game.android.layers;
       }
       # Verbatim `passthru.settingsSchema`, the same list the couch

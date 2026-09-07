@@ -26,19 +26,23 @@
 #   }
 #
 # Usage, a bundle (a game's built tree as ONE reproducible tar.zst,
-# what `nix run .#bundle` produces and pins; the desktop extracts it
-# into `_gameData`, the Android client with its bundled libarchive):
+# what `nix run .#bundle` produces and pins). The archive is fetched
+# and extracted in the same fixed-output build, so what comes out is
+# the TREE, never the archive: the desktop mounts it as game data or a
+# mod layer, the Android client extracts the same archive with its
+# bundled libarchive.
 #   fetchIpfs {
 #     cid = "bafybei...";
 #     bundle = true;
-#     hash = "sha256-...";   # sha256 of the archive
-#     name = "foo.tar.zst";
+#     hash = "sha256-...";   # `nix hash path` of the tree (NAR hash)
+#     name = "foo";          # the tree; the archive is <name>.tar.zst
 #     size = 1937928179;     # archive bytes, what is transferred
 #   }
-# Fetched exactly like any single file: one Range-raced download across
-# the gateways, no walk, no per-file requests. Measured against the
-# same 2.77 GB game as a directory tree: 43 s vs 142 s from a mirror,
-# 264 s vs 363 s from the public pool, ~140 requests vs ~2050.
+# Downloaded exactly like any single file: one Range-raced download
+# across the gateways, no walk, no per-file requests, then `tar --zstd
+# -x` into the output. Measured against the same 2.77 GB game as a
+# directory tree: 43 s vs 142 s from a mirror, 264 s vs 363 s from the
+# public pool, ~140 requests vs ~2050; the extraction is 4 s.
 #
 # A directory with no `manifest` is walked one block at a time through
 # the gateways (`?format=car&dag-scope=block`, the one directory request
@@ -67,6 +71,8 @@
   curl,
   cacert,
   python3,
+  gnutar,
+  zstd,
 }:
 
 {
@@ -120,21 +126,31 @@ stdenvNoCC.mkDerivation {
     aria2
     curl
   ]
-  ++ lib.optional directory python3;
+  ++ lib.optional directory python3
+  ++ lib.optionals bundle [
+    gnutar
+    zstd
+  ];
 
   outputHash = hash;
-  outputHashMode = if directory then "recursive" else "flat";
+  outputHashMode = if directory || bundle then "recursive" else "flat";
   outputHashAlgo = "sha256";
 
   inherit cid fallbackUrl;
   fetchDirectory = lib.boolToString directory;
+  fetchBundle = lib.boolToString bundle;
   manifestCid = lib.optionalString (manifest != null) manifest;
   providers = lib.concatStringsSep " " providers;
   walker = ./ipfs-walk.py;
 
   # What a recipe and the Android manifest read off the derivation: the
   # CID it fetches, whether that is a tree or a bundle, its size, and a
-  # tree's pinned listing sidecar.
+  # tree's pinned listing sidecar. A bundle also carries `tree`, its
+  # extraction: the directory mk-game mounts as game data or as a mod
+  # layer, which keeps the bundle's identity as ITS passthru so a layer
+  # declared as `(fetchIpfs { bundle = true; ... }).tree` publishes the
+  # bundle's CID, size and format to Android exactly like a fetched
+  # directory publishes its own.
   passthru = {
     inherit
       cid
@@ -487,16 +503,27 @@ stdenvNoCC.mkDerivation {
         -o "$TMPDIR/fetch.bin" "$fallbackUrl" >>"$TMPDIR/fetch.log" 2>&1
     }
 
-    if aria_retrying --split=8 --dir="$TMPDIR" --out="fetch.bin" $urls; then
+    # A bundle is the tree it unpacks to, never the archive: extract
+    # straight into the output and the archive dies with the build
+    # directory. The NAR hash of the tree gates the result, so a
+    # truncated or tampered archive fails here, not later.
+    finish() {
       stop_poll
-      mv "$TMPDIR/fetch.bin" "$out"
+      if [ "$fetchBundle" = true ]; then
+        mkdir -p "$out"
+        tar --zstd -xf "$TMPDIR/fetch.bin" -C "$out"
+      else
+        mv "$TMPDIR/fetch.bin" "$out"
+      fi
       exit 0
+    }
+
+    if aria_retrying --split=8 --dir="$TMPDIR" --out="fetch.bin" $urls; then
+      finish
     fi
 
     if fetch_via_curl; then
-      stop_poll
-      mv "$TMPDIR/fetch.bin" "$out"
-      exit 0
+      finish
     fi
 
     fail "aria2c and fallback both failed for $cid"

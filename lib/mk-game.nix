@@ -262,32 +262,19 @@ let
         };
 
         # The game data: the overlay's lower layer, and the tree Android
-        # fetches. A pinned tree (`fetchIpfs { directory = true; }`) IS
-        # the game data, with no build in between; a pinned bundle
-        # (`fetchIpfs { bundle = true; }`, the reproducible tar.zst of
-        # that tree) is extracted here, once, into the same tree. Either
-        # way the desktop and the phone fetch the same CID. A buildScript
-        # still turns an archive into a tree for the game that has not
-        # been pinned as one yet.
+        # fetches. A pinned tree (`fetchIpfs { directory = true; }`) or a
+        # pinned bundle (`fetchIpfs { bundle = true; }`, the reproducible
+        # tar.zst of that tree, fetched and extracted in one fixed-output
+        # build) IS the game data, with no build in between: the desktop
+        # and the phone fetch the same CID. A buildScript still turns an
+        # archive into a tree for the game that has not been pinned as
+        # one yet.
         _gameData = mkOption {
           type = types.package;
           internal = true;
           default =
-            if cfg.buildScript == "" && (cfg.src.directory or false) then
+            if cfg.buildScript == "" && ((cfg.src.directory or false) || (cfg.src.bundle or false)) then
               cfg.src
-            else if cfg.buildScript == "" && (cfg.src.bundle or false) then
-              pkgs.runCommandLocal "${cfg.name}-data"
-                {
-                  inherit (cfg) src;
-                  nativeBuildInputs = [
-                    pkgs.gnutar
-                    pkgs.zstd
-                  ];
-                }
-                ''
-                  mkdir -p "$out"
-                  tar --zstd -xf "$src" -C "$out"
-                ''
             else
               pkgs.runCommandLocal "${cfg.name}-data" { inherit (cfg) nativeBuildInputs src; } (
                 if cfg.buildScript != "" then
@@ -692,14 +679,17 @@ let
                   };
                   cid = mkOption {
                     type = types.nullOr types.str;
-                    default = if config.tree.directory or false then config.tree.cid else null;
-                    defaultText = lib.literalMD "the tree's CID when it is a fetched tree; otherwise `null`";
+                    default =
+                      if (config.tree.directory or false) || (config.tree.bundle or false) then config.tree.cid else null;
+                    defaultText = lib.literalMD "the tree's CID when it is a fetched tree or a bundle's extraction; otherwise `null`";
                     description = ''
-                      This tree pinned as a directory CID, for Android. A
-                      tree that is itself `fetchIpfs { directory = true; }`
-                      carries its own. Null otherwise, until an operator pins
-                      it, which the client reports as not published rather
-                      than offering a mod it cannot fetch.
+                      This tree pinned for Android: a directory CID, or a
+                      bundle's. A tree that is itself `fetchIpfs {
+                      directory = true; }`, or the `.tree` of a `fetchIpfs
+                      { bundle = true; }`, carries its own. Null otherwise,
+                      until an operator pins it, which the client reports
+                      as not published rather than offering a mod it
+                      cannot fetch.
                     '';
                   };
                   name = mkOption {
@@ -713,9 +703,20 @@ let
                     default = config.tree.size or null;
                     defaultText = lib.literalMD "the fetched tree's `size`; otherwise `null`";
                     description = ''
-                      Uncompressed bytes, so a phone can say what a mod
-                      costs before fetching it. Null when unmeasured; the
-                      client then shows no size rather than a wrong one.
+                      Bytes the phone transfers for this layer: a tree's
+                      uncompressed bytes, a bundle's archive bytes. Null
+                      when unmeasured; the client then shows no size rather
+                      than a wrong one.
+                    '';
+                  };
+                  format = mkOption {
+                    type = types.nullOr (types.enum [ "tar.zst" ]);
+                    default = if config.tree.bundle or false then "tar.zst" else null;
+                    defaultText = lib.literalMD "`tar.zst` for a bundle's extraction; otherwise `null`";
+                    description = ''
+                      What the phone fetches for this layer: null for a
+                      directory tree, `tar.zst` for a bundle it extracts
+                      over the base (lib/android/default.nix `payload.format`).
                     '';
                   };
                 };

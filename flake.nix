@@ -114,6 +114,8 @@
               curl
               cacert
               python3
+              gnutar
+              zstd
               ;
           };
       };
