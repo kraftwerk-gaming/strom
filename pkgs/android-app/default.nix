@@ -1,6 +1,8 @@
 {
   lib,
   stdenvNoCC,
+  fetchurl,
+  unzip,
   androidenv,
   jdk17,
   zip,
@@ -20,7 +22,12 @@
 # Built with aapt2 + javac + d8 + apksigner directly rather than Gradle.
 # Gradle wants to resolve dependencies at build time, which a flake cannot
 # do offline; this toolchain is already in the composed SDK, needs no
-# network, and the app deliberately has zero third-party dependencies.
+# network, and the app has exactly one third-party dependency, fetched
+# below as a fixed-output file and unpacked by hand. That one is
+# libarchive, for the tar.zst payload bundles: zstd is not in the platform
+# (java.util.zip does deflate and nothing else), so decoding a bundle
+# needs native code, and a prebuilt libarchive with zstd linked in is the
+# smallest way to get it that does not mean an NDK build of our own.
 # That is also why the sources are Java and not Kotlin: no extra compiler
 # to pull in, and the whole client is small enough that Kotlin's ergonomics
 # do not pay for the added build surface.
@@ -39,6 +46,20 @@ let
       includeNDK = false;
       includeSystemImages = false;
     }).androidsdk;
+
+  # libarchive-android (github.com/zhanghai/libarchive-android): libarchive
+  # 3.x with zlib, bz2, lzma, lz4, zstd and mbedtls linked in statically,
+  # built with ANDROID_STL=none, so the AAR's jni/<abi>/libarchive-jni.so
+  # needs only liblog, libm, libdl and libc from the device (readelf -d)
+  # and there is no libc++_shared.so to ship beside it. Its Java binding
+  # (me.zhanghai.android.libarchive.Archive, ArchiveEntry) is Java 8
+  # bytecode in classes.jar. The POM's one dependency, androidx.annotation,
+  # is @NonNull/@Nullable with class retention: javac and d8 tolerate the
+  # missing annotation types, and nothing looks for them at runtime.
+  libarchiveAar = fetchurl {
+    url = "https://repo1.maven.org/maven2/me/zhanghai/android/libarchive/library/1.1.6/library-1.1.6.aar";
+    hash = "sha256-Btl6N4cqlXTOsr+Uo62Nw4/MiaYPJCQGeyDrXvqmIYk=";
+  };
 in
 stdenvNoCC.mkDerivation {
   pname = "strom-android";
@@ -64,6 +85,7 @@ stdenvNoCC.mkDerivation {
 
   nativeBuildInputs = [
     jdk17
+    unzip
     zip
   ];
 
@@ -75,7 +97,8 @@ stdenvNoCC.mkDerivation {
     BT="$SDK/build-tools/34.0.0"
     JAR="$SDK/platforms/android-34/android.jar"
 
-    mkdir -p build/classes
+    mkdir -p build/classes build/aar
+    unzip -q ${libarchiveAar} -d build/aar
 
     # Resource-free app: the UI is built programmatically, so aapt2 only
     # has to compile the manifest into the base APK.
@@ -83,19 +106,29 @@ stdenvNoCC.mkDerivation {
 
     # -source/-target 8 with android.jar as the bootclasspath is the
     # combination d8 expects; --release is incompatible with -bootclasspath.
-    javac -nowarn -source 8 -target 8 -bootclasspath "$JAR" -cp "$JAR" \
+    javac -nowarn -source 8 -target 8 -bootclasspath "$JAR" \
+      -cp "$JAR:build/aar/classes.jar" \
       -d build/classes $(find src -name '*.java')
 
-    "$BT/d8" --lib "$JAR" --output build $(find build/classes -name '*.class')
+    # The binding's classes go into the same dex as ours; d8 takes a jar
+    # as an input alongside loose class files.
+    "$BT/d8" --lib "$JAR" --output build \
+      $(find build/classes -name '*.class') build/aar/classes.jar
 
     cp build/base.apk build/unsigned.apk
 
     # zip records each entry's mtime, and classes.dex was just created, so
     # without pinning it the APK differs on every build and a release
     # cannot be checked against the source it claims to come from. -X
-    # drops the unix extra fields, which carry a second timestamp.
-    touch -d @315532800 build/classes.dex
-    (cd build && zip -q -X -D unsigned.apk classes.dex)
+    # drops the unix extra fields, which carry a second timestamp. The
+    # native libraries get the same treatment: unzip gave them the AAR's
+    # own timestamps, which are as arbitrary as "now". They go in as
+    # lib/<abi>/, the layout the installer looks in (with
+    # extractNativeLibs, see the manifest), every ABI the AAR ships.
+    mkdir -p build/lib
+    cp -r build/aar/jni/. build/lib/
+    touch -d @315532800 build/classes.dex $(find build/lib -type f)
+    (cd build && zip -q -X -D unsigned.apk classes.dex $(find lib -type f | sort))
 
     "$BT/zipalign" -f 4 build/unsigned.apk build/aligned.apk
     "$BT/apksigner" sign \
@@ -107,21 +140,27 @@ stdenvNoCC.mkDerivation {
   '';
 
   # The verifier is the only thing standing between a hostile gateway and
-  # a phone, and the layer resolution is the only thing standing between a
-  # player's picks and a multi-gigabyte download they did not ask for, so
-  # both are tested on every build. These classes touch nothing from
+  # a phone, the layer resolution is the only thing standing between a
+  # player's picks and a multi-gigabyte download they did not ask for, and
+  # the bundle entry-name rule is the only thing standing between an
+  # archive's paths and the directory they may not leave, so all three
+  # are tested on every build. These classes touch nothing from
   # android.jar, so they run on the plain JDK with no device or emulator;
-  # the tests build tampered CARs and assert each is refused, and resolve
-  # picks against a manifest and assert the exact layer list and order.
+  # the tests build tampered CARs and assert each is refused, resolve
+  # picks against a manifest and assert the exact layer list and order,
+  # and feed hostile entry names to the rule. The libarchive binding is on
+  # the classpath because Bundle.java names its classes; nothing here
+  # calls into it, so its native library is never loaded.
   doCheck = true;
   checkPhase = ''
     runHook preCheck
 
     mkdir -p test-classes
+    CP=test-classes:build/aar/classes.jar
     # The catalog package is listed file by file because Catalog.java needs
     # android.util.Log, while the option and layer logic it feeds
     # deliberately depends on nothing outside the JDK.
-    javac -nowarn -d test-classes \
+    javac -nowarn -cp "$CP" -d test-classes \
       $(find src/gaming/kraftwerk/strom/ipfs -name '*.java') \
       src/gaming/kraftwerk/strom/catalog/Game.java \
       src/gaming/kraftwerk/strom/catalog/Json.java \
@@ -130,10 +169,11 @@ stdenvNoCC.mkDerivation {
       src/gaming/kraftwerk/strom/catalog/PadKeys.java \
       src/gaming/kraftwerk/strom/catalog/Setting.java \
       $(find test -name '*.java')
-    java -cp test-classes gaming.kraftwerk.strom.ipfs.CarVerifyTest
-    java -cp test-classes gaming.kraftwerk.strom.ipfs.FetchResumeTest
-    java -cp test-classes gaming.kraftwerk.strom.catalog.OptionsTest
-    java -cp test-classes gaming.kraftwerk.strom.catalog.PadKeysTest
+    java -cp "$CP" gaming.kraftwerk.strom.ipfs.CarVerifyTest
+    java -cp "$CP" gaming.kraftwerk.strom.ipfs.FetchResumeTest
+    java -cp "$CP" gaming.kraftwerk.strom.ipfs.BundleTest
+    java -cp "$CP" gaming.kraftwerk.strom.catalog.OptionsTest
+    java -cp "$CP" gaming.kraftwerk.strom.catalog.PadKeysTest
 
     runHook postCheck
   '';

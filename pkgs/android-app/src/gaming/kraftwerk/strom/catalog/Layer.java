@@ -21,6 +21,12 @@ public final class Layer {
     public String cid;
     /** Bytes, 0 when the manifest published no size. */
     public long size;
+    /**
+     * How the tree is packed: null for a pinned directory, {@code "tar.zst"}
+     * for one archive of it. Either way it is unpacked over the base with
+     * its files winning.
+     */
+    public String format;
 
     /**
      * A parent switch this layer additionally depends on, or null.
@@ -51,6 +57,7 @@ public final class Layer {
             l.value = Json.scalar(o, "value");
             l.cid = Json.str(o, "cid");
             l.size = Json.num(o, 0L, "size");
+            l.format = Json.str(o, "format");
             l.requiresKey = Json.str(o, "requires", "key");
             l.requiresValue = Json.scalar(o, "requires", "value");
             out.add(l);

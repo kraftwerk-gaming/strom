@@ -323,29 +323,41 @@ public final class Fetcher {
 
     /**
      * Fetch a mod layer and merge it over a game directory that is already
-     * there. {@code p} may be null.
+     * there. {@code format} is the layer's manifest {@code format}, null
+     * for a pinned tree; {@code p} and {@code unpack} may be null.
      *
      * <p>A layer is not a payload of its own but a partial tree whose files
      * win over the ones already present, which is what reproduces the
      * desktop's overlay merge. It lands on a scratch path beside the game so
      * the whole DAG is verified before a single byte of what the player
      * already has is touched, and so the merge moves entries rather than
-     * copying a second multi-gigabyte tree.
+     * copying a second multi-gigabyte tree. A {@link Bundle} layer lands as
+     * one archive and is unpacked onto a second scratch path first, so the
+     * same holds for it: the base is touched only once the whole layer has
+     * decoded, and then by moving entries.
      */
-    public static UnixFs.Stats fetchAndMerge(String cidText, File dir, String layerName,
-        Progress p) throws IOException {
+    public static UnixFs.Stats fetchAndMerge(String cidText, String format, File dir,
+        String layerName, Progress p, Bundle.Progress unpack) throws IOException {
         if (!dir.isDirectory()) {
             throw new IOException("no game directory to merge into: " + dir);
         }
         File part = new File(dir.getAbsolutePath() + ".layer-" + safe(layerName) + ".part");
+        File tree = new File(part.getAbsolutePath() + ".tree");
         deleteTree(part);
+        deleteTree(tree);
         UnixFs.Stats st = fetchAndExtract(cidText, part, p);
         try {
-            merge(part, dir);
+            if (Bundle.FORMAT.equals(format)) {
+                Bundle.extract(part, tree, unpack);
+                merge(tree, dir);
+            } else {
+                merge(part, dir);
+            }
         } finally {
             // Whatever a failed merge left behind is a partial copy of bytes
             // that are still on a gateway; the next attempt refetches.
             deleteTree(part);
+            deleteTree(tree);
         }
         return st;
     }

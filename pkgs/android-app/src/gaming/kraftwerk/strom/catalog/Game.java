@@ -20,7 +20,16 @@ public final class Game {
     public String payloadCid;
     public String payloadName;
     public String payloadSha256;
-    /** Uncompressed bytes of the payload, or 0 when the manifest has none. */
+    /**
+     * How the bytes behind {@code payloadCid} are packed: null for a
+     * directory tree or a single ROM file, fetched as they are;
+     * {@code "tar.zst"} for one archive of the tree, unpacked on arrival.
+     */
+    public String payloadFormat;
+    /**
+     * Bytes of the payload as transferred: the tree's files, or the
+     * archive when it is one. 0 when the manifest has none.
+     */
     public long payloadSize;
     public String retroarchCore;
     /**

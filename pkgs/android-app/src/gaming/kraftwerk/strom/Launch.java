@@ -6,6 +6,7 @@ import android.util.Log;
 import gaming.kraftwerk.strom.catalog.Game;
 import gaming.kraftwerk.strom.catalog.Layer;
 import gaming.kraftwerk.strom.catalog.Options;
+import gaming.kraftwerk.strom.ipfs.Bundle;
 import gaming.kraftwerk.strom.ipfs.Fetcher;
 import gaming.kraftwerk.strom.ipfs.UnixFs;
 import gaming.kraftwerk.strom.runtime.CoreInstaller;
@@ -92,13 +93,20 @@ public final class Launch {
                 // A single-file payload extracts to a file and a directory
                 // payload to a tree, and which one it is is only known once
                 // the DAG arrives. Land it on a scratch path, then put it
-                // where it belongs.
+                // where it belongs. A bundle is a single file too, one the
+                // manifest declared, and becomes the tree it carries.
                 File part = new File(dir.getAbsolutePath() + ".part");
                 p.say("fetching payload");
                 UnixFs.Stats st = Fetcher.fetchAndExtract(g.payloadCid, part,
                     bytes(p, null, g.payloadSize));
-                place(part, dir, g);
-                p.say("verified " + st.blocks + " blocks, " + human(st.bytesOut));
+                if (Bundle.FORMAT.equals(g.payloadFormat)) {
+                    Bundle.Stats bs = unpack(part, dir, unpacking(p, null, g.payloadSize));
+                    p.say("verified " + st.blocks + " blocks, unpacked " + bs.files
+                        + " files, " + human(bs.bytesOut));
+                } else {
+                    place(part, dir, g);
+                    p.say("verified " + st.blocks + " blocks, " + human(st.bytesOut));
+                }
                 // A base that was just unpacked carries no mods, whatever an
                 // interrupted earlier attempt recorded.
                 applied.clear();
@@ -109,8 +117,8 @@ public final class Launch {
 
             for (Layer l : plan.fetch) {
                 p.say("fetching mod " + l.name);
-                UnixFs.Stats ls = Fetcher.fetchAndMerge(l.cid, dir, l.name,
-                    bytes(p, l.name, l.size));
+                UnixFs.Stats ls = Fetcher.fetchAndMerge(l.cid, l.format, dir, l.name,
+                    bytes(p, l.name, l.size), unpacking(p, l.name, l.size));
                 // Recorded per layer, and only once its whole tree is
                 // verified and merged: an interrupted mod is refetched rather
                 // than remembered as applied.
@@ -232,6 +240,57 @@ public final class Launch {
         if (!part.renameTo(dst)) {
             throw new IOException("cannot move " + part + " to " + dst);
         }
+    }
+
+    /**
+     * Turn a fetched bundle into the game directory. The tree is built on
+     * a scratch path and moved into place whole, so an extraction that is
+     * killed halfway leaves nothing {@link #present} would take for a
+     * finished download. The archive goes once the tree is there: it is
+     * the same bytes twice, and the CID can fetch it again.
+     */
+    static Bundle.Stats unpack(File archive, File dir, Bundle.Progress p) throws IOException {
+        File tree = new File(dir.getAbsolutePath() + ".unpack");
+        Fetcher.deleteTree(tree);
+        Bundle.Stats st = Bundle.extract(archive, tree, p);
+        if (!tree.renameTo(dir)) {
+            throw new IOException("cannot move " + tree + " to " + dir);
+        }
+        Fetcher.deleteTree(archive);
+        return st;
+    }
+
+    /**
+     * The unpack status line, against the archive size the manifest knows:
+     * the percentage is of compressed bytes consumed, which is the one
+     * total there is, and it reaches 100 exactly when the last file is
+     * written. Throttled, because the decoder hands over chunks far faster
+     * than a line can be read and every line is a post to the UI thread.
+     */
+    private static Bundle.Progress unpacking(final Progress p, final String label,
+        final long total) {
+        final String what = label == null ? "unpacking" : "unpacking " + label;
+        return new Bundle.Progress() {
+            private long last;
+
+            @Override
+            public void bytes(long n) {
+                long now = System.currentTimeMillis();
+                if (now - last < 250 && n < total) {
+                    return;
+                }
+                last = now;
+                String of = total > 0
+                    ? " of " + human(total) + " (" + (n * 100 / total) + "%)"
+                    : "";
+                p.say(what + " " + human(n) + of);
+            }
+
+            @Override
+            public void skipped(String name, String why) {
+                Log.w(TAG, what + ": skipped " + name + ": " + why);
+            }
+        };
     }
 
     public static String human(long n) {

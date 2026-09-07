@@ -63,9 +63,20 @@
        network-security-config limited to private ranges would be
        narrower, but it needs a res/xml resource and this APK
        deliberately has no resource tree. -->
+  <!-- extractNativeLibs is the platform default, stated so the packaging
+       step in default.nix and this line cannot drift apart: the APK's
+       lib/<abi>/*.so entries (libarchive, the one bundled native library)
+       are deflated by zip like everything else, and with "true" the
+       installer inflates the device's ABI into the app's lib directory at
+       install time. "false" would load them straight out of the APK,
+       which requires the entries stored uncompressed and page-aligned
+       (zip -0 plus zipalign -p): the four ABIs are 8 MiB raw against a
+       4 MiB APK with them deflated, of which one 2 MiB library is what a
+       device inflates. -->
   <application
       android:label="Strom"
       android:hasCode="true"
+      android:extractNativeLibs="true"
       android:usesCleartextTraffic="true"
       android:allowBackup="false">
     <activity
