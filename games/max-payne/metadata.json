@@ -7,12 +7,17 @@
         "executablePath": "MaxPayne.exe"
       }
     },
+    "payload": {
+      "cid": "bafybeiapk6qoytrl46e6db7r3o2nvkatemzgkw6f7qhfccth4w55ymreoq",
+      "format": "tar.zst",
+      "name": "max-payne.tar.zst",
+      "sha256": null,
+      "size": 596136065
+    },
     "schema": 1
   },
   "cids": [
-    "QmY33VoGafwBpgMo75HrizwEF5ZzUy8Wm4ZDiD5LjEqZWZ",
-    "QmQYYbQ4WiLrTcJbFpSNEULnizgJcRjaPf7457JvU64CSs",
-    "QmeGbpPiTMrU1VxWPdQJrkvij6YZypS4dtEqXUcW8hH1ET"
+    "bafybeiapk6qoytrl46e6db7r3o2nvkatemzgkw6f7qhfccth4w55ymreoq"
   ],
   "description": "Max Payne (Remedy / 3D Realms 2001, retail v1.05 no-CD, via Proton)",
   "runtime": "proton"
