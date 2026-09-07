@@ -26,6 +26,7 @@ blocks fails the build the same way a wrong single file does today.
 """
 
 import base64
+import http.client
 import os
 import ssl
 from concurrent.futures import ThreadPoolExecutor
@@ -235,7 +236,16 @@ class Gateways:
                     raise WalkError(
                         "CAR for %s lacks the block %s" % (ref, cid_text(want))
                     )
-                except (urllib.error.URLError, OSError, WalkError) as e:
+                # http.client errors (IncompleteRead from a gateway cutting
+                # a chunked body, BadStatusLine, ...) are HTTPException, not
+                # OSError; without them here one flaky response kills the
+                # whole walk instead of rotating to the next gateway.
+                except (
+                    urllib.error.URLError,
+                    http.client.HTTPException,
+                    OSError,
+                    WalkError,
+                ) as e:
                     last = e
                     log("%s: %s" % (gw, e))
             if attempt + 1 < self.rounds:
