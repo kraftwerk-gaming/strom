@@ -9,16 +9,17 @@
       }
     },
     "payload": {
-      "cid": "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu",
-      "name": "",
+      "cid": "bafybeihxbuklzovvuldc2a5rxthzqld5lvbncpgcddmx5enxfcs4kckyjy",
+      "format": "tar.zst",
+      "name": "animal-well.tar.zst",
       "sha256": null,
-      "size": 36837264
+      "size": 31170161
     },
     "schema": 1
   },
   "appid": 813230,
   "cids": [
-    "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu"
+    "bafybeihxbuklzovvuldc2a5rxthzqld5lvbncpgcddmx5enxfcs4kckyjy"
   ],
   "description": "ANIMAL WELL (Billy Basso 2024, via Proton)",
   "runtime": "proton"

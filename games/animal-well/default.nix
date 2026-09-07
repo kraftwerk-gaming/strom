@@ -8,16 +8,16 @@
 self.lib.mkGame { inherit lib pkgs; } {
   name = "animal-well";
 
-  # The game tree itself, pinned as a directory: the desktop overlays it
-  # and the Android client unpacks it, from the same CID, with nothing to
-  # extract on either side. (Originally the AnkerGames RAR5 release,
-  # minus its two advert files.)
+  # The game tree, pinned as one reproducible tar.zst bundle: the desktop
+  # extracts it into the overlay base and the Android client into its
+  # game directory, from the same CID. (Originally the AnkerGames RAR5
+  # release, minus its two advert files.)
   src = fetchIpfs {
-    cid = "bafybeifrlj54674zds5tazgywt76xjvuywfc2pkbz6pvaoaj5gmzmatzhu";
-    directory = true;
+    cid = "bafybeihxbuklzovvuldc2a5rxthzqld5lvbncpgcddmx5enxfcs4kckyjy";
+    bundle = true;
     hash = "sha256-i6GQWZ0ffoTFnPTv6ewYguWV58CUuQRPGd7lnYQWifk=";
     name = "animal-well";
-    size = 36837264;
+    size = 31170161;
   };
 
   runtime = "proton";
