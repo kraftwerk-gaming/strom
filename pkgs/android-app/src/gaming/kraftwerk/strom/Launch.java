@@ -93,17 +93,21 @@ public final class Launch {
                 // A single-file payload extracts to a file and a directory
                 // payload to a tree, and which one it is is only known once
                 // the DAG arrives. Land it on a scratch path, then put it
-                // where it belongs. A bundle is a single file too, one the
-                // manifest declared, and becomes the tree it carries.
+                // where it belongs. A bundle is a single file the manifest
+                // declared, fetched by range so a multi-GB archive survives
+                // gateways that cut a stream and resumes across restarts,
+                // and becomes the tree it carries.
                 File part = new File(dir.getAbsolutePath() + ".part");
                 p.say("fetching payload");
-                UnixFs.Stats st = Fetcher.fetchAndExtract(g.payloadCid, part,
-                    bytes(p, null, g.payloadSize));
                 if (Bundle.FORMAT.equals(g.payloadFormat)) {
+                    UnixFs.Stats st = Fetcher.fetchFile(g.payloadCid, part,
+                        bytes(p, null, g.payloadSize));
                     Bundle.Stats bs = unpack(part, dir, unpacking(p, null, g.payloadSize));
                     p.say("verified " + st.blocks + " blocks, unpacked " + bs.files
                         + " files, " + human(bs.bytesOut));
                 } else {
+                    UnixFs.Stats st = Fetcher.fetchAndExtract(g.payloadCid, part,
+                        bytes(p, null, g.payloadSize));
                     place(part, dir, g);
                     p.say("verified " + st.blocks + " blocks, " + human(st.bytesOut));
                 }

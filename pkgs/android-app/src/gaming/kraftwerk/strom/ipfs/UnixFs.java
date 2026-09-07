@@ -112,6 +112,60 @@ public final class UnixFs {
         return out;
     }
 
+    /** One child of a chunked file node: its block, and the file bytes it holds. */
+    public static final class Chunk {
+        public final Cid cid;
+        public final long size;
+
+        Chunk(Cid cid, long size) {
+            this.cid = cid;
+            this.size = size;
+        }
+    }
+
+    /**
+     * The children of a chunked file node in file order, each with the
+     * byte count its subtree contributes ({@code blocksizes}), or null
+     * when the block is anything else: a directory, or a file small
+     * enough to carry its content inline. Like {@link #directoryEntries}
+     * the block must already be verified against {@code root}. This is
+     * what lets a file be fetched by byte range instead of as one CAR:
+     * the leaves' offsets follow from the sizes, and each leaf is checked
+     * against its own CID once its bytes arrive.
+     */
+    public static List<Chunk> fileChunks(Cid root, byte[] block) throws IOException {
+        if (root.codec != Cid.CODEC_DAG_PB) {
+            return null;
+        }
+        Node node = Node.decode(block);
+        if (node.dataLen <= 0) {
+            return null;
+        }
+        Data u = Data.decode(block, node.dataOff, node.dataLen);
+        if (u.type != TYPE_FILE || node.links.isEmpty() || u.dataLen > 0) {
+            return null;
+        }
+        if (u.blocksizes.size() != node.links.size()) {
+            throw new VerifyException("file node declares " + u.blocksizes.size()
+                + " blocksizes for " + node.links.size() + " links");
+        }
+        List<Chunk> out = new ArrayList<Chunk>(node.links.size());
+        long total = 0;
+        for (int i = 0; i < node.links.size(); i++) {
+            long size = u.blocksizes.get(i);
+            if (size <= 0) {
+                throw new VerifyException("file chunk of " + size + " bytes");
+            }
+            total += size;
+            out.add(new Chunk(node.links.get(i).cid, size));
+        }
+        if (u.filesize >= 0 && u.filesize != total) {
+            throw new VerifyException("file node declares " + u.filesize
+                + " bytes but its chunks hold " + total);
+        }
+        return out;
+    }
+
     // ----------------------------------------------------------------
     // dag-pb
     // ----------------------------------------------------------------
@@ -191,6 +245,8 @@ public final class UnixFs {
         int dataLen;
         /** -1 when the node does not declare one. */
         long filesize = -1;
+        /** Per link, in link order; kubo writes them unpacked. */
+        final List<Long> blocksizes = new ArrayList<Long>();
 
         static Data decode(byte[] buf, int off, int len) throws VerifyException {
             Data d = new Data();
@@ -213,6 +269,8 @@ public final class UnixFs {
                 dataLen = len;
             } else if (field == 3 && wire == Protobuf.WIRE_VARINT) {
                 filesize = num;
+            } else if (field == 4 && wire == Protobuf.WIRE_VARINT) {
+                blocksizes.add(num);
             }
         }
     }

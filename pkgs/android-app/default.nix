@@ -171,6 +171,7 @@ stdenvNoCC.mkDerivation {
       $(find test -name '*.java')
     java -cp "$CP" gaming.kraftwerk.strom.ipfs.CarVerifyTest
     java -cp "$CP" gaming.kraftwerk.strom.ipfs.FetchResumeTest
+    java -cp "$CP" gaming.kraftwerk.strom.ipfs.RangedFetchTest
     java -cp "$CP" gaming.kraftwerk.strom.ipfs.BundleTest
     java -cp "$CP" gaming.kraftwerk.strom.catalog.OptionsTest
     java -cp "$CP" gaming.kraftwerk.strom.catalog.PadKeysTest

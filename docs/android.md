@@ -346,8 +346,16 @@ pinned as ONE reproducible `tar.zst` of its tree, `src = fetchIpfs {
 bundle = true; }`: downloaded as any single file (Range-raced across
 the gateways, resumable) and extracted inside the same fixed-output
 build, whose output is the tree and whose `hash` is the tree's NAR
-hash -- the archive never enters the store. The phone extracts the
-same archive with its bundled libarchive. A mod layer is the same
+hash -- the archive never enters the store. The phone fetches the same
+archive by byte range (`ipfs/Ranged.java`): the DAG's interior nodes
+as blocks, then the raw leaves as `Range` requests of ~8 MiB over four
+gateways at once, each leaf hashed on arrival and each finished piece
+recorded beside the download, so a cut stream, a 429 or a killed app
+costs one piece. One CAR stream for the whole file was measured to fail
+on every public gateway for a 2.7 GiB bundle (EOF between 23 and 321
+MiB, nothing kept); by range the same bundle came in at 5-11 MiB/s on
+the Thor, through the same gateways cutting and rate-limiting. It then
+extracts the archive with its bundled libarchive. A mod layer is the same
 thing one level down: `tree = fetchIpfs { bundle = true; }` publishes
 the layer as `format: tar.zst`. `nix run .#bundle -- <slug> <pin-url>
 [<dir>]` packs a tree (sorted, epoch mtimes, owner 0, hard links

@@ -11,6 +11,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Pulls a CID from IPFS trustless gateways and unpacks it.
@@ -230,7 +232,7 @@ public final class Fetcher {
     }
 
     /** The one block behind a CID, verified, through the first gateway that has it. */
-    private static byte[] fetchBlock(String cidText, Cid cid, Progress p) throws IOException {
+    static byte[] fetchBlock(String cidText, Cid cid, Progress p) throws IOException {
         final byte[][] got = new byte[1][];
         raceCar(cidText, cid, p, "block", new Car.BlockSink() {
             @Override
@@ -279,17 +281,34 @@ public final class Fetcher {
         raceCar(cidText, root, p, scope, sink, null);
     }
 
+    /**
+     * Where the next race starts: the gateway that served last. The list
+     * order is right cold, but a race per block re-pays every leading
+     * gateway's timeout per block -- measured: 65 interior blocks of a
+     * bundle spent 7.5 minutes on pinata read timeouts before the first
+     * byte of the file. A gateway that has just answered is the one to
+     * ask next; when it fails the race wraps through the rest as before.
+     */
+    private static volatile String served = "";
+
     private static void raceCar(String cidText, Cid root, Progress p, String scope,
         final Car.BlockSink sink, Attempt attempt) throws IOException {
         IOException last = null;
         String lastGateway = null;
         String[] list = gateways();
+        int start = 0;
         for (int i = 0; i < list.length; i++) {
+            if (list[i].equals(served)) {
+                start = i;
+            }
+        }
+        for (int k = 0; k < list.length; k++) {
+            String gw = list[(start + k) % list.length];
             try {
                 if (p != null) {
-                    p.trying(list[i]);
+                    p.trying(gw);
                 }
-                InputStream in = open(list[i], cidText, root, scope, p);
+                InputStream in = open(gw, cidText, root, scope, p);
                 try {
                     if (attempt != null) {
                         attempt.run(in);
@@ -299,13 +318,14 @@ public final class Fetcher {
                 } finally {
                     in.close();
                 }
+                served = gw;
                 return;
             } catch (IOException e) {
                 if (p != null) {
-                    p.gatewayFailed(list[i], e);
+                    p.gatewayFailed(gw, e);
                 }
                 last = e;
-                lastGateway = list[i];
+                lastGateway = gw;
                 if (attempt != null) {
                     attempt.failed();
                 }
@@ -319,6 +339,57 @@ public final class Fetcher {
             throw new VerifyException(message);
         }
         throw new IOException(message, last);
+    }
+
+    /**
+     * Write the verified file behind {@code cidText} to {@code dest}: a
+     * bundle, or any single-file payload big enough to be chunked.
+     * {@code p} may be null.
+     *
+     * <p>Not one CAR stream, which no public gateway keeps open for a
+     * multi-GB file (measured, see {@link Ranged}): the file's interior
+     * DAG nodes are fetched as blocks, and its raw leaves by HTTP Range,
+     * several gateways at once, each leaf hashed on arrival. A piece that
+     * finished is recorded beside {@code dest} and not asked for again,
+     * so a cut stream, a gateway that quit, or an app that was killed
+     * costs at most one piece. A file too small to have leaves -- one
+     * whose content sits in its root block -- is one CAR, as a ROM is.
+     */
+    public static UnixFs.Stats fetchFile(String cidText, File dest, Progress p)
+        throws IOException {
+        Cid root = Cid.fromText(cidText);
+        // The interior blocks are kilobytes and the counter is the file's:
+        // they would show as a few KiB that the download then "loses" when
+        // its own count starts. Their gateways and failures still show.
+        Progress layout = p == null ? null : new Progress() {
+            @Override
+            public void bytes(long soFar) {
+            }
+
+            @Override
+            public void trying(String gateway) {
+                p.trying(gateway);
+            }
+
+            @Override
+            public void gatewayFailed(String gateway, IOException e) {
+                p.gatewayFailed(gateway, e);
+            }
+        };
+        byte[] rootBlock = fetchBlock(cidText, root, layout);
+        ExecutorService pool = Executors.newFixedThreadPool(Ranged.WORKERS);
+        List<Ranged.Leaf> leaves;
+        try {
+            leaves = Ranged.layout(root, rootBlock, layout, pool);
+        } finally {
+            pool.shutdownNow();
+        }
+        if (leaves == null) {
+            deleteTree(dest);
+            Ranged.stateFile(dest).delete();
+            return race(cidText, root, dest, p, "all");
+        }
+        return Ranged.fetch(cidText, leaves, dest, p, gateways());
     }
 
     /**
@@ -343,21 +414,29 @@ public final class Fetcher {
         }
         File part = new File(dir.getAbsolutePath() + ".layer-" + safe(layerName) + ".part");
         File tree = new File(part.getAbsolutePath() + ".tree");
-        deleteTree(part);
         deleteTree(tree);
-        UnixFs.Stats st = fetchAndExtract(cidText, part, p);
-        try {
-            if (Bundle.FORMAT.equals(format)) {
+        if (Bundle.FORMAT.equals(format)) {
+            // The archive is fetched by range and resumes from what an
+            // earlier attempt verified, so it stays on a failure; only a
+            // half-unpacked tree is scratch.
+            UnixFs.Stats st = fetchFile(cidText, part, p);
+            try {
                 Bundle.extract(part, tree, unpack);
                 merge(tree, dir);
-            } else {
-                merge(part, dir);
+            } finally {
+                deleteTree(tree);
             }
+            deleteTree(part);
+            return st;
+        }
+        deleteTree(part);
+        UnixFs.Stats st = fetchAndExtract(cidText, part, p);
+        try {
+            merge(part, dir);
         } finally {
             // Whatever a failed merge left behind is a partial copy of bytes
             // that are still on a gateway; the next attempt refetches.
             deleteTree(part);
-            deleteTree(tree);
         }
         return st;
     }
