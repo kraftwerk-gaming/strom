@@ -6,18 +6,19 @@
 }:
 
 let
-  # Every tree this game is made of, pinned once and fetched as-is by the
-  # desktop (overlay lowers) and the Android client (unpacked layers)
-  # from the same CIDs. Nothing is extracted or patched at build time any
+  # Every tree this game is made of, pinned once as a reproducible
+  # tar.zst bundle and fetched from the same CID by the desktop (overlay
+  # lowers, extracted inside the fixed-output fetch) and the Android
+  # client (layers it extracts). Nothing is built or patched here any
   # more; the trees were produced once from the upstream archives and
   # pinned, and this file only names them. `hash` is `nix hash path` of
-  # the tree, `size` its uncompressed bytes.
+  # the tree, `size` the bundle's bytes.
   tree =
     name: args:
     fetchIpfs (
       {
         inherit name;
-        directory = true;
+        bundle = true;
       }
       // args
     );
@@ -36,14 +37,14 @@ let
   # applies.
   ragnarok = {
     standard = tree "ff8-ragnarok-1.2.3-standard" {
-      cid = "bafybeicbnm5ekth6orauv5bgtq7dqatqx6fewcuizonmjynrb5zhz5qnd4";
+      cid = "bafybeihynsr2pr5awesd5n7ljv2v7mtoa763pgkkh4tursepjxbbkhrukq";
       hash = "sha256-Xvyhe6Q81tn+YlgF0CoD8LjHsCa/e3Z9+5KNAwTRiG4=";
-      size = 356969624;
+      size = 279769768;
     };
     lionheart = tree "ff8-ragnarok-1.2.3-lionheart" {
-      cid = "bafybeib4aftmigdo7u6u3fbthuu5tj2cj6bj63hbirbj5r2mpx5xdui76u";
+      cid = "bafybeiapzqogk5xnvbossckongyh5lapwqgjpyw4tszougkick4isl3muu";
       hash = "sha256-/E2498ol5yXF+CakGSf4UWyxiHf5wkEqFcKyX33qegQ=";
-      size = 356970255;
+      size = 280028046;
     };
   };
 
@@ -63,51 +64,51 @@ let
   texturePacks = [
     # Poly-UP v4.5 -- character models and textures
     (tree "ff8-texturepack-models" {
-      cid = "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq";
+      cid = "bafybeig3cvj3mpz2usabecessenf4zf5ybib2k525l6whxbf66hig5batm";
       hash = "sha256-iSko6Bzypp17WbtfmCOFAth2bxonAYRQwZNAD/htXfs=";
-      size = 159665748;
+      size = 48712772;
     })
     # Rebirth Flame Plus v2.0 -- character textures
     (tree "ff8-texturepack-characters" {
-      cid = "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq";
+      cid = "bafybeifdnklt6njgv5s63qjmiofthx52ww3qhbg7dbqibmun7xgihwvpsu";
       hash = "sha256-P1WN6Nm1Xkk6Mc7nXalQ5nNb74kC1XrRBLNKEpcako0=";
-      size = 155402980;
+      size = 56481999;
     })
     # Battle models
     (tree "ff8-texturepack-battleModels" {
-      cid = "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i";
+      cid = "bafybeidlbrx4zu6vzpi266a4rfqdqcujijmvkv4embrkwcravshayrkfii";
       hash = "sha256-VOz/8iEUFKstZ5nMKRM78yII+s01SlGW0MSgYNcTsM8=";
-      size = 161712636;
+      size = 62134078;
     })
     # ProjectHELLFIRE Plus v2.5 -- Guardian Force textures
     (tree "ff8-texturepack-gfs" {
-      cid = "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e";
+      cid = "bafybeifcn6rsffctarc2shamex3emabd7ppnahxgbetko3hei56c6src4u";
       hash = "sha256-TiUcAttKg4Kt19fghiLPgufIH9v1kYjkhHgvrdOAC3o=";
-      size = 282919830;
+      size = 60410323;
     })
     # Spell effects
     (tree "ff8-texturepack-spells" {
-      cid = "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla";
+      cid = "bafybeievdh26ngh2q3jxmlhthe5bu2uibihauz2o6qme26qijeiynawpaq";
       hash = "sha256-kxeFp8TsX1x3XAGhHGZtRRgJ768wvjghENsAK+mrH8w=";
-      size = 515801894;
+      size = 110610697;
     })
     # Lunar Cry Plus v4.4 -- enemy textures
     (tree "ff8-texturepack-enemies" {
-      cid = "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64";
+      cid = "bafybeiahnl2g4z7csmrmtrcjw5mpuwlxqehtuensr66na7cet3ed4e3w6q";
       hash = "sha256-2umaoPppkFjMIRbKvZA8mXYMfbtkmIX5tbmhGzPurOA=";
-      size = 25169376;
+      size = 8327240;
     })
     # BattlefieldPack Plus v2.2 -- battlefield textures
     (tree "ff8-texturepack-battles" {
-      cid = "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy";
+      cid = "bafybeienyiwm2bfzb3qyw6iwm2ynws4xceq2esxwp7q7xlzsuiqifhuvb4";
       hash = "sha256-v/BWmFTNRmGiYLH2BWfFD1ua2knuIqv6ueGXoXBOmKE=";
-      size = 765376432;
+      size = 202674641;
     })
     # Horizon Pack Plus v2.4 -- world map and town textures
     (tree "ff8-texturepack-world" {
-      cid = "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni";
+      cid = "bafybeibrev3hdgao7sfw5qqzvh3crsstuwhys7cztcpuvhffaebro6xxba";
       hash = "sha256-LEAqI9ulra5flv0I/n8Si1WrlPhJJi8bcji46EOO2fY=";
-      size = 52049856;
+      size = 14067294;
     })
   ];
 
@@ -115,9 +116,9 @@ let
   # (the _FBG_4XSHARP folder only; the rest of that archive is UI work
   # its own mod.xml cannot gate).
   fieldBackgrounds = tree "ff8-texturepack-fields" {
-    cid = "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi";
+    cid = "bafybeigqolkpicftrjee7d6je2xqgpenqiiaidqdt4bz2n3ct7jf5ufl6i";
     hash = "sha256-cEIEGyb6DCk55p4YKzh3QUYp3OEix1vUfiMKhN/q1KU=";
-    size = 590699204;
+    size = 245725817;
   };
 
   # Music. The 2013 release is the 2000 PC port's audio verbatim: 91
@@ -141,14 +142,14 @@ let
   #               pack misnames them.
   music = {
     psx = tree "ff8-music-psx" {
-      cid = "bafybeibpvjr344pzyacsfqfxwr3urdm3vv4f7kdai3b7flqmtlu4v5fyb4";
+      cid = "bafybeiftuwrztuy5lvgicvrev4wqd5xylxib4oltqtefiyyp23xdztd25i";
       hash = "sha256-GU+mHM8rx5YKAUnHT1DKRZBcOQe4ScR0oCyViN9skWE=";
-      size = 15319910;
+      size = 13237262;
     };
     orchestral = tree "ff8-music-orchestral" {
-      cid = "bafybeifj2tjtsllgh6gllqt7eyftwvh5mkelolrrovhhd24qc26kxqq2ra";
+      cid = "bafybeiga3ftsggrm4hzuw3todoaqcgkexiypruxvphhbcs7u4tjaa72eri";
       hash = "sha256-KVuGguwGKQ36GObPSzvFRnAkemk9TnzxZGfLPgjRY8I=";
-      size = 779051544;
+      size = 741779839;
     };
   };
 
@@ -160,9 +161,9 @@ let
   # scripts under direct/FIELD/, and its voiced FMVs under Data/movies/
   # (not optional: the scripts invoke movie slots vanilla does not have).
   voices = tree "ff8-voice-echo-s-8-demo" {
-    cid = "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca";
+    cid = "bafybeid352uwzoejwv6zutsfpiokpenmfnuwbdeuprsgcp2w5mrapvt7r4";
     hash = "sha256-ngXQHt0ff3FjGzSVPyImO4Zj6i4iXg7gDna8NeUK0sw=";
-    size = 1312611023;
+    size = 1162097194;
   };
 
   # FFNx, the modern graphics/audio driver for the classic FF8 engine and
@@ -188,9 +189,9 @@ let
   # supersamples at 1280x960 on top of it. A music pack's own FFNx.toml
   # sits above this one. FFNx.pdb (148 MB of debug symbols) is left out.
   ffnx = tree "ff8-ffnx-1.24.3" {
-    cid = "bafybeifxwghrrqbvbepdspitqji5ty5rk3ipdmvkw52slqgjunlycpj3t4";
+    cid = "bafybeiaf4ab5td4l4xynbdfcouyoy2k3622pdhgvhal26rumtjip7bwc5y";
     hash = "sha256-vTQ2d+iT+tKVWWfJuYTPs5+ycT8xQsi/kSwvOCYfTvU=";
-    size = 41011267;
+    size = 14129263;
   };
 in
 self.lib.mkGame { inherit lib pkgs; } {
@@ -495,9 +496,9 @@ self.lib.mkGame { inherit lib pkgs; } {
           # before rendering a frame (measured). No FFNx in here: that is
           # a layer like every other toggle.
           src = tree "final-fantasy-viii" {
-            cid = "bafybeianarj35r6z2trxvjdd4nra22akasrudnm5eezhlflmtv6z6nfcni";
+            cid = "bafybeibkvprqavgxe7qgaf7qyolykwhqpe2cncdpo5z6fnl7q4fuwis5ya";
             hash = "sha256-p/+x1otZpuamAazwYqqqWNwCES9X9wJqirtD7zOtkPY=";
-            size = 3698304904;
+            size = 2934945587;
           };
 
           runtime = "proton";

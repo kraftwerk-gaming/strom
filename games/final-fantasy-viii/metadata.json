@@ -25,124 +25,140 @@
     },
     "layers": [
       {
-        "cid": "bafybeifxwghrrqbvbepdspitqji5ty5rk3ipdmvkw52slqgjunlycpj3t4",
+        "cid": "bafybeiaf4ab5td4l4xynbdfcouyoy2k3622pdhgvhal26rumtjip7bwc5y",
+        "format": "tar.zst",
         "key": "ffnx",
         "name": "ff8-ffnx-1.24.3",
-        "size": 41011267,
+        "size": 14129263,
         "value": "true"
       },
       {
-        "cid": "bafybeidqe2vvhl5izotkeiuhu7v775n57n3b6e5y756qfxwz34mxv65hca",
+        "cid": "bafybeid352uwzoejwv6zutsfpiokpenmfnuwbdeuprsgcp2w5mrapvt7r4",
+        "format": "tar.zst",
         "key": "voices",
         "name": "ff8-voice-echo-s-8-demo",
-        "size": 1312611023,
+        "size": 1162097194,
         "value": "true"
       },
       {
-        "cid": "bafybeifj2tjtsllgh6gllqt7eyftwvh5mkelolrrovhhd24qc26kxqq2ra",
+        "cid": "bafybeiga3ftsggrm4hzuw3todoaqcgkexiypruxvphhbcs7u4tjaa72eri",
+        "format": "tar.zst",
         "key": "music",
         "name": "ff8-music-orchestral",
-        "size": 779051544,
+        "size": 741779839,
         "value": "orchestral"
       },
       {
-        "cid": "bafybeibpvjr344pzyacsfqfxwr3urdm3vv4f7kdai3b7flqmtlu4v5fyb4",
+        "cid": "bafybeiftuwrztuy5lvgicvrev4wqd5xylxib4oltqtefiyyp23xdztd25i",
+        "format": "tar.zst",
         "key": "music",
         "name": "ff8-music-psx",
-        "size": 15319910,
+        "size": 13237262,
         "value": "psx"
       },
       {
-        "cid": "bafybeibcu3qjq34sp6ogsz5s2qyxzik63unjapxdesdlbhuonod3s66gsi",
+        "cid": "bafybeigqolkpicftrjee7d6je2xqgpenqiiaidqdt4bz2n3ct7jf5ufl6i",
+        "format": "tar.zst",
         "key": "fieldBackgrounds",
         "name": "ff8-texturepack-fields",
-        "size": 590699204,
+        "size": 245725817,
         "value": "true"
       },
       {
-        "cid": "bafybeiewayqskwrrnhfsyn4rvtlpu2pfzr4vhmmspdayhvbbo2abxwygni",
+        "cid": "bafybeibrev3hdgao7sfw5qqzvh3crsstuwhys7cztcpuvhffaebro6xxba",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-world",
-        "size": 52049856,
+        "size": 14067294,
         "value": "true"
       },
       {
-        "cid": "bafybeidjkah2k7nx4nz7jbfaxdwcm5wtmt4m6ojkwp5ew4zfzgjc6frbvy",
+        "cid": "bafybeienyiwm2bfzb3qyw6iwm2ynws4xceq2esxwp7q7xlzsuiqifhuvb4",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-battles",
-        "size": 765376432,
+        "size": 202674641,
         "value": "true"
       },
       {
-        "cid": "bafybeidvaiodhfzkjqnua4q55jninvoleb3zjjznckiu2fyqdcktppzg64",
+        "cid": "bafybeiahnl2g4z7csmrmtrcjw5mpuwlxqehtuensr66na7cet3ed4e3w6q",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-enemies",
-        "size": 25169376,
+        "size": 8327240,
         "value": "true"
       },
       {
-        "cid": "bafybeifiz6fhobjrhjvhovljmnay3ny6f2y4ifgo7xy6w4tvkk6zuwcgla",
+        "cid": "bafybeievdh26ngh2q3jxmlhthe5bu2uibihauz2o6qme26qijeiynawpaq",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-spells",
-        "size": 515801894,
+        "size": 110610697,
         "value": "true"
       },
       {
-        "cid": "bafybeibxciicg5hldcwercfgkp66sdpourc3tggfx7bgsroxfdtpm5v25e",
+        "cid": "bafybeifcn6rsffctarc2shamex3emabd7ppnahxgbetko3hei56c6src4u",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-gfs",
-        "size": 282919830,
+        "size": 60410323,
         "value": "true"
       },
       {
-        "cid": "bafybeibwp3uhwbfno5qcku6qdmib4a67iptriz2oa5lkpuddnw5jcqsk3i",
+        "cid": "bafybeidlbrx4zu6vzpi266a4rfqdqcujijmvkv4embrkwcravshayrkfii",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-battleModels",
-        "size": 161712636,
+        "size": 62134078,
         "value": "true"
       },
       {
-        "cid": "bafybeih7ztzudw6yx27rkbvznnuh75fkxboselkv4iujx3i3rtcxyzmrbq",
+        "cid": "bafybeifdnklt6njgv5s63qjmiofthx52ww3qhbg7dbqibmun7xgihwvpsu",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-characters",
-        "size": 155402980,
+        "size": 56481999,
         "value": "true"
       },
       {
-        "cid": "bafybeianjl4vmppf67satqjyxnwc7imi57hq6hcf7v4hb5yyg2hekp72eq",
+        "cid": "bafybeig3cvj3mpz2usabecessenf4zf5ybib2k525l6whxbf66hig5batm",
+        "format": "tar.zst",
         "key": "textures",
         "name": "ff8-texturepack-models",
-        "size": 159665748,
+        "size": 48712772,
         "value": "true"
       },
       {
-        "cid": "bafybeib4aftmigdo7u6u3fbthuu5tj2cj6bj63hbirbj5r2mpx5xdui76u",
+        "cid": "bafybeiapzqogk5xnvbossckongyh5lapwqgjpyw4tszougkick4isl3muu",
+        "format": "tar.zst",
         "key": "ragnarokMode",
         "name": "ff8-ragnarok-1.2.3-lionheart",
         "requires": {
           "key": "ragnarok",
           "value": "true"
         },
-        "size": 356970255,
+        "size": 280028046,
         "value": "lionheart"
       },
       {
-        "cid": "bafybeicbnm5ekth6orauv5bgtq7dqatqx6fewcuizonmjynrb5zhz5qnd4",
+        "cid": "bafybeihynsr2pr5awesd5n7ljv2v7mtoa763pgkkh4tursepjxbbkhrukq",
+        "format": "tar.zst",
         "key": "ragnarokMode",
         "name": "ff8-ragnarok-1.2.3-standard",
         "requires": {
           "key": "ragnarok",
           "value": "true"
         },
-        "size": 356969624,
+        "size": 279769768,
         "value": "standard"
       }
     ],
     "payload": {
-      "cid": "bafybeianarj35r6z2trxvjdd4nra22akasrudnm5eezhlflmtv6z6nfcni",
-      "name": "",
+      "cid": "bafybeibkvprqavgxe7qgaf7qyolykwhqpe2cncdpo5z6fnl7q4fuwis5ya",
+      "format": "tar.zst",
+      "name": "final-fantasy-viii.tar.zst",
       "sha256": null,
-      "size": 3698304904
+      "size": 2934945587
     },
     "schema": 1,
     "settings": [
@@ -208,7 +224,7 @@
   },
   "appid": 39150,
   "cids": [
-    "bafybeianarj35r6z2trxvjdd4nra22akasrudnm5eezhlflmtv6z6nfcni"
+    "bafybeibkvprqavgxe7qgaf7qyolykwhqpe2cncdpo5z6fnl7q4fuwis5ya"
   ],
   "description": "Final Fantasy VIII (2013 Square Enix PC re-release, via Proton, mod-ready)",
   "lutris": "https://lutris.net/games/final-fantasy-viii",
