@@ -7,11 +7,11 @@
       }
     },
     "payload": {
-      "cid": "bafybeiaslq4dskcxm3bwnmwx7necche2gv64vcziq3j6pseyvliy5zebny",
-      "manifest": "bafkreig5g5j6u7jmdsyzbfqu2qcki4marfhbpeqo375dmwl753m2hcbt6e",
-      "name": "",
-      "sha256": null,
-      "size": 2770429907
+      "cid": "bafybeib5hrao347l7gxdd3rqy6pcsjtg2dvckh7hycysr5ocqhefrxym24",
+      "format": "tar.zst",
+      "name": "need-for-speed-underground-2.tar.zst",
+      "sha256": "sha256-CGv75yIn3Q3a+9lBnM0sPTzUbCzqvYfX5iyqlNRjM4g=",
+      "size": 1935074728
     },
     "schema": 1,
     "settings": [
@@ -25,7 +25,7 @@
     ]
   },
   "cids": [
-    "bafybeiaslq4dskcxm3bwnmwx7necche2gv64vcziq3j6pseyvliy5zebny"
+    "bafybeib5hrao347l7gxdd3rqy6pcsjtg2dvckh7hycysr5ocqhefrxym24"
   ],
   "description": "Need for Speed: Underground 2 (via Proton and gamescope)",
   "developers": [

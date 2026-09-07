@@ -125,9 +125,10 @@ self.lib.mkGame { inherit lib pkgs; } {
         config = {
           name = "need-for-speed-underground-2";
 
-          # The game tree itself, pinned as a directory: the desktop
-          # overlays it and the Android client unpacks it, from the same
-          # CID, with nothing to extract on either side.
+          # The game tree, pinned as one reproducible tar.zst bundle
+          # (`nix run .#bundle`): the desktop extracts it into the overlay
+          # base and the Android client into its game directory, from the
+          # same CID.
           #
           # Provenance: the archive.org NFSU2Stable 7z (CID
           # QmTuALyoKP6Rsi3hboj2tip7skCa5hK2bg3MbpyJTRGXBm,
@@ -146,12 +147,11 @@ self.lib.mkGame { inherit lib pkgs; } {
           #    -nostdlib -lkernel32
           #    -Wl,--enable-stdcall-fixup,-e,__DllMainCRTStartup).
           src = fetchIpfs {
-            cid = "bafybeiaslq4dskcxm3bwnmwx7necche2gv64vcziq3j6pseyvliy5zebny";
-            directory = true;
-            hash = "sha256-UWB9Rwa1Z4Y0B6Sd9qzvydoOvifs+tYZJgHcHrZyShE=";
-            name = "need-for-speed-underground-2";
-            size = 2770429907;
-            manifest = "bafkreig5g5j6u7jmdsyzbfqu2qcki4marfhbpeqo375dmwl753m2hcbt6e";
+            cid = "bafybeib5hrao347l7gxdd3rqy6pcsjtg2dvckh7hycysr5ocqhefrxym24";
+            bundle = true;
+            hash = "sha256-CGv75yIn3Q3a+9lBnM0sPTzUbCzqvYfX5iyqlNRjM4g=";
+            name = "need-for-speed-underground-2.tar.zst";
+            size = 1935074728;
           };
 
           # Stack soundtracks above the game tree (kernel-priority order:
