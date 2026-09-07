@@ -25,6 +25,21 @@
 #     manifest = "bafkrei..."; # optional: the pinned listing sidecar
 #   }
 #
+# Usage, a bundle (a game's built tree as ONE reproducible tar.zst,
+# what `nix run .#bundle` produces and pins; the desktop extracts it
+# into `_gameData`, the Android client with its bundled libarchive):
+#   fetchIpfs {
+#     cid = "bafybei...";
+#     bundle = true;
+#     hash = "sha256-...";   # sha256 of the archive
+#     name = "foo.tar.zst";
+#     size = 1937928179;     # archive bytes, what is transferred
+#   }
+# Fetched exactly like any single file: one Range-raced download across
+# the gateways, no walk, no per-file requests. Measured against the
+# same 2.77 GB game as a directory tree: 43 s vs 142 s from a mirror,
+# 264 s vs 363 s from the public pool, ~140 requests vs ~2050.
+#
 # A directory with no `manifest` is walked one block at a time through
 # the gateways (`?format=car&dag-scope=block`, the one directory request
 # every public gateway answers; see ipfs-walk.py), then every file is
@@ -60,9 +75,14 @@
   hash,
   name,
   directory ? false,
-  # Uncompressed bytes of a directory, recorded when it is pinned, so a
-  # client can show "n of total" before and while fetching. Null when
-  # unmeasured; nothing here depends on it.
+  # The file is a strom bundle: a reproducible tar.zst of a game tree.
+  # Fetched as a flat file; `bundle` travels as passthru so mk-game
+  # extracts it and the Android manifest labels it.
+  bundle ? false,
+  # Bytes recorded when the artifact is pinned, so a client can show
+  # "n of total" before and while fetching: a directory's uncompressed
+  # bytes, a bundle's archive bytes. Null when unmeasured; nothing here
+  # depends on it.
   size ? null,
   # CID of the pinned listing sidecar (see above). Null: walk the DAG.
   manifest ? null,
@@ -87,8 +107,11 @@
 }:
 
 assert lib.assertMsg (
-  !directory || fallbackUrl == ""
-) "fetchIpfs: a directory has no fallbackUrl; nothing outside IPFS serves a tree";
+  !(directory || bundle) || fallbackUrl == ""
+) "fetchIpfs: a tree or bundle has no fallbackUrl; nothing outside IPFS serves it";
+assert lib.assertMsg (
+  !(directory && bundle)
+) "fetchIpfs: a fetch is a directory or a bundle, not both";
 
 stdenvNoCC.mkDerivation {
   inherit name;
@@ -110,12 +133,13 @@ stdenvNoCC.mkDerivation {
   walker = ./ipfs-walk.py;
 
   # What a recipe and the Android manifest read off the derivation: the
-  # CID it fetches, whether that is a tree, the tree's size, and its
-  # pinned listing sidecar.
+  # CID it fetches, whether that is a tree or a bundle, its size, and a
+  # tree's pinned listing sidecar.
   passthru = {
     inherit
       cid
       directory
+      bundle
       size
       manifest
       ;

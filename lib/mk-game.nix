@@ -263,16 +263,31 @@ let
 
         # The game data: the overlay's lower layer, and the tree Android
         # fetches. A pinned tree (`fetchIpfs { directory = true; }`) IS
-        # the game data, with no build in between: the desktop and the
-        # phone then fetch the same CID and never extract anything. A
-        # buildScript still turns an archive into a tree for the game
-        # that has not been pinned as one yet.
+        # the game data, with no build in between; a pinned bundle
+        # (`fetchIpfs { bundle = true; }`, the reproducible tar.zst of
+        # that tree) is extracted here, once, into the same tree. Either
+        # way the desktop and the phone fetch the same CID. A buildScript
+        # still turns an archive into a tree for the game that has not
+        # been pinned as one yet.
         _gameData = mkOption {
           type = types.package;
           internal = true;
           default =
             if cfg.buildScript == "" && (cfg.src.directory or false) then
               cfg.src
+            else if cfg.buildScript == "" && (cfg.src.bundle or false) then
+              pkgs.runCommandLocal "${cfg.name}-data"
+                {
+                  inherit (cfg) src;
+                  nativeBuildInputs = [
+                    pkgs.gnutar
+                    pkgs.zstd
+                  ];
+                }
+                ''
+                  mkdir -p "$out"
+                  tar --zstd -xf "$src" -C "$out"
+                ''
             else
               pkgs.runCommandLocal "${cfg.name}-data" { inherit (cfg) nativeBuildInputs src; } (
                 if cfg.buildScript != "" then

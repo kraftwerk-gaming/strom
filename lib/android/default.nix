@@ -283,6 +283,19 @@ in
                 client then falls back to the walk.
               '';
             };
+
+            format = mkOption {
+              type = types.nullOr (types.enum [ "tar.zst" ]);
+              default = null;
+              description = ''
+                What the fetched file is. Null: a tree, or a single file
+                the emulator opens as-is. `tar.zst`: a strom bundle, the
+                game tree as one reproducible zstd-compressed tar, which
+                the client extracts with its bundled libarchive after the
+                usual CID-verified download. One Range-raced file instead
+                of a request per entry, and zstd decodes at disk speed.
+              '';
+            };
           };
         }
       );
@@ -301,7 +314,9 @@ in
         #
         # A pinned tree (`fetchIpfs { directory = true; }`) is the game
         # data itself, on the desktop and on the phone, so its CID is the
-        # payload. This is the shape every game converges on.
+        # payload; a pinned bundle (`fetchIpfs { bundle = true; }`) is the
+        # same tree as one tar.zst that both sides extract. This is the
+        # shape every game converges on.
         #
         # A single pinned file that the emulator opens directly (a
         # libretro ROM, a 3DS dump) is the same situation one file large:
@@ -317,6 +332,12 @@ in
           {
             inherit (only) cid size;
             manifest = only.manifest or null;
+          }
+        else if buildsNothing && (only.bundle or false) then
+          {
+            inherit (only) cid name size;
+            sha256 = only.outputHash;
+            format = "tar.zst";
           }
         else if buildsNothing && singleFileBackends && (only.name or null) == game.executable then
           {
@@ -508,10 +529,12 @@ in
       # optional-layer and settings lists: a game with no mods and no
       # player-facing options says so by omission.
       // lib.optionalAttrs (game.android.payload != null) {
-        # `manifest` stays out of the JSON while null so the 400-odd
-        # games without one do not all change shape; a client treats
-        # absent and null the same (walk the DAG).
-        payload = lib.filterAttrs (n: v: !(n == "manifest" && v == null)) game.android.payload;
+        # `manifest` and `format` stay out of the JSON while null so the
+        # 400-odd games without them do not all change shape; a client
+        # treats absent and null the same (walk the DAG; use as-is).
+        payload = lib.filterAttrs (
+          n: v: !((n == "manifest" || n == "format") && v == null)
+        ) game.android.payload;
       }
       // lib.optionalAttrs (game.android.layers != [ ]) {
         layers = map (

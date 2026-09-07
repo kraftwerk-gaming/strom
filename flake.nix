@@ -175,6 +175,7 @@
             strom-launch = pkgs.callPackage ./pkgs/strom-launch { inherit gameMeta; };
             pin-ipfs = import ./scripts/pin-ipfs.nix { inherit pkgs games; };
             publish-ipns = import ./scripts/publish-ipns.nix { inherit pkgs games; };
+            bundle = import ./scripts/bundle.nix { inherit pkgs; };
             screenshot = pkgs.callPackage ./pkgs/screenshot.nix { };
             strom-ip = pkgs.callPackage ./pkgs/strom-ip.nix { };
             strom-run = pkgs.callPackage ./pkgs/strom-run { };
@@ -239,6 +240,10 @@
           strom-launch = {
             type = "app";
             program = "${scripts.strom-launch}/bin/strom-launch";
+          };
+          bundle = {
+            type = "app";
+            program = "${scripts.bundle}/bin/strom-bundle";
           };
         }
       );
