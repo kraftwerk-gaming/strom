@@ -134,6 +134,53 @@ and at one point we pushed them via `git push rad HEAD:refs/patches`
 to materialize them as Radicle patches. Both are phased out. Use
 `stage/<slug>` and push as a normal branch.
 
+### The bundle path (preferred)
+
+A game no longer needs its installer in the repo. Get the game
+installed and working as a directory by whatever means -- run the
+InstallShield/GOG installer once on a Windows box or in a scratch
+prefix, apply the fixes, delete the debris -- and pin that directory
+as its bundle:
+
+    nix run .#bundle -- <slug> <pin-url> /path/to/installed-game
+
+`<slug>` is the Lutris slug the recipe will have; `<pin-url>` the
+tar-upload pin endpoint (never written into the repo). The helper packs
+the directory as one reproducible tar.zst (sorted, epoch mtimes, owner
+0, zstd -19 --long=27; the same directory packs to the same bytes on
+any machine), uploads it, adds it to the local store under the name
+the recipe will use, and prints the `src` block:
+
+    src = fetchIpfs {
+      cid = "bafybei...";
+      bundle = true;
+      hash = "sha256-...";
+      name = "<slug>.tar.zst";
+      size = 1935074728;
+    };
+
+Write `games/<slug>/default.nix` with exactly that `src` and no
+`buildScript`: the desktop extracts the bundle into the overlay base
+and the Android payload derives from `src`, so nothing Android-specific
+goes in the recipe. `nix build .#<slug>` then builds on the machine
+that ran the helper without downloading anything (the seeded store path
+is the fixed output). Record where the tree came from in a comment on
+`src` -- the installer's origin and every fix applied -- since that
+comment is now the recipe's whole provenance. Source files for anything
+baked into the tree (a compiled ASI, a patched exe's patch list) stay in
+the game directory the way `games/need-for-speed-underground-2` keeps
+`deadlock-fix.c`. It refuses a directory with symlinks or with a tab or
+newline in a name: the phone writes only files and directories, and
+the two platforms must unpack the same tree.
+
+Pin discipline is unchanged: play the directory first, then bundle it.
+A game whose recipe still unpacks an archive in `buildScript` is the
+old shape; `nix run .#bundle -- <slug> <pin-url>` without a directory
+builds that recipe's tree (`androidPayloads.<slug>`) and pins it, which
+is how such a game migrates.
+
+### The archive path (legacy)
+
 Do **Phase 1 + Phase 3** when the IPFS pin host is reachable;
 otherwise Phase 1 only:
 

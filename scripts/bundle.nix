@@ -1,13 +1,27 @@
-# strom-bundle: turn a game's built tree into its pinned bundle.
+# strom-bundle: turn a game's tree into its pinned bundle.
 #
-#   nix run .#bundle -- <slug> <pin-url>
+#   nix run .#bundle -- <slug> <pin-url> [<dir>]
 #
-# Builds `androidPayloads.<slug>` (the tree the desktop overlay presents
-# at default settings), packs it as ONE reproducible tar.zst, uploads it
-# to the pin endpoint (the anonymous tar-upload service: POST a tar,
-# get the pinned directory's CID back), and prints the `fetchIpfs {
-# bundle = true; }` block for the recipe with the bundle's own file CID,
-# sha256 and size.
+# Packs a game directory as ONE reproducible tar.zst, uploads it to the
+# pin endpoint (the anonymous tar-upload service: POST a tar, get the
+# pinned directory's CID back), and prints the `fetchIpfs { bundle =
+# true; }` block for the recipe with the bundle's own file CID, sha256
+# and size.
+#
+# The tree is `<dir>` when given: an installed game as it sits on disk,
+# from whatever installer, GOG run or hand fix produced it. That is how
+# a NEW game starts -- the installer and its unpacking never enter this
+# repo, only the resulting tree does, and the recipe is written with
+# the printed `src` and no buildScript. The slug is the Lutris slug the
+# recipe will get (AGENTS.md); here it only names the bundle. Without
+# `<dir>` the tree is `androidPayloads.<slug>`, the overlay base an
+# existing recipe builds at default settings: the path for re-bundling
+# a game after a recipe change, or migrating one that still builds.
+#
+# The bundle is also added to the local store under the name the
+# recipe will use, so `nix build .#<slug>` on this machine finds the
+# fixed-output already realised and needs no download of what was
+# just uploaded (the output path is a function of name and hash only).
 #
 # Reproducible by construction: entries sorted, owner 0:0, mtime epoch,
 # modes normalised (the store's 0444/0555 become 0644/0755), hard links
@@ -45,16 +59,34 @@ pkgs.writeShellApplication {
     coreutils
   ];
   text = ''
-        if [[ $# -ne 2 ]]; then
-          echo "usage: strom-bundle <slug> <pin-url>" >&2
+        if [[ $# -lt 2 || $# -gt 3 ]]; then
+          echo "usage: strom-bundle <slug> <pin-url> [<dir>]" >&2
           exit 1
         fi
         slug=$1
         pin=''${2%/}
         flake=''${STROM_FLAKE:-.}
 
-        echo "[bundle] building $flake#androidPayloads.$slug" >&2
-        tree=$(nix build --no-link --print-out-paths "$flake#androidPayloads.$slug")
+        if [[ $# -eq 3 ]]; then
+          tree=$(realpath "$3")
+          [[ -d $tree ]] || { echo "bundle: $tree is not a directory" >&2; exit 1; }
+          # What the fetch side cannot reproduce: the Android client
+          # writes only files and directories, and a tree with a tab or
+          # newline in a name has no gateway path. Refuse rather than
+          # ship a bundle that unpacks differently on the two platforms.
+          if [[ -n $(find "$tree" -type l -print -quit) ]]; then
+            echo "bundle: $tree contains symlinks; a game tree has none" >&2
+            find "$tree" -type l >&2
+            exit 1
+          fi
+          if [[ -n $(find "$tree" -name "$(printf '*\t*')" -o -name "$(printf '*\n*')" | head -c1) ]]; then
+            echo "bundle: $tree has an entry name with a tab or newline" >&2
+            exit 1
+          fi
+        else
+          echo "[bundle] building $flake#androidPayloads.$slug" >&2
+          tree=$(nix build --no-link --print-out-paths "$flake#androidPayloads.$slug")
+        fi
 
         work=$(mktemp -d)
         trap 'rm -rf "$work"' EXIT
@@ -68,6 +100,7 @@ pkgs.writeShellApplication {
 
         size=$(stat -c %s "$out")
         hash=$(nix hash file --sri "$out")
+        nix store add-file --hash-algo sha256 --name "$slug.tar.zst" "$out" >/dev/null
         export IPFS_PATH="$work/ipfs"
         ipfs init -e >/dev/null 2>&1
         cid=$(ipfs add -Q --only-hash --cid-version=1 "$out")
