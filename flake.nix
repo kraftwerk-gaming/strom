@@ -183,7 +183,7 @@
           # anything except matching a release.
           androidApp = pkgsAndroid.callPackage ./pkgs/android-app {
             versionCode = self.revCount or 1;
-            versionName = "0.1.5+r${toString (self.revCount or 0)}.${self.shortRev or "dirty"}";
+            versionName = "0.1.6+r${toString (self.revCount or 0)}.${self.shortRev or "dirty"}";
           };
           # The path shim for strom's GameNative build; see the file.
           gamenativeRedirect = pkgs.callPackage ./pkgs/gamenative-redirect { };
