@@ -88,9 +88,12 @@ final class Runtimes {
      * master plus the intent-provisioning branch, which fixes the external
      * launch intent (a container_config no longer replaces the wine build,
      * settings the intent omits keep their stored value, the config reaches
-     * an existing container) and adds the two intents this client drives:
-     * register a game folder, install and select a pad-to-keys profile.
-     * Without them GameNative needs a hand step per game.
+     * an existing container, a container it creates gets its A: drive,
+     * mapped drives are hard disks rather than floppies, and a dinput8.dll
+     * shipped with a game -- a mod loader -- loads for that game) and adds
+     * the two intents this client drives: register a game folder, install
+     * and select a pad-to-keys profile. Without them GameNative needs a
+     * hand step per game.
      *
      * <p>It also ships none of the four binaries upstream's
      * THIRD_PARTY_NOTICES withholds a redistribution grant for; the one
@@ -105,10 +108,10 @@ final class Runtimes {
      */
     static final Spec GAMENATIVE = new Spec(
         "app.gamenative",
-        "GameNative 1.2.0 (strom-2)",
-        "https://github.com/kraftwerk-gaming/GameNative/releases/download/strom-2/gamenative-strom-2.apk",
-        "bcacd85e36f4f2ad162b2719c4186625abb5a17e9f920967863e949cae29628f",
-        569459454L);
+        "GameNative 1.2.1 (strom-3)",
+        "https://github.com/kraftwerk-gaming/GameNative/releases/download/strom-3/gamenative-strom-3.apk",
+        "8e8fb8d99772f0c7593ccebd0c68f69b1c23da1ee1c3575e7308d86395164f73",
+        567067446L);
 
     private Runtimes() {
     }

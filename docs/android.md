@@ -169,9 +169,10 @@ Setup happens **once, ever** - not once per game.
    exists; there is no intent that writes to it. Strom also writes
    `.gamenative` = `{"appId": <crc32 of "strom-games">}` there so the id
    is stable.
-1. Tap Install. Strom fetches
-   `need-for-speed-underground-2-android.zip`, verifies the sha256, and
-   unzips to
+1. Tap Install. Strom fetches the pinned
+   `need-for-speed-underground-2.tar.zst` bundle (1.8 GiB, by byte range
+   across the gateway pool, resumable), checks it against the manifest,
+   and unpacks it to
    `/storage/emulated/0/Download/Strom/games/need-for-speed-underground-2/`.
 2. Tap Play. Strom sends `app.gamenative.LAUNCH_GAME` with the parent's
    `app_id`, `game_source = "CUSTOM_GAME"`, and `container_config`
@@ -1171,6 +1172,28 @@ commit upstream will never take, because it is about redistribution:
   player switches a container to glibc by hand.
 - Real-Steam mode (`libsteambootstrap`) and turnip on Quest 3
   (`libkgslshim`) are gone from the strom build.
+
+Three more fixes came from running games through the client (strom-3),
+all on `strom-build` and all upstreamable:
+
+- A container created for a launch that carries a `container_config`
+  got no `A:` drive at all (only the config-less path mapped it), so
+  GameNative refused every such game with "no executable found" however
+  correct the `executablePath` was. Measured with NFSU2, the first
+  gamenative game to get a fresh container through the client.
+- Wine types a drive letter with no `HKLM\Software\Wine\Drives` entry
+  by position (`dlls/mountmgr.sys/device.c`): `A:` and `B:` are
+  floppies, so every custom game saw itself on `DRIVE_REMOVABLE`. Every
+  mapped letter is now registered as `hd`.
+- The global `builtin,native` order for the input DLLs skipped the
+  `dinput8.dll` a game ships next to its executable, and that file is
+  how mod loaders (Ultimate ASI Loader) get in: NFSU2's whole `SCRIPTS`
+  stack -- widescreen fix included -- silently did not load, and its
+  disc check then stopped it at "Please insert Disc 2". Reproduced on
+  the desktop with `WINEDLLOVERRIDES=dinput8=b`. When the `A:` folder
+  carries `dinput.dll` or `dinput8.dll`, the container's executable gets
+  `native,builtin` for it under `AppDefaults`; the loader chains to the
+  builtin, so winhandler's pad path is unchanged.
 
 The release is signed with strom's own key (`~/.config/strom/
 gamenative-release.jks`, `CN=strom`), same `app.gamenative` id as
