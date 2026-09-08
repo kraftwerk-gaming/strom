@@ -128,6 +128,40 @@ self.lib.mkGame { inherit lib pkgs; } {
     WINEDLLOVERRIDES = "d3d8=n,b;rlmfc=n,b;e2mfc=n,b;e2_d3d8_driver_mfc=n,b";
   };
 
+  # On Android (GameNative, strom-3): DXVK's d3d8 under Box64 runs it to
+  # the menu from a fresh container, measured on an AYN Thor.
+  #
+  # No -nodialog there. The screen mode lives only in the game's Display
+  # Setup dialog (the in-game Video menu has sharpness and brightness),
+  # and the dialog defaults to 640x480 in a corner of the panel. The
+  # desktop seeds the registry from preRun instead; a phone cannot, so
+  # the dialog stays: Play is focused when it opens, so it is one A press
+  # per launch, and the mode is always one dialog away.
+  android.containerConfig.execArgs = "-skipstartup";
+
+  # The game reads keyboard and mouse only (DirectInput, no XInput), so
+  # the pad is mapped to its defaults as its Controls screens list them:
+  # W/A/S/D move, MB1 shoot, MB2 bullet time combo, space jump, C crouch,
+  # E use / sniper zoom, R reload, Tab painkiller, mouse wheel weapons,
+  # G best weapon, P pause.
+  android.padKeys = {
+    leftStick = "wasd";
+    dpad = "wasd";
+    rightStick = "mouse";
+    r1 = "MOUSE_LEFT";
+    l1 = "MOUSE_RIGHT";
+    a = "SPACE";
+    b = "C";
+    x = "R";
+    y = "E";
+    r2 = "SCROLL_UP";
+    l2 = "SCROLL_DOWN";
+    r3 = "G";
+    l3 = "TAB";
+    start = "ESC";
+    select = "P";
+  };
+
   gamescope = {
     output-width = 1920;
     output-height = 1080;

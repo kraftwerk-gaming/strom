@@ -18,6 +18,7 @@ public final class PadKeysTest {
         sticksUseGameNativesPseudoCodesWithYInverted();
         dpadArrivesAsDpadKeyCodes();
         keysCoverLettersDigitsAndNamedKeys();
+        mouseAimAndButtonsAreGameNativesMouseBindings();
         aTypoFailsLoudly();
         theProfileIsGameNativesFormat();
         emptyMeansXInput();
@@ -92,6 +93,22 @@ public final class PadKeysTest {
         check("a digit", find(b, 97).binding.equals("KEY_5"));
         check("named keys in any case", find(b, 99).binding.equals("KEY_ENTER")
             && find(b, 100).binding.equals("KEY_ESC"));
+    }
+
+    private static void mouseAimAndButtonsAreGameNativesMouseBindings() {
+        // Max Payne's real mapping: right stick aims, the shoulders fire
+        // and enter bullet time, the triggers cycle weapons.
+        List<PadKeys.Bind> b = PadKeys.bindings(map(
+            "rightStick", "mouse", "r1", "MOUSE_LEFT", "l1", "MOUSE_RIGHT",
+            "r2", "SCROLL_UP", "l2", "SCROLL_DOWN", "r3", "mouse_middle"));
+        check("a stick as mouse is MOUSE_MOVE_* with the same Y inversion",
+            find(b, -5).binding.equals("MOUSE_MOVE_LEFT") && find(b, -6).binding.equals("MOUSE_MOVE_RIGHT")
+                && find(b, -7).binding.equals("MOUSE_MOVE_DOWN") && find(b, -8).binding.equals("MOUSE_MOVE_UP"));
+        check("mouse buttons are GameNative's *_BUTTON names",
+            find(b, 103).binding.equals("MOUSE_LEFT_BUTTON") && find(b, 102).binding.equals("MOUSE_RIGHT_BUTTON")
+                && find(b, 107).binding.equals("MOUSE_MIDDLE_BUTTON"));
+        check("wheel steps", find(b, 105).binding.equals("MOUSE_SCROLL_UP")
+            && find(b, 104).binding.equals("MOUSE_SCROLL_DOWN"));
     }
 
     private static void aTypoFailsLoudly() {

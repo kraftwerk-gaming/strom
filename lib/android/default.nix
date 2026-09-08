@@ -213,8 +213,11 @@ in
 
         Buttons: `a b x y l1 r1 l2 r2 l3 r3 start select`, plus `dpad`
         and `leftStick` / `rightStick`, which take the four-way value
-        `arrows` (or `wasd`). Keys: a single letter or digit, or one of
-        `UP DOWN LEFT RIGHT ENTER ESC SPACE TAB BKSP DEL SHIFT CTRL ALT`.
+        `arrows`, `wasd` or `mouse` (the stick moves the pointer, for a
+        shooter's aim). Keys: a single letter or digit, one of
+        `UP DOWN LEFT RIGHT ENTER ESC SPACE TAB BKSP DEL SHIFT CTRL ALT`,
+        or a mouse button or wheel step:
+        `MOUSE_LEFT MOUSE_RIGHT MOUSE_MIDDLE SCROLL_UP SCROLL_DOWN`.
 
         Travels in the manifest as `gamenative.padKeys`; the client builds
         GameNative's controls profile from it and installs it through the

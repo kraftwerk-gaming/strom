@@ -71,6 +71,13 @@ public final class Launch {
      */
     public static Outcome run(Context c, Game g, Map<String, String> picks, Progress p) {
         try {
+            // The grid hides these; the automated launch does not, and a
+            // null CID would surface as a NullPointerException in the
+            // fetcher rather than as the reason.
+            if (!g.isPlayable()) {
+                return new Outcome(Result.REFUSED, g.slug + " is not published for Android"
+                    + (Game.supported(g.backend) ? " (no payload)" : " (" + g.backend + " backend)"), false);
+            }
             if ("retroarch".equals(g.backend)) {
                 p.say("fetching core " + g.retroarchCore);
                 CoreInstaller.ensure(g.retroarchCore);

@@ -67,6 +67,15 @@ public final class PadKeys {
         NAMED.put("SHIFT", "KEY_SHIFT_L");
         NAMED.put("CTRL", "KEY_CTRL_L");
         NAMED.put("ALT", "KEY_ALT_L");
+        // A game that reads the mouse: a shooter's fire and aim. GameNative
+        // injects MOUSE_MOVE_* from a stick as analog deltas at 60 Hz
+        // (PhysicalControllerHandler), so a stick mapped to `mouse` looks
+        // around; the buttons and the wheel are plain bindings.
+        NAMED.put("MOUSE_LEFT", "MOUSE_LEFT_BUTTON");
+        NAMED.put("MOUSE_RIGHT", "MOUSE_RIGHT_BUTTON");
+        NAMED.put("MOUSE_MIDDLE", "MOUSE_MIDDLE_BUTTON");
+        NAMED.put("SCROLL_UP", "MOUSE_SCROLL_UP");
+        NAMED.put("SCROLL_DOWN", "MOUSE_SCROLL_DOWN");
     }
 
     /** One controller binding: an Android key code to a GameNative binding name. */
@@ -116,8 +125,10 @@ public final class PadKeys {
             keys = new String[] { "KEY_LEFT", "KEY_RIGHT", "KEY_UP", "KEY_DOWN" };
         } else if ("wasd".equals(value)) {
             keys = new String[] { "KEY_A", "KEY_D", "KEY_W", "KEY_S" };
+        } else if ("mouse".equals(value)) {
+            keys = new String[] { "MOUSE_MOVE_LEFT", "MOUSE_MOVE_RIGHT", "MOUSE_MOVE_UP", "MOUSE_MOVE_DOWN" };
         } else {
-            throw new IllegalArgumentException("padKeys: a four-way takes arrows or wasd, not " + value);
+            throw new IllegalArgumentException("padKeys: a four-way takes arrows, wasd or mouse, not " + value);
         }
         for (int i = 0; i < 4; i++) {
             out.add(new Bind(codes[i], keys[i]));

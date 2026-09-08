@@ -3,8 +3,25 @@
     "backend": "gamenative",
     "gamenative": {
       "containerConfig": {
-        "execArgs": "-nodialog -skipstartup",
+        "execArgs": "-skipstartup",
         "executablePath": "MaxPayne.exe"
+      },
+      "padKeys": {
+        "a": "SPACE",
+        "b": "C",
+        "dpad": "wasd",
+        "l1": "MOUSE_RIGHT",
+        "l2": "SCROLL_DOWN",
+        "l3": "TAB",
+        "leftStick": "wasd",
+        "r1": "MOUSE_LEFT",
+        "r2": "SCROLL_UP",
+        "r3": "G",
+        "rightStick": "mouse",
+        "select": "P",
+        "start": "ESC",
+        "x": "R",
+        "y": "E"
       }
     },
     "payload": {
