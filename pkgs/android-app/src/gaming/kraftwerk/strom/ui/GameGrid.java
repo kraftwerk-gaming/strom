@@ -47,6 +47,8 @@ public final class GameGrid extends LinearLayout implements Screen {
     private static final int CHROME_SCOPE = 1;
     private static final int CHROME_SETTINGS = 2;
     private static final int CHROME_LAST = CHROME_SETTINGS;
+    /** Scroll animation length; short enough that a held d-pad keeps up. */
+    private static final int SCROLL_MS = 120;
 
     private final Theme t;
     private final Host host;
@@ -398,18 +400,45 @@ public final class GameGrid extends LinearLayout implements Screen {
         }
     }
 
-    /** Keep the chosen tile on screen, with a row of lookahead. */
+    /**
+     * Keep the chosen tile on screen, with a row of lookahead where the
+     * viewport has room for one.
+     *
+     * <p>Computed from geometry rather than through {@code
+     * smoothScrollToPosition}: that one decides from the first and last
+     * visible positions, which count a row that is one pixel on screen as
+     * visible, and drives a scroller written for lists. Measured on the
+     * device, holding the d-pad restarted it every press from the stale
+     * positions and the frame left the viewport for good. Rows are uniform
+     * ({@link #tileH} plus the gap) and {@code GridView} keeps its first
+     * child row-aligned, so the chosen row's top follows exactly from the
+     * first child's, whether or not it is laid out yet, and the delta is
+     * scrolled from wherever the grid currently is, which converges even
+     * while an earlier scroll is still in flight.
+     */
     private void reveal() {
-        int first = grid.getFirstVisiblePosition();
-        int last = grid.getLastVisiblePosition();
-        if (last <= first) {
+        View firstChild = grid.getChildAt(0);
+        if (firstChild == null) {
             grid.setSelection(sel);
             return;
         }
-        if (sel < first + cols) {
-            grid.smoothScrollToPosition(Math.max(0, sel - cols));
-        } else if (sel > last - cols) {
-            grid.smoothScrollToPosition(Math.min(shown.size() - 1, sel + cols));
+        int pitch = tileH + t.gap;
+        int firstRow = grid.getFirstVisiblePosition() / cols;
+        int top = firstChild.getTop() + (sel / cols - firstRow) * pitch;
+        int bottom = top + tileH;
+        int viewTop = grid.getListPaddingTop();
+        int viewBottom = grid.getHeight() - grid.getListPaddingBottom();
+        // One row of lookahead, shrunk so that a short viewport can still
+        // satisfy both edges at once.
+        int margin = Math.max(0, Math.min(pitch, (viewBottom - viewTop - tileH) / 2));
+        int dy = 0;
+        if (top - margin < viewTop) {
+            dy = top - margin - viewTop;
+        } else if (bottom + margin > viewBottom) {
+            dy = bottom + margin - viewBottom;
+        }
+        if (dy != 0) {
+            grid.smoothScrollBy(dy, SCROLL_MS);
         }
     }
 
