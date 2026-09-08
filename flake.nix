@@ -83,7 +83,23 @@
               ++ preCommit.enabledPackages;
             shellHook = ''
               ${preCommit.shellHook}
-              echo '[*] to start distributed git, run `rad node start`'
+              # strom uses its own Radicle identity and node, kept in the
+              # (gitignored) .radicle/ dir of the main checkout - shared by all
+              # worktrees via the git common dir - independent of any
+              # system-wide node a global RAD_HOME may point to. The node is
+              # started here (idempotent: `rad node start` is a no-op when it
+              # already runs) so `git push rad` just works.
+              if common=$(git rev-parse --git-common-dir 2>/dev/null); then
+                RAD_HOME="$(cd "$common/.." && pwd)/.radicle"
+              else
+                RAD_HOME="$HOME/.radicle"
+              fi
+              export RAD_HOME
+              if [ -e "$RAD_HOME/keys/radicle" ]; then
+                rad node start
+              else
+                echo "[*] no Radicle identity in $RAD_HOME yet: run \`rad auth\`, then \`rad node start\`"
+              fi
             '';
           };
         }

@@ -1,5 +1,10 @@
 let
-  flake = builtins.getFlake (toString ./..);
+  # Through git, not as a plain path: a path flake copies the whole
+  # directory into the store, and the checkout's own Radicle node keeps a
+  # control socket under .radicle/, which Nix refuses to copy
+  # ("unsupported type"). A git+file flake takes the tracked tree, as
+  # `nix build .#` does, and ignored files never enter the picture.
+  flake = builtins.getFlake "git+file://${toString ./..}";
   pkgs = flake.packages.x86_64-linux;
   modules = flake.modules.x86_64-linux;
   names = builtins.attrNames pkgs;

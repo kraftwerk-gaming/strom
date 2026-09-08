@@ -1,3 +1,5 @@
+# Radicle identity + node state of this checkout (RAD_HOME set by the devshell).
+/.radicle/
 result
 result-*
 TODO.md
