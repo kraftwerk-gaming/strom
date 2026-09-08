@@ -183,13 +183,30 @@ public class MainActivity extends Activity implements Host {
                         if (catalog.isEmpty()) {
                             catalog = cached.games;
                             catalogFrom = url;
-                            grid.setGames(cached.games);
                             catalogSavedAt = cached.savedAt;
+                            grid.setGames(cached.games);
+                            // The remote may also have FAILED first, while
+                            // this copy was still being read; it would
+                            // have found nothing on screen to keep.
+                            if (remoteFailure != null) {
+                                showOffline(remoteFailure);
+                            }
                         }
                     }
                 });
             }
         });
+    }
+
+    /** The remote's last failure this process, until it answers. */
+    private static Exception remoteFailure;
+
+    /** What is on screen is the copy from the last load: say so, and when. */
+    private void showOffline(Exception e) {
+        grid.setStatus("offline: catalog as of "
+            + DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT)
+                .format(new Date(catalogSavedAt))
+            + " (" + e.getMessage() + ")");
     }
 
     @Override
@@ -428,6 +445,7 @@ public class MainActivity extends Activity implements Host {
                             catalog = loaded;
                             catalogFrom = base;
                             catalogSavedAt = 0;
+                            remoteFailure = null;
                             grid.setGames(loaded);
                         }
                     });
@@ -436,15 +454,11 @@ public class MainActivity extends Activity implements Host {
                     ui.post(new Runnable() {
                         @Override
                         public void run() {
+                            remoteFailure = e;
                             if (catalog.isEmpty() || !base.equals(catalogFrom)) {
                                 grid.setStatus("catalog failed: " + e);
                             } else if (catalogSavedAt > 0) {
-                                // What is on screen is the copy from the
-                                // last load, which is what offline means.
-                                grid.setStatus("offline: catalog as of "
-                                    + DateFormat.getDateTimeInstance(DateFormat.SHORT,
-                                        DateFormat.SHORT).format(new Date(catalogSavedAt))
-                                    + " (" + e.getMessage() + ")");
+                                showOffline(e);
                             }
                         }
                     });
